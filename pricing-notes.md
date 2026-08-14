@@ -23,6 +23,7 @@ The chat itself is not persistent — this file and `inventory.csv` are the memo
 | 10 | Ralph Lauren Women's Polo | Ralph Lauren | XL Women's | Very good vintage condition | VWM - RL Lacoste Polos | £9.99 |
 | 11 | Nike Track Jacket | Nike | XL | Very good vintage condition | VWM - Track Jacket | *(awaiting owner — £21.99 suggested)* |
 | 12 | Ralph Lauren Polo | Ralph Lauren | XXL Men's | **Good condition** | VWM - RL Lacoste Polos | £9.99 |
+| 13 | Lacoste Polo | Lacoste | UK Small | **Good condition** | VWM - RL Lacoste Polos | £9.99 |
 
 ## Suggestion log
 
@@ -78,10 +79,36 @@ defects, or a "very good" item with front discrepancies on a men's polo.
 Until then, treat any item that is both downgraded and flawed as landing
 around £5.00 below its clean equivalent, and say so as an estimate.
 
-Also worth noting: £9.99 has now been used for three quite different items
-(item 1 non-designer, item 10 flawed women's polo, item 12 downgraded flawed
-men's polo). It may act as a floor price for damaged or lesser stock rather
+Also worth noting: £9.99 has now been used for four quite different items
+(item 1 non-designer, item 10 flawed women's polo, items 12 and 13 downgraded
+flawed polos). It may act as a floor price for damaged or lesser stock rather
 than a computed figure.
+
+## The strongest rule found so far (items 12 and 13)
+
+**A polo in "good condition" with front discrepancies is priced £9.99.**
+
+Two independent confirmations, and the pair is unusually informative because
+almost everything else about them differs:
+
+| | Item 12 | Item 13 |
+|---|---|---|
+| Brand | Ralph Lauren | Lacoste |
+| Size | XXL Men's | UK Small |
+| Colour | Green, orange pony | Light green |
+| Condition | Good | Good |
+| Defects | Front discrepancies | Front discrepancies |
+| **Price** | **£9.99** | **£9.99** |
+
+Brand, size and colour all changed; the price did not. Condition and defects
+stayed the same; the price stayed the same. That is real evidence that the
+owner prices from **condition + defects first**, and that brand and size are
+weaker than the garment's state — at least at the bottom of the range.
+
+It also fits the owner's own stated rule that defects are one of the big
+factors. Confidence here is genuinely good for polos; whether the same £9.99
+floor applies to a *jacket* in good condition with defects is untested, and
+item 8's £24.99 suggests outerwear may not fall that far.
 
 **Lesson from item 6**: matching on product type alone is not enough. Two
 women's bralettes, both very good with no defects, priced £12.99 and £8.99 —
