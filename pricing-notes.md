@@ -22,6 +22,7 @@ The chat itself is not persistent — this file and `inventory.csv` are the memo
 | 9 | Harley Davidson Women's Cardigan | Harley Davidson | *(none given)* | Very good condition | VWM - Women's Y2K Mix | £14.99 |
 | 10 | Ralph Lauren Women's Polo | Ralph Lauren | XL Women's | Very good vintage condition | VWM - RL Lacoste Polos | £9.99 |
 | 11 | Nike Track Jacket | Nike | XL | Very good vintage condition | VWM - Track Jacket | *(awaiting owner — £21.99 suggested)* |
+| 12 | Ralph Lauren Polo | Ralph Lauren | XXL Men's | **Good condition** | VWM - RL Lacoste Polos | £9.99 |
 
 ## Suggestion log
 
@@ -57,6 +58,30 @@ Not yet known:
 Note that item 3 (labels cut) took the full £14.99 with no deduction. Cut
 labels appear **not** to count as a defect for pricing purposes — consistent
 with the owner filing that note under description rather than defects.
+
+## Condition below "very good" (first observed at item 12)
+
+Item 12 is the first item not graded "very good" — it is **"good condition"**,
+one step down, and it is also the first men's Ralph Lauren polo below £14.99,
+priced at **£9.99**.
+
+**The £5.00 gap cannot be attributed cleanly.** Item 12 carries *both* a
+condition downgrade *and* front discrepancies, so the drop is the combined
+effect of two factors that have never appeared separately:
+
+- if the defect is worth the £3.00 measured on item 10, the condition
+  downgrade accounts for the remaining ~£2.00;
+- but the two may not be additive at all.
+
+To separate them, one of these is needed: a "good condition" item with **no**
+defects, or a "very good" item with front discrepancies on a men's polo.
+Until then, treat any item that is both downgraded and flawed as landing
+around £5.00 below its clean equivalent, and say so as an estimate.
+
+Also worth noting: £9.99 has now been used for three quite different items
+(item 1 non-designer, item 10 flawed women's polo, item 12 downgraded flawed
+men's polo). It may act as a floor price for damaged or lesser stock rather
+than a computed figure.
 
 **Lesson from item 6**: matching on product type alone is not enough. Two
 women's bralettes, both very good with no defects, priced £12.99 and £8.99 —
