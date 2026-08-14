@@ -19,6 +19,7 @@ The chat itself is not persistent — this file and `inventory.csv` are the memo
 | 6 | Women's Bralette | *(none given)* | Small | Very good condition | VWM - Women's Y2K Mix | £8.99 |
 | 7 | Ralph Lauren Women's Polo | Ralph Lauren | Medium (10-12) | Very good condition | VWM - Women's Y2K Mix | *(awaiting owner — £12.99 suggested)* |
 | 8 | Nike Track Jacket | Nike | Large (oversized fit) | Very good condition | VWM - Track Jacket | £24.99 |
+| 9 | Harley Davidson Women's Cardigan | Harley Davidson | *(none given)* | Very good condition | VWM - Women's Y2K Mix | £14.99 |
 
 ## Suggestion log
 
@@ -45,8 +46,12 @@ or a quality/desirability judgement made by eye that no field records.
 - **Garment type is the strongest driver seen so far.** Item 8, a track
   jacket, took £24.99 — £10 clear of the highest polo and nearly 3× the
   cheapest bralette. Grouping by garment type gives tidier bands than any
-  other field: outerwear ~£24.99, polos £12.99–£14.99, bralettes £8.99–£12.99.
-  This should be the first thing checked when suggesting a price.
+  other field: outerwear ~£24.99, knitwear ~£14.99, polos £12.99–£14.99,
+  bralettes £8.99–£12.99. This should be the first thing checked when
+  suggesting a price.
+- **A women's item can reach £14.99** (item 9, cardigan), which weakens the
+  earlier "women's priced below men's" hypothesis. Garment type explains it
+  better: a cardigan is simply worth more than a polo, regardless of gender.
 - **Brand does not explain price.** Ralph Lauren spans £12.99–£14.99, and item
   5 — no brand given — took £12.99, matching the Ralph Lauren women's polo.
   The earlier "designer costs more" reading is now weak: the only thing
