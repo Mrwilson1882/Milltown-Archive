@@ -17,6 +17,7 @@ The chat itself is not persistent — this file and `inventory.csv` are the memo
 | 4 | Ralph Lauren Women's Polo Shirt | Ralph Lauren | Large Women's | Very good condition | VWM - Women's Y2K Mix | £12.99 |
 | 5 | Women's Bralette | *(none given)* | 36 | Very good condition | VWM - Women's Summer Mix | £12.99 |
 | 6 | Women's Bralette | *(none given)* | Small | Very good condition | VWM - Women's Y2K Mix | £8.99 |
+| 7 | Ralph Lauren Women's Polo | Ralph Lauren | Medium (10-12) | Very good condition | VWM - Women's Y2K Mix | *(awaiting owner — £12.99 suggested)* |
 
 ## Suggestion log
 
@@ -26,6 +27,7 @@ honest measure of whether suggestions are worth making.
 | Item | Suggested | Actual | Error | Basis of suggestion |
 |------|-----------|--------|-------|---------------------|
 | 6 | £12.99 | £8.99 | **−£4.00 (suggestion too high)** | Like-for-like match to item 5: same product type, condition and defect status, differing only in colour and size |
+| 7 | £12.99 | *(pending)* | — | Match to item 4 on brand, product type, SKU category and condition — a tighter match than item 6's, which shared only product type |
 
 **Lesson from item 6**: matching on product type alone is not enough. Two
 women's bralettes, both very good with no defects, priced £12.99 and £8.99 —
