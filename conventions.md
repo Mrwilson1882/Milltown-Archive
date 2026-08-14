@@ -34,3 +34,9 @@ of any new session — the chat is not persistent, these files are the memory.
 One product per voice note. After each: append the row, commit, push, confirm
 back to the owner with the row as recorded plus any missing fields. At the end
 of the day, export the whole sheet to `.xlsx`.
+
+## Pricing
+
+**Do not suggest prices.** The owner sets every price. If a voice note arrives
+without one, leave the cell blank and ask. See `pricing-notes.md` — pricing
+data is being collected for later use, not modelled now.

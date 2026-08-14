@@ -1,171 +1,90 @@
 # Pricing Notes
 
-Running record of observed pricing, kept so that price suggestions can be made
-from past decisions rather than guesswork. The owner sets the price on each
-voice note; any suggestion made here is a proposal that the owner can override.
+**Purpose: collect pricing data. Do not suggest prices.**
 
-**Read this file at the start of any new session before suggesting a price.**
-The chat itself is not persistent — this file and `inventory.csv` are the memory.
+Instruction from the owner (14 Aug 2026): stop making price suggestions. The
+dataset is far too small, the relationships are not linear or obvious, and the
+suggestions made so far were reading patterns into noise. Keep recording what
+the owner prices and why, and revisit in a few months once there is enough
+data to be useful.
+
+**Read this file at the start of any new session.** The chat is not
+persistent — this file and `inventory.csv` are the memory. When a voice note
+arrives without a price, leave the Price cell blank and ask the owner for it.
+Do not offer a figure.
+
+## What the data cannot see
+
+The single biggest reason suggestions failed: **demand varies by product and
+none of it is recorded here.** Two garments identical in brand, size and
+condition can be worth very different amounts because one is wanted and the
+other is not. Era, silhouette, colourway, what is currently selling, and how
+sought-after a particular piece is — none of that lives in the columns, and
+the owner is carrying all of it by eye.
+
+Any future model built from this table will be working with a partial view.
+Treat that as a permanent caveat, not a gap that more rows alone will close.
 
 ## Observed prices
 
-| # | Product | Brand | Size | Condition | SKU | Price |
-|---|---------|-------|------|-----------|-----|-------|
-| 1 | Skinny Minnie | Skinny Minnie | Large Women's | Very good condition | VWM - Summer Women's Mix | £9.99 |
-| 2 | Ralph Lauren Polo | Ralph Lauren | XXL | Very good vintage condition | *(none given)* | £14.99 |
-| 3 | Ralph Lauren Polo | Ralph Lauren | Small Men's | Very good condition | VWM - RL Lacoste Polos | £14.99 |
-| 4 | Ralph Lauren Women's Polo Shirt | Ralph Lauren | Large Women's | Very good condition | VWM - Women's Y2K Mix | £12.99 |
-| 5 | Women's Bralette | *(none given)* | 36 | Very good condition | VWM - Women's Summer Mix | £12.99 |
-| 6 | Women's Bralette | *(none given)* | Small | Very good condition | VWM - Women's Y2K Mix | £8.99 |
-| 7 | Ralph Lauren Women's Polo | Ralph Lauren | Medium (10-12) | Very good condition | VWM - Women's Y2K Mix | *(awaiting owner — £12.99 suggested)* |
-| 8 | Nike Track Jacket | Nike | Large (oversized fit) | Very good condition | VWM - Track Jacket | £24.99 |
-| 9 | Harley Davidson Women's Cardigan | Harley Davidson | *(none given)* | Very good condition | VWM - Women's Y2K Mix | £14.99 |
-| 10 | Ralph Lauren Women's Polo | Ralph Lauren | XL Women's | Very good vintage condition | VWM - RL Lacoste Polos | £9.99 |
-| 11 | Nike Track Jacket | Nike | XL | Very good vintage condition | VWM - Track Jacket | *(awaiting owner — £21.99 suggested)* |
-| 12 | Ralph Lauren Polo | Ralph Lauren | XXL Men's | **Good condition** | VWM - RL Lacoste Polos | £9.99 |
-| 13 | Lacoste Polo | Lacoste | UK Small | **Good condition** | VWM - RL Lacoste Polos | £9.99 |
+| # | Product | Brand | Size | Condition | Defects | SKU | Price |
+|---|---------|-------|------|-----------|---------|-----|-------|
+| 1 | Skinny Minnie | Skinny Minnie | Large Women's | Very good | *(not stated)* | VWM - Summer Women's Mix | £9.99 |
+| 2 | Ralph Lauren Polo | Ralph Lauren | XXL | Very good vintage | *(not stated)* | *(none given)* | £14.99 |
+| 3 | Ralph Lauren Polo | Ralph Lauren | Small Men's | Very good | *(labels cut — filed under description)* | VWM - RL Lacoste Polos | £14.99 |
+| 4 | Ralph Lauren Women's Polo Shirt | Ralph Lauren | Large Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £12.99 |
+| 5 | Women's Bralette | *(none given)* | 36 | Very good | None | VWM - Women's Summer Mix | £12.99 |
+| 6 | Women's Bralette | *(none given)* | Small | Very good | None | VWM - Women's Y2K Mix | £8.99 |
+| 7 | Ralph Lauren Women's Polo | Ralph Lauren | Medium (10-12) | Very good | *(not stated)* | VWM - Women's Y2K Mix | *(awaiting owner)* |
+| 8 | Nike Track Jacket | Nike | Large (oversized fit) | Very good | *(not stated)* | VWM - Track Jacket | £24.99 |
+| 9 | Harley Davidson Women's Cardigan | Harley Davidson | *(not stated)* | Very good | None | VWM - Women's Y2K Mix | £14.99 |
+| 10 | Ralph Lauren Women's Polo | Ralph Lauren | XL Women's | Very good vintage | Small discrepancy on front | VWM - RL Lacoste Polos | £9.99 |
+| 11 | Nike Track Jacket | Nike | XL | Very good vintage | White marks on right sleeve | VWM - Track Jacket | *(awaiting owner)* |
+| 12 | Ralph Lauren Polo | Ralph Lauren | XXL Men's | Good | Discrepancies on front | VWM - RL Lacoste Polos | £9.99 |
+| 13 | Lacoste Polo | Lacoste | UK Small | Good | Discrepancies on front | VWM - RL Lacoste Polos | £9.99 |
 
-## Suggestion log
+## Raw observations
 
-Track every suggestion against the owner's actual price. This is the only
-honest measure of whether suggestions are worth making.
+Recorded as facts about the 11 priced items so far — **not rules, not
+predictors.** Each has plausible counter-explanations and the sample is tiny.
 
-| Item | Suggested | Actual | Error | Basis of suggestion |
-|------|-----------|--------|-------|---------------------|
-| 6 | £12.99 | £8.99 | **−£4.00 (suggestion too high)** | Like-for-like match to item 5: same product type, condition and defect status, differing only in colour and size |
-| 7 | £12.99 | *(pending)* | — | Match to item 4 on brand, product type, SKU category and condition — a tighter match than item 6's, which shared only product type |
-| 10 | £12.99 | £9.99 | **−£3.00 (suggestion too high)** | Match to item 4 on brand, product type and condition. Suggestion carried **no defect deduction**, which is exactly why it missed |
-| 11 | £21.99 | *(pending)* | — | Item 8 (clean Nike track jacket, same SKU) at £24.99, minus the £3.00 defect deduction measured on item 10. **This item tests whether the deduction is a flat £3 or scales with price** — if it scales, £19.99 or lower is right |
+- Every price ends in `.99`. Observed: £8.99, £9.99 (×3), £12.99 (×2),
+  £14.99 (×3), £24.99. This is the only thing true of every item.
+- The two track jackets sit well above everything else (£24.99 for the clean
+  one). The two bralettes sit at or near the bottom.
+- Items 12 and 13 both priced £9.99 while differing in brand, size and colour;
+  both were "good" condition with front discrepancies.
+- Item 10 priced £9.99 against a clean comparable at £12.99.
+- Item 3's cut labels took no visible reduction.
+- Two bralettes in identical stated condition priced £12.99 and £8.99, which
+  no recorded column explains — an early sign that unrecorded factors
+  (desirability, era, cut) are doing real work.
 
-## Defects are a major price driver (owner-confirmed)
+## Owner-stated factors
 
-The owner has stated directly that defects are one of the big factors in their
-pricing. This is not an inference from the data — it is a stated rule, and it
-should carry more weight than any pattern guessed from the table above.
+Things the owner has said out loud, which outrank anything inferred above:
 
-**Always read the Defects column before suggesting a price.**
+1. **Defects are one of the big factors** in pricing.
+2. **Demand differs by product** — different items carry different values
+   regardless of brand and condition.
 
-The one measured data point: item 10, a Ralph Lauren women's polo with "one
-small discrepancy on the front", priced £9.99 against a clean comparable
-(item 4) at £12.99 — a **£3.00 deduction for one small visible flaw**.
+## Suggestion log (closed)
 
-Not yet known:
-- Whether −£3 is fixed, or scales with severity, or is really "drop to the
-  next .99 price point down".
-- Whether multiple defects stack.
-- Whether the deduction is larger on higher-priced stock (is a flawed £24.99
-  jacket −£3 or −£6?).
+Kept as a record of accuracy while suggestions were being made. No further
+entries — suggestions are suspended.
 
-Note that item 3 (labels cut) took the full £14.99 with no deduction. Cut
-labels appear **not** to count as a defect for pricing purposes — consistent
-with the owner filing that note under description rather than defects.
+| Item | Suggested | Actual | Error |
+|------|-----------|--------|-------|
+| 6 | £12.99 | £8.99 | −£4.00 too high |
+| 10 | £12.99 | £9.99 | −£3.00 too high |
+| 7 | £12.99 | *(never priced by owner)* | — |
+| 11 | £21.99 | *(never priced by owner)* | — |
 
-## Condition below "very good" (first observed at item 12)
+Two of two resolved suggestions were too high, both because they leaned on
+brand and product-type matching while missing defects and desirability.
 
-Item 12 is the first item not graded "very good" — it is **"good condition"**,
-one step down, and it is also the first men's Ralph Lauren polo below £14.99,
-priced at **£9.99**.
+## Revisit
 
-**The £5.00 gap cannot be attributed cleanly.** Item 12 carries *both* a
-condition downgrade *and* front discrepancies, so the drop is the combined
-effect of two factors that have never appeared separately:
-
-- if the defect is worth the £3.00 measured on item 10, the condition
-  downgrade accounts for the remaining ~£2.00;
-- but the two may not be additive at all.
-
-To separate them, one of these is needed: a "good condition" item with **no**
-defects, or a "very good" item with front discrepancies on a men's polo.
-Until then, treat any item that is both downgraded and flawed as landing
-around £5.00 below its clean equivalent, and say so as an estimate.
-
-Also worth noting: £9.99 has now been used for four quite different items
-(item 1 non-designer, item 10 flawed women's polo, items 12 and 13 downgraded
-flawed polos). It may act as a floor price for damaged or lesser stock rather
-than a computed figure.
-
-## The strongest rule found so far (items 12 and 13)
-
-**A polo in "good condition" with front discrepancies is priced £9.99.**
-
-Two independent confirmations, and the pair is unusually informative because
-almost everything else about them differs:
-
-| | Item 12 | Item 13 |
-|---|---|---|
-| Brand | Ralph Lauren | Lacoste |
-| Size | XXL Men's | UK Small |
-| Colour | Green, orange pony | Light green |
-| Condition | Good | Good |
-| Defects | Front discrepancies | Front discrepancies |
-| **Price** | **£9.99** | **£9.99** |
-
-Brand, size and colour all changed; the price did not. Condition and defects
-stayed the same; the price stayed the same. That is real evidence that the
-owner prices from **condition + defects first**, and that brand and size are
-weaker than the garment's state — at least at the bottom of the range.
-
-It also fits the owner's own stated rule that defects are one of the big
-factors. Confidence here is genuinely good for polos; whether the same £9.99
-floor applies to a *jacket* in good condition with defects is untested, and
-item 8's £24.99 suggests outerwear may not fall that far.
-
-**Lesson from item 6**: matching on product type alone is not enough. Two
-women's bralettes, both very good with no defects, priced £12.99 and £8.99 —
-a 31% spread. Something separates them that is not captured in the current
-columns. Candidates: size (36 vs Small), colour, brand not stated on either,
-or a quality/desirability judgement made by eye that no field records.
-£8.99 is also a new low, below item 1's £9.99.
-
-## Patterns so far (5 items — provisional, not yet a rule)
-
-- **Price points**: every price ends in `.99`, now spanning £8.99–£24.99.
-  Observed values: £8.99, £9.99, £12.99 (×2), £14.99 (×2), £24.99. The `.99`
-  ending is the only pattern that has held across every single item.
-- **Garment type is the strongest driver seen so far.** Item 8, a track
-  jacket, took £24.99 — £10 clear of the highest polo and nearly 3× the
-  cheapest bralette. Grouping by garment type gives tidier bands than any
-  other field: outerwear ~£24.99, knitwear ~£14.99, polos £12.99–£14.99,
-  bralettes £8.99–£12.99. This should be the first thing checked when
-  suggesting a price.
-- **A women's item can reach £14.99** (item 9, cardigan), which weakens the
-  earlier "women's priced below men's" hypothesis. Garment type explains it
-  better: a cardigan is simply worth more than a polo, regardless of gender.
-- **Brand does not explain price.** Ralph Lauren spans £12.99–£14.99, and item
-  5 — no brand given — took £12.99, matching the Ralph Lauren women's polo.
-  The earlier "designer costs more" reading is now weak: the only thing
-  separating £9.99 from the rest is item 1, and one item is not a pattern.
-- **Men's vs women's — hypothesis survives, weakly.** Both £14.99 items are
-  men's; all three women's items are £12.99 or below. But item 5 shows an
-  unbranded women's piece matching a designer women's piece, so if the split
-  is real it is doing more work than brand.
-- **Category may matter more than brand.** Items 2, 3, 4 are all polo shirts;
-  item 5 is lingerie and priced level with the designer polo despite no brand.
-  Not enough data to separate category from brand yet.
-- **Condition still carries no signal**: all five items are "very good"
-  (one "very good vintage"). No other grade has been priced.
-- **SKU carries no signal**: four items share the `VWM` prefix and were priced
-  £9.99, £14.99, £12.99 and £12.99. The item with no SKU matched a priced one.
-- **Size carries no signal** beyond its overlap with the men's/women's split.
-
-## Defects field
-
-Item 5 is the first with defects **explicitly** stated as none. For items 1–4
-the field is blank because nothing was said — blank means "not stated", not
-"confirmed none". Do not read the two as equivalent.
-
-## Open questions to resolve as more data arrives
-
-- Does condition below "very good" reduce the price, and by how much?
-- Do defects (now a tracked column) carry a fixed deduction? Item 3 has
-  "labels cut" recorded and still took the full £14.99 men's price.
-- Is the men's/women's gap real, and is it a consistent £2?
-- Is there a designer tier above Ralph Lauren at a higher price point?
-- Does the SKU category set a floor or ceiling independent of brand?
-
-## Confidence
-
-Too few items to predict a price. At least 10–15 items — including some that
-differ in condition and some carrying defects — are needed before a suggestion
-is worth more than a coin flip. Until then, prices should keep coming from the
-owner.
+Reassess in a few months, once the dataset is substantially larger and spans
+more garment types, condition grades and defect severities. Until the owner
+says otherwise, this file is a ledger, not a model.
