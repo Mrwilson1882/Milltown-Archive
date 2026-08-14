@@ -20,7 +20,7 @@ The chat itself is not persistent — this file and `inventory.csv` are the memo
 | 7 | Ralph Lauren Women's Polo | Ralph Lauren | Medium (10-12) | Very good condition | VWM - Women's Y2K Mix | *(awaiting owner — £12.99 suggested)* |
 | 8 | Nike Track Jacket | Nike | Large (oversized fit) | Very good condition | VWM - Track Jacket | £24.99 |
 | 9 | Harley Davidson Women's Cardigan | Harley Davidson | *(none given)* | Very good condition | VWM - Women's Y2K Mix | £14.99 |
-| 10 | Ralph Lauren Women's Polo | Ralph Lauren | Medium | Very good vintage condition | VWM - RL Lacoste Polos | *(awaiting owner — £12.99 suggested)* |
+| 10 | Ralph Lauren Women's Polo | Ralph Lauren | XL Women's | Very good vintage condition | VWM - RL Lacoste Polos | £9.99 |
 
 ## Suggestion log
 
@@ -31,22 +31,30 @@ honest measure of whether suggestions are worth making.
 |------|-----------|--------|-------|---------------------|
 | 6 | £12.99 | £8.99 | **−£4.00 (suggestion too high)** | Like-for-like match to item 5: same product type, condition and defect status, differing only in colour and size |
 | 7 | £12.99 | *(pending)* | — | Match to item 4 on brand, product type, SKU category and condition — a tighter match than item 6's, which shared only product type |
-| 10 | £12.99 | *(pending)* | — | Match to item 4 on brand, product type and condition. **Suggestion carries no defect deduction** — this is the first item with a visible flaw and there is no data on what a flaw is worth |
+| 10 | £12.99 | £9.99 | **−£3.00 (suggestion too high)** | Match to item 4 on brand, product type and condition. Suggestion carried **no defect deduction**, which is exactly why it missed |
 
-## The defect question (open, and it matters)
+## Defects are a major price driver (owner-confirmed)
 
-Item 10 is the first item with a visible defect: "one small discrepancy on the
-front". There is no basis yet for pricing that in.
+The owner has stated directly that defects are one of the big factors in their
+pricing. This is not an inference from the data — it is a stated rule, and it
+should carry more weight than any pattern guessed from the table above.
 
-The only related data point is item 3 (labels cut), which took the full men's
-polo price of £14.99 — but cut labels are a common trade practice, not damage
-a buyer sees when wearing the garment. A visible front flaw is a different
-thing and probably should not be treated the same way.
+**Always read the Defects column before suggesting a price.**
 
-What is needed: whether defects take a fixed deduction (e.g. −£3), a
-percentage, a drop to the next price point down, or a judgement call by
-severity. Until the owner prices two or three defect items, suggestions on
-flawed stock will be unreliable and should be flagged as such.
+The one measured data point: item 10, a Ralph Lauren women's polo with "one
+small discrepancy on the front", priced £9.99 against a clean comparable
+(item 4) at £12.99 — a **£3.00 deduction for one small visible flaw**.
+
+Not yet known:
+- Whether −£3 is fixed, or scales with severity, or is really "drop to the
+  next .99 price point down".
+- Whether multiple defects stack.
+- Whether the deduction is larger on higher-priced stock (is a flawed £24.99
+  jacket −£3 or −£6?).
+
+Note that item 3 (labels cut) took the full £14.99 with no deduction. Cut
+labels appear **not** to count as a defect for pricing purposes — consistent
+with the owner filing that note under description rather than defects.
 
 **Lesson from item 6**: matching on product type alone is not enough. Two
 women's bralettes, both very good with no defects, priced £12.99 and £8.99 —
