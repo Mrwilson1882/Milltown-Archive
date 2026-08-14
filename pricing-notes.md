@@ -15,28 +15,35 @@ The chat itself is not persistent — this file and `inventory.csv` are the memo
 | 2 | Ralph Lauren Polo | Ralph Lauren | XXL | Very good vintage condition | *(none given)* | £14.99 |
 | 3 | Ralph Lauren Polo | Ralph Lauren | Small Men's | Very good condition | VWM - RL Lacoste Polos | £14.99 |
 | 4 | Ralph Lauren Women's Polo Shirt | Ralph Lauren | Large Women's | Very good condition | VWM - Women's Y2K Mix | £12.99 |
+| 5 | Women's Bralette | *(none given)* | 36 | Very good condition | VWM - Women's Summer Mix | £12.99 |
 
-## Patterns so far (4 items — provisional, not yet a rule)
+## Patterns so far (5 items — provisional, not yet a rule)
 
-- **Price points**: every price ends in `.99` — £9.99, £12.99, £14.99. The
-  earlier reading of a £5 ladder did not hold; £12.99 sits between the two.
-  Steps so far are £2–3, not a fixed increment.
-- **Brand sets a band, not a single price**: Ralph Lauren has now been priced
-  at both £14.99 (items 2, 3) and £12.99 (item 4), so brand alone does not fix
-  the price. The non-designer item remains the cheapest at £9.99.
-- **Men's vs women's is the current best explanation** for movement inside the
-  Ralph Lauren band: the two £14.99 items are XXL and Small Men's, while the
-  £12.99 item is Large Women's. The one non-designer item is also women's and
-  also the cheapest. Only one women's designer item so far — treat as a
-  hypothesis, not a rule.
-- **Condition carries no signal yet**: all four items are "very good"
-  (one "very good vintage"). Nothing has been priced at another condition
-  grade, so its effect on price is unknown.
-- **SKU carries no signal yet**: three items share the `VWM` prefix and were
-  priced £9.99, £14.99 and £12.99. The item with no SKU matched a priced one.
-  SKU has not yet predicted anything.
-- **Size carries no signal yet** beyond its overlap with the men's/women's
-  split above.
+- **Price points**: every price ends in `.99`, and all five sit in a narrow
+  £9.99–£14.99 range. Observed values: £9.99, £12.99 (×2), £14.99 (×2). This
+  is the only pattern that has held across every item.
+- **Brand does not explain price.** Ralph Lauren spans £12.99–£14.99, and item
+  5 — no brand given — took £12.99, matching the Ralph Lauren women's polo.
+  The earlier "designer costs more" reading is now weak: the only thing
+  separating £9.99 from the rest is item 1, and one item is not a pattern.
+- **Men's vs women's — hypothesis survives, weakly.** Both £14.99 items are
+  men's; all three women's items are £12.99 or below. But item 5 shows an
+  unbranded women's piece matching a designer women's piece, so if the split
+  is real it is doing more work than brand.
+- **Category may matter more than brand.** Items 2, 3, 4 are all polo shirts;
+  item 5 is lingerie and priced level with the designer polo despite no brand.
+  Not enough data to separate category from brand yet.
+- **Condition still carries no signal**: all five items are "very good"
+  (one "very good vintage"). No other grade has been priced.
+- **SKU carries no signal**: four items share the `VWM` prefix and were priced
+  £9.99, £14.99, £12.99 and £12.99. The item with no SKU matched a priced one.
+- **Size carries no signal** beyond its overlap with the men's/women's split.
+
+## Defects field
+
+Item 5 is the first with defects **explicitly** stated as none. For items 1–4
+the field is blank because nothing was said — blank means "not stated", not
+"confirmed none". Do not read the two as equivalent.
 
 ## Open questions to resolve as more data arrives
 
