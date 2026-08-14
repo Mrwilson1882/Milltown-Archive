@@ -16,21 +16,29 @@ The chat itself is not persistent — this file and `inventory.csv` are the memo
 | 3 | Ralph Lauren Polo | Ralph Lauren | Small Men's | Very good condition | VWM - RL Lacoste Polos | £14.99 |
 | 4 | Ralph Lauren Women's Polo Shirt | Ralph Lauren | Large Women's | Very good condition | VWM - Women's Y2K Mix | £12.99 |
 | 5 | Women's Bralette | *(none given)* | 36 | Very good condition | VWM - Women's Summer Mix | £12.99 |
-| 6 | Women's Bralette | *(none given)* | Small | Very good condition | VWM - Women's Y2K Mix | *(awaiting owner — £12.99 suggested)* |
+| 6 | Women's Bralette | *(none given)* | Small | Very good condition | VWM - Women's Y2K Mix | £8.99 |
 
-## First suggestion made (item 6)
+## Suggestion log
 
-Item 6 arrived with no price. Suggested **£12.99**, matching item 5: same
-product type (women's bralette), same condition, same defect status, differing
-only in colour and size. This is a like-for-like match to a single previous
-item, not the output of a model. Left blank in `inventory.csv` until the owner
-confirms — an unconfirmed price is not recorded as fact.
+Track every suggestion against the owner's actual price. This is the only
+honest measure of whether suggestions are worth making.
+
+| Item | Suggested | Actual | Error | Basis of suggestion |
+|------|-----------|--------|-------|---------------------|
+| 6 | £12.99 | £8.99 | **−£4.00 (suggestion too high)** | Like-for-like match to item 5: same product type, condition and defect status, differing only in colour and size |
+
+**Lesson from item 6**: matching on product type alone is not enough. Two
+women's bralettes, both very good with no defects, priced £12.99 and £8.99 —
+a 31% spread. Something separates them that is not captured in the current
+columns. Candidates: size (36 vs Small), colour, brand not stated on either,
+or a quality/desirability judgement made by eye that no field records.
+£8.99 is also a new low, below item 1's £9.99.
 
 ## Patterns so far (5 items — provisional, not yet a rule)
 
-- **Price points**: every price ends in `.99`, and all five sit in a narrow
-  £9.99–£14.99 range. Observed values: £9.99, £12.99 (×2), £14.99 (×2). This
-  is the only pattern that has held across every item.
+- **Price points**: every price ends in `.99`, in a £8.99–£14.99 range.
+  Observed values: £8.99, £9.99, £12.99 (×2), £14.99 (×2). The `.99` ending is
+  the only pattern that has held across every single item.
 - **Brand does not explain price.** Ralph Lauren spans £12.99–£14.99, and item
   5 — no brand given — took £12.99, matching the Ralph Lauren women's polo.
   The earlier "designer costs more" reading is now weak: the only thing
