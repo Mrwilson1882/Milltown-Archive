@@ -21,6 +21,7 @@ The chat itself is not persistent — this file and `inventory.csv` are the memo
 | 8 | Nike Track Jacket | Nike | Large (oversized fit) | Very good condition | VWM - Track Jacket | £24.99 |
 | 9 | Harley Davidson Women's Cardigan | Harley Davidson | *(none given)* | Very good condition | VWM - Women's Y2K Mix | £14.99 |
 | 10 | Ralph Lauren Women's Polo | Ralph Lauren | XL Women's | Very good vintage condition | VWM - RL Lacoste Polos | £9.99 |
+| 11 | Nike Track Jacket | Nike | XL | Very good vintage condition | VWM - Track Jacket | *(awaiting owner — £21.99 suggested)* |
 
 ## Suggestion log
 
@@ -32,6 +33,7 @@ honest measure of whether suggestions are worth making.
 | 6 | £12.99 | £8.99 | **−£4.00 (suggestion too high)** | Like-for-like match to item 5: same product type, condition and defect status, differing only in colour and size |
 | 7 | £12.99 | *(pending)* | — | Match to item 4 on brand, product type, SKU category and condition — a tighter match than item 6's, which shared only product type |
 | 10 | £12.99 | £9.99 | **−£3.00 (suggestion too high)** | Match to item 4 on brand, product type and condition. Suggestion carried **no defect deduction**, which is exactly why it missed |
+| 11 | £21.99 | *(pending)* | — | Item 8 (clean Nike track jacket, same SKU) at £24.99, minus the £3.00 defect deduction measured on item 10. **This item tests whether the deduction is a flat £3 or scales with price** — if it scales, £19.99 or lower is right |
 
 ## Defects are a major price driver (owner-confirmed)
 
