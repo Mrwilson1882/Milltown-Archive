@@ -16,6 +16,15 @@ The chat itself is not persistent — this file and `inventory.csv` are the memo
 | 3 | Ralph Lauren Polo | Ralph Lauren | Small Men's | Very good condition | VWM - RL Lacoste Polos | £14.99 |
 | 4 | Ralph Lauren Women's Polo Shirt | Ralph Lauren | Large Women's | Very good condition | VWM - Women's Y2K Mix | £12.99 |
 | 5 | Women's Bralette | *(none given)* | 36 | Very good condition | VWM - Women's Summer Mix | £12.99 |
+| 6 | Women's Bralette | *(none given)* | Small | Very good condition | VWM - Women's Y2K Mix | *(awaiting owner — £12.99 suggested)* |
+
+## First suggestion made (item 6)
+
+Item 6 arrived with no price. Suggested **£12.99**, matching item 5: same
+product type (women's bralette), same condition, same defect status, differing
+only in colour and size. This is a like-for-like match to a single previous
+item, not the output of a model. Left blank in `inventory.csv` until the owner
+confirms — an unconfirmed price is not recorded as fact.
 
 ## Patterns so far (5 items — provisional, not yet a rule)
 
