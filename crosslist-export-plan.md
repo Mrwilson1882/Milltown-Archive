@@ -165,9 +165,10 @@ So the pipeline is split in two, both halves run locally by the owner:
 2. **`crosslist/review.py`** — renders `mapping.csv` as a web page showing each
    item's photos in listing order, so the mapping is checked by eye rather than
    by reading 185 spreadsheet rows. Corrections come back as plain English.
-3. **`crosslist/build.py`** — takes the confirmed `mapping.csv` and the
-   extracted item fields, renames the photos, zips them and writes
-   `listings.csv`. *(Not yet written — waiting on a confirmed mapping.)*
+3. **`crosslist/build.py`** — joins `items.csv` and `mapping.csv`, renames the
+   photos, zips them and writes `listings.csv`. Written and tested end to end:
+   15 rows, 33 columns, 170 photos, and the `Images` column verified to match
+   the zip contents exactly in both directions.
 
 Neither script modifies the source folder. `prepare.py` only ever reads it.
 
@@ -313,12 +314,12 @@ marker on these rows. Worth adding to the voice-note script going forward.
 Answered so far: condition mapping, track jackets, bralettes, light green, and
 number-card photos — all recorded in Decisions above. Still outstanding:
 
-1. **Gender on 7 items** (2, 8, 11, 13, 14, 15, and 1). The largest blocker by
-   some way — it takes out Category id and Size id together. Needs adding to
-   the voice-note script going forward, and checking against the garments for
-   existing stock.
-2. **Item 1, "Skinny Minnie"** — the product name is a brand, so the garment
-   type is unknown. Colour is blank too.
+1. ~~Gender on 7 items~~ — **answered 16 Aug: items 2, 8, 11, 13, 14 and 15 are
+   all menswear.** Item 1 was resolved from the photographs as a women's tunic.
+   Still worth adding to the voice-note script for new stock, since it blocks
+   Category id and Size id together.
+2. ~~Item 1, "Skinny Minnie"~~ — **resolved from the photographs**: a longline
+   women's tunic, black with a cream baroque print. Category `Women's tunics`.
 3. **Items 5 and 6** — both bralettes need a band-and-cup size measured off the
    garment. See the note under Decisions.
    Brands are now known from the photos: item 5 is Frederick's of Hollywood,
