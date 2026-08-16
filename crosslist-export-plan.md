@@ -144,21 +144,40 @@ band-and-cup size measured off the garment:
 The alternative was `Women's bandeaus`, which sits on the Women's clothing size
 group and would have taken `Small` as-is. Worth knowing before you re-measure.
 
+## Where this runs
+
+**The photos live on the owner's Mac; Claude runs in an isolated cloud
+container and cannot reach that filesystem.** The batch is also ~234 MB of
+binaries, which must never be committed — see `.gitignore`.
+
+So the pipeline is split in two, both halves run locally by the owner:
+
+1. **`crosslist/prepare.py`** — reads the batch, writes labelled contact sheets
+   (~100 KB each) plus a manifest. The owner sends those to Claude, who reads
+   the number cards and shot types and returns `mapping.csv`.
+2. **`crosslist/build.py`** — takes the confirmed `mapping.csv` and the
+   extracted item fields, renames the photos, zips them and writes
+   `listings.csv`. *(Not yet written — waiting on a confirmed mapping.)*
+
+Neither script modifies the source folder. `prepare.py` only ever reads it.
+
 ## Proposed folder structure
+
+On the owner's Mac, alongside the checked-out repo:
 
 ```
 crosslist/
-  inbox/                 raw photos, exactly as they come off the phone — never renamed in place
-  mapping.csv            item_no,source_filename,shot_type,photo_index  (generated, owner-confirmed)
-  transcripts/           archived pasted transcripts, one file per batch
-  build/                 disposable, regenerated on every run
-    images/              renamed copies
-    images.zip           upload alongside the CSV
-    listings.csv
+  prepare.py             stage 1 — contact sheets                (in repo)
+  build.py               stage 2 — rename, zip, CSV              (in repo)
+  inbox/                 raw photos, never renamed in place      (gitignored)
+  prepared/              contact sheets + manifest.csv           (gitignored)
+  mapping.csv            item_no,source_filename,shot_type,photo_index  (in repo — small, and worth versioning)
+  transcripts/           archived pasted transcripts
+  build/                 disposable — images/, images.zip, listings.csv  (gitignored)
 ```
 
-`inbox/` is copied from, never moved or renamed, so a bad run is always
-recoverable by deleting `build/` and re-running.
+`inbox/` is read from, never written to, so a bad run is always recoverable by
+deleting `build/` and re-running.
 
 ## Proposed naming convention
 

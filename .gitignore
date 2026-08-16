@@ -1,0 +1,6 @@
+# Photos never belong in the repo — a single batch is ~234 MB of binaries.
+crosslist/inbox/
+crosslist/build/
+crosslist/prepared/
+*.heic
+*.HEIC
