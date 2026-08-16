@@ -310,6 +310,24 @@ script, so adding one is a spreadsheet edit. Two rows sit there deliberately
 empty: the VWM summer mixes, marked so nobody later fills them from the SF
 figure by accident.
 
+**Shipping** (owner, 16 Aug): unit `Grams`, domestic `2.95`, worldwide empty,
+both free-shipping flags `FALSE`. Height, width and length are left empty — no
+instruction was given for them.
+
+**`Shipping weight` is an estimate, not a measurement.** Each figure is the
+typical weight for that garment type at that size plus roughly 40 g for a
+polymailer, rounded to the nearest 10 g. The range runs 240–640 g, so every
+item sits well inside a sub-1 kg courier band and a modest error changes
+nothing about the postage. If any garment is heavier than it looks — a lined
+jacket especially — weighing one and telling me corrects the type.
+
+**`Tags`** are pipe-delimited and written for discovery rather than description:
+brand, garment type and its synonyms, colour, era, fit, and the occasion or
+style terms buyers actually search (`going out top`, `coach jacket`, `preppy`,
+`y2k`). Ten to thirteen per item. They repeat words already in the title on
+purpose — title and tags are separate indexes on Vinted, and a term missing
+from either is a search the listing cannot answer.
+
 **Titles** are written for Vinted's search, not for elegance: brand first, then
 stacked garment synonyms (`Jumper Cardigan Zip Up`), then fit, colour and size.
 Crosslist permits 255 characters but Vinted truncates around 100, so titles are
