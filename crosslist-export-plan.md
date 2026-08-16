@@ -149,7 +149,7 @@ group and would have taken `Small` as-is. Worth knowing before you re-measure.
 ```
 crosslist/
   inbox/                 raw photos, exactly as they come off the phone — never renamed in place
-  mapping.csv            item_no,source_filename,photo_index,is_card  (generated, owner-confirmed)
+  mapping.csv            item_no,source_filename,shot_type,photo_index  (generated, owner-confirmed)
   transcripts/           archived pasted transcripts, one file per batch
   build/                 disposable, regenerated on every run
     images/              renamed copies
@@ -165,13 +165,40 @@ recoverable by deleting `build/` and re-running.
 `{item_no:03d}_{photo_index}.jpg` → `042_1.jpg`, `042_2.jpg`, `042_10.jpg`
 
 - Item number zero-padded to 3 digits; photo index 1-based, unpadded.
-- Index 1 is the lead photo — `Images` order is the listing's display order.
-- The number-card photo is **not** numbered. Indices run 1..N across the usable
+- Index order **is** the listing's display order — see Photo ordering below.
+- The number-card photo is not numbered. Indices run 1..N across the usable
   photos only, so `Images` never has a gap and the card never reaches a buyer.
   The card stays in `inbox/` as the grouping record; it is simply not copied
   into `build/images/`.
 - The zip contents and the `Images` column are generated from one list, so they
   cannot drift apart.
+
+## Photo ordering
+
+Owner's rule, applied when assigning `photo_index`:
+
+| Order | `shot_type` | What it is |
+|---|---|---|
+| 1 | `front` | Full shot, front |
+| 2 | `back` | Full shot, back |
+| 3… | `detail` | Key product details — chest logo on a polo, neck label on designer pieces. Combine both in one shot where the garment allows. |
+| then | `measure` | Shots with the tape measure |
+| last | `defect` | Anything wrong with the item |
+| — | `card` | The handwritten number card. Excluded from the listing entirely. |
+
+Within a band, photos keep the order they were shot in.
+
+**This ordering is a reading task, not a scripted one.** Nothing in a filename
+says whether a photo is a back shot or a defect shot, so `shot_type` is assigned
+when the batch is read, at the same time as the number cards. That is exactly
+why it belongs in `mapping.csv` as its own column: the owner can scan a short
+table of `front / back / detail / measure / defect` and catch a misread before
+any renaming happens, rather than trying to spot a wrong order in a row of
+`042_1.jpg|042_2.jpg|…`.
+
+The script sorts by the band order above, then writes `photo_index`. If a batch
+has no `front` shot, or more than one, that is worth surfacing rather than
+silently ordering around it.
 
 ## Audit of the existing 15 items
 
