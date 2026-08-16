@@ -295,6 +295,16 @@ reasoning per item is appended to the `flags` column. `Before2007` remains
 available as a deliberate hedge for anything that should read as vintage
 without committing to a decade.
 
+**`Cost of Goods`** is set from the SKU, using the owner's per-bundle rates
+(16 Aug). The rates are keyed on the bundle a garment came out of, not on what
+the garment is — so a hoodie bought inside a Y2K mix takes the mix rate.
+
+The prefix is part of the key, not noise: SF and VWM price the same category
+differently (`SF Women's Y2K` 5.10 against `VWM Women's Y2K` 5.23), which is
+proof that an SF rate cannot stand in for a missing VWM one. No VWM summer-mix
+rate exists, so the two summer-mix items are left empty and flagged rather than
+borrowing the SF figure.
+
 **Titles** are written for Vinted's search, not for elegance: brand first, then
 stacked garment synonyms (`Jumper Cardigan Zip Up`), then fit, colour and size.
 Crosslist permits 255 characters but Vinted truncates around 100, so titles are
@@ -383,10 +393,10 @@ number-card photos — all recorded in Decisions above. Still outstanding:
     16 Aug). Large Women's it is.
 11. **File format** — phone photos are often `.HEIC` and Crosslist wants JPEG.
    Proposal is to convert on the way into `build/images/`.
-12. **`Cost of Goods` and `Internal note` are still empty** — no instruction
-    given for either. Cost of Goods is the one worth filling: it is what turns
-    `pricing-notes.md` from a price ledger into a margin ledger, and margin is
-    the thing that file cannot currently see.
+12. **Three items have no `Cost of Goods`.** Items 1 and 5 are VWM summer
+    mixes and no VWM summer rate has been given; item 2 has no SKU at all.
+    Everything else is costed. `Internal note` is still empty, with no
+    instruction given.
 13. **Shipping and remaining optional columns** — weight, dimensions, Who made,
     When made, Tags, Accept offers. Blank is safe; per-garment defaults would
     save editing later.
