@@ -260,9 +260,17 @@ stacked garment synonyms (`Jumper Cardigan Zip Up`), then fit, colour and size.
 Crosslist permits 255 characters but Vinted truncates around 100, so titles are
 kept under 80.
 
-**Era** is estimated by Claude. The estimates in `items.csv` are provisional and
-based on silhouette, logo treatment and construction only — the neck labels are
-the real dating evidence and have not been read yet. See open questions.
+**Era** is estimated by Claude from the whole photo set — cut, hem shape, logo
+treatment, hardware, graphics and trim, not the neck label alone. Each estimate
+carries its reasoning in the `era_evidence` column of `items.csv`, so a dated
+garment can be argued with rather than taken on trust.
+
+Ranges are deliberately wide where the garment gives nothing away: Lacoste and
+Ralph Lauren have run some shapes unchanged for decades, and a decade-wide range
+is the honest answer there. Where construction does date a piece — a dipped
+handkerchief hem, a curved chest colour-block, a Big Pony launch date — the
+range narrows accordingly. Reading the neck labels would tighten the
+undateable ones further.
 
 ## Audit of the existing 15 items
 
@@ -322,13 +330,16 @@ number-card photos — all recorded in Decisions above. Still outstanding:
    `Orange`, or blank?
 7. **Item 2, "Navy with pinstripes"** — `Navy` primary, but the pinstripe
    colour was never recorded.
-8. **Materials in `items.csv` are inferred** from the photographs, not read off
+8. **Neck label photos** would narrow the eras that styling alone cannot date —
+   items 2, 7, 13 especially — and would settle the gender question in one pass.
+   Not a blocker, but the cheapest remaining win at 15 photos.
+9. **Materials in `items.csv` are inferred** from the photographs, not read off
    a care label. Cotton piqué for the polos is near-certain; the corsets and
    jackets are less so. Owner to confirm.
-9. **Item 4's label reads XL** while `inventory.csv` records Large Women's.
-10. **File format** — phone photos are often `.HEIC` and Crosslist wants JPEG.
+10. **Item 4's label reads XL** while `inventory.csv` records Large Women's.
+11. **File format** — phone photos are often `.HEIC` and Crosslist wants JPEG.
    Proposal is to convert on the way into `build/images/`.
-11. **Shipping and remaining optional columns** — weight, dimensions, Who made,
+12. **Shipping and remaining optional columns** — weight, dimensions, Who made,
     When made, Tags, Accept offers. Blank is safe; per-garment defaults would
     save editing later.
 
