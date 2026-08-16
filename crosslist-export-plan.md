@@ -320,12 +320,14 @@ number-card photos — all recorded in Decisions above. Still outstanding:
    Category id and Size id together.
 2. ~~Item 1, "Skinny Minnie"~~ — **resolved from the photographs**: a longline
    women's tunic, black with a cream baroque print. Category `Women's tunics`.
-3. **Items 5 and 6** — both bralettes need a band-and-cup size measured off the
-   garment. See the note under Decisions.
-   Brands are now known from the photos: item 5 is Frederick's of Hollywood,
-   item 6 is Avon Fashions. Both were blank in the ledger.
-4. **Item 7, `Medium (10-12)`** — three possible ids: letter `M`, UK 10, or
-   UK 12. Which did you mean?
+3. ~~Items 5 and 6~~ — **resolved 16 Aug.** Owner reports both as very small.
+   That has no equivalent in the band-and-cup size group, so both moved from
+   `Women's bras` to `Women's bandeaus`, which sits on Women's clothing sizing
+   and takes `S` directly. This reverses the earlier bras decision for these two
+   items; reverting means accepting a blank Size id and losing the Vinted size
+   filter. Brands came from the photos: Frederick's of Hollywood and Avon
+   Fashions, both blank in the ledger.
+4. ~~Item 7, `Medium (10-12)`~~ — **resolved 16 Aug: UK M**, the letter size.
 5. **Item 3, "Tartan check"** → `Multi`?
 6. **Item 12, logo colours** — orange pony on a green polo. Secondary color
    `Orange`, or blank?
@@ -337,7 +339,9 @@ number-card photos — all recorded in Decisions above. Still outstanding:
 9. **Materials in `items.csv` are inferred** from the photographs, not read off
    a care label. Cotton piqué for the polos is near-certain; the corsets and
    jackets are less so. Owner to confirm.
-10. **Item 4's label reads XL** while `inventory.csv` records Large Women's.
+10. ~~Item 4's label reads XL~~ — **resolved by standing rule.** Where a label
+    and the ledger disagree on size, the ledger wins (`conventions.md`,
+    16 Aug). Large Women's it is.
 11. **File format** — phone photos are often `.HEIC` and Crosslist wants JPEG.
    Proposal is to convert on the way into `build/images/`.
 12. **Shipping and remaining optional columns** — weight, dimensions, Who made,

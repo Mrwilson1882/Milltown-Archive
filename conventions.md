@@ -28,6 +28,9 @@ of any new session — the chat is not persistent, these files are the memory.
 - **SKUs** follow the dash format: `VWM - Women's Y2K Mix`.
 - **Unclear transcriptions** are recorded as the best reading and flagged back
   to the owner for confirmation, never silently guessed.
+- **Size discrepancies:** where a garment's label disagrees with the ledger,
+  **the ledger wins.** Record the discrepancy and carry on with the ledger
+  value; do not silently switch to the label. Owner's instruction, 16 Aug.
 
 ## Workflow
 
