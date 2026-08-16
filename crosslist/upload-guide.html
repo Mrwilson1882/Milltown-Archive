@@ -130,17 +130,118 @@ a{color:var(--accent)}
   <div class="step">
     <div class="step-head"><div class="num">2</div><h3>Make the zip</h3></div>
     <p>Open <b>Terminal</b> — press <kbd>⌘</kbd> and the spacebar together, type
-    <code>terminal</code>, press Enter. Paste this in and press Enter:</p>
-    <pre>cd ~/Downloads &amp;&amp; python3 build.py "Batch 1"</pre>
+    <code>terminal</code>, press Enter.</p>
+    <p><b>Copy the whole block below</b> — all of it, to the last line — paste it into
+    Terminal and press Enter. It writes the builder and runs it in one go. You only ever
+    need to do this once; after that the short line at the bottom of this step is enough.</p>
+    <pre>cd ~/Downloads &amp;&amp; cat &gt; build.py &lt;&lt;&#x27;ENDOFSCRIPT&#x27;
+import csv, shutil, subprocess, sys, zipfile
+from pathlib import Path
+
+def copy_photo(src, dest, max_px):
+    &quot;&quot;&quot;Copy a photo, optionally downscaling its long edge to max_px.&quot;&quot;&quot;
+    if not max_px:
+        shutil.copy2(src, dest); return
+    if shutil.which(&quot;sips&quot;):        # built into macOS, no dependency
+        r = subprocess.run([&quot;sips&quot;, &quot;-s&quot;, &quot;format&quot;, &quot;jpeg&quot;, &quot;-s&quot;, &quot;formatOptions&quot;, &quot;80&quot;,
+                            &quot;-Z&quot;, str(max_px), str(src), &quot;--out&quot;, str(dest)],
+                           capture_output=True)
+        if r.returncode == 0 and dest.exists():
+            return
+    try:                            # fallback, used off macOS
+        from PIL import Image, ImageOps
+        with Image.open(src) as im:
+            im = ImageOps.exif_transpose(im).convert(&quot;RGB&quot;)
+            im.thumbnail((max_px, max_px))
+            im.save(dest, &quot;JPEG&quot;, quality=80, optimize=True)
+    except Exception:
+        shutil.copy2(src, dest)
+
+COLUMNS = [&quot;Id&quot;,&quot;Title&quot;,&quot;Description&quot;,&quot;Price&quot;,&quot;Original Price&quot;,&quot;Brand&quot;,&quot;Category id&quot;,&quot;Size id&quot;,
+&quot;Condition&quot;,&quot;Color&quot;,&quot;Secondary color&quot;,&quot;Images&quot;,&quot;Quantity&quot;,&quot;Shipping weight&quot;,&quot;Shipping weight unit&quot;,
+&quot;Shipping height&quot;,&quot;Shipping width&quot;,&quot;Shipping length&quot;,&quot;Domestic shipping price&quot;,
+&quot;Worldwide shipping price&quot;,&quot;Free domestic shipping&quot;,&quot;Free worldwide shipping&quot;,&quot;Tags&quot;,&quot;SKU&quot;,
+&quot;Who made&quot;,&quot;When made&quot;,&quot;Smart pricing&quot;,&quot;Smart pricing price&quot;,&quot;Accept offers&quot;,&quot;Is auction&quot;,
+&quot;Auction starting price&quot;,&quot;Cost of Goods&quot;,&quot;Internal note&quot;]
+
+args = [a for a in sys.argv[1:] if not a.startswith(&quot;--&quot;)]
+inbox = Path(args[0] if args else &quot;Batch 1&quot;)
+max_px = next((int(a.split(&quot;=&quot;)[1]) for a in sys.argv if a.startswith(&quot;--max-px=&quot;)), 0)
+for f in (&quot;items.csv&quot;, &quot;mapping.csv&quot;):
+    if not Path(f).exists():
+        sys.exit(f&quot;{f} is not in this folder. Put it here and try again.&quot;)
+
+build = Path(&quot;build&quot;); images = build / &quot;images&quot;
+if build.exists():
+    shutil.rmtree(build)          # disposable by design; rebuilt every run
+images.mkdir(parents=True)
+
+photos = {}
+for r in csv.DictReader(open(&quot;mapping.csv&quot;)):
+    if r[&quot;shot_type&quot;] == &quot;card&quot;:            # number cards never reach a buyer
+        continue
+    photos.setdefault(r[&quot;item_no&quot;], []).append((int(r[&quot;photo_index&quot;]), r[&quot;source_filename&quot;]))
+
+rows, missing, blocked = [], [], []
+for it in csv.DictReader(open(&quot;items.csv&quot;)):
+    n = it[&quot;item_no&quot;]
+    names = []
+    for idx, src in sorted(photos.get(n, [])):
+        s = inbox / src
+        if not s.exists():
+            missing.append(src); continue
+        dest = f&quot;{n}_{idx}.jpg&quot;
+        copy_photo(s, images / dest, max_px)
+        names.append(dest)
+
+    if not it[&quot;size_id&quot;]:
+        blocked.append(f&quot;item {n}: {it[&#x27;flags&#x27;]}&quot;)
+
+    row = dict.fromkeys(COLUMNS, &quot;&quot;)
+    row.update({&quot;Title&quot;: it[&quot;title&quot;], &quot;Description&quot;: it[&quot;description&quot;], &quot;Price&quot;: it[&quot;price&quot;],
+                &quot;Brand&quot;: it[&quot;brand&quot;], &quot;Category id&quot;: it[&quot;category_id&quot;], &quot;Size id&quot;: it[&quot;size_id&quot;],
+                &quot;Condition&quot;: it[&quot;condition&quot;], &quot;Color&quot;: it[&quot;color&quot;],
+                &quot;Secondary color&quot;: it[&quot;secondary_color&quot;], &quot;Images&quot;: &quot;|&quot;.join(names),
+                &quot;Quantity&quot;: it[&quot;quantity&quot;], &quot;SKU&quot;: it[&quot;sku&quot;]})
+    rows.append([row[c] for c in COLUMNS])
+
+with open(build / &quot;listings.csv&quot;, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as f:
+    w = csv.writer(f); w.writerow(COLUMNS); w.writerows(rows)
+
+with zipfile.ZipFile(build / &quot;images.zip&quot;, &quot;w&quot;, zipfile.ZIP_DEFLATED) as z:
+    for p in sorted(images.iterdir()):
+        z.write(p, p.name)
+
+total = sum(1 for _ in images.iterdir())
+print(f&quot;\nbuild/listings.csv   {len(rows)} items&quot;)
+print(f&quot;build/images/        {total} photos&quot;)
+size_mb = (build / &quot;images.zip&quot;).stat().st_size / 1_000_000
+print(f&quot;build/images.zip     {size_mb:.0f} MB&quot; + (f&quot;  (resized to {max_px}px)&quot; if max_px else &quot;&quot;))
+if not max_px and size_mb &gt; 100:
+    print(&quot;  Large. If Crosslist baulks, re-run with --max-px=1600&quot;)
+if missing:
+    print(f&quot;\nMISSING from {inbox}: {len(missing)} photos - {&#x27;, &#x27;.join(missing[:5])}&quot;)
+if blocked:
+    print(&quot;\nUploads with no Size id - Crosslist may reject these rows:&quot;)
+    for b in blocked:
+        print(f&quot;  {b}&quot;)
+print(&quot;\nUpload listings.csv and images.zip to Crosslist together.&quot;)
+try:
+    subprocess.run([&quot;open&quot;, str(build)], capture_output=True)
+except FileNotFoundError:
+    pass
+ENDOFSCRIPT
+python3 build.py &quot;Batch 1&quot;</pre>
     <div class="expect">
       <p class="eyebrow">You should see</p>
       <p><code>listings.csv 15 items</code> and <code>images.zip 170 photos</code>,
       then a Finder window opens showing a <b>build</b> folder.</p>
     </div>
-    <p class="note">Takes a minute or so. If it says the zip is over 100&nbsp;MB and the
-    upload later refuses it, run the same line again with
-    <code>--max-px=1600</code> on the end — that shrinks the photos, which the
-    selling sites do anyway.</p>
+    <p class="note">Takes a minute or so. Every run after this one is just:
+    <code>cd ~/Downloads &amp;&amp; python3 build.py "Batch 1"</code></p>
+    <p class="note">If it reports the zip is over 100&nbsp;MB and Crosslist later refuses it,
+    run that short line again with <code>--max-px=1600</code> on the end — that shrinks the
+    photos, which the selling sites do to them anyway.</p>
   </div>
 
   <div class="step">
