@@ -1,110 +1,193 @@
 #!/usr/bin/env python3
 """
-Stage 1 of the Crosslist export: build contact sheets from a batch of photos.
+Stage 1 of the Crosslist export: build a contact sheet PDF from a batch of photos.
 
-Runs on the Mac where the photos live. Produces a handful of labelled contact
-sheets small enough to send to Claude, who reads the number cards, assigns a
-shot_type to each photo, and returns mapping.csv. Nothing is renamed, moved or
-modified here — the source folder is only ever read.
+Runs on the Mac where the photos live. Produces one PDF small enough to send to
+Claude, who reads the number cards, assigns a shot_type to each photo, and
+returns mapping.csv. Nothing in the source folder is renamed, moved or modified
+— it is only ever read.
 
     python3 prepare.py "/Users/tobywilson94/Downloads/Batch 1"
 
 Output lands in ./prepared/ :
-    manifest.csv      every photo, with its index and capture time
-    sheet_01.jpg ...  contact sheets, 20 photos each, tiles labelled by index
+    contact-sheets.pdf   12 photos per page, each captioned with index + filename
+    manifest.csv         every photo, with its index and capture time
 
-Needs Pillow:  pip3 install pillow
-HEIC files are converted via macOS's built-in `sips`, so no extra dependency.
+No installation required. Thumbnails are made with `sips`, which is built into
+macOS and reads HEIC natively, and the PDF is assembled with nothing but the
+Python standard library. (Pillow is used instead of sips if sips is missing,
+which is only the case off macOS.)
 """
 
-import argparse, csv, shutil, subprocess, sys, tempfile
+import argparse, csv, os, shutil, struct, subprocess, sys, tempfile, zlib
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
-
 EXTS = {".jpg", ".jpeg", ".png", ".heic", ".heif", ".tif", ".tiff", ".webp"}
-COLS, ROWS = 5, 4          # 20 tiles per sheet
-TILE = 420                 # tile width in px; height follows the 4:3 label box
-LABEL_H = 34
-PAD = 8
-BG = (250, 250, 250)
-FG = (20, 20, 20)
 
+THUMB_PX = 500          # long edge of each embedded thumbnail
+COLS, ROWS = 3, 4       # 12 per page
+PAGE_W, PAGE_H = 595, 842   # A4 in points
+MARGIN, LABEL_H, GUTTER = 24, 16, 10
+
+
+# ---------------------------------------------------------------- thumbnails
+
+def make_thumb(src, dest):
+    """Downscale one photo to a JPEG. sips on macOS, Pillow as a fallback."""
+    if shutil.which("sips"):
+        r = subprocess.run(
+            ["sips", "-s", "format", "jpeg", "-s", "formatOptions", "55",
+             "-Z", str(THUMB_PX), str(src), "--out", str(dest)],
+            capture_output=True,
+        )
+        return r.returncode == 0 and dest.exists()
+    try:
+        from PIL import Image, ImageOps
+        with Image.open(src) as im:
+            im = ImageOps.exif_transpose(im).convert("RGB")
+            im.thumbnail((THUMB_PX, THUMB_PX))
+            im.save(dest, "JPEG", quality=55, optimize=True)
+        return True
+    except Exception:
+        return False
+
+
+def jpeg_size(path):
+    """Width and height straight out of the JPEG's SOF marker."""
+    with open(path, "rb") as f:
+        if f.read(2) != b"\xff\xd8":
+            return None
+        while True:
+            b = f.read(1)
+            if not b:
+                return None
+            if b != b"\xff":
+                continue
+            while b == b"\xff":
+                b = f.read(1)
+            marker = b[0]
+            if marker in (0xD8, 0x01) or 0xD0 <= marker <= 0xD7:
+                continue
+            length = struct.unpack(">H", f.read(2))[0]
+            # SOF0-SOF15, excluding the non-frame markers DHT/JPG/DAC
+            if marker in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7,
+                          0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+                f.read(1)
+                h, w = struct.unpack(">HH", f.read(4))
+                return w, h
+            f.seek(length - 2, os.SEEK_CUR)
+
+
+# ---------------------------------------------------------------------- PDF
+
+def pdf_escape(s):
+    return s.replace("\\", r"\\").replace("(", r"\(").replace(")", r"\)")
+
+
+def build_pdf(pages, dest):
+    """
+    pages: list of pages; each page is a list of (thumb_path, w, h, caption).
+    Writes a minimal PDF embedding each JPEG directly via DCTDecode.
+    """
+    objects = []                # object N is stored at objects[N-1]
+    def add(body):
+        objects.append(body)
+        return len(objects)
+
+    font_id = add(b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica "
+                  b"/Encoding /WinAnsiEncoding >>")
+
+    cell_w = (PAGE_W - 2 * MARGIN - (COLS - 1) * GUTTER) / COLS
+    cell_h = (PAGE_H - 2 * MARGIN - (ROWS - 1) * GUTTER) / ROWS
+    img_h = cell_h - LABEL_H
+
+    page_ids, page_objs = [], []
+    for page in pages:
+        content, xobjects = [], {}
+        for i, (thumb, w, h, caption) in enumerate(page):
+            col, row = i % COLS, i // COLS
+            x = MARGIN + col * (cell_w + GUTTER)
+            # PDF's origin is bottom-left, so rows count down from the top.
+            y = PAGE_H - MARGIN - (row + 1) * cell_h - row * GUTTER
+
+            scale = min(cell_w / w, img_h / h)
+            dw, dh = w * scale, h * scale
+            ix = x + (cell_w - dw) / 2
+            iy = y + LABEL_H + (img_h - dh) / 2
+
+            name = f"Im{i}"
+            data = thumb.read_bytes()
+            xid = add(
+                b"<< /Type /XObject /Subtype /Image /Width " + str(w).encode() +
+                b" /Height " + str(h).encode() +
+                b" /ColorSpace /DeviceRGB /BitsPerComponent 8 "
+                b"/Filter /DCTDecode /Length " + str(len(data)).encode() +
+                b" >>\nstream\n" + data + b"\nendstream"
+            )
+            xobjects[name] = xid
+            content.append(
+                f"q {dw:.2f} 0 0 {dh:.2f} {ix:.2f} {iy:.2f} cm /{name} Do Q"
+            )
+            content.append(
+                f"BT /F1 7 Tf {x:.2f} {y + 4:.2f} Td ({pdf_escape(caption)}) Tj ET"
+            )
+
+        stream = zlib.compress("\n".join(content).encode("latin-1", "replace"))
+        cid = add(b"<< /Filter /FlateDecode /Length " + str(len(stream)).encode() +
+                  b" >>\nstream\n" + stream + b"\nendstream")
+
+        res = b"<< /Font << /F1 " + str(font_id).encode() + b" 0 R >> /XObject << " + \
+              b" ".join(f"/{n} {i} 0 R".encode() for n, i in xobjects.items()) + b" >> >>"
+        pid = add(b"")          # reserve; filled once the Pages id is known
+        page_ids.append(pid)
+        page_objs.append((pid, res, cid))
+
+    pages_id = add(b"")
+    for pid, res, cid in page_objs:
+        objects[pid - 1] = (
+            b"<< /Type /Page /Parent " + str(pages_id).encode() + b" 0 R "
+            b"/MediaBox [0 0 " + str(PAGE_W).encode() + b" " + str(PAGE_H).encode() + b"] "
+            b"/Resources " + res + b" /Contents " + str(cid).encode() + b" 0 R >>"
+        )
+    objects[pages_id - 1] = (
+        b"<< /Type /Pages /Count " + str(len(page_ids)).encode() + b" /Kids [" +
+        b" ".join(str(i).encode() + b" 0 R" for i in page_ids) + b"] >>"
+    )
+    root_id = add(b"<< /Type /Catalog /Pages " + str(pages_id).encode() + b" 0 R >>")
+
+    out = bytearray(b"%PDF-1.4\n%\xe2\xe3\xcf\xd3\n")
+    offsets = [0] * (len(objects) + 1)
+    for num in range(1, len(objects) + 1):
+        offsets[num] = len(out)
+        out += str(num).encode() + b" 0 obj\n" + objects[num - 1] + b"\nendobj\n"
+
+    xref = len(out)
+    n = len(objects) + 1        # +1 for the free object 0
+    out += b"xref\n0 " + str(n).encode() + b"\n0000000000 65535 f \n"
+    for num in range(1, n):
+        out += f"{offsets[num]:010d} 00000 n \n".encode()
+    out += (b"trailer\n<< /Size " + str(n).encode() + b" /Root " +
+            str(root_id).encode() + b" 0 R >>\nstartxref\n" +
+            str(xref).encode() + b"\n%%EOF\n")
+    dest.write_bytes(bytes(out))
+
+
+# --------------------------------------------------------------------- main
 
 def capture_time(path):
-    """EXIF DateTimeOriginal if present, else file mtime. Used only for ordering."""
-    try:
-        with Image.open(path) as im:
-            exif = im.getexif()
-            for tag in (36867, 36868, 306):     # DateTimeOriginal, Digitized, DateTime
-                if exif.get(tag):
-                    return str(exif[tag])
-    except Exception:
-        pass
+    """Capture timestamp via sips, used only for ordering. Empty if unavailable."""
+    if not shutil.which("sips"):
+        return ""
+    r = subprocess.run(["sips", "-g", "creation", str(path)],
+                       capture_output=True, text=True)
+    for line in r.stdout.splitlines():
+        if "creation:" in line:
+            return line.split("creation:", 1)[1].strip()
     return ""
 
 
-def load(path, tmpdir):
-    """Open an image, routing HEIC through sips since Pillow cannot read it."""
-    if path.suffix.lower() in {".heic", ".heif"}:
-        out = Path(tmpdir) / (path.stem + ".jpg")
-        if not shutil.which("sips"):
-            raise RuntimeError(
-                f"{path.name} is HEIC and `sips` is unavailable. "
-                "Run this on macOS, or convert the batch to JPEG first."
-            )
-        subprocess.run(
-            ["sips", "-s", "format", "jpeg", str(path), "--out", str(out)],
-            check=True, capture_output=True,
-        )
-        return Image.open(out)
-    return Image.open(path)
-
-
-def font(size):
-    for name in ("/System/Library/Fonts/Supplemental/Arial.ttf",
-                 "/System/Library/Fonts/Helvetica.ttc",
-                 "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"):
-        try:
-            return ImageFont.truetype(name, size)
-        except OSError:
-            continue
-    return ImageFont.load_default()
-
-
-def build_sheet(entries, tmpdir, label_font):
-    cell_w, cell_h = TILE, TILE + LABEL_H
-    sheet = Image.new("RGB", (COLS * cell_w + PAD * (COLS + 1),
-                              ROWS * cell_h + PAD * (ROWS + 1)), BG)
-    draw = ImageDraw.Draw(sheet)
-
-    for i, (idx, path) in enumerate(entries):
-        col, row = i % COLS, i // COLS
-        x = PAD + col * (cell_w + PAD)
-        y = PAD + row * (cell_h + PAD)
-        try:
-            with load(path, tmpdir) as im:
-                im = im.convert("RGB")
-                # Respect the camera's rotation flag so portrait shots stay upright.
-                try:
-                    from PIL import ImageOps
-                    im = ImageOps.exif_transpose(im)
-                except Exception:
-                    pass
-                im.thumbnail((TILE, TILE), Image.LANCZOS)
-                sheet.paste(im, (x + (TILE - im.width) // 2,
-                                 y + (TILE - im.height) // 2))
-        except Exception as e:
-            draw.rectangle([x, y, x + TILE, y + TILE], outline=(200, 0, 0), width=2)
-            draw.text((x + 10, y + 10), f"unreadable\n{e}", fill=(200, 0, 0), font=label_font)
-
-        draw.text((x + 4, y + TILE + 8), f"#{idx:03d}  {path.name}",
-                  fill=FG, font=label_font)
-    return sheet
-
-
 def main():
-    ap = argparse.ArgumentParser(description="Build contact sheets for a photo batch.")
+    ap = argparse.ArgumentParser(description="Build a contact sheet PDF for a photo batch.")
     ap.add_argument("inbox", type=Path, help="folder of raw photos (read-only)")
     ap.add_argument("-o", "--out", type=Path, default=Path("prepared"))
     args = ap.parse_args()
@@ -117,31 +200,43 @@ def main():
     if not photos:
         sys.exit(f"No images found in {args.inbox}")
 
-    # Order by capture time where EXIF gives it, so runs of photos stay together.
-    # Falls back to filename, which is the same order for phone-camera exports.
-    photos.sort(key=lambda p: (capture_time(p) or "", p.name))
-
+    print(f"Found {len(photos)} photos. Making thumbnails...")
     args.out.mkdir(parents=True, exist_ok=True)
+
+    tiles, failed, rows = [], [], []
+    with tempfile.TemporaryDirectory() as tmp:
+        for i, src in enumerate(photos, 1):
+            if i % 25 == 0:
+                print(f"  {i}/{len(photos)}")
+            thumb = Path(tmp) / f"{i:03d}.jpg"
+            size = None
+            if make_thumb(src, thumb):
+                size = jpeg_size(thumb)
+            if not size:
+                failed.append(src.name)
+                continue
+            tiles.append((thumb, size[0], size[1], f"#{i:03d}  {src.name}"))
+            rows.append([f"{i:03d}", src.name, capture_time(src)])
+
+        per_page = COLS * ROWS
+        pages = [tiles[j:j + per_page] for j in range(0, len(tiles), per_page)]
+        pdf = args.out / "contact-sheets.pdf"
+        print(f"Writing {len(pages)} pages...")
+        build_pdf(pages, pdf)
+
     with open(args.out / "manifest.csv", "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["index", "filename", "capture_time"])
-        for i, p in enumerate(photos, 1):
-            w.writerow([f"{i:03d}", p.name, capture_time(p)])
+        w.writerows(rows)
 
-    label_font = font(19)
-    per_sheet = COLS * ROWS
-    indexed = list(enumerate(photos, 1))
-    sheets = 0
-    with tempfile.TemporaryDirectory() as tmpdir:
-        for s in range(0, len(indexed), per_sheet):
-            sheets += 1
-            sheet = build_sheet(indexed[s:s + per_sheet], tmpdir, label_font)
-            dest = args.out / f"sheet_{sheets:02d}.jpg"
-            sheet.save(dest, "JPEG", quality=72, optimize=True)
-            print(f"  {dest}  ({dest.stat().st_size // 1024} KB)")
-
-    print(f"\n{len(photos)} photos → {sheets} sheets in {args.out}/")
-    print("Send the sheet_*.jpg files and manifest.csv to Claude.")
+    mb = pdf.stat().st_size / 1_000_000
+    print(f"\nDone. {len(tiles)} photos over {len(pages)} pages — {mb:.1f} MB")
+    print(f"  {pdf}")
+    print(f"  {args.out / 'manifest.csv'}")
+    if failed:
+        print(f"\n{len(failed)} could not be read: {', '.join(failed[:10])}"
+              + (" ..." if len(failed) > 10 else ""))
+    print("\nSend contact-sheets.pdf to Claude.")
 
 
 if __name__ == "__main__":

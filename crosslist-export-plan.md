@@ -152,9 +152,16 @@ binaries, which must never be committed — see `.gitignore`.
 
 So the pipeline is split in two, both halves run locally by the owner:
 
-1. **`crosslist/prepare.py`** — reads the batch, writes labelled contact sheets
-   (~100 KB each) plus a manifest. The owner sends those to Claude, who reads
-   the number cards and shot types and returns `mapping.csv`.
+1. **`crosslist/prepare.py`** — reads the batch, writes one labelled contact
+   sheet PDF plus a manifest. The owner sends the PDF to Claude, who reads the
+   number cards and shot types and returns `mapping.csv`.
+
+   **No installation required.** Thumbnails come from `sips`, built into macOS
+   and HEIC-capable, and the PDF is assembled with the standard library alone.
+   An earlier draft used Pillow; dropping it removed the only setup step, which
+   was where the owner got stuck. Pillow is still used as a fallback when `sips`
+   is absent, which is only true off macOS — that path exists so the script can
+   be tested here.
 2. **`crosslist/build.py`** — takes the confirmed `mapping.csv` and the
    extracted item fields, renames the photos, zips them and writes
    `listings.csv`. *(Not yet written — waiting on a confirmed mapping.)*
@@ -170,7 +177,7 @@ crosslist/
   prepare.py             stage 1 — contact sheets                (in repo)
   build.py               stage 2 — rename, zip, CSV              (in repo)
   inbox/                 raw photos, never renamed in place      (gitignored)
-  prepared/              contact sheets + manifest.csv           (gitignored)
+  prepared/              contact-sheets.pdf + manifest.csv       (gitignored)
   mapping.csv            item_no,source_filename,shot_type,photo_index  (in repo — small, and worth versioning)
   transcripts/           archived pasted transcripts
   build/                 disposable — images/, images.zip, listings.csv  (gitignored)
