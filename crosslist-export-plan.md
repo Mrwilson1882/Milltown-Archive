@@ -256,6 +256,14 @@ entirely** rather than printed empty, and the size line drops "and below" so it
 does not promise figures that are not there. Both come back automatically once
 measurements are recorded.
 
+**Material** is read off the garment's own composition tag wherever one was
+photographed, and written exactly as the tag states it — `100% Cotton`,
+`60% Cotton 40% Polyester`. Where no tag was photographed for that item, the
+material is estimated from the fabric in the photographs and **carries no
+percentage at all**, since a percentage that was never read is a fabrication.
+Owner's instruction, 16 Aug. The `material_source` column in `items.csv` records
+which of the two applies to every row.
+
 **Titles** are written for Vinted's search, not for elegance: brand first, then
 stacked garment synonyms (`Jumper Cardigan Zip Up`), then fit, colour and size.
 Crosslist permits 255 characters but Vinted truncates around 100, so titles are

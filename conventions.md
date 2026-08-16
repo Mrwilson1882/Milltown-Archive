@@ -28,6 +28,10 @@ of any new session — the chat is not persistent, these files are the memory.
 - **SKUs** follow the dash format: `VWM - Women's Y2K Mix`.
 - **Unclear transcriptions** are recorded as the best reading and flagged back
   to the owner for confirmation, never silently guessed.
+- **Material** is taken from the garment's composition tag when one has been
+  photographed, quoted exactly as printed (`100% Cotton`). With no tag, the
+  material is estimated and **stated without any percentage** — never invent a
+  figure that was not read. Owner's instruction, 16 Aug.
 - **Size discrepancies:** where a garment's label disagrees with the ledger,
   **the ledger wins.** Record the discrepancy and carry on with the ledger
   value; do not silently switch to the label. Owner's instruction, 16 Aug.
