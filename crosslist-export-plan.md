@@ -305,6 +305,11 @@ proof that an SF rate cannot stand in for a missing VWM one. No VWM summer-mix
 rate exists, so the two summer-mix items are left empty and flagged rather than
 borrowing the SF figure.
 
+The rates themselves live in `crosslist/cost-rates.csv` rather than inside a
+script, so adding one is a spreadsheet edit. Two rows sit there deliberately
+empty: the VWM summer mixes, marked so nobody later fills them from the SF
+figure by accident.
+
 **Titles** are written for Vinted's search, not for elegance: brand first, then
 stacked garment synonyms (`Jumper Cardigan Zip Up`), then fit, colour and size.
 Crosslist permits 255 characters but Vinted truncates around 100, so titles are
