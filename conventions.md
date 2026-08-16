@@ -28,6 +28,12 @@ of any new session — the chat is not persistent, these files are the memory.
 - **SKUs** follow the dash format: `VWM - Women's Y2K Mix`.
 - **Unclear transcriptions** are recorded as the best reading and flagged back
   to the owner for confirmation, never silently guessed.
+- **Defects** are appended as the **final sentence of the Item Description**,
+  after the product detail, phrased exactly as recorded in the ledger and
+  keeping any `(see images)`. Where the ledger says `None`, nothing is written.
+  Where the ledger is blank the defect is *not stated*, so nothing is written
+  and the gap is flagged back to the owner — silence must never be presented to
+  a buyer as "no flaws". Owner's instruction, 16 Aug.
 - **Material** is taken from the garment's composition tag when one has been
   photographed, quoted exactly as printed (`100% Cotton`). With no tag, the
   material is estimated and **stated without any percentage** — never invent a

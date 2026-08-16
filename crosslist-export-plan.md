@@ -256,6 +256,12 @@ entirely** rather than printed empty, and the size line drops "and below" so it
 does not promise figures that are not there. Both come back automatically once
 measurements are recorded.
 
+**Defects** close the Item Description as its last sentence, after the product
+detail, worded as the ledger words them. `None` in the ledger produces no line,
+and a blank ledger cell produces no line either — but those two are not the same
+thing, and the blank ones are listed in the open questions rather than quietly
+passed off as clean.
+
 **Material** is read off the garment's own composition tag wherever one was
 photographed, and written exactly as the tag states it — `100% Cotton`,
 `60% Cotton 40% Polyester`. Where no tag was photographed for that item, the
@@ -352,7 +358,12 @@ number-card photos — all recorded in Decisions above. Still outstanding:
     16 Aug). Large Women's it is.
 11. **File format** — phone photos are often `.HEIC` and Crosslist wants JPEG.
    Proposal is to convert on the way into `build/images/`.
-12. **Shipping and remaining optional columns** — weight, dimensions, Who made,
+12. **Six items have no defect information either way** — 1, 2, 4, 7, 8 and 15
+    are blank in the ledger, which by `conventions.md` means *not stated*, not
+    *no defects*. Their listings therefore say nothing about condition beyond
+    the grade. Worth a look over those six garments before they go live, since
+    an undisclosed flaw is the most common route to a return.
+13. **Shipping and remaining optional columns** — weight, dimensions, Who made,
     When made, Tags, Accept offers. Blank is safe; per-garment defaults would
     save editing later.
 
