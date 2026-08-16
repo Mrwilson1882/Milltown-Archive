@@ -1,0 +1,232 @@
+<title>Milltown Crosslist Upload</title>
+<style>
+:root{
+  --paper:#F4F5F1; --card:#FFFFFF; --ink:#1B211C; --ink-2:#454E47;
+  --muted:#6B7269; --rule:#DDE0D8; --accent:#2F5D46; --accent-soft:#E4EDE7;
+  --warn:#9C4A22; --warn-soft:#F6E9E0; --term-bg:#20261F; --term-ink:#DCE5D8;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#161915; --card:#1E221D; --ink:#E8EAE4; --ink-2:#BCC3B8;
+    --muted:#99A395; --rule:#2E342C; --accent:#83BC9E; --accent-soft:#22301F;
+    --warn:#D98A5C; --warn-soft:#2E211A; --term-bg:#0F120E; --term-ink:#DCE5D8;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#161915; --card:#1E221D; --ink:#E8EAE4; --ink-2:#BCC3B8;
+  --muted:#99A395; --rule:#2E342C; --accent:#83BC9E; --accent-soft:#22301F;
+  --warn:#D98A5C; --warn-soft:#2E211A; --term-bg:#0F120E; --term-ink:#DCE5D8;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:44rem; margin:0 auto; padding:clamp(28px,5vw,64px) clamp(18px,4vw,28px) 96px;
+  display:flex; flex-direction:column; gap:44px}
+h1,h2,h3{font-family:Georgia,"Iowan Old Style",serif; font-weight:600; text-wrap:balance; margin:0}
+h1{font-size:clamp(30px,5vw,40px); line-height:1.15; letter-spacing:-.01em}
+h2{font-size:21px; line-height:1.3}
+h3{font-size:16px; line-height:1.4}
+p{margin:0}
+code,kbd,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.eyebrow{font:600 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--accent)}
+header{display:flex; flex-direction:column; gap:14px;
+  border-bottom:1px solid var(--rule); padding-bottom:32px}
+.lede{font-size:17px; color:var(--ink-2); max-width:38rem}
+.facts{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px}
+.fact{display:flex; align-items:baseline; gap:7px; background:var(--card);
+  border:1px solid var(--rule); border-radius:2px; padding:7px 11px}
+.fact b{font:600 15px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-variant-numeric:tabular-nums; color:var(--accent)}
+.fact span{font-size:12px; color:var(--muted)}
+section{display:flex; flex-direction:column; gap:16px}
+.step{display:flex; flex-direction:column; gap:14px; background:var(--card);
+  border:1px solid var(--rule); border-radius:3px; padding:24px}
+.step-head{display:flex; align-items:center; gap:13px}
+.num{flex:none; width:26px; height:26px; display:grid; place-items:center;
+  background:var(--accent); color:var(--paper); border-radius:2px;
+  font:600 13px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-variant-numeric:tabular-nums}
+pre{margin:0; background:var(--term-bg); color:var(--term-ink); border-radius:3px;
+  padding:15px 17px; overflow-x:auto; font-size:13.5px; line-height:1.6;
+  border:1px solid var(--rule)}
+pre .p{color:#8FB8A0; user-select:none}
+.expect{display:flex; flex-direction:column; gap:5px; background:var(--accent-soft);
+  border-left:2px solid var(--accent); border-radius:0 2px 2px 0; padding:12px 15px}
+.expect .eyebrow{color:var(--accent)}
+.expect p{font-size:14.5px; color:var(--ink-2)}
+.note{font-size:14.5px; color:var(--muted)}
+.trouble{display:flex; flex-direction:column; gap:0; border:1px solid var(--rule);
+  border-radius:3px; overflow:hidden; background:var(--card)}
+.tr{display:flex; flex-direction:column; gap:6px; padding:16px 18px}
+.tr + .tr{border-top:1px solid var(--rule)}
+.tr h3{color:var(--warn); font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:13px; font-weight:600}
+.tr p{font-size:14.5px; color:var(--ink-2)}
+.scroll{overflow-x:auto; border:1px solid var(--rule); border-radius:3px; background:var(--card)}
+table{border-collapse:collapse; width:100%; font-size:14px; min-width:34rem}
+th,td{text-align:left; padding:10px 14px; border-bottom:1px solid var(--rule); vertical-align:top}
+th{font:600 10.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted); white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.n,td.num-cell{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-variant-numeric:tabular-nums; white-space:nowrap; color:var(--muted)}
+td.title{color:var(--ink)}
+.flaw{display:inline-block; margin-top:3px; font-size:12px; color:var(--warn)}
+footer{border-top:1px solid var(--rule); padding-top:28px; display:flex;
+  flex-direction:column; gap:10px; color:var(--muted); font-size:14.5px}
+a{color:var(--accent)}
+@media (prefers-reduced-motion:no-preference){.step{transition:border-color .15s}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Milltown Archive &middot; Batch 1</p>
+  <h1>Getting Batch&nbsp;1 onto Crosslist</h1>
+  <p class="lede">Two files go up together: the listing data, and a zip of the photos.
+  The data file is finished and attached in the chat. This page covers making the zip
+  and doing the upload.</p>
+  <div class="facts">
+    <div class="fact"><b>15</b><span>items</span></div>
+    <div class="fact"><b>170</b><span>photos</span></div>
+    <div class="fact"><b>£200.85</b><span>listed value</span></div>
+  </div>
+</header>
+
+<section>
+  <h2>The two files</h2>
+  <div class="scroll">
+    <table>
+      <tr><th>File</th><th>What it is</th><th>Where it comes from</th></tr>
+      <tr><td class="n">listings.csv</td><td>All 15 listings — titles, prices, descriptions, photo names</td><td>Attached in the chat. Save it, don't open and re-save it.</td></tr>
+      <tr><td class="n">images.zip</td><td>The 170 photos, renamed to match</td><td>You make it in Step 2 — it's too big to send.</td></tr>
+    </table>
+  </div>
+  <p class="note">Crosslist matches them by filename. <code>listings.csv</code> says a listing
+  uses <code>011_1.jpg</code>, and that exact file has to be in the zip. Both are built from the
+  same list, so they already agree — nothing to check.</p>
+</section>
+
+<section>
+  <h2>Four steps</h2>
+
+  <div class="step">
+    <div class="step-head"><div class="num">1</div><h3>Put everything in Downloads</h3></div>
+    <p>Your <b>Downloads</b> folder needs these four things sitting side by side.
+    Not in sub-folders — loose, together.</p>
+    <pre><span class="p">Downloads/</span>
+  Batch 1          <span class="p">← the folder of photos</span>
+  listings.csv     <span class="p">← attached in the chat</span>
+  items.csv        <span class="p">← attached in the chat</span>
+  mapping.csv      <span class="p">← attached in the chat</span></pre>
+    <p class="note">If you saved any of them somewhere else, drag them into Downloads now.
+    That mismatch is the single most likely thing to stop the next step working.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><div class="num">2</div><h3>Make the zip</h3></div>
+    <p>Open <b>Terminal</b> — press <kbd>⌘</kbd> and the spacebar together, type
+    <code>terminal</code>, press Enter. Paste this in and press Enter:</p>
+    <pre>cd ~/Downloads &amp;&amp; python3 build.py "Batch 1"</pre>
+    <div class="expect">
+      <p class="eyebrow">You should see</p>
+      <p><code>listings.csv 15 items</code> and <code>images.zip 170 photos</code>,
+      then a Finder window opens showing a <b>build</b> folder.</p>
+    </div>
+    <p class="note">Takes a minute or so. If it says the zip is over 100&nbsp;MB and the
+    upload later refuses it, run the same line again with
+    <code>--max-px=1600</code> on the end — that shrinks the photos, which the
+    selling sites do anyway.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><div class="num">3</div><h3>Check the build folder</h3></div>
+    <p>Inside <b>build</b> you want exactly two things:</p>
+    <pre><span class="p">build/</span>
+  listings.csv
+  images.zip</pre>
+    <p class="note">There's also an <code>images</code> folder — that's the working copy,
+    ignore it. Don't unzip <code>images.zip</code> to check it. Crosslist needs it zipped,
+    and unzipping is how people end up uploading the folder by mistake.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><div class="num">4</div><h3>Upload both to Crosslist</h3></div>
+    <p>In Crosslist, find the <b>bulk import</b> or <b>CSV import</b> — the same place
+    the template spreadsheet came from. Give it both files in the one import:
+    <code>listings.csv</code> first, then <code>images.zip</code>.</p>
+    <p class="note">Don't upload the CSV on its own and add photos after. The whole point
+    of the filenames is that Crosslist attaches them for you.</p>
+    <div class="expect">
+      <p class="eyebrow">You should see</p>
+      <p>15 draft listings, each with its photos already attached in order —
+      front, back, close-ups, then any flaw shots last.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>If something goes wrong</h2>
+  <div class="trouble">
+    <div class="tr">
+      <h3>items.csv is not in this folder</h3>
+      <p>One of the three CSV files isn't in Downloads. Find it and drag it in, then run Step 2 again.</p>
+    </div>
+    <div class="tr">
+      <h3>No such file or directory</h3>
+      <p>The photo folder isn't called exactly <code>Batch 1</code>. Type
+      <code>cd ~/Downloads &amp;&amp; python3 build.py </code> with a space at the end, then drag the
+      folder from Finder straight into the Terminal window — it fills in the name correctly.</p>
+    </div>
+    <div class="tr">
+      <h3>MISSING: 12 photos</h3>
+      <p>Some photos have been moved or renamed since the batch was read. Send me the list it prints
+      and I'll re-do the mapping around them.</p>
+    </div>
+    <div class="tr">
+      <h3>Crosslist rejects the file</h3>
+      <p>Most likely a column it wants that's deliberately blank — shipping weight is the usual one.
+      Paste the exact error to me; it's a quick fix and you re-download one file.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>What's going up</h2>
+  <p class="note">Five items carry a flaw note in the description. The other ten are recorded as clean.</p>
+  <div class="scroll">
+    <table>
+      <tr><th>#</th><th>Listing</th><th>Photos</th><th>Price</th></tr>
+      <tr><td class="n">1</td><td class="title">Skinny Minnie Top Tunic Long Sleeve Y2K Floral Black Cream Womens Large</td><td class="num-cell">12</td><td class="num-cell">£9.99</td></tr>
+      <tr><td class="n">2</td><td class="title">Ralph Lauren Polo Shirt Striped Navy White Short Sleeve Vintage Mens XXL</td><td class="num-cell">9</td><td class="num-cell">£14.99</td></tr>
+      <tr><td class="n">3</td><td class="title">Ralph Lauren Polo Shirt Tartan Check Plaid Green Navy Vintage Mens Small<br><span class="flaw">Labels cut.</span></td><td class="num-cell">10</td><td class="num-cell">£14.99</td></tr>
+      <tr><td class="n">4</td><td class="title">Ralph Lauren Polo Shirt Womens Black Short Sleeve Slim Fit Large</td><td class="num-cell">10</td><td class="num-cell">£12.99</td></tr>
+      <tr><td class="n">5</td><td class="title">Fredericks of Hollywood Corset Basque Bustier Red Black Lace Vintage 36</td><td class="num-cell">9</td><td class="num-cell">£12.99</td></tr>
+      <tr><td class="n">6</td><td class="title">Avon Fashions Bustier Corset Bra Top Black Lace Vintage Small</td><td class="num-cell">8</td><td class="num-cell">£8.99</td></tr>
+      <tr><td class="n">7</td><td class="title">Ralph Lauren Polo Shirt Womens Navy Blue Short Sleeve Medium 10 12</td><td class="num-cell">11</td><td class="num-cell">£12.99</td></tr>
+      <tr><td class="n">8</td><td class="title">Nike Track Jacket Hooded Windbreaker Green Track Field Vintage Mens Large</td><td class="num-cell">14</td><td class="num-cell">£24.99</td></tr>
+      <tr><td class="n">9</td><td class="title">Harley Davidson Hoodie Zip Up Sweatshirt Cardigan White Pink Womens Medium</td><td class="num-cell">13</td><td class="num-cell">£14.99</td></tr>
+      <tr><td class="n">10</td><td class="title">Ralph Lauren Polo Shirt Big Pony Navy Blue Orange Womens XL<br><span class="flaw">One small discrepancy on the front (see images).</span></td><td class="num-cell">11</td><td class="num-cell">£9.99</td></tr>
+      <tr><td class="n">11</td><td class="title">Nike Track Jacket Windbreaker Black Navy Yellow Swoosh Vintage Mens XL<br><span class="flaw">White marks on right sleeve (see images).</span></td><td class="num-cell">16</td><td class="num-cell">£14.99</td></tr>
+      <tr><td class="n">12</td><td class="title">Ralph Lauren Polo Shirt Green Orange Big Pony Vintage Mens XXL<br><span class="flaw">Discrepancies on the front.</span></td><td class="num-cell">11</td><td class="num-cell">£9.99</td></tr>
+      <tr><td class="n">13</td><td class="title">Lacoste Polo Shirt Light Green Short Sleeve Croc Logo Vintage Mens UK Small<br><span class="flaw">Discrepancies on the front (see images).</span></td><td class="num-cell">12</td><td class="num-cell">£9.99</td></tr>
+      <tr><td class="n">14</td><td class="title">Lacoste Polo Shirt Dark Green Slim Fit Croc Logo Mens UK Large</td><td class="num-cell">12</td><td class="num-cell">£12.99</td></tr>
+      <tr><td class="n">15</td><td class="title">Ralph Lauren Polo Shirt Turquoise Green Short Sleeve Vintage Mens Large</td><td class="num-cell">12</td><td class="num-cell">£14.99</td></tr>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <p><b>Next batch is shorter.</b> Photograph with number cards as usual, run
+  <code>prepare.py</code>, send me the PDF. The mapping, titles, descriptions and CSV
+  come back done.</p>
+  <p>Two things worth adding to the routine: photograph the inside composition tag so the
+  material line can state real percentages, and dictate pit-to-pit and length into the
+  voice note so the measurements come back into the descriptions.</p>
+</footer>
+
+</div>
