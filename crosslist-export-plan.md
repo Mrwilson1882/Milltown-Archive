@@ -230,6 +230,40 @@ The script sorts by the band order above, then writes `photo_index`. If a batch
 has no `front` shot, or more than one, that is worth surfacing rather than
 silently ordering around it.
 
+## Listing copy
+
+Owner's house format, taken from three of his own live listings:
+
+```
+{Condition}
+Size: {size} (Measurements provided on the images and below)
+Era: {era}
+
+🧵Material: {material}
+🚚 Quick Delivery
+📦 Guaranteed Authenticity With Milltown Archive
+
+Pit to Pit: {x}"
+Length: {y}"
+
+Item Description: {era} {style} {brand} {colour} {garment} with {details}. {Second sentence on construction or styling}.
+```
+
+Measurements are deferred by the owner (14 Aug) and will be dictated in future
+voice notes. Until they exist, the Pit to Pit and Length lines are **omitted
+entirely** rather than printed empty, and the size line drops "and below" so it
+does not promise figures that are not there. Both come back automatically once
+measurements are recorded.
+
+**Titles** are written for Vinted's search, not for elegance: brand first, then
+stacked garment synonyms (`Jumper Cardigan Zip Up`), then fit, colour and size.
+Crosslist permits 255 characters but Vinted truncates around 100, so titles are
+kept under 80.
+
+**Era** is estimated by Claude. The estimates in `items.csv` are provisional and
+based on silhouette, logo treatment and construction only — the neck labels are
+the real dating evidence and have not been read yet. See open questions.
+
 ## Audit of the existing 15 items
 
 What would actually export cleanly today, if photos existed.
@@ -279,6 +313,8 @@ number-card photos — all recorded in Decisions above. Still outstanding:
    type is unknown. Colour is blank too.
 3. **Items 5 and 6** — both bralettes need a band-and-cup size measured off the
    garment. See the note under Decisions.
+   Brands are now known from the photos: item 5 is Frederick's of Hollywood,
+   item 6 is Avon Fashions. Both were blank in the ledger.
 4. **Item 7, `Medium (10-12)`** — three possible ids: letter `M`, UK 10, or
    UK 12. Which did you mean?
 5. **Item 3, "Tartan check"** → `Multi`?
@@ -286,11 +322,13 @@ number-card photos — all recorded in Decisions above. Still outstanding:
    `Orange`, or blank?
 7. **Item 2, "Navy with pinstripes"** — `Navy` primary, but the pinstripe
    colour was never recorded.
-8. **File format** — phone photos are often `.HEIC` and Crosslist wants JPEG.
+8. **Materials in `items.csv` are inferred** from the photographs, not read off
+   a care label. Cotton piqué for the polos is near-certain; the corsets and
+   jackets are less so. Owner to confirm.
+9. **Item 4's label reads XL** while `inventory.csv` records Large Women's.
+10. **File format** — phone photos are often `.HEIC` and Crosslist wants JPEG.
    Proposal is to convert on the way into `build/images/`.
-9. **Existing 15 items** — back-fill into Crosslist, or start fresh with newly
-   photographed stock?
-10. **Shipping and remaining optional columns** — weight, dimensions, Who made,
+11. **Shipping and remaining optional columns** — weight, dimensions, Who made,
     When made, Tags, Accept offers. Blank is safe; per-garment defaults would
     save editing later.
 
