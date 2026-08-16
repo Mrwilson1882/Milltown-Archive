@@ -16,8 +16,14 @@ of any new session — the chat is not persistent, these files are the memory.
 
 - **Never guess.** A field not stated in the voice note is left blank and
   flagged back to the owner. Blank means "not stated", never "none".
-- **"None"** is written in Defects only when the owner actually says there are
-  no defects.
+  **One exception, Defects only (owner's instruction, 16 Aug):** a blank
+  Defects cell is read as *no defects*. This reverses the original rule for
+  that column alone — every other field keeps "blank means not stated".
+  The consequence is that saying nothing about flaws in a voice note is now a
+  positive claim on the live listing, so the accuracy burden sits with the
+  recording rather than with a later check.
+- **"None"** in Defects means no defects, whether the owner said so outright or
+  left it unmentioned — see the Defects exception above.
 - **Price** is always written with the £ symbol, e.g. `£12.99`. Never a bare
   number, never another currency.
 - **"as you can see in the pictures"** (or any similar phrase) is recorded as
