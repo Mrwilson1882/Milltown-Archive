@@ -80,6 +80,11 @@ for it in csv.DictReader(open("items.csv")):
                 "Condition": it["condition"], "Color": it["color"],
                 "Secondary color": it["secondary_color"], "Images": "|".join(names),
                 "Quantity": it["quantity"], "SKU": it["sku"]})
+    # Any items.csv column named exactly like a Crosslist column passes straight
+    # through, so adding a field later means editing items.csv, not this script.
+    for col in COLUMNS:
+        if col in it and it[col] != "":
+            row[col] = it[col]
     rows.append([row[c] for c in COLUMNS])
 
 with open(build / "listings.csv", "w", newline="", encoding="utf-8") as f:

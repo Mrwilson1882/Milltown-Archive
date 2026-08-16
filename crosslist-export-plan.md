@@ -282,6 +282,19 @@ percentage at all**, since a percentage that was never read is a fabrication.
 Owner's instruction, 16 Aug. The `material_source` column in `items.csv` records
 which of the two applies to every row.
 
+**Listing defaults** (owner, 16 Aug), applied to every row: `Who made` is always
+`SomeoneElse`; `Smart pricing` `FALSE`; `Accept offers` `TRUE`; `Is auction`
+`FALSE`; `Smart pricing price` and `Auction starting price` left empty.
+
+**`When made`** is derived from the `era` field, but Crosslist takes a single
+bucket where the eras are ranges, so the field is necessarily more precise than
+the evidence. The mapping is anchored on the recorded evidence rather than a
+blanket midpoint: where a dateable detail sets a floor — the Big Pony launch,
+a four-button placket, SLIM FIT branding — that floor decides the bucket. The
+reasoning per item is appended to the `flags` column. `Before2007` remains
+available as a deliberate hedge for anything that should read as vintage
+without committing to a decade.
+
 **Titles** are written for Vinted's search, not for elegance: brand first, then
 stacked garment synonyms (`Jumper Cardigan Zip Up`), then fit, colour and size.
 Crosslist permits 255 characters but Vinted truncates around 100, so titles are
@@ -370,7 +383,11 @@ number-card photos — all recorded in Decisions above. Still outstanding:
     16 Aug). Large Women's it is.
 11. **File format** — phone photos are often `.HEIC` and Crosslist wants JPEG.
    Proposal is to convert on the way into `build/images/`.
-12. **Shipping and remaining optional columns** — weight, dimensions, Who made,
+12. **`Cost of Goods` and `Internal note` are still empty** — no instruction
+    given for either. Cost of Goods is the one worth filling: it is what turns
+    `pricing-notes.md` from a price ledger into a margin ledger, and margin is
+    the thing that file cannot currently see.
+13. **Shipping and remaining optional columns** — weight, dimensions, Who made,
     When made, Tags, Accept offers. Blank is safe; per-garment defaults would
     save editing later.
 
