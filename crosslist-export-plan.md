@@ -162,7 +162,10 @@ So the pipeline is split in two, both halves run locally by the owner:
    was where the owner got stuck. Pillow is still used as a fallback when `sips`
    is absent, which is only true off macOS — that path exists so the script can
    be tested here.
-2. **`crosslist/build.py`** — takes the confirmed `mapping.csv` and the
+2. **`crosslist/review.py`** — renders `mapping.csv` as a web page showing each
+   item's photos in listing order, so the mapping is checked by eye rather than
+   by reading 185 spreadsheet rows. Corrections come back as plain English.
+3. **`crosslist/build.py`** — takes the confirmed `mapping.csv` and the
    extracted item fields, renames the photos, zips them and writes
    `listings.csv`. *(Not yet written — waiting on a confirmed mapping.)*
 
@@ -175,7 +178,8 @@ On the owner's Mac, alongside the checked-out repo:
 ```
 crosslist/
   prepare.py             stage 1 — contact sheets                (in repo)
-  build.py               stage 2 — rename, zip, CSV              (in repo)
+  review.py              stage 2 — visual check of the mapping   (in repo)
+  build.py               stage 3 — rename, zip, CSV              (in repo)
   inbox/                 raw photos, never renamed in place      (gitignored)
   prepared/              contact-sheets.pdf + manifest.csv       (gitignored)
   mapping.csv            item_no,source_filename,shot_type,photo_index  (in repo — small, and worth versioning)
