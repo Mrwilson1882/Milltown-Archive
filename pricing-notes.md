@@ -35,14 +35,14 @@ Treat that as a permanent caveat, not a gap that more rows alone will close.
 | 4 | Ralph Lauren Women's Polo Shirt | Ralph Lauren | Large Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £12.99 |
 | 5 | Women's Bralette | *(none given)* | 36 | Very good | None | VWM - Women's Summer Mix | £12.99 |
 | 6 | Women's Bralette | *(none given)* | Small | Very good | None | VWM - Women's Y2K Mix | £8.99 |
-| 7 | Ralph Lauren Women's Polo | Ralph Lauren | Medium (10-12) | Very good | *(not stated)* | VWM - Women's Y2K Mix | *(awaiting owner)* |
+| 7 | Ralph Lauren Women's Polo | Ralph Lauren | Medium (10-12) | Very good | *(not stated)* | VWM - Women's Y2K Mix | £12.99 |
 | 8 | Nike Track Jacket | Nike | Large (oversized fit) | Very good | *(not stated)* | VWM - Track Jacket | £24.99 |
-| 9 | Harley Davidson Women's Cardigan | Harley Davidson | *(not stated)* | Very good | None | VWM - Women's Y2K Mix | £14.99 |
+| 9 | Harley Davidson Women's Cardigan | Harley Davidson | Medium | Very good | None | VWM - Women's Y2K Mix | £14.99 |
 | 10 | Ralph Lauren Women's Polo | Ralph Lauren | XL Women's | Very good vintage | Small discrepancy on front | VWM - RL Lacoste Polos | £9.99 |
-| 11 | Nike Track Jacket | Nike | XL | Very good vintage | White marks on right sleeve | VWM - Track Jacket | *(awaiting owner)* |
+| 11 | Nike Track Jacket | Nike | XL | Very good vintage | White marks on right sleeve | VWM - Track Jacket | £14.99 |
 | 12 | Ralph Lauren Polo | Ralph Lauren | XXL Men's | Good | Discrepancies on front | VWM - RL Lacoste Polos | £9.99 |
 | 13 | Lacoste Polo | Lacoste | UK Small | Good | Discrepancies on front | VWM - RL Lacoste Polos | £9.99 |
-| 14 | Lacoste Polo | Lacoste | UK Large | Very good vintage | None | VWM - RL Lacoste Polos | £14.99 *(owner stated £12.99 then £14.99 — awaiting confirmation)* |
+| 14 | Lacoste Polo | Lacoste | UK Large | Very good vintage | None | VWM - RL Lacoste Polos | £12.99 |
 | 15 | Ralph Lauren Polo | Ralph Lauren | Large | Very good | *(not stated)* | VWM - RL Lacoste Polos | £14.99 |
 
 ## Raw observations
@@ -79,11 +79,14 @@ entries — suggestions are suspended.
 |------|-----------|--------|-------|
 | 6 | £12.99 | £8.99 | −£4.00 too high |
 | 10 | £12.99 | £9.99 | −£3.00 too high |
-| 7 | £12.99 | *(never priced by owner)* | — |
-| 11 | £21.99 | *(never priced by owner)* | — |
+| 7 | £12.99 | £12.99 | correct |
+| 11 | £21.99 | £14.99 | **−£7.00 too high** |
 
-Two of two resolved suggestions were too high, both because they leaned on
-brand and product-type matching while missing defects and desirability.
+One of four landed. The item 11 miss is the instructive one: the suggestion
+assumed a flat £3.00 defect deduction carried over from a £12.99 polo, and
+the owner actually took £10.00 off a £24.99 jacket. Deductions are clearly
+not flat, and extrapolating one item's arithmetic onto a different garment
+type was exactly the over-fitting the owner called out.
 
 ## Revisit
 
