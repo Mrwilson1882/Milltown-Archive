@@ -170,6 +170,16 @@ So the pipeline is split in two, both halves run locally by the owner:
    15 rows, 33 columns, 170 photos, and the `Images` column verified to match
    the zip contents exactly in both directions.
 
+   The zip is written **flat**, every file at the root with no containing
+   folder, because a nested directory turns each entry into `images/001_1.jpg`
+   and stops it matching the `Images` column. Verified: no `/` in any entry.
+
+   `--max-px=1600` optionally downscales on the way in. At roughly 1.26 MB per
+   photo the full-size zip lands near 215 MB, and JPEGs do not compress further
+   inside a zip, so the flag exists for when that upload proves too slow or is
+   refused. Marketplaces re-encode uploads anyway. sips does the work on macOS,
+   Pillow off it.
+
 Neither script modifies the source folder. `prepare.py` only ever reads it.
 
 ## Proposed folder structure

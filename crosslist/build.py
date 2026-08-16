@@ -15,6 +15,25 @@ cannot disagree. Source photos are only ever read. Standard library only.
 import csv, shutil, subprocess, sys, zipfile
 from pathlib import Path
 
+def copy_photo(src, dest, max_px):
+    """Copy a photo, optionally downscaling its long edge to max_px."""
+    if not max_px:
+        shutil.copy2(src, dest); return
+    if shutil.which("sips"):        # built into macOS, no dependency
+        r = subprocess.run(["sips", "-s", "format", "jpeg", "-s", "formatOptions", "80",
+                            "-Z", str(max_px), str(src), "--out", str(dest)],
+                           capture_output=True)
+        if r.returncode == 0 and dest.exists():
+            return
+    try:                            # fallback, used off macOS
+        from PIL import Image, ImageOps
+        with Image.open(src) as im:
+            im = ImageOps.exif_transpose(im).convert("RGB")
+            im.thumbnail((max_px, max_px))
+            im.save(dest, "JPEG", quality=80, optimize=True)
+    except Exception:
+        shutil.copy2(src, dest)
+
 COLUMNS = ["Id","Title","Description","Price","Original Price","Brand","Category id","Size id",
 "Condition","Color","Secondary color","Images","Quantity","Shipping weight","Shipping weight unit",
 "Shipping height","Shipping width","Shipping length","Domestic shipping price",
@@ -22,7 +41,9 @@ COLUMNS = ["Id","Title","Description","Price","Original Price","Brand","Category
 "Who made","When made","Smart pricing","Smart pricing price","Accept offers","Is auction",
 "Auction starting price","Cost of Goods","Internal note"]
 
-inbox = Path(sys.argv[1] if len(sys.argv) > 1 else "Batch 1")
+args = [a for a in sys.argv[1:] if not a.startswith("--")]
+inbox = Path(args[0] if args else "Batch 1")
+max_px = next((int(a.split("=")[1]) for a in sys.argv if a.startswith("--max-px=")), 0)
 for f in ("items.csv", "mapping.csv"):
     if not Path(f).exists():
         sys.exit(f"{f} is not in this folder. Put it here and try again.")
@@ -47,7 +68,7 @@ for it in csv.DictReader(open("items.csv")):
         if not s.exists():
             missing.append(src); continue
         dest = f"{n}_{idx}.jpg"
-        shutil.copy2(s, images / dest)
+        copy_photo(s, images / dest, max_px)
         names.append(dest)
 
     if not it["size_id"]:
@@ -71,7 +92,10 @@ with zipfile.ZipFile(build / "images.zip", "w", zipfile.ZIP_DEFLATED) as z:
 total = sum(1 for _ in images.iterdir())
 print(f"\nbuild/listings.csv   {len(rows)} items")
 print(f"build/images/        {total} photos")
-print(f"build/images.zip     {(build / 'images.zip').stat().st_size // 1_000_000} MB")
+size_mb = (build / "images.zip").stat().st_size / 1_000_000
+print(f"build/images.zip     {size_mb:.0f} MB" + (f"  (resized to {max_px}px)" if max_px else ""))
+if not max_px and size_mb > 100:
+    print("  Large. If Crosslist baulks, re-run with --max-px=1600")
 if missing:
     print(f"\nMISSING from {inbox}: {len(missing)} photos - {', '.join(missing[:5])}")
 if blocked:
