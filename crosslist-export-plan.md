@@ -170,6 +170,13 @@ So the pipeline is split in two, both halves run locally by the owner:
    15 rows, 33 columns, 170 photos, and the `Images` column verified to match
    the zip contents exactly in both directions.
 
+   Cover photos are the highest-value thing this mapping decides and the easiest
+   to get wrong: item 11 shipped with its back as the cover, because a flat-lay
+   back and front look alike at thumbnail size. The reliable test on these
+   garments is whether a centre zip, placket or logo is visible — no zip, no
+   placket, no logo means it is the back. Rows still marked `unconfirmed` are
+   where this class of error would live.
+
    The zip is written **flat**, every file at the root with no containing
    folder, because a nested directory turns each entry into `images/001_1.jpg`
    and stops it matching the `Images` column. Verified: no `/` in any entry.
@@ -327,6 +334,14 @@ style terms buyers actually search (`going out top`, `coach jacket`, `preppy`,
 `y2k`). Ten to thirteen per item. They repeat words already in the title on
 purpose — title and tags are separate indexes on Vinted, and a term missing
 from either is a search the listing cannot answer.
+
+**`Internal note`** carries the platform attributes Crosslist collects in its UI
+rather than in the CSV, so the owner can see what to select without re-examining
+the garment: `Department` and `Style` on every item, plus the conditional ones —
+`Outer Shell Material` for windbreakers, `Neckline` for cardigans and
+sweatshirts, `Sleeve length` for women's polos. Six items carry a conditional.
+Values are drawn from the voice notes where stated and from the photographs
+otherwise; the shell materials are estimates and say so, per the material rule.
 
 **Titles** are written for Vinted's search, not for elegance: brand first, then
 stacked garment synonyms (`Jumper Cardigan Zip Up`), then fit, colour and size.

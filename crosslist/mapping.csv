@@ -116,10 +116,10 @@ item_no,source_filename,shot_type,photo_index,notes
 010,IMG_0096-Photoroom.JPG,measure,10,
 010,IMG_0097-Photoroom.JPG,measure,11,
 010,IMG_0090.HEIC,card,,number card 10
-011,FullSizeRender-Photoroom 13.JPG,front,1,unconfirmed
-011,FullSizeRender-Photoroom 14.JPG,front,2,unconfirmed
-011,IMG_0099-Photoroom.JPG,front,3,
-011,IMG_0111-Photoroom.JPG,front,4,
+011,FullSizeRender-Photoroom 14.JPG,front,1,unconfirmed
+011,IMG_0099-Photoroom.JPG,front,2,
+011,IMG_0111-Photoroom.JPG,front,3,
+011,FullSizeRender-Photoroom 13.JPG,back,4,"corrected 16 Aug - no centre zip, this is the back"
 011,IMG_0100-Photoroom.JPG,detail,5,
 011,IMG_0101-Photoroom.JPG,detail,6,
 011,IMG_0102-Photoroom.JPG,detail,7,
