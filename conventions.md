@@ -44,6 +44,13 @@ of any new session — the chat is not persistent, these files are the memory.
   photographed, quoted exactly as printed (`100% Cotton`). With no tag, the
   material is estimated and **stated without any percentage** — never invent a
   figure that was not read. Owner's instruction, 16 Aug.
+  **Read the tag before writing the material, not after.** Composition tags are
+  usually already in the batch but illegible on a contact sheet; pull them at
+  full resolution with `gather.py` first. Item 8 was described as "synthetic
+  shell with mesh lining" when its own photo 4 read `100% POLYESTER`.
+  A composition is a search facet buyers filter on — descriptive prose is not.
+  Fabric character belongs in the Item Description, the composition on the
+  Material line.
 - **Size discrepancies:** where a garment's label disagrees with the ledger,
   **the ledger wins.** Record the discrepancy and carry on with the ledger
   value; do not silently switch to the label. Owner's instruction, 16 Aug.

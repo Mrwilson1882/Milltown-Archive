@@ -451,7 +451,7 @@ Settled during Batch 1 and carried forward. The per-field detail is above;
 | Condition | `Very good vintage` → `VeryGood` |
 | Sizes | where a label and the ledger disagree, **the ledger wins** |
 | Defects | blank in the ledger means *no defects*; write nothing in the copy |
-| Material | quote the composition tag exactly; with no tag, estimate and give **no percentage** |
+| Material | **read the tag at full resolution first**, quote it exactly; no tag → estimate with **no percentage** |
 | Price | as dictated, never suggested |
 | Who made | always `SomeoneElse` |
 | Smart pricing / Is auction | `FALSE`; Accept offers `TRUE` |
@@ -462,7 +462,9 @@ Settled during Batch 1 and carried forward. The per-field detail is above;
 
 ### Worth adding to the shoot
 
-1. **The inside composition tag**, so material can state real percentages.
+1. **The inside composition tag** — often already shot but unreadable on the
+   contact sheet, so pull the tag photos with `gather.py` and read them before
+   writing any material.
 2. **Pit to pit and length dictated into the voice note**, so the measurement
    lines return to the description.
 3. **Menswear or womenswear said out loud** — it blocks Category id and Size id
