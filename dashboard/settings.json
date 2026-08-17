@@ -1,0 +1,20 @@
+{
+  "_comment": "The estimator's adjustable variables. These are the file defaults; the sliders in the dashboard override them per-browser without touching this file. Edit here to change the starting point for everyone.",
+
+  "sell_through_rate": 0.20,
+  "_sell_through_rate": "Share of uploaded stock assumed to sell. 0.20 = one in five.",
+
+  "markup": 1.00,
+  "_markup": "Markup on cost price. 1.00 = 100%, i.e. you roughly double your money, so profit is markup / (1 + markup) = 50% of the sale price. The dashboard shows both figures.",
+
+  "average_item_value": null,
+  "_average_item_value": "Expected sale price per item. null means 'use the mean of the prices in crosslist/items.csv', recalculated on every build. Set a number here to override it.",
+
+  "monthly_profit_target": 500,
+  "_monthly_profit_target": "The target the 'upload X more items' prompt is measured against.",
+
+  "pace_window_days": 0,
+  "_pace_window_days": "Days used to work out the current upload pace. 0 means 'since your first logged upload'. Set e.g. 30 for a rolling 30-day window once there is more history.",
+
+  "currency": "£"
+}
