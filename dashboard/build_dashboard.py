@@ -17,6 +17,14 @@ Reads, never writes, the pipeline files:
   crosslist/batch-log.csv       optional. Overrides the upload date for a batch
                                 when the export went out on a different day
                                 from the day the items were logged.
+  crosslist/store-export.csv    optional. The whole-store listings export: every
+                                listing, its created date, its Last Listed, and a
+                                sold date where there is one. Found by its columns
+                                rather than its name, so any filename works.
+                                Live = has a Last Listed and no sold date.
+                                Its PRICES ARE NEVER READ — a listing price is not
+                                a sold price, so no pricing statistic comes from
+                                it. Value always uses the items.csv average.
 
 Writes  dashboard/dashboard.html  — one self-contained file, data baked in, so
 it opens by double-clicking with no server and no internet.
@@ -107,6 +115,15 @@ def load_settings():
     return defaults
 
 
+def build_setting(name, default):
+    """Build-time only settings — not passed to the page, so no slider for them."""
+    if SETTINGS.exists():
+        raw = json.loads(SETTINGS.read_text(encoding="utf-8"))
+        if name in raw:
+            return raw[name]
+    return default
+
+
 def batch_files():
     """crosslist/items.csv first, then any per-batch folders, in path order."""
     found = []
@@ -115,6 +132,81 @@ def batch_files():
         found.append(main)
     found.extend(sorted((ROOT / "crosslist" / "batches").glob("*/items.csv")))
     return found
+
+
+# ── the store export ─────────────────────────────────────────────────────────
+# A whole-store listings export: every listing, when it was created, when it was
+# last listed, and a sold date where one exists. It is found by its columns
+# rather than by its filename, so it can be dropped in under any name.
+#
+# Its prices are deliberately never read. Owner's instruction: the listing price
+# is not the sold price, so no pricing statistic on the dashboard comes from
+# this file. Value is always the average item value from crosslist/items.csv.
+
+PIPELINE_CSVS = {"items.csv", "listings.csv", "mapping.csv", "cost-rates.csv",
+                 "batch-log.csv", "inventory.csv"}
+
+COLUMN_ALIASES = {
+    "created":     ("date created", "created", "created at", "created date",
+                    "date listed", "first listed", "listed date", "date added"),
+    "last_listed": ("last listed", "last listed at", "last listed date",
+                    "relisted", "date last listed"),
+    "sold":        ("sold date", "date sold", "sold at", "sold on", "sold"),
+    "title":       ("title", "name", "product name", "item"),
+}
+
+
+def norm(text):
+    return re.sub(r"[^a-z0-9]", "", (text or "").lower())
+
+
+def pick_column(fieldnames, key):
+    """Match a column by any of its known spellings, ignoring case and spacing."""
+    wanted = [norm(a) for a in COLUMN_ALIASES[key]]
+    available = {norm(f): f for f in fieldnames if f}
+    for want in wanted:                       # exact match on the normalised name
+        if want in available:
+            return available[want]
+    for want in wanted:                       # then a contained match
+        for got_norm, got in available.items():
+            if want and want in got_norm:
+                return got
+    return None
+
+
+def find_store_export():
+    """crosslist/store-export.csv by name, else any CSV carrying a Last Listed."""
+    named = [ROOT / "crosslist" / "store-export.csv", ROOT / "store-export.csv"]
+    for path in named:
+        if path.exists():
+            return path
+    candidates = sorted((ROOT / "crosslist").glob("*.csv")) + sorted(ROOT.glob("*.csv"))
+    for path in candidates:
+        if path.name in PIPELINE_CSVS:
+            continue
+        try:
+            with path.open(newline="", encoding="utf-8-sig") as fh:
+                header = next(csv.reader(fh), [])
+        except (OSError, UnicodeDecodeError):
+            continue
+        if pick_column(header, "last_listed"):
+            return path
+    return None
+
+
+def date_only(value):
+    """'2026-06-22 19:38:03' → '2026-06-22'. Returns None rather than guessing."""
+    text = (value or "").strip()
+    if not text:
+        return None
+    iso = re.match(r"^(\d{4})-(\d{2})-(\d{2})", text)
+    if iso:
+        return "-".join(iso.groups())
+    uk = re.match(r"^(\d{1,2})[/.](\d{1,2})[/.](\d{4})", text)     # 22/06/2026
+    if uk:
+        day, month, year = uk.groups()
+        return year + "-" + month.zfill(2) + "-" + day.zfill(2)
+    return None
 
 
 def main():
@@ -238,6 +330,69 @@ def main():
     for bucket in list(days.values()) + [undated]:
         bucket["value"] = round(bucket["value"], 2)
 
+    # ── the whole-store export: uploads for everything past the first batch,
+    #    and the live / sold status that exists nowhere else ───────────────────
+    skip_rows = build_setting("export_skip_rows", 15)
+    stock = {"live": 0, "sold": 0, "not_live": 0, "rows": 0, "counted_uploads": 0,
+             "skipped": 0, "has_export": False, "path": None}
+
+    export_path = find_store_export()
+    if export_path is not None:
+        export_rows, _ = read_csv(export_path)
+        rel = str(export_path.relative_to(ROOT))
+        stock.update({"has_export": True, "path": rel, "rows": len(export_rows),
+                      "skipped": min(skip_rows, len(export_rows))})
+        note_source(export_path, export_rows, True,
+                    "whole-store export — live/sold status, and uploads past the first batch")
+
+        fields = list(export_rows[0].keys()) if export_rows else []
+        col_created = pick_column(fields, "created")
+        col_listed = pick_column(fields, "last_listed")
+        col_sold = pick_column(fields, "sold")
+
+        for key, col in (("date created", col_created), ("last listed", col_listed),
+                         ("sold date", col_sold)):
+            if col is None:
+                flags.append("No '" + key + "' column found in " + rel +
+                             ". Columns read: " + ", ".join(f for f in fields if f) + ".")
+
+        undated_export = 0
+        for index, row in enumerate(export_rows):
+            # Status is read from every row, including the first 15 — this file is
+            # the only place live/sold is recorded. Only the *uploads* are skipped,
+            # so the first batch is not counted twice.
+            sold_on = date_only(row.get(col_sold, "")) if col_sold else None
+            listed_on = (row.get(col_listed, "") or "").strip() if col_listed else ""
+            if sold_on:
+                stock["sold"] += 1
+            elif listed_on:
+                stock["live"] += 1
+            else:
+                stock["not_live"] += 1
+
+            if index < skip_rows:
+                continue
+
+            when = date_only(row.get(col_created, "")) if col_created else None
+            if when is None:
+                undated_export += 1
+                continue
+            bucket = days.setdefault(when, {"uploads": 0, "value": 0.0})
+            bucket["uploads"] += 1
+            stock["counted_uploads"] += 1
+
+        if undated_export:
+            flags.append(str(undated_export) + " row(s) in " + rel + " have no readable "
+                         "created date, so they are not on the calendar. Everything else "
+                         "from that file is.")
+        if stock["rows"] <= skip_rows:
+            flags.append(rel + " has " + str(stock["rows"]) + " rows, which is not more "
+                         "than the " + str(skip_rows) + " first-batch rows being skipped. "
+                         "No new uploads were taken from it.")
+    else:
+        # No export yet: the first batch is all there is, and it is all live.
+        stock["live"] = len(uploads)
+
     # ── derived figures ──────────────────────────────────────────────────────
     prices = [v["price"] for v in uploads.values() if v["price"] is not None]
     avg_price = round(sum(prices) / len(prices), 2) if prices else 0.0
@@ -276,6 +431,7 @@ def main():
             "implied_markup": round(implied_markup, 4),
             "implied_profit_share": round(implied_share, 4),
         },
+        "stock": stock,
         "sources": sources,
         "flags": flags,
     }
@@ -299,6 +455,14 @@ def main():
         print("  markup implied by your cost data: "
               + format(implied_markup * 100, ".1f") + "% "
               + "(a " + format(implied_share * 100, ".1f") + "% profit share)")
+    if stock["has_export"]:
+        print("  store export " + stock["path"] + ": " + str(stock["rows"]) + " rows — "
+              + str(stock["live"]) + " live, " + str(stock["sold"]) + " sold, "
+              + str(stock["not_live"]) + " not live; " + str(stock["counted_uploads"])
+              + " counted as uploads (first " + str(stock["skipped"]) + " skipped)")
+    else:
+        print("  store export: none found. Commit it as crosslist/store-export.csv "
+              "(any name works if it has a 'Last Listed' column) to get live stock.")
     print("  " + logo_note)
     for flag in flags:
         print("  ! " + flag)

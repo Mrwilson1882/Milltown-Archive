@@ -32,6 +32,7 @@ processed batch:
 | `crosslist/cost-rates.csv` | bundle cost prices — used only to check the markup assumption |
 | `crosslist/listings.csv` | row count, as a cross-check that the export matches the batch |
 | `crosslist/batch-log.csv` | *optional* — see below |
+| `crosslist/store-export.csv` | *optional* — live/sold status, and uploads past the first batch |
 | `dashboard/logo.*` | *optional* — the brand mark, inlined into the masthead |
 
 The two are joined on item number, so `001` in the batch is item `1` in the ledger.
@@ -85,6 +86,46 @@ assumed 50%. The dashboard recomputes that check on every build and prints it.
 `settings.json` also holds `monthly_profit_target` (what the "upload X more items"
 prompt is measured against) and `pace_window_days` (`0` = measure pace since your
 first logged upload; set `30` for a rolling month once there is more history).
+
+## The store export, and "All stock live"
+
+Commit the whole-store listings export and the dashboard picks up live stock,
+sold counts, and every upload past the first batch:
+
+```
+crosslist/store-export.csv
+```
+
+**Any filename works.** The build finds it by its columns, not its name — any CSV
+in the repo root or `crosslist/` carrying a `Last Listed` column is taken as the
+export. Column spellings are matched loosely (`Date Created`, `date_created`,
+`Created At` all resolve), and the build prints which columns it matched, so a
+mismatch shows up immediately rather than silently zeroing a number.
+
+| Status | Rule |
+|---|---|
+| **Live** | has a `Last Listed` date and **no** sold date |
+| **Sold** | has a sold date |
+| **Not currently live** | neither — listed once, never relisted, never sold |
+
+**All stock live** is `live listings × average item value` — what the shop window
+is listed at.
+
+### No pricing comes out of this file
+
+Owner's instruction, and the build enforces it: a listing price is not a sold
+price, so **no price column in the export is read at all**. The average item
+value stays the mean of the 15 priced rows in `crosslist/items.csv`, and sold
+items are counted but never valued. Adding 500 export rows will not move the
+average by a penny.
+
+### The first 15 rows
+
+`export_skip_rows` (default 15) is how many rows at the top are the first batch,
+already counted from `crosslist/items.csv`. Those rows are **not re-counted as
+uploads** — but their live/sold status *is* read, because the export is the only
+place status is recorded. Everything from row 16 down becomes an upload dated by
+its created date.
 
 ## Break-even
 

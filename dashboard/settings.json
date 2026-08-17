@@ -19,6 +19,9 @@
   "break_even_days": 90,
   "_break_even_days": "The deadline the planner works its uploads-per-day figure back from.",
 
+  "export_skip_rows": 15,
+  "_export_skip_rows": "How many rows at the top of the store export are the first batch, already counted from crosslist/items.csv. Those rows are not re-counted as uploads, but their live/sold status IS read — that file is the only place status is recorded. Build-time only; there is no slider for it.",
+
   "rate_unit": "day",
   "_rate_unit": "Whether the planner and projection show rates per 'day' or per 'month'. Toggleable on the page; rates are held per-day internally, so switching never drifts the number.",
 

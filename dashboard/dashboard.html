@@ -460,6 +460,16 @@ p  { margin: 0; }
 .be-figure { display: flex; flex-direction: column; gap: 3px; }
 .be-figure .n { font-size: 27px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; }
 .be-figure .n.lead { font-size: 34px; color: var(--brand-ink); }
+
+/* Large, but deliberately short of the hero: the estimated-profit figure is
+   the one hero on this page, and two competing heroes read as neither. */
+.stock-figure {
+  font-size: clamp(32px, 5vw, 42px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--brand-ink);
+}
 .be-figure .k { font: 600 10.5px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
 .be-figure .s { font-size: 12.5px; color: var(--ink-2); }
 
@@ -861,6 +871,35 @@ tfoot td { font-weight: 700; border-top: 1px solid var(--border); border-bottom:
 
   <div class="tiles" id="tiles"></div>
 
+  <section class="card" aria-labelledby="stock-label">
+    <div class="meter-head">
+      <div>
+        <span class="eyebrow" id="stock-label">All stock live</span>
+        <div class="stock-figure num" id="stock-value">—</div>
+      </div>
+      <span class="chip" id="stock-chip"><span class="dot"></span><span id="stock-chip-text"></span></span>
+    </div>
+    <p class="hero-sub" id="stock-sub"></p>
+    <div class="be-grid">
+      <div class="be-figure">
+        <span class="k">Live listings</span>
+        <span class="n num" id="stock-live">—</span>
+        <span class="s">listed, with no sold date against them</span>
+      </div>
+      <div class="be-figure">
+        <span class="k">Sold</span>
+        <span class="n num" id="stock-sold">—</span>
+        <span class="s" id="stock-sold-sub"></span>
+      </div>
+      <div class="be-figure">
+        <span class="k">Not currently live</span>
+        <span class="n num" id="stock-off">—</span>
+        <span class="s">no last-listed date, and not sold</span>
+      </div>
+    </div>
+    <p class="foot-note" id="stock-note"></p>
+  </section>
+
   <section class="card" aria-labelledby="be-label">
     <span class="eyebrow" id="be-label">Break-even</span>
     <div class="meter-head">
@@ -1070,8 +1109,8 @@ tfoot td { font-weight: 700; border-top: 1px solid var(--border); border-bottom:
 <script>
 const DATA = {
  "logo": null,
- "generated_at": "2026-08-17T19:12:52+00:00",
- "generated_at_human": "17 Aug 2026, 19:12 UTC",
+ "generated_at": "2026-08-17T19:33:23+00:00",
+ "generated_at_human": "17 Aug 2026, 19:33 UTC",
  "today": "2026-08-17",
  "settings": {
   "sell_through_rate": 0.2,
@@ -1104,6 +1143,16 @@ const DATA = {
   "avg_known_cost": 6.64,
   "implied_markup": 1.0432,
   "implied_profit_share": 0.5106
+ },
+ "stock": {
+  "live": 15,
+  "sold": 0,
+  "not_live": 0,
+  "rows": 0,
+  "counted_uploads": 0,
+  "skipped": 0,
+  "has_export": false,
+  "path": null
  },
  "sources": [
   {
@@ -1306,6 +1355,7 @@ function render() {
   renderChain(e);
   renderAction(e);
   renderTiles(e);
+  renderStock();
   renderBreakEven();
   renderPlanner();
   renderPace();
@@ -1388,6 +1438,48 @@ function renderTiles(e) {
     tile("Est. profit per upload", money(profitPerUpload()),
          "<b>" + pct(S.sell_through_rate) + "</b> × <b>" + money(avgValue()) +
          "</b> × <b>" + pct(profitShare()) + "</b>");
+}
+
+/* ── live stock ────────────────────────────────────────────────────────────
+   Value is live count × the average item value from items.csv. The store
+   export's own prices are never read: a listing price is not a sold price,
+   and the owner asked for no pricing statistic to come out of that file. */
+function renderStock() {
+  const s = DATA.stock;
+  const listed = s.live * avgValue();
+
+  $("stock-value").textContent = money(listed);
+  $("stock-live").textContent = int(s.live);
+  $("stock-sold").textContent = int(s.sold);
+  $("stock-off").textContent = int(s.not_live);
+
+  $("stock-sub").textContent = int(s.live) + " live listing" + (s.live === 1 ? "" : "s") +
+    " × " + money(avgValue()) + " average item value. If they sell at " +
+    pct(S.sell_through_rate) + ", that is " +
+    money(listed * S.sell_through_rate * profitShare()) +
+    " in estimated profit still sitting in the shop window.";
+
+  const chip = $("stock-chip");
+  if (!s.has_export) {
+    chip.dataset.state = "critical";
+    $("stock-chip-text").textContent = "No store export";
+  } else {
+    chip.dataset.state = "";
+    $("stock-chip-text").textContent = int(s.rows) + " listings in the export";
+  }
+
+  $("stock-sold-sub").textContent = s.has_export
+    ? "counted, not valued — a listing price is not a sold price"
+    : "no export to read sold dates from";
+
+  $("stock-note").textContent = s.has_export
+    ? "Live and sold come from " + s.path + ": live means it has a last-listed date and " +
+      "no sold date. The first " + int(s.skipped) + " rows are not re-counted as uploads " +
+      "(they are the first batch, already in the calendar), but their status is read. " +
+      "No price in that file is used anywhere on this page."
+    : "No store export found yet, so the " + int(s.live) + " items in the first batch are " +
+      "taken as live. Commit the whole-store export as crosslist/store-export.csv — any " +
+      "filename works as long as it has a Last Listed column — and re-run the build.";
 }
 
 /* ── break-even ────────────────────────────────────────────────────────────
