@@ -10,45 +10,49 @@
 :root {
   color-scheme: light;
 
-  --brand-ink:    #1c2a4d;   /* headings, wordmark                            */
-  --brand-wash:   #eaeef7;   /* pale fill behind variable chips and the hero   */
-  --accent-ink:   #8a3f22;   /* the "do this next" callout                     */
-  --accent-wash:  #f7ece5;   /* its background                                 */
-  --plane:        #f2f3ef;   /* page ground — unbleached cotton, cool cast     */
-  --surface:      #fbfbfa;   /* card ground                                    */
+  --brand-ink:    #231f1d;   /* the logo's near-black — headings              */
+  --brand-orange: #c55d18;   /* the logo's burnt orange — rules, marks        */
+  --brand-wash:   #fbeadb;   /* pale fill behind variable chips and the hero  */
+  --accent-ink:   #8a3f0e;   /* the "do this next" callout                    */
+  --accent-wash:  #f8ddc4;   /* its background — deeper than the hero wash    */
+  --plane:        #f6e9dc;   /* page ground — the logo's cream                */
+  --surface:      #fdf8f3;   /* card ground                                   */
+  --logo-plate:   #faeee2;   /* the cream the logo is drawn on, both themes   */
 
   /* ── surfaces & ink, derived from the ground ───────────────────────────── */
-  --surface-2:    #f5f6f2;
-  --hairline:     #e3e4de;
-  --border:       rgba(20, 26, 31, 0.12);
-  --ink:          #141a1f;
-  --ink-2:        #545c66;
-  --ink-3:        #7b838d;
-  --shadow:       0 1px 2px rgba(20, 26, 31, 0.05), 0 8px 24px rgba(20, 26, 31, 0.04);
+  --surface-2:    #f7efe6;
+  --hairline:     #eae0d5;
+  --border:       rgba(35, 31, 29, 0.14);
+  --ink:          #231f1d;
+  --ink-2:        #5c544d;
+  --ink-3:        #867c73;
+  --shadow:       0 1px 2px rgba(35, 31, 29, 0.05), 0 8px 24px rgba(35, 31, 29, 0.05);
 
-  /* ── DATA RAMP — denim indigo, one hue, light→dark ─────────────────────────
+  /* ── DATA RAMP — the brand orange, one hue, light→dark ─────────────────────
      Validated with the data-viz palette validator as an ordinal ramp against
      this surface: monotone lightness, every adjacent step ≥ 0.06 ΔL, and the
-     near-surface step at 2.06:1. Do not hand-edit a step without re-running it.
+     near-surface step clearing 2:1. Do not hand-edit a step without re-running
+     it — a ramp that looks fine on a bright screen can flatten on a dim one.
      ─────────────────────────────────────────────────────────────────────── */
-  --heat-0:       #f5f6f2;
-  --heat-1:       #9db2df;
-  --heat-2:       #7c98d4;
-  --heat-3:       #3f62b0;
-  --heat-4:       #233f7d;
-  --heat-1-ink:   #141a1f;
-  --heat-2-ink:   #141a1f;
+  --heat-0:       #f7efe6;
+  --heat-1:       #e7a06b;
+  --heat-2:       #db8039;
+  --heat-3:       #c55d18;
+  --heat-4:       #8a3f0e;
+  --heat-1-ink:   #231f1d;
+  --heat-2-ink:   #231f1d;
   --heat-3-ink:   #ffffff;
   --heat-4-ink:   #ffffff;
-  --mark:         #3f62b0;   /* single-series marks: columns, meter fill       */
-  --mark-track:   #dfe5f4;   /* meter track — lighter step of the same ramp    */
+  --mark:         #c55d18;   /* single-series marks: columns, meter fill       */
+  --mark-track:   #f2dcc6;   /* meter track — lighter step of the same ramp    */
 
-  /* ── status (reserved: never used for a series, always with a label) ────── */
+  /* ── status (reserved: never used for a series, always with a label) ───────
+     Amber is deliberately absent: beside an orange data ramp a warning amber
+     reads as another step of the scale. Good, critical, or plain ink only.
+     ─────────────────────────────────────────────────────────────────────── */
   --good:         #0ca30c;
-  --warning:      #fab219;
   --critical:     #d03b3b;
   --good-ink:     #056b05;
-  --warning-ink:  #75500a;
   --critical-ink: #a32424;
 
   /* ── type ──────────────────────────────────────────────────────────────── */
@@ -59,64 +63,64 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --brand-ink:    #c5d2ee;
-    --brand-wash:   #1e2637;
-    --accent-ink:   #e8a583;
-    --accent-wash:  #2a1d17;
-    --plane:        #0f1216;
-    --surface:      #191d22;
-    --surface-2:    #20252b;
-    --hairline:     #2a2f36;
-    --border:       rgba(255, 255, 255, 0.12);
-    --ink:          #f0f2f5;
-    --ink-2:        #a7b0ba;
-    --ink-3:        #8d959f;
-    --shadow:       0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.28);
-    --heat-0:       #20252b;
-    --heat-1:       #3a5088;
-    --heat-2:       #5273b5;
-    --heat-3:       #8099d4;
-    --heat-4:       #b0c3ea;
-    --heat-1-ink:   #f0f2f5;
-    --heat-2-ink:   #f0f2f5;
-    --heat-3-ink:   #141a1f;
-    --heat-4-ink:   #141a1f;
-    --mark:         #8099d4;
-    --mark-track:   #2b3450;
+    --brand-ink:    #edaf80;
+    --brand-orange: #e08a47;
+    --brand-wash:   #2a211b;
+    --accent-ink:   #efb183;
+    --accent-wash:  #2a1d14;
+    --plane:        #14100d;
+    --surface:      #1e1916;
+    --surface-2:    #262019;
+    --hairline:     #2e2723;
+    --border:       rgba(245, 239, 233, 0.14);
+    --ink:          #f5efe9;
+    --ink-2:        #b5aba2;
+    --ink-3:        #948a80;
+    --shadow:       0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
+    --heat-0:       #262019;
+    --heat-1:       #93440f;
+    --heat-2:       #cb6019;
+    --heat-3:       #e08a47;
+    --heat-4:       #edaf80;
+    --heat-1-ink:   #f5efe9;
+    --heat-2-ink:   #231f1d;
+    --heat-3-ink:   #231f1d;
+    --heat-4-ink:   #231f1d;
+    --mark:         #e08a47;
+    --mark-track:   #3a2a1e;
     --good-ink:     #3fce3f;
-    --warning-ink:  #f0ae2b;
     --critical-ink: #f08080;
   }
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --brand-ink:    #c5d2ee;
-  --brand-wash:   #1e2637;
-  --accent-ink:   #e8a583;
-  --accent-wash:  #2a1d17;
-  --plane:        #0f1216;
-  --surface:      #191d22;
-  --surface-2:    #20252b;
-  --hairline:     #2a2f36;
-  --border:       rgba(255, 255, 255, 0.12);
-  --ink:          #f0f2f5;
-  --ink-2:        #a7b0ba;
-  --ink-3:        #8d959f;
-  --shadow:       0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.28);
-  --heat-0:       #20252b;
-  --heat-1:       #3a5088;
-  --heat-2:       #5273b5;
-  --heat-3:       #8099d4;
-  --heat-4:       #b0c3ea;
-  --heat-1-ink:   #f0f2f5;
-  --heat-2-ink:   #f0f2f5;
-  --heat-3-ink:   #141a1f;
-  --heat-4-ink:   #141a1f;
-  --mark:         #8099d4;
-  --mark-track:   #2b3450;
+  --brand-ink:    #edaf80;
+  --brand-orange: #e08a47;
+  --brand-wash:   #2a211b;
+  --accent-ink:   #efb183;
+  --accent-wash:  #2a1d14;
+  --plane:        #14100d;
+  --surface:      #1e1916;
+  --surface-2:    #262019;
+  --hairline:     #2e2723;
+  --border:       rgba(245, 239, 233, 0.14);
+  --ink:          #f5efe9;
+  --ink-2:        #b5aba2;
+  --ink-3:        #948a80;
+  --shadow:       0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
+  --heat-0:       #262019;
+  --heat-1:       #93440f;
+  --heat-2:       #cb6019;
+  --heat-3:       #e08a47;
+  --heat-4:       #edaf80;
+  --heat-1-ink:   #f5efe9;
+  --heat-2-ink:   #231f1d;
+  --heat-3-ink:   #231f1d;
+  --heat-4-ink:   #231f1d;
+  --mark:         #e08a47;
+  --mark-track:   #3a2a1e;
   --good-ink:     #3fce3f;
-  --warning-ink:  #f0ae2b;
   --critical-ink: #f08080;
 }
 
@@ -182,22 +186,46 @@ p  { margin: 0; }
   border-bottom: 1px solid var(--hairline);
 }
 
-/* Drop the logo in here: replace the whole .logo-slot element with an <img>. */
-.logo-slot {
-  width: 62px;
-  height: 62px;
+/* The logo sits on a plate of its own cream in BOTH themes, so a mark drawn
+   for a cream ground never floats as a bright block on the dark one.
+   Put the file at dashboard/logo.png (or .svg/.jpg/.webp) and rebuild — the
+   build script inlines it. Until then the dashed slot says so. */
+.brandmark {
   flex: none;
-  border: 1px dashed var(--border);
-  border-radius: 8px;
+  background: var(--logo-plate);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
   display: grid;
   place-items: center;
-  font: 600 8.5px/1 var(--mono);
-  letter-spacing: 0.1em;
-  color: var(--ink-3);
-  background: var(--surface);
+}
+
+.brandmark img { display: block; height: 76px; width: auto; max-width: 260px; }
+.brandmark img[hidden], .logo-slot[hidden] { display: none; }
+
+.logo-slot {
+  width: 116px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  gap: 3px;
+  text-align: center;
+  border: 1px dashed rgba(35, 31, 29, 0.35);
+  border-radius: 7px;
+  font: 600 8px/1.4 var(--mono);
+  letter-spacing: 0.08em;
+  color: #6b625b;
+  padding: 4px;
 }
 
 .masthead-titles { display: flex; flex-direction: column; gap: 3px; }
+
+.tagline {
+  font: 600 10px/1 var(--mono);
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--brand-orange);
+}
 .masthead-spacer { flex: 1 1 40px; }
 
 .stamp {
@@ -401,7 +429,6 @@ p  { margin: 0; }
 
 .meter-fill { height: 100%; border-radius: 6px; background: var(--mark); }
 .meter-fill[data-state="good"] { background: var(--good); }
-.meter-fill[data-state="warning"] { background: var(--warning); }
 
 .chip {
   display: inline-flex;
@@ -417,11 +444,83 @@ p  { margin: 0; }
 }
 
 .chip[data-state="good"] { color: var(--good-ink); }
-.chip[data-state="warning"] { color: var(--warning-ink); }
 .chip[data-state="critical"] { color: var(--critical-ink); }
 .chip .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: currentColor; }
 
 .meter-note { font-size: 12.5px; color: var(--ink-3); }
+
+/* ── break-even ────────────────────────────────────────────────────────────── */
+.be-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px 26px;
+  align-items: start;
+}
+
+.be-figure { display: flex; flex-direction: column; gap: 3px; }
+.be-figure .n { font-size: 27px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; }
+.be-figure .n.lead { font-size: 34px; color: var(--brand-ink); }
+.be-figure .k { font: 600 10.5px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
+.be-figure .s { font-size: 12.5px; color: var(--ink-2); }
+
+/* ── planner ───────────────────────────────────────────────────────────────── */
+.planner-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(300px, 1.25fr);
+  gap: 26px;
+}
+
+@media (max-width: 780px) { .planner-grid { grid-template-columns: 1fr; } }
+
+.planner-out {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
+  border-radius: 9px;
+  padding: 14px 16px;
+}
+
+.planner-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+
+.planner-line b { font: 650 15px/1 var(--sans); color: var(--ink); font-variant-numeric: tabular-nums; }
+.planner-line.lead b { font-size: 21px; color: var(--brand-ink); }
+
+.solve {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.solve-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 16px;
+  align-items: baseline;
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.solve-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.solve-row .goal { font: 600 13.5px/1.4 var(--sans); }
+.solve-row .why { grid-column: 1 / -1; font-size: 12px; color: var(--ink-3); }
+
+.solve-row .need {
+  font: 700 21px/1 var(--sans);
+  color: var(--brand-ink);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.solve-row .need small { font: 500 11.5px/1 var(--mono); color: var(--ink-3); }
 
 .strip-empty {
   font-size: 13px;
@@ -714,10 +813,16 @@ tfoot td { font-weight: 700; border-top: 1px solid var(--border); border-bottom:
 <div class="wrap">
 
   <header class="masthead">
-    <div class="logo-slot" aria-hidden="true">LOGO</div>
+    <div class="brandmark">
+      <img id="brand-logo" alt="Milltown Archive" hidden>
+      <div class="logo-slot" id="logo-slot">
+        <span>DROP LOGO AT</span><span>dashboard/logo.png</span>
+      </div>
+    </div>
     <div class="masthead-titles">
-      <span class="eyebrow">Milltown Archive</span>
+      <span class="tagline">Curated. Sustainable. Timeless.</span>
       <h1>Sales Estimator</h1>
+      <span class="eyebrow" id="brand-name">Milltown Archive</span>
     </div>
     <div class="masthead-spacer"></div>
     <div class="stamp">
@@ -756,13 +861,71 @@ tfoot td { font-weight: 700; border-top: 1px solid var(--border); border-bottom:
 
   <div class="tiles" id="tiles"></div>
 
+  <section class="card" aria-labelledby="be-label">
+    <span class="eyebrow" id="be-label">Break-even</span>
+    <div class="meter-head">
+      <h2>Getting back to zero</h2>
+      <span class="chip" id="be-chip"><span class="dot"></span><span id="be-chip-text"></span></span>
+    </div>
+    <div class="meter" role="img" aria-labelledby="be-meter-desc">
+      <div class="meter-fill" id="be-fill" style="width:0%"></div>
+    </div>
+    <p class="meter-note" id="be-meter-desc"></p>
+    <div class="be-grid">
+      <div class="be-figure">
+        <span class="k">Still to earn</span>
+        <span class="n lead num" id="be-remaining">—</span>
+        <span class="s" id="be-remaining-sub"></span>
+      </div>
+      <div class="be-figure">
+        <span class="k">Uploads still needed</span>
+        <span class="n num" id="be-uploads">—</span>
+        <span class="s" id="be-uploads-sub"></span>
+      </div>
+      <div class="be-figure">
+        <span class="k">At your current pace</span>
+        <span class="n num" id="be-when">—</span>
+        <span class="s" id="be-when-sub"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="plan-label">
+    <div class="cal-head">
+      <span class="eyebrow" id="plan-label">Planner</span>
+      <div class="masthead-spacer"></div>
+      <span class="range-label">Show rates</span>
+      <div class="segmented" id="units" role="group" aria-label="Rate unit">
+        <button type="button" data-unit="day">Per day</button>
+        <button type="button" data-unit="month">Per month</button>
+      </div>
+    </div>
+    <h2 id="plan-title">How many do I need to shoot?</h2>
+
+    <div class="planner-grid">
+      <div class="field">
+        <div class="field-head">
+          <span class="field-label">If I upload this many</span>
+          <span class="field-num" id="plan-num"></span>
+        </div>
+        <input type="range" id="plan-range" min="1" max="60" step="1">
+        <p class="field-note" id="plan-note"></p>
+      </div>
+
+      <div class="planner-out" id="plan-out"></div>
+    </div>
+
+    <h3 style="margin-top:4px">Working backwards from a target</h3>
+    <div class="solve" id="solve"></div>
+  </section>
+
   <section class="card" aria-labelledby="pace-label">
     <span class="eyebrow" id="pace-label">Pace &amp; projection</span>
     <div class="pace-grid">
       <div style="display:flex;flex-direction:column;gap:11px">
         <div class="meter-head">
           <div>
-            <h2>Monthly profit projection</h2>
+            <h2 id="proj-title">Monthly profit projection</h2>
             <div class="meter-value num" id="proj-value">—</div>
           </div>
           <span class="chip" id="pace-chip"><span class="dot"></span><span id="pace-chip-text"></span></span>
@@ -861,6 +1024,26 @@ tfoot td { font-weight: 700; border-top: 1px solid var(--border); border-bottom:
         <p class="field-note">What the next action is measured against.</p>
       </div>
 
+      <div class="field">
+        <div class="field-head">
+          <span class="field-label">Break-even figure</span>
+          <span class="field-num" id="be-num"></span>
+        </div>
+        <input type="range" id="be-range" min="100" max="20000" step="100">
+        <p class="field-note">Total estimated profit needed to get back to zero on
+          what you have spent on stock.</p>
+      </div>
+
+      <div class="field">
+        <div class="field-head">
+          <span class="field-label">Break even within</span>
+          <span class="field-num" id="bd-num"></span>
+        </div>
+        <input type="range" id="bd-range" min="7" max="365" step="1">
+        <p class="field-note">The deadline the planner works its uploads-per-day
+          figure back from.</p>
+      </div>
+
     </div>
     <div class="row-inline">
       <button type="button" class="ghost-btn" id="reset-btn">Reset to settings.json</button>
@@ -886,14 +1069,18 @@ tfoot td { font-weight: 700; border-top: 1px solid var(--border); border-bottom:
 
 <script>
 const DATA = {
- "generated_at": "2026-08-17T15:05:37+00:00",
- "generated_at_human": "17 Aug 2026, 15:05 UTC",
+ "logo": null,
+ "generated_at": "2026-08-17T19:12:52+00:00",
+ "generated_at_human": "17 Aug 2026, 19:12 UTC",
  "today": "2026-08-17",
  "settings": {
   "sell_through_rate": 0.2,
   "markup": 1.0,
   "average_item_value": null,
   "monthly_profit_target": 500,
+  "break_even_target": 3300,
+  "break_even_days": 90,
+  "rate_unit": "day",
   "pace_window_days": 0,
   "currency": "£"
  },
@@ -1022,6 +1209,16 @@ function estimate(uploads) {
   return { uploads, sold, revenue, profit: revenue * profitShare() };
 }
 
+/* ── per day ↔ per month ───────────────────────────────────────────────────
+   Every rate is held internally as a per-day figure. The toggle only changes
+   what is shown, so switching units can never drift the underlying number. */
+const unitDays = () => S.rate_unit === "month" ? DAYS_PER_MONTH : 1;
+const unitName = () => S.rate_unit === "month" ? "month" : "day";
+const perUnit = perDay => perDay * unitDays();
+
+/* the planner's own rate, in uploads per day */
+let planPerDay = null;
+
 /* ── range selection ───────────────────────────────────────────────────────── */
 let view = { mode: "month", anchor: DAY_KEYS.length ? LATEST : TODAY };
 let calMonth = view.anchor.slice(0, 7);
@@ -1109,6 +1306,8 @@ function render() {
   renderChain(e);
   renderAction(e);
   renderTiles(e);
+  renderBreakEven();
+  renderPlanner();
   renderPace();
   renderCalendar();
   renderRules();
@@ -1191,27 +1390,173 @@ function renderTiles(e) {
          "</b> × <b>" + pct(profitShare()) + "</b>");
 }
 
+/* ── break-even ────────────────────────────────────────────────────────────
+   The target is a total, not a monthly figure: it is what you have put into
+   stock, and every estimated pound of profit chips away at it. */
+function breakEven() {
+  const earned = estimate(uploadsIn(FIRST, LATEST > TODAY ? LATEST : TODAY)).profit;
+  const target = S.break_even_target;
+  const remaining = Math.max(0, target - earned);
+  const per = profitPerUpload();
+  return {
+    earned, target, remaining,
+    share: target > 0 ? Math.min(1, earned / target) : 0,
+    uploadsNeeded: per > 0 ? Math.ceil(remaining / per) : Infinity,
+    perDayToDeadline: per > 0 ? remaining / per / S.break_even_days : Infinity,
+  };
+}
+
+function addDaysISO(k, n) { return iso(addDays(parse(k), Math.round(n))); }
+
+function renderBreakEven() {
+  const b = breakEven();
+  const p = pace();
+  const per = profitPerUpload();
+
+  $("be-fill").style.width = (b.share * 100).toFixed(1) + "%";
+  $("be-fill").dataset.state = b.remaining === 0 ? "good" : "";
+  $("be-meter-desc").textContent = money(b.earned) + " of " + money(b.target) +
+    " estimated profit earned back from " + int(uploadsIn(FIRST, TODAY > LATEST ? TODAY : LATEST)) +
+    " uploads so far.";
+
+  const chip = $("be-chip");
+  if (b.remaining === 0) {
+    chip.dataset.state = "good";
+    $("be-chip-text").textContent = "Broken even";
+  } else if (p.perDay === 0 || per <= 0) {
+    chip.dataset.state = "critical";
+    $("be-chip-text").textContent = "No pace to project from";
+  } else {
+    chip.dataset.state = "";
+    $("be-chip-text").textContent = Math.round(b.share * 100) + "% of the way there";
+  }
+
+  $("be-remaining").textContent = money(b.remaining);
+  $("be-remaining-sub").textContent = b.remaining === 0
+    ? "Everything from here is clear profit."
+    : "of the " + money(b.target) + " you need back";
+
+  $("be-uploads").textContent = b.uploadsNeeded === Infinity ? "—" : int(b.uploadsNeeded);
+  $("be-uploads-sub").textContent = b.uploadsNeeded === Infinity
+    ? "Set an average item value above zero."
+    : "at " + money(per) + " estimated profit each";
+
+  if (b.remaining === 0) {
+    $("be-when").textContent = "Done";
+    $("be-when-sub").textContent = "";
+  } else if (p.perDay > 0 && per > 0) {
+    const days = Math.ceil(b.uploadsNeeded / p.perDay);
+    $("be-when").textContent = int(days) + " days";
+    $("be-when-sub").textContent = "at " + one(p.perDay) + " uploads a day, that is " +
+      longDate(addDaysISO(TODAY, days));
+  } else {
+    $("be-when").textContent = "—";
+    $("be-when-sub").textContent = "No uploads logged yet, so there is no pace to project.";
+  }
+}
+
+/* ── planner ───────────────────────────────────────────────────────────────
+   Forwards: a rate in, the money out. Backwards: a target in, the rate out. */
+function renderPlanner() {
+  const per = profitPerUpload();
+  const p = pace();
+  if (planPerDay === null) planPerDay = p.perDay > 0 ? p.perDay : 5;
+
+  // work from the value the slider actually shows, so the arithmetic below can
+  // never disagree with the number on screen
+  const shown = Math.max(1, Math.round(perUnit(planPerDay)));
+  const rate = shown / unitDays();          // uploads per day, as displayed
+  const e = estimate(shown);
+  const u = unitName();
+  const other = u === "day" ? "month" : "day";
+  const otherProfit = estimate(u === "day" ? rate * DAYS_PER_MONTH : rate).profit;
+
+  for (const btn of $("units").children) {
+    btn.setAttribute("aria-pressed", String(btn.dataset.unit === S.rate_unit));
+  }
+
+  $("plan-num").textContent = int(shown) + " a " + u;
+  $("plan-note").innerHTML = "Drag to try a shooting rate. At <b>" + int(shown) +
+    " uploads a " + u + "</b> you are photographing about <b>" +
+    one(rate) + " items a day</b>.";
+
+  $("plan-out").innerHTML =
+    '<div class="planner-line lead"><span>Estimated profit per ' + u +
+      '</span><b>' + money(e.profit) + "</b></div>" +
+    '<div class="planner-line"><span>Estimated revenue per ' + u +
+      '</span><b>' + money(e.revenue) + "</b></div>" +
+    '<div class="planner-line"><span>Estimated items sold per ' + u +
+      '</span><b>' + one(e.sold) + "</b></div>" +
+    '<div class="planner-line"><span>Which is per ' + other +
+      '</span><b>' + money(otherProfit) + "</b></div>";
+
+  /* backwards: uploads per unit needed to hit each target */
+  const b = breakEven();
+  const rows = [];
+
+  if (per > 0) {
+    const forTarget = perUnit(S.monthly_profit_target / per / DAYS_PER_MONTH);
+    rows.push({
+      goal: "Hit the " + money(S.monthly_profit_target) + " monthly profit target",
+      need: forTarget,
+      why: money(S.monthly_profit_target) + " ÷ " + money(per) + " profit per upload = " +
+           int(S.monthly_profit_target / per) + " uploads a month"
+    });
+
+    if (b.remaining > 0) {
+      rows.push({
+        goal: "Break even within " + S.break_even_days + " days",
+        need: perUnit(b.perDayToDeadline),
+        why: money(b.remaining) + " still to earn ÷ " + money(per) + " each = " +
+             int(b.uploadsNeeded) + " uploads, spread over " + S.break_even_days + " days"
+      });
+    }
+  }
+
+  let closing;
+  if (per <= 0) {
+    closing = '<p class="why">Set an average item value above zero to work out a rate.</p>';
+  } else if (b.remaining === 0) {
+    closing = '<div class="solve-row"><span class="goal">Already broken even</span>' +
+      '<span class="need">—</span><span class="why">Every upload from here is clear profit.</span></div>';
+  } else {
+    const days = Math.ceil(b.uploadsNeeded / rate);
+    closing = '<div class="solve-row"><span class="goal">Keep to the rate above and you break even</span>' +
+      '<span class="need">' + int(days) + ' <small>days</small></span>' +
+      '<span class="why">' + int(b.uploadsNeeded) + " uploads still needed ÷ " +
+      one(rate) + " a day — " + longDate(addDaysISO(TODAY, days)) + "</span></div>";
+  }
+
+  $("solve").innerHTML = rows.map(r =>
+    '<div class="solve-row"><span class="goal">' + r.goal + "</span>" +
+    '<span class="need">' + int(Math.ceil(r.need)) + " <small>a " + u + "</small></span>" +
+    '<span class="why">' + r.why + "</span></div>"
+  ).join("") + closing;
+}
+
 function renderPace() {
   const p = pace();
-  const proj = estimate(p.perDay * DAYS_PER_MONTH);
+  const monthly = estimate(p.perDay * DAYS_PER_MONTH);
+  const shown = estimate(perUnit(p.perDay));
   const share = S.monthly_profit_target > 0
-    ? Math.min(1, proj.profit / S.monthly_profit_target) : 0;
+    ? Math.min(1, monthly.profit / S.monthly_profit_target) : 0;
 
-  $("proj-value").textContent = money(proj.profit);
+  $("proj-title").textContent = S.rate_unit === "month"
+    ? "Monthly profit projection" : "Daily profit projection";
+  $("proj-value").textContent = money(shown.profit);
   $("meter-desc").textContent = one(p.perDay) + " uploads a day × " + DAYS_PER_MONTH +
     " days = " + int(p.perDay * DAYS_PER_MONTH) + " uploads a month → " +
-    money(proj.profit) + " against a " + money(S.monthly_profit_target) + " target.";
+    money(monthly.profit) + " against a " + money(S.monthly_profit_target) + " target.";
   $("pace-basis").textContent = p.basis;
 
   const fill = $("meter-fill");
   fill.style.width = (share * 100).toFixed(1) + "%";
 
-  // Below 60% is stated plainly rather than coloured red: on a young log that is
-  // simply where the pace is, not a fault. Critical is reserved for a dead log.
-  let state = "", text = Math.round(share * 100) + "% of target";
+  // Short of target is stated plainly rather than coloured: on a young log that
+  // is simply where the pace is, not a fault. Critical is reserved for a dead log.
+  let state = "", text = Math.round(share * 100) + "% of monthly target";
   if (p.uploads === 0) { state = "critical"; text = "No uploads logged"; }
   else if (share >= 1) { state = "good"; text = "On target"; }
-  else if (share >= 0.6) { state = "warning"; text = text + " — nearly there"; }
 
   fill.dataset.state = state === "critical" ? "" : state;
   const chip = $("pace-chip");
@@ -1442,6 +1787,18 @@ function syncControls() {
     money(DATA.derived.csv_average_item_value) + " across " + DATA.derived.priced_items + " priced items)";
   $("tg-range").value = S.monthly_profit_target;
   $("tg-num").textContent = money(S.monthly_profit_target);
+  $("be-range").value = S.break_even_target;
+  $("be-num").textContent = money(S.break_even_target);
+  $("bd-range").value = S.break_even_days;
+  $("bd-num").textContent = S.break_even_days + " days";
+
+  // the planner slider is expressed in whatever unit is on screen
+  const monthly = S.rate_unit === "month";
+  const plan = $("plan-range");
+  plan.min = monthly ? 10 : 1;
+  plan.max = monthly ? 1500 : 60;
+  plan.step = monthly ? 10 : 1;
+  plan.value = Math.min(Number(plan.max), Math.max(Number(plan.min), perUnit(planPerDay)));
 }
 
 /* ── events ────────────────────────────────────────────────────────────────── */
@@ -1511,6 +1868,24 @@ $("av-auto").addEventListener("change", e => {
 $("tg-range").addEventListener("input", e => {
   S.monthly_profit_target = Number(e.target.value); save(); render();
 });
+$("be-range").addEventListener("input", e => {
+  S.break_even_target = Number(e.target.value); save(); render();
+});
+$("bd-range").addEventListener("input", e => {
+  S.break_even_days = Number(e.target.value); save(); render();
+});
+
+$("units").addEventListener("click", ev => {
+  const b = ev.target.closest("button[data-unit]");
+  if (!b) return;
+  S.rate_unit = b.dataset.unit;      // planPerDay is untouched, so nothing drifts
+  save(); render();
+});
+
+$("plan-range").addEventListener("input", e => {
+  planPerDay = Number(e.target.value) / unitDays();
+  render();
+});
 
 $("reset-btn").addEventListener("click", () => {
   S = Object.assign({}, FILE_DEFAULTS);
@@ -1544,6 +1919,15 @@ document.addEventListener("focusin", ev => {
 
 document.addEventListener("focusout", hideTip);
 document.addEventListener("scroll", hideTip, { passive: true });
+
+/* the logo, inlined by the build script when dashboard/logo.* exists */
+if (DATA.logo) {
+  const img = $("brand-logo");
+  img.src = DATA.logo;
+  img.hidden = false;
+  $("logo-slot").hidden = true;
+  $("brand-name").hidden = true;   // the mark already says who this belongs to
+}
 
 render();
 </script>

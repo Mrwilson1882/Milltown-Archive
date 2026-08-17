@@ -25,7 +25,7 @@ Nothing is guessed. An item the ledger has no date for is counted, reported as
 undated, and flagged on the page rather than being quietly assigned a date.
 """
 
-import csv, json, re, subprocess, sys
+import base64, csv, json, re, subprocess, sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
@@ -36,9 +36,33 @@ OUT = HERE / "dashboard.html"
 SETTINGS = HERE / "settings.json"
 
 SETTING_KEYS = ("sell_through_rate", "markup", "average_item_value",
-                "monthly_profit_target", "pace_window_days", "currency")
+                "monthly_profit_target", "break_even_target", "break_even_days",
+                "rate_unit", "pace_window_days", "currency")
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+# The logo is inlined so the page stays one self-contained file. First match wins.
+LOGO_NAMES = ("logo.svg", "logo.png", "logo.jpg", "logo.jpeg", "logo.webp")
+LOGO_TYPES = {".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg",
+              ".jpeg": "image/jpeg", ".webp": "image/webp"}
+
+
+def find_logo():
+    """Return (data_uri, note) for dashboard/logo.*, or (None, note) if absent."""
+    for name in LOGO_NAMES:
+        path = HERE / name
+        if not path.exists():
+            continue
+        raw = path.read_bytes()
+        mime = LOGO_TYPES[path.suffix.lower()]
+        uri = "data:" + mime + ";base64," + base64.b64encode(raw).decode("ascii")
+        size_kb = len(raw) / 1024
+        note = "logo: " + name + " inlined (" + format(size_kb, ".0f") + " KB)"
+        if size_kb > 1500:
+            note += " — that is large for a masthead; a smaller export would help"
+        return uri, note
+    return None, ("logo: none found. Save the mark as dashboard/logo.png "
+                  "(or .svg/.jpg/.webp) and re-run to drop it into the masthead.")
 
 
 def read_csv(path):
@@ -76,7 +100,9 @@ def load_settings():
         raw = json.loads(SETTINGS.read_text(encoding="utf-8"))
         settings = {k: v for k, v in raw.items() if k in SETTING_KEYS}
     defaults = {"sell_through_rate": 0.20, "markup": 1.00, "average_item_value": None,
-                "monthly_profit_target": 500, "pace_window_days": 0, "currency": "£"}
+                "monthly_profit_target": 500, "break_even_target": 3300,
+                "break_even_days": 90, "rate_unit": "day",
+                "pace_window_days": 0, "currency": "£"}
     defaults.update(settings)
     return defaults
 
@@ -228,8 +254,11 @@ def main():
     else:
         avg_costed_price = avg_cost = implied_markup = implied_share = 0.0
 
+    logo_uri, logo_note = find_logo()
+
     now = datetime.now(timezone.utc)
     payload = {
+        "logo": logo_uri,
         "generated_at": now.isoformat(timespec="seconds"),
         "generated_at_human": now.strftime("%d %b %Y, %H:%M UTC"),
         "today": date.today().isoformat(),
@@ -270,6 +299,7 @@ def main():
         print("  markup implied by your cost data: "
               + format(implied_markup * 100, ".1f") + "% "
               + "(a " + format(implied_share * 100, ".1f") + "% profit share)")
+    print("  " + logo_note)
     for flag in flags:
         print("  ! " + flag)
 

@@ -32,6 +32,7 @@ processed batch:
 | `crosslist/cost-rates.csv` | bundle cost prices — used only to check the markup assumption |
 | `crosslist/listings.csv` | row count, as a cross-check that the export matches the batch |
 | `crosslist/batch-log.csv` | *optional* — see below |
+| `dashboard/logo.*` | *optional* — the brand mark, inlined into the masthead |
 
 The two are joined on item number, so `001` in the batch is item `1` in the ledger.
 
@@ -85,22 +86,65 @@ assumed 50%. The dashboard recomputes that check on every build and prints it.
 prompt is measured against) and `pace_window_days` (`0` = measure pace since your
 first logged upload; set `30` for a rolling month once there is more history).
 
+## Break-even
+
+`break_even_target` (default **£3,300**) is the total estimated profit needed to
+get back to zero on what you have spent on stock. It is a **running total, not a
+monthly figure** — every upload chips away at it, and the panel shows what is
+left, how many uploads that is at the current profit-per-upload, and the date you
+cross it at your current pace.
+
+`break_even_days` (default 90) is the deadline the planner works backwards from
+to give you a uploads-per-day figure.
+
+## The planner, and the per day / per month toggle
+
+"Show rates" switches every rate on the page between **per day** and **per month**
+— the planner, and the projection headline in Pace & projection.
+
+Rates are held internally as a per-day figure and only converted for display, so
+flipping the toggle can never drift the underlying number. A month is 30.44 days.
+
+The planner works both directions:
+
+- **Forwards** — drag the slider to a shooting rate and read off the estimated
+  items sold, revenue and profit at that rate, plus the equivalent in the other
+  unit.
+- **Backwards** — three target rows, each giving the uploads you need *per the
+  selected unit*: to hit the monthly profit target, to break even by the deadline,
+  and how long break-even takes if you hold the rate on the slider.
+
+Every row shows its arithmetic underneath, so no figure has to be taken on trust.
+
 ## Branding
 
-Two things are reserved for the Milltown Archive identity:
+**The logo — one step, and it is not done yet.** Save the mark as:
 
-- **The logo.** `template.html` has a `.logo-slot` element in the masthead with
-  clear space around it. Replace that whole element with an `<img>` — or, to keep
-  the page self-contained, an inline `<svg>` or a `data:` URI.
-- **The colours.** The top of the stylesheet is a `BRAND TOKENS` block of six
-  values (two brand, two accent, two grounds). Changing those six changes the whole
-  page; nothing else needs editing.
+```
+dashboard/logo.png        (or logo.svg, logo.jpg, logo.webp)
+```
 
-The data colours below them are a different matter. That indigo ramp was checked
-with a palette validator for monotone lightness, visible steps, and contrast
-against the surface in **both** light and dark themes. If you replace a step by
-eye, re-check it — a ramp that looks fine on a bright screen can collapse into one
-flat block on a dim one.
+and re-run the build. The script base64-inlines it into the page, so the file
+stays self-contained, and the masthead placeholder disappears on its own. `.svg`
+is the best choice if you have it; otherwise a PNG around 400px tall is plenty.
+
+The mark sits on a plate of its own cream (`--logo-plate`) in **both** themes.
+That is deliberate: a logo drawn for a cream ground would otherwise float as a
+bright rectangle on the dark theme.
+
+**The colours** are taken from the logo — the burnt orange, the near-black, and
+the cream ground. They live in the `BRAND TOKENS` block at the top of the
+stylesheet in `template.html`; changing those changes the whole page.
+
+The data ramp below them is a different matter. Those four orange steps were
+checked with a palette validator for monotone lightness, visible separation
+between steps, and contrast against the surface in **both** themes. If you
+replace a step by eye, re-check it — a ramp that looks fine on a bright screen
+can collapse into one flat block on a dim one.
+
+Note also that amber is deliberately absent from the status colours. Beside an
+orange data ramp an amber "warning" reads as just another step of the scale, so
+the page uses green, red, or plain ink and says the state in words.
 
 ## Out of scope, deliberately
 

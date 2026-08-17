@@ -13,6 +13,15 @@
   "monthly_profit_target": 500,
   "_monthly_profit_target": "The target the 'upload X more items' prompt is measured against.",
 
+  "break_even_target": 3300,
+  "_break_even_target": "Total estimated profit needed to get back to zero on what has been spent on stock. A running total, not a monthly figure — every upload chips away at it.",
+
+  "break_even_days": 90,
+  "_break_even_days": "The deadline the planner works its uploads-per-day figure back from.",
+
+  "rate_unit": "day",
+  "_rate_unit": "Whether the planner and projection show rates per 'day' or per 'month'. Toggleable on the page; rates are held per-day internally, so switching never drifts the number.",
+
   "pace_window_days": 0,
   "_pace_window_days": "Days used to work out the current upload pace. 0 means 'since your first logged upload'. Set e.g. 30 for a rolling 30-day window once there is more history.",
 
