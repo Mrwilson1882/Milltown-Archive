@@ -51,6 +51,11 @@ of any new session — the chat is not persistent, these files are the memory.
   A composition is a search facet buyers filter on — descriptive prose is not.
   Fabric character belongs in the Item Description, the composition on the
   Material line.
+- **Ralph Lauren "Big Pony"** is claimed only where the pony is genuinely
+  oversized — the Big Pony line, usually with a numbered sleeve patch. A
+  standard chest pony is not a Big Pony, whatever its colour. Owner's
+  instruction, 16 Aug. The same care applies to any line name that carries a
+  price premium: it is a claim about the garment, not a keyword to spend.
 - **Size discrepancies:** where a garment's label disagrees with the ledger,
   **the ledger wins.** Record the discrepancy and carry on with the ledger
   value; do not silently switch to the label. Owner's instruction, 16 Aug.

@@ -458,6 +458,7 @@ Settled during Batch 1 and carried forward. The per-field detail is above;
 | Shipping | `Grams`, domestic `2.95`, both free-shipping flags `FALSE` |
 | Cost of Goods | by SKU, from `cost-rates.csv`; prefix is part of the key |
 | Brand | keep `Ralph Lauren`; Crosslist's remap is theirs to fix |
+| Line names | `Big Pony` only where the pony is genuinely oversized — item 10 qualifies, item 12 did not |
 | Titles | under 80 characters — Vinted truncates near 100 |
 
 ### Worth adding to the shoot
