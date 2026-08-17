@@ -48,6 +48,31 @@ Silk · Wool — then plain names: Acetate · Acrylic · Acrylic Blend · Alfa �
 actually been read** (`conventions.md`). So items 8 and 11 take `Nylon`, not
 `100% Nylon`, until their tags are photographed.
 
+## Brand — Crosslist remaps it on import
+
+**Known issue, 16 Aug.** The CSV carries `Ralph Lauren` on all seven RL items,
+yet the listing showed `Lauren Ralph Lauren`. The remap happens inside
+Crosslist, not in the CSV, and appears to affect every item.
+
+Most likely cause: Crosslist matches the Brand string against its own brand
+catalogue and falls back to the nearest entry when there is no exact match. Its
+catalogue probably holds `Polo Ralph Lauren` and `Lauren Ralph Lauren` but no
+plain `Ralph Lauren`, so the fallback picks a sub-label.
+
+Two of ours are likely mismatched on spelling alone:
+
+| CSV value | Likely catalogue form |
+|---|---|
+| `Harley Davidson` | `Harley-Davidson` (hyphen) |
+| `Frederick's of Hollywood` | apostrophe may break the match |
+
+`Nike` and `Lacoste` should match exactly. If those were remapped too, the cause
+is not spelling and the field needs a different approach.
+
+**Fix once known:** put the exact catalogue string in the CSV. Until then the
+title and tags both lead with the brand, so search still finds these listings —
+it is the brand *facet* that is wrong, not the discoverability.
+
 ## Still needed
 Style for lingerie (items 5, 6) · Vinted material (multi-select, up to 3) ·
 the top of the Department list
