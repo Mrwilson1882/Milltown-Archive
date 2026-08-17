@@ -19,6 +19,9 @@
   "break_even_days": 90,
   "_break_even_days": "The deadline the planner works its uploads-per-day figure back from.",
 
+  "live_from": "2026-06-22 19:38:03",
+  "_live_from": "Nothing before this counts as live, and no average reaches back past it. A listing is live only if its Last Listed is on or after this moment and it has no sold date. Set it to a bare date like '2026-06-22' to take the whole day. Build-time only.",
+
   "export_skip_rows": 15,
   "_export_skip_rows": "How many rows at the top of the store export are the first batch, already counted from crosslist/items.csv. Those rows are not re-counted as uploads, but their live/sold status IS read — that file is the only place status is recorded. Build-time only; there is no slider for it.",
 

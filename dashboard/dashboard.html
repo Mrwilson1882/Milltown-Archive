@@ -1109,8 +1109,8 @@ tfoot td { font-weight: 700; border-top: 1px solid var(--border); border-bottom:
 <script>
 const DATA = {
  "logo": null,
- "generated_at": "2026-08-17T19:33:23+00:00",
- "generated_at_human": "17 Aug 2026, 19:33 UTC",
+ "generated_at": "2026-08-17T20:10:44+00:00",
+ "generated_at_human": "17 Aug 2026, 20:10 UTC",
  "today": "2026-08-17",
  "settings": {
   "sell_through_rate": 0.2,
@@ -1148,12 +1148,17 @@ const DATA = {
   "live": 15,
   "sold": 0,
   "not_live": 0,
+  "stale": 0,
+  "live_by_created": 0,
   "rows": 0,
   "counted_uploads": 0,
   "skipped": 0,
   "has_export": false,
-  "path": null
+  "path": null,
+  "live_from": "2026-06-22 19:38:03",
+  "live_from_day": "2026-06-22"
  },
+ "live_from_day": "2026-06-22",
  "sources": [
   {
    "path": "inventory.csv",
@@ -1305,14 +1310,18 @@ const DAYS_PER_MONTH = 30.44;
 function pace() {
   if (!DAY_KEYS.length) return { perDay: 0, basis: "No uploads logged yet.", days: 0, uploads: 0 };
   const end = TODAY > LATEST ? TODAY : LATEST;
+  // No average reaches back past the live-from date — anything older is history,
+  // not part of how fast you are working now.
+  const floor = DATA.live_from_day && DATA.live_from_day > FIRST ? DATA.live_from_day : FIRST;
   let from, note;
   if (S.pace_window_days > 0) {
     from = iso(addDays(parse(end), -(S.pace_window_days - 1)));
-    if (from < FIRST) from = FIRST;
+    if (from < floor) from = floor;
     note = "rolling " + S.pace_window_days + "-day window";
   } else {
-    from = FIRST;
-    note = "since your first logged upload";
+    from = floor;
+    note = floor === FIRST ? "since your first logged upload"
+                           : "since " + longDate(floor) + ", your live-from date";
   }
   const days = Math.max(1, Math.round((parse(end) - parse(from)) / 86400000) + 1);
   const uploads = uploadsIn(from, end);
@@ -1454,6 +1463,7 @@ function renderStock() {
   $("stock-off").textContent = int(s.not_live);
 
   $("stock-sub").textContent = int(s.live) + " live listing" + (s.live === 1 ? "" : "s") +
+    (s.has_export ? " (last listed on or after " + longDate(DATA.live_from_day) + ")" : "") +
     " × " + money(avgValue()) + " average item value. If they sell at " +
     pct(S.sell_through_rate) + ", that is " +
     money(listed * S.sell_through_rate * profitShare()) +
@@ -1473,10 +1483,12 @@ function renderStock() {
     : "no export to read sold dates from";
 
   $("stock-note").textContent = s.has_export
-    ? "Live and sold come from " + s.path + ": live means it has a last-listed date and " +
-      "no sold date. The first " + int(s.skipped) + " rows are not re-counted as uploads " +
-      "(they are the first batch, already in the calendar), but their status is read. " +
-      "No price in that file is used anywhere on this page."
+    ? "Live and sold come from " + s.path + ": live means it was last listed on or after " +
+      s.live_from + ", and has no sold date. " + int(s.stale) + " listing(s) were last " +
+      "listed before that and are counted as not live. The first " + int(s.skipped) +
+      " rows are not re-counted as uploads (they are the first batch, already in the " +
+      "calendar), but their status is read. No price in that file is used anywhere on " +
+      "this page, and no average reaches back before the live-from date."
     : "No store export found yet, so the " + int(s.live) + " items in the first batch are " +
       "taken as live. Commit the whole-store export as crosslist/store-export.csv — any " +
       "filename works as long as it has a Last Listed column — and re-run the build.";
@@ -1807,8 +1819,8 @@ function renderRules() {
       pct(1 - profitShare()) + '.</p></div>' +
     '<div class="rule"><span class="rule-n">3</span><p class="rule-t"><b>Average item value ' +
       money(av) + '</b> — ' + (S.average_item_value === null
-        ? 'the mean of the ' + DATA.derived.priced_items + ' prices in <b>crosslist/items.csv</b>, ' +
-          'recalculated on every build.'
+        ? 'the mean of the ' + DATA.derived.priced_items + ' prices in <b>crosslist/items.csv</b> ' +
+          'dated on or after ' + longDate(DATA.live_from_day) + ', recalculated on every build.'
         : 'set by hand in the panel above, overriding the CSV mean of ' +
           money(DATA.derived.csv_average_item_value) + '.') + '</p></div>' +
     '<div class="rule"><span class="rule-n">=</span><p class="rule-t">100 uploads × ' +

@@ -84,8 +84,9 @@ assumed 50%. The dashboard recomputes that check on every build and prints it.
   puts them back.
 
 `settings.json` also holds `monthly_profit_target` (what the "upload X more items"
-prompt is measured against) and `pace_window_days` (`0` = measure pace since your
-first logged upload; set `30` for a rolling month once there is more history).
+prompt is measured against) and `pace_window_days` (`0` = measure pace from the
+live-from date below; set `30` for a rolling month once there is more history).
+Either way the window never starts earlier than `live_from`.
 
 ## The store export, and "All stock live"
 
@@ -104,12 +105,31 @@ mismatch shows up immediately rather than silently zeroing a number.
 
 | Status | Rule |
 |---|---|
-| **Live** | has a `Last Listed` date and **no** sold date |
+| **Live** | `Last Listed` is on or after `live_from`, and there is **no** sold date |
 | **Sold** | has a sold date |
-| **Not currently live** | neither — listed once, never relisted, never sold |
+| **Not currently live** | never listed, or last listed *before* `live_from` |
 
 **All stock live** is `live listings × average item value` — what the shop window
 is listed at.
+
+### The live-from cutoff
+
+`live_from` (default **`2026-06-22 19:38:03`**) is the line before which nothing
+counts. It does two jobs:
+
+1. A listing last listed before it is stale, not on the shop floor, however
+   recently it was created.
+2. **No average reaches back past it.** The upload pace measures from that date
+   rather than from your first-ever upload, and any priced item dated before it
+   is left out of the average item value and flagged.
+
+Set it to a bare date (`"2026-06-22"`) to take the whole day rather than from
+19:38:03 onwards.
+
+The cutoff is tested against **`Last Listed`**, not the created date — an item
+created in April but relisted in July is live. The build prints what the count
+would be measured on the created date instead whenever the two differ, so if
+that is the reading you wanted, it is one line to change.
 
 ### No pricing comes out of this file
 

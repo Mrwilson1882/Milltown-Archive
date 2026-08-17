@@ -194,6 +194,22 @@ def find_store_export():
     return None
 
 
+def stamp(value):
+    """A sortable 'YYYY-MM-DDTHH:MM:SS'. Missing time counts as the start of day.
+
+    Used to compare a listing against the live-from cutoff, which carries a time
+    of day, so two listings on the cutoff date itself still land either side of it.
+    """
+    day = date_only(value)
+    if day is None:
+        return None
+    time = re.search(r"(\d{1,2}):(\d{2})(?::(\d{2}))?", (value or "")[len(day):] or "")
+    if not time:
+        return day + "T00:00:00"
+    hour, minute, second = time.groups()
+    return day + "T" + hour.zfill(2) + ":" + minute + ":" + (second or "00")
+
+
 def date_only(value):
     """'2026-06-22 19:38:03' → '2026-06-22'. Returns None rather than guessing."""
     text = (value or "").strip()
@@ -333,8 +349,13 @@ def main():
     # ── the whole-store export: uploads for everything past the first batch,
     #    and the live / sold status that exists nowhere else ───────────────────
     skip_rows = build_setting("export_skip_rows", 15)
-    stock = {"live": 0, "sold": 0, "not_live": 0, "rows": 0, "counted_uploads": 0,
-             "skipped": 0, "has_export": False, "path": None}
+    live_from_raw = build_setting("live_from", "2026-06-22 19:38:03")
+    live_from = stamp(live_from_raw) or "0000-01-01T00:00:00"
+    live_from_day = date_only(live_from_raw)
+    stock = {"live": 0, "sold": 0, "not_live": 0, "stale": 0, "live_by_created": 0,
+             "rows": 0, "counted_uploads": 0, "skipped": 0,
+             "has_export": False, "path": None,
+             "live_from": live_from_raw, "live_from_day": live_from_day}
 
     export_path = find_store_export()
     if export_path is not None:
@@ -362,13 +383,25 @@ def main():
             # the only place live/sold is recorded. Only the *uploads* are skipped,
             # so the first batch is not counted twice.
             sold_on = date_only(row.get(col_sold, "")) if col_sold else None
-            listed_on = (row.get(col_listed, "") or "").strip() if col_listed else ""
+            listed_at = stamp(row.get(col_listed, "")) if col_listed else None
+            created_at = stamp(row.get(col_created, "")) if col_created else None
+
+            # Live means three things at once: it was listed, it has not sold, and
+            # that listing is from the cutoff onwards. Anything last listed before
+            # the cutoff is stale, not on the shop floor.
             if sold_on:
                 stock["sold"] += 1
-            elif listed_on:
+            elif listed_at and listed_at >= live_from:
                 stock["live"] += 1
             else:
                 stock["not_live"] += 1
+                if listed_at and listed_at < live_from:
+                    stock["stale"] += 1
+
+            # The same count measured against the created date instead, purely so
+            # the build can say whether the choice of column changes the answer.
+            if not sold_on and listed_at and created_at and created_at >= live_from:
+                stock["live_by_created"] += 1
 
             if index < skip_rows:
                 continue
@@ -394,11 +427,25 @@ def main():
         stock["live"] = len(uploads)
 
     # ── derived figures ──────────────────────────────────────────────────────
-    prices = [v["price"] for v in uploads.values() if v["price"] is not None]
+    # Owner's instruction: no average is built from anything before the cutoff.
+    def in_window(item):
+        return item["date"] is not None and item["date"] >= live_from_day
+
+    priced = {n: v for n, v in uploads.items() if v["price"] is not None}
+    before_cutoff = sorted(n for n, v in priced.items() if not in_window(v))
+    if before_cutoff:
+        flags.append(str(len(before_cutoff)) + " priced item(s) are dated before " +
+                     live_from_day + " and are left out of the average item value, "
+                     "per the live-from rule: " +
+                     ", ".join(str(n) for n in before_cutoff[:12]) +
+                     ("…" if len(before_cutoff) > 12 else "") + ".")
+    priced = {n: v for n, v in priced.items() if in_window(v)}
+
+    prices = [v["price"] for v in priced.values()]
     avg_price = round(sum(prices) / len(prices), 2) if prices else 0.0
 
     costed = [(v["price"], v["cost"] if v["cost"] is not None else rates.get(v["sku"]))
-              for v in uploads.values() if v["price"] is not None]
+              for v in priced.values()]
     costed = [(p, c) for p, c in costed if c is not None and c > 0]
 
     if costed:
@@ -432,6 +479,7 @@ def main():
             "implied_profit_share": round(implied_share, 4),
         },
         "stock": stock,
+        "live_from_day": live_from_day,
         "sources": sources,
         "flags": flags,
     }
@@ -460,6 +508,12 @@ def main():
               + str(stock["live"]) + " live, " + str(stock["sold"]) + " sold, "
               + str(stock["not_live"]) + " not live; " + str(stock["counted_uploads"])
               + " counted as uploads (first " + str(stock["skipped"]) + " skipped)")
+        print("  live from " + str(live_from_raw) + " — " + str(stock["stale"])
+              + " listing(s) last listed before that are counted as not live")
+        if stock["live_by_created"] != stock["live"]:
+            print("  note: measured on the created date instead of Last Listed, live "
+                  "would be " + str(stock["live_by_created"]) + " rather than "
+                  + str(stock["live"]) + ". Say which you meant if that matters.")
     else:
         print("  store export: none found. Commit it as crosslist/store-export.csv "
               "(any name works if it has a 'Last Listed' column) to get live stock.")
