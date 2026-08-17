@@ -439,6 +439,35 @@ number-card photos — all recorded in Decisions above. Still outstanding:
     When made, Tags, Accept offers. Blank is safe; per-garment defaults would
     save editing later.
 
+## Rules for future batches
+
+Settled during Batch 1 and carried forward. The per-field detail is above;
+`conventions.md` holds the ledger-side rules.
+
+| | Rule |
+|---|---|
+| Photo order | front, back, detail, tape measure, defects last. Number card excluded. |
+| Cover photo | no zip, placket or logo visible means it is the **back**. Check photo 1 of every item. |
+| Condition | `Very good vintage` → `VeryGood` |
+| Sizes | where a label and the ledger disagree, **the ledger wins** |
+| Defects | blank in the ledger means *no defects*; write nothing in the copy |
+| Material | quote the composition tag exactly; with no tag, estimate and give **no percentage** |
+| Price | as dictated, never suggested |
+| Who made | always `SomeoneElse` |
+| Smart pricing / Is auction | `FALSE`; Accept offers `TRUE` |
+| Shipping | `Grams`, domestic `2.95`, both free-shipping flags `FALSE` |
+| Cost of Goods | by SKU, from `cost-rates.csv`; prefix is part of the key |
+| Brand | keep `Ralph Lauren`; Crosslist's remap is theirs to fix |
+| Titles | under 80 characters — Vinted truncates near 100 |
+
+### Worth adding to the shoot
+
+1. **The inside composition tag**, so material can state real percentages.
+2. **Pit to pit and length dictated into the voice note**, so the measurement
+   lines return to the description.
+3. **Menswear or womenswear said out loud** — it blocks Category id and Size id
+   together, and cost six items a round trip on this batch.
+
 ## Next step
 
 Photos and transcripts. Once a first batch arrives: read the number cards,

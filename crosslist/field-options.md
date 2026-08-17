@@ -48,30 +48,30 @@ Silk · Wool — then plain names: Acetate · Acrylic · Acrylic Blend · Alfa �
 actually been read** (`conventions.md`). So items 8 and 11 take `Nylon`, not
 `100% Nylon`, until their tags are photographed.
 
-## Brand — Crosslist remaps it on import
+## Brand — Crosslist remaps Ralph Lauren on import
 
-**Known issue, 16 Aug.** The CSV carries `Ralph Lauren` on all seven RL items,
-yet the listing showed `Lauren Ralph Lauren`. The remap happens inside
-Crosslist, not in the CSV, and appears to affect every item.
+**Confirmed 16 Aug. Not a CSV fault — do not "fix" it in the file.**
 
-Most likely cause: Crosslist matches the Brand string against its own brand
-catalogue and falls back to the nearest entry when there is no exact match. Its
-catalogue probably holds `Polo Ralph Lauren` and `Lauren Ralph Lauren` but no
-plain `Ralph Lauren`, so the fallback picks a sub-label.
+The CSV carries `Ralph Lauren`: 12 bytes, plain ASCII, no stray whitespace,
+byte-identical to the first entry in Crosslist's own brand dropdown. Crosslist
+received that exact match and resolved it to `Lauren Ralph Lauren` regardless.
 
-Two of ours are likely mismatched on spelling alone:
+Only Ralph Lauren is affected. Nike, Lacoste, Harley Davidson, Frederick's of
+Hollywood and Avon Fashions all imported correctly — Ralph Lauren is the one
+brand here with a family of sub-labels (`Polo`, `Rugby`, `Lauren`,
+`Denim & Supply`, `RLX`), so the matcher appears to rank across them instead of
+preferring the exact hit.
 
-| CSV value | Likely catalogue form |
-|---|---|
-| `Harley Davidson` | `Harley-Davidson` (hyphen) |
-| `Frederick's of Hollywood` | apostrophe may break the match |
+**Keep `Ralph Lauren` in `items.csv`.** It is the correct value, and working
+around someone else's bug would leave the file wrong the day they fix it.
 
-`Nike` and `Lacoste` should match exactly. If those were remapped too, the cause
-is not spelling and the field needs a different approach.
+On a future batch, expect to correct the Brand field by hand on every Ralph
+Lauren item, or check first whether the published listing reaches Vinted with
+the right brand — the edit screen may simply be displaying a resolved name over
+correct underlying data. That check has not been done.
 
-**Fix once known:** put the exact catalogue string in the CSV. Until then the
-title and tags both lead with the brand, so search still finds these listings —
-it is the brand *facet* that is wrong, not the discoverability.
+Titles and tags both lead with the brand on all seven, so text search is
+unaffected either way; only the brand facet is.
 
 ## Still needed
 Style for lingerie (items 5, 6) · Vinted material (multi-select, up to 3) ·
