@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useCart } from "@/components/useCart";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
-import { cartTotals, resolveLines } from "@/lib/cart";
-import { formatPrice, priceLabel } from "@/lib/format";
+import { cartTotals, lineKey, resolveLines } from "@/lib/cart";
+import { formatPrice } from "@/lib/format";
 import { siteConfig, whatsappUrl } from "@/config/site";
 
 export function CartView({
@@ -28,7 +28,9 @@ export function CartView({
 
   /** A plain-text basket the owner can read straight off WhatsApp. */
   const enquiryText = useMemo(() => {
-    const list = resolved.map((l) => `• ${l.qty} × ${l.bundle.name}`).join("\n");
+    const list = resolved
+      .map((l) => `• ${l.qty} × ${l.product.name} (${l.variant.pieces} ${l.product.unit})`)
+      .join("\n");
     return `Hi Archive Wholesale, I'd like to order:\n${list}`;
   }, [resolved]);
 
@@ -39,7 +41,13 @@ export function CartView({
       const response = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: payable.map((l) => ({ slug: l.bundle.slug, qty: l.qty })) }),
+        body: JSON.stringify({
+          items: payable.map((l) => ({
+            slug: l.product.slug,
+            pieces: l.variant.pieces,
+            qty: l.qty,
+          })),
+        }),
       });
       const data: { url?: string; message?: string } = await response.json();
       if (response.ok && data.url) {
@@ -59,15 +67,23 @@ export function CartView({
       <div className="py-20 text-center">
         <p className="display text-2xl">Your cart is empty</p>
         <p className="mx-auto mt-3 max-w-md text-sm text-slate">
-          Browse the bundles and add a lot to get started. Everything is sold by the bundle — no
-          single pieces, no minimum order beyond one.
+          Start with a reseller box, or pick a lot size from any product. Everything is sold
+          wholesale — no single pieces.
         </p>
-        <Link
-          href="/bundles"
-          className="mt-8 inline-flex items-center bg-ink px-7 py-4 text-sm font-bold tracking-wide text-paper uppercase transition-colors hover:bg-forest"
-        >
-          Shop all bundles
-        </Link>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Link
+            href="/collections/reseller-boxes"
+            className="inline-flex items-center bg-forest px-7 py-4 text-sm font-bold tracking-wide text-paper uppercase transition-colors hover:bg-forest-dark"
+          >
+            Reseller boxes
+          </Link>
+          <Link
+            href="/products"
+            className="inline-flex items-center border-2 border-ink px-7 py-4 text-sm font-bold tracking-wide uppercase transition-colors hover:border-forest hover:text-forest"
+          >
+            All products
+          </Link>
+        </div>
       </div>
     );
   }
@@ -76,15 +92,15 @@ export function CartView({
     <div className="grid gap-10 py-10 lg:grid-cols-[1.6fr_1fr] lg:gap-14">
       <div>
         <ul className="divide-y divide-ash border-y border-ash">
-          {resolved.map(({ bundle, qty, lineTotalGBP }) => (
-            <li key={bundle.slug} className="flex gap-4 py-5 sm:gap-6">
+          {resolved.map(({ product, variant, qty, lineTotalGBP }) => (
+            <li key={lineKey(product.slug, variant.pieces)} className="flex gap-4 py-5 sm:gap-6">
               <Link
-                href={`/bundles/${bundle.slug}`}
+                href={`/products/${product.slug}`}
                 className="relative aspect-square w-24 shrink-0 overflow-hidden border border-ash bg-smoke sm:w-32"
               >
                 <Image
-                  src={bundle.photos?.[0]?.src ?? `/images/tiles/${bundle.art}.svg`}
-                  alt={bundle.photos?.[0]?.alt ?? bundle.name}
+                  src={product.photos?.[0]?.src ?? `/images/tiles/${product.art}.svg`}
+                  alt={product.photos?.[0]?.alt ?? product.name}
                   fill
                   sizes="128px"
                   className="object-cover"
@@ -94,8 +110,8 @@ export function CartView({
               <div className="flex min-w-0 flex-1 flex-col">
                 <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1">
                   <h2 className="display text-base sm:text-lg">
-                    <Link href={`/bundles/${bundle.slug}`} className="hover:text-forest">
-                      {bundle.name}
+                    <Link href={`/products/${product.slug}`} className="hover:text-forest">
+                      {product.name}
                     </Link>
                   </h2>
                   <p className={`font-bold ${lineTotalGBP === null ? "text-sm text-forest" : ""}`}>
@@ -103,21 +119,25 @@ export function CartView({
                   </p>
                 </div>
 
-                <p className="mt-1 text-xs text-slate">
-                  {bundle.pieces} pieces · approx. {bundle.weightKg}kg · {bundle.sizeRun}
+                <p className="mt-1 text-xs font-semibold tracking-wide text-forest uppercase">
+                  Lot of {variant.pieces} {product.unit}
                 </p>
-                {bundle.priceGBP !== null && (
-                  <p className="mt-0.5 text-xs text-slate">{priceLabel(bundle.priceGBP)} each</p>
+                {variant.priceGBP !== null && (
+                  <p className="mt-0.5 text-xs text-slate">
+                    {formatPrice(variant.priceGBP)} per lot
+                  </p>
                 )}
 
                 <div className="mt-auto flex flex-wrap items-center gap-4 pt-4">
                   <label className="flex items-center border border-ash">
-                    <span className="sr-only">Quantity for {bundle.name}</span>
+                    <span className="sr-only">
+                      Number of {variant.pieces}-{product.unit} lots of {product.name}
+                    </span>
                     <button
                       type="button"
-                      onClick={() => setQty(bundle.slug, qty - 1)}
+                      onClick={() => setQty(product.slug, variant.pieces, qty - 1)}
                       className="px-3 py-1.5 font-bold hover:text-forest"
-                      aria-label={`Decrease quantity of ${bundle.name}`}
+                      aria-label={`Decrease lots of ${product.name}`}
                     >
                       −
                     </button>
@@ -126,17 +146,21 @@ export function CartView({
                     </span>
                     <button
                       type="button"
-                      onClick={() => setQty(bundle.slug, qty + 1)}
+                      onClick={() => setQty(product.slug, variant.pieces, qty + 1)}
                       className="px-3 py-1.5 font-bold hover:text-forest"
-                      aria-label={`Increase quantity of ${bundle.name}`}
+                      aria-label={`Increase lots of ${product.name}`}
                     >
                       +
                     </button>
                   </label>
 
+                  <p className="text-xs text-slate">
+                    {qty * variant.pieces} {product.unit} in total
+                  </p>
+
                   <button
                     type="button"
-                    onClick={() => remove(bundle.slug)}
+                    onClick={() => remove(product.slug, variant.pieces)}
                     className="text-xs font-bold tracking-wide text-slate uppercase underline underline-offset-4 hover:text-forest"
                   >
                     Remove
@@ -149,7 +173,7 @@ export function CartView({
 
         <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
           <Link
-            href="/bundles"
+            href="/products"
             className="text-sm font-bold tracking-wide text-forest uppercase underline underline-offset-4"
           >
             ← Keep shopping
@@ -169,7 +193,7 @@ export function CartView({
 
         <dl className="mt-5 space-y-2.5 text-sm">
           <div className="flex justify-between">
-            <dt className="text-slate">Bundles</dt>
+            <dt className="text-slate">Lots</dt>
             <dd className="font-bold">{itemCount}</dd>
           </div>
           <div className="flex justify-between">
@@ -180,7 +204,7 @@ export function CartView({
             <div className="flex justify-between">
               <dt className="text-slate">On enquiry</dt>
               <dd className="font-bold text-forest">
-                {enquiryOnly.length} {enquiryOnly.length === 1 ? "bundle" : "bundles"}
+                {enquiryOnly.length} {enquiryOnly.length === 1 ? "lot" : "lots"}
               </dd>
             </div>
           )}

@@ -74,18 +74,21 @@ export function Footer() {
           </div>
 
           <Column
-            title="Brands"
-            links={brands.map((b) => ({ href: `/brands/${b.slug}`, label: b.name }))}
+            title="By Product"
+            links={[
+              ...productTypes.map((t) => ({ href: `/types/${t.slug}`, label: t.name })),
+              { href: "/products", label: "All Products" },
+              { href: "/by-kilo", label: "By The Kilo" },
+            ]}
           />
           <Column
-            title="Product Types"
-            links={productTypes.map((t) => ({ href: `/types/${t.slug}`, label: t.name }))}
+            title="Brands"
+            links={brands.map((b) => ({ href: `/brands/${b.slug}`, label: b.name }))}
           />
           <Column
             title="Collections"
             links={[
               ...collections.map((c) => ({ href: `/collections/${c.slug}`, label: c.name })),
-              { href: "/bundles", label: "All Bundles" },
               { href: "/contact", label: "Contact Us" },
             ]}
           />

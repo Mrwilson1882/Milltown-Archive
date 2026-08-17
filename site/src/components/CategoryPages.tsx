@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CategoryTile } from "@/components/CategoryTile";
-import { BundleBrowser } from "@/components/BundleBrowser";
+import { ProductBrowser } from "@/components/ProductBrowser";
 import { PageHeader, SeoBlock } from "@/components/PageHeader";
 import {
   brands,
@@ -11,15 +11,15 @@ import {
   productTypes,
   type CategoryKind,
 } from "@/data/taxonomy";
-import { bundlesInCategory } from "@/data/bundles";
+import { productsInCategory } from "@/data/catalogue";
 
 const kindNoun: Record<CategoryKind, string> = {
   brand: "brand",
-  type: "product type",
+  type: "category",
   collection: "collection",
 };
 
-/** The /brands, /types and /collections landing pages — a grid of tiles. */
+/** The /types, /brands and /collections landing pages — a grid of tiles. */
 export function CategoryIndex({ kind }: { kind: CategoryKind }) {
   const group = categoryGroups.find((g) => g.kind === kind);
   if (!group) notFound();
@@ -44,18 +44,18 @@ export function CategoryIndex({ kind }: { kind: CategoryKind }) {
   );
 }
 
-/** A single brand / type / collection page: filtered grid plus SEO copy. */
+/** A single type / brand / collection page: filtered grid plus SEO copy. */
 export function CategoryDetail({ kind, slug }: { kind: CategoryKind; slug: string }) {
   const category = findCategory(kind, slug);
   if (!category) notFound();
 
   const group = categoryGroups.find((g) => g.kind === kind)!;
-  const matching = bundlesInCategory(kind, slug);
+  const matching = productsInCategory(kind, slug);
 
   return (
     <>
       <PageHeader
-        eyebrow={`${kindNoun[kind]} · ${matching.length} ${matching.length === 1 ? "bundle" : "bundles"}`}
+        eyebrow={`${kindNoun[kind]} · ${matching.length} ${matching.length === 1 ? "product" : "products"}`}
         title={category.name}
         intro={category.blurb}
         crumbs={[
@@ -72,14 +72,14 @@ export function CategoryDetail({ kind, slug }: { kind: CategoryKind; slug: strin
               Ask us what is coming
             </Link>
             , or{" "}
-            <Link href="/bundles" className="font-bold text-forest underline underline-offset-4">
+            <Link href="/products" className="font-bold text-forest underline underline-offset-4">
               browse everything
             </Link>
             .
           </p>
         ) : (
-          <BundleBrowser
-            bundles={matching}
+          <ProductBrowser
+            products={matching}
             brands={brands}
             productTypes={productTypes}
             collections={collections}
@@ -91,8 +91,8 @@ export function CategoryDetail({ kind, slug }: { kind: CategoryKind; slug: strin
       <SeoBlock heading={`${category.name} — vintage wholesale`}>
         <p>{category.seoCopy}</p>
         <p>
-          Bundles are hand-graded before dispatch and every listing states its piece count, size run
-          and condition. Need a bigger volume, a tighter size run or current photography?{" "}
+          Lots are graded before dispatch and every listing states the quantities it comes in. Need
+          a bigger volume, a tighter size run or current photography?{" "}
           <Link href="/contact" className="font-bold text-forest underline underline-offset-4">
             Send us an enquiry
           </Link>{" "}

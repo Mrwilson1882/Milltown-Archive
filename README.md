@@ -15,11 +15,13 @@ The record of what has been logged from voice notes.
 ## The website (`site/`)
 
 The Archive Wholesale storefront for **www.archivewholesale.co.uk** — a Next.js
-site with categories, bundle pages, cart and a Stripe-ready checkout.
+site with three ways to buy: fixed-price reseller boxes, counted lots from five
+pieces, and by the kilo.
 
 See [`site/README.md`](site/README.md) for how to run it, and for the five
-things to do before launch (set prices, replace the sample catalogue, add
+things to do before launch (set prices, fill the catalogue gaps, add
 photography, add the WhatsApp number, connect Stripe).
 
-The same rule from `pricing-notes.md` applies there: every bundle ships with no
-price until the owner sets one.
+The same rule from `pricing-notes.md` applies there: only prices the owner has
+actually given are on the site. The two £200 reseller boxes are priced;
+everything else shows "Price on request" until a price is set.

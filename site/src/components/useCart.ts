@@ -1,12 +1,22 @@
 "use client";
 
 import { useCallback, useMemo, useSyncExternalStore } from "react";
-import { CART_STORAGE_KEY, cartTotals, parseStoredCart, resolveLines, type CartLine } from "@/lib/cart";
+import {
+  CART_STORAGE_KEY,
+  cartTotals,
+  lineKey,
+  parseStoredCart,
+  resolveLines,
+  type CartLine,
+} from "@/lib/cart";
 
 /**
  * The basket lives in localStorage and is read through useSyncExternalStore, so
  * every component sees the same cart, a second tab stays in step, and the
  * server render has a defined empty snapshot to hydrate from.
+ *
+ * A line is a product *and* a quantity option — 25 Nike tees and 50 Nike tees
+ * are two separate lines.
  */
 
 const EMPTY = "[]";
@@ -25,7 +35,7 @@ function write(lines: CartLine[]): void {
   try {
     window.localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(lines));
   } catch {
-    // Nothing useful to do — the in-memory render below still updates.
+    // Nothing useful to do — the render below still updates.
   }
   for (const listener of listeners) listener();
 }
@@ -44,32 +54,36 @@ export function useCart() {
   const raw = useSyncExternalStore(subscribe, read, () => EMPTY);
   const lines = useMemo(() => parseStoredCart(raw), [raw]);
 
-  const add = useCallback(
-    (slug: string, qty = 1) => {
-      const current = parseStoredCart(read());
-      const existing = current.find((l) => l.slug === slug);
-      write(
-        existing
-          ? current.map((l) =>
-              l.slug === slug ? { ...l, qty: Math.min(99, l.qty + Math.max(1, qty)) } : l,
-            )
-          : [...current, { slug, qty: Math.max(1, Math.min(99, qty)) }],
-      );
-    },
-    [],
-  );
-
-  const setQty = useCallback((slug: string, qty: number) => {
+  const add = useCallback((slug: string, pieces: number, qty = 1) => {
     const current = parseStoredCart(read());
+    const key = lineKey(slug, pieces);
+    const existing = current.find((l) => lineKey(l.slug, l.pieces) === key);
     write(
-      qty <= 0
-        ? current.filter((l) => l.slug !== slug)
-        : current.map((l) => (l.slug === slug ? { ...l, qty: Math.min(99, qty) } : l)),
+      existing
+        ? current.map((l) =>
+            lineKey(l.slug, l.pieces) === key
+              ? { ...l, qty: Math.min(99, l.qty + Math.max(1, qty)) }
+              : l,
+          )
+        : [...current, { slug, pieces, qty: Math.max(1, Math.min(99, qty)) }],
     );
   }, []);
 
-  const remove = useCallback((slug: string) => {
-    write(parseStoredCart(read()).filter((l) => l.slug !== slug));
+  const setQty = useCallback((slug: string, pieces: number, qty: number) => {
+    const current = parseStoredCart(read());
+    const key = lineKey(slug, pieces);
+    write(
+      qty <= 0
+        ? current.filter((l) => lineKey(l.slug, l.pieces) !== key)
+        : current.map((l) =>
+            lineKey(l.slug, l.pieces) === key ? { ...l, qty: Math.min(99, qty) } : l,
+          ),
+    );
+  }, []);
+
+  const remove = useCallback((slug: string, pieces: number) => {
+    const key = lineKey(slug, pieces);
+    write(parseStoredCart(read()).filter((l) => lineKey(l.slug, l.pieces) !== key));
   }, []);
 
   const clear = useCallback(() => write([]), []);

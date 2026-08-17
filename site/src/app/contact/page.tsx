@@ -7,7 +7,7 @@ import { hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Trade enquiries for Archive Wholesale — UK vintage sportswear wholesale. Message us on WhatsApp, email us, or send an enquiry for custom bundles and volume pricing.",
+    "Trade enquiries for Archive Wholesale — UK vintage clothing wholesale. Message us on WhatsApp, email us, or send an enquiry for custom lots, by-the-kilo orders and volume pricing.",
   alternates: { canonical: "/contact" },
 };
 

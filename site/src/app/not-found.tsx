@@ -6,15 +6,15 @@ export default function NotFound() {
       <p className="eyebrow text-forest">404</p>
       <h1 className="display mt-4 text-4xl sm:text-5xl">That page has been sold on</h1>
       <p className="mt-6 text-base leading-relaxed text-slate">
-        The page you were after is not here. Intake changes weekly, so a bundle you bookmarked may
+        The page you were after is not here. Intake changes weekly, so a lot you bookmarked may
         already have gone.
       </p>
       <div className="mt-10 flex flex-wrap justify-center gap-3">
         <Link
-          href="/bundles"
+          href="/products"
           className="inline-flex items-center bg-ink px-7 py-4 text-sm font-bold tracking-wide text-paper uppercase transition-colors hover:bg-forest"
         >
-          Browse bundles
+          Browse products
         </Link>
         <Link
           href="/contact"

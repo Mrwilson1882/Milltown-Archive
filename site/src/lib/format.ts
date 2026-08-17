@@ -9,7 +9,7 @@ export function formatPrice(pounds: number): string {
   return gbp.format(pounds);
 }
 
-/** What a bundle costs, or the enquiry wording when the owner hasn't priced it. */
+/** What a lot costs, or the enquiry wording when the owner hasn't priced it. */
 export function priceLabel(priceGBP: number | null): string {
   return priceGBP === null ? "Price on request" : formatPrice(priceGBP);
 }

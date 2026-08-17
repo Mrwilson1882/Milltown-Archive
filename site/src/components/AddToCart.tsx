@@ -3,36 +3,101 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "@/components/useCart";
+import { EnquiryActions } from "@/components/EnquiryActions";
+import type { Product } from "@/data/catalogue";
+import { priceLabel } from "@/lib/format";
 
-export function AddToCart({ slug, disabled = false }: { slug: string; disabled?: boolean }) {
+/**
+ * Quantity-option picker plus add-to-cart. Products are sold in runs — 5, 10,
+ * 25, 50, 100 — so the customer picks the lot size first, then how many of that
+ * lot they want.
+ */
+export function AddToCart({ product }: { product: Product }) {
   const { add } = useCart();
+  const [selected, setSelected] = useState(product.variants[0]?.pieces ?? 0);
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
 
+  const variant = product.variants.find((v) => v.pieces === selected);
+  const multipleOptions = product.variants.length > 1;
+
   function handleAdd() {
-    add(slug, qty);
+    if (!variant) return;
+    add(product.slug, variant.pieces, qty);
     setAdded(true);
     window.setTimeout(() => setAdded(false), 2500);
   }
 
-  if (disabled) {
+  if (!product.inStock) {
     return (
-      <p className="border-2 border-ash px-6 py-4 text-center text-sm font-bold tracking-wide uppercase text-slate">
+      <p className="border-2 border-ash px-6 py-4 text-center text-sm font-bold tracking-wide text-slate uppercase">
         Sold out
       </p>
     );
   }
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-5">
+      {multipleOptions && (
+        <fieldset>
+          <legend className="eyebrow text-slate">
+            Lot size — {product.unit} per lot
+          </legend>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {product.variants.map((option) => {
+              const isSelected = option.pieces === selected;
+              return (
+                <button
+                  key={option.pieces}
+                  type="button"
+                  onClick={() => setSelected(option.pieces)}
+                  aria-pressed={isSelected}
+                  className={`min-w-16 border-2 px-4 py-2.5 text-sm font-bold tracking-wide uppercase transition-colors ${
+                    isSelected
+                      ? "border-forest bg-forest text-paper"
+                      : "border-ash text-ink hover:border-ink"
+                  }`}
+                >
+                  {option.pieces}
+                </button>
+              );
+            })}
+          </div>
+        </fieldset>
+      )}
+
+      {variant && (
+        <p className="display text-3xl">
+          {priceLabel(variant.priceGBP)}
+          <span className="ml-2 text-sm font-semibold tracking-normal text-slate normal-case">
+            for {variant.pieces} {product.unit}
+          </span>
+        </p>
+      )}
+
+      {variant && variant.priceGBP === null ? (
+        // A lot size the owner hasn't priced yet — take the enquiry instead.
+        <div>
+          <p className="mb-3 text-sm leading-relaxed text-slate">
+            This lot size is priced on enquiry. Message us and we will come back with a price,
+            photos and delivery cost.
+          </p>
+          <EnquiryActions
+            compact
+            subject={`Enquiry: ${product.name} (${variant.pieces} ${product.unit})`}
+            message={`Hi Archive Wholesale, I'd like a price for ${variant.pieces} ${product.unit} of "${product.name}".`}
+          />
+        </div>
+      ) : (
+        <>
       <div className="flex gap-3">
         <label className="flex items-center border-2 border-ink">
-          <span className="sr-only">Quantity</span>
+          <span className="sr-only">Number of lots</span>
           <button
             type="button"
             onClick={() => setQty((q) => Math.max(1, q - 1))}
             className="px-3.5 py-3 text-lg leading-none font-bold transition-colors hover:text-forest"
-            aria-label="Decrease quantity"
+            aria-label="Decrease number of lots"
           >
             −
           </button>
@@ -48,7 +113,7 @@ export function AddToCart({ slug, disabled = false }: { slug: string; disabled?:
             type="button"
             onClick={() => setQty((q) => Math.min(99, q + 1))}
             className="px-3.5 py-3 text-lg leading-none font-bold transition-colors hover:text-forest"
-            aria-label="Increase quantity"
+            aria-label="Increase number of lots"
           >
             +
           </button>
@@ -73,6 +138,8 @@ export function AddToCart({ slug, disabled = false }: { slug: string; disabled?:
           </span>
         )}
       </p>
+        </>
+      )}
     </div>
   );
 }

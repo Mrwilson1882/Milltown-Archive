@@ -1,20 +1,33 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { Bundle } from "@/data/bundles";
-import { BundleCard } from "@/components/BundleCard";
+import { fromPrice, type Product } from "@/data/catalogue";
+import { ProductCard } from "@/components/ProductCard";
 import type { Category } from "@/data/taxonomy";
 
-type SortKey = "featured" | "pieces-desc" | "pieces-asc" | "price-asc" | "price-desc" | "name";
+type SortKey = "featured" | "price-asc" | "price-desc" | "lot-desc" | "lot-asc" | "name";
 
 const sortOptions: { value: SortKey; label: string }[] = [
   { value: "featured", label: "Featured" },
-  { value: "pieces-desc", label: "Most pieces" },
-  { value: "pieces-asc", label: "Fewest pieces" },
   { value: "price-asc", label: "Price: low to high" },
   { value: "price-desc", label: "Price: high to low" },
+  { value: "lot-desc", label: "Largest lot size" },
+  { value: "lot-asc", label: "Smallest lot size" },
   { value: "name", label: "Name A–Z" },
 ];
+
+/** Biggest lot a product offers, for sorting. */
+function maxLot(product: Product): number {
+  return product.variants.reduce((max, v) => Math.max(max, v.pieces), 0);
+}
+
+/** Smallest lot a product offers — the entry point for a first order. */
+function minLot(product: Product): number {
+  return product.variants.reduce(
+    (min, v) => Math.min(min, v.pieces),
+    product.variants[0]?.pieces ?? Number.MAX_SAFE_INTEGER,
+  );
+}
 
 function FilterRow({
   label,
@@ -64,17 +77,17 @@ function FilterRow({
 }
 
 /**
- * Filterable, sortable grid. Pass `lockedFilters` on a category page so the
- * page's own facet isn't offered again as a filter.
+ * Filterable, sortable grid. Pass `hide` on a category page so the page's own
+ * facet isn't offered again as a filter.
  */
-export function BundleBrowser({
-  bundles,
+export function ProductBrowser({
+  products,
   brands,
   productTypes,
   collections,
   hide = [],
 }: {
-  bundles: Bundle[];
+  products: Product[];
   brands: Category[];
   productTypes: Category[];
   collections: Category[];
@@ -86,32 +99,34 @@ export function BundleBrowser({
   const [sort, setSort] = useState<SortKey>("featured");
 
   const visible = useMemo(() => {
-    const filtered = bundles.filter(
-      (b) =>
-        (!brand || b.brandSlugs.includes(brand)) &&
-        (!type || b.typeSlugs.includes(type)) &&
-        (!collection || b.collectionSlugs.includes(collection)),
+    const filtered = products.filter(
+      (p) =>
+        (!brand || p.brandSlugs.includes(brand)) &&
+        (!type || p.typeSlugs.includes(type)) &&
+        (!collection || p.collectionSlugs.includes(collection)),
     );
 
     const sorted = [...filtered];
     switch (sort) {
-      case "pieces-desc":
-        sorted.sort((a, b) => b.pieces - a.pieces);
+      case "lot-desc":
+        sorted.sort((a, b) => maxLot(b) - maxLot(a));
         break;
-      case "pieces-asc":
-        sorted.sort((a, b) => a.pieces - b.pieces);
+      case "lot-asc":
+        sorted.sort((a, b) => minLot(a) - minLot(b));
         break;
       case "name":
         sorted.sort((a, b) => a.name.localeCompare(b.name));
         break;
       case "price-asc":
       case "price-desc": {
-        // Unpriced bundles always sit at the end, whichever way you sort.
+        // Unpriced products always sit at the end, whichever way you sort.
         sorted.sort((a, b) => {
-          if (a.priceGBP === null && b.priceGBP === null) return a.name.localeCompare(b.name);
-          if (a.priceGBP === null) return 1;
-          if (b.priceGBP === null) return -1;
-          return sort === "price-asc" ? a.priceGBP - b.priceGBP : b.priceGBP - a.priceGBP;
+          const pa = fromPrice(a);
+          const pb = fromPrice(b);
+          if (pa === null && pb === null) return a.name.localeCompare(b.name);
+          if (pa === null) return 1;
+          if (pb === null) return -1;
+          return sort === "price-asc" ? pa - pb : pb - pa;
         });
         break;
       }
@@ -119,7 +134,7 @@ export function BundleBrowser({
         sorted.sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
     }
     return sorted;
-  }, [bundles, brand, type, collection, sort]);
+  }, [products, brand, type, collection, sort]);
 
   const hasFilters = brand !== null || type !== null || collection !== null;
 
@@ -127,11 +142,11 @@ export function BundleBrowser({
     <div>
       <div className="border-y border-ash py-5">
         <div className="space-y-4">
+          {!hide.includes("type") && (
+            <FilterRow label="Product" options={productTypes} value={type} onChange={setType} />
+          )}
           {!hide.includes("brand") && (
             <FilterRow label="Brand" options={brands} value={brand} onChange={setBrand} />
-          )}
-          {!hide.includes("type") && (
-            <FilterRow label="Type" options={productTypes} value={type} onChange={setType} />
           )}
           {!hide.includes("collection") && (
             <FilterRow
@@ -145,7 +160,7 @@ export function BundleBrowser({
 
         <div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-ash pt-4">
           <p className="text-xs font-bold tracking-wide uppercase">
-            {visible.length} {visible.length === 1 ? "bundle" : "bundles"}
+            {visible.length} {visible.length === 1 ? "product" : "products"}
             {hasFilters && (
               <button
                 type="button"
@@ -180,7 +195,7 @@ export function BundleBrowser({
 
       {visible.length === 0 ? (
         <p className="py-20 text-center text-sm text-slate">
-          No bundles match that combination right now. Clear a filter, or{" "}
+          Nothing matches that combination right now. Clear a filter, or{" "}
           <a href="/contact" className="font-bold text-forest underline underline-offset-4">
             tell us what you are looking for
           </a>{" "}
@@ -188,8 +203,8 @@ export function BundleBrowser({
         </p>
       ) : (
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {visible.map((bundle, i) => (
-            <BundleCard key={bundle.slug} bundle={bundle} priority={i < 3} />
+          {visible.map((product, i) => (
+            <ProductCard key={product.slug} product={product} priority={i < 3} />
           ))}
         </div>
       )}

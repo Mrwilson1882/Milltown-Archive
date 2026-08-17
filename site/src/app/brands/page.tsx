@@ -4,7 +4,7 @@ import { CategoryIndex } from "@/components/CategoryPages";
 export const metadata: Metadata = {
   title: "Shop Vintage Wholesale by Brand",
   description:
-    "Browse Archive Wholesale bundles by brand — vintage Nike, Adidas, Lacoste and Ralph Lauren wholesale lots, plus mixed-brand sportswear bundles, shipped from the UK.",
+    "Browse Archive Wholesale by brand — vintage Lacoste, Ralph Lauren, Nike, Champion, Hugo Boss, Carhartt, Dickies and Birkenstock wholesale lots, shipped from the UK.",
   alternates: { canonical: "/brands" },
 };
 

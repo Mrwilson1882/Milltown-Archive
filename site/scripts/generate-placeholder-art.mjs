@@ -177,7 +177,7 @@ async function main() {
     green: { ground: PAPER, primary: INK, accent: GREEN },
     ink: { ground: SMOKE, primary: GREEN, accent: INK },
   };
-  const variants = ["", "-2"];
+  const variants = ["", "-2", "-3"];
   let written = 0;
 
   for (const [patternName, draw] of Object.entries(patterns)) {

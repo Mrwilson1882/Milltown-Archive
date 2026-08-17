@@ -31,9 +31,9 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-ash bg-paper/95 backdrop-blur">
       <div className="bg-forest text-paper">
         <p className="mx-auto max-w-7xl px-4 py-2 text-center text-[0.7rem] font-semibold tracking-[0.14em] uppercase sm:px-6">
-          <span className="sm:hidden">UK vintage sportswear wholesale</span>
+          <span className="sm:hidden">UK vintage clothing wholesale</span>
           <span className="hidden sm:inline">
-            UK vintage sportswear wholesale · Hand-graded bundles · Shipped from{" "}
+            UK vintage clothing wholesale · Boxes, lots &amp; by the kilo · Shipped from{" "}
             {siteConfig.location}
           </span>
         </p>

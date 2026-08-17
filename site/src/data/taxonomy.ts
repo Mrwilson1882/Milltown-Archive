@@ -1,12 +1,10 @@
 /**
- * The three ways a customer can browse: by brand, by product type, and by
- * trend-led collection. All three render the same filterable grid, so adding a
- * category here is enough to give it a page, a home-page tile and a sitemap
- * entry.
+ * The three ways a customer can browse: by product type, by brand, and by
+ * collection. All three render the same filterable grid, so adding a category
+ * here is enough to give it a page, a home-page tile, a footer link and a
+ * sitemap entry.
  *
- * `seoCopy` is the short keyword-rich paragraph that sits at the foot of the
- * category page. Keep it factual and specific — it is written for customers
- * first and search engines second.
+ * `seoCopy` is the keyword-rich paragraph at the foot of the category page.
  */
 
 export type CategoryKind = "brand" | "type" | "collection";
@@ -24,150 +22,200 @@ export type Category = {
   featured?: boolean;
 };
 
+export const productTypes: Category[] = [
+  {
+    slug: "polos-t-shirts",
+    name: "Polos & T-Shirts",
+    blurb: "Branded piqué polos and tees, sold in fives and up.",
+    seoCopy:
+      "Wholesale vintage polos and t-shirts from a UK supplier. Lacoste and Ralph Lauren piqué polos, Nike and Champion tees, Carhartt and Dickies workwear tees, and mixed summer lots — available in quantities from five pieces up to a hundred so you can test a line before you commit to volume.",
+    art: "grid-green",
+    featured: true,
+  },
+  {
+    slug: "jumpers-sweats",
+    name: "Jumpers & Sweats",
+    blurb: "Premium vintage hoodies, sweatshirts, jumpers and cardigans.",
+    seoCopy:
+      "Wholesale vintage hoodies and sweatshirts, plus Lacoste jumpers and cardigans. Premium vintage sweats are the most consistent repeat category in UK vintage retail — bought in mixed lots from five pieces, or in depth up to a hundred.",
+    art: "bands-ink",
+    featured: true,
+  },
+  {
+    slug: "jackets",
+    name: "Jackets",
+    blurb: "Festival track jackets and designer outerwear.",
+    seoCopy:
+      "Vintage jacket wholesale in the UK. Festival track jackets for the summer season and designer outerwear lots in small runs — the highest single-piece margin of anything we sell, and the fastest category to clear at a festival or market stall.",
+    art: "diagonal-green",
+    featured: true,
+  },
+  {
+    slug: "footwear",
+    name: "Footwear",
+    blurb: "Birkenstock sandals, sold by the pair in graded lots.",
+    seoCopy:
+      "Wholesale vintage footwear — Birkenstock sandals in lots of five to fifty pairs. Footwear sells alongside a clothing rail without competing with it, and Birkenstocks hold their resale value better than almost anything else in second-hand footwear.",
+    art: "blocks-green",
+    featured: true,
+  },
+  {
+    slug: "accessories",
+    name: "Accessories",
+    blurb: "Bags and finishing pieces for the counter.",
+    seoCopy:
+      "Vintage accessories wholesale — bags and small pieces that sell from the counter rather than the rail. Low-ticket add-ons that lift the average basket on a market stall or in a shop.",
+    art: "halftone-ink",
+  },
+];
+
 export const brands: Category[] = [
-  {
-    slug: "nike",
-    name: "Nike",
-    blurb: "Track jackets, windbreakers, tees and fleece from the swoosh archive.",
-    seoCopy:
-      "Wholesale vintage Nike from a UK supplier. Our Nike bundles are picked for retail-ready condition and cover 90s and Y2K track jackets, windbreakers, spellout tees, hoodies and fleece. Every lot is hand-sorted and graded in Manchester before it ships.",
-    art: "bands-green",
-    featured: true,
-  },
-  {
-    slug: "adidas",
-    name: "Adidas",
-    blurb: "Three-stripe tracksuits, trefoil tees and terrace-ready outerwear.",
-    seoCopy:
-      "Buy vintage Adidas wholesale in the UK. Three-stripe track tops, full tracksuits, trefoil sweatshirts and tees, sorted by size and condition into mixed bundles for resellers, market traders and vintage shops.",
-    art: "stripes-ink",
-    featured: true,
-  },
   {
     slug: "lacoste",
     name: "Lacoste",
-    blurb: "Croc polos, knitwear and shell jackets, sorted by size and colour.",
+    blurb: "Croc polos, jumpers and cardigans, in depth.",
     seoCopy:
-      "Vintage Lacoste wholesale bundles from Archive Wholesale. Croc-logo polo shirts, knitted jumpers and shell jackets in mixed sizes and colourways, hand-graded so you know exactly what condition you are buying.",
-    art: "grid-green",
+      "Wholesale vintage Lacoste from a UK supplier. Croc-logo polo shirts, knitted jumpers and zip-through cardigans in lots from ten pieces to a hundred. Lacoste is one of the two labels our buyers reorder most.",
+    art: "grid-green-2",
     featured: true,
   },
   {
     slug: "ralph-lauren",
     name: "Ralph Lauren",
-    blurb: "Pony polos, oxford shirts and knits, men's and women's.",
+    blurb: "Pony polos, men's and women's, in every quantity.",
     seoCopy:
-      "Wholesale vintage Ralph Lauren in the UK. Polo Ralph Lauren pony polos, oxford shirts, rugby tops and knitwear across men's and women's sizing, bundled by size run and condition grade.",
+      "Vintage Ralph Lauren wholesale in the UK. Polo Ralph Lauren pony polos in mixed colourways and sizing, sold on their own or mixed with Lacoste, from five pieces up to a hundred.",
     art: "diagonal-ink",
     featured: true,
   },
   {
-    slug: "mixed-brands",
-    name: "Mixed Brands",
-    blurb: "Branded sportswear lots spanning the full archive.",
+    slug: "nike",
+    name: "Nike",
+    blurb: "Swoosh and spellout tees in small, testable lots.",
     seoCopy:
-      "Mixed-brand vintage sportswear bundles for buyers who want breadth. Each lot spans several recognised sportswear labels, picked to give a market stall or online shop a full rail from a single purchase.",
+      "Wholesale vintage Nike t-shirts, UK stock. Swoosh and spellout tees in lots of five, ten or twenty — small enough to test on a stall, deep enough to fill a rail once you know the line sells.",
+    art: "bands-green",
+    featured: true,
+  },
+  {
+    slug: "champion",
+    name: "Champion",
+    blurb: "Reverse weave and script-logo tees.",
+    seoCopy:
+      "Vintage Champion wholesale from the UK. Script-logo and reverse-weave tees in lots of five, ten or twenty — a reliable seller wherever American college sportswear has a following.",
+    art: "stripes-ink",
+    featured: true,
+  },
+  {
+    slug: "hugo-boss",
+    name: "Hugo Boss",
+    blurb: "Men's designer mix, sold as a twenty-piece lot.",
+    seoCopy:
+      "Wholesale vintage Hugo Boss — men's designer mixed lots of twenty pieces. Branded designer menswear that prices above general vintage and gives a rail a premium end.",
+    art: "blocks-ink",
+  },
+  {
+    slug: "carhartt",
+    name: "Carhartt",
+    blurb: "Workwear tees in twenty-fives and fifties.",
+    seoCopy:
+      "Vintage Carhartt wholesale in the UK. Workwear t-shirts sold alongside Dickies in lots of twenty-five and fifty — a category with its own dedicated buyer that rarely overlaps with sportswear.",
     art: "halftone-green",
   },
-];
-
-export const productTypes: Category[] = [
   {
-    slug: "track-jackets",
-    name: "Track Jackets",
-    blurb: "Zip-through shell and tricot tops, 90s through Y2K.",
+    slug: "dickies",
+    name: "Dickies",
+    blurb: "Workwear tees, bundled with Carhartt.",
     seoCopy:
-      "Vintage track jacket wholesale, UK stock. Shell, tricot and velour zip-throughs from the sportswear archive — the strongest-selling category we carry, bundled in mixed sizes and colourways.",
-    art: "diagonal-green",
-    featured: true,
+      "Wholesale vintage Dickies workwear. Branded work tees in mixed lots with Carhartt, in twenty-fives and fifties, for shops selling into the workwear and skate market.",
+    art: "stripes-green-2",
   },
   {
-    slug: "polos",
-    name: "Polos",
-    blurb: "Branded piqué polos across men's and women's sizing.",
+    slug: "tommy-hilfiger",
+    name: "Tommy Hilfiger",
+    blurb: "Flag-logo pieces in the summer mix.",
     seoCopy:
-      "Wholesale vintage polo shirts from Ralph Lauren, Lacoste and other branded labels. Piqué cotton polos in mixed sizes, colours and condition grades — a dependable repeat-order category for vintage retailers.",
-    art: "grid-ink",
-    featured: true,
+      "Vintage Tommy Hilfiger wholesale, sold as part of our Ralph / Tommy / Lacoste summer mix. Flag-logo polos and lightweight branded pieces for warm-weather trading.",
+    art: "diagonal-green-3",
   },
   {
-    slug: "hoodies",
-    name: "Hoodies",
-    blurb: "Heavyweight branded hoods, spellout and embroidered.",
+    slug: "birkenstock",
+    name: "Birkenstock",
+    blurb: "Sandals by the pair, five to fifty.",
     seoCopy:
-      "Vintage hoodie wholesale from a UK supplier. Heavyweight branded hoods with spellout prints and embroidered logos, sorted for wearable condition and bundled by size run.",
-    art: "bands-ink",
-    featured: true,
+      "Wholesale Birkenstock sandals from a UK vintage supplier. Sold by the pair in lots of five, ten, twenty-five and fifty — second-hand Birkenstocks hold their value and turn over fast in the right shop.",
+    art: "blocks-green-2",
   },
   {
-    slug: "sweatshirts",
-    name: "Sweatshirts",
-    blurb: "Crewnecks and quarter-zips with the logos buyers ask for.",
+    slug: "mixed-brands",
+    name: "Mixed Brands",
+    blurb: "Multi-label lots spanning the full intake.",
     seoCopy:
-      "Wholesale vintage sweatshirts — branded crewnecks, quarter-zips and fleece-lined tops. Mixed-brand and single-brand lots available, all hand-picked and graded before dispatch.",
-    art: "halftone-ink",
-    featured: true,
-  },
-  {
-    slug: "tracksuits",
-    name: "Tracksuits",
-    blurb: "Matched top-and-bottom sets, sized as pairs.",
-    seoCopy:
-      "Full vintage tracksuit sets sold wholesale. Matched tops and bottoms kept together and sized as pairs — the highest-value sportswear category we bundle, aimed at shops with an established vintage customer.",
-    art: "stripes-green",
-  },
-  {
-    slug: "jackets-outerwear",
-    name: "Jackets & Outerwear",
-    blurb: "Coach jackets, windbreakers, puffers and shells.",
-    seoCopy:
-      "Vintage outerwear wholesale in the UK. Coach jackets, windbreakers, shells and puffers from branded sportswear labels — a seasonal category that carries the strongest margin from autumn onwards.",
-    art: "blocks-green",
-  },
-  {
-    slug: "knitwear",
-    name: "Knitwear",
-    blurb: "Cardigans, jumpers and patterned knits.",
-    seoCopy:
-      "Wholesale vintage knitwear — branded cardigans, crew and v-neck jumpers and patterned knits. Sorted by weight and condition so you can buy for the season you are selling into.",
-    art: "blocks-ink",
+      "Mixed-brand vintage wholesale lots for buyers who want breadth. Each lot spans several recognised labels, picked to give a stall or online shop a full rail from a single purchase.",
+    art: "halftone-ink-2",
   },
 ];
 
 export const collections: Category[] = [
   {
+    slug: "reseller-boxes",
+    name: "Reseller Boxes",
+    blurb: "Ready-made twenty-piece boxes at a fixed price. The quickest way to start.",
+    seoCopy:
+      "Vintage reseller boxes from a UK wholesaler. Fixed-price boxes of twenty designer pieces, split into men's and women's Y2K mixes — made up and priced so you can order in one click and start selling the week it lands. The simplest entry point into vintage wholesale.",
+    art: "bands-green-2",
+    featured: true,
+  },
+  {
     slug: "y2k",
     name: "Y2K",
-    blurb: "Late 90s and early 2000s cuts, the pieces resale is asking for.",
+    blurb: "Late 90s and early 2000s designer, the cuts resale is asking for.",
     seoCopy:
-      "Y2K vintage wholesale bundles. Late-90s and early-2000s sportswear and womenswear — cropped cuts, bold colourways and logo-forward pieces selected for the buyers currently driving resale demand.",
+      "Y2K vintage wholesale in the UK. Late-90s and early-2000s designer pieces — logo-forward, bold colourways and the cuts currently driving resale demand on Depop and Vinted.",
     art: "halftone-green-2",
     featured: true,
   },
   {
-    slug: "womens",
-    name: "Women's",
-    blurb: "Womenswear picked and sized as its own category, not an afterthought.",
+    slug: "premium-vintage",
+    name: "Premium Vintage",
+    blurb: "The graded top end of each intake.",
     seoCopy:
-      "Women's vintage wholesale from Archive Wholesale. Womenswear is picked, sized and graded as its own category rather than sifted out of men's lots — polos, cardigans, bralettes, track tops and Y2K pieces in true women's sizing.",
-    art: "grid-green-2",
+      "Premium vintage wholesale — the strongest pieces from each intake, graded up rather than bundled into general mixed lots. For retailers who sell on piece quality rather than volume.",
+    art: "grid-ink",
     featured: true,
   },
   {
     slug: "summer-mix",
     name: "Summer Mix",
-    blurb: "Lightweight layers for the warm-weather rail.",
+    blurb: "Lightweight branded layers for warm-weather trading.",
     seoCopy:
-      "Summer vintage wholesale bundles — lightweight branded tees, polos, shorts and thin layers for the warm-weather rail. Bought seasonally and priced to move volume through spring and summer.",
-    art: "bands-green-2",
+      "Summer vintage wholesale bundles — lightweight branded polos, tees and thin layers from Ralph Lauren, Tommy Hilfiger and Lacoste. Bought seasonally and priced to move volume through spring and summer.",
+    art: "stripes-green",
+    featured: true,
   },
   {
-    slug: "premium-picks",
-    name: "Premium Picks",
-    blurb: "Single-piece grade selections from the top of each intake.",
+    slug: "festival",
+    name: "Festival",
+    blurb: "Track jackets and loud pieces built for the festival run.",
     seoCopy:
-      "Premium vintage picks — the strongest single pieces pulled from each intake before bundling. Small, high-grade lots for retailers who sell on piece quality rather than volume.",
-    art: "diagonal-green-2",
+      "Festival vintage wholesale — track jackets and bold branded pieces for the summer festival circuit. Bright, recognisable and priced to sell fast at a temporary pitch.",
+    art: "diagonal-ink-2",
+  },
+  {
+    slug: "womens",
+    name: "Women's",
+    blurb: "Womenswear picked and sized as its own category.",
+    seoCopy:
+      "Women's vintage wholesale from Archive Wholesale. Womenswear is picked and sized as its own category rather than sifted out of men's lots — designer Y2K pieces in true women's sizing.",
+    art: "bands-ink-2",
+  },
+  {
+    slug: "mens",
+    name: "Men's",
+    blurb: "Men's designer and sportswear lots.",
+    seoCopy:
+      "Men's vintage wholesale — designer and sportswear lots across Lacoste, Ralph Lauren, Hugo Boss, Nike and Champion, in quantities from five pieces to a hundred.",
+    art: "blocks-ink-2",
   },
 ];
 
@@ -179,24 +227,24 @@ export const categoryGroups: {
   items: Category[];
 }[] = [
   {
-    kind: "brand",
-    path: "/brands",
-    title: "Shop by Brand",
-    intro: "The labels our buyers ask for by name, bundled brand-pure where the intake allows.",
-    items: brands,
-  },
-  {
     kind: "type",
     path: "/types",
-    title: "Shop by Type",
+    title: "Shop by Product",
     intro: "Buying to fill a gap on the rail? Start from the garment.",
     items: productTypes,
+  },
+  {
+    kind: "brand",
+    path: "/brands",
+    title: "Popular Brands",
+    intro: "The labels our buyers ask for by name.",
+    items: brands,
   },
   {
     kind: "collection",
     path: "/collections",
     title: "Collections",
-    intro: "Trend-led selections cut across brand and garment type.",
+    intro: "Ready-made boxes and trend-led selections, cutting across brand and garment.",
     items: collections,
   },
 ];

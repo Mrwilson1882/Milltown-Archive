@@ -51,6 +51,6 @@ async function handlePaidOrder(session: Stripe.Checkout.Session) {
     email: session.customer_details?.email,
     amountTotal: session.amount_total,
     currency: session.currency,
-    bundles: session.metadata?.bundles,
+    lots: session.metadata?.lots,
   });
 }

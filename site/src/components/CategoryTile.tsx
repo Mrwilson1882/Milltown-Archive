@@ -30,7 +30,7 @@ export function CategoryTile({
     >
       <Image
         src={`/images/tiles/${category.art}.svg`}
-        alt={`${category.name} — vintage wholesale bundles`}
+        alt={`${category.name} — vintage wholesale lots`}
         fill
         priority={priority}
         sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"

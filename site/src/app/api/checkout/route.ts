@@ -12,10 +12,11 @@ function parseItems(body: CheckoutRequest): CartLine[] {
   if (!Array.isArray(body.items)) return [];
   return body.items.flatMap((entry) => {
     if (typeof entry !== "object" || entry === null) return [];
-    const { slug, qty } = entry as { slug?: unknown; qty?: unknown };
+    const { slug, pieces, qty } = entry as Record<string, unknown>;
     if (typeof slug !== "string") return [];
+    if (typeof pieces !== "number" || !Number.isFinite(pieces)) return [];
     const parsedQty = typeof qty === "number" && Number.isFinite(qty) ? Math.floor(qty) : 1;
-    return [{ slug, qty: Math.max(1, Math.min(99, parsedQty)) }];
+    return [{ slug, pieces: Math.floor(pieces), qty: Math.max(1, Math.min(99, parsedQty)) }];
   });
 }
 
@@ -42,7 +43,7 @@ export async function POST(request: Request) {
   const resolved = resolveLines(parseItems(body));
 
   // Prices come from the catalogue on the server, never from the browser.
-  const payable = resolved.filter((line) => line.bundle.priceGBP !== null);
+  const payable = resolved.filter((line) => line.variant.priceGBP !== null);
 
   if (payable.length === 0) {
     return NextResponse.json(
@@ -64,16 +65,18 @@ export async function POST(request: Request) {
         quantity: line.qty,
         price_data: {
           currency: "gbp",
-          unit_amount: toPence(line.bundle.priceGBP as number),
+          unit_amount: toPence(line.variant.priceGBP as number),
           product_data: {
-            name: line.bundle.name,
-            description: `${line.bundle.pieces} pieces · approx. ${line.bundle.weightKg}kg · sizes ${line.bundle.sizeRun}`,
+            name: `${line.product.name} — ${line.variant.pieces} ${line.product.unit}`,
+            description: line.product.summary,
           },
         },
       })),
       // Wholesale buyers are businesses; capture what is needed to invoice and ship.
       billing_address_collection: "required",
-      shipping_address_collection: { allowed_countries: ["GB", "IE", "FR", "DE", "NL", "BE", "ES", "IT", "PL"] },
+      shipping_address_collection: {
+        allowed_countries: ["GB", "IE", "FR", "DE", "NL", "BE", "ES", "IT", "PL"],
+      },
       phone_number_collection: { enabled: true },
       custom_text: {
         submit: {
@@ -83,7 +86,10 @@ export async function POST(request: Request) {
       success_url: `${siteConfig.url}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteConfig.url}/cart`,
       metadata: {
-        bundles: payable.map((line) => `${line.bundle.slug}×${line.qty}`).join(", ").slice(0, 500),
+        lots: payable
+          .map((line) => `${line.product.slug}/${line.variant.pieces}×${line.qty}`)
+          .join(", ")
+          .slice(0, 500),
       },
     });
 

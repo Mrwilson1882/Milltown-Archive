@@ -11,7 +11,7 @@ export const siteConfig = {
   parent: "Milltown Archive",
   tagline: "Branded vintage sportswear, wholesale.",
   description:
-    "UK vintage clothing wholesale. Hand-graded bundles of branded vintage sportswear — Nike, Adidas, Lacoste, Ralph Lauren and more — sorted, graded and ready to retail.",
+    "UK vintage clothing wholesale. Branded vintage — Lacoste, Ralph Lauren, Nike, Champion, Carhartt and more — sorted and graded into reseller boxes, counted lots from five pieces, or by the kilo.",
   /** Canonical origin, no trailing slash. */
   url: (rawSiteUrl && rawSiteUrl.replace(/\/$/, "")) || "https://www.archivewholesale.co.uk",
   /**
@@ -26,7 +26,7 @@ export const siteConfig = {
    */
   whatsappNumber: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "").replace(/\D/g, ""),
   /** Pre-filled text for the click-to-chat link. */
-  whatsappMessage: "Hi Archive Wholesale, I'd like to enquire about your vintage bundles.",
+  whatsappMessage: "Hi Archive Wholesale, I'd like to enquire about your vintage wholesale lots.",
   location: "Manchester, United Kingdom",
 } as const;
 
@@ -38,9 +38,10 @@ export function whatsappUrl(message: string = siteConfig.whatsappMessage): strin
 }
 
 export const navLinks = [
-  { href: "/bundles", label: "All Bundles" },
-  { href: "/brands", label: "Shop by Brand" },
-  { href: "/types", label: "Shop by Type" },
-  { href: "/collections", label: "Collections" },
+  { href: "/collections/reseller-boxes", label: "Reseller Boxes" },
+  { href: "/types", label: "By Product" },
+  { href: "/brands", label: "Brands" },
+  { href: "/by-kilo", label: "By Kilo" },
+  { href: "/products", label: "All Products" },
   { href: "/contact", label: "Contact" },
 ] as const;

@@ -6,7 +6,7 @@ import { hasWhatsApp } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Your Cart",
-  description: "Review your Archive Wholesale bundles and check out securely.",
+  description: "Review your Archive Wholesale order and check out securely.",
   robots: { index: false, follow: true },
   alternates: { canonical: "/cart" },
 };

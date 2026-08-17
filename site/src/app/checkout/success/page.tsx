@@ -27,10 +27,10 @@ export default function CheckoutSuccessPage() {
         .
       </p>
       <Link
-        href="/bundles"
+        href="/products"
         className="mt-10 inline-flex items-center bg-ink px-7 py-4 text-sm font-bold tracking-wide text-paper uppercase transition-colors hover:bg-forest"
       >
-        Back to the bundles
+        Back to the products
       </Link>
     </div>
   );

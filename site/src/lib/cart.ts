@@ -1,27 +1,38 @@
-import { bundles, type Bundle } from "@/data/bundles";
+import { findVariant, getProduct, type Product, type Variant } from "@/data/catalogue";
 
-export const CART_STORAGE_KEY = "archive-wholesale-cart-v1";
+/** v2: cart lines gained a `pieces` field when products gained quantity options. */
+export const CART_STORAGE_KEY = "archive-wholesale-cart-v2";
 
-export type CartLine = { slug: string; qty: number };
+/** One chosen quantity option of one product, plus how many of them. */
+export type CartLine = { slug: string; pieces: number; qty: number };
 
 export type ResolvedLine = {
-  bundle: Bundle;
+  product: Product;
+  variant: Variant;
   qty: number;
-  /** Null when the bundle has no price set — enquiry only. */
+  /** Null when this variant has no price set — enquiry only. */
   lineTotalGBP: number | null;
 };
 
-/** Drop anything that no longer exists in the catalogue or is out of stock. */
+/** A cart line is identified by product *and* quantity option. */
+export function lineKey(slug: string, pieces: number): string {
+  return `${slug}@${pieces}`;
+}
+
+/** Drop anything no longer in the catalogue, out of stock, or with no such option. */
 export function resolveLines(lines: CartLine[]): ResolvedLine[] {
   return lines.flatMap((line) => {
-    const bundle = bundles.find((b) => b.slug === line.slug);
-    if (!bundle || !bundle.inStock) return [];
+    const product = getProduct(line.slug);
+    if (!product || !product.inStock) return [];
+    const variant = findVariant(product, line.pieces);
+    if (!variant) return [];
     const qty = Math.max(1, Math.min(99, Math.floor(line.qty)));
     return [
       {
-        bundle,
+        product,
+        variant,
         qty,
-        lineTotalGBP: bundle.priceGBP === null ? null : bundle.priceGBP * qty,
+        lineTotalGBP: variant.priceGBP === null ? null : variant.priceGBP * qty,
       },
     ];
   });
@@ -46,9 +57,13 @@ export function parseStoredCart(raw: string | null): CartLine[] {
     if (!Array.isArray(parsed)) return [];
     return parsed.flatMap((entry) => {
       if (typeof entry !== "object" || entry === null) return [];
-      const { slug, qty } = entry as { slug?: unknown; qty?: unknown };
-      if (typeof slug !== "string" || typeof qty !== "number" || !Number.isFinite(qty)) return [];
-      return [{ slug, qty: Math.max(1, Math.min(99, Math.floor(qty))) }];
+      const { slug, pieces, qty } = entry as Record<string, unknown>;
+      if (typeof slug !== "string") return [];
+      if (typeof pieces !== "number" || !Number.isFinite(pieces)) return [];
+      if (typeof qty !== "number" || !Number.isFinite(qty)) return [];
+      return [
+        { slug, pieces: Math.floor(pieces), qty: Math.max(1, Math.min(99, Math.floor(qty))) },
+      ];
     });
   } catch {
     return [];
