@@ -53,16 +53,27 @@ so an item is identified by **date + number**, never by number alone.
 | 18 Aug | 4 | NFL T-Shirt | NFL | Large Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £18.99 |
 | 18 Aug | 5 | NFL Reebok Top (Walter Payton #34) | NFL / Reebok | XL Women's | Very good vintage | *(not stated)* | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
 | 18 Aug | 6 | The North Face Pullover | The North Face | Large | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.99 |
+| 18 Aug | 7 | Carhartt T-Shirt | Carhartt | Small Women's (4-6) | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.99 |
+| 18 Aug | 8 | Birkenstock Thong Sandals | Birkenstock | 40 | Very good vintage | None | SF - Birkenstock | £27.99 |
 
 ## Raw observations
 
 Recorded as facts about the 11 priced items so far — **not rules, not
 predictors.** Each has plausible counter-explanations and the sample is tiny.
 
-- Every price ends in `.99`. Observed: £8.99, £9.99 (×3), £12.99 (×2),
-  £14.99 (×3), £24.99. This is the only thing true of every item.
-- The two track jackets sit well above everything else (£24.99 for the clean
-  one). The two bralettes sit at or near the bottom.
+- Every price ends in `.99`. Observed across all priced items: £8.99, £9.99,
+  £12.99, £14.99, £17.99, £18.99, £19.99, £24.99, £27.99. This is the only
+  thing true of every item.
+- **Footwear is a new and higher category.** 18 Aug #8, Birkenstock sandals at
+  £27.99, is the highest price recorded and the first non-garment. One item —
+  nothing to generalise from yet beyond "shoes are not priced like tops".
+- **A second SKU prefix appeared**: `SF - Birkenstock`, alongside the usual
+  `VWM` (Vintage Wholesale Manchester). `SF` also appeared in the owner's
+  original worked example (`SF Fripe - Summer Mix`). What `SF` denotes has not
+  been stated, and whether it tracks a different source or price tier is
+  unknown — worth watching as more `SF` items arrive.
+- The two track jackets sit well above the tops (£24.99 for the clean one).
+  The two bralettes sit at or near the bottom.
 - 14 Aug #12 and #13 both priced £9.99 while differing in brand, size and
   colour; both were "good" condition with front discrepancies.
 - 14 Aug #10 priced £9.99 against a clean comparable at £12.99.
