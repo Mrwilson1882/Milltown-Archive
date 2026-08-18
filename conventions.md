@@ -51,6 +51,15 @@ of any new session — the chat is not persistent, these files are the memory.
   A composition is a search facet buyers filter on — descriptive prose is not.
   Fabric character belongs in the Item Description, the composition on the
   Material line.
+- **Birkenstock sizes** are dictated in EU and recorded in UK, converted from
+  `crosslist/birkenstock-sizes.csv` (Birkenstock's own chart). **EU 40 to 44
+  exist in both the men's and women's charts and mean different UK sizes** —
+  EU 42 is UK 9 women's but UK 8 men's. So a Birkenstock voice note must say
+  men's or women's, or the size cannot be converted at all; in that range,
+  guessing is a full size out. Below EU 40 the chart is women's only, above
+  EU 44 men's only, and those convert unambiguously.
+  Worth dictating too: **Regular or Narrow**, stamped on the footbed. It is a
+  filterable attribute and only the seller can see it.
 - **Ralph Lauren "Big Pony"** is claimed only where the pony is genuinely
   oversized — the Big Pony line, usually with a numbered sleeve patch. A
   standard chest pony is not a Big Pony, whatever its colour. Owner's

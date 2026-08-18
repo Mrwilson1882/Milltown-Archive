@@ -1,0 +1,21 @@
+department,eu,uk,foot_length_cm,crosslist_size_id,note
+Women,35,2,21,e097cb28-240e-3a14-3d6c-97e36b74807c,
+Women,36,3,22,8ac257a1-a22b-4f5e-1555-96eb4f7351d1,
+Women,37,4,23,92210b87-92e9-2ba1-6635-a882e9af9275,
+Women,38,5,24,8c71f20d-9c99-73b8-7bb5-2bb2cf785663,
+Women,39,6,25,ee4161c1-940f-5669-974c-a8127bf3189d,
+Women,40,7,26,d35611e7-9228-4b31-7fe3-ea43743f10d7,overlaps Men EU 40-44
+Women,41,8,27,d503fc52-150d-5f62-2396-9589396d0cd3,overlaps Men EU 40-44
+Women,42,9,28,b44411f8-4b6d-242c-8e2d-4a9c0d4e838e,overlaps Men EU 40-44
+Women,43,10,29,5eaebe06-46da-87ab-95b7-5d14862845ca,overlaps Men EU 40-44
+Women,44,11,30,a709429b-1a9c-a06d-10fc-1a34382d5085,overlaps Men EU 40-44
+Men,40,6,25,dc067cd1-0495-0f12-79d9-6ef7ddb72122,overlaps Women EU 40-44
+Men,41,7,26,53d0544d-8a66-309b-3979-c1c477d0141f,overlaps Women EU 40-44
+Men,42,8,27,c5b4fd32-30d8-66da-5e18-db383b1f87f4,overlaps Women EU 40-44
+Men,43,9,28,aeef306a-1745-38a9-8b23-84aad5e94ac9,overlaps Women EU 40-44
+Men,44,10,29,ebf7d407-9ebf-88a5-0255-9d292d2e64e2,overlaps Women EU 40-44
+Men,45,11,30,059abead-80a6-7e0c-2a7f-7ef32f7e1290,
+Men,46,12,31,f7644a0c-33d2-1f69-88d7-514878d353d4,
+Men,47,13,32,1fa3ace7-0ec9-020a-1e90-4cf15ea313af,
+Men,48,14,33,c205b830-5d16-7106-9d4f-1b61c6b556fe,
+Men,49,15,34,5c49b9d2-1b43-160f-0baf-44ea789d9d3d,
