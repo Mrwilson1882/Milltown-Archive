@@ -81,6 +81,19 @@ widths = {
 for idx, name in enumerate(header, start=1):
     ws.column_dimensions[get_column_letter(idx)].width = widths.get(name, 18)
 
+# Item numbers restart each day, so mark where one day ends and the next
+# begins — otherwise a second "1" partway down the sheet reads as an error.
+day_rule = Side(style="medium", color="2F4F4F")
+for row_idx in range(3, ws.max_row + 1):
+    prev = ws.cell(row=row_idx - 1, column=date_col).value
+    curr = ws.cell(row=row_idx, column=date_col).value
+    if prev != curr:
+        for col_idx in range(1, len(header) + 1):
+            cell = ws.cell(row=row_idx, column=col_idx)
+            old = cell.border
+            cell.border = Border(left=old.left, right=old.right,
+                                 top=day_rule, bottom=old.bottom)
+
 ws.freeze_panes = "A2"
 ws.auto_filter.ref = f"A1:{get_column_letter(len(header))}{ws.max_row}"
 

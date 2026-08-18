@@ -5,8 +5,19 @@ of any new session — the chat is not persistent, these files are the memory.
 
 ## Columns
 
-`Product Name, Colour Clarity/Description, Defects, Size, Condition, SKU, Price, Date Added`
+`Item No., Product Name, Colour Clarity/Description, Defects, Size, Condition, SKU, Price, Date Added`
 
+- **Item No.** — **restarts at 1 every day.** These are physical number markers
+  used on the stock and there is a finite set of them, so they are reused each
+  day rather than running on forever. The first voice note of a new day is
+  item 1, whatever came before it.
+
+  This means **an item is identified by date + number, never by number alone**.
+  "Item 3" is ambiguous; "18 Aug #3" is not. Pair the two whenever confirming a
+  row back to the owner or referring to one in `pricing-notes.md`.
+
+  When a new day's first product arrives, do not continue the previous day's
+  count — start again at 1 and set Date Added to the new date.
 - **Colour Clarity/Description** — colour first. Named separately from Defects
   because colour is hard to judge from photographs and buyers need it stated.
 - **Defects** — anything wrong with the item. Kept apart from the description
