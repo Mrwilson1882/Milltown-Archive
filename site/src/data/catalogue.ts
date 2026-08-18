@@ -32,6 +32,11 @@
  *   - festival-track-jackets                 (listed with no quantities)
  *   - bags                                   (listed with no detail at all)
  *
+ *   - t-shirt-mix                            (first seen in the photography)
+ *   - jackets-windbreaker-mix                (first seen in the photography)
+ *   - mens-luxury-winter-mix                 (first seen in the photography)
+ *   - womens-y2k-summer-mix                  (first seen in the photography)
+ *
  * Note also: "Lacoste – Jumpers & Cardigans" and "Lacoste – Cardigans" were
  * listed separately with identical quantity options, so they are treated here
  * as one product (`lacoste-jumpers-cardigans`). Split them if they are in fact
@@ -86,13 +91,19 @@ export const products: Product[] = [
       "Made up, priced and sold as a single box, so there is nothing to specify and nothing to quote. Order it and it ships. This is the quickest way to start with us, and the box most first-time buyers come back for.",
       "Sized in true women's sizing rather than pulled out of a men's lot.",
     ],
-    brandSlugs: ["mixed-brands"],
+    brandSlugs: ["mixed-brands", "reebok", "harley-davidson", "ralph-lauren"],
     typeSlugs: ["polos-t-shirts", "jumpers-sweats"],
     collectionSlugs: ["reseller-boxes", "y2k", "womens"],
     variants: [{ pieces: 20, priceGBP: 200 }],
     unit: "pieces",
     notes: [],
     art: "halftone-green-3",
+    photos: [
+      {
+        src: "/images/products/y2k-designer-female-mix-box-20/01.jpg",
+        alt: "A women's Y2K mix laid out on white: a white and grey Reebok shell jacket, a black Harley-Davidson Indiana long-sleeve top, a red Ralph Lauren polo and a pair of brown Birkenstock sandals.",
+      },
+    ],
     inStock: true,
     featured: true,
   },
@@ -133,6 +144,12 @@ export const products: Product[] = [
     unit: "pieces",
     notes: [],
     art: "grid-green-3",
+    photos: [
+      {
+        src: "/images/products/lacoste-ralph-lauren-polos/01.jpg",
+        alt: "Three vintage piqué polos laid flat on white: a faded navy Ralph Lauren with a red pony, a cream Ralph Lauren, and a Lacoste striped in teal, lilac and cream.",
+      },
+    ],
     inStock: true,
     featured: true,
   },
@@ -252,13 +269,19 @@ export const products: Product[] = [
       "Premium vintage hoodies on their own, for buyers who want hoods without the sweatshirts mixed in.",
       "Branded, heavyweight and weighted towards the larger end of the size run, because that is where hoodie demand sits.",
     ],
-    brandSlugs: ["mixed-brands"],
+    brandSlugs: ["mixed-brands", "ralph-lauren", "adidas"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage"],
     variants: [], // Quantities to be confirmed by the owner.
     unit: "pieces",
     notes: [],
     art: "grid-ink-3",
+    photos: [
+      {
+        src: "/images/products/mixed-premium-vintage-hoodies/01.jpg",
+        alt: "Three vintage hoodies laid flat on white: a red and navy Polo Ralph Lauren colour-block hood with sleeve spellout, a green adidas three-stripe hood, and a grey Universal Studios Florida embroidered hood.",
+      },
+    ],
     inStock: true,
   },
   {
@@ -293,6 +316,12 @@ export const products: Product[] = [
     unit: "pieces",
     notes: [],
     art: "diagonal-green-2",
+    photos: [
+      {
+        src: "/images/products/lacoste-jumpers-cardigans/01.jpg",
+        alt: "Four Lacoste knits laid flat on white: a navy zip-through cardigan, a black zip cardigan, a black zip knit with cream striped collar and cuffs, and a green v-neck jumper.",
+      },
+    ],
     inStock: true,
     featured: true,
   },
@@ -350,6 +379,12 @@ export const products: Product[] = [
     unit: "pairs",
     notes: [],
     art: "blocks-green",
+    photos: [
+      {
+        src: "/images/products/birkenstock-sandals/01.jpg",
+        alt: "Six pairs of second-hand Birkenstock sandals on white: four brown nubuck pairs in two-strap and toe-post styles, one white toe-post pair and one metallic snake-print pair.",
+      },
+    ],
     inStock: true,
     featured: true,
   },
@@ -407,6 +442,103 @@ export const products: Product[] = [
     notes: [],
     art: "grid-ink",
     inStock: true,
+  },
+  // ------------------------------------------- Lots first seen in the photography
+  {
+    slug: "t-shirt-mix",
+    name: "Branded T-Shirt Mix",
+    summary: "Mixed branded tees across the sportswear labels.",
+    description: [
+      "Branded vintage t-shirts mixed across labels rather than kept brand-pure — Champion, Nike, Fila and adidas in one lot.",
+      "A mixed tee lot fills a rail faster than a single-brand run and suits a stall where the customer buys on colour and logo rather than by label.",
+    ],
+    brandSlugs: ["mixed-brands", "champion", "nike", "fila", "adidas"],
+    typeSlugs: ["polos-t-shirts"],
+    collectionSlugs: ["mens"],
+    variants: [], // Quantities to be confirmed by the owner.
+    unit: "pieces",
+    notes: [],
+    art: "bands-ink-4",
+    photos: [
+      {
+        src: "/images/products/t-shirt-mix/01.jpg",
+        alt: "Four branded vintage t-shirts laid flat on white: a purple Champion script tee, a blue Nike swoosh tee, a navy Fila logo tee and a black adidas trefoil tee.",
+      },
+    ],
+    inStock: true,
+    featured: true,
+  },
+  {
+    slug: "jackets-windbreaker-mix",
+    name: "Jackets & Windbreaker Mix",
+    summary: "Branded shells, pullovers and windbreakers, mixed.",
+    description: [
+      "Lightweight branded outerwear mixed across labels — quarter-zip pullovers, hooded shells and fleece-lined windbreakers from Nike, Ralph Lauren, Tommy Hilfiger and Reebok.",
+      "Outerwear carries the highest single-piece ticket on a vintage rail, and this category picks up from late summer onwards.",
+    ],
+    brandSlugs: ["mixed-brands", "nike", "ralph-lauren", "tommy-hilfiger", "reebok"],
+    typeSlugs: ["jackets"],
+    collectionSlugs: ["festival"],
+    variants: [], // Quantities to be confirmed by the owner.
+    unit: "pieces",
+    notes: [],
+    art: "diagonal-green-4",
+    photos: [
+      {
+        src: "/images/products/jackets-windbreaker-mix/01.jpg",
+        alt: "Four vintage jackets laid flat on white: a navy Nike quarter-zip pullover, a red Chaps Ralph Lauren hooded pullover, a grey and navy Tommy Hilfiger hooded jacket and a white and red Reebok fleece-lined jacket.",
+      },
+    ],
+    inStock: true,
+    featured: true,
+  },
+  {
+    slug: "mens-luxury-winter-mix",
+    name: "Men's Luxury Winter Mix",
+    summary: "Designer knitwear — Missoni, Valentino, Stone Island, Lacoste.",
+    description: [
+      "Designer knitwear a clear tier above general premium vintage: Missoni Sport, Valentino, Stone Island and Lacoste in one lot.",
+      "These are pieces that price on the label rather than the category, aimed at shops with an established customer for designer menswear. Small lots by nature — this is not a volume line.",
+    ],
+    brandSlugs: ["missoni", "valentino", "stone-island", "lacoste"],
+    typeSlugs: ["jumpers-sweats"],
+    collectionSlugs: ["premium-vintage", "mens"],
+    variants: [], // Quantities to be confirmed by the owner.
+    unit: "pieces",
+    notes: [],
+    art: "halftone-ink-4",
+    photos: [
+      {
+        src: "/images/products/mens-luxury-winter-mix/01.jpg",
+        alt: "Four pieces of designer knitwear laid flat on white: a Missoni Sport patterned hooded gilet, a Valentino argyle v-neck jumper, a blue Lacoste button cardigan and a black Stone Island zip-through knit.",
+      },
+    ],
+    inStock: true,
+    featured: true,
+  },
+  {
+    slug: "womens-y2k-summer-mix",
+    name: "Women's Y2K Summer Mix",
+    summary: "Women's warm-weather Y2K — jerseys, shorts and vests.",
+    description: [
+      "Women's Y2K picked for summer trading: mesh sports jerseys, nylon shorts, cut denim and vest tops.",
+      "Bright, cropped and logo-led — the pieces that photograph well and clear fast through spring and summer.",
+    ],
+    brandSlugs: ["mixed-brands", "champion", "nike", "harley-davidson"],
+    typeSlugs: ["polos-t-shirts"],
+    collectionSlugs: ["y2k", "womens", "summer-mix"],
+    variants: [], // Quantities to be confirmed by the owner.
+    unit: "pieces",
+    notes: [],
+    art: "grid-ink-4",
+    photos: [
+      {
+        src: "/images/products/womens-y2k-summer-mix/01.jpg",
+        alt: "A women's Y2K summer mix laid out on white: a green Champion number 4 football jersey, navy Nike shorts, distressed SLY denim shorts and a red Harley-Davidson vest top.",
+      },
+    ],
+    inStock: true,
+    featured: true,
   },
 ];
 

@@ -147,6 +147,64 @@ export const brands: Category[] = [
     art: "blocks-green-2",
   },
   {
+    slug: "adidas",
+    name: "Adidas",
+    blurb: "Three-stripe tees, hoods and track pieces.",
+    seoCopy:
+      "Wholesale vintage Adidas from a UK supplier. Trefoil and three-stripe tees, hooded sweats and track pieces, sold in mixed lots alongside the other sportswear labels we carry.",
+    art: "bands-green-4",
+    featured: true,
+  },
+  {
+    slug: "reebok",
+    name: "Reebok",
+    blurb: "Shell jackets and 90s sportswear.",
+    seoCopy:
+      "Vintage Reebok wholesale in the UK. Shell jackets, windbreakers and 90s sportswear — a label that sells strongly to buyers working the terrace and festival end of the market.",
+    art: "stripes-ink-4",
+  },
+  {
+    slug: "fila",
+    name: "Fila",
+    blurb: "Logo tees and tape-detail pieces.",
+    seoCopy:
+      "Wholesale vintage Fila. Logo tees, tape-detail sportswear and colour-block pieces, included in our mixed branded tee and sportswear lots.",
+    art: "grid-green-4",
+  },
+  {
+    slug: "harley-davidson",
+    name: "Harley-Davidson",
+    blurb: "Dealer tees, vests and womenswear.",
+    seoCopy:
+      "Vintage Harley-Davidson wholesale in the UK. Dealer-print tees, long-sleeves and womenswear — a category with its own committed buyer that prices well above general vintage.",
+    art: "diagonal-ink-4",
+  },
+  {
+    slug: "stone-island",
+    name: "Stone Island",
+    blurb: "Badged knitwear and outerwear, sold in premium lots.",
+    seoCopy:
+      "Stone Island wholesale, sold within our men's luxury lots. Badged knitwear and outerwear at the top of the price ladder — for shops with an established customer for designer menswear.",
+    art: "halftone-green-4",
+    featured: true,
+  },
+  {
+    slug: "missoni",
+    name: "Missoni",
+    blurb: "Patterned Italian knitwear.",
+    seoCopy:
+      "Vintage Missoni wholesale. Patterned Italian knitwear from the Missoni Sport line, supplied within our men's luxury winter lots — rare, distinctive, and priced accordingly.",
+    art: "blocks-ink-4",
+  },
+  {
+    slug: "valentino",
+    name: "Valentino",
+    blurb: "Designer knitwear, argyle and fine gauge.",
+    seoCopy:
+      "Valentino vintage wholesale, supplied within our luxury knitwear lots. Argyle and fine-gauge designer knits for retailers selling at the premium end.",
+    art: "stripes-green-4",
+  },
+  {
     slug: "mixed-brands",
     name: "Mixed Brands",
     blurb: "Multi-label lots spanning the full intake.",

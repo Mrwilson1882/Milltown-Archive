@@ -1,46 +1,57 @@
-# Product photography — where each shot goes
+# Product photography
 
-Nine photographs were shot for the first batch. This is the filename each one
-needs, the product it belongs to, and the alt text that will be written into the
-page. Save them as **JPG, square, 1600 × 1600 px**.
+## Batch one — in and live
 
-Drop each file at the path in the second column and the site picks it up — the
-placeholder artwork disappears on its own.
+Nine photographs, shot square on white at 1600 × 1600. They were supplied as
+PNG and converted to JPG on the way in (11.7MB down to 1.4MB across the nine,
+with no visible difference), and they now sit at:
 
-| # | Save as | Product page | What the shot is |
-|---|---|---|---|
-| 1 | `mixed-tees/01.jpg` | *(new product — see below)* | Four branded tees: purple Champion script, blue Nike swoosh, navy FILA, black adidas |
-| 2 | `mixed-brands/01.jpg` | *(new product — see below)* | Reebok shell jacket, Harley-Davidson long-sleeve, red Ralph Lauren polo, brown Birkenstocks |
-| 3 | `y2k-female-mix/01.jpg` | Y2K Designer Female Mix | Champion NFL jersey, Nike shorts, SLY denim shorts, red Harley-Davidson cami |
-| 4 | `lacoste-jumpers-cardigans/01.jpg` | Lacoste Jumpers & Cardigans | Four Lacoste knits: navy zip, black zip, black zip with cream stripe, green v-neck |
-| 5 | `rl-lacoste-polos/01.jpg` | Lacoste / Ralph Lauren Polos | Three polos: navy and cream Ralph Lauren, striped Lacoste |
-| 6 | `designer-jackets/01.jpg` | Designer Jackets | Nike quarter-zip, Chaps Ralph Lauren hooded pullover, Tommy Hilfiger hooded jacket, Reebok fleece-lined jacket |
-| 7 | `birkenstock-sandals/01.jpg` | Birkenstock Sandals | Six pairs: four brown nubuck, one white, one metallic snake-print |
-| 8 | `premium-hoodies/01.jpg` | Mixed Premium Vintage Hoodies | Polo Ralph Lauren colour-block, green adidas three-stripe, grey Universal Studios Florida |
-| 9 | `premium-knitwear/01.jpg` | *(new product — see below)* | Missoni Sport hooded gilet, Valentino argyle v-neck, Lacoste cardigan, Stone Island zip knit |
+| Photograph | Product page |
+|---|---|
+| Lacoste RL Polo | Lacoste / Ralph Lauren Polos |
+| Lacoste Jumper & Cardigan Mix | Lacoste Jumpers & Cardigans |
+| Hoodies | Mixed Premium Vintage Hoodies |
+| Birkenstock | Birkenstock Sandals |
+| Womens Y2K mix | Y2K Designer Female Mix — Box of 20 |
+| T Shirts | Branded T-Shirt Mix *(new product)* |
+| Jackets and Windbreaker Mix | Jackets & Windbreaker Mix *(new product)* |
+| Mens Luxury Winter Mix | Men's Luxury Winter Mix *(new product)* |
+| Womens Y2K Summer Mix | Women's Y2K Summer Mix *(new product)* |
 
-All paths are relative to `public/images/products/`.
+Four of the nine showed lots that were not on the original product list, so
+those products were created to hold them.
 
-## More than one photo per product
+The photographs also showed brands with no page on the site. Added: **adidas,
+Reebok, Fila, Harley-Davidson, Stone Island, Missoni, Valentino**. Each now has
+its own page, footer link and sitemap entry. Remove any you do not stock
+regularly — they are one entry each in `src/data/taxonomy.ts`.
 
-The first photo becomes the card image everywhere. Photos 2–5 appear as
-thumbnails under the main image on the product page. Number them `02.jpg`,
+## Adding more
+
+Save as **JPG or PNG, square, 1600 × 1600 px**, then drop the file at
+`public/images/products/<product-slug>/01.jpg`.
+
+The first photo becomes the card image everywhere. Photos two to five appear as
+thumbnails under the main image on the product page — number them `02.jpg`,
 `03.jpg` and so on in the same folder. A sixth will not display.
 
-## What these photos changed
+Then add it to the product in `src/data/catalogue.ts`:
 
-Three shots do not match an existing product, because they show lots that were
-not on the original list:
+```ts
+photos: [
+  { src: "/images/products/nike-t-shirts/01.jpg", alt: "Twenty vintage Nike spellout tees laid out on white" },
+],
+```
 
-- **Photo 1** — a mixed-brand tee lot. Nike and Champion tees are listed
-  separately; this is a mixed one. Worth its own product.
-- **Photo 2** — a general mixed-brand lot spanning outerwear, jersey, polos and
-  footwear. Reads as a starter or sample lot.
-- **Photo 9** — designer knitwear well above the general premium tier. Missoni,
-  Valentino and Stone Island are a different price bracket to the rest.
+Write real alt text — a plain sentence describing what is in the shot. It is
+read aloud by screen readers and indexed by Google.
 
-Brands visible in the photos that have no page on the site yet: **adidas**,
-FILA, Reebok, Harley-Davidson, Stone Island, Missoni, Valentino, Chaps.
+## Products still without photography
 
-adidas is the notable one — it was in the original brief, dropped when it did
-not appear on the product list, and it is in two of these photographs.
+nike-t-shirts · champion-t-shirts · carhartt-dickies-t-shirts ·
+ralph-tommy-lacoste-summer-mix-25 · y2k-designer-male-mix-box-20 ·
+mixed-premium-vintage-hoodies-sweatshirts · mixed-premium-vintage-sweatshirts ·
+ralph-lauren-polos · festival-track-jackets · designer-jackets · bags ·
+mixed-mens-hugo-boss-mix-20 · mixed-mens-lacoste-25
+
+These show generated placeholder artwork until a photograph replaces it.
