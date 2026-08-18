@@ -160,6 +160,11 @@ def norm(text):
     return re.sub(r"[^a-z0-9]", "", (text or "").lower())
 
 
+def norm_title(text):
+    """Titles are compared on their words, so spacing and case cannot split them."""
+    return re.sub(r"\s+", " ", (text or "").strip().lower())
+
+
 def pick_column(fieldnames, key):
     """Match a column by any of its known spellings, ignoring case and spacing."""
     wanted = [norm(a) for a in COLUMN_ALIASES[key]]
@@ -290,7 +295,7 @@ def main():
             when = override or entry.get("date")
             price = price_of(row.get("price", "")) or entry.get("price")
             uploads[num] = {"date": when, "price": price, "batch": rel,
-                            "sku": row.get("sku", ""),
+                            "title": row.get("title", ""), "sku": row.get("sku", ""),
                             "cost": price_of(row.get("Cost of Goods", ""))}
 
     missing_dates = sorted(n for n, v in uploads.items() if not v["date"])
@@ -354,6 +359,8 @@ def main():
     live_from_day = date_only(live_from_raw)
     stock = {"live": 0, "sold": 0, "not_live": 0, "stale": 0, "live_by_created": 0,
              "rows": 0, "counted_uploads": 0, "skipped": 0,
+             "matched_batch": 0, "matched_by": "position",
+             "window_listings": 0, "window_sold": 0,
              "has_export": False, "path": None,
              "live_from": live_from_raw, "live_from_day": live_from_day}
 
@@ -370,6 +377,46 @@ def main():
         col_created = pick_column(fields, "created")
         col_listed = pick_column(fields, "last_listed")
         col_sold = pick_column(fields, "sold")
+        col_title = pick_column(fields, "title")
+
+        # Which export rows are the batch we have already counted from items.csv?
+        # Matched on title, not on position: the export is sorted newest-first, so
+        # a positional skip would silently start eating new listings the moment a
+        # fresh batch lands above the old one.
+        batch_titles = {norm_title(v["title"]) for v in uploads.values() if v.get("title")}
+        already = set()
+        if col_title and batch_titles:
+            already = {i for i, r in enumerate(export_rows)
+                       if norm_title(r.get(col_title, "")) in batch_titles}
+        by_title = bool(already)
+        stock["matched_batch"] = len(already)
+        stock["matched_by"] = "title" if by_title else "position"
+
+        # The export knows when each listing actually went up. Where that disagrees
+        # with the ledger's Date Added, say so — the ledger records the day an item
+        # was dictated, which is not always the day it was listed. Flagged, never
+        # silently corrected: crosslist/batch-log.csv is where that decision belongs.
+        if by_title and col_created and col_title:
+            ledger_by_title = {norm_title(v["title"]): v["date"]
+                               for v in uploads.values() if v.get("title")}
+            disagreed = {}
+            for i in already:
+                row = export_rows[i]
+                listed_day = date_only(row.get(col_created, ""))
+                ledger_day = ledger_by_title.get(norm_title(row.get(col_title, "")))
+                if listed_day and ledger_day and listed_day != ledger_day:
+                    disagreed[(ledger_day, listed_day)] = disagreed.get(
+                        (ledger_day, listed_day), 0) + 1
+            for (ledger_day, listed_day), count in sorted(disagreed.items()):
+                flags.append(str(count) + " first-batch item(s) sit on " + ledger_day +
+                             " in the calendar, from inventory.csv, but " + rel +
+                             " has them created on " + listed_day + ". The calendar "
+                             "keeps the ledger date. To move them, add a row to "
+                             "crosslist/batch-log.csv with date_uploaded " + listed_day + ".")
+        if not by_title:
+            flags.append("No row in " + rel + " matches a title from the batch CSVs, so "
+                         "the first " + str(skip_rows) + " rows are skipped by position "
+                         "instead. Check that is still the right number of rows.")
 
         for key, col in (("date created", col_created), ("last listed", col_listed),
                          ("sold date", col_sold)):
@@ -403,7 +450,16 @@ def main():
             if not sold_on and listed_at and created_at and created_at >= live_from:
                 stock["live_by_created"] += 1
 
-            if index < skip_rows:
+            # Observed sell-through: of the listings created since the cutoff, how
+            # many have sold. A count ratio, never a price — so it stays inside the
+            # "no pricing statistics from this file" rule. Windowed to the cutoff,
+            # because no average may reach back past it.
+            if created_at and created_at >= live_from:
+                stock["window_listings"] += 1
+                if sold_on:
+                    stock["window_sold"] += 1
+
+            if (index in already) if by_title else (index < skip_rows):
                 continue
 
             when = date_only(row.get(col_created, "")) if col_created else None
@@ -477,6 +533,11 @@ def main():
             "avg_known_cost": round(avg_cost, 2),
             "implied_markup": round(implied_markup, 4),
             "implied_profit_share": round(implied_share, 4),
+            "observed_sell_through": (
+                round(stock["window_sold"] / stock["window_listings"], 4)
+                if stock["window_listings"] else None),
+            "observed_sold": stock["window_sold"],
+            "observed_listings": stock["window_listings"],
         },
         "stock": stock,
         "live_from_day": live_from_day,
@@ -508,6 +569,14 @@ def main():
               + str(stock["live"]) + " live, " + str(stock["sold"]) + " sold, "
               + str(stock["not_live"]) + " not live; " + str(stock["counted_uploads"])
               + " counted as uploads (first " + str(stock["skipped"]) + " skipped)")
+        print("  first batch identified by " + stock["matched_by"] + ": "
+              + str(stock["matched_batch"] if stock["matched_by"] == "title" else stock["skipped"])
+              + " row(s) already counted from items.csv, not re-counted as uploads")
+        if stock["window_listings"]:
+            print("  observed sell-through since the cutoff: " + str(stock["window_sold"])
+                  + "/" + str(stock["window_listings"]) + " = "
+                  + format(stock["window_sold"] / stock["window_listings"] * 100, ".1f")
+                  + "% (a floor — the newest listings have not had time to sell)")
         print("  live from " + str(live_from_raw) + " — " + str(stock["stale"])
               + " listing(s) last listed before that are counted as not live")
         if stock["live_by_created"] != stock["live"]:

@@ -71,10 +71,15 @@ items sold × average item value = revenue
 revenue × markup / (1 + markup) = profit
 ```
 
-Your own cost data already backs assumption 2 up: 12 of the 15 items have a bundle
-cost in `crosslist/cost-rates.csv`, and an average sale price of £13.57 against an
-average cost of £6.64 is a **104.3% markup — a 51.1% profit share**. The brief
-assumed 50%. The dashboard recomputes that check on every build and prints it.
+Two of the three now have real evidence behind them, recomputed on every build:
+
+- **Markup.** 12 of the 15 items have a bundle cost in `crosslist/cost-rates.csv`.
+  An average sale price of £13.57 against an average cost of £6.64 is a
+  **104.3% markup — a 51.1% profit share**. The brief assumed 50%.
+- **Sell-through.** Of the 130 listings created since the live-from date, **24
+  have sold — 18.5%**, against an assumed 20%. That is a count of sold dates, not
+  a price, so it stays inside the no-pricing rule. Treat it as a **floor**: the
+  newest listings have not had time to sell yet, so the true rate only rises.
 
 ### Changing them
 
@@ -98,10 +103,17 @@ crosslist/store-export.csv
 ```
 
 **Any filename works.** The build finds it by its columns, not its name — any CSV
-in the repo root or `crosslist/` carrying a `Last Listed` column is taken as the
-export. Column spellings are matched loosely (`Date Created`, `date_created`,
-`Created At` all resolve), and the build prints which columns it matched, so a
-mismatch shows up immediately rather than silently zeroing a number.
+in the repo root or `crosslist/` carrying a last-listed column is taken as the
+export. Spellings are matched loosely, so the Crosslist export's own
+`Created` / `LastListedOn` / `Sold` headers resolve as they are, and the build
+prints what it matched so a mismatch shows up rather than silently zeroing a
+number.
+
+**The file is gitignored.** This repo is public and the export carries
+`CostOfGoods` and `InternalNote` for every listing, so the raw file stays on your
+machine. The page it builds holds only aggregate counts — no titles, no listing
+ids, no prices — so nothing per-listing is published. Say if you would rather
+version it.
 
 | Status | Rule |
 |---|---|
@@ -139,13 +151,23 @@ value stays the mean of the 15 priced rows in `crosslist/items.csv`, and sold
 items are counted but never valued. Adding 500 export rows will not move the
 average by a penny.
 
-### The first 15 rows
+### Not counting the first batch twice
 
-`export_skip_rows` (default 15) is how many rows at the top are the first batch,
-already counted from `crosslist/items.csv`. Those rows are **not re-counted as
-uploads** — but their live/sold status *is* read, because the export is the only
-place status is recorded. Everything from row 16 down becomes an upload dated by
-its created date.
+Rows already counted from `crosslist/items.csv` are matched **by title**, not by
+position. The export is sorted newest-first, so a positional skip would quietly
+start eating new listings the moment a fresh batch landed above the old one.
+
+All 15 first-batch titles matched exactly on the August 2026 export. Their
+live/sold status *is* still read — the export is the only place status is
+recorded — they are just not re-counted as uploads. `export_skip_rows` (15)
+survives only as a fallback for when no title matches, and the build flags it if
+it ever has to fall back.
+
+The build also compares the ledger's `Date Added` against the export's `Created`
+for those matched rows and flags any disagreement. On the current data it reports
+that the first 15 sit on 2026-08-14 from `inventory.csv` but were created
+2026-08-16 in Crosslist. The calendar keeps the ledger date; adding a
+`batch-log.csv` row moves them. It is flagged, never silently corrected.
 
 ## Break-even
 

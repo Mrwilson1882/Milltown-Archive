@@ -4,3 +4,11 @@ crosslist/build/
 crosslist/prepared/
 *.heic
 *.HEIC
+
+# Whole-store listings exports. Kept out of the repo because this repo is public
+# and the export carries CostOfGoods and InternalNote for every listing. The
+# dashboard build reads it locally; the page it produces holds only aggregate
+# counts, so nothing per-listing is published. Say the word if you would rather
+# version it.
+crosslist/store-export.csv
+listings*.csv

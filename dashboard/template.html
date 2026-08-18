@@ -1017,6 +1017,7 @@ tfoot td { font-weight: 700; border-top: 1px solid var(--border); border-bottom:
     <h2>Three assumptions, all adjustable</h2>
     <div class="rules" id="rules"></div>
     <div class="evidence" id="evidence"></div>
+    <div class="evidence" id="evidence-st"></div>
   </section>
 
   <section class="card" id="settings-panel" aria-labelledby="settings-label" hidden>
@@ -1759,6 +1760,26 @@ function renderRules() {
       'stock agrees to within ' + (Math.abs(d.implied_profit_share - 0.5) * 100).toFixed(1) + ' points.'
     : '<b>No cost data yet.</b> Add bundle rates to <code>crosslist/cost-rates.csv</code> and this ' +
       'panel will check the markup assumption against your real stock.';
+
+  const st = $("evidence-st");
+  if (d.observed_sell_through === null) {
+    st.hidden = true;
+    return;
+  }
+  st.hidden = false;
+  const obs = d.observed_sell_through;
+  const gap = obs - S.sell_through_rate;
+  st.innerHTML = "<b>And your listings back the " + pct(S.sell_through_rate) +
+    " up too.</b> Of the " + int(d.observed_listings) + " listings created since " +
+    longDate(DATA.live_from_day) + ", <b>" + int(d.observed_sold) + " have sold</b> — " +
+    pct(obs) + ". That is a count of sold dates, not a price: no money figure on this " +
+    "page comes out of the store export. Treat it as a <b>floor</b> rather than the final " +
+    "rate, because the newest listings have not had time to sell yet, so the true figure " +
+    "only goes up. " + (Math.abs(gap) < 0.03
+      ? "It sits within " + (Math.abs(gap) * 100).toFixed(1) + " points of your assumption, " +
+        "so the estimate above is holding."
+      : "Your assumption is " + pct(S.sell_through_rate) + " — worth moving the slider " +
+        "toward what the stock is actually doing.");
 }
 
 /* ── table view ────────────────────────────────────────────────────────────── */
