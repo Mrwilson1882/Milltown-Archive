@@ -44,6 +44,12 @@ Treat that as a permanent caveat, not a gap that more rows alone will close.
 | 13 | Lacoste Polo | Lacoste | UK Small | Good | Discrepancies on front | VWM - RL Lacoste Polos | £9.99 |
 | 14 | Lacoste Polo | Lacoste | UK Large | Very good vintage | None | VWM - RL Lacoste Polos | £12.99 |
 | 15 | Ralph Lauren Polo | Ralph Lauren | Large | Very good | *(not stated)* | VWM - RL Lacoste Polos | £14.99 |
+| 16 | NFL Reebok T-Shirt | NFL / Reebok | XL Women's | Very good vintage | None | VWM - Women's Y2K Mix | £17.99 |
+| 17 | Nike Women's Track Jacket | Nike | Medium Women's (8-10) | Good vintage | Marks on left sleeve | VWM - Women's Y2K Mix | £17.99 |
+| 18 | Miss Me Denim Shorts | Miss Me | Waist 30 | Very good | None | VWM - Women's Y2K Mix | £18.99 **(Claude-set — see below)** |
+| 19 | NFL T-Shirt | NFL | Large Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £18.99 |
+| 20 | NFL Reebok Top (Walter Payton #34) | NFL / Reebok | XL Women's | Very good vintage | *(not stated)* | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
+| 21 | The North Face Pullover | The North Face | Large | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.99 |
 
 ## Raw observations
 
@@ -87,6 +93,35 @@ assumed a flat £3.00 defect deduction carried over from a £12.99 polo, and
 the owner actually took £10.00 off a £24.99 jacket. Deductions are clearly
 not flat, and extrapolating one item's arithmetic onto a different garment
 type was exactly the over-fitting the owner called out.
+
+## Claude-set prices — EXCLUDE from any future model (items 18 and 20)
+
+The owner asked for a price on these two specifically. **These figures are not
+owner decisions and must not be treated as training data** — feeding them back
+in would be the model learning from its own output.
+
+**Item 18 — Miss Me denim shorts, waist 30, very good, no defects → £18.99**
+
+Basis: US Poshmark asking prices for Miss Me size-30 denim shorts, seen at $39,
+$41 and $54, with the brand's listings spanning roughly $24–$54. Adjusted down
+for three reasons: those are *asking* prices, not sold prices; the US market
+for Miss Me (a US western/boutique denim label) is deeper than the UK one; and
+£18.99 sits inside the owner's own observed range rather than above it.
+
+**Item 20 — NFL Reebok top, Walter Payton #34, XL women's → £19.99**
+
+Basis: the owner's own two NFL tops priced the same day — item 16 at £17.99
+(also XL women's, also very good vintage) and item 19 at £18.99. A marquee
+player name should carry a premium over a plain team top, so £19.99 is one
+step up. US listings for Walter Payton Reebok *jerseys* ran $38–45, but a
+jersey is a different and more valuable garment than a top, so that figure
+sets a ceiling rather than a comparable.
+
+**What could not be checked**: the network in this environment blocks eBay,
+Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
+comparables could be pulled — only asking prices surfaced through search
+snippets. Neither figure rests on completed-sale data, and neither item has
+been seen in person. Both should be overridden freely.
 
 ## Revisit
 
