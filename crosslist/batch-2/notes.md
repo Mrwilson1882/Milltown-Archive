@@ -28,8 +28,8 @@ work here — 0421 is item 7 and 0428 is item 1.
    and the men's 25 cm, so the stamp identifies the women's chart: **UK 7**,
    size id `d35611e7-9228-4b31-7fe3-ea43743f10d7` (Women's shoes).
 
-   It holds either way — had it been read as men's EU 41, that is also 26 cm and
-   also UK 7. The two readings converge, so UK 7 is safe regardless.
+   **Owner confirmed women's, 19 Aug** — which agrees with the footbed. Two
+   independent routes to the same answer, so this one is settled.
 
    Still open: **Regular or Narrow**. That is not the number — it shows as a
    foot-outline symbol on the footbed, slimmer for narrow.
