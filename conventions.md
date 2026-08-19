@@ -58,8 +58,14 @@ of any new session — the chat is not persistent, these files are the memory.
   men's or women's, or the size cannot be converted at all; in that range,
   guessing is a full size out. Below EU 40 the chart is women's only, above
   EU 44 men's only, and those convert unambiguously.
-  Worth dictating too: **Regular or Narrow**, stamped on the footbed. It is a
-  filterable attribute and only the seller can see it.
+  **The number stamped on the footbed settles it.** It is the foot length in
+  millimetres, and the two charts differ by exactly 1 cm at every overlapping
+  EU size, so the stamp identifies which chart applies without needing the
+  garment's gender at all. `260` against a stated EU 40 means the women's chart
+  (26 cm), not the men's (25 cm). Read the footbed before asking.
+  Worth dictating too: **Regular or Narrow**. That is *not* the number — it
+  shows as a foot-outline symbol on the footbed, a slimmer outline for narrow.
+  A filterable attribute only the seller can check.
 - **Ralph Lauren "Big Pony"** is claimed only where the pony is genuinely
   oversized — the Big Pony line, usually with a numbered sleeve patch. A
   standard chest pony is not a Big Pony, whatever its colour. Owner's

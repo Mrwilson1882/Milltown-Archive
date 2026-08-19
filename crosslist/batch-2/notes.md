@@ -23,11 +23,16 @@ work here — 0421 is item 7 and 0428 is item 1.
 
 ## Blocked
 
-1. **Item 8, Birkenstock EU 40.** This is exactly the overlap the size rule
-   warns about: EU 40 is **UK 7 women's** or **UK 6 men's**, a full size apart,
-   and the ledger does not say which. The sandals photograph as a Gizeh-style
-   thong, which is sold in both. Needs the owner.
-   Also worth capturing: **Regular or Narrow**, stamped on the footbed.
+1. ~~Item 8, Birkenstock EU 40~~ — **resolved from the footbed stamp.**
+   `260` is the foot length in millimetres. At EU 40 the women's chart is 26 cm
+   and the men's 25 cm, so the stamp identifies the women's chart: **UK 7**,
+   size id `d35611e7-9228-4b31-7fe3-ea43743f10d7` (Women's shoes).
+
+   It holds either way — had it been read as men's EU 41, that is also 26 cm and
+   also UK 7. The two readings converge, so UK 7 is safe regardless.
+
+   Still open: **Regular or Narrow**. That is not the number — it shows as a
+   foot-outline symbol on the footbed, slimmer for narrow.
 2. **`SF - Birkenstock` has no cost rate.** New SKU, not in `cost-rates.csv`.
    The SF prefix prices differently from VWM, so no VWM rate can stand in.
 
