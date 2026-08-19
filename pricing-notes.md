@@ -73,6 +73,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 16 | Juicy Couture Cardigan | Juicy Couture | XL Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
 | 19 Aug | 17 | Dominique Longline Bridal Bra (Bustier) | Dominique | 44DD/E | Very good | *(not stated)* | VWM - Women's Y2K Mix | £16.99 **(Claude-set — see below)** |
 | 19 Aug | 18 | Juicy Couture Women's Top | Juicy Couture | Medium | Very good | *(not stated)* | VWM - Women's Y2K Mix | £19.99 **(Claude-set, PROVISIONAL — see below)** |
+| 19 Aug | 19 | Carhartt Women's T-Shirt | Carhartt | Small (4-6) | **Good** | Slight speckles on front | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -371,6 +372,26 @@ roughly £15–£20, which would be the largest single loss in the ledger.
 Deciding features: velour or terry fabric, a zip front, a hood, and the
 JUICY logo across the chest or back — any of those and it belongs in the
 upper band, above the owner's current £27.99 ceiling.
+
+**19 Aug #19 — Carhartt women's tee, green/mint, good, front speckles → £9.99**
+
+The best-supported Claude-set figure so far, because it rests entirely on the
+owner's own decisions rather than external comps:
+
+- **18 Aug #7** is the same brand, same garment, same size (Small 4-6) and same
+  SKU, in **very good** condition — the owner priced it **£14.99**. That is the
+  clean baseline.
+- **14 Aug #12 and #13** establish what the owner does with a **good**-condition
+  item carrying **front** flaws: both went to **£9.99**, across two different
+  brands and two very different sizes.
+
+This item matches the second pattern exactly, from a £14.99 baseline — the same
+baseline those polos had. £9.99 follows directly.
+
+Mild counter-argument: "slight speckles" may be gentler than the
+"discrepancies" on those polos, and 19 Aug #9 (very good, slight front
+discrepancy) held £12.99. But that item was a grade higher in condition. With
+both a condition drop and a front flaw, £9.99 is the better-supported call.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
