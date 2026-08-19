@@ -72,6 +72,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 15 | Buffalo Bills Wild West Top | NFL / Buffalo Bills | Large Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £18.99 **(Claude-set — see below)** |
 | 19 Aug | 16 | Juicy Couture Cardigan | Juicy Couture | XL Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
 | 19 Aug | 17 | Dominique Longline Bridal Bra (Bustier) | Dominique | 44DD/E | Very good | *(not stated)* | VWM - Women's Y2K Mix | £16.99 **(Claude-set — see below)** |
+| 19 Aug | 18 | Juicy Couture Women's Top | Juicy Couture | Medium | Very good | *(not stated)* | VWM - Women's Y2K Mix | £19.99 **(Claude-set, PROVISIONAL — see below)** |
 
 ## Raw observations
 
@@ -345,6 +346,31 @@ if it is one of the named bridal styles and presents as barely worn.
 One factor pulling the other way and worth watching: **44DD/E is a large band
 size**, which narrows the buyer pool — though plus-size bridal lingerie is
 genuinely underserved, so it may find its buyer faster than the size suggests.
+
+**19 Aug #18 — Juicy Couture pink top, medium, very good → £19.99 PROVISIONAL**
+
+**This is the widest price fork encountered so far, and the figure should not
+be used until the garment type is confirmed.** "Top" covers two very different
+products in this brand:
+
+| If it is… | Realistic price |
+|---|---|
+| A **velour zip hoodie / tracksuit top** | **£29.99–£39.99** |
+| A plain tee, cami or knit top | £14.99–£19.99 |
+
+Pink velour is the iconic Juicy Couture Y2K piece and the single most
+sought-after thing the brand made. Comps: individual pink velour hoodie tops
+with rhinestone logos sell around **$60** (≈£47), complete two-piece sets
+$60–$220, with standout sets listed far higher. Plain Juicy tops sit in the
+same $13–$80 band as the cardigan at 19 Aug #16.
+
+£19.99 is recorded as the **conservative** figure — the safe answer if it
+turns out to be an ordinary top. If it is velour, this underprices it by
+roughly £15–£20, which would be the largest single loss in the ledger.
+
+Deciding features: velour or terry fabric, a zip front, a hood, and the
+JUICY logo across the chest or back — any of those and it belongs in the
+upper band, above the owner's current £27.99 ceiling.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
