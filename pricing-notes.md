@@ -62,6 +62,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 5 | NFL Broncos Top | NFL | Youth 18 (XXL) ≈ women's L | **Good** | *(not stated)* | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
 | 19 Aug | 6 | Ralph Lauren Polo | Ralph Lauren | Small Men's | Very good | *(not stated)* | VWM - RL Lacoste Polos | £30.99 **(outlier — queried with owner)** |
 | 19 Aug | 7 | Ralph Lauren Polo | Ralph Lauren | Large Men's | Very good | None | VWM - RL Lacoste Polos | £14.99 |
+| 19 Aug | 8 | Ralph Lauren Polo | Ralph Lauren | Medium Men's | Very good vintage | Very small discrepancy on back | VWM - RL Lacoste Polos | £13.99 |
 
 ## Raw observations
 
@@ -102,7 +103,9 @@ owner at the time**, because it does not sit with anything else in the data:
 - it would be the highest price in the whole ledger, above the £27.99
   Birkenstocks, for a garment type that has never exceeded £14.99;
 - "thirty" and "thirteen" are the classic pair to mishear in dictation, and
-  **£13.99 would sit exactly in the established polo band**.
+  **£13.99 would sit exactly in the established polo band** — confirmed as a
+  price point the owner actually uses, since 19 Aug #8 was dictated at
+  £13.99 shortly afterwards.
 
 If the owner confirms £30.99, it is a genuinely important data point — it would
 mean something about specific polos (era, rarity, a particular colourway)
