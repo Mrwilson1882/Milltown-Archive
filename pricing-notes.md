@@ -57,6 +57,7 @@ so an item is identified by **date + number**, never by number alone.
 | 18 Aug | 8 | Birkenstock Thong Sandals | Birkenstock | 40 | Very good vintage | None | SF - Birkenstock | £27.99 |
 | 19 Aug | 1 | Athletics Women's T-Shirt | *(none given)* | Small | Very good vintage | Slight discrepancy on back of neck, barely noticeable | VWM - Women's Y2K Mix | £12.99 |
 | 19 Aug | 2 | Ralph Lauren Women's Shirt | Ralph Lauren | 16 | Very good | None | VWM - Women's Y2K Mix | £18.00 **(first non-.99 price)** |
+| 19 Aug | 3 | Chicago Bulls Vest | *(none given)* | 16, unconfirmed | Very good | *(not stated)* | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -134,6 +135,21 @@ player name should carry a premium over a plain team top, so £19.99 is one
 step up. US listings for Walter Payton Reebok *jerseys* ran $38–45, but a
 jersey is a different and more valuable garment than a top, so that figure
 sets a ceiling rather than a comparable.
+
+**19 Aug #3 — Chicago Bulls red vest, size unresolved → £17.99, provisional**
+
+This price is **conditional on the size question below**, and should be revised
+once the garment is measured:
+
+- if it is an adult or UK women's 16 → £17.99 stands, sitting with the owner's
+  other Y2K women's tops (£12.99–£18.99) with a small uplift for Bulls being a
+  strong, Jordan-era team name;
+- if it turns out to be **US youth 14–16** → drop to roughly £12.99–£14.99,
+  since a youth-cut vest has a much smaller buyer pool.
+
+The only external comp found was a vintage women's XL Chicago Bulls red Y2K
+V-neck **t-shirt** asking US $16.59 (≈£12.50) — a different garment, an asking
+price, and the US market.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
