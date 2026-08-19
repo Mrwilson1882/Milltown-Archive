@@ -68,6 +68,8 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 11 | Burberry Brit Polo Shirt | Burberry Brit | *(not stated)* | **Good** | Slight marks on front | SF - Men's Summer Designer Mix | £19.99 **(Claude-set — see below)** |
 | 19 Aug | 12 | Cinema Etoile Camisole/Chemise | Cinema Etoile | Small Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
 | 19 Aug | 13 | Adidas Women's Jacket (fleece bottom) | Adidas | UK 14 = Large | **Good** | *(not stated)* | VWM - Women's Y2K Mix | £22.99 **(Claude-set — see below)** |
+| 19 Aug | 14 | Women's Lace Nightwear Set | *(none given)* | *(unknown — awaiting measurements)* | *(not stated)* | *(not stated)* | VWM - Women's Y2K Mix | £12.99 |
+| 19 Aug | 15 | Buffalo Bills Wild West Top | NFL / Buffalo Bills | Large Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £18.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -290,6 +292,17 @@ than wholesale.
 rare, but rarity cannot be verified from a description, and pricing an unseen
 garment as rare is exactly the kind of guess that produced the earlier misses.
 If the owner's eye says rare, their number should beat this one.
+
+**19 Aug #15 — Buffalo Bills top, Large women's, very good → £18.99**
+
+The tightest comparable in the whole ledger: 18 Aug #4 is an NFL top, **Large
+women's, very good condition, same SKU**, priced by the owner at £18.99. Same
+size, same grade, same category, same bucket — so the same price. The other
+NFL reference points bracket it sensibly (£17.99 for an XL women's very good
+vintage, £14.99 for a Broncos top in only good condition).
+
+This is the one Claude-set price resting on a genuine like-for-like match to
+the owner's own decision rather than on external comps.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
