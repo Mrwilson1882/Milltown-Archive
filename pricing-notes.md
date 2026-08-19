@@ -76,6 +76,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 19 | Carhartt Women's T-Shirt | Carhartt | Small (4-6) | **Good** | Slight speckles on front | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
 | 19 Aug | 20 | Ralph Lauren Women's Polo Shirt | Ralph Lauren | Medium (10-12), classic fit | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.00 |
 | 19 Aug | 21 | Ralph Lauren Sport Women's Shirt | Ralph Lauren Sport | Small | Very good | *(not stated)* | VWM - Women's Y2K Mix | £18.00 |
+| 19 Aug | 22 | Birkenstocks | Birkenstock | 37 (240mm) | Very good vintage | *(not stated)* | SF - Birkenstock | £27.99 |
 
 ## Raw observations
 
@@ -88,9 +89,13 @@ predictors.** Each has plausible counter-explanations and the sample is tiny.
   pounds. The first was queried with the owner and not corrected, so this
   looks deliberate rather than a slip. **Do not treat `.99` as a rule**, and
   do not "tidy" a round price into a .99 one.
-- **Footwear is a new and higher category.** 18 Aug #8, Birkenstock sandals at
-  £27.99, is the highest price recorded and the first non-garment. One item —
-  nothing to generalise from yet beyond "shoes are not priced like tops".
+- **Footwear sits at the top of the range, and Birkenstocks look like a fixed
+  price point.** Both pairs recorded — 18 Aug #8 (size 40, natural) and
+  19 Aug #22 (size 37, bronze/nude) — were priced **£27.99**, the highest
+  figure in the ledger. Same condition grade and same `SF - Birkenstock` SKU,
+  different sizes and colours, identical price. Two items is not a rule, but
+  it is the first sign of a flat per-category price rather than a per-item
+  judgement.
 - **A second SKU prefix appeared**: `SF - Birkenstock`, alongside the usual
   `VWM` (Vintage Wholesale Manchester). `SF` also appeared in the owner's
   original worked example (`SF Fripe - Summer Mix`). What `SF` denotes has not
