@@ -74,17 +74,19 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 17 | Dominique Longline Bridal Bra (Bustier) | Dominique | 44DD/E | Very good | *(not stated)* | VWM - Women's Y2K Mix | £16.99 **(Claude-set — see below)** |
 | 19 Aug | 18 | Juicy Couture Women's Top | Juicy Couture | Medium | Very good | *(not stated)* | VWM - Women's Y2K Mix | £19.99 **(Claude-set, PROVISIONAL — see below)** |
 | 19 Aug | 19 | Carhartt Women's T-Shirt | Carhartt | Small (4-6) | **Good** | Slight speckles on front | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
+| 19 Aug | 20 | Ralph Lauren Women's Polo Shirt | Ralph Lauren | Medium (10-12), classic fit | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.00 |
 
 ## Raw observations
 
 Recorded as facts about the 11 priced items so far — **not rules, not
 predictors.** Each has plausible counter-explanations and the sample is tiny.
 
-- Nearly every price ends in `.99`. Observed: £8.99, £9.99, £12.99, £14.99,
-  £17.99, £18.99, £19.99, £24.99, £27.99 — **plus one exception**, 19 Aug #2
-  at a flat £18.00. Recorded exactly as the owner said it ("£18"), and flagged
-  back to them at the time in case it was meant as £17.99 or £18.99. Until
-  confirmed, do not treat `.99` as universal.
+- Most prices end in `.99`: £8.99, £9.99, £12.99, £13.99, £14.99, £17.99,
+  £18.99, £19.99, £24.99, £27.99. **But round-pound prices are now appearing**
+  — 19 Aug #2 at £18.00 and 19 Aug #20 at £14.00, both dictated as plain
+  pounds. The first was queried with the owner and not corrected, so this
+  looks deliberate rather than a slip. **Do not treat `.99` as a rule**, and
+  do not "tidy" a round price into a .99 one.
 - **Footwear is a new and higher category.** 18 Aug #8, Birkenstock sandals at
   £27.99, is the highest price recorded and the first non-garment. One item —
   nothing to generalise from yet beyond "shoes are not priced like tops".
