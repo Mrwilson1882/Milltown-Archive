@@ -1,7 +1,31 @@
 # Batch 2 — 18 Aug 2026
 
-8 items. Main images received and matched to the ledger by number card; the full
-photo sets are still to come, so no `mapping.csv` or `listings.csv` yet.
+8 items, 167 photo files received. `mapping.csv` is built; `listings.csv` waits
+on the two open items below.
+
+## Half the batch is duplicates
+
+Photoroom exported nearly every shot twice — `IMG_0351-Photoroom.JPG` and
+`IMG_0351-Photoroom 2.JPG` are the same image. 167 files hold **84 unique
+photos**; 83 are redundant and are dropped from the mapping. Left in, every
+listing would have shown each photo twice.
+
+Two irregulars: `IMG_0377` exported only once, and `IMG_0401` came out as
+`Photoroom 3` and `Photoroom 4` rather than a plain pair.
+
+The 24 `FullSizeRender` files are 12 unique images — a front and a back for six
+items, each also duplicated. Items 3 and 8 have none, so their front and back
+come from the `IMG_` series.
+
+## No number cards in this set
+
+The card shots (`IMG_0421`–`0428`, `IMG_1680`) were sent separately and are not
+in this folder, so grouping was done by recognising each garment and matching it
+to the main images already identified. Boundaries were checked against the
+garment either side of every break.
+
+Worth folding the card shots into the batch folder next time — they are the
+check that makes the grouping self-evident rather than inferred.
 
 ## Card → ledger
 
@@ -52,9 +76,19 @@ work here — 0421 is item 7 and 0428 is item 1.
    for all but item 4, whose "NFL T-Shirt" names a league rather than a maker;
    the hem tag needs reading.
 
-## Player and team detail worth using
+## Player names — now confirmed off the garments
 
-Items 1, 4 and 5 are all identifiable, and player names are high-intent search
-terms: #34 Walter Payton (Chicago Bears), #12 (Indianapolis Colts), #17 (San
-Diego / LA Chargers). Confirm the two unnamed ones before they go in a title —
-a wrong player name is worse than none.
+No guessing needed: the names are printed on the backs.
+
+- Item 1 — **RIVERS 17**, San Diego / LA Chargers. Size XL on the hem tag.
+- Item 4 — **LUCK 12**, Indianapolis Colts. Nike hem tag reads **L**.
+- Item 5 — **PAYTON 34**, Chicago Bears. Hem tag reads **XL, Walter Payton**.
+
+All three are high-intent search terms and belong in the titles and tags.
+
+Note item 4's hem tag says **L** while the ledger says Large Women's — consistent.
+Item 1's tag says **XL** against a ledger XL Women's — also consistent. Item 5's
+tag says XL against ledger XL Women's — consistent. No size discrepancies.
+
+Item 4's brand is **Nike** (hem tag), which the ledger's "NFL T-Shirt" did not
+say.
