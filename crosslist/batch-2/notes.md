@@ -3,38 +3,29 @@
 8 items, 167 photo files received. `mapping.csv` is built; `listings.csv` waits
 on the two open items below.
 
-## Every photo is listed
+## Half the batch is duplicates — measured, not eyeballed
 
-**Owner's rule, 19 Aug: every image sent goes on the listing, except the number
-cards.** All 167 files are mapped; nothing is dropped.
+Photoroom exported every shot twice: `IMG_0351-Photoroom.JPG` and
+`IMG_0351-Photoroom 2.JPG` are the same image. Confirmed by comparing the
+thumbnails after normalising for scale and offset:
 
-Photoroom appears to have exported most shots twice — `IMG_0351-Photoroom.JPG`
-and `IMG_0351-Photoroom 2.JPG` looked identical on the contact sheet. That was a
-visual read at thumbnail size, not a byte comparison, and an earlier version of
-this mapping dropped one of each pair on that basis. It no longer does. Nothing
-is ever deleted either way: `build.py` only reads the source folder.
-
-Two irregulars: `IMG_0377` exported only once, and `IMG_0401` came out as
-`Photoroom 3` and `Photoroom 4` rather than a plain pair.
-
-### Photo counts now exceed marketplace caps on four items
-
-| Item | Photos |
+| | Mean pixel difference |
 |---|---|
-| 3 Miss Me shorts | 27 |
-| 2 Nike jacket | 24 |
-| 4 Colts jersey | 22 |
-| 6 North Face | 22 |
-| 1 Chargers jersey | 20 |
+| Suspected pairs, same IMG number | **0.65 – 2.24** |
+| Control: genuinely different shots | **29 – 90** |
 
-Vinted takes 20 per listing and Depop fewer, so the tail of these will be cut by
-the platform rather than chosen. Since the order is front, back, detail, measure,
-defect, what gets dropped is the measurement and defect shots — the two kinds a
-buyer most needs. Worth deciding which to trim deliberately.
+A 30–100× gap; the residual on the pairs is JPEG noise from the thumbnail
+pipeline, not content. Owner confirmed independently that every image is
+duplicated once.
 
-The 24 `FullSizeRender` files are 12 unique images — a front and a back for six
-items, each also duplicated. Items 3 and 8 have none, so their front and back
-come from the `IMG_` series.
+**167 files hold 84 unique photos.** The mapping keeps one of each pair, which
+also brings every item back under the 20-photo marketplace cap — including it
+all had pushed item 3 to 27.
+
+Nothing is deleted either way: `build.py` only reads the source folder.
+
+Two irregulars: `IMG_0377` exported once, and `IMG_0401` came out as
+`Photoroom 3` and `Photoroom 4` rather than a plain pair.
 
 ## No number cards in this set
 
