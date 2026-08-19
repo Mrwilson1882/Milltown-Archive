@@ -70,6 +70,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 13 | Adidas Women's Jacket (fleece bottom) | Adidas | UK 14 = Large | **Good** | *(not stated)* | VWM - Women's Y2K Mix | £22.99 **(Claude-set — see below)** |
 | 19 Aug | 14 | Women's Lace Nightwear Set | *(none given)* | *(unknown — awaiting measurements)* | *(not stated)* | *(not stated)* | VWM - Women's Y2K Mix | £12.99 |
 | 19 Aug | 15 | Buffalo Bills Wild West Top | NFL / Buffalo Bills | Large Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £18.99 **(Claude-set — see below)** |
+| 19 Aug | 16 | Juicy Couture Cardigan | Juicy Couture | XL Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -303,6 +304,23 @@ vintage, £14.99 for a Broncos top in only good condition).
 
 This is the one Claude-set price resting on a genuine like-for-like match to
 the owner's own decision rather than on external comps.
+
+**19 Aug #16 — Juicy Couture cardigan, black, XL women's, very good → £19.99**
+
+Juicy Couture is one of the defining Y2K labels and carries far more pull in
+this market than the owner's only other cardigan reference point (Harley
+Davidson, very good, priced £14.99).
+
+Comps found: a vintage Y2K cropped cashmere Juicy cardigan in Large **sold at
+≈$24.91** (≈£19) — an actual completed sale, which is rare in this file.
+Asking prices run much higher: Grailed lists Y2K Juicy cardigans from $52,
+Poshmark spans $13–$80.
+
+£19.99 sits on the sold comp, a step above the Harley Davidson cardigan for
+the stronger brand, and inside the owner's own observed range. **£22.99 is
+defensible** if it is velour, cropped, or carries prominent Juicy branding —
+those are the details that drive the Y2K premium, and none of them are
+recorded here.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
