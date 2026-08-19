@@ -59,6 +59,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 2 | Ralph Lauren Women's Shirt | Ralph Lauren | 16 | Very good | None | VWM - Women's Y2K Mix | £18.00 **(first non-.99 price)** |
 | 19 Aug | 3 | Chicago Bulls Vest | *(none given)* | 16, unconfirmed | Very good | *(not stated)* | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
 | 19 Aug | 4 | Ralph Lauren Women's Long Sleeve T-Shirt | Ralph Lauren | Small (8) | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.99 |
+| 19 Aug | 5 | NFL Broncos Top | NFL | Youth 18 (XXL) ≈ women's L | **Good** | *(not stated)* | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -151,6 +152,23 @@ once the garment is measured:
 The only external comp found was a vintage women's XL Chicago Bulls red Y2K
 V-neck **t-shirt** asking US $16.59 (≈£12.50) — a different garment, an asking
 price, and the US market.
+
+**19 Aug #5 — NFL Broncos top, youth 18 (XXL), good condition → £14.99**
+
+Basis: the owner's own NFL tops sit at £17.99–£18.99, all graded "very good".
+This one is **"only in good condition"** — one grade down — so it drops a step.
+The size is not a discount factor here because the owner states youth XXL
+translates to roughly a women's Large, which is a normal saleable size.
+
+The one external comp found was a vintage Broncos **youth jersey** in good
+pre-loved condition asking $65 at a curated vintage boutique. That is a
+different garment sold through a much higher-margin channel — a ceiling, not
+a comparable, in the same way the Walter Payton jerseys were.
+
+**Useful side note on sizing** (relevant to 19 Aug #3): the owner confirms US
+youth 18 / XXL ≈ women's Large. That scales down consistently — youth 14–16
+would land near a women's S/M. Since the owner described #3 as looking *too
+big* for women's, its "16" is more likely a UK women's 16 than a US youth 16.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
