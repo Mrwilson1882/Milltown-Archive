@@ -62,6 +62,44 @@ predictors.** Each has plausible counter-explanations and the sample is tiny.
   no recorded column explains — an early sign that unrecorded factors
   (desirability, era, cut) are doing real work.
 
+## Batch 2 — 18 Aug 2026
+
+Prices as set by the owner. Recorded, not suggested.
+
+| # | Product | Brand | Size | Condition | SKU | Price |
+|---|---------|-------|------|-----------|-----|-------|
+| 1 | NFL Reebok Jersey (Rivers 17) | Reebok | XL Women's | Very good vintage | VWM - Women's Y2K Mix | £17.99 |
+| 2 | Nike Track Jacket | Nike | Medium (8-10) | Good vintage | VWM - Women's Y2K Mix | £17.99 |
+| 3 | Miss Me Denim Shorts | Miss Me | Waist 30 | Very good | VWM - Women's Y2K Mix | £18.99 |
+| 4 | NFL Nike Jersey (Luck 12) | Nike | Large Women's | Very good | VWM - Women's Y2K Mix | £18.99 |
+| 5 | NFL Reebok Jersey (Payton 34) | Reebok | XL Women's | Very good vintage | VWM - Women's Y2K Mix | £19.99 |
+| 6 | The North Face Quarter Zip | The North Face | Large | Very good | VWM - Women's Y2K Mix | £14.99 |
+| 7 | Carhartt T-Shirt | Carhartt | Small (4-6) | Very good | VWM - Women's Y2K Mix | £14.99 |
+| 8 | Birkenstock Gizeh Sandals | Birkenstock | UK 7 (EU 40) | Very good vintage | SF - Birkenstock | £27.99 |
+
+Note batch 2 breaks the `.99` pattern in one place — the Birkenstocks at £27.99
+are the highest single price recorded so far, above the £24.99 track jacket.
+
+## Underpricing observed
+
+**19 Aug — item 3, Miss Me denim shorts.** Listed at £18.99; the owner reports
+the market on Vinted was nearer **£25**. Roughly £6 left on the table, about a
+third above the listed price.
+
+This is the first recorded instance of a *known* underprice rather than a
+suggestion error, and it is a more useful data point than anything in the
+suggestion log, because the counterfactual is observed rather than guessed.
+
+What it suggests, without yet being a rule: **branded Y2K womenswear with
+recognisable embellishment may sit well above the £14.99–£18.99 band the rest of
+the mix occupies.** Miss Me is a collected name and the rhinestone cut-offs are
+its signature piece. The same logic would apply to the NFL jerseys with named
+players — Payton at £19.99 is the closest comparable in this batch, and worth
+watching.
+
+One instance is not a pattern. Recorded so the next few Miss Me or
+named-player items can be compared against it.
+
 ## Owner-stated factors
 
 Things the owner has said out loud, which outrank anything inferred above:
