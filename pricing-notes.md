@@ -79,6 +79,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 22 | Birkenstocks | Birkenstock | 37 (240mm) | Very good vintage | *(not stated)* | SF - Birkenstock | £27.99 |
 | 19 Aug | 23 | Birkenstock Sandals | Birkenstock | 38 (245mm) | **Good** | Inner footbed a bit worn; outer sole fine | SF - Birkenstock | £24.99 |
 | 19 Aug | 24 | Birkenstock Sandals | Birkenstock | 38 (245mm) | **Good** | *(not stated)* | SF - Birkenstock | £24.99 |
+| 19 Aug | 25 | Birkenstocks | Birkenstock | 36 (230mm) | **Good** | *(not stated)* | SF - Birkenstock | £24.99 |
 
 ## Raw observations
 
@@ -98,8 +99,11 @@ predictors.** Each has plausible counter-explanations and the sample is tiny.
   different sizes and colours, identical price. **19 Aug #23 and #24 then both
   took £24.99**, both graded good condition. #23 had a worn footbed; #24 had no
   defect stated at all — so the £3.00 gap tracks the **condition grade**, not
-  the specific defect. Two clean price points so far: **£27.99 very good,
-  £24.99 good**, regardless of size or colour.
+  the specific defect. **19 Aug #25 (size 36, yellow, good) confirmed it again
+  at £24.99.** Two clean price points: **£27.99 very good, £24.99 good** —
+  holding across sizes 36 to 40 and across colours, with three items now on the
+  good-condition point. This is the most consistent pattern in the whole
+  ledger, and the only category where price looks set by condition grade alone.
 - **The owner distinguishes inner footbed wear from outer sole wear** and says
   so explicitly (19 Aug #23). That distinction is worth preserving in the
   Defects column: a worn footbed is cosmetic and normal on used Birkenstocks,
