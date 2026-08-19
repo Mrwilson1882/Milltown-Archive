@@ -60,6 +60,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 3 | Chicago Bulls Vest | *(none given)* | 16, unconfirmed | Very good | *(not stated)* | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
 | 19 Aug | 4 | Ralph Lauren Women's Long Sleeve T-Shirt | Ralph Lauren | Small (8) | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.99 |
 | 19 Aug | 5 | NFL Broncos Top | NFL | Youth 18 (XXL) ≈ women's L | **Good** | *(not stated)* | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
+| 19 Aug | 6 | Ralph Lauren Polo | Ralph Lauren | Small Men's | Very good | *(not stated)* | VWM - RL Lacoste Polos | £30.99 **(outlier — queried with owner)** |
 
 ## Raw observations
 
@@ -88,6 +89,23 @@ predictors.** Each has plausible counter-explanations and the sample is tiny.
 - Two bralettes in identical stated condition priced £12.99 and £8.99, which
   no recorded column explains — an early sign that unrecorded factors
   (desirability, era, cut) are doing real work.
+
+## Unresolved outlier: 19 Aug #6 at £30.99
+
+Recorded exactly as dictated ("thirty ninety nine") and **queried with the
+owner at the time**, because it does not sit with anything else in the data:
+
+- every other Ralph Lauren polo is £12.99–£14.99; this is more than double the
+  top of that range;
+- it would be the highest price in the whole ledger, above the £27.99
+  Birkenstocks, for a garment type that has never exceeded £14.99;
+- "thirty" and "thirteen" are the classic pair to mishear in dictation, and
+  **£13.99 would sit exactly in the established polo band**.
+
+If the owner confirms £30.99, it is a genuinely important data point — it would
+mean something about specific polos (era, rarity, a particular colourway)
+carries far more value than brand and condition alone, which is precisely the
+demand factor the owner said the columns cannot see. Do not average it away.
 
 ## Owner-stated factors
 
