@@ -64,6 +64,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 7 | Ralph Lauren Polo | Ralph Lauren | Large Men's | Very good | None | VWM - RL Lacoste Polos | £14.99 |
 | 19 Aug | 8 | Ralph Lauren Polo | Ralph Lauren | Medium Men's | Very good vintage | Very small discrepancy on back | VWM - RL Lacoste Polos | £13.99 |
 | 19 Aug | 9 | Ralph Lauren Polo | Ralph Lauren | Medium | Very good vintage | Slight discrepancy on front | VWM - RL Lacoste Polos | £12.99 |
+| 19 Aug | 10 | Ralph Lauren Polo | Ralph Lauren | Small Men's | Very good | *(not stated)* | VWM - RL Lacoste Polos | £14.99 |
 
 ## Raw observations
 
@@ -103,6 +104,8 @@ owner at the time**, because it does not sit with anything else in the data:
   double the top of that range;
 - it would be the highest price in the whole ledger, above the £27.99
   Birkenstocks, for a garment type that has never exceeded £14.99;
+- 19 Aug #10 is its near-twin — Ralph Lauren polo, small men's, very good, same
+  SKU, differing only in colour (navy vs black) — and was priced £14.99;
 - "thirty" and "thirteen" are the classic pair to mishear in dictation, and
   **£13.99 would sit exactly in the established polo band** — confirmed as a
   price point the owner actually uses, since 19 Aug #8 was dictated at
