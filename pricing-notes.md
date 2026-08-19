@@ -66,6 +66,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 9 | Ralph Lauren Polo | Ralph Lauren | Medium | Very good vintage | Slight discrepancy on front | VWM - RL Lacoste Polos | £12.99 |
 | 19 Aug | 10 | Ralph Lauren Polo | Ralph Lauren | Small Men's | Very good | *(not stated)* | VWM - RL Lacoste Polos | £14.99 |
 | 19 Aug | 11 | Burberry Brit Polo Shirt | Burberry Brit | *(not stated)* | **Good** | Slight marks on front | SF - Men's Summer Designer Mix | £19.99 **(Claude-set — see below)** |
+| 19 Aug | 12 | Cinema Etoile Camisole/Chemise | Cinema Etoile | Small Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -241,6 +242,28 @@ the same way the boutique jersey prices were.
 **Size and colour were not stated on this item**, and both matter here: size
 affects a designer piece's value more than a £9.99 polo's, and the colourway
 (house check versus plain) swings Burberry values considerably.
+
+**19 Aug #12 — Cinema Etoile camisole/chemise, small, very good → £14.99**
+
+*Seductive Wear by Cinema Etoile* is a real lingerie and sleepwear label —
+camisoles, chemises, babydolls and slip dresses in satin and lace, with a
+strong 1990s/Y2K resale following. So the item is lingerie, not a bra and not
+a blouse.
+
+Comps: Cinema Etoile camisoles and chemises on US Poshmark at $15–$25, one
+recorded **sold at $20** (≈£15), with the brand's wider range spanning $6–$55.
+That is the closest thing to a genuine sold comparable found for any item so
+far, though still a US asking-price-heavy market.
+
+Placed at £14.99 — above the owner's unbranded bralettes (£8.99–£12.99),
+since this is a named brand with collector interest, and level with the
+branded women's tops. **£16.99 is defensible** if it is satin/lace and
+photographs well.
+
+**Listing note worth passing on**: Y2K lace and satin camisoles are widely
+bought as outerwear tops rather than lingerie, which widens the buyer pool
+considerably. Listing it under tops as well as lingerie may matter more to
+the final price than the exact figure.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
