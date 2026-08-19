@@ -461,6 +461,7 @@ Settled during Batch 1 and carried forward. The per-field detail is above;
 | Cost of Goods | by SKU, from `cost-rates.csv`; prefix is part of the key |
 | Brand | keep `Ralph Lauren`; Crosslist's remap is theirs to fix |
 | Birkenstock | EU dictated, UK recorded, via `birkenstock-sizes.csv`. EU 40-44 needs men's/women's stated — it is a full size either way |
+| Category sanity check | if the Style or Neckline list offers nothing plausible, the category is wrong — re-pick before forcing a value |
 | Line names | `Big Pony` only where the pony is genuinely oversized — item 10 qualifies, item 12 did not |
 | Titles | under 80 characters — Vinted truncates near 100 |
 

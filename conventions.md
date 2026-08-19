@@ -74,6 +74,12 @@ of any new session — the chat is not persistent, these files are the memory.
   Worth dictating too: **Regular or Narrow**. That is *not* the number — it
   shows as a foot-outline symbol on the footbed, a slimmer outline for narrow.
   A filterable attribute only the seller can check.
+- **If the attribute list does not fit the garment, the category is wrong.**
+  Crosslist drives Style, Neckline and the rest from the chosen category, so a
+  Style list with no plausible value is a signal, not an inconvenience. Item 6
+  sat in `Women's fleece jackets`, whose Style options are all jacket types,
+  because none of them fitted a quarter-zip pullover — it belonged in sweaters
+  all along. Owner spotted it, 19 Aug.
 - **Ralph Lauren "Big Pony"** is claimed only where the pony is genuinely
   oversized — the Big Pony line, usually with a numbered sleeve patch. A
   standard chest pony is not a Big Pony, whatever its colour. Owner's
