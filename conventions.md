@@ -8,7 +8,10 @@ of any new session — the chat is not persistent, these files are the memory.
 `Product Name, Colour Clarity/Description, Defects, Size, Condition, SKU, Price, Date Added`
 
 - **Colour Clarity/Description** — colour first. Named separately from Defects
-  because colour is hard to judge from photographs and buyers need it stated.
+  so faults are never buried in prose.
+  **Read the colour from the photographs** rather than flagging a blank cell
+  back (owner, 19 Aug). Where a shade is genuinely ambiguous under the lighting,
+  record the best reading and say so, rather than leaving the field empty.
 - **Defects** — anything wrong with the item. Kept apart from the description
   so faults are never buried in prose.
 
@@ -16,6 +19,11 @@ of any new session — the chat is not persistent, these files are the memory.
 
 - **Never guess.** A field not stated in the voice note is left blank and
   flagged back to the owner. Blank means "not stated", never "none".
+  **Two standing exceptions (owner, 19 Aug): colour and gender.** Both are
+  determined from the photographs and the SKU rather than blocking on a blank.
+  Gender follows the bundle the item came from — a `Women's Y2K Mix` SKU is
+  womenswear — with the garment's own cut and labelling as the check. Say what
+  the call rested on; only escalate when the two disagree.
   **One exception, Defects only (owner's instruction, 16 Aug):** a blank
   Defects cell is read as *no defects*. This reverses the original rule for
   that column alone — every other field keeps "blank means not stated".

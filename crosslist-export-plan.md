@@ -451,6 +451,8 @@ Settled during Batch 1 and carried forward. The per-field detail is above;
 | Condition | `Very good vintage` → `VeryGood` |
 | Sizes | where a label and the ledger disagree, **the ledger wins** |
 | Defects | blank in the ledger means *no defects*; write nothing in the copy |
+| Colour | read it from the photographs; do not leave the cell blank |
+| Gender | decide it when unstated — the SKU's bundle name leads, the garment's cut and labelling check it |
 | Material | **read the tag at full resolution first**, quote it exactly; no tag → estimate with **no percentage** |
 | Price | as dictated, never suggested |
 | Who made | always `SomeoneElse` |
@@ -471,8 +473,9 @@ Settled during Batch 1 and carried forward. The per-field detail is above;
    lines return to the description.
 3. **Regular or Narrow** on any Birkenstock — stamped on the footbed, and a
    filterable attribute nobody but the seller can check.
-4. **Menswear or womenswear said out loud** — it blocks Category id and Size id
-   together, and cost six items a round trip on this batch.
+4. **Menswear or womenswear said out loud** where the SKU does not already
+   imply it. Now decided rather than blocked on, but the SKU is doing the work,
+   so an item from a mixed bundle still needs it said.
 
 ## Next step
 

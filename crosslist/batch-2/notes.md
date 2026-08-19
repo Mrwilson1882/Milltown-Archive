@@ -67,11 +67,33 @@ work here — 0421 is item 7 and 0428 is item 1.
    term and its own Crosslist category (`Women's jerseys`,
    `id=f4a67f28-053d-8610-20a4-9573961c33e4`), against the generic tee category
    the ledger names imply. Worth renaming in the ledger.
-4. **Colour blank on items 3 and 7.** From the photographs: item 3 is mid-blue
-   distressed denim, item 7 charcoal or dark heather grey. Flagged rather than
-   filled — `conventions.md` keeps colour out of photograph-only judgement.
-5. **No gender on item 6** (`Large`) and none on item 3 (`Waist 30`), which
-   blocks Category id and Size id together.
+4. ~~Colour blank on items 3 and 7~~ — **read and filled** (owner, 19 Aug):
+   item 3 mid-blue washed denim, item 7 charcoal grey.
+5. ~~No gender on items 3 and 6~~ — **decided as womenswear.** Every garment in
+   this batch carries the `VWM - Women's Y2K Mix` SKU, which names the bundle as
+   womenswear, and both garments agree: item 3 is a Miss Me cut-off, a womenswear
+   brand, and item 6's fleece is a women's cut. Item 8 was confirmed womenswear
+   by the owner.
+
+## Colours as they will map to Crosslist
+
+Read from the photographs. The fixed list has no denim or charcoal, so those
+resolve to the nearest permitted value.
+
+| # | Garment | Colour | Secondary |
+|---|---|---|---|
+| 1 | Chargers jersey | `Blue` | `Yellow` |
+| 2 | Nike jacket | `Navy` | `Cream` |
+| 3 | Miss Me shorts | `Blue` | — |
+| 4 | Colts jersey | `Blue` | `White` |
+| 5 | Bears jersey | `Navy` | `Orange` |
+| 6 | North Face fleece | `Turquoise` | — |
+| 7 | Carhartt tee | `Gray` | `White` |
+| 8 | Birkenstocks | `Tan` | — |
+
+Item 2 is the one judgement call: navy, cream and orange are all present, and
+only two slots exist. Cream takes the secondary as the larger area, leaving
+orange to the title and tags.
 6. **Brand is not a ledger column** — it is embedded in the product name. Clear
    for all but item 4, whose "NFL T-Shirt" names a league rather than a maker;
    the hem tag needs reading.
