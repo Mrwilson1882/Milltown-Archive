@@ -25,10 +25,18 @@ of any new session — the chat is not persistent, these files are the memory.
 
 ## Rules
 
-- **Never guess.** A field not stated in the voice note is left blank and
-  flagged back to the owner. Blank means "not stated", never "none".
-- **"None"** is written in Defects only when the owner actually says there are
-  no defects.
+- **Defects: silence means there are none.** The owner mentions defects only
+  when a defect exists, so a voice note that says nothing about them means the
+  item is clean. Write **`None`** in the Defects column — do not leave it blank
+  and do not query it. *(Rule set by the owner, 19 Aug 2026.)*
+- **Never guess anything else.** Any other field not stated is left blank and
+  flagged back to the owner.
+- **Colour: the owner states it only when it is hard to read from the photos.**
+  When colour is missing it is because the photos make it obvious.
+  **Claude cannot see the photos** — no images reach this chat, only the text
+  of the voice notes — so a missing colour cannot be filled in here and must be
+  asked for or left blank. Say so plainly rather than inventing a colour; a
+  wrong colour on a listing causes returns.
 - **Price** is always written with the £ symbol, e.g. `£12.99`. Never a bare
   number, never another currency.
 - **"as you can see in the pictures"** (or any similar phrase) is recorded as
