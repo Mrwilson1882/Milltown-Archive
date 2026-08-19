@@ -60,7 +60,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 3 | Chicago Bulls Vest | *(none given)* | 16, unconfirmed | Very good | *(not stated)* | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
 | 19 Aug | 4 | Ralph Lauren Women's Long Sleeve T-Shirt | Ralph Lauren | Small (8) | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.99 |
 | 19 Aug | 5 | NFL Broncos Top | NFL | Youth 18 (XXL) ≈ women's L | **Good** | *(not stated)* | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
-| 19 Aug | 6 | Ralph Lauren Polo | Ralph Lauren | Small Men's | Very good | *(not stated)* | VWM - RL Lacoste Polos | £30.99 **(outlier — queried with owner)** |
+| 19 Aug | 6 | Ralph Lauren Polo | Ralph Lauren | Small Men's | Very good | *(not stated)* | VWM - RL Lacoste Polos | £13.99 |
 | 19 Aug | 7 | Ralph Lauren Polo | Ralph Lauren | Large Men's | Very good | None | VWM - RL Lacoste Polos | £14.99 |
 | 19 Aug | 8 | Ralph Lauren Polo | Ralph Lauren | Medium Men's | Very good vintage | Very small discrepancy on back | VWM - RL Lacoste Polos | £13.99 |
 | 19 Aug | 9 | Ralph Lauren Polo | Ralph Lauren | Medium | Very good vintage | Slight discrepancy on front | VWM - RL Lacoste Polos | £12.99 |
@@ -72,7 +72,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 15 | Buffalo Bills Wild West Top | NFL / Buffalo Bills | Large Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £18.99 **(Claude-set — see below)** |
 | 19 Aug | 16 | Juicy Couture Cardigan | Juicy Couture | XL Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
 | 19 Aug | 17 | Dominique Longline Bridal Bra (Bustier) | Dominique | 44DD/E | Very good | *(not stated)* | VWM - Women's Y2K Mix | £16.99 **(Claude-set — see below)** |
-| 19 Aug | 18 | Juicy Couture Women's Top | Juicy Couture | Medium | Very good | *(not stated)* | VWM - Women's Y2K Mix | £19.99 **(Claude-set, PROVISIONAL — see below)** |
+| 19 Aug | 18 | Juicy Couture Velour Top | Juicy Couture | Medium | Very good | *(not stated)* | VWM - Women's Y2K Mix | £34.99 **(Claude-set — see below)** |
 | 19 Aug | 19 | Carhartt Women's T-Shirt | Carhartt | Small (4-6) | **Good** | Slight speckles on front | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
 | 19 Aug | 20 | Ralph Lauren Women's Polo Shirt | Ralph Lauren | Medium (10-12), classic fit | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.00 |
 | 19 Aug | 21 | Ralph Lauren Sport Women's Shirt | Ralph Lauren Sport | Small | Very good | *(not stated)* | VWM - Women's Y2K Mix | £18.00 |
@@ -124,27 +124,17 @@ predictors.** Each has plausible counter-explanations and the sample is tiny.
   no recorded column explains — an early sign that unrecorded factors
   (desirability, era, cut) are doing real work.
 
-## Unresolved outlier: 19 Aug #6 at £30.99
+## Resolved: 19 Aug #6 was £13.99, not £30.99
 
-Recorded exactly as dictated ("thirty ninety nine") and **queried with the
-owner at the time**, because it does not sit with anything else in the data:
+Dictated as "thirty ninety nine" and recorded that way, but queried because it
+sat far outside every other Ralph Lauren polo (£12.99–£14.99) and would have
+been the highest price in the ledger. The owner confirmed **£13.99**.
 
-- every other Ralph Lauren polo is £12.99–£14.99 — including 19 Aug #7, logged
-  minutes later at £14.99, also very good condition — so this is more than
-  double the top of that range;
-- it would be the highest price in the whole ledger, above the £27.99
-  Birkenstocks, for a garment type that has never exceeded £14.99;
-- 19 Aug #10 is its near-twin — Ralph Lauren polo, small men's, very good, same
-  SKU, differing only in colour (navy vs black) — and was priced £14.99;
-- "thirty" and "thirteen" are the classic pair to mishear in dictation, and
-  **£13.99 would sit exactly in the established polo band** — confirmed as a
-  price point the owner actually uses, since 19 Aug #8 was dictated at
-  £13.99 shortly afterwards.
-
-If the owner confirms £30.99, it is a genuinely important data point — it would
-mean something about specific polos (era, rarity, a particular colourway)
-carries far more value than brand and condition alone, which is precisely the
-demand factor the owner said the columns cannot see. Do not average it away.
+Worth keeping as a process note rather than a pricing one: **"thirty" and
+"thirteen" are easy to mishear in dictation**, and the same applies to
+fourteen/forty, fifteen/fifty and so on. A price that lands far outside the
+established band for its category is worth querying before it goes in — this
+one would have overstated a single item by £17.
 
 ## A clean gradient in the 19 Aug polos (#7, #8, #9)
 
@@ -369,30 +359,26 @@ One factor pulling the other way and worth watching: **44DD/E is a large band
 size**, which narrows the buyer pool — though plus-size bridal lingerie is
 genuinely underserved, so it may find its buyer faster than the size suggests.
 
-**19 Aug #18 — Juicy Couture pink top, medium, very good → £19.99 PROVISIONAL**
+**19 Aug #18 — Juicy Couture pink VELOUR top, medium, very good → £34.99**
 
-**This is the widest price fork encountered so far, and the figure should not
-be used until the garment type is confirmed.** "Top" covers two very different
-products in this brand:
+**Owner confirmed velour**, which moves this out of the ordinary-tops band and
+makes it the highest-value item in the ledger.
 
-| If it is… | Realistic price |
-|---|---|
-| A **velour zip hoodie / tracksuit top** | **£29.99–£39.99** |
-| A plain tee, cami or knit top | £14.99–£19.99 |
-
-Pink velour is the iconic Juicy Couture Y2K piece and the single most
+Pink velour is the iconic Juicy Couture Y2K piece — the single most
 sought-after thing the brand made. Comps: individual pink velour hoodie tops
-with rhinestone logos sell around **$60** (≈£47), complete two-piece sets
-$60–$220, with standout sets listed far higher. Plain Juicy tops sit in the
-same $13–$80 band as the cardigan at 19 Aug #16.
+with rhinestone logos sell around **$60** (≈£47); complete two-piece sets run
+$60–$220, with standout sets far higher. Plain Juicy tops, by contrast, sit in
+the same $13–$80 band as the cardigan at 19 Aug #16 — which is why the fabric
+question was worth £15–£20 on its own.
 
-£19.99 is recorded as the **conservative** figure — the safe answer if it
-turns out to be an ordinary top. If it is velour, this underprices it by
-roughly £15–£20, which would be the largest single loss in the ledger.
+£34.99 sits below the ≈£47 comp, allowing for a UK vintage channel rather than
+US resale, while still recognising what the piece is. **£29.99 if it is a
+velour top without a zip or hood**; **£39.99 is defensible** if it is a zip
+hoodie with the JUICY logo across the back and it photographs well.
 
-Deciding features: velour or terry fabric, a zip front, a hood, and the
-JUICY logo across the chest or back — any of those and it belongs in the
-upper band, above the owner's current £27.99 ceiling.
+**This breaks the owner's previous £27.99 ceiling by £7**, so it is worth
+flagging as a genuine outlier rather than an error — the opposite situation to
+19 Aug #6, where an out-of-band price turned out to be a mishearing.
 
 **19 Aug #19 — Carhartt women's tee, green/mint, good, front speckles → £9.99**
 
