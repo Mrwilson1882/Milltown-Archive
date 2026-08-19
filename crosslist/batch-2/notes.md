@@ -45,6 +45,27 @@ Every card was legible. No ambiguity.
 The filename order does not follow the card order, so the cards are doing real
 work here — 0421 is item 7 and 0428 is item 1.
 
+## Built
+
+`items.csv` and `listings.csv` are complete: 8 rows, 33 columns, 84 photos, no
+row missing a Category id or Size id. Only `Cost of Goods` on item 8 is empty,
+pending the `SF - Birkenstock` rate.
+
+Item 8 carries **Regular** width (owner, 19 Aug) in both the description and the
+Internal note, and the footbed stamp and both size systems are written into the
+copy so a buyer can check the fit themselves.
+
+### Era brackets worth noting
+
+Three items date themselves precisely through licensing rather than styling:
+
+- **Reebok held the NFL licence 2002–2011.** Items 1 and 5 sit inside it.
+- **Nike took it in 2012**, and Andrew Luck played 1012–2018, so item 4 cannot
+  predate 2012.
+- Item 1 narrows further: Rivers started for the Chargers from 2006.
+
+That is far firmer evidence than the cut-and-hem reasoning batch 1 relied on.
+
 ## Blocked
 
 1. ~~Item 8, Birkenstock EU 40~~ — **resolved from the footbed stamp.**
@@ -55,10 +76,22 @@ work here — 0421 is item 7 and 0428 is item 1.
    **Owner confirmed women's, 19 Aug** — which agrees with the footbed. Two
    independent routes to the same answer, so this one is settled.
 
-   Still open: **Regular or Narrow**. That is not the number — it shows as a
-   foot-outline symbol on the footbed, slimmer for narrow.
-2. **`SF - Birkenstock` has no cost rate.** New SKU, not in `cost-rates.csv`.
-   The SF prefix prices differently from VWM, so no VWM rate can stand in.
+   Width confirmed **Regular** by the owner, 19 Aug.
+2. **`SF - Birkenstock` has no cost rate** — owner will supply later. The field
+   is left empty rather than filled from an SF or VWM figure that does not
+   apply; everything else about item 8 is complete.
+
+## Gaps in the Crosslist option lists
+
+Three of this batch's garment types have no vocabulary captured yet, so their
+Internal notes say so rather than inventing a value:
+
+- **Jerseys** (items 1, 4, 5) — the tops `Type` list holds only Blouse,
+  Button-Up, Polo, Tank, T-Shirt.
+- **Shorts** (item 3) — no Style list seen.
+- **Sandals** (item 8) — no Style list seen.
+
+Screenshots of those three dropdowns would finish the set.
 
 ## Flags
 
