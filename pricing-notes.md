@@ -56,6 +56,7 @@ so an item is identified by **date + number**, never by number alone.
 | 18 Aug | 7 | Carhartt T-Shirt | Carhartt | Small Women's (4-6) | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.99 |
 | 18 Aug | 8 | Birkenstock Thong Sandals | Birkenstock | 40 | Very good vintage | None | SF - Birkenstock | £27.99 |
 | 19 Aug | 1 | Athletics Women's T-Shirt | *(none given)* | Small | Very good vintage | Slight discrepancy on back of neck, barely noticeable | VWM - Women's Y2K Mix | £12.99 |
+| 19 Aug | 2 | Ralph Lauren Women's Shirt | Ralph Lauren | 16 | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner)* |
 
 ## Raw observations
 
