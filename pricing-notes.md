@@ -71,6 +71,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 14 | Women's Lace Nightwear Set | *(none given)* | *(unknown — awaiting measurements)* | *(not stated)* | *(not stated)* | VWM - Women's Y2K Mix | £12.99 |
 | 19 Aug | 15 | Buffalo Bills Wild West Top | NFL / Buffalo Bills | Large Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £18.99 **(Claude-set — see below)** |
 | 19 Aug | 16 | Juicy Couture Cardigan | Juicy Couture | XL Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
+| 19 Aug | 17 | Dominique Longline Bridal Bra (Bustier) | Dominique | 44DD/E | Very good | *(not stated)* | VWM - Women's Y2K Mix | £16.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -321,6 +322,29 @@ the stronger brand, and inside the owner's own observed range. **£22.99 is
 defensible** if it is velour, cropped, or carries prominent Juicy branding —
 those are the details that drive the Y2K premium, and none of them are
 recorded here.
+
+**19 Aug #17 — Dominique white longline bridal bra, 44DD/E, very good → £16.99**
+
+*Dominique Intimate Apparel* describes itself as "corsets and longline bra
+specialists", and its best-known pieces are white and ivory **bridal
+bustiers/longline bras** — the Colette, Juliette and Noemi styles — designed to
+sit under strapless gowns and running to hip length. A white Dominique in a
+bra size is almost certainly one of those. The `DD/E` slash notation is
+standard on their bustiers.
+
+Comps: Poshmark asking $28–$34 for used Dominique bridal longline bustiers
+against $65–$86 retail, with the brand's range spanning roughly $12–$80.
+An ivory Noemi in 42DD was listed at $65 retail value.
+
+£16.99 sits above the owner's unbranded bralettes (£8.99–£12.99) and the
+Cinema Etoile piece (£14.99), reflecting a specialist brand with real retail
+value, but below the US asking prices — secondhand intimates move more slowly
+and this is a vintage channel, not a bridal boutique. **£19.99 is defensible**
+if it is one of the named bridal styles and presents as barely worn.
+
+One factor pulling the other way and worth watching: **44DD/E is a large band
+size**, which narrows the buyer pool — though plus-size bridal lingerie is
+genuinely underserved, so it may find its buyer faster than the size suggests.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
