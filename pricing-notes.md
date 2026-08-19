@@ -65,6 +65,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 8 | Ralph Lauren Polo | Ralph Lauren | Medium Men's | Very good vintage | Very small discrepancy on back | VWM - RL Lacoste Polos | £13.99 |
 | 19 Aug | 9 | Ralph Lauren Polo | Ralph Lauren | Medium | Very good vintage | Slight discrepancy on front | VWM - RL Lacoste Polos | £12.99 |
 | 19 Aug | 10 | Ralph Lauren Polo | Ralph Lauren | Small Men's | Very good | *(not stated)* | VWM - RL Lacoste Polos | £14.99 |
+| 19 Aug | 11 | Burberry Brit Polo Shirt | Burberry Brit | *(not stated)* | **Good** | Slight marks on front | SF - Men's Summer Designer Mix | £19.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -216,6 +217,30 @@ a comparable, in the same way the Walter Payton jerseys were.
 youth 18 / XXL ≈ women's Large. That scales down consistently — youth 14–16
 would land near a women's S/M. Since the owner described #3 as looking *too
 big* for women's, its "16" is more likely a UK women's 16 than a US youth 16.
+
+**19 Aug #11 — Burberry Brit polo, good condition, slight front marks → £19.99**
+
+The first genuinely higher-tier brand in the ledger, and the first item in the
+`SF - Men's Summer Designer Mix` category. Reasoning:
+
+- Burberry Brit sits a real step above Ralph Lauren, whose clean polos the
+  owner prices at £14.99. A designer uplift is justified.
+- Against that, two drags: **"good" condition** (one grade down) and **marks on
+  the front** — and the owner's own 19 Aug sequence suggests a front flaw costs
+  roughly twice a back one.
+- £19.99 is therefore above every polo the owner has priced, but well short of
+  what a clean Burberry would carry. **£22.99 would be defensible** if the
+  marks are genuinely faint and it presents well in photographs.
+
+External comps found were The RealReal at **$125–$210** for Burberry Brit
+polos. That is authenticated luxury consignment — a completely different
+channel from a Manchester vintage operation, on items in excellent condition.
+It confirms the brand tier is real but is useless as a direct comparable, in
+the same way the boutique jersey prices were.
+
+**Size and colour were not stated on this item**, and both matter here: size
+affects a designer piece's value more than a £9.99 polo's, and the colourway
+(house check versus plain) swings Burberry values considerably.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
