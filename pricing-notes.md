@@ -67,6 +67,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 10 | Ralph Lauren Polo | Ralph Lauren | Small Men's | Very good | *(not stated)* | VWM - RL Lacoste Polos | £14.99 |
 | 19 Aug | 11 | Burberry Brit Polo Shirt | Burberry Brit | *(not stated)* | **Good** | Slight marks on front | SF - Men's Summer Designer Mix | £19.99 **(Claude-set — see below)** |
 | 19 Aug | 12 | Cinema Etoile Camisole/Chemise | Cinema Etoile | Small Women's | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
+| 19 Aug | 13 | Adidas Women's Jacket (fleece bottom) | Adidas | UK 14 = Large | **Good** | *(not stated)* | VWM - Women's Y2K Mix | £22.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -264,6 +265,31 @@ photographs well.
 bought as outerwear tops rather than lingerie, which widens the buyer pool
 considerably. Listing it under tops as well as lingerie may matter more to
 the final price than the exact figure.
+
+**19 Aug #13 — Adidas women's jacket, fleece bottom, UK 14, good → £22.99**
+
+Size is not in doubt: **UK women's 14 is a Large** on the standard UK scale
+(8=XS, 10=S, 12=M, 14=L, 16=XL). Adidas labels UK women's outerwear on that
+scale, so a plain "14" is Large, not XL. This is a documented convention
+rather than a judgement about this particular garment, though a pit-to-pit
+measurement would still confirm the actual cut.
+
+Price reasoning against the owner's own outerwear:
+
+- clean Nike track jacket (very good, no defects) → £24.99
+- Nike women's track jacket, good vintage **with sleeve marks** → £17.99
+- this one: **good condition, no defects stated, plus a fleece lining**
+
+That places it above the £17.99 marked jacket and just below the £24.99
+ceiling — hence £22.99. **£24.99–£27.99 is defensible** if the piece really is
+distinctive; UK vintage retailers such as Rokit and Vintage Recovery carry
+Adidas track jackets well above that, though at curated-retail margins rather
+than wholesale.
+
+**No rarity premium has been applied.** The owner believes the piece looks
+rare, but rarity cannot be verified from a description, and pricing an unseen
+garment as rare is exactly the kind of guess that produced the earlier misses.
+If the owner's eye says rare, their number should beat this one.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
