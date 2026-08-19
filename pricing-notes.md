@@ -58,6 +58,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 1 | Athletics Women's T-Shirt | *(none given)* | Small | Very good vintage | Slight discrepancy on back of neck, barely noticeable | VWM - Women's Y2K Mix | £12.99 |
 | 19 Aug | 2 | Ralph Lauren Women's Shirt | Ralph Lauren | 16 | Very good | None | VWM - Women's Y2K Mix | £18.00 **(first non-.99 price)** |
 | 19 Aug | 3 | Chicago Bulls Vest | *(none given)* | 16, unconfirmed | Very good | *(not stated)* | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
+| 19 Aug | 4 | Ralph Lauren Women's Long Sleeve T-Shirt | Ralph Lauren | Small (8) | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.99 |
 
 ## Raw observations
 
