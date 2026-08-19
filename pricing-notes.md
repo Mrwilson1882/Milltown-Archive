@@ -63,6 +63,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 6 | Ralph Lauren Polo | Ralph Lauren | Small Men's | Very good | *(not stated)* | VWM - RL Lacoste Polos | £30.99 **(outlier — queried with owner)** |
 | 19 Aug | 7 | Ralph Lauren Polo | Ralph Lauren | Large Men's | Very good | None | VWM - RL Lacoste Polos | £14.99 |
 | 19 Aug | 8 | Ralph Lauren Polo | Ralph Lauren | Medium Men's | Very good vintage | Very small discrepancy on back | VWM - RL Lacoste Polos | £13.99 |
+| 19 Aug | 9 | Ralph Lauren Polo | Ralph Lauren | Medium | Very good vintage | Slight discrepancy on front | VWM - RL Lacoste Polos | £12.99 |
 
 ## Raw observations
 
@@ -111,6 +112,26 @@ If the owner confirms £30.99, it is a genuinely important data point — it wou
 mean something about specific polos (era, rarity, a particular colourway)
 carries far more value than brand and condition alone, which is precisely the
 demand factor the owner said the columns cannot see. Do not average it away.
+
+## A clean gradient in the 19 Aug polos (#7, #8, #9)
+
+Three Ralph Lauren polos priced in a row, all very good, differing only in
+defect — the tidiest sequence in the data so far:
+
+| Item | Defect | Price |
+|------|--------|-------|
+| #7 | None | £14.99 |
+| #8 | Very small discrepancy on the **back** | £13.99 |
+| #9 | Slight discrepancy on the **front** | £12.99 |
+
+Two things this hints at, both worth watching rather than trusting yet:
+**severity is graded rather than flat** (£1 steps here, against £3–£10 drops
+elsewhere), and **placement may matter** — a flaw on the back cost £1, the
+same kind of flaw on the front cost £2. That would make sense commercially,
+since a front flaw is the one a buyer sees worn.
+
+Three items is a sequence, not a rule, and it says nothing about how the same
+flaws would price on a jacket or a pair of shoes.
 
 ## Owner-stated factors
 
