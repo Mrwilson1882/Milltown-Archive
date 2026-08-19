@@ -75,6 +75,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 18 | Juicy Couture Women's Top | Juicy Couture | Medium | Very good | *(not stated)* | VWM - Women's Y2K Mix | £19.99 **(Claude-set, PROVISIONAL — see below)** |
 | 19 Aug | 19 | Carhartt Women's T-Shirt | Carhartt | Small (4-6) | **Good** | Slight speckles on front | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
 | 19 Aug | 20 | Ralph Lauren Women's Polo Shirt | Ralph Lauren | Medium (10-12), classic fit | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.00 |
+| 19 Aug | 21 | Ralph Lauren Sport Women's Shirt | Ralph Lauren Sport | Small | Very good | *(not stated)* | VWM - Women's Y2K Mix | £18.00 |
 
 ## Raw observations
 
