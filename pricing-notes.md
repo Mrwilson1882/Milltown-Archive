@@ -77,6 +77,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 20 | Ralph Lauren Women's Polo Shirt | Ralph Lauren | Medium (10-12), classic fit | Very good | *(not stated)* | VWM - Women's Y2K Mix | £14.00 |
 | 19 Aug | 21 | Ralph Lauren Sport Women's Shirt | Ralph Lauren Sport | Small | Very good | *(not stated)* | VWM - Women's Y2K Mix | £18.00 |
 | 19 Aug | 22 | Birkenstocks | Birkenstock | 37 (240mm) | Very good vintage | *(not stated)* | SF - Birkenstock | £27.99 |
+| 19 Aug | 23 | Birkenstock Sandals | Birkenstock | 38 (245mm) | **Good** | Inner footbed a bit worn; outer sole fine | SF - Birkenstock | £24.99 |
 
 ## Raw observations
 
@@ -93,9 +94,15 @@ predictors.** Each has plausible counter-explanations and the sample is tiny.
   price point.** Both pairs recorded — 18 Aug #8 (size 40, natural) and
   19 Aug #22 (size 37, bronze/nude) — were priced **£27.99**, the highest
   figure in the ledger. Same condition grade and same `SF - Birkenstock` SKU,
-  different sizes and colours, identical price. Two items is not a rule, but
-  it is the first sign of a flat per-category price rather than a per-item
-  judgement.
+  different sizes and colours, identical price. **19 Aug #23 then took £24.99**
+  — same category, same SKU, but downgraded to good condition for a worn inner
+  footbed. So the £27.99 looks like a clean-pair price point, with **−£3.00 for
+  footbed wear**, rather than a flat rate for anything Birkenstock.
+- **The owner distinguishes inner footbed wear from outer sole wear** and says
+  so explicitly (19 Aug #23). That distinction is worth preserving in the
+  Defects column: a worn footbed is cosmetic and normal on used Birkenstocks,
+  whereas a worn outer sole affects how much life the buyer gets. Recording
+  them as the same thing would lose real information.
 - **A second SKU prefix appeared**: `SF - Birkenstock`, alongside the usual
   `VWM` (Vintage Wholesale Manchester). `SF` also appeared in the owner's
   original worked example (`SF Fripe - Summer Mix`). What `SF` denotes has not
