@@ -78,6 +78,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 21 | Ralph Lauren Sport Women's Shirt | Ralph Lauren Sport | Small | Very good | *(not stated)* | VWM - Women's Y2K Mix | £18.00 |
 | 19 Aug | 22 | Birkenstocks | Birkenstock | 37 (240mm) | Very good vintage | *(not stated)* | SF - Birkenstock | £27.99 |
 | 19 Aug | 23 | Birkenstock Sandals | Birkenstock | 38 (245mm) | **Good** | Inner footbed a bit worn; outer sole fine | SF - Birkenstock | £24.99 |
+| 19 Aug | 24 | Birkenstock Sandals | Birkenstock | 38 (245mm) | **Good** | *(not stated)* | SF - Birkenstock | £24.99 |
 
 ## Raw observations
 
@@ -94,10 +95,11 @@ predictors.** Each has plausible counter-explanations and the sample is tiny.
   price point.** Both pairs recorded — 18 Aug #8 (size 40, natural) and
   19 Aug #22 (size 37, bronze/nude) — were priced **£27.99**, the highest
   figure in the ledger. Same condition grade and same `SF - Birkenstock` SKU,
-  different sizes and colours, identical price. **19 Aug #23 then took £24.99**
-  — same category, same SKU, but downgraded to good condition for a worn inner
-  footbed. So the £27.99 looks like a clean-pair price point, with **−£3.00 for
-  footbed wear**, rather than a flat rate for anything Birkenstock.
+  different sizes and colours, identical price. **19 Aug #23 and #24 then both
+  took £24.99**, both graded good condition. #23 had a worn footbed; #24 had no
+  defect stated at all — so the £3.00 gap tracks the **condition grade**, not
+  the specific defect. Two clean price points so far: **£27.99 very good,
+  £24.99 good**, regardless of size or colour.
 - **The owner distinguishes inner footbed wear from outer sole wear** and says
   so explicitly (19 Aug #23). That distinction is worth preserving in the
   Defects column: a worn footbed is cosmetic and normal on used Birkenstocks,
