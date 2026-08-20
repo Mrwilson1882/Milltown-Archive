@@ -1,12 +1,43 @@
 # Pricing Notes
 
-**Purpose: collect pricing data. Do not suggest prices.**
+**Purpose: collect pricing data. Claude prices only where the owner does not.**
 
-Instruction from the owner (14 Aug 2026): stop making price suggestions. The
-dataset is far too small, the relationships are not linear or obvious, and the
-suggestions made so far were reading patterns into noise. Keep recording what
-the owner prices and why, and revisit in a few months once there is enough
-data to be useful.
+**19 Aug 2026 — the 14 Aug suspension is lifted.** Owner's instruction: price
+the items where no price is dictated. A dictated price is still final and is
+never overridden.
+
+The 14 Aug reasoning has not been disproved, only overruled, and it is worth
+keeping in view: the dataset was too small, the relationships were not linear,
+and the suggestions were reading patterns into noise. What has changed is that
+the owner would rather have a flagged estimate to correct than a blank cell.
+
+### How Claude prices
+
+1. **Anchor on the owner's own prices first.** The ledger is the only record of
+   what this business actually charges. Nearest comparable by garment type, then
+   brand tier, then condition.
+2. **State the comparable out loud** in the `price_reasoning` column, so any
+   figure can be argued with rather than taken on trust.
+3. **Keep the `.99` ending** — true of every price recorded so far.
+4. **Give a range, not false precision, where no comparable exists**, and say so.
+5. **Mark every Claude-set price** with `price_source = claude`. Owner-dictated
+   prices are `price_source = owner` and are never touched.
+
+### The known weakness
+
+Claude has no live market feed — no Vinted sold listings, no comparables outside
+this ledger. Every estimate is anchored on 23 rows of one seller's history plus
+general knowledge of the brands.
+
+That matters because it is exactly where the ledger is thinnest that pricing is
+hardest, and the Miss Me miss proves it: **£25 was knowable from Vinted, not
+from anything in these columns.** Demand, era desirability and what is currently
+selling remain invisible here, as the section below has said since 14 Aug.
+
+So expect Claude's estimates to be weakest on the pieces that most deserve a
+premium — collected brands, named players, sought-after eras — which is the
+opposite of where they would be most useful. Corrections are the fix: every one
+becomes a comparable, and the flagged-estimate loop tightens as the ledger grows.
 
 **Read this file at the start of any new session.** The chat is not
 persistent — this file and `inventory.csv` are the memory. When a voice note

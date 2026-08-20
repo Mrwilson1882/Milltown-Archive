@@ -97,6 +97,11 @@ of the day, export the whole sheet to `.xlsx`.
 
 ## Pricing
 
-**Do not suggest prices.** The owner sets every price. If a voice note arrives
-without one, leave the cell blank and ask. See `pricing-notes.md` — pricing
-data is being collected for later use, not modelled now.
+**The owner's price always wins.** Where a price is dictated, record it exactly
+and never override it.
+
+**Where no price is dictated, Claude sets one** (owner's instruction, 19 Aug,
+reversing the 14 Aug suspension). Every Claude-set price is marked
+`price_source = claude`, carries its reasoning, and is offered as a figure to
+correct rather than a decision made. Method and its known weaknesses are in
+`pricing-notes.md`.
