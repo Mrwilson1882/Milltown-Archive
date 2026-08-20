@@ -38,6 +38,33 @@ listed, since the mapping keeps every file the owner sent.
   `100% Coton`, which confirms item 19's composition from the garment itself
   rather than by estimate.
 
+## Built
+
+`items.csv` and `listings.csv` complete: 25 rows, 33 columns, 260 photos. Every
+row has a Category id, Size id, Title, Price, Condition, Colour, Images, Tags
+and When made. Six carry a defect line. Only `Cost of Goods` on items 22–25 is
+empty, pending the Birkenstock rate.
+
+All 25 prices are the owner's, so `price_source` is `owner` throughout and the
+new pricing remit did not come into play.
+
+### Era brackets from licensing
+
+As in batch 2, the sports pieces date themselves far more precisely than the
+garments do:
+
+- **Item 3** — Boozer played for the Bulls 2010–2014 and Adidas held the NBA
+  licence 2006–2017, so early 2010s.
+- **Item 5** — Nike took the NFL licence in 2012 and C.J. Anderson played for
+  the Broncos 2013–2017, so it cannot predate 2013.
+
+### Item 16, the sorority Juicy
+
+Titled for the searchable terms and honest in the body. `Sigma Kappa` and
+`sorority` are searched by a real collector niche; `Rachel's Sissy` is searched
+by nobody, and title space is capped at 80 characters. The personalisation is
+disclosed in the description instead, so nothing arrives as a surprise.
+
 ## Still open
 
 1. **`SF - Birkenstock` cost rate** — four items (22–25) affected.
