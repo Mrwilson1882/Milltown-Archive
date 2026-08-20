@@ -16,23 +16,35 @@ import csv, shutil, subprocess, sys, zipfile
 from pathlib import Path
 
 def copy_photo(src, dest, max_px):
-    """Copy a photo, optionally downscaling its long edge to max_px."""
-    if not max_px:
+    """Copy a photo as JPEG, optionally downscaling its long edge to max_px.
+
+    HEIC sources must be converted, not just renamed: the destination is always
+    .jpg and Crosslist reads the bytes, not the extension.
+    """
+    heic = src.suffix.lower() in (".heic", ".heif")
+    if not max_px and not heic:
         shutil.copy2(src, dest); return
     if shutil.which("sips"):        # built into macOS, no dependency
-        r = subprocess.run(["sips", "-s", "format", "jpeg", "-s", "formatOptions", "80",
-                            "-Z", str(max_px), str(src), "--out", str(dest)],
-                           capture_output=True)
+        cmd = ["sips", "-s", "format", "jpeg", "-s", "formatOptions", "80"]
+        if max_px:
+            cmd += ["-Z", str(max_px)]
+        r = subprocess.run(cmd + [str(src), "--out", str(dest)], capture_output=True)
         if r.returncode == 0 and dest.exists():
             return
     try:                            # fallback, used off macOS
         from PIL import Image, ImageOps
         with Image.open(src) as im:
             im = ImageOps.exif_transpose(im).convert("RGB")
-            im.thumbnail((max_px, max_px))
+            if max_px:
+                im.thumbnail((max_px, max_px))
             im.save(dest, "JPEG", quality=80, optimize=True)
+        return
     except Exception:
-        shutil.copy2(src, dest)
+        pass
+    if heic:
+        # Never copy HEIC bytes to a .jpg name - Crosslist reads the bytes.
+        raise RuntimeError(f"cannot convert {src.name} to JPEG")
+    shutil.copy2(src, dest)
 
 COLUMNS = ["Id","Title","Description","Price","Original Price","Brand","Category id","Size id",
 "Condition","Color","Secondary color","Images","Quantity","Shipping weight","Shipping weight unit",
@@ -43,10 +55,17 @@ COLUMNS = ["Id","Title","Description","Price","Original Price","Brand","Category
 
 args = [a for a in sys.argv[1:] if not a.startswith("--")]
 inbox = Path(args[0] if args else "Batch 1")
+itemfile = args[1] if len(args) > 1 else "items.csv"
+mapfile  = args[2] if len(args) > 2 else "mapping.csv"
 max_px = next((int(a.split("=")[1]) for a in sys.argv if a.startswith("--max-px=")), 0)
-for f in ("items.csv", "mapping.csv"):
+for f in (itemfile, mapfile):
     if not Path(f).exists():
         sys.exit(f"{f} is not in this folder. Put it here and try again.")
+
+# Report what is about to be used, so the wrong batch is obvious before the work.
+n_items = sum(1 for _ in csv.DictReader(open(itemfile)))
+n_photos = sum(1 for r in csv.DictReader(open(mapfile)) if r["shot_type"] != "card")
+print(f"{itemfile}: {n_items} items\n{mapfile}: {n_photos} listed photos\nphotos from: {inbox}\n")
 
 build = Path("build"); images = build / "images"
 if build.exists():
@@ -54,13 +73,13 @@ if build.exists():
 images.mkdir(parents=True)
 
 photos = {}
-for r in csv.DictReader(open("mapping.csv")):
+for r in csv.DictReader(open(mapfile)):
     if r["shot_type"] == "card":            # number cards never reach a buyer
         continue
     photos.setdefault(r["item_no"], []).append((int(r["photo_index"]), r["source_filename"]))
 
-rows, missing, blocked = [], [], []
-for it in csv.DictReader(open("items.csv")):
+rows, missing, blocked, failed = [], [], [], []
+for it in csv.DictReader(open(itemfile)):
     n = it["item_no"]
     names = []
     for idx, src in sorted(photos.get(n, [])):
@@ -68,7 +87,10 @@ for it in csv.DictReader(open("items.csv")):
         if not s.exists():
             missing.append(src); continue
         dest = f"{n}_{idx}.jpg"
-        copy_photo(s, images / dest, max_px)
+        try:
+            copy_photo(s, images / dest, max_px)
+        except Exception as e:
+            failed.append(f"{src}: {e}"); continue
         names.append(dest)
 
     if not it["size_id"]:
@@ -103,6 +125,10 @@ if not max_px and size_mb > 100:
     print("  Large. If Crosslist baulks, re-run with --max-px=1600")
 if missing:
     print(f"\nMISSING from {inbox}: {len(missing)} photos - {', '.join(missing[:5])}")
+if failed:
+    print(f"\nCOULD NOT CONVERT {len(failed)} photos - these are left out of the listing:")
+    for f in failed[:5]:
+        print(f"  {f}")
 if blocked:
     print("\nUploads with no Size id - Crosslist may reject these rows:")
     for b in blocked:
