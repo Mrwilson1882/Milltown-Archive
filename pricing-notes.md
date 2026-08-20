@@ -138,9 +138,9 @@ named-player items can be compared against it.
 Notable against the pattern recorded on 14 Aug:
 
 - **Three prices do not end `.99`** — items 2 and 21 at £18.00 and item 20 at
-  £14.00. That breaks the only rule that had held across every previous row.
-  Worth knowing whether it is deliberate or a slip, since it is the sort of
-  thing a later model would otherwise learn as noise.
+  £14.00. **Confirmed deliberate by the owner, 19 Aug.** The `.99` ending is
+  therefore a strong habit rather than a rule, and any future model should not
+  treat a round price as an error to correct.
 - **£34.99 for the Juicy Couture velour top** is the highest garment price
   recorded, well above the £14.99-£19.99 band the mix usually occupies. Juicy
   velour is a collected Y2K name, which is consistent with the Miss Me lesson:

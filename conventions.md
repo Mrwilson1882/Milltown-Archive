@@ -66,11 +66,15 @@ of any new session — the chat is not persistent, these files are the memory.
   men's or women's, or the size cannot be converted at all; in that range,
   guessing is a full size out. Below EU 40 the chart is women's only, above
   EU 44 men's only, and those convert unambiguously.
-  **The number stamped on the footbed settles it.** It is the foot length in
-  millimetres, and the two charts differ by exactly 1 cm at every overlapping
-  EU size, so the stamp identifies which chart applies without needing the
-  garment's gender at all. `260` against a stated EU 40 means the women's chart
-  (26 cm), not the men's (25 cm). Read the footbed before asking.
+  **The footbed millimetre reading is recorded, not used for conversion**
+  (owner, 19 Aug). The owner's readings are factual and go into the description
+  as stated. They do not reliably track Birkenstock's own cm column — batch 3's
+  four pairs each read about 10 mm above it while batch 2's matched exactly — so
+  the mm is no longer used to cross-check or to resolve the men's/women's
+  overlap. EU size in, UK size out.
+
+  Where an EU size falls in the 40–44 overlap and no gender is stated, decide it
+  from the SKU and the style as with any other garment.
   Worth dictating too: **Regular or Narrow**. That is *not* the number — it
   shows as a foot-outline symbol on the footbed, a slimmer outline for narrow.
   A filterable attribute only the seller can check.
@@ -96,6 +100,9 @@ back to the owner with the row as recorded plus any missing fields. At the end
 of the day, export the whole sheet to `.xlsx`.
 
 ## Pricing
+
+**Prices ending other than `.99` are deliberate** (owner, 19 Aug). Batch 3's
+£18.00 and £14.00 are intentional, not slips. Record them as given.
 
 **The owner's price always wins.** Where a price is dictated, record it exactly
 and never override it.
