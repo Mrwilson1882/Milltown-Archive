@@ -131,6 +131,26 @@ watching.
 One instance is not a pattern. Recorded so the next few Miss Me or
 named-player items can be compared against it.
 
+## Batch 3 — 19 Aug 2026
+
+25 items, all priced by the owner. Nothing for Claude to price this time.
+
+Notable against the pattern recorded on 14 Aug:
+
+- **Three prices do not end `.99`** — items 2 and 21 at £18.00 and item 20 at
+  £14.00. That breaks the only rule that had held across every previous row.
+  Worth knowing whether it is deliberate or a slip, since it is the sort of
+  thing a later model would otherwise learn as noise.
+- **£34.99 for the Juicy Couture velour top** is the highest garment price
+  recorded, well above the £14.99-£19.99 band the mix usually occupies. Juicy
+  velour is a collected Y2K name, which is consistent with the Miss Me lesson:
+  recognisable branded Y2K sits above the band.
+- **£19.99 Burberry Brit** in `Good` condition with marks on the front, and
+  **£22.99 Adidas jacket**, are the next highest.
+
+Three of the four Birkenstock pairs are the same £24.99, with the bronze pair at
+£27.99 matching batch 2's.
+
 ## Owner-stated factors
 
 Things the owner has said out loud, which outrank anything inferred above:
