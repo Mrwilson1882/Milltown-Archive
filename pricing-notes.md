@@ -91,6 +91,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 9 | The North Face Zip-Up Fleece | The North Face | XS | Very good vintage | Small discrepancies on arm, barely noticeable | VWM - Women's Y2K Mix | £12.99 |
 | 20 Aug | 10 | Carhartt Women's Fleece | Carhartt | XS (4-6), relaxed fit | Very good vintage, **slightly faded** | None | VWM - Women's Y2K Mix | £13.99 **(Claude-set — see below)** |
 | 20 Aug | 11 | Carhartt Jumper | Carhartt | *(not stated)* | Very good | None | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
+| 20 Aug | 12 | Women's Chemise (Nightwear) | *(none given)* | 40D | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -600,6 +601,31 @@ category match:
 Fading is milder than visible marks but affects the whole piece, so it sits
 between the two. It is also clearly below #11's £19.99, as the owner
 indicated.
+
+**20 Aug #12 — black nightwear, 40D, nylon/spandex → chemise, £12.99**
+
+Identification from the two hard clues in the description:
+
+- **It is sized 40D, a bra size.** Nightwear labelled by band-and-cup rather
+  than S/M/L is built around **structured bust cups** — moulded or underwired.
+  That rules out a plain slip or a standard babydoll, which use dress sizing.
+- **83% nylon / 17% spandex is a stretch fabric**, not the polyester or lace
+  used for typical babydolls. It points to a fitted, body-skimming garment.
+
+Together those make a **bra-cupped chemise** the most likely answer, with a
+teddy or bodysuit the alternative. Distinguishing checks for the owner:
+underwired or moulded cups with a loose body → chemise; one-piece with a
+gusset fastening between the legs → teddy/bodysuit; straight-cut with no cup
+structure → slip.
+
+Price: **no brand was stated**, which caps it — brand is what lifted the
+Cinema Etoile piece to £14.99 and the Dominique bra to £16.99. Unbranded
+intimates in this ledger sit at £8.99–£12.99, and the owner's own lace
+babydoll set went at £12.99. Very good condition and a structured,
+bra-sized piece justify the top of that band rather than the middle.
+
+**£16.99–£19.99 if it carries a recognised label** — worth checking the care
+tag before listing, since brand is the single biggest lever on this item.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
