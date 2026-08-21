@@ -121,7 +121,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 39 | True Religion Women's Jeans | True Religion | 24 (waist) | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £29.99 offered, matching #38)* |
 | 20 Aug | 40 | Ralph Lauren Women's Shirt | Ralph Lauren | 6 | Good vintage | Pink marks on front | VWM - Women's Y2K Mix | £12.00 |
 | 20 Aug | 41 | Women's Jeans *(brand unclear)* | *(unclear — "Y")* | 00 = UK 4 | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
-| 20 Aug | 42 | Juicy Couture Bottoms | Juicy Couture | XL | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £27.99 offered if velour)* |
+| 20 Aug | 42 | Juicy Couture Bottoms | Juicy Couture | XL | Very good | None | VWM - Women's Y2K Mix | £22.99 **(Claude-set, hedged — fabric unconfirmed)** |
 
 ## Raw observations
 

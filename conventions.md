@@ -67,6 +67,21 @@ One product per voice note. After each: append the row, commit, push, confirm
 back to the owner with the row as recorded plus any missing fields. At the end
 of the day, export the whole sheet to `.xlsx`.
 
+## Telling velour from terry and cotton
+
+This distinction is worth £10 or more on Juicy Couture pieces, and comes up
+repeatedly. The test takes seconds:
+
+- **Velour** — has a nap. Run a hand across it and the colour shifts lighter or
+  darker depending on the direction, like velvet or a stroked carpet. Slight
+  sheen.
+- **Terry (towelling)** — looped, textured like a towel, matte, no direction
+  change. Juicy made these too; collectable but below velour.
+- **Cotton jersey** — completely flat, no pile, no sheen, no direction change.
+
+The nap test — stroke it one way, then the other — separates velour from the
+other two on its own.
+
 ## Pricing
 
 **Do not suggest prices.** The owner sets every price. If a voice note arrives
