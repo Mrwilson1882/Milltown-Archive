@@ -121,6 +121,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 39 | True Religion Women's Jeans | True Religion | 24 (waist) | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £29.99 offered, matching #38)* |
 | 20 Aug | 40 | Ralph Lauren Women's Shirt | Ralph Lauren | 6 | Good vintage | Pink marks on front | VWM - Women's Y2K Mix | £12.00 |
 | 20 Aug | 41 | Women's Jeans *(brand unclear)* | *(unclear — "Y")* | 00 = UK 4 | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
+| 20 Aug | 42 | Juicy Couture Bottoms | Juicy Couture | XL | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £27.99 offered if velour)* |
 
 ## Raw observations
 
@@ -1125,6 +1126,33 @@ denim label and would fit both the fragment and the size.
 Size 00 narrows the buyer pool, but not in this category — Y2K low-rise denim
 sells hardest to buyers specifically seeking very small waists, so it is not
 treated as a discount factor.
+
+## 20 Aug #42 — Juicy bottoms, and the set question worth raising
+
+Price offered at **£27.99 if velour**, just under the £29.99 track jacket, since
+tracksuit bottoms typically sit a little below the matching top. **£17.99 if
+they are cotton or terry rather than velour** — the same fabric fork that was
+worth £15 on 19 Aug #18. Peach is a pastel in the same family as the
+collectable pinks, which supports the upper figure.
+
+**The set point, which is worth more than the fabric question**: complete
+two-piece Juicy tracksuits comp at **$60–$220**, against roughly **$60** for a
+single velour top. **A matched set is worth substantially more than the two
+pieces sold separately.**
+
+The Juicy pieces logged so far and their sizes:
+
+| Item | Piece | Size | Colour |
+|---|---|---|---|
+| 19 Aug #18 | Velour top | Medium | Pink |
+| 20 Aug #7 | Track jacket | Medium | *(not stated)* |
+| 20 Aug #42 | Bottoms | XL | Peach |
+
+The sizes do not line up on the face of it, so these are probably three
+separate pieces — but **20 Aug #7's colour was never recorded**, and if it
+happens to be peach, it is worth checking whether it and #42 are a split set.
+Juicy tracksuits were frequently sold as mismatched sizes (a smaller top with
+larger bottoms), so differing sizes do not rule it out.
 
 ## Measurements have been requested four times and never supplied
 
