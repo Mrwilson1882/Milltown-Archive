@@ -117,6 +117,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 35 | Ralph Lauren Jumper | Ralph Lauren | 8-10 | **Satisfactory** | Marks on the front | VWM - Women's Y2K Mix | £9.99 |
 | 20 Aug | 36 | Nike Track Bottoms | Nike | Large (12-14) Women's | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £19.99 offered)* |
 | 20 Aug | 37 | Vigoss Three-Quarter Length Denims | Vigoss | Size 8, waist ~30in, 21in inseam | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £14.99 offered)* |
+| 20 Aug | 38 | True Religion Women's Jeans | True Religion | *(unmeasured)* | Very good | None | VWM - Women's Y2K Mix | £29.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -1077,6 +1078,33 @@ revival has favoured shorts and full-length flares over cropped cuts.
 
 **£16.99 if they are a recognisable Y2K cut** — low-rise, flared or
 embellished, which Vigoss did make. A plain straight capri stays at £14.99.
+
+## 20 Aug #38 — True Religion is the top denim tier in this ledger → £29.99
+
+True Religion is the most collectable of the Y2K premium denim names, clearly
+above Miss Me and Rock Revival, and the UK vintage trade treats it as a
+headline brand — Rokit, VintageFolk and Second Wave Vintage all run dedicated
+True Religion collections.
+
+Comps: Y2K True Religion women's jeans on Poshmark span **$12–$71**, with named
+cuts at the sharp end — **Joey twisted seam distressed at $41, Billy straight
+at $45** (≈£32–£35 asking).
+
+£29.99 sits below those asks, allowing for the channel, and sets the denim
+ladder in this ledger:
+
+| Brand | Price |
+|---|---|
+| **True Religion** | **£29.99** |
+| Miss Me | £18.99 |
+| Rock Revival | £17.99 offered |
+| Vigoss | £16.99 offered |
+| Unbranded | £9.99 |
+
+**£34.99–£39.99 if it is a named cut** — Joey, Bobby, Billy — **with the
+horseshoe stitching and flap pockets visible**. Those details are what
+collectors search for by name, and they roughly double what a plain pair
+fetches. Worth checking the back pockets and the inside tag before listing.
 
 ## Measurements have been requested four times and never supplied
 
