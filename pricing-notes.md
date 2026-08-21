@@ -85,6 +85,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 3 | Ralph Lauren Women's Top | Ralph Lauren | Medium (12-14) | **Good** | None | VWM - Women's Y2K Mix | *(awaiting owner)* |
 | 20 Aug | 4 | Lacoste Women's Polo | Lacoste | Small Women's | **Good** | Marks/discrepancies back and front, mainly back | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
 | 20 Aug | 5 | Juicy Couture Blouse | Juicy Couture | 2 (unconfirmed) | Very good | None | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
+| 20 Aug | 6 | The North Face Fleece | The North Face | XL | Very good | None | VWM - Women's Y2K Mix | £14.99 **(Claude-set — matches owner's own 18 Aug #6)** |
 
 ## Raw observations
 
