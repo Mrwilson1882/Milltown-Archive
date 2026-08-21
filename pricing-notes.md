@@ -106,6 +106,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 24 | Yana Women's Skirt *(brand to confirm)* | Yana? | Medium | Very good | None | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
 | 20 Aug | 25 | Corset *(type and size to confirm)* | *(none given)* | *(unknown — very small)* | Very good | None | VWM - Women's Y2K Mix | *(blocked — see below)* |
 | 20 Aug | 26 | Women's Dress | *(none given)* | 28/29 | Very good | None | VWM - Women's Y2K Mix | £16.99 **(Claude-set — see below)** |
+| 20 Aug | 27 | Women's Miniskirt | *(unclear in transcript)* | XS | Very good | One speckle on back, indistinct | VWM - Women's Y2K Mix | £13.99 **(Claude-set)** |
 
 ## Raw observations
 
