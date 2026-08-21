@@ -109,7 +109,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 27 | Women's Miniskirt | *(unclear in transcript)* | XS | Very good | One speckle on back, indistinct | VWM - Women's Y2K Mix | £13.99 **(Claude-set)** |
 | 20 Aug | 28 | Yana K Women's Miniskirt | Yana K | XS | Very good | None | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
 | 20 Aug | 29 | Maidenform Half Slip *(to confirm)* | Maidenform | Medium | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
-| 20 Aug | **30** | **— NOT LOGGED —** | | | | | | **gap in numbering, see below** |
+| 20 Aug | 30 | Pendleton Cardigan | Pendleton | 12 | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £24.99 offered)* |
 | 20 Aug | 31 | Urban Outfitters Women's Top | Urban Outfitters | Small (unlabelled, owner's estimate) | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set)** |
 
 ## Raw observations
@@ -930,16 +930,30 @@ Priced at **£12.99** as a slip: Maidenform is recognised, but slips are a
 modest category unless silk or notably decorative. **If it is genuinely a
 skirt, £14.99–£17.99** in line with the Yana K pieces.
 
-## 20 Aug #30 is missing from the record
+## 20 Aug #30 — gap filled, but the number needs confirming
 
-The owner moved from #29 straight to "product thirty one". **No voice note for
-#30 was received.** Either a note went astray before reaching this chat, or the
-count skipped a number in dictation.
+#30 was skipped when the owner moved from #29 to #31. The Pendleton cardigan
+was then dictated as **"number thirty three zero"**, which is ambiguous:
 
-The row is deliberately left absent rather than renumbering #31 down, because
-the numbers are physical markers on the stock: if marker 30 is on a real
-garment, silently closing the gap would mismatch every label from that point
-on. Worth the owner checking whether an item numbered 30 exists.
+- read as **30**, it fills the known gap — recorded this way;
+- read as **33**, both 30 and 32 would be missing instead.
+
+Recorded as **30** because a gap was already open and "zero" ended the phrase.
+**Worth confirming**, since these are physical markers: if the cardigan
+actually carries tag 33, the record and the garment disagree.
+
+**Pendleton** is a genuine heritage name — American wool, long-established, and
+collectable in vintage. It sits above the high-street brands in this ledger and
+at least level with Ralph Lauren for knitwear.
+
+Price offered at **£24.99**: above the owner's own branded-knitwear point of
+£19.99 (20 Aug #22, Ralph Lauren cable knit), because Pendleton wool carries a
+premium over mainstream knitwear. Left blank pending the owner's decision —
+they did not state a price or ask for one.
+
+**If it is a Pendleton wool cardigan in a recognisable pattern** — board check,
+Native-inspired jacquard — it could justify £29.99–£34.99. Plain wool sits at
+the £24.99 figure.
 
 ## Measurements have been requested four times and never supplied
 
