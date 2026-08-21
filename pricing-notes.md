@@ -122,6 +122,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 40 | Ralph Lauren Women's Shirt | Ralph Lauren | 6 | Good vintage | Pink marks on front | VWM - Women's Y2K Mix | £12.00 |
 | 20 Aug | 41 | Women's Jeans *(brand unclear)* | *(unclear — "Y")* | 00 = UK 4 | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
 | 20 Aug | 42 | Juicy Couture Bottoms | Juicy Couture | XL | Very good | None | VWM - Women's Y2K Mix | £22.99 **(Claude-set, hedged — fabric unconfirmed)** |
+| 20 Aug | 43 | Juicy Couture Track Pants | Juicy Couture | *(unmeasured)* | Very good | None | VWM - Women's Y2K Mix | £24.99 **(Claude-set, hedged — fabric unconfirmed)** |
 
 ## Raw observations
 
@@ -1158,6 +1159,23 @@ would.
 
 This also clears the duplicate concern: 19 Aug #18 is pink and 20 Aug #7 is
 black, so they are plainly two different garments.
+
+## 20 Aug #43 — purple Juicy track pants → £24.99 hedged
+
+Set £2 above the peach bottoms at #42 because **purple and lilac are among
+Juicy's recognised colourways**, closer to the collectable pastel family than
+peach is, while black sits at the bottom.
+
+Fabric fork, same as #42:
+
+| Fabric | Price |
+|---|---|
+| Velour | £29.99 |
+| Terry | £24.99 *(as recorded)* |
+| Cotton jersey | £17.99 |
+
+The Juicy colour ladder emerging across the ledger, worth carrying forward:
+**pink highest → pastels and purple close behind → peach mid → black lowest.**
 
 ## Measurements have been requested four times and never supplied
 
