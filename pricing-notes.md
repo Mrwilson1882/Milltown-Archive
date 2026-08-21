@@ -100,6 +100,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 18 | Juicy Couture Cardigan | Juicy Couture | XL | Very good | None | VWM - Women's Y2K Mix | £19.99 **(Claude-set, third at this price)** |
 | 20 Aug | 19 | Juicy Couture Cashmere Zip-Up Hoodie | Juicy Couture | Medium | Very good | None | VWM - Women's Y2K Mix | £44.99 **(Claude-set — highest in ledger, see below)** |
 | 20 Aug | 20 | Val Mode Nightgown *(type to confirm)* | Val Mode | *(unlabelled)* | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner)* |
+| 20 Aug | 21 | Guess Women's Shorts | Guess | 29 (waist) | **Good** | A couple of discrepancies, undescribed | *(not stated)* | *(awaiting owner — £12.99 offered)* |
 
 ## Raw observations
 
