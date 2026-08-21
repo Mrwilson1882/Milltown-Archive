@@ -81,6 +81,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 24 | Birkenstock Sandals | Birkenstock | 38 (245mm) | **Good** | *(not stated)* | SF - Birkenstock | £24.99 |
 | 19 Aug | 25 | Birkenstocks | Birkenstock | 36 (230mm) | **Good** | *(not stated)* | SF - Birkenstock | £24.99 |
 | 20 Aug | 1 | Adidas Hoodie | Adidas | UK 30/32 ≈ women's XS-S | **Good** | Dark marks + discrepancies on front | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
+| 20 Aug | 2 | Nike Georgia Hoodie | Nike | Small Women's (4-6) | Very good vintage | A few marks | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -422,6 +423,27 @@ photographs well.
 Owner subsequently confirmed **good condition**, which keeps £14.99 in place:
 the £17.99 comparable is also good condition but its marks are on the sleeve,
 not the front, and there is one of them rather than several.
+
+**20 Aug #2 — Nike Georgia hoodie, small women's, very good vintage → £19.99**
+
+Sits a step above 20 Aug #1 on two counts: **very good vintage rather than
+good**, and "a few marks" without the front placement that dragged the Adidas
+down. Against the owner's sportswear band:
+
+| Comparable | Price |
+|---|---|
+| Nike track jacket, very good, clean | £24.99 |
+| **This hoodie — very good vintage, a few marks** | **£19.99** |
+| Nike women's track jacket, good vintage, sleeve marks | £17.99 |
+| Adidas hoodie, good, several front marks | £14.99 |
+
+"Georgia" is almost certainly **US collegiate** (University of Georgia /
+Bulldogs), a strong vintage category in the UK — American college sportswear
+carries a premium over plain branded sweats.
+
+**Mark placement was not stated.** The owner's own polo sequence showed front
+flaws cost roughly twice back or sleeve ones, so **£17.99 if the marks are on
+the front** and clearly visible.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
