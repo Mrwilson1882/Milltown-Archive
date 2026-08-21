@@ -89,7 +89,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 7 | Juicy Couture Track Jacket | Juicy Couture | Medium | Very good | None | VWM - Women's Y2K Mix | £29.99 **(Claude-set — see below)** |
 | 20 Aug | 8 | Lululemon Women's Top | Lululemon | Small (unlabelled, unconfirmed) | Very good | None | VWM - Women's Y2K Mix | £22.99 **(Claude-set — see below)** |
 | 20 Aug | 9 | The North Face Zip-Up Fleece | The North Face | XS | Very good vintage | Small discrepancies on arm, barely noticeable | VWM - Women's Y2K Mix | £12.99 |
-| 20 Aug | 10 | Carhartt Women's Fleece | Carhartt | XS (4-6), relaxed fit | Very good vintage | None | VWM - Women's Y2K Mix | *(awaiting owner)* |
+| 20 Aug | 10 | Carhartt Women's Fleece | Carhartt | XS (4-6), relaxed fit | Very good vintage, **slightly faded** | None | VWM - Women's Y2K Mix | £13.99 **(Claude-set — see below)** |
 | 20 Aug | 11 | Carhartt Jumper | Carhartt | *(not stated)* | Very good | None | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
 
 ## Raw observations
@@ -577,6 +577,29 @@ minimal branding. Brown is currently a strong colour for Carhartt.
 
 **Size was not stated** — needed before listing, and it has some price effect
 on workwear, where larger sizes sell more readily.
+
+**20 Aug #10 — Carhartt fleece, burgundy, XS, slightly faded → £13.99**
+
+The owner flagged separately that this one is **not as good as the brown
+Carhartt jumper (#11)** — "no real defects, just a tad faded".
+
+**Fading is recorded in the description, not as a defect**, following the
+owner's own framing. It is a whole-garment characteristic rather than a fault
+in one place, but a buyer still needs to see it, so it belongs in the
+description text.
+
+Placed between the owner's two North Face fleece points, which are the closest
+category match:
+
+| Reference | Price |
+|---|---|
+| North Face pullover, very good, clean (owner) | £14.99 |
+| **This — very good vintage, slightly faded** | **£13.99** |
+| North Face zip fleece, very good vintage, arm marks (owner) | £12.99 |
+
+Fading is milder than visible marks but affects the whole piece, so it sits
+between the two. It is also clearly below #11's £19.99, as the owner
+indicated.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
