@@ -83,7 +83,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 1 | Adidas Hoodie | Adidas | UK 30/32 ≈ women's XS-S | **Good** | Dark marks + discrepancies on front | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
 | 20 Aug | 2 | Nike Georgia Hoodie | Nike | Small Women's (4-6) | Very good vintage | A few marks | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
 | 20 Aug | 3 | Ralph Lauren Women's Top | Ralph Lauren | Medium (12-14) | **Good** | None | VWM - Women's Y2K Mix | *(awaiting owner)* |
-| 20 Aug | 4 | Lacoste Women's Polo | Lacoste | Small Women's | **Good** | None | VWM - Women's Y2K Mix | £11.99 **(Claude-set — see below)** |
+| 20 Aug | 4 | Lacoste Women's Polo | Lacoste | Small Women's | **Good** | Marks/discrepancies back and front, mainly back | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -447,28 +447,26 @@ carries a premium over plain branded sweats.
 flaws cost roughly twice back or sleeve ones, so **£17.99 if the marks are on
 the front** and clearly visible.
 
-**20 Aug #4 — Lacoste women's polo, red, small, good, no defects → £11.99**
+**20 Aug #4 — Lacoste women's polo, red, small, good, marks front and back → £9.99**
 
-This item falls in a gap the owner has never priced: **good condition but
-clean**. Every previous good-condition polo also carried defects.
+Initially priced £11.99 on the understanding it was clean; the owner then
+added defects — marks and discrepancies on **both** the back and front, mainly
+the back — so it was revised to **£9.99**.
 
-| Owner's Lacoste/polo reference points | Price |
-|---|---|
-| Lacoste polo, UK Large, **very good vintage**, clean | £12.99 |
-| Ralph Lauren polos, very good, clean | £14.99 |
-| Lacoste polo, UK Small, **good**, front discrepancies | £9.99 |
-| Ralph Lauren polo, **good**, front discrepancies | £9.99 |
+That matches the owner's own twice-confirmed point exactly: 14 Aug #12 and #13
+were both good-condition polos with front discrepancies, both £9.99, across
+different brands and sizes. This item has the same grade and the same kind of
+flaw.
 
-So £9.99 is what a good-condition polo *with* front flaws fetches, and £12.99
-what a clean one in the grade above fetches. A clean good-condition polo
-belongs between them — hence £11.99.
+**£8.99 would be defensible** — this has marks on two faces rather than one,
+and £8.99 is the owner's floor — but the £9.99 precedent is direct and was
+reached twice, so it takes priority over an extrapolation about severity.
 
-**£11.99 is a price point the owner has never used.** They have used £13.99,
-£14.00 and £18.00, so they are not tied to a fixed ladder, but if they prefer
-round or established points then **£12.99** (treating "clean" as worth more
-than the grade) or **£9.99** (treating the grade as decisive) are the
-alternatives. Their answer here would settle whether condition grade or defect
-presence carries more weight — the two have never been separated in the data.
+**Note the gap this item nearly filled and no longer does**: a
+good-condition polo with **no** defects has still never been priced by the
+owner, so it remains unknown whether condition grade or defect presence
+carries more weight. 20 Aug #3 (Ralph Lauren top, good, clean, price pending)
+is the next chance to find out.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
