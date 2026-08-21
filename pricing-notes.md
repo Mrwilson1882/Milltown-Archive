@@ -124,6 +124,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 42 | Juicy Couture Bottoms | Juicy Couture | XL | Very good | None | VWM - Women's Y2K Mix | £22.99 **(Claude-set, hedged — fabric unconfirmed)** |
 | 20 Aug | 43 | Juicy Couture Track Pants | Juicy Couture | *(unmeasured)* | Very good | None | VWM - Women's Y2K Mix | £24.99 **(Claude-set, hedged — fabric unconfirmed)** |
 | 20 Aug | 44 | Silver Jeans Co. Denim Shorts | Silver Jeans Co. | Waist 31 | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £16.99 offered)* |
+| 20 Aug | 45 | Women's Bra | *(none given)* | 32A | *(not stated)* | None | *(not stated)* | *(awaiting owner — £8.99 offered)* |
 
 ## Raw observations
 
@@ -1177,6 +1178,35 @@ Fabric fork, same as #42:
 
 The Juicy colour ladder emerging across the ledger, worth carrying forward:
 **pink highest → pastels and purple close behind → peach mid → black lowest.**
+
+## 20 Aug #45 — "32A" settles both the size and what the item is
+
+**32A is a bra size**: band 32, cup A. That is not an ambiguous marking, and it
+answers the owner's question about the product type at the same time.
+
+**It is a bra, not a bralette.** The distinction is exactly the sizing:
+
+| Bralette | Bra |
+|---|---|
+| Sized **S/M/L** | Sized by **band + cup** (32A, 34B…) |
+| Unstructured, no underwire or moulded cups | Structured, wired or moulded |
+
+A garment labelled 32A is a bra by definition. The owner's two earlier
+bralettes (14 Aug #5 and #6) were sized "36" and "Small" — consistent with that
+rule.
+
+**Do not record the size as "Small".** The owner asked whether 32A means small
+and, if so, to "lock it in" as small — but **lingerie buyers search by band and
+cup, never by S/M/L**. Listing a 32A as "Small" makes it invisible to the
+people looking for it. It is a small size, but "32A" is the searchable term and
+the only one that should go in the field.
+
+Price offered at **£8.99**, the owner's floor: no brand stated, and unbranded
+secondhand bras are a low-value category. The Dominique bustier reached £16.99
+only because it is a specialist bridal piece with real retail value behind it.
+
+**Condition and SKU were both missing from this note** — condition especially,
+since it is the one field that has moved every price in this ledger.
 
 ## Measurements have been requested four times and never supplied
 
