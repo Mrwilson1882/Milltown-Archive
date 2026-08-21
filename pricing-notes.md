@@ -95,6 +95,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 13 | Women's Shorts | *(unclear — "light idle")* | 6 (31 waist, 12 leg) | **Good** | Slight marks front and back | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
 | 20 Aug | 14 | Carhartt Women's Hoodie | Carhartt | Large, relaxed fit | **Good** | Slight mark on front | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
 | 20 Aug | 15 | Carhartt Women's Top *(garment type unconfirmed)* | Carhartt | Large (12-14), relaxed fit | Very good vintage | A couple of unnoticeable marks on front | VWM - Women's Y2K Mix | *(blocked — garment type needed)* |
+| 20 Aug | 16 | Juicy Couture Cardigan | Juicy Couture | Large Women's | Very good | None | VWM - Women's Y2K Mix | £19.99 **(Claude-set, matches 19 Aug #16)** |
 
 ## Raw observations
 
@@ -699,6 +700,21 @@ couple of unnoticeable front marks):
 Note that "unnoticeable" marks warrant a gentler deduction than 20 Aug #14's
 "slight mark", which is why the hoodie figure here sits above that item's
 £17.99 despite the same brand — this one is also a grade higher in condition.
+
+**20 Aug #16 — Juicy Couture black cardigan, Large, very good → £19.99**
+
+Near-identical to **19 Aug #16**: same brand, same garment, same colour, same
+condition, same SKU, differing only in size (Large vs XL). Priced the same at
+£19.99.
+
+**Both figures are Claude's, and neither has been validated by the owner.** Two
+matching cardigans priced identically is at least internally consistent, but if
+the first was wrong the second inherits the error. These two are the clearest
+candidates in the file for the owner to sanity-check as a pair.
+
+Fabric recorded as **80% cotton / 20% polyester**. The voice note said "eighty
+percent cotton, eighty percent polyester", which totals 160% — 20% polyester
+is the obvious reading, flagged to the owner rather than assumed silently.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
