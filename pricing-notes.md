@@ -89,6 +89,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 7 | Juicy Couture Track Jacket | Juicy Couture | Medium | Very good | None | VWM - Women's Y2K Mix | £29.99 **(Claude-set — see below)** |
 | 20 Aug | 8 | Lululemon Women's Top | Lululemon | Small (unlabelled, unconfirmed) | Very good | None | VWM - Women's Y2K Mix | £22.99 **(Claude-set — see below)** |
 | 20 Aug | 9 | The North Face Zip-Up Fleece | The North Face | XS | Very good vintage | Small discrepancies on arm, barely noticeable | VWM - Women's Y2K Mix | £12.99 |
+| 20 Aug | 10 | Carhartt Women's Fleece | Carhartt | XS (4-6), relaxed fit | Very good vintage | None | VWM - Women's Y2K Mix | *(awaiting owner)* |
 
 ## Raw observations
 
