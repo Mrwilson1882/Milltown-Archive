@@ -103,10 +103,11 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 21 | Guess Women's Shorts | Guess | 29 (waist) | **Good** | Marks on front | VWM - Women's Y2K Mix | *(awaiting owner — £11.99 offered)* |
 | 20 Aug | 22 | Ralph Lauren Cable Knit Jumper | Ralph Lauren | Small | Very good | None | VWM - Women's Y2K Mix | £19.99 |
 | 20 Aug | 23 | Rock Revival Women's Shorts | Rock Revival | 24 (waist) | Very good vintage | Small discrepancy on back | VWM - Women's Y2K Mix | *(awaiting owner — £17.99 offered)* |
-| 20 Aug | 24 | Yana Women's Skirt *(brand to confirm)* | Yana? | Medium | Very good | None | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
+| 20 Aug | 24 | Yana K Women's Skirt | Yana K | Medium | Very good | None | VWM - Women's Y2K Mix | £17.99 **(Claude-set, revised up from £14.99)** |
 | 20 Aug | 25 | Corset *(type and size to confirm)* | *(none given)* | *(unknown — very small)* | Very good | None | VWM - Women's Y2K Mix | *(blocked — see below)* |
 | 20 Aug | 26 | Women's Dress | *(none given)* | 28/29 | Very good | None | VWM - Women's Y2K Mix | £16.99 **(Claude-set — see below)** |
 | 20 Aug | 27 | Women's Miniskirt | *(unclear in transcript)* | XS | Very good | One speckle on back, indistinct | VWM - Women's Y2K Mix | £13.99 **(Claude-set)** |
+| 20 Aug | 28 | Yana K Women's Miniskirt | Yana K | XS | Very good | None | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -831,20 +832,29 @@ buyers.
 Price left blank — the owner did not state one and did not ask for one on this
 item, and the nightgown/peignoir-set question would change it materially.
 
-**20 Aug #24 — black skirt, medium, very good → £14.99**
+**Yana K identified — 20 Aug #24 revised up, #28 priced (both £17.99)**
 
-**The first skirt in the ledger**, so there is no in-category comparable to work
-from. Placed at £14.99, the middle of the owner's women's Y2K band
-(£12.99–£19.99), on the basis that it is very good, clean, and carries no
-brand recognised in this dataset.
+"Yana" appeared on two separate items, which prompted a check: **Yana K** is a
+real US women's label specialising in **skirts and skorts**, made in the USA,
+retailing around **$150–$215** for its silk pieces. Two skirts from the same
+unfamiliar name turned out to be a genuine brand, not a mis-hearing.
 
-**Two unknowns hold it there**, and either would move it:
-- **Brand.** "Yana" did not transcribe with confidence and is not an
-  established name in this ledger. If the label turns out to be a recognised
-  brand, this rises.
-- **Style.** A black skirt covers a mini, a maxi, denim, leather and pleated —
-  which span a wide range. Leather or a recognisable Y2K cut would justify
-  £19.99–£24.99; a plain office skirt would sit at £9.99–£12.99.
+That makes it a recognised label rather than an unbranded piece, which is the
+distinction worth roughly £5 elsewhere in this data:
+
+| Item | Was | Now |
+|---|---|---|
+| #24 black skirt, medium, very good, clean | £14.99 | **£17.99** |
+| #28 miniskirt, XS, 96% cotton/4% spandex, very good | — | **£17.99** |
+
+**#28 is cotton/spandex, not silk**, so it is a lower-tier Yana K piece and
+£17.99 is appropriate. **#24's fabric was never stated** — if that one turns
+out to be **silk**, it belongs at **£22.99–£24.99**, given the $215 retail on
+their silk skirts. Worth checking that label.
+
+This is a useful reminder for the method: an unfamiliar name in a transcript is
+worth searching before pricing it as unbranded. Doing so added £3 to one item
+and set another correctly.
 
 ## 20 Aug #25 — very small corset: identify before pricing or listing
 
