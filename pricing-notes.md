@@ -86,6 +86,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 4 | Lacoste Women's Polo | Lacoste | Small Women's | **Good** | Marks/discrepancies back and front, mainly back | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
 | 20 Aug | 5 | Juicy Couture Blouse | Juicy Couture | 2 (unconfirmed) | Very good | None | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
 | 20 Aug | 6 | The North Face Fleece | The North Face | XL | Very good | None | VWM - Women's Y2K Mix | £14.99 **(Claude-set — matches owner's own 18 Aug #6)** |
+| 20 Aug | 7 | Juicy Couture Track Jacket | Juicy Couture | Medium | Very good | None | VWM - Women's Y2K Mix | £29.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -493,6 +494,27 @@ Price: below the Juicy cardigan at £19.99 and well below the pink velour at
 strong logo association that drive Juicy resale. £17.99 keeps it inside the
 owner's own Y2K women's band. **£19.99–£22.99 if it carries visible Juicy
 branding**, embroidery or a logo charm, which lift a plain piece considerably.
+
+**20 Aug #7 — Juicy Couture track jacket, medium, very good → £29.99**
+
+The Juicy tracksuit jacket is the brand's defining piece. Comps from the
+earlier search: individual velour Juicy track tops with rhinestone logos ask
+around **$60** (≈£47); complete two-piece sets run $60–$220.
+
+**Deliberately set below 19 Aug #18 (pink velour, £34.99) rather than level
+with it**, for a reason worth recording: **that £34.99 was itself a Claude
+figure, not an owner decision.** Anchoring a new estimate to an old estimate
+compounds error — the pink piece is also the premium colourway, and this
+item's colour and fabric are both unrecorded.
+
+Adjustments once those are known:
+- **pink velour with logo detail → £34.99**, level with #18
+- **another velour colourway → £29.99** as recorded
+- **not velour (terry, nylon, cotton) → £22.99–£24.99**
+
+**Colour matters more on this item than almost any other in the ledger.** Pink
+and baby blue are the collectable Juicy colourways; browns, greys and muted
+tones sell far more slowly at the same specification.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
