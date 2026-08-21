@@ -116,6 +116,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 34 | Birkenstock Sandals | Birkenstock | 34 | Very good | Inner footbed worn, dark water marks; exterior very good | SF - Birkenstock | £29.99 **(breaks the Birkenstock pattern — see below)** |
 | 20 Aug | 35 | Ralph Lauren Jumper | Ralph Lauren | 8-10 | **Satisfactory** | Marks on the front | VWM - Women's Y2K Mix | £9.99 |
 | 20 Aug | 36 | Nike Track Bottoms | Nike | Large (12-14) Women's | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £19.99 offered)* |
+| 20 Aug | 37 | Vigoss Three-Quarter Length Denims | Vigoss | Size 8, waist ~30in, 21in inseam | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £14.99 offered)* |
 
 ## Raw observations
 
@@ -1058,6 +1059,24 @@ Both gaps are now filled: #30 by the Pendleton cardigan, #34 by these sandals.
 three zero" and recorded as #30. If it actually carries tag **33**, then the
 Calvin Klein tie duplicates that number and #30 is genuinely empty. Worth a
 glance at the physical tag.
+
+## 20 Aug #37 — decoding "leg 21, S8"
+
+- **"Leg 21" is the inseam in inches.** A 21″ inseam is what makes these
+  three-quarter length rather than full-length jeans — the same convention as
+  #32's "length 3½".
+- **"S8" is most likely size 8**, and the owner's stated waist of about 30″
+  supports it: US 8 runs roughly a 29–30″ waist, equivalent to a **UK 12**.
+  It could alternatively be a style code, so the waist measurement is the
+  figure to trust.
+
+**Priced below the Vigoss shorts at £14.99, not level with them.** Same brand
+and same grade, but **three-quarter and capri-length denim is a weaker category
+than shorts** — it sells more slowly and to a narrower buyer pool, and the Y2K
+revival has favoured shorts and full-length flares over cropped cuts.
+
+**£16.99 if they are a recognisable Y2K cut** — low-rise, flared or
+embellished, which Vigoss did make. A plain straight capri stays at £14.99.
 
 ## Measurements have been requested four times and never supplied
 
