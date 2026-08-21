@@ -80,6 +80,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 23 | Birkenstock Sandals | Birkenstock | 38 (245mm) | **Good** | Inner footbed a bit worn; outer sole fine | SF - Birkenstock | £24.99 |
 | 19 Aug | 24 | Birkenstock Sandals | Birkenstock | 38 (245mm) | **Good** | *(not stated)* | SF - Birkenstock | £24.99 |
 | 19 Aug | 25 | Birkenstocks | Birkenstock | 36 (230mm) | **Good** | *(not stated)* | SF - Birkenstock | £24.99 |
+| 20 Aug | 1 | Adidas Hoodie | Adidas | UK 30/32 ≈ women's XS-S | *(not stated)* | Dark marks + discrepancies on front | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -399,6 +400,27 @@ Mild counter-argument: "slight speckles" may be gentler than the
 "discrepancies" on those polos, and 19 Aug #9 (very good, slight front
 discrepancy) held £12.99. But that item was a grade higher in condition. With
 both a condition drop and a front flaw, £9.99 is the better-supported call.
+
+**20 Aug #1 — Adidas orange hoodie, front marks → £14.99**
+
+Priced against the owner's own sportswear outerwear:
+
+| Comparable | Price |
+|---|---|
+| Nike track jacket, very good, clean | £24.99 |
+| Nike women's track jacket, good vintage, **sleeve** marks | £17.99 |
+| Nike track jacket, very good vintage, **sleeve** marks | £14.99 |
+| **This hoodie — several dark marks on the front** | **£14.99** |
+
+The deciding factor is placement and quantity: this is not one small flaw but
+"a few dark marks and discrepancies", and they are **on the front**, which the
+owner's own 19 Aug polo sequence showed costs roughly twice a back or sleeve
+flaw. That pulls it to the bottom of the outerwear band despite Adidas and an
+appealing orange colourway. **£17.99 if the marks are faint** and the piece
+photographs well.
+
+**Condition grade was not stated on this item** — unusually, since defects
+were. If it grades "very good" despite the marks, £17.99 is the better call.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
