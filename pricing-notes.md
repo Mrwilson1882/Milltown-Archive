@@ -98,6 +98,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 16 | Juicy Couture Cardigan | Juicy Couture | Large Women's | Very good | None | VWM - Women's Y2K Mix | £19.99 **(Claude-set, matches 19 Aug #16)** |
 | 20 Aug | 17 | Juicy Couture Denim Jacket | Juicy Couture | *(not stated)* | Very good | None | VWM - Women's Y2K Mix | £27.99 **(Claude-set — see below)** |
 | 20 Aug | 18 | Juicy Couture Cardigan | Juicy Couture | XL | Very good | None | VWM - Women's Y2K Mix | £19.99 **(Claude-set, third at this price)** |
+| 20 Aug | 19 | Juicy Couture Cashmere Zip-Up Hoodie | Juicy Couture | Medium | Very good | None | VWM - Women's Y2K Mix | £44.99 **(Claude-set — highest in ledger, see below)** |
 
 ## Raw observations
 
@@ -757,6 +758,34 @@ answer fixes all three.
 cardigans in very good condition. Wholesale bales routinely contain multiples,
 and the owner confirmed a similar-looking Birkenstock pair as genuinely
 separate, so this is recorded as a third item — but worth confirming.
+
+**20 Aug #19 — Juicy Couture 100% CASHMERE zip hoodie, dark grey, M → £44.99**
+
+**The most valuable item recorded so far, and a genuine outlier in this
+inventory.** The owner described it as a "zip-up fleece", but 100% cashmere
+makes it something quite different: Juicy's cashmere hoodies were a premium
+line retailing in the hundreds, and they remain collectable.
+
+Comps: a vintage **grey** cashmere zip-up hoodie, size L, listed at **$175**
+(down from $250) on Poshmark; eBay's Juicy cashmere hoodies and sweatshirts run
+**$55–$107**. Taking eBay as the more representative market, that is roughly
+**£43–£84**.
+
+£44.99 sits at the bottom of that range, allowing for a UK vintage channel.
+**£39.99 is the conservative floor; £54.99 is defensible** if it is pristine
+with strong branding.
+
+**Deliberately not anchored to this ledger's existing ceiling.** Every previous
+price tops out at £34.99, but pricing this like the surrounding stock would
+cost the owner £15–£25 on a single item. The material, not the shelf it sits
+next to, sets the value here.
+
+**Cashmere-specific check before listing** — these are what destroy cashmere
+value and none are visible in a written description: **pilling** under the arms
+and at the cuffs, **moth holes** (hold it to the light), and **stretched or
+misshapen cuffs and hem**. Any of those and the price drops to £24.99–£29.99.
+Conversely, if it is clean, say "no pilling, no moth holes" in the listing —
+cashmere buyers look for exactly that.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
