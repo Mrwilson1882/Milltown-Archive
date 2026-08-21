@@ -88,6 +88,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 6 | The North Face Fleece | The North Face | XL | Very good | None | VWM - Women's Y2K Mix | £14.99 **(Claude-set — matches owner's own 18 Aug #6)** |
 | 20 Aug | 7 | Juicy Couture Track Jacket | Juicy Couture | Medium | Very good | None | VWM - Women's Y2K Mix | £29.99 **(Claude-set — see below)** |
 | 20 Aug | 8 | Lululemon Women's Top | Lululemon | Small (unlabelled, unconfirmed) | Very good | None | VWM - Women's Y2K Mix | £22.99 **(Claude-set — see below)** |
+| 20 Aug | 9 | The North Face Zip-Up Fleece | The North Face | XS | Very good vintage | Small discrepancies on arm, barely noticeable | VWM - Women's Y2K Mix | £12.99 |
 
 ## Raw observations
 
@@ -163,6 +164,22 @@ since a front flaw is the one a buyer sees worn.
 
 Three items is a sequence, not a rule, and it says nothing about how the same
 flaws would price on a jacket or a pair of shoes.
+
+## North Face: a clean owner-priced pair
+
+| Item | Spec | Price |
+|---|---|---|
+| 18 Aug #6 | Pullover, Large, very good, **clean** | £14.99 |
+| 20 Aug #9 | Zip-up fleece, XS, very good vintage, **small arm marks** | £12.99 |
+
+Both owner-priced. A **−£2.00** step for a barely-noticeable arm flaw, which
+matches the gentle end of the polo gradient (£1 for a small back flaw, £2 for a
+slight front one) rather than the £3–£10 drops seen on flawed outerwear
+elsewhere. Severity and placement, not defect presence alone, keep proving to
+be what moves the number.
+
+This also supports the £14.99 set for 20 Aug #6 (pink fleece, very good,
+clean), which matches the clean North Face point exactly.
 
 ## Owner-stated factors
 
