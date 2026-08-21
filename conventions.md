@@ -54,6 +54,10 @@ of any new session — the chat is not persistent, these files are the memory.
 - **Sizes** are recorded as dictated, keeping any bracketed detail:
   `Large (oversized fit)`, `Medium (10-12)`.
 - **SKUs** follow the dash format: `VWM - Women's Y2K Mix`.
+- **Birkenstock sandals always take `SF - Birkenstock`**, whether or not the
+  owner states it in the note. This is a standing rule — do not leave the SKU
+  blank on a Birkenstock and do not ask for it.
+  *(Rule set by the owner, 20 Aug 2026.)*
 - **Unclear transcriptions** are recorded as the best reading and flagged back
   to the owner for confirmation, never silently guessed.
 

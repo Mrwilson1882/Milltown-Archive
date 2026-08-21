@@ -113,7 +113,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 31 | Urban Outfitters Women's Top | Urban Outfitters | Small (unlabelled, owner's estimate) | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set)** |
 | 20 Aug | 32 | Vigoss Women's Denim Shorts | Vigoss | 15/16 juniors, 3.5in inseam | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £16.99 offered)* |
 | 20 Aug | 33 | Calvin Klein Tie | Calvin Klein | One size | Very good | None | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
-| 20 Aug | 34 | Birkenstock Sandals | Birkenstock | 34 | Very good | Inner footbed worn, dark water marks; exterior very good | *(not stated)* | £29.99 **(breaks the Birkenstock pattern — see below)** |
+| 20 Aug | 34 | Birkenstock Sandals | Birkenstock | 34 | Very good | Inner footbed worn, dark water marks; exterior very good | SF - Birkenstock | £29.99 **(breaks the Birkenstock pattern — see below)** |
 | 20 Aug | 35 | Ralph Lauren Jumper | Ralph Lauren | 8-10 | **Satisfactory** | Marks on the front | *(not stated)* | £9.99 |
 
 ## Raw observations
