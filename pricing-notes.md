@@ -113,7 +113,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 31 | Urban Outfitters Women's Top | Urban Outfitters | Small (unlabelled, owner's estimate) | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set)** |
 | 20 Aug | 32 | Vigoss Women's Denim Shorts | Vigoss | 15/16 juniors, 3.5in inseam | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £16.99 offered)* |
 | 20 Aug | 33 | Calvin Klein Tie | Calvin Klein | One size | Very good | None | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
-| 20 Aug | **34** | **— NOT LOGGED —** | | | | | | **second gap in numbering** |
+| 20 Aug | 34 | Birkenstock Sandals | Birkenstock | 34 | Very good | Inner footbed worn, dark water marks; exterior very good | *(not stated)* | £29.99 **(breaks the Birkenstock pattern — see below)** |
 | 20 Aug | 35 | Ralph Lauren Jumper | Ralph Lauren | 8-10 | **Satisfactory** | Marks on the front | *(not stated)* | £9.99 |
 
 ## Raw observations
@@ -1020,16 +1020,43 @@ owner-set, so this is real data rather than inference. It also confirms that
 £9.99 is functioning as a floor: it is now the price for a designer knit in
 poor order, an unbranded top, and several flawed polos alike.
 
-## Second numbering gap: 20 Aug #34 not logged
+## 20 Aug #34 at £29.99 breaks the Birkenstock pattern
 
-The owner went from #33 to #35. As with the earlier #30 gap, the row is left
-absent rather than renumbering, since the numbers are physical markers.
+Birkenstock pricing had been the most consistent thing in the ledger — four
+pairs, two clean price points, no exceptions:
 
-Note that the #30 gap was later filled by an item dictated as "thirty three
-zero" — which remains unconfirmed as 30 rather than 33. **If that cardigan is
-actually #33, the ledger currently has the Calvin Klein tie duplicating its
-number, and two genuine gaps at 30 and 34.** Worth one pass over the physical
-tags to reconcile.
+| Item | Condition | Defects | Price |
+|---|---|---|---|
+| 18 Aug #8, size 40 | Very good | None | £27.99 |
+| 19 Aug #22, size 37 | Very good | None | £27.99 |
+| 19 Aug #23, size 38 | Good | Worn footbed | £24.99 |
+| 19 Aug #24, size 38 | Good | None | £24.99 |
+| 19 Aug #25, size 36 | Good | None | £24.99 |
+| **20 Aug #34, size 34** | **Very good** | **Worn footbed + water marks** | **£29.99** |
+
+**This pair is priced £2 above the clean-pair point despite carrying more
+damage than any previous pair.** The owner dictated £27.99 first, then
+corrected to £29.99, so it was a deliberate change rather than a slip of the
+tongue — but it sits against everything the other five items establish.
+
+Two possible explanations worth testing:
+- **Size 34 is unusually small** for Birkenstock and may be scarce enough to
+  command a premium that outweighs the wear;
+- or the correction was to the wrong number.
+
+This is exactly the kind of case the owner warned about — that demand and
+desirability sit outside the recorded columns. If size scarcity is the reason,
+that is a genuine pricing factor the ledger has no field for.
+
+## Numbering reconciled — with one open question
+
+Both gaps are now filled: #30 by the Pendleton cardigan, #34 by these sandals.
+20 Aug runs 1–35 with no missing rows.
+
+**The one open question remains the Pendleton cardigan**, dictated as "thirty
+three zero" and recorded as #30. If it actually carries tag **33**, then the
+Calvin Klein tie duplicates that number and #30 is genuinely empty. Worth a
+glance at the physical tag.
 
 ## Measurements have been requested four times and never supplied
 
