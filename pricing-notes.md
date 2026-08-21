@@ -112,6 +112,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 30 | Pendleton Cardigan | Pendleton | 12 | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £24.99 offered)* |
 | 20 Aug | 31 | Urban Outfitters Women's Top | Urban Outfitters | Small (unlabelled, owner's estimate) | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set)** |
 | 20 Aug | 32 | Vigoss Women's Denim Shorts | Vigoss | 15/16 juniors, 3.5in inseam | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £16.99 offered)* |
+| 20 Aug | 33 | Calvin Klein Tie | Calvin Klein | One size | Very good | None | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -980,6 +981,22 @@ and Rock Revival but clearly above unbranded. Price offered at **£16.99**:
 | Rock Revival shorts, very good, small back flaw | £17.99 offered |
 | **Vigoss, very good, clean** | **£16.99 offered** |
 | Guess shorts, good, front marks | £11.99 offered |
+
+## 20 Aug #33 — first accessory in the ledger
+
+A Calvin Klein tie, and the first item that is neither a garment nor footwear.
+
+**Ties are a low-value resale category** regardless of brand — they are cheap
+to buy new, plentiful secondhand, and rarely searched for by label. A
+recognised name like Calvin Klein helps but does not transform it. £9.99 sits
+at the owner's floor, alongside the unbranded bralette and the flawed polos.
+
+**£12.99–£14.99 if it is silk** with a distinctive Y2K pattern. Fabric is the
+main lever on a tie, and it was not stated.
+
+The owner is filing it under women's, which makes sense: ties sell in Y2K
+women's styling, and listing it that way reaches a livelier market than
+menswear formalwear would.
 
 ## Measurements have been requested four times and never supplied
 
