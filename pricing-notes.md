@@ -101,6 +101,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 19 | Juicy Couture Cashmere Zip-Up Hoodie | Juicy Couture | Medium | Very good | None | VWM - Women's Y2K Mix | £44.99 **(Claude-set — highest in ledger, see below)** |
 | 20 Aug | 20 | Val Mode Nightgown *(type to confirm)* | Val Mode | *(unlabelled)* | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner)* |
 | 20 Aug | 21 | Guess Women's Shorts | Guess | 29 (waist) | **Good** | A couple of discrepancies, undescribed | *(not stated)* | *(awaiting owner — £12.99 offered)* |
+| 20 Aug | 22 | Ralph Lauren Cable Knit Jumper | Ralph Lauren | Small | Very good | None | VWM - Women's Y2K Mix | £19.99 |
 
 ## Raw observations
 
@@ -192,6 +193,20 @@ be what moves the number.
 
 This also supports the £14.99 set for 20 Aug #6 (pink fleece, very good,
 clean), which matches the clean North Face point exactly.
+
+## £19.99 confirmed as the owner's branded-knitwear point (20 Aug #22)
+
+The owner priced a Ralph Lauren cable knit jumper, small, very good, clean at
+**£19.99** — their own decision, not an estimate.
+
+This matters because **£19.99 had been used three times by Claude for exactly
+this tier** (the Juicy cardigans) and once for a Carhartt jumper, all without
+validation. The owner independently landing on the same figure for branded
+knitwear is the first real corroboration that the tier was pitched correctly.
+
+It also confirms the garment-type ladder within a single brand: Ralph Lauren
+polos sit at £12.99–£14.99, while a Ralph Lauren **knit jumper** takes £19.99 —
+a £5 step for the heavier garment, from the same brand at the same grade.
 
 ## Owner-stated factors
 
