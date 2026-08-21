@@ -97,6 +97,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 15 | Carhartt Women's Top *(garment type unconfirmed)* | Carhartt | Large (12-14), relaxed fit | Very good vintage | A couple of unnoticeable marks on front | VWM - Women's Y2K Mix | *(blocked — garment type needed)* |
 | 20 Aug | 16 | Juicy Couture Cardigan | Juicy Couture | Large Women's | Very good | None | VWM - Women's Y2K Mix | £19.99 **(Claude-set, matches 19 Aug #16)** |
 | 20 Aug | 17 | Juicy Couture Denim Jacket | Juicy Couture | *(not stated)* | Very good | None | VWM - Women's Y2K Mix | £27.99 **(Claude-set — see below)** |
+| 20 Aug | 18 | Juicy Couture Cardigan | Juicy Couture | XL | Very good | None | VWM - Women's Y2K Mix | £19.99 **(Claude-set, third at this price)** |
 
 ## Raw observations
 
@@ -736,6 +737,26 @@ from a $120 one, and none of them are recorded here.
 **Neither size nor colour was stated**, and on a jacket size matters more than
 on a top — buyers filter hard on it, and an unstated size costs sales
 regardless of price.
+
+**Three black Juicy Couture cardigans, all £19.99 — worth one owner check**
+
+| Item | Size | Condition | Price |
+|---|---|---|---|
+| 19 Aug #16 | XL Women's | Very good | £19.99 |
+| 20 Aug #16 | Large Women's | Very good | £19.99 |
+| 20 Aug #18 | XL | Very good | £19.99 |
+
+**All three prices are Claude's; none has been validated by the owner.** That
+now puts **£59.97 of stock value on a single unverified estimate** — the
+largest concentration of unchecked pricing in the ledger. If the true figure is
+£24.99 the shortfall is £15; if it is £14.99 the overstatement is the same.
+This is the highest-value thing in the file for the owner to correct, and one
+answer fixes all three.
+
+**Possible duplicate**: 19 Aug #16 and 20 Aug #18 are both black XL Juicy
+cardigans in very good condition. Wholesale bales routinely contain multiples,
+and the owner confirmed a similar-looking Birkenstock pair as genuinely
+separate, so this is recorded as a third item — but worth confirming.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
