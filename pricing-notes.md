@@ -100,7 +100,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 18 | Juicy Couture Cardigan | Juicy Couture | XL | Very good | None | VWM - Women's Y2K Mix | £19.99 **(Claude-set, third at this price)** |
 | 20 Aug | 19 | Juicy Couture Cashmere Zip-Up Hoodie | Juicy Couture | Medium | Very good | None | VWM - Women's Y2K Mix | £44.99 **(Claude-set — highest in ledger, see below)** |
 | 20 Aug | 20 | Val Mode Nightgown *(type to confirm)* | Val Mode | *(unlabelled)* | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner)* |
-| 20 Aug | 21 | Guess Women's Shorts | Guess | 29 (waist) | **Good** | A couple of discrepancies, undescribed | *(not stated)* | *(awaiting owner — £12.99 offered)* |
+| 20 Aug | 21 | Guess Women's Shorts | Guess | 29 (waist) | **Good** | Marks on front | VWM - Women's Y2K Mix | *(awaiting owner — £11.99 offered)* |
 | 20 Aug | 22 | Ralph Lauren Cable Knit Jumper | Ralph Lauren | Small | Very good | None | VWM - Women's Y2K Mix | £19.99 |
 | 20 Aug | 23 | Rock Revival Women's Shorts | Rock Revival | 24 (waist) | Very good vintage | Small discrepancy on back | VWM - Women's Y2K Mix | *(awaiting owner — £17.99 offered)* |
 | 20 Aug | 24 | Yana Women's Skirt *(brand to confirm)* | Yana? | Medium | Very good | None | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
