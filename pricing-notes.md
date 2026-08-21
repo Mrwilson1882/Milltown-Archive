@@ -111,6 +111,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 29 | Maidenform Half Slip *(to confirm)* | Maidenform | Medium | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
 | 20 Aug | 30 | Pendleton Cardigan | Pendleton | 12 | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £24.99 offered)* |
 | 20 Aug | 31 | Urban Outfitters Women's Top | Urban Outfitters | Small (unlabelled, owner's estimate) | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set)** |
+| 20 Aug | 32 | Vigoss Women's Denim Shorts | Vigoss | 15/16 juniors, 3.5in inseam | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £16.99 offered)* |
 
 ## Raw observations
 
@@ -954,6 +955,31 @@ they did not state a price or ask for one.
 **If it is a Pendleton wool cardigan in a recognisable pattern** — board check,
 Native-inspired jacquard — it could justify £29.99–£34.99. Plain wool sits at
 the £24.99 figure.
+
+## 20 Aug #32 — decoding "size 15/16, length 3.5"
+
+Two different numbers doing two different jobs:
+
+- **15/16 is US junior sizing.** Juniors runs on odd numbers (1, 3, 5 … 15),
+  and a combined 15/16 is the top of that range — roughly a **UK 16**, waist
+  around 31–32″. It is not a UK size and not a waist measurement.
+- **"Length 3½" is the inseam in inches**, not a size at all. A 3.5″ inseam is
+  a genuinely short short, which is worth stating in the listing since it is
+  the first thing a buyer wants to know about denim shorts.
+
+Junior sizing is inconsistent between brands, so **the waist measured flat and
+doubled is the figure to list on** — the same advice as 20 Aug #13, where a
+"6" turned out to have a 31″ waist.
+
+**Vigoss** is a real denim label — mid-tier, recognised, sitting below Miss Me
+and Rock Revival but clearly above unbranded. Price offered at **£16.99**:
+
+| Comparable | Price |
+|---|---|
+| Miss Me shorts, very good, clean | £18.99 |
+| Rock Revival shorts, very good, small back flaw | £17.99 offered |
+| **Vigoss, very good, clean** | **£16.99 offered** |
+| Guess shorts, good, front marks | £11.99 offered |
 
 ## Measurements have been requested four times and never supplied
 
