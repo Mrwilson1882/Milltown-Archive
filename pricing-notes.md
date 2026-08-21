@@ -96,6 +96,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 14 | Carhartt Women's Hoodie | Carhartt | Large, relaxed fit | **Good** | Slight mark on front | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
 | 20 Aug | 15 | Carhartt Women's Top *(garment type unconfirmed)* | Carhartt | Large (12-14), relaxed fit | Very good vintage | A couple of unnoticeable marks on front | VWM - Women's Y2K Mix | *(blocked — garment type needed)* |
 | 20 Aug | 16 | Juicy Couture Cardigan | Juicy Couture | Large Women's | Very good | None | VWM - Women's Y2K Mix | £19.99 **(Claude-set, matches 19 Aug #16)** |
+| 20 Aug | 17 | Juicy Couture Denim Jacket | Juicy Couture | *(not stated)* | Very good | None | VWM - Women's Y2K Mix | £27.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -715,6 +716,26 @@ candidates in the file for the owner to sanity-check as a pair.
 Fabric recorded as **80% cotton / 20% polyester**. The voice note said "eighty
 percent cotton, eighty percent polyester", which totals 160% — 20% polyester
 is the obvious reading, flagged to the owner rather than assumed silently.
+
+**20 Aug #17 — Juicy Couture denim jacket, very good, clean → £27.99**
+
+Comps: a Y2K Juicy denim jacket in size S **sold at $50** (≈£38) against a $200
+original; other listings run $36–$120 asking, with the brand's denim spanning
+roughly $14–$199 depending on embellishment and lining.
+
+Anchored against the owner's **own** outerwear ceiling — the clean Nike track
+jacket at **£24.99** — with a step up for the brand and for denim jackets
+holding value better than nylon sportswear. £27.99 also matches the owner's
+highest self-set price anywhere in the ledger (the Birkenstocks), so it stays
+inside territory they have actually priced.
+
+**£32.99–£34.99 if it is embellished** — rhinestones, embroidery, signature
+Juicy buttons, or a pink/pastel wash. Those are what separate a $36 jacket
+from a $120 one, and none of them are recorded here.
+
+**Neither size nor colour was stated**, and on a jacket size matters more than
+on a top — buyers filter hard on it, and an unstated size costs sales
+regardless of price.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
