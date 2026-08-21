@@ -108,6 +108,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 26 | Women's Dress | *(none given)* | 28/29 | Very good | None | VWM - Women's Y2K Mix | £16.99 **(Claude-set — see below)** |
 | 20 Aug | 27 | Women's Miniskirt | *(unclear in transcript)* | XS | Very good | One speckle on back, indistinct | VWM - Women's Y2K Mix | £13.99 **(Claude-set)** |
 | 20 Aug | 28 | Yana K Women's Miniskirt | Yana K | XS | Very good | None | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
+| 20 Aug | 29 | Maidenform Half Slip *(to confirm)* | Maidenform | Medium | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -904,6 +905,28 @@ Worth noting the fabric matches 20 Aug #12, the bra-sized chemise — nylon and
 spandex is used across both nightwear and bodycon daywear, so if this piece
 turns out to be sleepwear rather than a day dress it belongs in the same
 category as #12 and prices nearer £12.99.
+
+## 20 Aug #29 — "made and form" is Maidenform, and that explains the confusion
+
+The owner could not tell whether this was a skirt or a top, and read the brand
+as "made made made and form". **Maidenform** — the long-established lingerie
+and shapewear label — fits the transcription and, more tellingly, explains the
+uncertainty exactly.
+
+**A half slip (waist slip) looks like a plain skirt** and is one of
+Maidenform's staple products. That is almost certainly what this is.
+
+How to tell them apart:
+
+| Half slip | Skirt |
+|---|---|
+| Elasticated waist, no fastening | Zip, button or hook |
+| Lightweight unlined nylon | Lined or heavier fabric |
+| Lace or scalloped trim at the hem | Plain or finished hem |
+
+Priced at **£12.99** as a slip: Maidenform is recognised, but slips are a
+modest category unless silk or notably decorative. **If it is genuinely a
+skirt, £14.99–£17.99** in line with the Yana K pieces.
 
 ## Measurements have been requested four times and never supplied
 
