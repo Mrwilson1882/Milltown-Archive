@@ -118,6 +118,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 36 | Nike Track Bottoms | Nike | Large (12-14) Women's | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £19.99 offered)* |
 | 20 Aug | 37 | Vigoss Three-Quarter Length Denims | Vigoss | Size 8, waist ~30in, 21in inseam | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £14.99 offered)* |
 | 20 Aug | 38 | True Religion Women's Jeans | True Religion | *(unmeasured)* | Very good | None | VWM - Women's Y2K Mix | £29.99 **(Claude-set — see below)** |
+| 20 Aug | 39 | True Religion Women's Jeans | True Religion | 24 (waist) | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £29.99 offered, matching #38)* |
 
 ## Raw observations
 
