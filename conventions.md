@@ -25,10 +25,19 @@ of any new session — the chat is not persistent, these files are the memory.
 
 ## Rules
 
+- **Defects go at the BOTTOM of the description, not only in their own column.**
+  When the owner says "add defects", they mean the defect text belongs at the
+  very end of **Colour Clarity/Description** — after the product has been
+  described — so a buyer reads about the item first and the faults last. The
+  Defects column is kept as well, as the structured copy for filtering and for
+  the pricing record, but the description is the one that matters for listings.
+  *(Rule restated by the owner, 20 Aug 2026, after Claude had filed defects
+  only in the column three times.)*
 - **Defects: silence means there are none.** The owner mentions defects only
   when a defect exists, so a voice note that says nothing about them means the
-  item is clean. Write **`None`** in the Defects column — do not leave it blank
-  and do not query it. *(Rule set by the owner, 19 Aug 2026.)*
+  item is clean. Write **`None`** in the Defects column and add nothing to the
+  description — do not leave it blank and do not query it.
+  *(Rule set by the owner, 19 Aug 2026.)*
 - **Never guess anything else.** Any other field not stated is left blank and
   flagged back to the owner.
 - **Colour: the owner states it only when it is hard to read from the photos.**

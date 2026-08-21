@@ -8,31 +8,47 @@ Item No.,Product Name,Colour Clarity/Description,Defects,Size,Condition,SKU,Pric
 7,Ralph Lauren Women's Polo,Navy,None,Medium (10-12),Very good condition,VWM - Women's Y2K Mix,£12.99,2026-08-14
 8,Nike Track Jacket,Green,None,Large (oversized fit),Very good condition,VWM - Track Jacket,£24.99,2026-08-14
 9,Harley Davidson Women's Cardigan,White,None,Medium,Very good condition,VWM - Women's Y2K Mix,£14.99,2026-08-14
-10,Ralph Lauren Women's Polo,Navy,One small discrepancy on the front (see images),XL Women's,Very good vintage condition,VWM - RL Lacoste Polos,£9.99,2026-08-14
-11,Nike Track Jacket,Black and navy,White marks on right sleeve (see images),XL,Very good vintage condition,VWM - Track Jacket,£14.99,2026-08-14
-12,Ralph Lauren Polo,Green with orange pony,Discrepancies on the front,XXL Men's,Good condition,VWM - RL Lacoste Polos,£9.99,2026-08-14
-13,Lacoste Polo,Light green,Discrepancies on the front (see images),UK Small,Good condition,VWM - RL Lacoste Polos,£9.99,2026-08-14
+10,Ralph Lauren Women's Polo,"Navy
+
+One small discrepancy on the front (see images)",One small discrepancy on the front (see images),XL Women's,Very good vintage condition,VWM - RL Lacoste Polos,£9.99,2026-08-14
+11,Nike Track Jacket,"Black and navy
+
+White marks on right sleeve (see images)",White marks on right sleeve (see images),XL,Very good vintage condition,VWM - Track Jacket,£14.99,2026-08-14
+12,Ralph Lauren Polo,"Green with orange pony
+
+Discrepancies on the front",Discrepancies on the front,XXL Men's,Good condition,VWM - RL Lacoste Polos,£9.99,2026-08-14
+13,Lacoste Polo,"Light green
+
+Discrepancies on the front (see images)",Discrepancies on the front (see images),UK Small,Good condition,VWM - RL Lacoste Polos,£9.99,2026-08-14
 14,Lacoste Polo,Dark green,None,UK Large,Very good vintage condition,VWM - RL Lacoste Polos,£12.99,2026-08-14
 15,Ralph Lauren Polo,Turquoise,None,Large,Very good condition,VWM - RL Lacoste Polos,£14.99,2026-08-14
 1,NFL Reebok T-Shirt,Blue,None,XL Women's,Very good vintage condition,VWM - Women's Y2K Mix,£17.99,2026-08-18
-2,Nike Women's Track Jacket,Navy with an orange band and white,Marks on left sleeve (see images),Medium Women's (8-10),Good vintage condition,VWM - Women's Y2K Mix,£17.99,2026-08-18
+2,Nike Women's Track Jacket,"Navy with an orange band and white
+
+Marks on left sleeve (see images)",Marks on left sleeve (see images),Medium Women's (8-10),Good vintage condition,VWM - Women's Y2K Mix,£17.99,2026-08-18
 3,Miss Me Denim Shorts,,None,Waist 30,Very good condition,VWM - Women's Y2K Mix,£18.99,2026-08-18
 4,NFL T-Shirt,Blue,None,Large Women's,Very good condition,VWM - Women's Y2K Mix,£18.99,2026-08-18
 5,NFL Reebok Top,"Dark navy blue, Walter Payton number 34 on the front",None,XL Women's,Very good vintage condition,VWM - Women's Y2K Mix,£19.99,2026-08-18
 6,The North Face Pullover,Turquoise,None,Large,Very good condition,VWM - Women's Y2K Mix,£14.99,2026-08-18
 7,Carhartt T-Shirt,,None,Small Women's (4-6),Very good condition,VWM - Women's Y2K Mix,£14.99,2026-08-18
 8,Birkenstock Thong Sandals,Natural,None,40,Very good vintage condition,SF - Birkenstock,£27.99,2026-08-18
-1,Athletics Women's T-Shirt,Orange,"Slight discrepancy on the back of the neck, barely noticeable (see images)",Small,Very good vintage condition,VWM - Women's Y2K Mix,£12.99,2026-08-19
+1,Athletics Women's T-Shirt,"Orange
+
+Slight discrepancy on the back of the neck, barely noticeable (see images)","Slight discrepancy on the back of the neck, barely noticeable (see images)",Small,Very good vintage condition,VWM - Women's Y2K Mix,£12.99,2026-08-19
 2,Ralph Lauren Women's Shirt,Pink,None,16,Very good condition,VWM - Women's Y2K Mix,£18.00,2026-08-19
 3,Chicago Bulls Vest,Red,None,16 (marked on label - men's/women's unconfirmed),Very good condition,VWM - Women's Y2K Mix,£17.99,2026-08-19
 4,Ralph Lauren Women's Long Sleeve T-Shirt,Red,None,Small (8),Very good condition,VWM - Women's Y2K Mix,£14.99,2026-08-19
 5,NFL Broncos Top,,None,Youth 18 (XXL) - translates to approx. women's Large,Good condition,VWM - Women's Y2K Mix,£14.99,2026-08-19
 6,Ralph Lauren Polo,Black,None,Small Men's,Very good condition,VWM - RL Lacoste Polos,£13.99,2026-08-19
 7,Ralph Lauren Polo,Green,None,Large Men's,Very good condition,VWM - RL Lacoste Polos,£14.99,2026-08-19
-8,Ralph Lauren Polo,Blue,Very small discrepancy on the back (see images),Medium Men's,Very good vintage condition,VWM - RL Lacoste Polos,£13.99,2026-08-19
-9,Ralph Lauren Polo,Grey,Slight discrepancy on the front,Medium,Very good vintage condition,VWM - RL Lacoste Polos,£12.99,2026-08-19
+8,Ralph Lauren Polo,"Blue
+
+Very small discrepancy on the back (see images)",Very small discrepancy on the back (see images),Medium Men's,Very good vintage condition,VWM - RL Lacoste Polos,£13.99,2026-08-19
+9,Ralph Lauren Polo,"Grey
+
+Slight discrepancy on the front",Slight discrepancy on the front,Medium,Very good vintage condition,VWM - RL Lacoste Polos,£12.99,2026-08-19
 10,Ralph Lauren Polo,Navy,None,Small Men's,Very good condition,VWM - RL Lacoste Polos,£14.99,2026-08-19
-11,Burberry Brit Polo Shirt,,Slight marks on the front,XL,Good condition,SF - Men's Summer Designer Mix,£19.99,2026-08-19
+11,Burberry Brit Polo Shirt,Slight marks on the front,Slight marks on the front,XL,Good condition,SF - Men's Summer Designer Mix,£19.99,2026-08-19
 12,Cinema Etoile Camisole/Chemise,,None,Small Women's,Very good condition,VWM - Women's Y2K Mix,£14.99,2026-08-19
 13,Adidas Women's Jacket,Fleece bottom,None,14 (UK women's - equivalent to Large),Good condition,VWM - Women's Y2K Mix,£22.99,2026-08-19
 14,Women's Lace Babydoll Set,Blue lace,None,Small Women's,Very good condition,VWM - Women's Y2K Mix,£12.99,2026-08-19
@@ -40,12 +56,16 @@ Item No.,Product Name,Colour Clarity/Description,Defects,Size,Condition,SKU,Pric
 16,Juicy Couture Cardigan,Black,None,XL Women's,Very good condition,VWM - Women's Y2K Mix,£19.99,2026-08-19
 17,Dominique Longline Bridal Bra (Bustier),White,None,44DD/E,Very good condition,VWM - Women's Y2K Mix,£16.99,2026-08-19
 18,Juicy Couture Velour Top,Pink velour,None,Medium,Very good condition,VWM - Women's Y2K Mix,£34.99,2026-08-19
-19,Carhartt Women's T-Shirt,"Green/mint, 100% cotton",Slight speckles on the front,Small (4-6),Good condition,VWM - Women's Y2K Mix,£9.99,2026-08-19
+19,Carhartt Women's T-Shirt,"Green/mint, 100% cotton
+
+Slight speckles on the front",Slight speckles on the front,Small (4-6),Good condition,VWM - Women's Y2K Mix,£9.99,2026-08-19
 20,Ralph Lauren Women's Polo Shirt,Black with red pony,None,Medium (10-12) - classic fit,Very good condition,VWM - Women's Y2K Mix,£14.00,2026-08-19
 21,Ralph Lauren Sport Women's Shirt,Lilac purple,None,Small,Very good condition,VWM - Women's Y2K Mix,£18.00,2026-08-19
 22,Birkenstocks,Bronze/nude,None,37 (240mm),Very good vintage condition,SF - Birkenstock,£27.99,2026-08-19
-23,Birkenstock Sandals,,Inner footbed a bit worn - exterior sole is in good condition. Would otherwise be very good condition,38 (245mm),Good condition,SF - Birkenstock,£24.99,2026-08-19
+23,Birkenstock Sandals,Inner footbed a bit worn - exterior sole is in good condition. Would otherwise be very good condition,Inner footbed a bit worn - exterior sole is in good condition. Would otherwise be very good condition,38 (245mm),Good condition,SF - Birkenstock,£24.99,2026-08-19
 24,Birkenstock Sandals,,None,38 (245mm),Good condition,SF - Birkenstock,£24.99,2026-08-19
 25,Birkenstocks,Yellow,None,36 (230mm),Good condition,SF - Birkenstock,£24.99,2026-08-19
-1,Adidas Hoodie,Orange,A few dark marks and discrepancies on the front (see images),UK 30/32 (chest) - approx. women's XS-S,Good condition,VWM - Women's Y2K Mix,£14.99,2026-08-20
-2,Nike Georgia Hoodie,,A few marks (see images),Small Women's (4-6),Very good vintage condition,VWM - Women's Y2K Mix,£19.99,2026-08-20
+1,Adidas Hoodie,"Orange
+
+A few dark marks and discrepancies on the front (see images)",A few dark marks and discrepancies on the front (see images),UK 30/32 (chest) - approx. women's XS-S,Good condition,VWM - Women's Y2K Mix,£14.99,2026-08-20
+2,Nike Georgia Hoodie,A few marks (see images),A few marks (see images),Small Women's (4-6),Very good vintage condition,VWM - Women's Y2K Mix,£19.99,2026-08-20
