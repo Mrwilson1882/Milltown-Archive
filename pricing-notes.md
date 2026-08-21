@@ -94,6 +94,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 12 | Women's Chemise (Nightwear) | *(none given)* | 40D | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
 | 20 Aug | 13 | Women's Shorts | *(unclear — "light idle")* | 6 (31 waist, 12 leg) | **Good** | Slight marks front and back | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
 | 20 Aug | 14 | Carhartt Women's Hoodie | Carhartt | Large, relaxed fit | **Good** | Slight mark on front | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
+| 20 Aug | 15 | Carhartt Women's Top *(garment type unconfirmed)* | Carhartt | Large (12-14), relaxed fit | Very good vintage | A couple of unnoticeable marks on front | VWM - Women's Y2K Mix | *(blocked — garment type needed)* |
 
 ## Raw observations
 
@@ -676,6 +677,28 @@ sellers in vintage workwear, supporting the upper half of the band.
 established categories (`VWM - Summer Women's Mix` and `VWM - Women's Y2K Mix`).
 Recorded as the Y2K mix, the far more frequently used of the two — worth
 confirming.
+
+**20 Aug #15 — Carhartt, cream, Large, very good vintage → PRICE BLOCKED**
+
+**The garment type was never stated.** The voice note gave brand, colour, size,
+fit ("relaxed fit"), condition and defects — but not what the item actually is.
+Carhartt makes tees, hoodies, sweatshirts, shirts, fleeces and jackets, and
+they span nearly £20 in this ledger, so no responsible figure can be set.
+
+Prices ready to apply the moment the type is known (very good vintage, a
+couple of unnoticeable front marks):
+
+| If it is a… | Price |
+|---|---|
+| T-shirt | £13.99 |
+| Shirt (button-up) | £16.99 |
+| Hoodie | £19.99 |
+| Sweatshirt / jumper | £18.99 |
+| Jacket | £24.99 |
+
+Note that "unnoticeable" marks warrant a gentler deduction than 20 Aug #14's
+"slight mark", which is why the hoodie figure here sits above that item's
+£17.99 despite the same brand — this one is also a grade higher in condition.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
