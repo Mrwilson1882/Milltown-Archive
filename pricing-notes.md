@@ -92,6 +92,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 10 | Carhartt Women's Fleece | Carhartt | XS (4-6), relaxed fit | Very good vintage, **slightly faded** | None | VWM - Women's Y2K Mix | £13.99 **(Claude-set — see below)** |
 | 20 Aug | 11 | Carhartt Jumper | Carhartt | *(not stated)* | Very good | None | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
 | 20 Aug | 12 | Women's Chemise (Nightwear) | *(none given)* | 40D | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
+| 20 Aug | 13 | Women's Shorts | *(unclear — "light idle")* | 6 (31 waist, 12 leg) | **Good** | Slight marks front and back | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -626,6 +627,28 @@ bra-sized piece justify the top of that band rather than the middle.
 
 **£16.99–£19.99 if it carries a recognised label** — worth checking the care
 tag before listing, since brand is the single biggest lever on this item.
+
+**20 Aug #13 — women's shorts, good condition, marks front and back → £9.99**
+
+Matches the owner's twice-confirmed point for **good condition with front
+flaws**: 14 Aug #12 and #13 both went at £9.99, and 20 Aug #4 was set there for
+the same profile. This item has marks on both faces, so £9.99 is if anything
+generous.
+
+The contrast with 18 Aug #3 (Miss Me denim shorts, £18.99) shows what is
+being lost: that pair was **very good, clean, and a named brand**. This one is
+a grade down, marked on both sides, and **has no identified brand** — the
+three things that carry the most weight in this dataset, all pointing the same
+way.
+
+**Two unresolved details, both worth chasing before listing:**
+- **"Light idle"** did not transcribe cleanly. It may be a brand name or a
+  wash description; recorded as "light wash" pending the label. If it turns
+  out to be a known denim brand, the price rises materially.
+- **The size is internally odd**: a "6" with a 31″ waist. UK 6 is roughly a
+  25″ waist and US 6 about 28″, so the stated waist points to a UK 14 / US 10.
+  The waist and leg measurements are the reliable figures here — list on those,
+  not on the "6".
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
