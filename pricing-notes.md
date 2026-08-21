@@ -90,6 +90,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 8 | Lululemon Women's Top | Lululemon | Small (unlabelled, unconfirmed) | Very good | None | VWM - Women's Y2K Mix | £22.99 **(Claude-set — see below)** |
 | 20 Aug | 9 | The North Face Zip-Up Fleece | The North Face | XS | Very good vintage | Small discrepancies on arm, barely noticeable | VWM - Women's Y2K Mix | £12.99 |
 | 20 Aug | 10 | Carhartt Women's Fleece | Carhartt | XS (4-6), relaxed fit | Very good vintage | None | VWM - Women's Y2K Mix | *(awaiting owner)* |
+| 20 Aug | 11 | Carhartt Jumper | Carhartt | *(not stated)* | Very good | None | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -557,6 +558,25 @@ uses US numeric sizing, and the mapping matters because their cuts run small:
 | 4 | 8 | ~34″ |
 | 6 | 10 | ~36″ |
 | 8 | 12 | ~38″ |
+
+**20 Aug #11 — Carhartt jumper, brown, very good, clean → £19.99**
+
+Anchored to the owner's own Carhartt point: **18 Aug #7, a Carhartt tee in
+very good condition, priced £14.99**. A jumper or sweatshirt is a heavier
+garment and normally carries roughly 1.3–1.5× a tee of the same brand and
+grade, which puts this at £19.99.
+
+Cross-checks in the owner's data agree: clean very-good outerwear (North Face
+fleece) sits at £14.99, and a Nike hoodie in very good vintage with marks was
+placed at £19.99 — so a clean Carhartt sweat belongs at or just above that.
+
+**"Jumper" is ambiguous and moves the price**: a heavyweight branded
+sweatshirt is worth more than a plain knit. **£22.99** if it is a logo
+sweatshirt in heavyweight cotton; **£17.99** if it is a plain knit jumper with
+minimal branding. Brown is currently a strong colour for Carhartt.
+
+**Size was not stated** — needed before listing, and it has some price effect
+on workwear, where larger sizes sell more readily.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
