@@ -104,6 +104,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 22 | Ralph Lauren Cable Knit Jumper | Ralph Lauren | Small | Very good | None | VWM - Women's Y2K Mix | £19.99 |
 | 20 Aug | 23 | Rock Revival Women's Shorts | Rock Revival | 24 (waist) | Very good vintage | Small discrepancy on back | VWM - Women's Y2K Mix | *(awaiting owner — £17.99 offered)* |
 | 20 Aug | 24 | Yana Women's Skirt *(brand to confirm)* | Yana? | Medium | Very good | None | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
+| 20 Aug | 25 | Corset *(type and size to confirm)* | *(none given)* | *(unknown — very small)* | Very good | None | VWM - Women's Y2K Mix | *(blocked — see below)* |
 
 ## Raw observations
 
@@ -842,6 +843,34 @@ brand recognised in this dataset.
 - **Style.** A black skirt covers a mini, a maxi, denim, leather and pleated —
   which span a wide range. Leather or a recognisable Y2K cut would justify
   £19.99–£24.99; a plain office skirt would sit at £9.99–£12.99.
+
+## 20 Aug #25 — very small corset: identify before pricing or listing
+
+The owner described this as "a child's corset — I've never seen something so
+small". Corsets are not made as children's garments in modern retail, so the
+item is almost certainly something else, and what it actually is decides both
+the price and how it should be listed.
+
+Most likely candidates, distinguished by the **waist measurement laid flat and
+doubled**:
+
+| Waist (doubled) | What it probably is |
+|---|---|
+| 20–24″ | Adult **XXS/XS corset top** — Y2K corset tops ran very small |
+| 16–19″ | **Doll, display or mannequin** piece, or a costume accessory |
+| Under 16″ | Decorative or novelty item, not a wearable garment |
+
+Other tells: real boning channels and a busk or lacing point to a wearable
+adult corset; printed-on detail, no boning, or fixed fastenings point to
+costume or display.
+
+**Listing note, practical rather than moral**: it should not be listed with
+"child" or "kids" in the title. A corset described that way will be flagged or
+removed by most marketplaces and draws exactly the wrong search traffic. If it
+is an adult XXS, list it as such; if it is a doll or display piece, list it
+under dolls/collectables, where it will also find a better buyer.
+
+Price left blank — with the item type unknown, any figure would be invented.
 
 ## Measurements have been requested four times and never supplied
 
