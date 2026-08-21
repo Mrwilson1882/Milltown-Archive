@@ -93,6 +93,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 11 | Carhartt Jumper | Carhartt | *(not stated)* | Very good | None | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
 | 20 Aug | 12 | Women's Chemise (Nightwear) | *(none given)* | 40D | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
 | 20 Aug | 13 | Women's Shorts | *(unclear — "light idle")* | 6 (31 waist, 12 leg) | **Good** | Slight marks front and back | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
+| 20 Aug | 14 | Carhartt Women's Hoodie | Carhartt | Large, relaxed fit | **Good** | Slight mark on front | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -649,6 +650,32 @@ way.
   25″ waist and US 6 about 28″, so the stated waist points to a UK 14 / US 10.
   The waist and leg measurements are the reliable figures here — list on those,
   not on the "6".
+
+**20 Aug #14 — Carhartt women's hoodie, Large, good, slight front mark → £17.99**
+
+Anchored to the owner's own Carhartt point (**tee, very good, £14.99**) rather
+than to the £19.99 set on the brown jumper earlier today, since that figure was
+Claude's and stacking estimates on estimates is how the earlier misses
+happened.
+
+A hoodie carries more than a tee, which argues up from £14.99; a **good** grade
+with a **front** mark argues down. Landing at £17.99 also sits sensibly among
+the day's other hooded pieces:
+
+| Item | Spec | Price |
+|---|---|---|
+| Nike Georgia hoodie | Very good vintage, a few marks | £19.99 |
+| **This** | **Good, one slight front mark** | **£17.99** |
+| Adidas hoodie | Good, several dark front marks | £14.99 |
+
+One slight mark is clearly milder than the Adidas's several dark ones, which
+is the gap those £3 represent. Carhartt hoodies are among the strongest
+sellers in vintage workwear, supporting the upper half of the band.
+
+**SKU was dictated as "summer Y2K women's mix"**, blending the owner's two
+established categories (`VWM - Summer Women's Mix` and `VWM - Women's Y2K Mix`).
+Recorded as the Y2K mix, the far more frequently used of the two — worth
+confirming.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
