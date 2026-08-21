@@ -113,6 +113,8 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 31 | Urban Outfitters Women's Top | Urban Outfitters | Small (unlabelled, owner's estimate) | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set)** |
 | 20 Aug | 32 | Vigoss Women's Denim Shorts | Vigoss | 15/16 juniors, 3.5in inseam | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £16.99 offered)* |
 | 20 Aug | 33 | Calvin Klein Tie | Calvin Klein | One size | Very good | None | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
+| 20 Aug | **34** | **— NOT LOGGED —** | | | | | | **second gap in numbering** |
+| 20 Aug | 35 | Ralph Lauren Jumper | Ralph Lauren | 8-10 | **Satisfactory** | Marks on the front | *(not stated)* | £9.99 |
 
 ## Raw observations
 
@@ -997,6 +999,37 @@ main lever on a tie, and it was not stated.
 The owner is filing it under women's, which makes sense: ties sell in Y2K
 women's styling, and listing it that way reaches a livelier market than
 menswear formalwear would.
+
+## A third condition grade appears: "satisfactory" (20 Aug #35)
+
+The owner graded this Ralph Lauren jumper **"satisfactory quality"** — a new
+grade, below both "very good" and "good", and the lowest used so far.
+
+The full ladder now reads: **very good → good → satisfactory**.
+
+The price drop across two grades is steep, and this is the clearest measurement
+of it so far, since both items are Ralph Lauren knitwear:
+
+| Item | Grade | Defects | Price |
+|---|---|---|---|
+| 20 Aug #22, RL cable knit | Very good | None | £19.99 |
+| 20 Aug #35, RL round-neck jumper | **Satisfactory** | Marks on front | **£9.99** |
+
+**A £10 fall — half the value — for two grade steps plus front marks.** Both
+owner-set, so this is real data rather than inference. It also confirms that
+£9.99 is functioning as a floor: it is now the price for a designer knit in
+poor order, an unbranded top, and several flawed polos alike.
+
+## Second numbering gap: 20 Aug #34 not logged
+
+The owner went from #33 to #35. As with the earlier #30 gap, the row is left
+absent rather than renumbering, since the numbers are physical markers.
+
+Note that the #30 gap was later filled by an item dictated as "thirty three
+zero" — which remains unconfirmed as 30 rather than 33. **If that cardigan is
+actually #33, the ledger currently has the Calvin Klein tie duplicating its
+number, and two genuine gaps at 30 and 34.** Worth one pass over the physical
+tags to reconcile.
 
 ## Measurements have been requested four times and never supplied
 
