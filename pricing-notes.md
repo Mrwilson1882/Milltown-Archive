@@ -82,6 +82,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 25 | Birkenstocks | Birkenstock | 36 (230mm) | **Good** | *(not stated)* | SF - Birkenstock | £24.99 |
 | 20 Aug | 1 | Adidas Hoodie | Adidas | UK 30/32 ≈ women's XS-S | **Good** | Dark marks + discrepancies on front | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
 | 20 Aug | 2 | Nike Georgia Hoodie | Nike | Small Women's (4-6) | Very good vintage | A few marks | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
+| 20 Aug | 3 | Ralph Lauren Women's Top | Ralph Lauren | Medium (12-14) | **Good** | None | VWM - Women's Y2K Mix | *(awaiting owner)* |
 
 ## Raw observations
 
