@@ -87,6 +87,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 5 | Juicy Couture Blouse | Juicy Couture | 2 (unconfirmed) | Very good | None | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
 | 20 Aug | 6 | The North Face Fleece | The North Face | XL | Very good | None | VWM - Women's Y2K Mix | £14.99 **(Claude-set — matches owner's own 18 Aug #6)** |
 | 20 Aug | 7 | Juicy Couture Track Jacket | Juicy Couture | Medium | Very good | None | VWM - Women's Y2K Mix | £29.99 **(Claude-set — see below)** |
+| 20 Aug | 8 | Lululemon Women's Top | Lululemon | Small (unlabelled, unconfirmed) | Very good | None | VWM - Women's Y2K Mix | £22.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -515,6 +516,29 @@ Adjustments once those are known:
 **Colour matters more on this item than almost any other in the ledger.** Pink
 and baby blue are the collectable Juicy colourways; browns, greys and muted
 tones sell far more slowly at the same specification.
+
+**20 Aug #8 — Lululemon women's top, unlabelled size, very good → £22.99**
+
+**The best-grounded external comp in the whole file**: a Lululemon women's
+long-sleeve v-neck cropped top, **UK size 6, sold for £25.74** against a £60
+RRP — a real completed UK sale in sterling, not a US asking price. Lululemon's
+own resale channel prices at roughly half of retail, which agrees.
+
+£22.99 sits just under that, allowing for an unknown style and a vintage
+rather than activewear-specialist channel. Lululemon holds resale value far
+better than generic Y2K tops, which is why this sits above the owner's
+£12.99–£18.99 band for those.
+
+**Size is unlabelled and no measurements were supplied**, so the recorded
+"Small women's" is the owner's own estimate, marked unconfirmed. Lululemon
+uses US numeric sizing, and the mapping matters because their cuts run small:
+
+| Lululemon | UK | Bust |
+|---|---|---|
+| 2 | 6 | ~32″ |
+| 4 | 8 | ~34″ |
+| 6 | 10 | ~36″ |
+| 8 | 12 | ~38″ |
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
