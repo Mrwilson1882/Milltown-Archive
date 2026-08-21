@@ -99,6 +99,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 17 | Juicy Couture Denim Jacket | Juicy Couture | *(not stated)* | Very good | None | VWM - Women's Y2K Mix | £27.99 **(Claude-set — see below)** |
 | 20 Aug | 18 | Juicy Couture Cardigan | Juicy Couture | XL | Very good | None | VWM - Women's Y2K Mix | £19.99 **(Claude-set, third at this price)** |
 | 20 Aug | 19 | Juicy Couture Cashmere Zip-Up Hoodie | Juicy Couture | Medium | Very good | None | VWM - Women's Y2K Mix | £44.99 **(Claude-set — highest in ledger, see below)** |
+| 20 Aug | 20 | Val Mode Nightgown *(type to confirm)* | Val Mode | *(unlabelled)* | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner)* |
 
 ## Raw observations
 
@@ -786,6 +787,28 @@ and at the cuffs, **moth holes** (hold it to the light), and **stretched or
 misshapen cuffs and hem**. Any of those and the price drops to £24.99–£29.99.
 Conversely, if it is clean, say "no pilling, no moth holes" in the listing —
 cashmere buyers look for exactly that.
+
+**20 Aug #20 — Val Mode burgundy nightwear — identification**
+
+**Val Mode Lingerie** is a real American vintage label, active roughly
+**1960s–1980s**, specialising in bridal and romantic sleepwear: nightgowns,
+peignoir sets, robes, chemises, babydolls and kimonos, typically satin nylon
+with lace appliqué, embroidery and ribbon detail.
+
+Their staple is a **floor-length satin nightgown with spaghetti straps**, so
+that is the most likely identification, recorded pending confirmation. The key
+distinction for both naming and price is **whether a matching robe came with
+it** — a two-piece **peignoir set** is worth substantially more than a
+nightgown alone, and Val Mode's sets are their most collectable output.
+
+**Note the era mismatch**: this is filed under `VWM - Women's Y2K Mix`, but Val
+Mode is 1960s–80s, well before Y2K. That is not a problem for the record, and
+true vintage lingerie has its own strong market — but it should be listed as
+**vintage 60s/70s/80s lingerie**, not Y2K, or it will be shown to the wrong
+buyers.
+
+Price left blank — the owner did not state one and did not ask for one on this
+item, and the nightgown/peignoir-set question would change it materially.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
