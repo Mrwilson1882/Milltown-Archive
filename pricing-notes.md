@@ -123,6 +123,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 41 | Women's Jeans *(brand unclear)* | *(unclear — "Y")* | 00 = UK 4 | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
 | 20 Aug | 42 | Juicy Couture Bottoms | Juicy Couture | XL | Very good | None | VWM - Women's Y2K Mix | £22.99 **(Claude-set, hedged — fabric unconfirmed)** |
 | 20 Aug | 43 | Juicy Couture Track Pants | Juicy Couture | *(unmeasured)* | Very good | None | VWM - Women's Y2K Mix | £24.99 **(Claude-set, hedged — fabric unconfirmed)** |
+| 20 Aug | 44 | Silver Jeans Co. Denim Shorts | Silver Jeans Co. | Waist 31 | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £16.99 offered)* |
 
 ## Raw observations
 
