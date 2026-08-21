@@ -86,7 +86,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 4 | Lacoste Women's Polo | Lacoste | Small Women's | **Good** | Marks/discrepancies back and front, mainly back | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
 | 20 Aug | 5 | Juicy Couture Blouse | Juicy Couture | 2 (unconfirmed) | Very good | None | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
 | 20 Aug | 6 | The North Face Fleece | The North Face | XL | Very good | None | VWM - Women's Y2K Mix | £14.99 **(Claude-set — matches owner's own 18 Aug #6)** |
-| 20 Aug | 7 | Juicy Couture Track Jacket | Juicy Couture | Medium | Very good | None | VWM - Women's Y2K Mix | £34.99 **(Claude-set, revised up — pink confirmed)** |
+| 20 Aug | 7 | Juicy Couture Track Jacket | Juicy Couture | Medium | Very good | None | VWM - Women's Y2K Mix | £29.99 **(Claude-set — black confirmed)** |
 | 20 Aug | 8 | Lululemon Women's Top | Lululemon | Small (unlabelled, unconfirmed) | Very good | None | VWM - Women's Y2K Mix | £22.99 **(Claude-set — see below)** |
 | 20 Aug | 9 | The North Face Zip-Up Fleece | The North Face | XS | Very good vintage | Small discrepancies on arm, barely noticeable | VWM - Women's Y2K Mix | £12.99 |
 | 20 Aug | 10 | Carhartt Women's Fleece | Carhartt | XS (4-6), relaxed fit | Very good vintage, **slightly faded** | None | VWM - Women's Y2K Mix | £13.99 **(Claude-set — see below)** |
@@ -1148,23 +1148,16 @@ The Juicy pieces logged so far and their sizes:
 | 20 Aug #7 | Track jacket | Medium | *(not stated)* |
 | 20 Aug #42 | Bottoms | XL | Peach |
 
-**Owner confirmed #7 is pink**, so it does not pair with the peach bottoms —
-there is no set to assemble from these three.
+**Owner confirmed #7 is black.** No set to assemble from these three — a black
+jacket and peach bottoms do not pair.
 
-Two consequences:
+**#7 stays at £29.99**, the "other velour colourway" figure set out when it was
+first priced. Black is the least collectable of the Juicy colourways — the
+pinks and pastels carry the premium — so it does not earn the £34.99 that pink
+would.
 
-**1. #7 revised up from £29.99 to £34.99.** It was priced without the colour
-known, and the note at the time set out the fork: pink velour → £34.99,
-another colourway → £29.99. Pink is the premium Juicy colourway, so the
-higher figure now applies. This still assumes velour, which "track jacket"
-strongly implies for this brand.
-
-**2. #7 and 19 Aug #18 now look very similar** — both Juicy, both pink, both
-Medium, both very good, both £34.99. One is recorded as a "velour top" and one
-as a "track jacket", which may well be the same kind of garment described two
-ways on different days. They came from different days' sorting so are probably
-two genuine pieces, but **worth confirming they are not one item logged
-twice**, as £34.99 is the highest price point in the ledger.
+This also clears the duplicate concern: 19 Aug #18 is pink and 20 Aug #7 is
+black, so they are plainly two different garments.
 
 ## Measurements have been requested four times and never supplied
 
