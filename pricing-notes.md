@@ -80,7 +80,7 @@ so an item is identified by **date + number**, never by number alone.
 | 19 Aug | 23 | Birkenstock Sandals | Birkenstock | 38 (245mm) | **Good** | Inner footbed a bit worn; outer sole fine | SF - Birkenstock | £24.99 |
 | 19 Aug | 24 | Birkenstock Sandals | Birkenstock | 38 (245mm) | **Good** | *(not stated)* | SF - Birkenstock | £24.99 |
 | 19 Aug | 25 | Birkenstocks | Birkenstock | 36 (230mm) | **Good** | *(not stated)* | SF - Birkenstock | £24.99 |
-| 20 Aug | 1 | Adidas Hoodie | Adidas | UK 30/32 ≈ women's XS-S | *(not stated)* | Dark marks + discrepancies on front | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
+| 20 Aug | 1 | Adidas Hoodie | Adidas | UK 30/32 ≈ women's XS-S | **Good** | Dark marks + discrepancies on front | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -419,8 +419,9 @@ flaw. That pulls it to the bottom of the outerwear band despite Adidas and an
 appealing orange colourway. **£17.99 if the marks are faint** and the piece
 photographs well.
 
-**Condition grade was not stated on this item** — unusually, since defects
-were. If it grades "very good" despite the marks, £17.99 is the better call.
+Owner subsequently confirmed **good condition**, which keeps £14.99 in place:
+the £17.99 comparable is also good condition but its marks are on the sleeve,
+not the front, and there is one of them rather than several.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
