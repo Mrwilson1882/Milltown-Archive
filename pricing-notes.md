@@ -105,6 +105,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 23 | Rock Revival Women's Shorts | Rock Revival | 24 (waist) | Very good vintage | Small discrepancy on back | VWM - Women's Y2K Mix | *(awaiting owner — £17.99 offered)* |
 | 20 Aug | 24 | Yana Women's Skirt *(brand to confirm)* | Yana? | Medium | Very good | None | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
 | 20 Aug | 25 | Corset *(type and size to confirm)* | *(none given)* | *(unknown — very small)* | Very good | None | VWM - Women's Y2K Mix | *(blocked — see below)* |
+| 20 Aug | 26 | Women's Dress | *(none given)* | 28/29 | Very good | None | VWM - Women's Y2K Mix | £16.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -871,6 +872,27 @@ is an adult XXS, list it as such; if it is a doll or display piece, list it
 under dolls/collectables, where it will also find a better buyer.
 
 Price left blank — with the item type unknown, any figure would be invented.
+
+## 20 Aug #26 — black nylon/spandex dress → £16.99
+
+**The first dress in the ledger.** Priced above the skirt at 20 Aug #24
+(£14.99) because a dress is a complete outfit piece and generally carries more
+than a separate, but held below the branded women's items at £19.99 because
+**no brand was stated** — the factor that has consistently separated £14.99
+from £19.99 in this data.
+
+**£19.99–£22.99 if it carries a recognised label**; **£12.99** if it is plain
+and unbranded with no distinctive Y2K cut.
+
+**Size "28/29" most likely refers to the waist in inches**, which would put it
+around a UK 10–12. That is a reading, not a certainty — a nylon/spandex dress
+is usually sized S/M/L, so a numeric marking is more likely a measurement than
+a size code. Bust and length would confirm it.
+
+Worth noting the fabric matches 20 Aug #12, the bra-sized chemise — nylon and
+spandex is used across both nightwear and bodycon daywear, so if this piece
+turns out to be sleepwear rather than a day dress it belongs in the same
+category as #12 and prices nearer £12.99.
 
 ## Measurements have been requested four times and never supplied
 
