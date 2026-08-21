@@ -103,6 +103,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 21 | Guess Women's Shorts | Guess | 29 (waist) | **Good** | A couple of discrepancies, undescribed | *(not stated)* | *(awaiting owner — £12.99 offered)* |
 | 20 Aug | 22 | Ralph Lauren Cable Knit Jumper | Ralph Lauren | Small | Very good | None | VWM - Women's Y2K Mix | £19.99 |
 | 20 Aug | 23 | Rock Revival Women's Shorts | Rock Revival | 24 (waist) | Very good vintage | Small discrepancy on back | VWM - Women's Y2K Mix | *(awaiting owner — £17.99 offered)* |
+| 20 Aug | 24 | Yana Women's Skirt *(brand to confirm)* | Yana? | Medium | Very good | None | VWM - Women's Y2K Mix | £14.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -826,6 +827,32 @@ buyers.
 
 Price left blank — the owner did not state one and did not ask for one on this
 item, and the nightgown/peignoir-set question would change it materially.
+
+**20 Aug #24 — black skirt, medium, very good → £14.99**
+
+**The first skirt in the ledger**, so there is no in-category comparable to work
+from. Placed at £14.99, the middle of the owner's women's Y2K band
+(£12.99–£19.99), on the basis that it is very good, clean, and carries no
+brand recognised in this dataset.
+
+**Two unknowns hold it there**, and either would move it:
+- **Brand.** "Yana" did not transcribe with confidence and is not an
+  established name in this ledger. If the label turns out to be a recognised
+  brand, this rises.
+- **Style.** A black skirt covers a mini, a maxi, denim, leather and pleated —
+  which span a wide range. Leather or a recognisable Y2K cut would justify
+  £19.99–£24.99; a plain office skirt would sit at £9.99–£12.99.
+
+## Measurements have been requested four times and never supplied
+
+19 Aug #14, 20 Aug #8, #20 and #24 all asked Claude to determine size "from the
+measurements", but **no measurements have ever been included in a voice note**,
+and no images reach this chat. Sizes for those items remain unset or carry the
+owner's own estimate.
+
+The fix is simply to say the numbers aloud in the note — for example
+*"pit to pit sixteen inches, length twenty-four"* — and the conversion can be
+done immediately. Without them there is nothing to convert.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
