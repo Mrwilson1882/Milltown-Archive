@@ -120,6 +120,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 38 | True Religion Women's Jeans | True Religion | *(unmeasured)* | Very good | None | VWM - Women's Y2K Mix | £29.99 **(Claude-set — see below)** |
 | 20 Aug | 39 | True Religion Women's Jeans | True Religion | 24 (waist) | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £29.99 offered, matching #38)* |
 | 20 Aug | 40 | Ralph Lauren Women's Shirt | Ralph Lauren | 6 | Good vintage | Pink marks on front | VWM - Women's Y2K Mix | £12.00 |
+| 20 Aug | 41 | Women's Jeans *(brand unclear)* | *(unclear — "Y")* | 00 = UK 4 | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -1107,6 +1108,23 @@ ladder in this ledger:
 horseshoe stitching and flap pockets visible**. Those details are what
 collectors search for by name, and they roughly double what a plain pair
 fetches. Worth checking the back pockets and the inside tag before listing.
+
+## 20 Aug #41 — "00" is a real size, not a blank label
+
+**US double-zero**, the smallest standard US women's size: **UK 4, waist
+roughly 23–24″**. It is a genuine size marking rather than a printing error or
+a code, and it explains the owner's impression that the jeans look very
+small-waisted.
+
+Priced at **£12.99** — clean and very good, but **no identifiable brand**, which
+in this ledger is consistently the difference between roughly £12.99 and
+£29.99 on denim. The brand came through only as "Y", so if the label turns out
+to be a real name it should be re-checked: **YMI** was a common Y2K junior
+denim label and would fit both the fragment and the size.
+
+Size 00 narrows the buyer pool, but not in this category — Y2K low-rise denim
+sells hardest to buyers specifically seeking very small waists, so it is not
+treated as a discount factor.
 
 ## Measurements have been requested four times and never supplied
 
