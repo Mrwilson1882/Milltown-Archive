@@ -102,7 +102,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 20 | Val Mode Nightgown *(type to confirm)* | Val Mode | *(unlabelled)* | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner)* |
 | 20 Aug | 21 | Guess Women's Shorts | Guess | 29 (waist) | **Good** | A couple of discrepancies, undescribed | *(not stated)* | *(awaiting owner — £12.99 offered)* |
 | 20 Aug | 22 | Ralph Lauren Cable Knit Jumper | Ralph Lauren | Small | Very good | None | VWM - Women's Y2K Mix | £19.99 |
-| 20 Aug | 23 | Rock Revival Women's Shorts | Rock Revival | 24 (waist) | Very good vintage | Small discrepancy on back | *(not stated)* | *(awaiting owner — £17.99 offered)* |
+| 20 Aug | 23 | Rock Revival Women's Shorts | Rock Revival | 24 (waist) | Very good vintage | Small discrepancy on back | VWM - Women's Y2K Mix | *(awaiting owner — £17.99 offered)* |
 
 ## Raw observations
 
