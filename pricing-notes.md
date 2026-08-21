@@ -84,6 +84,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 2 | Nike Georgia Hoodie | Nike | Small Women's (4-6) | Very good vintage | A few marks | VWM - Women's Y2K Mix | £19.99 **(Claude-set — see below)** |
 | 20 Aug | 3 | Ralph Lauren Women's Top | Ralph Lauren | Medium (12-14) | **Good** | None | VWM - Women's Y2K Mix | *(awaiting owner)* |
 | 20 Aug | 4 | Lacoste Women's Polo | Lacoste | Small Women's | **Good** | Marks/discrepancies back and front, mainly back | VWM - Women's Y2K Mix | £9.99 **(Claude-set — see below)** |
+| 20 Aug | 5 | Juicy Couture Blouse | Juicy Couture | 2 (unconfirmed) | Very good | None | VWM - Women's Y2K Mix | £17.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -467,6 +468,30 @@ good-condition polo with **no** defects has still never been priced by the
 owner, so it remains unknown whether condition grade or defect presence
 carries more weight. 20 Aug #3 (Ralph Lauren top, good, clean, price pending)
 is the next chance to find out.
+
+**20 Aug #5 — Juicy Couture black blouse, "size 2", very good → £17.99**
+
+**The size is genuinely ambiguous** — Juicy Couture ran two different numbering
+systems, and "2" means opposite things in each:
+
+| System | What "2" means | Where it was used |
+|---|---|---|
+| Juicy's own line sizing (0/1/2/3) | **Medium**, roughly UK 12 | velour tracksuits, knitwear |
+| Standard US dress sizing | **US 2 = UK 6**, XXS/XS | woven tops, blouses, dresses |
+
+Juicy's current UK size guide confirms the second: **XXS = US 2**. Since this
+item is a blouse — a woven garment, not velour — US dress sizing is the more
+likely reading, so it is recorded as **UK 6 / XS, unconfirmed**.
+
+A pit-to-pit measurement settles it outright: **16–17″ = UK 6**;
+**19–20″ = Medium**. Do not list it as one or the other until measured — the
+two readings are three dress sizes apart.
+
+Price: below the Juicy cardigan at £19.99 and well below the pink velour at
+£34.99, since a plain black woven blouse lacks both the velour premium and the
+strong logo association that drive Juicy resale. £17.99 keeps it inside the
+owner's own Y2K women's band. **£19.99–£22.99 if it carries visible Juicy
+branding**, embroidery or a logo charm, which lift a plain piece considerably.
 
 **What could not be checked**: the network in this environment blocks eBay,
 Vinted, Depop, Mercari and UK vintage retailers such as Rokit, so no *sold*
