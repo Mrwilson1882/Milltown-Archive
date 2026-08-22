@@ -126,6 +126,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 44 | Silver Jeans Co. Denim Shorts | Silver Jeans Co. | Waist 31 | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £16.99 offered)* |
 | 20 Aug | 45 | Women's Bra | *(none given)* | 32A | *(not stated)* | None | *(not stated)* | £8.99 **(Claude-set)** |
 | 21 Aug | 1 | Tommy Hilfiger Polo | Tommy Hilfiger | Large Men's | Very good | None | *(not stated)* | £14.99 **(Claude-set)** |
+| 21 Aug | 2 | Fay Men's Top *(type not stated)* | Fay | Medium Men's | Very good | None | *(not stated)* | £19.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -1208,6 +1209,33 @@ only because it is a specialist bridal piece with real retail value behind it.
 
 **Condition and SKU were both missing from this note** — condition especially,
 since it is the one field that has moved every price in this ledger.
+
+## 21 Aug #2 — Fay is a genuine premium Italian label
+
+**Fay** is an Italian brand under the Tod's Group, best known for outerwear
+(the four-hook jacket), knitwear and casual shirting. New pieces retail in the
+low hundreds — a real step above Ralph Lauren and Tommy Hilfiger in
+manufacture, though **less recognised by UK buyers**, which caps resale.
+
+Priced **£19.99**, level with the Burberry Brit polo, on the basis of a
+polo or shirt. It sits above the £14.99 Tommy/RL tier for the brand quality
+and below what a better-known designer name would carry.
+
+**The garment type was not stated** — the owner's new structured format (brand,
+colour, gender, size, condition) omits it. By type:
+
+| If it is a… | Price |
+|---|---|
+| Polo or shirt | £19.99 *(as recorded)* |
+| Knitwear / jumper | £24.99 |
+| Jacket (Fay's signature product) | £39.99+ |
+
+**The jacket case matters** — Fay outerwear is the brand's most valuable
+output, and pricing one at £19.99 would give away £20 or more.
+
+**Suggestion for the new dictation format**: adding the garment type after the
+brand would make it complete. *Brand, type, colour, gender, size, condition* —
+one extra word, and it is the field that most often decides the price.
 
 ## Measurements have been requested four times and never supplied
 
