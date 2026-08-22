@@ -124,7 +124,8 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 42 | Juicy Couture Bottoms | Juicy Couture | XL | Very good | None | VWM - Women's Y2K Mix | £22.99 **(Claude-set, hedged — fabric unconfirmed)** |
 | 20 Aug | 43 | Juicy Couture Track Pants | Juicy Couture | *(unmeasured)* | Very good | None | VWM - Women's Y2K Mix | £24.99 **(Claude-set, hedged — fabric unconfirmed)** |
 | 20 Aug | 44 | Silver Jeans Co. Denim Shorts | Silver Jeans Co. | Waist 31 | Very good | None | VWM - Women's Y2K Mix | *(awaiting owner — £16.99 offered)* |
-| 20 Aug | 45 | Women's Bra | *(none given)* | 32A | *(not stated)* | None | *(not stated)* | *(awaiting owner — £8.99 offered)* |
+| 20 Aug | 45 | Women's Bra | *(none given)* | 32A | *(not stated)* | None | *(not stated)* | £8.99 **(Claude-set)** |
+| 21 Aug | 1 | Tommy Hilfiger Polo | Tommy Hilfiger | Large Men's | Very good | None | *(not stated)* | £14.99 **(Claude-set)** |
 
 ## Raw observations
 
