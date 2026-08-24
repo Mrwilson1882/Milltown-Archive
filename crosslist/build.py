@@ -58,6 +58,12 @@ inbox = Path(args[0] if args else "Batch 1")
 itemfile = args[1] if len(args) > 1 else "items.csv"
 mapfile  = args[2] if len(args) > 2 else "mapping.csv"
 max_px = next((int(a.split("=")[1]) for a in sys.argv if a.startswith("--max-px=")), 0)
+build = Path("build"); images = build / "images"
+if build.exists():
+    shutil.rmtree(build)          # cleared first: a failed run must not leave
+    if build.exists():            # a previous day's zip looking like today's
+        sys.exit("Could not clear build/. Close anything open in it and re-run.")
+
 for f in (itemfile, mapfile):
     if not Path(f).exists():
         sys.exit(f"{f} is not in this folder. Put it here and try again.")
@@ -68,9 +74,6 @@ n_photos = sum(1 for r in csv.DictReader(open(mapfile)) if r["shot_type"] != "ca
 print(f"{itemfile}: {n_items} items\n{mapfile}: {n_photos} listed photos\nphotos from: {inbox}\n")
 
 stamp = datetime.date.today().isoformat()   # so batches never overwrite each other
-build = Path("build"); images = build / "images"
-if build.exists():
-    shutil.rmtree(build)          # disposable by design; rebuilt every run
 images.mkdir(parents=True)
 
 photos = {}
@@ -134,7 +137,30 @@ if blocked:
     print("\nUploads with no Size id - Crosslist may reject these rows:")
     for b in blocked:
         print(f"  {b}")
-print(f"\nUpload the two {stamp}-* files in build/ to Crosslist together.")
+# Prove the zip matches the CSV rather than assuming it. A stale or partial zip
+# is otherwise invisible until Crosslist rejects the rows.
+cited = set()
+for r in rows:
+    v = r[COLUMNS.index("Images")]
+    if v:
+        cited.update(v.split("|"))
+zipped = set(zipfile.ZipFile(build / f"{stamp}-images.zip").namelist())
+on_disk = {p.name for p in images.iterdir()}
+problems = []
+if zipped != cited:
+    problems.append(f"zip has {len(zipped)} files, CSV cites {len(cited)}")
+    for n in sorted(cited - zipped)[:5]: problems.append(f"  cited but not zipped: {n}")
+    for n in sorted(zipped - cited)[:5]: problems.append(f"  zipped but not cited: {n}")
+if on_disk != zipped:
+    problems.append(f"build/images has {len(on_disk)} files, zip has {len(zipped)}")
+if problems:
+    print("\n*** DO NOT UPLOAD - the zip does not match the CSV ***")
+    for pr in problems:
+        print(f"  {pr}")
+    sys.exit(1)
+
+print(f"\nVerified: {len(zipped)} photos, zip and CSV match exactly.")
+print(f"Upload the two {stamp}-* files in build/ to Crosslist together.")
 try:
     subprocess.run(["open", str(build)], capture_output=True)
 except FileNotFoundError:
