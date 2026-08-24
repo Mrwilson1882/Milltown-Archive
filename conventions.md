@@ -116,6 +116,35 @@ of any new session — the chat is not persistent, these files are the memory.
   through a batch is this, not a mis-sort.
 - **`Satisfactory condition` maps to `Fair`** (batch 4, item 35), below
   `Good condition` → `Good`.
+- **Undergarments are named by what they are, not by the voice note**
+  (owner's instruction, 24 Aug). He said plainly that he is unsure what some
+  women's underwear is called and asked for the certain name. This is a
+  standing exception to the never-override rule, for this class of garment
+  only: where a label, a construction detail or a measurement settles it, the
+  correct name is used and the ledger reading is recorded alongside.
+  The distinctions that actually came up:
+  - **Waist trainer / waist cincher** — waist-height band, hook-and-eye rows
+    down the front, boned, often a latex core. Not a skirt, whatever its shape
+    laid flat. Batch 4 had four logged as skirts and a dress.
+  - **Corset / basque** — boned with bust cups and a busk or lacing eyelets.
+  - **Bustier** — strapless, cupped, ends at or near the waist. `Bra` under-
+    sells it; bustier is both more accurate and the term buyers search.
+  - **Chemise** — short nightdress, roughly 28–34in. `Nightgown` reads as full
+    length to a buyer.
+  - **Bodysuit / body shaper** — one piece, built-in bra, hook-and-eye gusset.
+    A chemise is loose nightwear; these are fitted shapewear and bra-sized.
+  - **Half slip** — unboned skirt slip, 20in or more. If it is boned and about
+    a foot deep it is a waist cincher.
+  **`YIANNA` is what "Yana K" is** in a voice note — a waist trainer brand.
+- **Crosslist has no shapewear, corset or bustier category.** All 9,234 were
+  searched. Waist trainers and corsets go in
+  `All women's intimates & sleepwear` (`160b6822-2a37-36b5-95f9-21900af04859`);
+  bra-sized pieces go in `Women's bras` (`50c859ef-6643-4faf-1f4f-903ee3c155cc`),
+  which is also the only size group carrying band-and-cup sizes like `40D`.
+- **A label in frame is not necessarily this garment's label.** Batch 4 item 24
+  had a Corset Story care label photographed on separate grey twill beside a
+  YIANNA waist trainer, and its composition was written from the wrong one.
+  Check the label is sitting on the same fabric as the garment before quoting it.
 - **Size discrepancies:** where a garment's label disagrees with the ledger,
   **the ledger wins.** Record the discrepancy and carry on with the ledger
   value; do not silently switch to the label. Owner's instruction, 16 Aug.
