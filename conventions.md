@@ -99,6 +99,23 @@ of any new session — the chat is not persistent, these files are the memory.
   standard chest pony is not a Big Pony, whatever its colour. Owner's
   instruction, 16 Aug. The same care applies to any line name that carries a
   price premium: it is a claim about the garment, not a keyword to spend.
+- **A number card is photographed lying on the garment it belongs to.** That,
+  not where the card falls in the file sequence, is what assigns photos to
+  items. Cards open some runs, close others and sit mid-run in a few, so any
+  rule based on position breaks — batch 4 lost four items to it. Where two
+  cards sit back to back, the first closes the run before it and the second
+  opens the run after it. Cards are not always in numeric order either: batch
+  4's `IMG_1470` is card 19 and `IMG_1471` is card 18.
+- **A card photo's Photoroom twin is a clean full front.** Background removal
+  takes the card away with the floor, so `IMG_1499-Photoroom.JPG` is a usable
+  cover shot even though `IMG_1499.HEIC` is the card. Include the twin; exclude
+  only the HEIC.
+- **Watch for a second photo pass.** Batch 4's `IMG_1760`–`IMG_1830` was a
+  second run over items already shot, giving clean full front and back shots in
+  item order. Those are the right cover images. A jump back to item 1 partway
+  through a batch is this, not a mis-sort.
+- **`Satisfactory condition` maps to `Fair`** (batch 4, item 35), below
+  `Good condition` → `Good`.
 - **Size discrepancies:** where a garment's label disagrees with the ledger,
   **the ledger wins.** Record the discrepancy and carry on with the ledger
   value; do not silently switch to the label. Owner's instruction, 16 Aug.
