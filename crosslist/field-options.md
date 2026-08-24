@@ -73,6 +73,24 @@ correct underlying data. That check has not been done.
 Titles and tags both lead with the brand on all seven, so text search is
 unaffected either way; only the brand facet is.
 
+## Crosslist fills blank fields on import
+
+**Second confirmed instance, 19 Aug.** Item 22, the bronze Birkenstocks, shows
+`Secondary color: Red` in Crosslist. That field is **empty** in `listings.csv` —
+no row in batch 3 has Red as a secondary except item 20, the black Ralph Lauren
+polo with the red pony, which is correct.
+
+So a blank imported field came back populated, as the Brand field did with
+`Ralph Lauren` becoming `Lauren Ralph Lauren`. Cause unknown: it may be the
+listing form retaining a previous value, or one of the AI generate buttons.
+
+**Check after every import:** the fields left deliberately blank, not just the
+ones filled. A wrong value in a field the CSV never set is invisible from this
+side — it can only be caught in the Crosslist UI.
+
+Colours are worth particular attention on footwear, where a wrong secondary is
+both obvious to a buyer and a filter mismatch.
+
 ## Still needed
 Style for lingerie (items 5, 6) · Vinted material (multi-select, up to 3) ·
 the top of the Department list
