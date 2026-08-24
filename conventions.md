@@ -19,11 +19,21 @@ of any new session — the chat is not persistent, these files are the memory.
 
 - **Never guess.** A field not stated in the voice note is left blank and
   flagged back to the owner. Blank means "not stated", never "none".
-  **Two standing exceptions (owner, 19 Aug): colour and gender.** Both are
-  determined from the photographs and the SKU rather than blocking on a blank.
-  Gender follows the bundle the item came from — a `Women's Y2K Mix` SKU is
-  womenswear — with the garment's own cut and labelling as the check. Say what
-  the call rested on; only escalate when the two disagree.
+  **Standing exception (owner, 19–20 Aug): fill any blank field that the
+  photographs can answer.** Colour, gender, brand, size where a label is
+  legible, material where a composition tag was shot — read it rather than
+  flagging it back.
+
+  **Only ever fill a blank.** A value the owner has stated is never overridden,
+  however the photographs look; a disagreement is reported, not corrected. This
+  is the ledger-wins rule applied to every field, not just size.
+
+  Gender follows the bundle the SKU names — a `Women's Y2K Mix` SKU is
+  womenswear — with the garment's own cut and labelling as the check.
+
+  Some blanks still cannot be answered from a photograph: price, and any
+  measurement not shown against a tape. Those are still flagged back. Say what
+  each filled value rested on, so a reading can be argued with.
   **One exception, Defects only (owner's instruction, 16 Aug):** a blank
   Defects cell is read as *no defects*. This reverses the original rule for
   that column alone — every other field keeps "blank means not stated".

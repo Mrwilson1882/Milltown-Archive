@@ -451,7 +451,7 @@ Settled during Batch 1 and carried forward. The per-field detail is above;
 | Condition | `Very good vintage` → `VeryGood` |
 | Sizes | where a label and the ledger disagree, **the ledger wins** |
 | Defects | blank in the ledger means *no defects*; write nothing in the copy |
-| Colour | read it from the photographs; do not leave the cell blank |
+| Blank fields | fill anything the photographs can answer — colour, gender, brand, legible sizes, photographed compositions. Never override a stated value; price and unphotographed measurements are still flagged back |
 | Gender | decide it when unstated — the SKU's bundle name leads, the garment's cut and labelling check it |
 | Material | **read the tag at full resolution first**, quote it exactly; no tag → estimate with **no percentage** |
 | Price | as dictated, never suggested |
