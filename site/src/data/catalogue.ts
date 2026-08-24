@@ -171,23 +171,6 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    slug: "champion-t-shirts",
-    name: "Champion T-Shirts",
-    summary: "Script-logo Champion tees, in fives, tens and twenties.",
-    description: [
-      "Vintage Champion t-shirts with script-logo and college branding.",
-      "Sold in fives, tens and twenties — a straightforward American sportswear line that suits a stall testing the category before buying deeper.",
-    ],
-    brandSlugs: ["champion"],
-    typeSlugs: ["polos-t-shirts"],
-    collectionSlugs: ["mens"],
-    variants: qty(5, 10, 20),
-    unit: "pieces",
-    notes: [],
-    art: "stripes-ink-2",
-    inStock: true,
-  },
-  {
     slug: "carhartt-dickies-t-shirts",
     name: "Carhartt / Dickies T-Shirts",
     summary: "Workwear tees mixed across both labels, in 25s and 50s.",
@@ -391,23 +374,6 @@ export const products: Product[] = [
   },
 
   // --------------------------------------------------------------- Brand-led lots
-  {
-    slug: "mixed-mens-hugo-boss-mix-20",
-    name: "Mixed Men's Hugo Boss — 20 Items",
-    summary: "Twenty pieces of men's Hugo Boss, mixed.",
-    description: [
-      "Twenty mixed pieces of men's Hugo Boss — branded designer menswear that prices above general vintage.",
-      "A lot for giving a rail a premium end without buying into a full designer category. Sold as a fixed twenty-piece mix.",
-    ],
-    brandSlugs: ["hugo-boss"],
-    typeSlugs: ["polos-t-shirts", "jumpers-sweats"],
-    collectionSlugs: ["premium-vintage", "mens"],
-    variants: qty(20),
-    unit: "pieces",
-    notes: [],
-    art: "blocks-ink",
-    inStock: true,
-  },
   {
     slug: "mixed-mens-lacoste-25",
     name: "Mixed Men's Lacoste — 25 Items",

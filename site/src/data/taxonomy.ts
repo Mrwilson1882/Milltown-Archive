@@ -28,7 +28,7 @@ export const productTypes: Category[] = [
     name: "Polos & T-Shirts",
     blurb: "Branded piqué polos and tees, sold in fives and up.",
     seoCopy:
-      "Wholesale vintage polos and t-shirts from a UK supplier. Lacoste and Ralph Lauren piqué polos, Champion tees, mixed branded tee lots, Carhartt and Dickies workwear tees, and designer mixes — available in quantities from five pieces up to a hundred so you can test a line before you commit to volume.",
+      "Wholesale vintage polos and t-shirts from a UK supplier. Lacoste and Ralph Lauren piqué polos, mixed branded tee lots, Carhartt and Dickies workwear tees, and designer mixes — available in quantities from five pieces up to a hundred so you can test a line before you commit to volume.",
     art: "grid-green",
     featured: true,
   },
@@ -100,19 +100,11 @@ export const brands: Category[] = [
   {
     slug: "champion",
     name: "Champion",
-    blurb: "Reverse weave and script-logo tees.",
+    blurb: "Script-logo tees and jerseys across the mixed lots.",
     seoCopy:
-      "Vintage Champion wholesale from the UK. Script-logo and reverse-weave tees in lots of five, ten or twenty — a reliable seller wherever American college sportswear has a following.",
+      "Vintage Champion wholesale from the UK. Script-logo tees, reverse-weave sweats and mesh sports jerseys, supplied within our mixed branded tee and Y2K lots rather than as a single-brand run.",
     art: "stripes-ink",
     featured: true,
-  },
-  {
-    slug: "hugo-boss",
-    name: "Hugo Boss",
-    blurb: "Men's designer mix, sold as a twenty-piece lot.",
-    seoCopy:
-      "Wholesale vintage Hugo Boss — men's designer mixed lots of twenty pieces. Branded designer menswear that prices above general vintage and gives a rail a premium end.",
-    art: "blocks-ink",
   },
   {
     slug: "carhartt",
@@ -272,7 +264,7 @@ export const collections: Category[] = [
     name: "Men's",
     blurb: "Men's designer and sportswear lots.",
     seoCopy:
-      "Men's vintage wholesale — designer and sportswear lots across Lacoste, Ralph Lauren, Hugo Boss, Nike and Champion, in quantities from five pieces to a hundred.",
+      "Men's vintage wholesale — designer and sportswear lots across Lacoste, Ralph Lauren, Stone Island, Nike and Champion, in quantities from five pieces to a hundred.",
     art: "blocks-ink-2",
   },
 ];
