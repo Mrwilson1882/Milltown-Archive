@@ -201,7 +201,13 @@ def main():
         sys.exit(f"No images found in {args.inbox}")
 
     print(f"Found {len(photos)} photos. Making thumbnails...")
-    args.out.mkdir(parents=True, exist_ok=True)
+    # Cleared first, so a previous run's sheets can never be mistaken for this
+    # one's - the same trap build/ had.
+    if args.out.exists():
+        shutil.rmtree(args.out)
+        if args.out.exists():
+            sys.exit(f"Could not clear {args.out}. Close anything open in it and re-run.")
+    args.out.mkdir(parents=True)
     # Date-stamped so a later batch never overwrites or is mistaken for an earlier one.
     stamp = datetime.date.today().isoformat()
 
