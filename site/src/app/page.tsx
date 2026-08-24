@@ -46,8 +46,8 @@ const routes = [
     cta: "Browse products",
   },
   {
-    title: "By the kilo",
-    body: "For volume buyers. Sorted vintage by weight, from 25kg up to a full tonne, quoted per kilo.",
+    title: "Bulk by weight",
+    body: "For volume buyers. Bags from 5kg, bales to 300kg, pallets to a full tonne — sorted by category and quoted per kilo.",
     href: "/by-kilo",
     cta: "See how it works",
   },
@@ -105,7 +105,7 @@ export default function HomePage() {
               {[
                 { k: "Boxes from", v: "£200" },
                 { k: "Lots from", v: "5 pieces" },
-                { k: "Bulk up to", v: "1,000kg" },
+                { k: "Bulk to", v: "1,000kg" },
               ].map((stat) => (
                 <div key={stat.k}>
                   <dt className="eyebrow text-slate">{stat.k}</dt>

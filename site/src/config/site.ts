@@ -41,7 +41,7 @@ export const navLinks = [
   { href: "/collections/reseller-boxes", label: "Reseller Boxes" },
   { href: "/types", label: "By Product" },
   { href: "/brands", label: "Brands" },
-  { href: "/by-kilo", label: "By Kilo" },
+  { href: "/by-kilo", label: "Bulk" },
   { href: "/products", label: "All Products" },
   { href: "/contact", label: "Contact" },
 ] as const;
