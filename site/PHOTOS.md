@@ -39,7 +39,7 @@ Then add it to the product in `src/data/catalogue.ts`:
 
 ```ts
 photos: [
-  { src: "/images/products/nike-t-shirts/01.jpg", alt: "Twenty vintage Nike spellout tees laid out on white" },
+  { src: "/images/products/champion-t-shirts/01.jpg", alt: "Twenty vintage Champion script-logo tees laid out on white" },
 ],
 ```
 
@@ -48,8 +48,8 @@ read aloud by screen readers and indexed by Google.
 
 ## Products still without photography
 
-nike-t-shirts · champion-t-shirts · carhartt-dickies-t-shirts ·
-ralph-tommy-lacoste-summer-mix-25 · y2k-designer-male-mix-box-20 ·
+champion-t-shirts · carhartt-dickies-t-shirts ·
+ralph-tommy-lacoste-mix · y2k-designer-male-mix-box-20 ·
 mixed-premium-vintage-hoodies-sweatshirts · mixed-premium-vintage-sweatshirts ·
 ralph-lauren-polos · festival-track-jackets · designer-jackets · bags ·
 mixed-mens-hugo-boss-mix-20 · mixed-mens-lacoste-25

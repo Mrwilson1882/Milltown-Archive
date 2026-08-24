@@ -28,7 +28,7 @@ export const productTypes: Category[] = [
     name: "Polos & T-Shirts",
     blurb: "Branded piqué polos and tees, sold in fives and up.",
     seoCopy:
-      "Wholesale vintage polos and t-shirts from a UK supplier. Lacoste and Ralph Lauren piqué polos, Nike and Champion tees, Carhartt and Dickies workwear tees, and mixed summer lots — available in quantities from five pieces up to a hundred so you can test a line before you commit to volume.",
+      "Wholesale vintage polos and t-shirts from a UK supplier. Lacoste and Ralph Lauren piqué polos, Champion tees, mixed branded tee lots, Carhartt and Dickies workwear tees, and designer mixes — available in quantities from five pieces up to a hundred so you can test a line before you commit to volume.",
     art: "grid-green",
     featured: true,
   },
@@ -91,9 +91,9 @@ export const brands: Category[] = [
   {
     slug: "nike",
     name: "Nike",
-    blurb: "Swoosh and spellout tees in small, testable lots.",
+    blurb: "Swoosh tees, shells and shorts across the mixed lots.",
     seoCopy:
-      "Wholesale vintage Nike t-shirts, UK stock. Swoosh and spellout tees in lots of five, ten or twenty — small enough to test on a stall, deep enough to fill a rail once you know the line sells.",
+      "Wholesale vintage Nike, UK stock. Swoosh and spellout tees, nylon shells and shorts, supplied within our mixed branded tee, jacket and Y2K lots rather than as a single-brand run.",
     art: "bands-green",
     featured: true,
   },
@@ -133,9 +133,9 @@ export const brands: Category[] = [
   {
     slug: "tommy-hilfiger",
     name: "Tommy Hilfiger",
-    blurb: "Flag-logo pieces in the summer mix.",
+    blurb: "Flag-logo pieces in the designer mixes.",
     seoCopy:
-      "Vintage Tommy Hilfiger wholesale, sold as part of our Ralph / Tommy / Lacoste summer mix. Flag-logo polos and lightweight branded pieces for warm-weather trading.",
+      "Vintage Tommy Hilfiger wholesale, supplied within our Ralph, Tommy, Lacoste mix and our jackets and windbreaker lots. Flag-logo polos, tees and hooded outerwear.",
     art: "diagonal-green-3",
   },
   {
