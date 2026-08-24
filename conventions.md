@@ -145,6 +145,26 @@ of any new session — the chat is not persistent, these files are the memory.
   had a Corset Story care label photographed on separate grey twill beside a
   YIANNA waist trainer, and its composition was written from the wrong one.
   Check the label is sitting on the same fabric as the garment before quoting it.
+- **Crosslist titles are capped at 80 characters** (owner, 24 Aug), not the
+  5–255 the template workbook's Info tab claims. The UI refuses to save a longer
+  one, so an over-length title is a stop, not a warning. `build_items.py` now
+  exits rather than write one. Trim from the tail — the last words carry the
+  least search weight.
+- **`Y2K` goes near the front of the title**, straight after the brand (owner,
+  24 Aug): "a popular search term right now". Buried at word 8 it was doing
+  little. It belongs on anything of the 2000s, not only on pieces already
+  described that way.
+- **Photo filenames must be zero-padded** — `029_01.jpg`, not `029_1.jpg`.
+  Crosslist orders a listing's photos by filename **as text**, so `029_10.jpg`
+  sorts directly after `029_1.jpg` and the tenth photo lands in slot 2. Batch 4
+  shipped a tape-measure shot as image 2 on 33 of 45 items because of this.
+  Two digits covers the largest item seen (17 photos).
+- **The dictated defect is always the final sentence of the Item Description**
+  and appears nowhere else (owner, 24 Aug: "It NEEDS to be mentioned, but only
+  at the very end to stop it impacting sales"). `build_items.py` appends it
+  rather than trusting it to have been written into the prose, and refuses to
+  write a row where a stated defect is missing or is not last — items 1, 2 and
+  27 shipped without theirs when it was left to hand.
 - **Size discrepancies:** where a garment's label disagrees with the ledger,
   **the ledger wins.** Record the discrepancy and carry on with the ledger
   value; do not silently switch to the label. Owner's instruction, 16 Aug.

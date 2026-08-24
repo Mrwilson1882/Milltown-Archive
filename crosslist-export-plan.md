@@ -32,7 +32,8 @@ Note: the Info tab writes column 32 as "Cost of goods", the Template tab as
 Key rules from the Info tab:
 
 - **Id** — only needed when *updating* existing listings. Blank for new stock.
-- **Title** — 5–255 characters.
+- **Title** — the Info tab says 5–255. **Crosslist's own UI caps it at 80** and
+  refuses to save anything longer (owner, 24 Aug). 80 is the real limit.
 - **Description** — up to 12 000 characters, line breaks allowed. This is where
   measurements go.
 - **Price / Original Price** — plain numbers, e.g. `49.99`. **No currency

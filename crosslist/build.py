@@ -90,7 +90,10 @@ for it in csv.DictReader(open(itemfile)):
         s = inbox / src
         if not s.exists():
             missing.append(src); continue
-        dest = f"{n}_{idx}.jpg"
+        # Zero-padded: Crosslist orders photos by filename as text, so an
+        # unpadded 029_10.jpg sorts straight after 029_1.jpg and a tape-measure
+        # shot lands in slot 2. Two digits covers the largest item seen (17).
+        dest = f"{n}_{idx:02d}.jpg"
         try:
             copy_photo(s, images / dest, max_px)
         except Exception as e:
