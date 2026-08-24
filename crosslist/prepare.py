@@ -10,8 +10,8 @@ returns mapping.csv. Nothing in the source folder is renamed, moved or modified
     python3 prepare.py "/Users/tobywilson94/Downloads/Batch 1"
 
 Output lands in ./prepared/ :
-    contact-sheets.pdf   12 photos per page, each captioned with index + filename
-    manifest.csv         every photo, with its index and capture time
+    YYYY-MM-DD-contact-sheets.pdf 12 photos per page, captioned with index + filename
+    YYYY-MM-DD-manifest.csv       every photo, with its index and capture time
 
 No installation required. Thumbnails are made with `sips`, which is built into
 macOS and reads HEIC natively, and the PDF is assembled with nothing but the
@@ -19,7 +19,7 @@ Python standard library. (Pillow is used instead of sips if sips is missing,
 which is only the case off macOS.)
 """
 
-import argparse, csv, os, shutil, struct, subprocess, sys, tempfile, zlib
+import argparse, csv, datetime, os, shutil, struct, subprocess, sys, tempfile, zlib
 from pathlib import Path
 
 EXTS = {".jpg", ".jpeg", ".png", ".heic", ".heif", ".tif", ".tiff", ".webp"}
@@ -202,6 +202,8 @@ def main():
 
     print(f"Found {len(photos)} photos. Making thumbnails...")
     args.out.mkdir(parents=True, exist_ok=True)
+    # Date-stamped so a later batch never overwrites or is mistaken for an earlier one.
+    stamp = datetime.date.today().isoformat()
 
     tiles, failed, rows = [], [], []
     with tempfile.TemporaryDirectory() as tmp:
@@ -220,11 +222,11 @@ def main():
 
         per_page = COLS * ROWS
         pages = [tiles[j:j + per_page] for j in range(0, len(tiles), per_page)]
-        pdf = args.out / "contact-sheets.pdf"
+        pdf = args.out / f"{stamp}-contact-sheets.pdf"
         print(f"Writing {len(pages)} pages...")
         build_pdf(pages, pdf)
 
-    with open(args.out / "manifest.csv", "w", newline="") as f:
+    with open(args.out / f"{stamp}-manifest.csv", "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["index", "filename", "capture_time"])
         w.writerows(rows)
@@ -232,11 +234,11 @@ def main():
     mb = pdf.stat().st_size / 1_000_000
     print(f"\nDone. {len(tiles)} photos over {len(pages)} pages — {mb:.1f} MB")
     print(f"  {pdf}")
-    print(f"  {args.out / 'manifest.csv'}")
+    print(f"  {args.out / (stamp + '-manifest.csv')}")
     if failed:
         print(f"\n{len(failed)} could not be read: {', '.join(failed[:10])}"
               + (" ..." if len(failed) > 10 else ""))
-    print("\nSend contact-sheets.pdf to Claude.")
+    print(f"\nSend both {stamp}-* files to Claude.")
 
 
 if __name__ == "__main__":

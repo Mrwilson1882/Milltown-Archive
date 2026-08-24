@@ -12,7 +12,7 @@ Produces build/ :
 The Images column and the zip are generated from one list, so the filenames
 cannot disagree. Source photos are only ever read. Standard library only.
 """
-import csv, shutil, subprocess, sys, zipfile
+import csv, datetime, shutil, subprocess, sys, zipfile
 from pathlib import Path
 
 def copy_photo(src, dest, max_px):
@@ -67,6 +67,7 @@ n_items = sum(1 for _ in csv.DictReader(open(itemfile)))
 n_photos = sum(1 for r in csv.DictReader(open(mapfile)) if r["shot_type"] != "card")
 print(f"{itemfile}: {n_items} items\n{mapfile}: {n_photos} listed photos\nphotos from: {inbox}\n")
 
+stamp = datetime.date.today().isoformat()   # so batches never overwrite each other
 build = Path("build"); images = build / "images"
 if build.exists():
     shutil.rmtree(build)          # disposable by design; rebuilt every run
@@ -109,18 +110,18 @@ for it in csv.DictReader(open(itemfile)):
             row[col] = it[col]
     rows.append([row[c] for c in COLUMNS])
 
-with open(build / "listings.csv", "w", newline="", encoding="utf-8") as f:
+with open(build / f"{stamp}-listings.csv", "w", newline="", encoding="utf-8") as f:
     w = csv.writer(f); w.writerow(COLUMNS); w.writerows(rows)
 
-with zipfile.ZipFile(build / "images.zip", "w", zipfile.ZIP_DEFLATED) as z:
+with zipfile.ZipFile(build / f"{stamp}-images.zip", "w", zipfile.ZIP_DEFLATED) as z:
     for p in sorted(images.iterdir()):
         z.write(p, p.name)
 
 total = sum(1 for _ in images.iterdir())
-print(f"\nbuild/listings.csv   {len(rows)} items")
+print(f"\nbuild/{stamp}-listings.csv   {len(rows)} items")
 print(f"build/images/        {total} photos")
-size_mb = (build / "images.zip").stat().st_size / 1_000_000
-print(f"build/images.zip     {size_mb:.0f} MB" + (f"  (resized to {max_px}px)" if max_px else ""))
+size_mb = (build / f"{stamp}-images.zip").stat().st_size / 1_000_000
+print(f"build/{stamp}-images.zip     {size_mb:.0f} MB" + (f"  (resized to {max_px}px)" if max_px else ""))
 if not max_px and size_mb > 100:
     print("  Large. If Crosslist baulks, re-run with --max-px=1600")
 if missing:
@@ -133,7 +134,7 @@ if blocked:
     print("\nUploads with no Size id - Crosslist may reject these rows:")
     for b in blocked:
         print(f"  {b}")
-print("\nUpload listings.csv and images.zip to Crosslist together.")
+print(f"\nUpload the two {stamp}-* files in build/ to Crosslist together.")
 try:
     subprocess.run(["open", str(build)], capture_output=True)
 except FileNotFoundError:
