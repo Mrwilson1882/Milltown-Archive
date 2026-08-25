@@ -116,8 +116,8 @@ export const products: Product[] = [
       "Made up, priced and sold as a single box. No specification needed and no quote to wait for: order it and it ships.",
       "Runs alongside the women's box, so a stall can open with both sides of the rail covered for £400.",
     ],
-    brandSlugs: ["mixed-brands"],
-    typeSlugs: ["polos-t-shirts", "jumpers-sweats"],
+    brandSlugs: ["mixed-brands", "diesel", "hugo-boss", "lacoste", "nike"],
+    typeSlugs: ["polos-t-shirts", "jumpers-sweats", "jackets"],
     collectionSlugs: ["reseller-boxes", "y2k", "mens"],
     variants: [{ pieces: 20, priceGBP: 200 }],
     unit: "pieces",
@@ -185,7 +185,7 @@ export const products: Product[] = [
     unit: "pieces",
     notes: [],
     art: "blocks-ink-3",
-    inStock: true,
+    inStock: false,
   },
   {
     slug: "ralph-tommy-lacoste-mix",
@@ -370,7 +370,7 @@ export const products: Product[] = [
     unit: "pieces",
     notes: [],
     art: "halftone-ink",
-    inStock: true,
+    inStock: false,
   },
 
   // --------------------------------------------------------------- Brand-led lots

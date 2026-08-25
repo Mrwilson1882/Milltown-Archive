@@ -240,6 +240,22 @@ export const brands: Category[] = [
     featured: true,
   },
   {
+    slug: "diesel",
+    name: "Diesel",
+    blurb: "Print tees and denim-led Y2K pieces.",
+    seoCopy:
+      "Vintage Diesel wholesale in the UK. Print tees, denim and the logo-forward Y2K pieces the label is known for — supplied within our Y2K designer boxes and mixed lots.",
+    art: "stripes-green-5",
+  },
+  {
+    slug: "hugo-boss",
+    name: "Hugo Boss",
+    blurb: "Boss Sport polos and designer menswear.",
+    seoCopy:
+      "Wholesale vintage Hugo Boss from a UK supplier. Boss Sport polos, striped jersey and designer menswear — branded pieces that price above general vintage and give a rail a premium end.",
+    art: "grid-ink-5",
+  },
+  {
     slug: "mixed-brands",
     name: "Mixed Brands",
     blurb: "Multi-label lots spanning the full intake.",

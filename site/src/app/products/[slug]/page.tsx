@@ -93,19 +93,17 @@ export default async function ProductPage({ params }: Params) {
     description: product.summary,
     brand: { "@type": "Brand", name: siteConfig.name },
     url: `${siteConfig.url}/products/${product.slug}`,
-    ...(product.variants.length > 0
-      ? {
-          offers: {
-            "@type": "AggregateOffer",
-            priceCurrency: "GBP",
-            offerCount: product.variants.length,
-            availability: product.inStock
-              ? "https://schema.org/InStock"
-              : "https://schema.org/OutOfStock",
-            ...(cheapest !== null ? { lowPrice: cheapest.toFixed(2) } : {}),
-          },
-        }
-      : {}),
+    // Availability is always declared, even for a lot with no published sizes —
+    // otherwise a sold-out product gives search engines no signal at all.
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "GBP",
+      availability: product.inStock
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
+      ...(product.variants.length > 0 ? { offerCount: product.variants.length } : {}),
+      ...(cheapest !== null ? { lowPrice: cheapest.toFixed(2) } : {}),
+    },
   };
 
   const enquiryMessage = `Hi Archive Wholesale, I'd like to enquire about "${product.name}".`;
