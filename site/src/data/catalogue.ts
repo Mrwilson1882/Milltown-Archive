@@ -228,8 +228,7 @@ export const products: Product[] = [
     brandSlugs: ["mixed-brands", "guess", "nautica"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage"],
-    // 50 prices ABOVE 25 — queried with the owner, entered as quoted.
-    variants: [at(25, 8), at(50, 9)],
+    variants: [at(25, 9), at(50, 8.5), at(100, 8)],
     unit: "pieces",
     notes: [],
     art: "bands-ink-3",
@@ -413,9 +412,7 @@ export const products: Product[] = [
     brandSlugs: ["mixed-brands", "champion", "nike", "fila", "adidas"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: ["mens"],
-    // 100 left unpriced: quoted as "forty four pounds per t-shirt", which
-    // cannot be right beside £5.50 at fifty. Awaiting the owner.
-    variants: [at(25, 6), at(50, 5.5), { pieces: 100, priceGBP: null }],
+    variants: [at(25, 6), at(50, 5.5), at(100, 4)],
     unit: "pieces",
     notes: [],
     art: "bands-ink-4",
