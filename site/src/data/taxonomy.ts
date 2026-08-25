@@ -18,6 +18,14 @@ export type Category = {
   seoCopy: string;
   /** Path under /public/images/tiles, without extension. */
   art: string;
+  /**
+   * Slug of the product whose photograph fronts this category.
+   *
+   * Chosen by hand rather than taken from whichever product happens to sort
+   * first, so a Polos tile shows polos and a Lacoste tile shows Lacoste. Leave
+   * it off and the tile falls back to `art`.
+   */
+  photoFrom?: string;
   /** Shown on the home page grid. */
   featured?: boolean;
 };
@@ -30,6 +38,7 @@ export const productTypes: Category[] = [
     seoCopy:
       "Wholesale vintage polos and t-shirts from a UK supplier. Lacoste and Ralph Lauren piqué polos, mixed branded tee lots, Carhartt and Dickies workwear tees, and designer mixes — available in quantities from five pieces up to a hundred so you can test a line before you commit to volume.",
     art: "grid-green",
+    photoFrom: "ralph-lauren-polos",
     featured: true,
   },
   {
@@ -39,6 +48,7 @@ export const productTypes: Category[] = [
     seoCopy:
       "Wholesale vintage hoodies and sweatshirts, plus Lacoste jumpers and cardigans. Premium vintage sweats are the most consistent repeat category in UK vintage retail — bought in mixed lots from five pieces, or in depth up to a hundred.",
     art: "bands-ink",
+    photoFrom: "mixed-premium-vintage-hoodies-sweatshirts",
     featured: true,
   },
   {
@@ -48,6 +58,7 @@ export const productTypes: Category[] = [
     seoCopy:
       "Vintage jacket wholesale in the UK. Festival track jackets for the summer season and designer outerwear lots in small runs — the highest single-piece margin of anything we sell, and the fastest category to clear at a festival or market stall.",
     art: "diagonal-green",
+    photoFrom: "festival-track-jackets",
     featured: true,
   },
   {
@@ -57,6 +68,7 @@ export const productTypes: Category[] = [
     seoCopy:
       "Wholesale vintage footwear — Birkenstock sandals in lots of five to fifty pairs. Footwear sells alongside a clothing rail without competing with it, and Birkenstocks hold their resale value better than almost anything else in second-hand footwear.",
     art: "blocks-green",
+    photoFrom: "birkenstock-sandals",
     featured: true,
   },
   {
@@ -77,6 +89,7 @@ export const brands: Category[] = [
     seoCopy:
       "Wholesale vintage Lacoste from a UK supplier. Croc-logo polo shirts, knitted jumpers and zip-through cardigans in lots from ten pieces to a hundred. Lacoste is one of the two labels our buyers reorder most.",
     art: "grid-green-2",
+    photoFrom: "lacoste-jumpers-cardigans",
     featured: true,
   },
   {
@@ -86,6 +99,7 @@ export const brands: Category[] = [
     seoCopy:
       "Vintage Ralph Lauren wholesale in the UK. Polo Ralph Lauren pony polos in mixed colourways and sizing, sold on their own or mixed with Lacoste, from five pieces up to a hundred.",
     art: "diagonal-ink",
+    photoFrom: "ralph-lauren-polos",
     featured: true,
   },
   {
@@ -95,6 +109,7 @@ export const brands: Category[] = [
     seoCopy:
       "Wholesale vintage Nike, UK stock. Swoosh and spellout tees, nylon shells and shorts, supplied within our mixed branded tee, jacket and Y2K lots rather than as a single-brand run.",
     art: "bands-green",
+    photoFrom: "t-shirt-mix",
     featured: true,
   },
   {
@@ -104,6 +119,7 @@ export const brands: Category[] = [
     seoCopy:
       "Vintage Champion wholesale from the UK. Script-logo tees, reverse-weave sweats and mesh sports jerseys, supplied within our mixed branded tee and Y2K lots rather than as a single-brand run.",
     art: "stripes-ink",
+    photoFrom: "t-shirt-mix",
     featured: true,
   },
   {
@@ -129,6 +145,7 @@ export const brands: Category[] = [
     seoCopy:
       "Vintage Tommy Hilfiger wholesale, supplied within our Ralph, Tommy, Lacoste mix and our jackets and windbreaker lots. Flag-logo polos, tees and hooded outerwear.",
     art: "diagonal-green-3",
+    photoFrom: "ralph-tommy-lacoste-mix",
   },
   {
     slug: "birkenstock",
@@ -137,6 +154,7 @@ export const brands: Category[] = [
     seoCopy:
       "Wholesale Birkenstock sandals from a UK vintage supplier. Sold by the pair in lots of five, ten, twenty-five and fifty — second-hand Birkenstocks hold their value and turn over fast in the right shop.",
     art: "blocks-green-2",
+    photoFrom: "birkenstock-sandals",
   },
   {
     slug: "adidas",
@@ -145,6 +163,7 @@ export const brands: Category[] = [
     seoCopy:
       "Wholesale vintage Adidas from a UK supplier. Trefoil and three-stripe tees, hooded sweats and track pieces, sold in mixed lots alongside the other sportswear labels we carry.",
     art: "bands-green-4",
+    photoFrom: "festival-track-jackets",
     featured: true,
   },
   {
@@ -154,6 +173,7 @@ export const brands: Category[] = [
     seoCopy:
       "Vintage Reebok wholesale in the UK. Shell jackets, windbreakers and 90s sportswear — a label that sells strongly to buyers working the terrace and festival end of the market.",
     art: "stripes-ink-4",
+    photoFrom: "festival-track-jackets",
   },
   {
     slug: "fila",
@@ -162,6 +182,7 @@ export const brands: Category[] = [
     seoCopy:
       "Wholesale vintage Fila. Logo tees, tape-detail sportswear and colour-block pieces, included in our mixed branded tee and sportswear lots.",
     art: "grid-green-4",
+    photoFrom: "t-shirt-mix",
   },
   {
     slug: "harley-davidson",
@@ -170,6 +191,7 @@ export const brands: Category[] = [
     seoCopy:
       "Vintage Harley-Davidson wholesale in the UK. Dealer-print tees, long-sleeves and womenswear — a category with its own committed buyer that prices well above general vintage.",
     art: "diagonal-ink-4",
+    photoFrom: "starter-box-10",
   },
   {
     slug: "stone-island",
@@ -178,6 +200,7 @@ export const brands: Category[] = [
     seoCopy:
       "Stone Island wholesale, sold within our men's luxury lots. Badged knitwear and outerwear at the top of the price ladder — for shops with an established customer for designer menswear.",
     art: "halftone-green-4",
+    photoFrom: "mens-luxury-winter-mix",
     featured: true,
   },
   {
@@ -187,6 +210,7 @@ export const brands: Category[] = [
     seoCopy:
       "Vintage Missoni wholesale. Patterned Italian knitwear from the Missoni Sport line, supplied within our men's luxury winter lots — rare, distinctive, and priced accordingly.",
     art: "blocks-ink-4",
+    photoFrom: "mens-luxury-winter-mix",
   },
   {
     slug: "valentino",
@@ -195,6 +219,7 @@ export const brands: Category[] = [
     seoCopy:
       "Valentino vintage wholesale, supplied within our luxury knitwear lots. Argyle and fine-gauge designer knits for retailers selling at the premium end.",
     art: "stripes-green-4",
+    photoFrom: "mens-luxury-winter-mix",
   },
   {
     slug: "guess",
@@ -203,6 +228,7 @@ export const brands: Category[] = [
     seoCopy:
       "Wholesale vintage Guess from a UK supplier. Triangle-logo crewneck sweatshirts, denim and branded jersey — a label that carries real weight with Y2K buyers and prices above general vintage.",
     art: "blocks-green-4",
+    photoFrom: "mixed-premium-vintage-sweatshirts",
   },
   {
     slug: "nautica",
@@ -211,6 +237,7 @@ export const brands: Category[] = [
     seoCopy:
       "Vintage Nautica wholesale in the UK. Sailing-flag spellout crewnecks, colour-block sportswear and outerwear — one of the strongest 90s American labels for a vintage rail.",
     art: "bands-green-3",
+    photoFrom: "mixed-premium-vintage-sweatshirts",
   },
   {
     slug: "moncler",
@@ -219,6 +246,7 @@ export const brands: Category[] = [
     seoCopy:
       "Moncler wholesale from a UK vintage supplier. Quilted and down outerwear at the top of the price ladder, supplied within our luxury outerwear lots rather than mixed into general vintage.",
     art: "blocks-ink-5",
+    photoFrom: "luxury-outerwear-mix",
     featured: true,
   },
   {
@@ -228,6 +256,7 @@ export const brands: Category[] = [
     seoCopy:
       "Vintage Burberry wholesale in the UK. Jackets, coats and shirting from one of the most searched luxury labels in second-hand — supplied within our luxury outerwear lots.",
     art: "grid-green-5",
+    photoFrom: "luxury-outerwear-mix",
     featured: true,
   },
   {
@@ -237,6 +266,7 @@ export const brands: Category[] = [
     seoCopy:
       "Versace wholesale, supplied within our luxury lots. Tailoring, blazers and statement pieces for retailers selling at the designer end of vintage.",
     art: "diagonal-ink-5",
+    photoFrom: "luxury-outerwear-mix",
     featured: true,
   },
   {
@@ -246,6 +276,7 @@ export const brands: Category[] = [
     seoCopy:
       "Vintage Diesel wholesale in the UK. Print tees, denim and the logo-forward Y2K pieces the label is known for — supplied within our Y2K designer boxes and mixed lots.",
     art: "stripes-green-5",
+    photoFrom: "y2k-designer-male-mix-box-20",
   },
   {
     slug: "hugo-boss",
@@ -254,6 +285,7 @@ export const brands: Category[] = [
     seoCopy:
       "Wholesale vintage Hugo Boss from a UK supplier. Boss Sport polos, striped jersey and designer menswear — branded pieces that price above general vintage and give a rail a premium end.",
     art: "grid-ink-5",
+    photoFrom: "y2k-designer-male-mix-box-20",
   },
   {
     slug: "mixed-brands",
@@ -262,6 +294,7 @@ export const brands: Category[] = [
     seoCopy:
       "Mixed-brand vintage wholesale lots for buyers who want breadth. Each lot spans several recognised labels, picked to give a stall or online shop a full rail from a single purchase.",
     art: "halftone-ink-2",
+    photoFrom: "t-shirt-mix",
   },
 ];
 
@@ -273,6 +306,7 @@ export const collections: Category[] = [
     seoCopy:
       "Vintage reseller boxes from a UK wholesaler. Fixed-price boxes of branded pieces — a ten-piece starter box, plus twenty-piece men's and women's Y2K mixes — made up and priced so you can order in one click and start selling the week it lands. The simplest entry point into vintage wholesale.",
     art: "bands-green-2",
+    photoFrom: "y2k-designer-female-mix-box-20",
     featured: true,
   },
   {
@@ -282,6 +316,7 @@ export const collections: Category[] = [
     seoCopy:
       "Y2K vintage wholesale in the UK. Late-90s and early-2000s designer pieces — logo-forward, bold colourways and the cuts currently driving resale demand on Depop and Vinted.",
     art: "halftone-green-2",
+    photoFrom: "y2k-designer-male-mix-box-20",
     featured: true,
   },
   {
@@ -291,6 +326,7 @@ export const collections: Category[] = [
     seoCopy:
       "Luxury vintage wholesale in the UK. Moncler, Burberry, Versace, Stone Island, Missoni and Valentino, kept apart from general premium vintage because they price on the label rather than the category. Small lots for retailers with an established designer customer.",
     art: "halftone-ink-5",
+    photoFrom: "luxury-outerwear-mix",
     featured: true,
   },
   {
@@ -300,6 +336,7 @@ export const collections: Category[] = [
     seoCopy:
       "Premium vintage wholesale — the strongest pieces from each intake, graded up rather than bundled into general mixed lots. For retailers who sell on piece quality rather than volume.",
     art: "grid-ink",
+    photoFrom: "mixed-premium-vintage-hoodies",
     featured: true,
   },
   {
@@ -309,6 +346,7 @@ export const collections: Category[] = [
     seoCopy:
       "Summer vintage wholesale bundles — lightweight branded polos, tees and thin layers from Ralph Lauren, Tommy Hilfiger and Lacoste. Bought seasonally and priced to move volume through spring and summer.",
     art: "stripes-green",
+    photoFrom: "womens-y2k-summer-mix",
     featured: true,
   },
   {
@@ -318,6 +356,7 @@ export const collections: Category[] = [
     seoCopy:
       "Festival vintage wholesale — track jackets and bold branded pieces for the summer festival circuit. Bright, recognisable and priced to sell fast at a temporary pitch.",
     art: "diagonal-ink-2",
+    photoFrom: "festival-track-jackets",
   },
   {
     slug: "womens",
@@ -326,6 +365,7 @@ export const collections: Category[] = [
     seoCopy:
       "Women's vintage wholesale from Archive Wholesale. Womenswear is picked and sized as its own category rather than sifted out of men's lots — designer Y2K pieces in true women's sizing.",
     art: "bands-ink-2",
+    photoFrom: "womens-y2k-summer-mix",
   },
   {
     slug: "mens",
@@ -334,6 +374,7 @@ export const collections: Category[] = [
     seoCopy:
       "Men's vintage wholesale — designer and sportswear lots across Lacoste, Ralph Lauren, Stone Island, Nike and Champion, in quantities from five pieces to a hundred.",
     art: "blocks-ink-2",
+    photoFrom: "mixed-mens-lacoste-25",
   },
 ];
 

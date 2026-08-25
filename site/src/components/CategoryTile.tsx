@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Category, CategoryKind } from "@/data/taxonomy";
 import { categoryPath } from "@/data/taxonomy";
-import { productsInCategory } from "@/data/catalogue";
+import { getProduct, productsInCategory } from "@/data/catalogue";
 
 const kindLabel: Record<CategoryKind, string> = {
   brand: "Brand",
@@ -25,12 +25,18 @@ export function CategoryTile({
   priority?: boolean;
 }) {
   /**
-   * Show our own stock rather than generated artwork wherever a product in this
-   * category has been photographed. A real rail of Lacoste sells the category
-   * better than an abstract tile — and better than a brand logo we have no
-   * right to use.
+   * Show our own stock rather than generated artwork. A real rail of Lacoste
+   * sells the category better than an abstract tile — and better than a brand
+   * logo we have no right to use.
+   *
+   * The shot is named on the category (`photoFrom`) so each tile shows the
+   * stock it is actually about. Only if that is unset do we fall back to the
+   * first photographed product in the category, and then to `art`.
    */
-  const ownPhoto = productsInCategory(kind, category.slug).find((p) => p.photos?.[0])?.photos?.[0];
+  const named = category.photoFrom ? getProduct(category.photoFrom) : undefined;
+  const ownPhoto =
+    named?.photos?.[0] ??
+    productsInCategory(kind, category.slug).find((p) => p.photos?.[0])?.photos?.[0];
   const src = ownPhoto?.src ?? `/images/tiles/${category.art}.svg`;
   const alt = ownPhoto
     ? `${category.name} — ${ownPhoto.alt}`

@@ -90,7 +90,7 @@ const at = (pieces: number, perPiece: number): Variant => ({
   priceGBP: Math.round(pieces * perPiece * 100) / 100,
 });
 
-export const products: Product[] = [
+const catalogue: Product[] = [
   // ---------------------------------------------------------------- Reseller boxes
   {
     slug: "starter-box-10",
@@ -593,6 +593,29 @@ export const products: Product[] = [
     featured: true,
   },
 ];
+
+/**
+ * A lot with no photograph is not offered for sale.
+ *
+ * Buyers will not commit to a fifty-piece run off a description alone, and an
+ * abstract tile next to a price reads as a placeholder rather than as stock. So
+ * anything unphotographed is forced out of stock here: it stays listed, stays
+ * indexed and still takes enquiries, but it cannot be added to the cart or
+ * bought. Photograph it and it comes back on its own — there is no second flag
+ * to remember to flip.
+ *
+ * `inStock` in the catalogue above therefore means "we have it"; this is the
+ * separate question of whether we can show it.
+ */
+export const products: Product[] = catalogue.map((product) => ({
+  ...product,
+  inStock: product.inStock && (product.photos?.length ?? 0) > 0,
+}));
+
+/** Lots held back only for want of a photograph — the shot list, in effect. */
+export const awaitingPhotography = catalogue.filter(
+  (p) => p.inStock && (p.photos?.length ?? 0) === 0,
+);
 
 export function getProduct(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
