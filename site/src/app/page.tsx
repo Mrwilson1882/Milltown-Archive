@@ -20,10 +20,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-/** The home grid mixes all three ways of browsing, exactly as buyers think. */
+/**
+ * The home grid is product types then collections. Brands are deliberately left
+ * out of it — they have their own page in the nav, and putting twenty-odd labels
+ * here buried the way we actually sell, which is by lot.
+ */
 const homeTiles: { kind: CategoryKind; category: Category }[] = [
   ...productTypes.filter((t) => t.featured).map((category) => ({ kind: "type" as const, category })),
-  ...brands.filter((b) => b.featured).map((category) => ({ kind: "brand" as const, category })),
   ...collections
     .filter((c) => c.featured)
     .map((category) => ({ kind: "collection" as const, category })),
@@ -192,7 +195,7 @@ export default function HomePage() {
             <div>
               <p className="eyebrow text-forest">Browse the archive</p>
               <h2 className="display mt-3 text-3xl sm:text-4xl">
-                Shop by product, brand or collection
+                Shop by product or collection
               </h2>
             </div>
             <Link
