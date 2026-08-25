@@ -80,6 +80,15 @@ export type Product = {
 const qty = (...counts: number[]): Variant[] =>
   counts.map((pieces) => ({ pieces, priceGBP: null }));
 
+/**
+ * A priced lot, entered per piece — `at(25, 8)` is 25 pieces at £8 each.
+ * Prices are EXCLUDING VAT; VAT is added in the cart and at checkout.
+ */
+const at = (pieces: number, perPiece: number): Variant => ({
+  pieces,
+  priceGBP: Math.round(pieces * perPiece * 100) / 100,
+});
+
 export const products: Product[] = [
   // ---------------------------------------------------------------- Reseller boxes
   {
@@ -94,7 +103,7 @@ export const products: Product[] = [
     brandSlugs: ["mixed-brands", "reebok", "harley-davidson", "ralph-lauren"],
     typeSlugs: ["polos-t-shirts", "jumpers-sweats"],
     collectionSlugs: ["reseller-boxes", "y2k", "womens"],
-    variants: [{ pieces: 20, priceGBP: 200 }],
+    variants: [at(20, 10)],
     unit: "pieces",
     notes: [],
     art: "halftone-green-3",
@@ -119,7 +128,7 @@ export const products: Product[] = [
     brandSlugs: ["mixed-brands", "diesel", "hugo-boss", "lacoste", "nike"],
     typeSlugs: ["polos-t-shirts", "jumpers-sweats", "jackets"],
     collectionSlugs: ["reseller-boxes", "y2k", "mens"],
-    variants: [{ pieces: 20, priceGBP: 200 }],
+    variants: [at(20, 10)],
     unit: "pieces",
     notes: [],
     art: "halftone-ink-3",
@@ -140,7 +149,7 @@ export const products: Product[] = [
     brandSlugs: ["lacoste", "ralph-lauren"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: ["mens"],
-    variants: qty(5, 10, 25, 50, 100),
+    variants: [at(10, 8.5), at(25, 8), at(50, 7.5), at(100, 7)],
     unit: "pieces",
     notes: [],
     art: "grid-green-3",
@@ -164,7 +173,7 @@ export const products: Product[] = [
     brandSlugs: ["ralph-lauren"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: [],
-    variants: [], // Quantities to be confirmed by the owner.
+    variants: [at(25, 8), at(50, 7), at(100, 6)],
     unit: "pieces",
     notes: [],
     art: "grid-ink-2",
@@ -198,7 +207,7 @@ export const products: Product[] = [
     brandSlugs: ["ralph-lauren", "tommy-hilfiger", "lacoste"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: ["mens"],
-    variants: qty(25),
+    variants: [at(10, 9.5), at(25, 9), at(50, 8.5), at(100, 8)],
     unit: "pieces",
     notes: [],
     art: "stripes-green-3",
@@ -219,7 +228,8 @@ export const products: Product[] = [
     brandSlugs: ["mixed-brands", "guess", "nautica"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage"],
-    variants: qty(5, 10, 25, 50, 100),
+    // 50 prices ABOVE 25 — queried with the owner, entered as quoted.
+    variants: [at(25, 8), at(50, 9)],
     unit: "pieces",
     notes: [],
     art: "bands-ink-3",
@@ -237,7 +247,7 @@ export const products: Product[] = [
     brandSlugs: ["mixed-brands", "ralph-lauren", "adidas"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage"],
-    variants: [], // Quantities to be confirmed by the owner.
+    variants: [at(25, 9), at(50, 8.5), at(100, 7.75)],
     unit: "pieces",
     notes: [],
     art: "grid-ink-3",
@@ -277,7 +287,7 @@ export const products: Product[] = [
     brandSlugs: ["lacoste"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage"],
-    variants: qty(10, 20, 30, 40, 50, 75, 100),
+    variants: [at(10, 10), at(25, 9), at(50, 8.5)],
     unit: "pieces",
     notes: [],
     art: "diagonal-green-2",
@@ -303,7 +313,7 @@ export const products: Product[] = [
     brandSlugs: ["mixed-brands"],
     typeSlugs: ["jackets"],
     collectionSlugs: ["festival"],
-    variants: [], // Quantities to be confirmed by the owner.
+    variants: [at(10, 12.5), at(25, 11), at(50, 9)],
     unit: "pieces",
     notes: [],
     art: "stripes-ink-3",
@@ -340,7 +350,7 @@ export const products: Product[] = [
     brandSlugs: ["birkenstock"],
     typeSlugs: ["footwear"],
     collectionSlugs: ["summer-mix"],
-    variants: qty(5, 10, 25, 50),
+    variants: [at(5, 10), at(10, 8)],
     unit: "pairs",
     notes: [],
     art: "blocks-green",
@@ -403,7 +413,9 @@ export const products: Product[] = [
     brandSlugs: ["mixed-brands", "champion", "nike", "fila", "adidas"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: ["mens"],
-    variants: [], // Quantities to be confirmed by the owner.
+    // 100 left unpriced: quoted as "forty four pounds per t-shirt", which
+    // cannot be right beside £5.50 at fifty. Awaiting the owner.
+    variants: [at(25, 6), at(50, 5.5), { pieces: 100, priceGBP: null }],
     unit: "pieces",
     notes: [],
     art: "bands-ink-4",
@@ -427,7 +439,9 @@ export const products: Product[] = [
     brandSlugs: ["mixed-brands", "nike", "ralph-lauren", "tommy-hilfiger", "reebok"],
     typeSlugs: ["jackets"],
     collectionSlugs: ["festival"],
-    variants: [], // Quantities to be confirmed by the owner.
+    // 100 left unpriced: quoted as matching the festival jackets, which have
+    // no hundred. Awaiting the owner.
+    variants: [at(10, 12.5), at(25, 11), at(50, 9), { pieces: 100, priceGBP: null }],
     unit: "pieces",
     notes: [],
     art: "diagonal-green-4",
@@ -451,7 +465,7 @@ export const products: Product[] = [
     brandSlugs: ["missoni", "valentino", "stone-island", "lacoste"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["luxury", "premium-vintage", "mens"],
-    variants: [], // Quantities to be confirmed by the owner.
+    variants: [at(25, 12), at(50, 10)],
     unit: "pieces",
     notes: [],
     art: "halftone-ink-4",
@@ -475,7 +489,8 @@ export const products: Product[] = [
     brandSlugs: ["mixed-brands", "champion", "nike", "harley-davidson"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: ["y2k", "womens", "summer-mix"],
-    variants: [], // Quantities to be confirmed by the owner.
+    // 50 prices ABOVE 25 — queried with the owner, entered as quoted.
+    variants: [at(25, 8), at(50, 9)],
     unit: "pieces",
     notes: [],
     art: "grid-ink-4",

@@ -8,7 +8,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { fromPrice, getProduct, products, quantityLabel } from "@/data/catalogue";
 import { findCategory, type CategoryKind } from "@/data/taxonomy";
 import { siteConfig } from "@/config/site";
-import { formatPrice } from "@/lib/format";
+import { formatPrice, perPiece } from "@/lib/format";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -248,14 +248,19 @@ export default async function ProductPage({ params }: Params) {
 
           {product.variants.length > 1 && buyable && (
             <table className="mt-6 w-full border border-ash text-sm">
-              <caption className="sr-only">Prices by lot size</caption>
+              <caption className="px-4 py-2.5 text-left text-xs text-slate">
+                  Prices by lot size. All prices exclude VAT — VAT is added at checkout.
+                </caption>
               <thead>
                 <tr className="bg-smoke text-left">
                   <th scope="col" className="px-4 py-2.5 text-xs font-bold tracking-wide uppercase">
                     Lot size
                   </th>
                   <th scope="col" className="px-4 py-2.5 text-xs font-bold tracking-wide uppercase">
-                    Price
+                    Per {product.unit === "pairs" ? "pair" : "piece"}
+                  </th>
+                  <th scope="col" className="px-4 py-2.5 text-xs font-bold tracking-wide uppercase">
+                    Lot price
                   </th>
                 </tr>
               </thead>
@@ -265,8 +270,13 @@ export default async function ProductPage({ params }: Params) {
                     <td className="px-4 py-2.5 font-semibold">
                       {variant.pieces} {product.unit}
                     </td>
+                    <td className="px-4 py-2.5 font-semibold">
+                      {variant.priceGBP === null
+                        ? "On request"
+                        : perPiece(variant.priceGBP, variant.pieces)}
+                    </td>
                     <td className="px-4 py-2.5 text-slate">
-                      {variant.priceGBP === null ? "On request" : formatPrice(variant.priceGBP)}
+                      {variant.priceGBP === null ? "—" : formatPrice(variant.priceGBP)}
                     </td>
                   </tr>
                 ))}

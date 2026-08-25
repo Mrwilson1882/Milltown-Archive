@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Category, CategoryKind } from "@/data/taxonomy";
 import { categoryPath } from "@/data/taxonomy";
+import { productsInCategory } from "@/data/catalogue";
 
 const kindLabel: Record<CategoryKind, string> = {
   brand: "Brand",
@@ -23,14 +24,26 @@ export function CategoryTile({
   kind: CategoryKind;
   priority?: boolean;
 }) {
+  /**
+   * Show our own stock rather than generated artwork wherever a product in this
+   * category has been photographed. A real rail of Lacoste sells the category
+   * better than an abstract tile — and better than a brand logo we have no
+   * right to use.
+   */
+  const ownPhoto = productsInCategory(kind, category.slug).find((p) => p.photos?.[0])?.photos?.[0];
+  const src = ownPhoto?.src ?? `/images/tiles/${category.art}.svg`;
+  const alt = ownPhoto
+    ? `${category.name} — ${ownPhoto.alt}`
+    : `${category.name} — vintage wholesale lots`;
+
   return (
     <Link
       href={categoryPath(kind, category.slug)}
       className="group relative block aspect-square overflow-hidden border border-ash bg-smoke"
     >
       <Image
-        src={`/images/tiles/${category.art}.svg`}
-        alt={`${category.name} — vintage wholesale lots`}
+        src={src}
+        alt={alt}
         fill
         priority={priority}
         sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"

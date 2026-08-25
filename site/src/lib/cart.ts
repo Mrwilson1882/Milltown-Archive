@@ -1,4 +1,5 @@
 import { findVariant, getProduct, type Product, type Variant } from "@/data/catalogue";
+import { vatRate } from "@/config/site";
 
 /** v2: cart lines gained a `pieces` field when products gained quantity options. */
 export const CART_STORAGE_KEY = "archive-wholesale-cart-v2";
@@ -42,10 +43,15 @@ export function resolveLines(lines: CartLine[]): ResolvedLine[] {
 export function cartTotals(resolved: ResolvedLine[]) {
   const payable = resolved.filter((l) => l.lineTotalGBP !== null);
   const enquiryOnly = resolved.filter((l) => l.lineTotalGBP === null);
+  const netGBP = payable.reduce((sum, l) => sum + (l.lineTotalGBP ?? 0), 0);
+  // Catalogue prices are ex-VAT, so VAT is added here rather than assumed in.
+  const vatGBP = Math.round(netGBP * vatRate * 100) / 100;
   return {
     payable,
     enquiryOnly,
-    payableTotalGBP: payable.reduce((sum, l) => sum + (l.lineTotalGBP ?? 0), 0),
+    payableTotalGBP: netGBP,
+    vatGBP,
+    grossTotalGBP: Math.round((netGBP + vatGBP) * 100) / 100,
     itemCount: resolved.reduce((sum, l) => sum + l.qty, 0),
   };
 }

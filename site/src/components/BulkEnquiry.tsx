@@ -158,7 +158,10 @@ export function BulkEnquiry({
           </span>
         </p>
 
-        <div className="mt-4 flex flex-wrap gap-3">
+        <p className="eyebrow mt-4 text-slate">
+          {hasWhatsApp ? "Send via WhatsApp or email" : "Send by email"}
+        </p>
+        <div className="mt-3 flex flex-wrap gap-3">
           {hasWhatsApp && (
             <a
               href={whatsappUrl(message)}
@@ -167,14 +170,14 @@ export function BulkEnquiry({
               className="inline-flex items-center gap-2 bg-forest px-6 py-3.5 text-sm font-bold tracking-wide text-paper uppercase transition-colors hover:bg-forest-dark"
             >
               <WhatsAppIcon className="h-5 w-5" />
-              Send on WhatsApp
+              Via WhatsApp
             </a>
           )}
           <a
             href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`Bulk quote — ${weight}kg ${format.name.toLowerCase()}`)}&body=${encodeURIComponent(message)}`}
             className="inline-flex items-center border-2 border-ink px-6 py-3.5 text-sm font-bold tracking-wide uppercase transition-colors hover:border-forest hover:text-forest"
           >
-            Email this enquiry
+            Via email
           </a>
         </div>
       </div>

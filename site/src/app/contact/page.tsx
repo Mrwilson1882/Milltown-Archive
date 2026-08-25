@@ -73,6 +73,19 @@ export default function ContactPage() {
                 </dd>
               </div>
               <div>
+                <dt className="eyebrow text-slate">WhatsApp</dt>
+                <dd className="mt-1.5">
+                  <a
+                    href={whatsappUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-forest underline underline-offset-4"
+                  >
+                    07897 740194
+                  </a>
+                </dd>
+              </div>
+              <div>
                 <dt className="eyebrow text-slate">Based in</dt>
                 <dd className="mt-1.5 text-slate">{siteConfig.location}</dd>
               </div>

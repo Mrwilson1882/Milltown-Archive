@@ -21,14 +21,27 @@ export const siteConfig = {
   email: "info@milltownarchive.co.uk",
   /**
    * WhatsApp business number in full international format, digits only.
-   * Set NEXT_PUBLIC_WHATSAPP_NUMBER in the environment. While it is blank,
-   * every WhatsApp button on the site is hidden rather than shown broken.
+   * 07897 740194 is 44 7897 740194. NEXT_PUBLIC_WHATSAPP_NUMBER overrides it,
+   * which is how you point staging at a different handset.
    */
-  whatsappNumber: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "").replace(/\D/g, ""),
+  whatsappNumber: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447897740194").replace(/\D/g, ""),
   /** Pre-filled text for the click-to-chat link. */
   whatsappMessage: "Hi Archive Wholesale, I'd like to enquire about your vintage wholesale lots.",
-  location: "Manchester, United Kingdom",
+  location: "Lancashire, United Kingdom",
+  /**
+   * Prices on the site are quoted EXCLUDING VAT, the way the trade quotes them.
+   * VAT is added as its own line in the cart and as its own line item at
+   * checkout, so the customer pays the correct total.
+   */
+  vat: {
+    registered: true,
+    ratePercent: 20,
+    /** Shown next to every price. */
+    suffix: "+ VAT",
+  },
 } as const;
+
+export const vatRate = siteConfig.vat.registered ? siteConfig.vat.ratePercent / 100 : 0;
 
 export const hasWhatsApp = siteConfig.whatsappNumber.length > 0;
 

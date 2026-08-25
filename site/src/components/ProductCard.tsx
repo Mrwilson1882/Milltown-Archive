@@ -1,15 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import { fromPrice, quantityLabel, type Product } from "@/data/catalogue";
-import { formatPrice } from "@/lib/format";
+import { quantityLabel, type Product } from "@/data/catalogue";
+import { perPiece } from "@/lib/format";
+import { siteConfig } from "@/config/site";
 
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
   const photo = product.photos?.[0];
   const src = photo?.src ?? `/images/tiles/${product.art}.svg`;
   const alt = photo?.alt ?? `${product.name} — ${product.summary}`;
 
-  const cheapest = fromPrice(product);
   const hasChoice = product.variants.length > 1;
+  // Cards lead on the per-piece rate — the number a buyer actually compares.
+  const cheapestLot = product.variants
+    .filter((v) => v.priceGBP !== null)
+    .sort((a, b) => a.priceGBP! / a.pieces - b.priceGBP! / b.pieces)[0];
 
   return (
     <article className="group flex flex-col border border-ash transition-colors hover:border-ink">
@@ -53,8 +57,8 @@ export function ProductCard({ product, priority = false }: { product: Product; p
         </p>
 
         <div className="mt-auto flex items-end justify-between gap-3 pt-5">
-          <p className={`font-bold ${cheapest === null ? "text-sm text-forest" : "display text-xl"}`}>
-            {cheapest === null ? (
+          <p className={`font-bold ${cheapestLot === undefined ? "text-sm text-forest" : "display text-xl"}`}>
+            {cheapestLot === undefined ? (
               "Price on request"
             ) : (
               <>
@@ -63,7 +67,10 @@ export function ProductCard({ product, priority = false }: { product: Product; p
                     from
                   </span>
                 )}
-                {formatPrice(cheapest)}
+                {perPiece(cheapestLot.priceGBP as number, cheapestLot.pieces)}
+                <span className="ml-1 text-xs font-semibold tracking-normal text-slate normal-case">
+                  per {product.unit === "pairs" ? "pair" : "piece"} {siteConfig.vat.suffix}
+                </span>
               </>
             )}
           </p>

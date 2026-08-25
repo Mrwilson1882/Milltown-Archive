@@ -6,7 +6,7 @@ import { useMemo, useState } from "react";
 import { useCart } from "@/components/useCart";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { cartTotals, lineKey, resolveLines } from "@/lib/cart";
-import { formatPrice } from "@/lib/format";
+import { formatPrice, perPiece } from "@/lib/format";
 import { siteConfig, whatsappUrl } from "@/config/site";
 
 export function CartView({
@@ -21,7 +21,7 @@ export function CartView({
   const [error, setError] = useState<string | null>(null);
 
   const resolved = useMemo(() => resolveLines(lines), [lines]);
-  const { payable, enquiryOnly, payableTotalGBP, itemCount } = useMemo(
+  const { payable, enquiryOnly, payableTotalGBP, vatGBP, grossTotalGBP, itemCount } = useMemo(
     () => cartTotals(resolved),
     [resolved],
   );
@@ -124,7 +124,8 @@ export function CartView({
                 </p>
                 {variant.priceGBP !== null && (
                   <p className="mt-0.5 text-xs text-slate">
-                    {formatPrice(variant.priceGBP)} per lot
+                    {formatPrice(variant.priceGBP)} per lot · {perPiece(variant.priceGBP, variant.pieces)} per{" "}
+                    {product.unit === "pairs" ? "pair" : "piece"}, excl. VAT
                   </p>
                 )}
 
@@ -197,8 +198,12 @@ export function CartView({
             <dd className="font-bold">{itemCount}</dd>
           </div>
           <div className="flex justify-between">
-            <dt className="text-slate">Priced online</dt>
+            <dt className="text-slate">Goods (excl. VAT)</dt>
             <dd className="font-bold">{formatPrice(payableTotalGBP)}</dd>
+          </div>
+          <div className="flex justify-between">
+            <dt className="text-slate">VAT at {siteConfig.vat.ratePercent}%</dt>
+            <dd className="font-bold">{formatPrice(vatGBP)}</dd>
           </div>
           {enquiryOnly.length > 0 && (
             <div className="flex justify-between">
@@ -218,7 +223,7 @@ export function CartView({
           <>
             <div className="mt-5 flex items-baseline justify-between border-t-2 border-ink pt-4">
               <span className="display text-lg">Total</span>
-              <span className="display text-2xl">{formatPrice(payableTotalGBP)}</span>
+              <span className="display text-2xl">{formatPrice(grossTotalGBP)}</span>
             </div>
 
             <button
@@ -246,7 +251,7 @@ export function CartView({
         )}
 
         <div className="mt-6 border-t border-ash pt-5">
-          <p className="eyebrow text-slate">Rather talk to us?</p>
+          <p className="eyebrow text-slate">Rather talk to us? WhatsApp or email</p>
           <div className="mt-3 space-y-2">
             {whatsappAvailable && (
               <a
@@ -256,14 +261,14 @@ export function CartView({
                 className="flex w-full items-center justify-center gap-2 border-2 border-forest px-5 py-3 text-sm font-bold tracking-wide text-forest uppercase transition-colors hover:bg-forest hover:text-paper"
               >
                 <WhatsAppIcon className="h-5 w-5" />
-                Send basket on WhatsApp
+                Send basket via WhatsApp
               </a>
             )}
             <a
               href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Wholesale order enquiry")}&body=${encodeURIComponent(enquiryText)}`}
               className="flex w-full items-center justify-center border-2 border-ink px-5 py-3 text-sm font-bold tracking-wide uppercase transition-colors hover:border-forest hover:text-forest"
             >
-              Email this order
+              Send basket via email
             </a>
           </div>
         </div>

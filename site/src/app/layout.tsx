@@ -67,7 +67,7 @@ const organisationJsonLd = {
   url: siteConfig.url,
   email: siteConfig.email,
   description: siteConfig.description,
-  address: { "@type": "PostalAddress", addressLocality: "Manchester", addressCountry: "GB" },
+  address: { "@type": "PostalAddress", addressLocality: "Lancashire", addressCountry: "GB" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -5,7 +5,8 @@ import { useState } from "react";
 import { useCart } from "@/components/useCart";
 import { EnquiryActions } from "@/components/EnquiryActions";
 import type { Product } from "@/data/catalogue";
-import { priceLabel } from "@/lib/format";
+import { perPiece, priceLabel } from "@/lib/format";
+import { siteConfig } from "@/config/site";
 
 /**
  * Quantity-option picker plus add-to-cart. Products are sold in runs — 5, 10,
@@ -67,12 +68,22 @@ export function AddToCart({ product }: { product: Product }) {
       )}
 
       {variant && (
-        <p className="display text-3xl">
-          {priceLabel(variant.priceGBP)}
-          <span className="ml-2 text-sm font-semibold tracking-normal text-slate normal-case">
-            for {variant.pieces} {product.unit}
-          </span>
-        </p>
+        <div>
+          <p className="display text-3xl">
+            {priceLabel(variant.priceGBP)}
+            {variant.priceGBP !== null && (
+              <span className="ml-2 text-sm font-semibold tracking-normal text-slate normal-case">
+                {siteConfig.vat.suffix}
+              </span>
+            )}
+          </p>
+          {variant.priceGBP !== null && (
+            <p className="mt-1 text-sm text-slate">
+              {perPiece(variant.priceGBP, variant.pieces)} per{" "}
+              {product.unit === "pairs" ? "pair" : "piece"} · {variant.pieces} {product.unit} per lot
+            </p>
+          )}
+        </div>
       )}
 
       {variant && variant.priceGBP === null ? (

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { getStripe, stripeEnabled } from "@/lib/stripe";
 import { resolveLines, type CartLine } from "@/lib/cart";
 import { toPence } from "@/lib/format";
-import { siteConfig } from "@/config/site";
+import { siteConfig, vatRate } from "@/config/site";
 
 export const runtime = "nodejs";
 
@@ -56,22 +56,46 @@ export async function POST(request: Request) {
     );
   }
 
+  // VAT is calculated server-side from the catalogue, never from the browser.
+  const vatNetPence = payable.reduce(
+    (sum, line) => sum + toPence(line.variant.priceGBP as number) * line.qty,
+    0,
+  );
+
   try {
     const stripe = getStripe();
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       currency: "gbp",
-      line_items: payable.map((line) => ({
-        quantity: line.qty,
-        price_data: {
-          currency: "gbp",
-          unit_amount: toPence(line.variant.priceGBP as number),
-          product_data: {
-            name: `${line.product.name} — ${line.variant.pieces} ${line.product.unit}`,
-            description: line.product.summary,
+      line_items: [
+        ...payable.map((line) => ({
+          quantity: line.qty,
+          price_data: {
+            currency: "gbp" as const,
+            unit_amount: toPence(line.variant.priceGBP as number),
+            product_data: {
+              name: `${line.product.name} — ${line.variant.pieces} ${line.product.unit}`,
+              description: `${line.product.summary} Price excludes VAT.`,
+            },
           },
-        },
-      })),
+        })),
+        // Catalogue prices are ex-VAT, so VAT is charged as its own visible line
+        // rather than being quietly folded into the unit price.
+        ...(vatNetPence > 0
+          ? [
+              {
+                quantity: 1,
+                price_data: {
+                  currency: "gbp" as const,
+                  unit_amount: Math.round(vatNetPence * vatRate),
+                  product_data: {
+                    name: `VAT at ${siteConfig.vat.ratePercent}%`,
+                  },
+                },
+              },
+            ]
+          : []),
+      ],
       // Wholesale buyers are businesses; capture what is needed to invoice and ship.
       billing_address_collection: "required",
       shipping_address_collection: {
