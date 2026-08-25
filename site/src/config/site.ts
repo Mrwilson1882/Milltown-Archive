@@ -34,14 +34,20 @@ export const siteConfig = {
    * checkout, so the customer pays the correct total.
    */
   vat: {
-    registered: true,
+    /**
+     * Flip to true once MANCH LTD is VAT registered. Everything follows from
+     * this one flag: the "+ VAT" suffix on prices, the VAT line in the cart,
+     * the VAT line item at checkout and the wording on the price tables.
+     */
+    registered: false,
     ratePercent: 20,
-    /** Shown next to every price. */
-    suffix: "+ VAT",
   },
 } as const;
 
-export const vatRate = siteConfig.vat.registered ? siteConfig.vat.ratePercent / 100 : 0;
+export const showVat = siteConfig.vat.registered;
+export const vatRate = showVat ? siteConfig.vat.ratePercent / 100 : 0;
+/** Suffix shown next to a price. Empty while not VAT registered. */
+export const vatSuffix = showVat ? "+ VAT" : "";
 
 export const hasWhatsApp = siteConfig.whatsappNumber.length > 0;
 

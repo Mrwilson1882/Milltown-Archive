@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { quantityLabel, type Product } from "@/data/catalogue";
 import { perPiece } from "@/lib/format";
-import { siteConfig } from "@/config/site";
+import { vatSuffix } from "@/config/site";
 
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
   const photo = product.photos?.[0];
@@ -69,7 +69,8 @@ export function ProductCard({ product, priority = false }: { product: Product; p
                 )}
                 {perPiece(cheapestLot.priceGBP as number, cheapestLot.pieces)}
                 <span className="ml-1 text-xs font-semibold tracking-normal text-slate normal-case">
-                  per {product.unit === "pairs" ? "pair" : "piece"} {siteConfig.vat.suffix}
+                  per {product.unit === "pairs" ? "pair" : "piece"}
+                  {vatSuffix && ` ${vatSuffix}`}
                 </span>
               </>
             )}

@@ -7,7 +7,7 @@ import { EnquiryActions } from "@/components/EnquiryActions";
 import { ProductCard } from "@/components/ProductCard";
 import { fromPrice, getProduct, products, quantityLabel } from "@/data/catalogue";
 import { findCategory, type CategoryKind } from "@/data/taxonomy";
-import { siteConfig } from "@/config/site";
+import { showVat, siteConfig } from "@/config/site";
 import { formatPrice, perPiece } from "@/lib/format";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -249,7 +249,8 @@ export default async function ProductPage({ params }: Params) {
           {product.variants.length > 1 && buyable && (
             <table className="mt-6 w-full border border-ash text-sm">
               <caption className="px-4 py-2.5 text-left text-xs text-slate">
-                  Prices by lot size. All prices exclude VAT — VAT is added at checkout.
+                  Prices by lot size.
+                  {showVat && " All prices exclude VAT — VAT is added at checkout."}
                 </caption>
               <thead>
                 <tr className="bg-smoke text-left">

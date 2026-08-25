@@ -486,8 +486,7 @@ export const products: Product[] = [
     brandSlugs: ["mixed-brands", "champion", "nike", "harley-davidson"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: ["y2k", "womens", "summer-mix"],
-    // 50 prices ABOVE 25 — queried with the owner, entered as quoted.
-    variants: [at(25, 8), at(50, 9)],
+    variants: [at(25, 9), at(50, 8)],
     unit: "pieces",
     notes: [],
     art: "grid-ink-4",

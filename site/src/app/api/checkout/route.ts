@@ -75,13 +75,13 @@ export async function POST(request: Request) {
             unit_amount: toPence(line.variant.priceGBP as number),
             product_data: {
               name: `${line.product.name} — ${line.variant.pieces} ${line.product.unit}`,
-              description: `${line.product.summary} Price excludes VAT.`,
+              description: line.product.summary,
             },
           },
         })),
         // Catalogue prices are ex-VAT, so VAT is charged as its own visible line
         // rather than being quietly folded into the unit price.
-        ...(vatNetPence > 0
+        ...(vatRate > 0 && vatNetPence > 0
           ? [
               {
                 quantity: 1,

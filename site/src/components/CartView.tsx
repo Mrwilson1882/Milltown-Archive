@@ -7,7 +7,7 @@ import { useCart } from "@/components/useCart";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { cartTotals, lineKey, resolveLines } from "@/lib/cart";
 import { formatPrice, perPiece } from "@/lib/format";
-import { siteConfig, whatsappUrl } from "@/config/site";
+import { showVat, siteConfig, whatsappUrl } from "@/config/site";
 
 export function CartView({
   stripeEnabled,
@@ -125,7 +125,8 @@ export function CartView({
                 {variant.priceGBP !== null && (
                   <p className="mt-0.5 text-xs text-slate">
                     {formatPrice(variant.priceGBP)} per lot · {perPiece(variant.priceGBP, variant.pieces)} per{" "}
-                    {product.unit === "pairs" ? "pair" : "piece"}, excl. VAT
+                    {product.unit === "pairs" ? "pair" : "piece"}
+                    {showVat && ", excl. VAT"}
                   </p>
                 )}
 
@@ -198,13 +199,15 @@ export function CartView({
             <dd className="font-bold">{itemCount}</dd>
           </div>
           <div className="flex justify-between">
-            <dt className="text-slate">Goods (excl. VAT)</dt>
+            <dt className="text-slate">{showVat ? "Goods (excl. VAT)" : "Goods"}</dt>
             <dd className="font-bold">{formatPrice(payableTotalGBP)}</dd>
           </div>
-          <div className="flex justify-between">
-            <dt className="text-slate">VAT at {siteConfig.vat.ratePercent}%</dt>
-            <dd className="font-bold">{formatPrice(vatGBP)}</dd>
-          </div>
+          {showVat && (
+            <div className="flex justify-between">
+              <dt className="text-slate">VAT at {siteConfig.vat.ratePercent}%</dt>
+              <dd className="font-bold">{formatPrice(vatGBP)}</dd>
+            </div>
+          )}
           {enquiryOnly.length > 0 && (
             <div className="flex justify-between">
               <dt className="text-slate">On enquiry</dt>

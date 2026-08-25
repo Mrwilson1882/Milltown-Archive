@@ -6,7 +6,7 @@ import { useCart } from "@/components/useCart";
 import { EnquiryActions } from "@/components/EnquiryActions";
 import type { Product } from "@/data/catalogue";
 import { perPiece, priceLabel } from "@/lib/format";
-import { siteConfig } from "@/config/site";
+import { vatSuffix } from "@/config/site";
 
 /**
  * Quantity-option picker plus add-to-cart. Products are sold in runs — 5, 10,
@@ -71,9 +71,9 @@ export function AddToCart({ product }: { product: Product }) {
         <div>
           <p className="display text-3xl">
             {priceLabel(variant.priceGBP)}
-            {variant.priceGBP !== null && (
+            {variant.priceGBP !== null && vatSuffix && (
               <span className="ml-2 text-sm font-semibold tracking-normal text-slate normal-case">
-                {siteConfig.vat.suffix}
+                {vatSuffix}
               </span>
             )}
           </p>
