@@ -50,8 +50,10 @@ export function CategoryTile({
         className="object-cover transition-transform duration-500 group-hover:scale-105"
       />
 
-      {/* White scrim so the caption stays legible without burying the artwork. */}
-      <span className="absolute inset-0 bg-gradient-to-t from-paper from-30% via-paper/85 via-55% to-transparent to-80%" />
+      {/* White scrim so the caption stays legible without burying the photograph.
+          Solid behind the text, then clears quickly — now that nearly every tile
+          carries real stock, the garments need to read through it. */}
+      <span className="absolute inset-0 bg-gradient-to-t from-paper from-28% via-paper/55 via-50% to-transparent to-72%" />
 
       <span className="absolute inset-x-0 bottom-0 flex flex-col gap-1 p-4 sm:p-5">
         <span className="eyebrow text-forest">{kindLabel[kind]}</span>

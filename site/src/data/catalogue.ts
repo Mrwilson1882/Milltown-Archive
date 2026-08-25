@@ -9,10 +9,10 @@
  *
  * PRICES
  * ------
- * `priceGBP` is set only where the owner has given a price. The two reseller
- * boxes are priced at £200. Everything else is `null`, which renders as
- * "Price on request" and routes the customer to WhatsApp or email rather than
- * the cart. No price on this site is inferred — see pricing-notes.md.
+ * `priceGBP` is set only where the owner has given a price. Anything without
+ * one is `null`, which renders as "Price on request" and routes the customer to
+ * WhatsApp or email rather than the cart. No price on this site is inferred —
+ * see pricing-notes.md.
  *
  * To put a variant on sale, set its price in POUNDS:
  *
@@ -82,7 +82,8 @@ const qty = (...counts: number[]): Variant[] =>
 
 /**
  * A priced lot, entered per piece — `at(25, 8)` is 25 pieces at £8 each.
- * Prices are EXCLUDING VAT; VAT is added in the cart and at checkout.
+ * VAT follows siteConfig.vat.registered — off at present, so these are the
+ * prices shown and charged as they stand.
  */
 const at = (pieces: number, perPiece: number): Variant => ({
   pieces,
@@ -91,6 +92,31 @@ const at = (pieces: number, perPiece: number): Variant => ({
 
 export const products: Product[] = [
   // ---------------------------------------------------------------- Reseller boxes
+  {
+    slug: "starter-box-10",
+    name: "Starter Box — 10 Items",
+    summary: "Ten branded pieces, made up and priced. The smallest way in.",
+    description: [
+      "A ten-piece box put together to open a rail rather than fill one — branded, mixed across tops, tees and outerwear, and made up ready to sell.",
+      "The smallest box we do. It exists so a first order can be tested at a low outlay before committing to a twenty-piece box or a fifty-piece lot.",
+      "Made up, priced and sold as a single box. Nothing to specify and nothing to quote: order it and it ships.",
+    ],
+    brandSlugs: ["mixed-brands", "nike", "harley-davidson"],
+    typeSlugs: ["polos-t-shirts", "jumpers-sweats", "jackets"],
+    collectionSlugs: ["reseller-boxes", "y2k"],
+    variants: [at(10, 9)],
+    unit: "pieces",
+    notes: [],
+    art: "bands-green-3",
+    photos: [
+      {
+        src: "/images/products/starter-box-10/01.jpg",
+        alt: "A ten-piece starter box laid out on white: a cream Harley-Davidson three-quarter-sleeve top with a world-map print, a navy and red Nike windbreaker, a black Nike Just Do It t-shirt and a black velour zip hoodie with pink shoulder stripes.",
+      },
+    ],
+    inStock: true,
+    featured: true,
+  },
   {
     slug: "y2k-designer-female-mix-box-20",
     name: "Y2K Designer Female Mix — Box of 20",
@@ -132,6 +158,12 @@ export const products: Product[] = [
     unit: "pieces",
     notes: [],
     art: "halftone-ink-3",
+    photos: [
+      {
+        src: "/images/products/y2k-designer-male-mix-box-20/01.jpg",
+        alt: "A men's Y2K designer mix on white: a cream Diesel brushstroke tee, a navy-striped Boss Sport polo, a blue Lacoste V-neck knit and a black and yellow Nike shell jacket.",
+      },
+    ],
     inStock: true,
     featured: true,
   },
@@ -177,6 +209,12 @@ export const products: Product[] = [
     unit: "pieces",
     notes: [],
     art: "grid-ink-2",
+    photos: [
+      {
+        src: "/images/products/ralph-lauren-polos/01.jpg",
+        alt: "Four Polo Ralph Lauren piqué polos on white: navy, black and white stripe, pink marl and green marl.",
+      },
+    ],
     inStock: true,
   },
   {
@@ -211,6 +249,12 @@ export const products: Product[] = [
     unit: "pieces",
     notes: [],
     art: "stripes-green-3",
+    photos: [
+      {
+        src: "/images/products/ralph-tommy-lacoste-mix/01.jpg",
+        alt: "A Ralph, Tommy and Lacoste mix on white: a cream Lacoste diagonal-stripe knit, a mint Polo Ralph Lauren piqué polo, a red, navy and white Tommy Hilfiger striped polo and a red-striped Ralph Lauren shirt.",
+      },
+    ],
     inStock: true,
     featured: true,
   },
@@ -232,6 +276,12 @@ export const products: Product[] = [
     unit: "pieces",
     notes: [],
     art: "bands-ink-3",
+    photos: [
+      {
+        src: "/images/products/mixed-premium-vintage-hoodies-sweatshirts/01.jpg",
+        alt: "A mixed hoodie and sweatshirt lot on white: a navy Nautica Sailsports crewneck, a white Guess crewneck, a purple Lacoste zip hoodie and a green three-stripe Adidas hoodie.",
+      },
+    ],
     inStock: true,
     featured: true,
   },
@@ -246,7 +296,7 @@ export const products: Product[] = [
     brandSlugs: ["mixed-brands", "ralph-lauren", "adidas"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage"],
-    variants: [at(25, 9), at(50, 8.5), at(100, 7.75)],
+    variants: [at(25, 9), at(50, 8.5), at(100, 8)],
     unit: "pieces",
     notes: [],
     art: "grid-ink-3",
@@ -273,6 +323,12 @@ export const products: Product[] = [
     unit: "pieces",
     notes: [],
     art: "diagonal-ink-3",
+    photos: [
+      {
+        src: "/images/products/mixed-premium-vintage-sweatshirts/01.jpg",
+        alt: "Three premium vintage crewnecks laid out on white: a white Guess sweatshirt with tipped ribbing, a navy Nautica Sailsports sweatshirt and a grey Chaps Ralph Lauren V-neck.",
+      },
+    ],
     inStock: true,
   },
   {
@@ -316,6 +372,12 @@ export const products: Product[] = [
     unit: "pieces",
     notes: [],
     art: "stripes-ink-3",
+    photos: [
+      {
+        src: "/images/products/festival-track-jackets/01.jpg",
+        alt: "Four festival track jackets on white: a blue and pink Reebok shell, a black and white Adidas taped track top, a navy and red Nike shell and a purple Adidas trefoil jacket.",
+      },
+    ],
     inStock: true,
     featured: true,
   },
@@ -398,6 +460,12 @@ export const products: Product[] = [
     unit: "pieces",
     notes: [],
     art: "grid-ink",
+    photos: [
+      {
+        src: "/images/products/mixed-mens-lacoste-25/01.jpg",
+        alt: "A men's Lacoste lot on white: a black piqué polo, an olive quarter-zip sweatshirt, a grey and black Lacoste shell jacket and a navy sweatshirt with tricolour ribbing.",
+      },
+    ],
     inStock: true,
   },
   // ------------------------------------------- Lots first seen in the photography
@@ -515,6 +583,12 @@ export const products: Product[] = [
     unit: "pieces",
     notes: ["Contents change with each intake. Ask for current photos before ordering."],
     art: "bands-ink-5",
+    photos: [
+      {
+        src: "/images/products/luxury-outerwear-mix/01.jpg",
+        alt: "A luxury outerwear lot on white: a red Polo Jeans Co zip jacket, a black quilted Moncler, a navy Burberry field jacket and a black Versace blazer with gold buttons.",
+      },
+    ],
     inStock: true,
     featured: true,
   },

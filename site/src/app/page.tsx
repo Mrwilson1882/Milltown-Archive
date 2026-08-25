@@ -35,7 +35,7 @@ const resellerBoxes = productsInCategory("collection", "reseller-boxes");
 const routes = [
   {
     title: "Reseller boxes",
-    body: "Fixed-price boxes of twenty designer pieces, made up and ready to sell. Order in one click.",
+    body: "Fixed-price boxes of branded pieces, made up and ready to sell. Order in one click.",
     href: "/collections/reseller-boxes",
     cta: "Shop the boxes",
   },
@@ -70,7 +70,7 @@ export default function HomePage() {
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-slate sm:text-lg">
               Lacoste, Ralph Lauren, Nike, Champion, Carhartt and more — sorted and graded in the UK
-              for vintage shops, market traders and online resellers. Start with a £200 reseller box
+              for vintage shops, market traders and online resellers. Start with a £90 reseller box
               or buy a tonne. No mystery bales.
             </p>
 
@@ -103,7 +103,7 @@ export default function HomePage() {
 
             <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-ash pt-6">
               {[
-                { k: "Boxes from", v: "£200" },
+                { k: "Boxes from", v: "£90" },
                 { k: "Lots from", v: "5 pieces" },
                 { k: "Bulk to", v: "1,000kg" },
               ].map((stat) => (
@@ -158,8 +158,8 @@ export default function HomePage() {
               <p className="eyebrow text-forest">Ready to go</p>
               <h2 className="display mt-3 text-3xl sm:text-4xl">Reseller boxes</h2>
               <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate">
-                Twenty designer pieces, made up and priced. Nothing to specify, nothing to quote —
-                the quickest way to start.
+                Ten or twenty designer pieces, made up and priced. Nothing to specify, nothing to
+                quote — the quickest way to start.
               </p>
             </div>
           </div>
@@ -300,7 +300,7 @@ export default function HomePage() {
               designer outerwear and Birkenstock sandals.
             </p>
             <p>
-              Buy however suits your business. Fixed-price reseller boxes of twenty designer pieces
+              Buy however suits your business. Fixed-price reseller boxes, from ten pieces up,
               are made up and ready to sell. Counted lots run from five pieces to a hundred, so you
               can test a line before you commit. And for volume buyers we sell by the kilo, in
               increments up to 1,000kg, sorted by category rather than shipped as unsorted bulk.
