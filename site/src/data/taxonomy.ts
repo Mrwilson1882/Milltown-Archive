@@ -213,6 +213,33 @@ export const brands: Category[] = [
     art: "bands-green-3",
   },
   {
+    slug: "moncler",
+    name: "Moncler",
+    blurb: "Quilted down outerwear, sold in luxury lots.",
+    seoCopy:
+      "Moncler wholesale from a UK vintage supplier. Quilted and down outerwear at the top of the price ladder, supplied within our luxury outerwear lots rather than mixed into general vintage.",
+    art: "blocks-ink-5",
+    featured: true,
+  },
+  {
+    slug: "burberry",
+    name: "Burberry",
+    blurb: "Check-lined jackets, coats and shirting.",
+    seoCopy:
+      "Vintage Burberry wholesale in the UK. Jackets, coats and shirting from one of the most searched luxury labels in second-hand — supplied within our luxury outerwear lots.",
+    art: "grid-green-5",
+    featured: true,
+  },
+  {
+    slug: "versace",
+    name: "Versace",
+    blurb: "Tailoring and statement pieces.",
+    seoCopy:
+      "Versace wholesale, supplied within our luxury lots. Tailoring, blazers and statement pieces for retailers selling at the designer end of vintage.",
+    art: "diagonal-ink-5",
+    featured: true,
+  },
+  {
     slug: "mixed-brands",
     name: "Mixed Brands",
     blurb: "Multi-label lots spanning the full intake.",
@@ -239,6 +266,15 @@ export const collections: Category[] = [
     seoCopy:
       "Y2K vintage wholesale in the UK. Late-90s and early-2000s designer pieces — logo-forward, bold colourways and the cuts currently driving resale demand on Depop and Vinted.",
     art: "halftone-green-2",
+    featured: true,
+  },
+  {
+    slug: "luxury",
+    name: "Luxury",
+    blurb: "Moncler, Burberry, Versace, Stone Island — a tier above premium vintage.",
+    seoCopy:
+      "Luxury vintage wholesale in the UK. Moncler, Burberry, Versace, Stone Island, Missoni and Valentino, kept apart from general premium vintage because they price on the label rather than the category. Small lots for retailers with an established designer customer.",
+    art: "halftone-ink-5",
     featured: true,
   },
   {
