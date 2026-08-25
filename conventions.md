@@ -145,6 +145,15 @@ of any new session — the chat is not persistent, these files are the memory.
   had a Corset Story care label photographed on separate grey twill beside a
   YIANNA waist trainer, and its composition was written from the wrong one.
   Check the label is sitting on the same fabric as the garment before quoting it.
+- **Measurement shots never sit dead last** (owner, 24 Aug). The order is:
+  full front, full back, then **four key detail shots** (chest logo, neck label,
+  composition tag), then the tape-measure shots, then the remaining details,
+  with defects last as always. Burying the measurements at the end of a
+  twelve-photo listing hides the thing a buyer most needs.
+  **On fit-critical pieces the measurements come straight after front and back**
+  — slots 3 and 4. Waist trainers, corsetry and shapewear: the fit *is* the
+  purchase decision and the garment has little else to show. Batch 4's
+  fit-critical set was items 12, 24, 25, 26, 27, 28, 29 and 45.
 - **Crosslist titles are capped at 80 characters** (owner, 24 Aug), not the
   5–255 the template workbook's Info tab claims. The UI refuses to save a longer
   one, so an over-length title is a stop, not a warning. `build_items.py` now
