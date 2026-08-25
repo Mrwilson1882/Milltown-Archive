@@ -216,7 +216,7 @@ export const products: Product[] = [
       "The most consistent repeat category we sell. Sweats hold their ticket, sell year-round, and fill the middle of a rail without competing with your hero pieces.",
       "Available from five pieces up to a hundred.",
     ],
-    brandSlugs: ["mixed-brands"],
+    brandSlugs: ["mixed-brands", "guess", "nautica"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage"],
     variants: qty(5, 10, 25, 50, 100),
@@ -257,7 +257,7 @@ export const products: Product[] = [
       "Premium vintage sweatshirts on their own — crewnecks and quarter-zips, no hoods.",
       "The quieter half of the sweats category and the one that suits a shop with a more grown-up customer.",
     ],
-    brandSlugs: ["mixed-brands"],
+    brandSlugs: ["mixed-brands", "guess", "nautica"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage"],
     variants: [], // Quantities to be confirmed by the owner.

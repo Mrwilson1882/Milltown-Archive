@@ -197,6 +197,22 @@ export const brands: Category[] = [
     art: "stripes-green-4",
   },
   {
+    slug: "guess",
+    name: "Guess",
+    blurb: "Triangle-logo sweats and denim.",
+    seoCopy:
+      "Wholesale vintage Guess from a UK supplier. Triangle-logo crewneck sweatshirts, denim and branded jersey — a label that carries real weight with Y2K buyers and prices above general vintage.",
+    art: "blocks-green-4",
+  },
+  {
+    slug: "nautica",
+    name: "Nautica",
+    blurb: "Sailing-flag crews and colour-block sportswear.",
+    seoCopy:
+      "Vintage Nautica wholesale in the UK. Sailing-flag spellout crewnecks, colour-block sportswear and outerwear — one of the strongest 90s American labels for a vintage rail.",
+    art: "bands-green-3",
+  },
+  {
     slug: "mixed-brands",
     name: "Mixed Brands",
     blurb: "Multi-label lots spanning the full intake.",
