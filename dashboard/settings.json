@@ -4,8 +4,8 @@
   "sell_through_rate": 0.20,
   "_sell_through_rate": "Share of uploaded stock assumed to sell. 0.20 = one in five.",
 
-  "markup": 1.00,
-  "_markup": "Markup on cost price. 1.00 = 100%, i.e. you roughly double your money, so profit is markup / (1 + markup) = 50% of the sale price. The dashboard shows both figures.",
+  "average_cost_of_goods": null,
+  "_average_cost_of_goods": "What an item costs you. Profit is average item value minus this, so the markup and profit share are worked out from real cost rather than assumed. null means 'use the average of every costed item on or after live_from', resolved from the Cost of Goods column and, failing that, the bundle rate for the item's SKU in cost-rates.csv. Set a number here to override it.",
 
   "average_item_value": null,
   "_average_item_value": "Expected sale price per item. null means 'use the mean of the prices in crosslist/items.csv', recalculated on every build. Set a number here to override it.",

@@ -29,7 +29,7 @@ processed batch:
 | `crosslist/items.csv` | the batch — one row per item listed. This is the upload count. |
 | `crosslist/batches/*/items.csv` | the same, for batches kept in their own folders |
 | `inventory.csv` | each item's **date**, from its `Date Added` cell |
-| `crosslist/cost-rates.csv` | bundle cost prices — used only to check the markup assumption |
+| `crosslist/cost-rates.csv` | bundle cost prices — profit is worked out from these |
 | `crosslist/listings.csv` | row count, as a cross-check that the export matches the batch |
 | `crosslist/batch-log.csv` | *optional* — see below |
 | `crosslist/store-export.csv` | *optional* — live/sold status, and uploads past the first batch |
@@ -60,26 +60,45 @@ All three are variables, never hardcoded, and all three are shown on the page wi
 their current values in the working:
 
 1. **Sell-through 20%** — one in five uploaded items is assumed to sell.
-2. **Markup 100%** — you roughly double your money, so profit is **50% of the sale
-   price**. The dashboard shows both numbers and the link between them.
-3. **Average item value** — by default the mean of the prices in
+2. **Average item value** — by default the mean of the prices in
    `crosslist/items.csv`, recalculated on every build. Override it with a number.
+3. **Cost of goods** — by default the average of every costed item since
+   `live_from`. Override it with a number.
 
 ```
-uploads × sell-through = items sold
+uploads × sell-through          = items sold
 items sold × average item value = revenue
-revenue × markup / (1 + markup) = profit
+items sold × cost of goods      = cost
+revenue − cost                  = profit
 ```
 
-Two of the three now have real evidence behind them, recomputed on every build:
+**Profit is a subtraction, not an assumed share.** The markup and the profit share
+are now *outputs* — worked out from what the stock really cost — rather than a
+number set up front. They are still shown on the page so the original assumption
+can be checked against the real one.
 
-- **Markup.** 12 of the 15 items have a bundle cost in `crosslist/cost-rates.csv`.
-  An average sale price of £13.57 against an average cost of £6.64 is a
-  **104.3% markup — a 51.1% profit share**. The brief assumed 50%.
-- **Sell-through.** Of the 130 listings created since the live-from date, **24
-  have sold — 18.5%**, against an assumed 20%. That is a count of sold dates, not
-  a price, so it stays inside the no-pricing rule. Treat it as a **floor**: the
-  newest listings have not had time to sell yet, so the true rate only rises.
+### Where the cost of goods comes from
+
+Resolved per item, in this order:
+
+1. the **Cost of Goods** recorded against the item — `crosslist/items.csv`, or the
+   export's own cost column;
+2. failing that, the **bundle rate for its SKU** in `crosslist/cost-rates.csv`.
+
+SKUs are matched on their letters and digits alone, so `VWM - Women's Y2K Mix`,
+`VWM Women's Y2K Mix` and `VWM Women's Y2K mix` all resolve to the same rate.
+Word-order variants (`VWM Y2K Womens Mix`) still will not — those items simply
+count as uncosted. Adding a row to `cost-rates.csv` fixes any of them.
+
+On the current data that gives **29 costed items since 22 June — 12 from
+`items.csv`, 17 from the export — averaging £6.56** against a £13.39 average sale
+price: **£6.83 profit a sale, a 104.1% markup**. The brief's "roughly double your
+money" was right to within 4.1 points.
+
+Sell-through has evidence too: of the 130 listings created since the live-from
+date, **24 have sold — 18.5%**, against an assumed 20%. That is a count of sold
+dates, not a price, so it stays inside the no-pricing rule. Treat it as a
+**floor**: the newest listings have not had time to sell yet.
 
 ### Changing them
 
@@ -146,10 +165,13 @@ that is the reading you wanted, it is one line to change.
 ### No pricing comes out of this file
 
 Owner's instruction, and the build enforces it: a listing price is not a sold
-price, so **no price column in the export is read at all**. The average item
-value stays the mean of the 15 priced rows in `crosslist/items.csv`, and sold
-items are counted but never valued. Adding 500 export rows will not move the
-average by a penny.
+price, so **no sale price is read from the export at all**. The average item value
+stays the mean of the priced rows in `crosslist/items.csv`, and sold items are
+counted but never valued.
+
+The export's **Cost of Goods** column *is* read, since that is what you paid
+rather than what you hoped to sell for, and profit is now worked out from cost.
+Its `Price` column is never touched.
 
 ### Not counting the first batch twice
 

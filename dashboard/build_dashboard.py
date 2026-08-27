@@ -11,8 +11,9 @@ Reads, never writes, the pipeline files:
   crosslist/batches/*/items.csv the same, for batches kept in their own folders.
   inventory.csv                 the dated ledger — supplies each item's date
                                 from its `Date Added` cell.
-  crosslist/cost-rates.csv      per-bundle cost prices, used only to check the
-                                markup assumption against real stock.
+  crosslist/cost-rates.csv      per-bundle cost prices. Profit is worked out from
+                                these: an item's cost is its own Cost of Goods,
+                                or failing that the rate for its SKU here.
   crosslist/listings.csv        row count, as a cross-check on the batch.
   crosslist/batch-log.csv       optional. Overrides the upload date for a batch
                                 when the export went out on a different day
@@ -22,9 +23,10 @@ Reads, never writes, the pipeline files:
                                 sold date where there is one. Found by its columns
                                 rather than its name, so any filename works.
                                 Live = has a Last Listed and no sold date.
-                                Its PRICES ARE NEVER READ — a listing price is not
-                                a sold price, so no pricing statistic comes from
-                                it. Value always uses the items.csv average.
+                                Its SALE PRICES ARE NEVER READ — a listing price
+                                is not a sold price. Value always uses the
+                                items.csv average. Its Cost of Goods column IS
+                                read, being what was paid rather than hoped for.
 
 Writes  dashboard/dashboard.html  — one self-contained file, data baked in, so
 it opens by double-clicking with no server and no internet.
@@ -43,7 +45,7 @@ TEMPLATE = HERE / "template.html"
 OUT = HERE / "dashboard.html"
 SETTINGS = HERE / "settings.json"
 
-SETTING_KEYS = ("sell_through_rate", "markup", "average_item_value",
+SETTING_KEYS = ("sell_through_rate", "average_cost_of_goods", "average_item_value",
                 "monthly_profit_target", "break_even_target", "break_even_days",
                 "rate_unit", "pace_window_days", "currency")
 
@@ -107,7 +109,8 @@ def load_settings():
     if SETTINGS.exists():
         raw = json.loads(SETTINGS.read_text(encoding="utf-8"))
         settings = {k: v for k, v in raw.items() if k in SETTING_KEYS}
-    defaults = {"sell_through_rate": 0.20, "markup": 1.00, "average_item_value": None,
+    defaults = {"sell_through_rate": 0.20, "average_cost_of_goods": None,
+                "average_item_value": None,
                 "monthly_profit_target": 500, "break_even_target": 3300,
                 "break_even_days": 90, "rate_unit": "day",
                 "pace_window_days": 0, "currency": "£"}
@@ -153,6 +156,8 @@ COLUMN_ALIASES = {
                     "relisted", "date last listed"),
     "sold":        ("sold date", "date sold", "sold at", "sold on", "sold"),
     "title":       ("title", "name", "product name", "item"),
+    "cost":        ("cost of goods", "costofgoods", "cost", "cogs", "cost price"),
+    "sku":         ("sku", "sku code", "stock code"),
 }
 
 
@@ -331,12 +336,15 @@ def main():
     if rate_found:
         note_source(ROOT / "crosslist" / "cost-rates.csv", rate_rows, True,
                     "per-bundle cost prices — checks the markup against real stock")
+    # Keyed on the normalised SKU: the export writes the same bundle a dozen ways
+    # ("VWM - Women's Y2K Mix", "VWM Women’s Y2K Mix", "VWM Women's Y2K mix"), and
+    # a raw-string key would miss a rate that is genuinely there.
     rates = {}
     for row in rate_rows:
         cost = price_of(row.get("cost", ""))
         sku = row.get("sku_pattern", "")
         if sku and cost is not None:
-            rates[sku] = cost
+            rates[norm(sku)] = cost
 
     # ── days ─────────────────────────────────────────────────────────────────
     days = {}
@@ -364,6 +372,7 @@ def main():
              "has_export": False, "path": None,
              "live_from": live_from_raw, "live_from_day": live_from_day}
 
+    export_cost_rows = []
     export_path = find_store_export()
     if export_path is not None:
         export_rows, _ = read_csv(export_path)
@@ -378,6 +387,8 @@ def main():
         col_listed = pick_column(fields, "last_listed")
         col_sold = pick_column(fields, "sold")
         col_title = pick_column(fields, "title")
+        col_cost = pick_column(fields, "cost")
+        col_sku = pick_column(fields, "sku")
 
         # Which export rows are the batch we have already counted from items.csv?
         # Matched on title, not on position: the export is sorted newest-first, so
@@ -462,6 +473,13 @@ def main():
             if (index in already) if by_title else (index < skip_rows):
                 continue
 
+            # Cost material for the profit calculation. Gathered here so the first
+            # batch is not counted twice — it contributes its own costed rows from
+            # items.csv. Windowed to the cutoff like every other average.
+            if created_at and created_at >= live_from:
+                export_cost_rows.append((row.get(col_cost, "") if col_cost else "",
+                                         row.get(col_sku, "") if col_sku else ""))
+
             when = date_only(row.get(col_created, "")) if col_created else None
             if when is None:
                 undated_export += 1
@@ -483,6 +501,34 @@ def main():
         stock["live"] = len(uploads)
 
     # ── derived figures ──────────────────────────────────────────────────────
+    # ── cost of goods: what profit is actually worked out from ───────────────
+    # Resolved per item, cheapest source of truth first: the cost recorded against
+    # the item, then the bundle rate for its SKU. The store export contributes only
+    # its cost column and SKU — never a listing price.
+    def resolve_cost(explicit, sku):
+        # `explicit` arrives already parsed from items.csv, and as raw text from the
+        # export, so accept either rather than assuming one.
+        direct = explicit if isinstance(explicit, (int, float)) else price_of(explicit)
+        if direct:
+            return float(direct)
+        return rates.get(norm(sku))
+
+    cost_values, cost_sources = [], {"items.csv": 0, "store export": 0}
+    for item in uploads.values():
+        if item["date"] is None or item["date"] < live_from_day:
+            continue
+        found = resolve_cost(item.get("cost"), item.get("sku", ""))
+        if found:
+            cost_values.append(found)
+            cost_sources["items.csv"] += 1
+    for explicit, sku in export_cost_rows:
+        found = resolve_cost(explicit, sku)
+        if found:
+            cost_values.append(found)
+            cost_sources["store export"] += 1
+
+    avg_cost_of_goods = round(sum(cost_values) / len(cost_values), 4) if cost_values else 0.0
+
     # Owner's instruction: no average is built from anything before the cutoff.
     def in_window(item):
         return item["date"] is not None and item["date"] >= live_from_day
@@ -500,7 +546,7 @@ def main():
     prices = [v["price"] for v in priced.values()]
     avg_price = round(sum(prices) / len(prices), 2) if prices else 0.0
 
-    costed = [(v["price"], v["cost"] if v["cost"] is not None else rates.get(v["sku"]))
+    costed = [(v["price"], v["cost"] if v["cost"] is not None else rates.get(norm(v["sku"])))
               for v in priced.values()]
     costed = [(p, c) for p, c in costed if c is not None and c > 0]
 
@@ -538,6 +584,9 @@ def main():
                 if stock["window_listings"] else None),
             "observed_sold": stock["window_sold"],
             "observed_listings": stock["window_listings"],
+            "csv_average_cost_of_goods": avg_cost_of_goods,
+            "costed_items": len(cost_values),
+            "cost_sources": cost_sources,
         },
         "stock": stock,
         "live_from_day": live_from_day,
@@ -560,6 +609,19 @@ def main():
           + (", " + str(undated["uploads"]) + " undated" if undated["uploads"] else ""))
     print("  average item value " + settings["currency"] + format(avg_price, ".2f")
           + " from " + str(len(prices)) + " priced items")
+    if cost_values:
+        print("  cost of goods: £" + format(avg_cost_of_goods, ".2f") + " average across "
+              + str(len(cost_values)) + " costed items ("
+              + ", ".join(k + " " + str(v) for k, v in cost_sources.items() if v) + ")")
+        if avg_price:
+            print("    → profit £" + format(avg_price - avg_cost_of_goods, ".2f")
+                  + " per item sold, a "
+                  + format((avg_price - avg_cost_of_goods) / avg_price * 100, ".1f")
+                  + "% share of the sale price")
+    else:
+        flags.append("No cost of goods could be resolved for any item, so profit cannot "
+                     "be worked out from cost. Add rates to crosslist/cost-rates.csv, or "
+                     "set average_cost_of_goods in settings.json.")
     if costed:
         print("  markup implied by your cost data: "
               + format(implied_markup * 100, ".1f") + "% "

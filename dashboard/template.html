@@ -307,26 +307,22 @@ p  { margin: 0; }
 .hero-sub { font-size: 14px; color: var(--ink-2); }
 
 /* the working, shown rather than hidden — one row per step of the estimate */
+/* One grid for the whole chain, with the rows dissolved into it, so the operators
+   and the answers line up down the block instead of each row sizing itself. */
 .chain {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  font: 400 13px/1.4 var(--mono);
-  color: var(--ink-2);
-  overflow-x: auto;
-}
-
-.chain-row {
   display: grid;
   grid-template-columns: minmax(96px, auto) 14px minmax(132px, auto) 14px auto;
   align-items: center;
-  gap: 8px;
+  gap: 7px 8px;
+  font: 400 13px/1.4 var(--mono);
+  color: var(--ink-2);
   white-space: nowrap;
-  /* the row is as wide as its content, so a narrow screen scrolls the chain
-     rather than cropping the answer off the end of it */
+  overflow-x: auto;
   width: max-content;
   min-width: 100%;
 }
+
+.chain-row { display: contents; }
 
 .chain-op { color: var(--ink-3); text-align: center; }
 .chain-out { color: var(--ink); font-weight: 650; }
@@ -334,7 +330,14 @@ p  { margin: 0; }
 /* On a phone the answer is the half worth reading, so it drops onto its own
    line rather than sitting off the right-hand edge behind a sideways scroll. */
 @media (max-width: 560px) {
-  .chain { overflow-x: visible; }
+  .chain {
+    display: flex;
+    flex-direction: column;
+    overflow-x: visible;
+    width: auto;
+    min-width: 0;
+    white-space: normal;
+  }
 
   .chain-row {
     display: flex;
@@ -1036,11 +1039,15 @@ tfoot td { font-weight: 700; border-top: 1px solid var(--border); border-bottom:
 
       <div class="field">
         <div class="field-head">
-          <span class="field-label">Markup on cost</span>
-          <span class="field-num" id="mk-num"></span>
+          <span class="field-label">Cost of goods</span>
+          <span class="field-num" id="cg-num"></span>
         </div>
-        <input type="range" id="mk-range" min="10" max="300" step="5">
-        <p class="field-note" id="mk-note"></p>
+        <input type="range" id="cg-range" min="0" max="30" step="0.05">
+        <label class="row-inline">
+          <input type="checkbox" id="cg-auto">
+          <span id="cg-auto-label"></span>
+        </label>
+        <p class="field-note" id="cg-note"></p>
       </div>
 
       <div class="field">
@@ -1159,7 +1166,9 @@ const CUR = DATA.settings.currency;
 function money(v) {
   // round figures (a £500 target) lose the trailing zeros; worked-out ones keep them
   const dp = Number.isInteger(v) ? 0 : 2;
-  return CUR + v.toLocaleString("en-GB", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+  const sign = v < 0 ? "-" : "";              // -£26.40, never £-26.40
+  return sign + CUR + Math.abs(v).toLocaleString("en-GB",
+    { minimumFractionDigits: dp, maximumFractionDigits: dp });
 }
 
 const pct = f => (f * 100).toFixed(f * 100 % 1 === 0 ? 0 : 1) + "%";
@@ -1176,13 +1185,23 @@ const avgValue = () => S.average_item_value === null
   ? DATA.derived.csv_average_item_value
   : S.average_item_value;
 
-const profitShare = () => S.markup / (1 + S.markup);
-const profitPerUpload = () => S.sell_through_rate * avgValue() * profitShare();
+const avgCost = () => S.average_cost_of_goods === null
+  ? DATA.derived.csv_average_cost_of_goods
+  : S.average_cost_of_goods;
+
+/* Profit is what an item sells for minus what it cost — not a share assumed up
+   front. The profit share and the markup are consequences of those two figures,
+   shown so the old assumptions can still be checked against the real ones. */
+const profitPerSold = () => avgValue() - avgCost();
+const profitShare = () => avgValue() > 0 ? profitPerSold() / avgValue() : 0;
+const markup = () => avgCost() > 0 ? profitPerSold() / avgCost() : 0;
+const profitPerUpload = () => S.sell_through_rate * profitPerSold();
 
 function estimate(uploads) {
   const sold = uploads * S.sell_through_rate;
   const revenue = sold * avgValue();
-  return { uploads, sold, revenue, profit: revenue * profitShare() };
+  const cost = sold * avgCost();
+  return { uploads, sold, revenue, cost, profit: revenue - cost };
 }
 
 /* ── per day ↔ per month ───────────────────────────────────────────────────
@@ -1311,8 +1330,11 @@ function renderChain(e) {
     chainRow(one(e.sold) + " sold", "×",
              '<span class="var">' + money(avgValue()) + '</span> avg value',
              money(e.revenue) + " revenue") +
-    chainRow(money(e.revenue) + " revenue", "×",
-             '<span class="var">' + pct(profitShare()) + '</span> profit share',
+    chainRow(one(e.sold) + " sold", "×",
+             '<span class="var">' + money(avgCost()) + '</span> cost each',
+             money(e.cost) + " cost of goods") +
+    chainRow(money(e.revenue) + " revenue", "−",
+             money(e.cost) + " cost",
              money(e.profit) + " profit");
 }
 
@@ -1328,8 +1350,14 @@ function renderAction(e) {
   const gap = S.monthly_profit_target - thisMonth.profit;
 
   if (per <= 0) {
-    $("action-head").textContent = "Set an average item value above zero to get a target.";
-    $("action-note").textContent = "";
+    $("action-head").textContent = avgCost() >= avgValue()
+      ? "Every sale loses money at " + money(avgCost()) + " cost against " +
+        money(avgValue()) + " sale price."
+      : "Set an average item value above zero to get a target.";
+    $("action-note").textContent = avgCost() >= avgValue()
+      ? "There is no profit to plan with until the cost of goods drops below the " +
+        "sale price. Check the cost figure in the panel below."
+      : "";
     return;
   }
 
@@ -1367,8 +1395,8 @@ function renderTiles(e) {
     tile("Est. revenue", money(e.revenue),
          one(e.sold) + " × <b>" + money(avgValue()) + "</b> average value") +
     tile("Est. profit per upload", money(profitPerUpload()),
-         "<b>" + pct(S.sell_through_rate) + "</b> × <b>" + money(avgValue()) +
-         "</b> × <b>" + pct(profitShare()) + "</b>");
+         "<b>" + pct(S.sell_through_rate) + "</b> × (<b>" + money(avgValue()) +
+         "</b> − <b>" + money(avgCost()) + "</b> cost)");
 }
 
 /* ── live stock ────────────────────────────────────────────────────────────
@@ -1541,7 +1569,10 @@ function renderPlanner() {
 
   let closing;
   if (per <= 0) {
-    closing = '<p class="why">Set an average item value above zero to work out a rate.</p>';
+    closing = '<div class="solve-row"><span class="goal">No profit per upload</span>' +
+      '<span class="need">—</span><span class="why">At ' + money(avgCost()) +
+      " cost against a " + money(avgValue()) + " sale price there is nothing to " +
+      "work a rate back from.</span></div>";
   } else if (b.remaining === 0) {
     closing = '<div class="solve-row"><span class="goal">Already broken even</span>' +
       '<span class="need">—</span><span class="why">Every upload from here is clear profit.</span></div>';
@@ -1733,12 +1764,15 @@ function renderRules() {
       (Number.isInteger(sold100) ? int(sold100) : one(sold100)) +
       ' of every 100 items uploaded is ' +
       'assumed to sell' + (S.sell_through_rate === 0.2 ? ' (one in five)' : '') + '.</p></div>' +
-    '<div class="rule"><span class="rule-n">2</span><p class="rule-t"><b>Markup ' +
-      pct(S.markup) + '</b> — ' + (S.markup === 1
-        ? 'you roughly double your money, so profit is <b>'
-        : 'you sell for ' + one(1 + S.markup) + '× what you paid, so profit is <b>') +
-      pct(profitShare()) + '</b> of the sale price. Cost price is the other ' +
-      pct(1 - profitShare()) + '.</p></div>' +
+    '<div class="rule"><span class="rule-n">2</span><p class="rule-t"><b>Cost of goods ' +
+      money(avgCost()) + '</b> — ' + (S.average_cost_of_goods === null
+        ? 'the average of the ' + int(DATA.derived.costed_items) + ' costed items since ' +
+          longDate(DATA.live_from_day) + '. '
+        : 'set by hand, overriding the ' + money(DATA.derived.csv_average_cost_of_goods) +
+          ' average of your costed items. ') +
+      'Profit is what an item sells for minus what it cost: <b>' + money(profitPerSold()) +
+      '</b> per item sold, which is <b>' + pct(profitShare()) + '</b> of the sale price ' +
+      'and a ' + pct(markup()) + ' markup.</p></div>' +
     '<div class="rule"><span class="rule-n">3</span><p class="rule-t"><b>Average item value ' +
       money(av) + '</b> — ' + (S.average_item_value === null
         ? 'the mean of the ' + DATA.derived.priced_items + ' prices in <b>crosslist/items.csv</b> ' +
@@ -1746,21 +1780,30 @@ function renderRules() {
         : 'set by hand in the panel above, overriding the CSV mean of ' +
           money(DATA.derived.csv_average_item_value) + '.') + '</p></div>' +
     '<div class="rule"><span class="rule-n">=</span><p class="rule-t">100 uploads × ' +
-      pct(S.sell_through_rate) + ' = <b>' + one(sold100) + ' sold</b> × ' + money(av) + ' = <b>' +
-      money(sold100 * av) + ' revenue</b> × ' + pct(profitShare()) + ' = <b>' +
-      money(sold100 * av * profitShare()) + ' profit</b> per 100 uploads.</p></div>';
+      pct(S.sell_through_rate) + ' = <b>' + one(sold100) + ' sold</b>, worth ' +
+      money(sold100 * av) + ' at ' + money(av) + ' each, costing ' +
+      money(sold100 * avgCost()) + ' at ' + money(avgCost()) + ' each — <b>' +
+      money(sold100 * profitPerSold()) + ' profit</b> per 100 uploads.</p></div>';
 
   const d = DATA.derived;
-  $("evidence").innerHTML = d.cost_known_count > 0
-    ? '<b>Your own cost data backs the ' + pct(profitShare()) + ' up.</b> ' + d.cost_known_count +
-      ' of ' + d.total_items + ' items have a bundle cost in <code>crosslist/cost-rates.csv</code>: ' +
-      'an average sale price of ' + money(d.avg_price_costed) + ' against an average cost of ' +
-      money(d.avg_known_cost) + ' is a ' + pct(d.implied_markup) + ' markup — a ' +
-      pct(d.implied_profit_share) + ' profit share. The brief assumed ' + pct(0.5) + '; the real ' +
-      'stock agrees to within ' + (Math.abs(d.implied_profit_share - 0.5) * 100).toFixed(1) + ' points.'
-    : '<b>No cost data yet.</b> Add bundle rates to <code>crosslist/cost-rates.csv</code> and this ' +
-      'panel will check the markup assumption against your real stock.';
-
+  const src = Object.entries(d.cost_sources || {})
+    .filter(function (pair) { return pair[1]; })
+    .map(function (pair) { return pair[1] + " from " + pair[0]; }).join(" and ");
+  $("evidence").innerHTML = d.costed_items > 0
+    ? "<b>Profit now comes from what the stock actually cost.</b> " +
+      int(d.costed_items) + " items since " + longDate(DATA.live_from_day) +
+      " have a cost against them (" + src + "), averaging <b>" +
+      money(d.csv_average_cost_of_goods) + "</b> against a " + money(avgValue()) +
+      " average sale price. That is " + money(d.csv_average_cost_of_goods === 0 ? 0 :
+        avgValue() - d.csv_average_cost_of_goods) + " a sale, a " + pct(markup()) +
+      " markup — so the brief's assumption of doubling your money was right to " +
+      "within " + Math.abs(markup() * 100 - 100).toFixed(1) + " points. Costs come " +
+      "from the Cost of Goods column, falling back to the bundle rate for the item's " +
+      "SKU in <code>crosslist/cost-rates.csv</code>. No sale price is read from the " +
+      "store export."
+    : "<b>No cost of goods could be resolved.</b> Add bundle rates to " +
+      "<code>crosslist/cost-rates.csv</code>, or set <code>average_cost_of_goods</code> " +
+      "in <code>settings.json</code>, and profit will be worked out from real cost.";
   const st = $("evidence-st");
   if (d.observed_sell_through === null) {
     st.hidden = true;
@@ -1821,10 +1864,15 @@ function renderSources() {
 function syncControls() {
   $("st-range").value = Math.round(S.sell_through_rate * 100);
   $("st-num").textContent = pct(S.sell_through_rate);
-  $("mk-range").value = Math.round(S.markup * 100);
-  $("mk-num").textContent = pct(S.markup);
-  $("mk-note").innerHTML = "Profit works out at <b>" + pct(profitShare()) +
-    "</b> of the sale price. 100% markup = half the sale price is profit.";
+  $("cg-range").value = avgCost();
+  $("cg-range").disabled = S.average_cost_of_goods === null;
+  $("cg-num").textContent = money(avgCost());
+  $("cg-auto").checked = S.average_cost_of_goods === null;
+  $("cg-auto-label").innerHTML = "Use the average of your costed items (" +
+    money(DATA.derived.csv_average_cost_of_goods) + " across " +
+    int(DATA.derived.costed_items) + ")";
+  $("cg-note").innerHTML = "Profit is <b>" + money(profitPerSold()) + "</b> per item sold — " +
+    pct(profitShare()) + " of the sale price, a " + pct(markup()) + " markup.";
   $("av-range").value = avgValue();
   $("av-range").disabled = S.average_item_value === null;
   $("av-num").textContent = money(avgValue());
@@ -1901,8 +1949,12 @@ $("settings-btn").addEventListener("click", () => {
 $("st-range").addEventListener("input", e => {
   S.sell_through_rate = Number(e.target.value) / 100; save(); render();
 });
-$("mk-range").addEventListener("input", e => {
-  S.markup = Number(e.target.value) / 100; save(); render();
+$("cg-range").addEventListener("input", e => {
+  S.average_cost_of_goods = Number(e.target.value); save(); render();
+});
+$("cg-auto").addEventListener("change", e => {
+  S.average_cost_of_goods = e.target.checked ? null : DATA.derived.csv_average_cost_of_goods;
+  save(); render();
 });
 $("av-range").addEventListener("input", e => {
   S.average_item_value = Number(e.target.value); save(); render();

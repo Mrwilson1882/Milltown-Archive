@@ -12,3 +12,6 @@ crosslist/prepared/
 # version it.
 crosslist/store-export.csv
 listings*.csv
+
+# Python bytecode
+__pycache__/
