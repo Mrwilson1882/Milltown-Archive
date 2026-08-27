@@ -1,5 +1,16 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { hasWhatsApp, whatsappUrl } from "@/config/site";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+
+/**
+ * Pages where the floating button is suppressed. The cart and checkout already
+ * carry their own WhatsApp and email buttons, and a button pinned to the bottom
+ * corner lands squarely on top of them — on a phone it covers "Secure
+ * checkout", which is the one control that must never be blocked.
+ */
+const HIDE_ON = ["/cart", "/checkout"];
 
 /**
  * Site-wide click-to-chat button. Renders nothing until a WhatsApp business
@@ -7,7 +18,10 @@ import { WhatsAppIcon } from "@/components/WhatsAppIcon";
  * Set NEXT_PUBLIC_WHATSAPP_NUMBER to switch it on everywhere at once.
  */
 export function WhatsAppFloat() {
+  const pathname = usePathname();
+
   if (!hasWhatsApp) return null;
+  if (HIDE_ON.some((path) => pathname === path || pathname.startsWith(`${path}/`))) return null;
 
   return (
     <a
