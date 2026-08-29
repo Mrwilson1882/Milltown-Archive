@@ -145,6 +145,15 @@ of any new session — the chat is not persistent, these files are the memory.
   had a Corset Story care label photographed on separate grey twill beside a
   YIANNA waist trainer, and its composition was written from the wrong one.
   Check the label is sitting on the same fabric as the garment before quoting it.
+- **On a waist trainer the smooth panel is the cover and the hook-and-eye
+  closure is the second shot** (owner's layout, 24 Aug). The clean product view
+  leads; the closure is the view that follows. Do not lead with the hooks even
+  though they are technically the front of the garment.
+- **Check for a tape measure at the edge of the frame.** Item 27's `IMG_1566`
+  was read as a plain shot because the tape ran along the very top of the
+  contact-sheet tile. Every item recording no measurement was re-checked at full
+  resolution after that; 13 genuinely had none and only this one was a miss.
+  A thumbnail is enough to group photos, not always enough to classify them.
 - **Measurement shots never sit dead last** (owner, 24 Aug). The order is:
   full front, full back, then **four key detail shots** (chest logo, neck label,
   composition tag), then the tape-measure shots, then the remaining details,
