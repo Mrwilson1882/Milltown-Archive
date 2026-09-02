@@ -1,58 +1,46 @@
+import Image from "next/image";
+
 /**
- * The Archive Wholesale wordmark, set in type rather than shipped as an image
- * so it stays crisp at every size and in high-contrast mode.
+ * The Archive Wholesale wordmark — the owner's own artwork, at
+ * public/logo.png, rather than a recreation in type.
  *
- * Bold black italic "ARCHIVE" over tracked forest-green "WHOLESALE", matching
- * the supplied logo. If you would rather use the original artwork file, drop it
- * at public/logo.svg and swap the markup below for an <Image>.
+ * The file is a transparent PNG lifted from the supplied original, so it sits
+ * on any background. Its two inks are black and the logo's own green
+ * (#1D502C), which is a shade warmer than the site's forest (#0F4A2E) — that
+ * difference is in the artwork and is deliberately preserved.
+ *
+ * To replace it, drop a new file at public/logo.png with the same 1200×296
+ * proportions and update LOGO_W / LOGO_H if they change.
  */
+
+const LOGO_W = 1200;
+const LOGO_H = 296;
 
 type LogoProps = {
-  /** Scale of the wordmark. */
+  /** Rendered height of the wordmark. Width follows the artwork's proportions. */
   size?: "sm" | "md" | "lg" | "xl";
-  /** Render in white for use on a dark ground. */
-  inverted?: boolean;
   className?: string;
+  /** Set on the one instance that appears above the fold. */
+  priority?: boolean;
 };
 
-/**
- * `nudge` re-centres the second line: letter-spacing adds a trailing gap after
- * the final S, which otherwise pulls the word visually to the left.
- */
-const sizes = {
-  sm: { main: "text-xl", sub: "text-[0.5rem] tracking-[0.42em]", nudge: "translate-x-[0.21em]" },
-  md: { main: "text-3xl", sub: "text-[0.6rem] tracking-[0.44em]", nudge: "translate-x-[0.22em]" },
-  lg: {
-    main: "text-5xl sm:text-6xl",
-    sub: "text-[0.7rem] sm:text-xs tracking-[0.5em]",
-    nudge: "translate-x-[0.25em]",
-  },
-  xl: {
-    main: "text-6xl sm:text-8xl",
-    sub: "text-xs sm:text-base tracking-[0.52em]",
-    nudge: "translate-x-[0.26em]",
-  },
+const heights = {
+  sm: "h-7",
+  md: "h-10",
+  lg: "h-14 sm:h-20",
+  xl: "h-20 sm:h-28",
 } as const;
 
-export function Logo({ size = "md", inverted = false, className = "" }: LogoProps) {
-  const s = sizes[size];
+export function Logo({ size = "md", className = "", priority = false }: LogoProps) {
   return (
-    <span
-      className={`inline-flex flex-col items-center leading-none ${className}`}
-      aria-label="Archive Wholesale"
-      role="img"
-    >
-      <span aria-hidden="true" className={`wordmark ${s.main} ${inverted ? "text-paper" : "text-ink"}`}>
-        Archive
-      </span>
-      <span
-        aria-hidden="true"
-        className={`wordmark-sub ${s.sub} ${s.nudge} mt-[0.35em] ${
-          inverted ? "text-paper/85" : "text-forest"
-        }`}
-      >
-        Wholesale
-      </span>
-    </span>
+    <Image
+      src="/logo.png"
+      alt="Archive Wholesale"
+      width={LOGO_W}
+      height={LOGO_H}
+      priority={priority}
+      sizes="(max-width: 640px) 220px, 320px"
+      className={`${heights[size]} w-auto ${className}`}
+    />
   );
 }

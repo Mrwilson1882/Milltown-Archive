@@ -41,7 +41,7 @@ export function Header() {
 
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:px-6">
         <Link href="/" className="shrink-0" aria-label="Archive Wholesale — home">
-          <Logo size="md" />
+          <Logo size="md" priority />
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
