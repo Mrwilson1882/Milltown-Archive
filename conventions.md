@@ -82,6 +82,27 @@ repeatedly. The test takes seconds:
 The nap test — stroke it one way, then the other — separates velour from the
 other two on its own.
 
+## Accept Offers — set automatically from the price
+
+Every row carries an **Accept Offers** column, filled from the Price with no
+input needed from the owner:
+
+| Price | Accept Offers |
+|---|---|
+| Under £20 | **No** |
+| £20 and over | **Yes** |
+
+*(Rule set by the owner, 2 Sep 2026, and applied to every row going forward.)*
+
+The owner's wording was "under £20 no, over £20 yes", which leaves **exactly
+£20.00** unspecified. It is treated as **Yes** — £20.00 is not under £20. No
+item has been priced at exactly £20.00 so far; if the owner wants it the other
+way, this is the line to change.
+
+Whenever a price changes, this column is recreated from the new price — the two
+must never disagree. A row with no price leaves Accept Offers blank rather than
+defaulting to No.
+
 ## Pricing
 
 **Do not suggest prices.** The owner sets every price. If a voice note arrives
