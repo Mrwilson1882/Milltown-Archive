@@ -131,6 +131,7 @@ so an item is identified by **date + number**, never by number alone.
 | 2 Sep | 2 | Versace Business Fit Dress Shirt | Versace | Collar 16in / 41cm | Very good | None | SF - Men's Summer Designer Mix | £39.99 **(Claude-set — highest in ledger, see below)** |
 | 2 Sep | 3 | Nike Track Jacket | Nike | Medium Men's | Very good | None | **VWM - Windbreakers** | £24.99 **(Claude-set — matches owner's own 14 Aug #8)** |
 | 2 Sep | 4 | Ralph Lauren Mesh Mini Polo Dress | Ralph Lauren | Large | Very good vintage | Very small discrepancy on front | VWM - RL Lacoste Polos | £14.99 |
+| 2 Sep | 5 | Nike Windbreaker | Nike | *(not stated)* | Very good vintage | White marks + discrepancies on front | VWM - Windbreakers | £24.99 |
 
 ## Raw observations
 
@@ -236,6 +237,27 @@ knitwear is the first real corroboration that the tier was pitched correctly.
 It also confirms the garment-type ladder within a single brand: Ralph Lauren
 polos sit at £12.99–£14.99, while a Ralph Lauren **knit jumper** takes £19.99 —
 a £5 step for the heavier garment, from the same brand at the same grade.
+
+## Windbreakers may be a flat-price category (2 Sep #3 and #5)
+
+Both owner-priced at **£24.99**, and the second one carries front defects that
+would normally cost £3–£5 elsewhere in this data:
+
+| Item | Condition | Defects | Price |
+|---|---|---|---|
+| 2 Sep #3, Nike track jacket | Very good | None | £24.99 |
+| 2 Sep #5, Nike windbreaker | Very good vintage | **White marks + discrepancies on front** | £24.99 |
+
+The owner also priced a clean Nike track jacket at £24.99 back on 14 Aug. That
+is three Nike outer layers at the same figure across three weeks, two of them
+flawed.
+
+This looks like the **Birkenstock pattern repeating**: a category priced by
+what it is rather than item by item. If so, `VWM - Windbreakers` items should
+default to £24.99 and defects should not be deducted — a departure from the
+gradient that governs polos and tops.
+
+Worth watching over the next few windbreakers before treating it as settled.
 
 ## Owner-stated factors
 
