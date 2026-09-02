@@ -26,14 +26,13 @@ by the garment shown handles it; grouping by position would not have.
 
 ## Open — needs the owner
 
-**One of seven rows has no Cost of Goods**, down from four.
+**All seven rows are costed** (owner supplied the last two rates on 2 Sep).
 
 - **`VWM - Windbreakers` = £9.60** (owner, 2 Sep), covering items 3 and 5. Same
   rate as `VWM - Track Jacket`, which is a consistent outerwear figure.
 - **Item 6's bundle is `World Vintage Lacoste Cardigans`** (owner, 2 Sep),
-  renamed from the ledger's `VWM - Lacoste Jumpers/Cardigans`. **Still no rate**,
-  so item 6 is the one row with a blank Cost of Goods.
-  Written exactly as the owner said it — if the SKU should keep a `VWM - `
+  renamed from the ledger's `VWM - Lacoste Jumpers/Cardigans`, at **£9.60**.
+  Written exactly as the owner said it. Rate: **£9.60**.
   prefix instead, it is a one-word change.
 
 The garment is a crew-neck pullover, not a cardigan; the SKU names the bundle it
