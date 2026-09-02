@@ -201,8 +201,20 @@ of the day, export the whole sheet to `.xlsx`.
 **The owner's price always wins.** Where a price is dictated, record it exactly
 and never override it.
 
-**Where no price is dictated, Claude sets one** (owner's instruction, 19 Aug,
-reversing the 14 Aug suspension). Every Claude-set price is marked
-`price_source = claude`, carries its reasoning, and is offered as a figure to
-correct rather than a decision made. Method and its known weaknesses are in
-`pricing-notes.md`.
+**Where no price is dictated, Claude sets one** — and from 2 Sep 2026 this
+happens **in the photo-processing chat**, not the voice-note chat, because that
+is where the garment can be seen. The ledger keeps a blank Price cell; the
+figure is set later against the photographs.
+
+Four evenly weighted factors — **market comparables, rarity/collectability,
+condition, and defect severity (Minor or Major)** — then an adjustment toward
+the faster sale, because **the objective is quick stock turnover at a healthy
+margin, not the highest achievable price**. Full method, including what the
+search tools can and cannot reach, is in `pricing-notes.md`.
+
+Every Claude-set price carries `price_source = claude` and a `price_basis`
+that names its comparables, so it can be argued with. Owner corrections go
+into `price-corrections.csv` and outrank the general method.
+
+
+

@@ -11,38 +11,112 @@ keeping in view: the dataset was too small, the relationships were not linear,
 and the suggestions were reading patterns into noise. What has changed is that
 the owner would rather have a flagged estimate to correct than a blank cell.
 
-### How Claude prices
+### How Claude prices (owner's method, 2 Sep 2026)
 
-1. **Anchor on the owner's own prices first.** The ledger is the only record of
-   what this business actually charges. Nearest comparable by garment type, then
-   brand tier, then condition.
-2. **State the comparable out loud** in the `price_reasoning` column, so any
-   figure can be argued with rather than taken on trust.
-3. **Keep the `.99` ending** — true of every price recorded so far.
-4. **Give a range, not false precision, where no comparable exists**, and say so.
-5. **Mark every Claude-set price** with `price_source = claude`. Owner-dictated
-   prices are `price_source = owner` and are never touched.
+Pricing now happens **in the photo-processing chat**, not the voice-note chat,
+because that is where the garment can actually be seen. Four factors, **evenly
+weighted**, then a turnover adjustment.
+
+**The objective is quick stock turnover at a healthy margin — not the highest
+achievable price.** Where a judgement is close, take the faster sale.
+
+#### 1. Market comparables
+
+Search Vinted UK for the same piece. Two or three queries per item: brand +
+garment + defining attribute, then a looser one without the attribute. Record
+the low, middle and high of what comes back, and **how many comparables were
+found** — three is a band, one is an anecdote.
+
+**These are asking prices, not sold prices.** Vinted does not publish sold data,
+and unsold stock sits at optimistic prices, so the visible band skews high.
+Treat the middle of the band as the realistic sale price and the top as
+aspiration.
+
+**What works and what does not, tested 2 Sep 2026:** `WebSearch` reaches Vinted
+UK listings and returns prices. **Direct page fetches of `vinted.co.uk` and
+`ebay.co.uk` are blocked by the network proxy**, so a whole results page cannot
+be pulled — comps come a handful at a time through search. eBay is unavailable
+entirely. Do not claim to have checked eBay.
+
+Where a search returns nothing comparable, say so and fall back on the ledger.
+
+#### 2. Rarity and collectability
+
+- **Collected** — the signature piece of a collected label (Juicy velour, Miss
+  Me rhinestone denim), a named-player jersey, a sought-after era or colourway.
+  Upper third of the band.
+- **Standard** — a recognised brand doing an ordinary piece. Middle.
+- **Common** — unbranded, plain, or a basic from a brand nobody collects.
+  Bottom third.
+
+#### 3. Condition
+
+From the ledger's own grade: `Very good` and `Very good vintage` take no
+reduction; `Good` a modest one; `Satisfactory` / `Fair` a real one.
+
+#### 4. Defect severity — Minor or Major
+
+Judged from the voice note **and** the photographs, and recorded in a
+`defect_severity` column.
+
+- **Minor** — small, faint, or somewhere a buyer will not look; wear consistent
+  with the garment's age. Anything the voice note itself downplays ("barely
+  noticeable", "nothing too much", "hard to notice") is Minor by the owner's own
+  reading. Little or no reduction.
+- **Major** — holes, tears, a stain on a focal panel, a broken zip or fastening,
+  heavy fading, missing hardware. Anything a buyer would open a case over.
+  A real reduction, and it must be impossible to miss in the description.
+
+The 14 Aug lesson stands: **deductions are not flat.** A £3 reduction on a £12
+polo is not a £3 reduction on a £25 jacket. Take a proportion, not a number.
+
+#### 5. Turnover adjustment and the margin floor
+
+Land at or a little below the middle of the band. Then check the margin against
+`Cost of Goods` from the SKU: report the gross multiple, and **flag anything
+under 2x cost** as thin rather than silently accepting it. This is a check that
+raises a question, not a rule that overrides the market.
+
+Keep the `.99` ending on every Claude-set price.
+
+#### What gets written down
+
+Every Claude-set price carries `price_source = claude` and a `price_basis`
+saying: the comps found and how many, the rarity call, the condition and defect
+calls, and the resulting figure. **A price that cannot be argued with is not
+useful** — the owner is going to correct these, and he can only correct
+reasoning he can see.
+
+Owner-dictated prices remain `price_source = owner` and are never touched.
+
+### The correction loop
+
+The owner will say "no, this is what you should have priced it at". **Every one
+of those goes into `price-corrections.csv`** — my figure, his figure, the
+delta, and his reason. That file is read before pricing anything, and its
+entries outrank the general method above, because they are this business's
+actual market rather than a search result.
+
+The Miss Me shorts are the first entry: £18.99 listed against a real £25.
 
 ### The known weakness
 
-Claude has no live market feed — no Vinted sold listings, no comparables outside
-this ledger. Every estimate is anchored on 23 rows of one seller's history plus
-general knowledge of the brands.
+Comps are now reachable, which closes the largest gap in the 14 Aug reasoning.
+Three things remain invisible:
 
-That matters because it is exactly where the ledger is thinnest that pricing is
-hardest, and the Miss Me miss proves it: **£25 was knowable from Vinted, not
-from anything in these columns.** Demand, era desirability and what is currently
-selling remain invisible here, as the section below has said since 14 Aug.
+- **Sold prices.** Only asking prices are visible, so the band is inflated by
+  stock that is not moving.
+- **How fast something sold**, which is the whole objective here.
+- **Local demand**, seasonality, and what is trending this week.
 
-So expect Claude's estimates to be weakest on the pieces that most deserve a
-premium — collected brands, named players, sought-after eras — which is the
-opposite of where they would be most useful. Corrections are the fix: every one
-becomes a comparable, and the flagged-estimate loop tightens as the ledger grows.
+So expect the estimates to be weakest on pieces that most deserve a premium —
+collected brands, named players, sought eras — which is the opposite of where
+they would be most useful. Corrections are the fix.
 
 **Read this file at the start of any new session.** The chat is not
-persistent — this file and `inventory.csv` are the memory. When a voice note
-arrives without a price, leave the Price cell blank and ask the owner for it.
-Do not offer a figure.
+persistent — this file and `inventory.csv` are the memory. When a voice note arrives
+without a price, the Price cell stays blank in the ledger; the figure is set
+later in the photo-processing chat, where the garment can be seen.
 
 ## What the data cannot see
 
