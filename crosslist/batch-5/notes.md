@@ -26,12 +26,16 @@ by the garment shown handles it; grouping by position would not have.
 
 ## Open — needs the owner
 
-**Four of seven rows have no Cost of Goods.** `cost-rates.csv` has no entry for:
+**Three of seven rows have no Cost of Goods.** `cost-rates.csv` has no entry for:
 
-- `SF - Men's Summer Designer Mix` (item 2, the £39.99 Versace) — is this the
-  same as `SF Summer Designer Mix` at £6.45? Open since batch 1.
 - `VWM - Windbreakers` (items 3 and 5)
 - `VWM - Lacoste Jumpers/Cardigans` (item 6)
+
+**Resolved 2 Sep:** the ledger's `SF - Men's Summer Designer Mix` is not a
+separate bundle. Owner confirmed it is just **Summer Designer Mix at £6.45**, so
+item 2's SKU is corrected to `SF - Summer Designer Mix` on the upload and the
+rate applies. This closes a question open since batch 1. The ledger row is left
+as dictated, as the record of what was said.
 
 `SF - Birkenstock` is also still outstanding from batch 4.
 
