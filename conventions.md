@@ -106,6 +106,15 @@ of any new session — the chat is not persistent, these files are the memory.
   cards sit back to back, the first closes the run before it and the second
   opens the run after it. Cards are not always in numeric order either: batch
   4's `IMG_1470` is card 19 and `IMG_1471` is card 18.
+- **Not every HEIC is a number card.** Batch 4's were, which made "exclude the
+  HEICs" look like a rule. Batch 5's `IMG_2332.heic` is a composition-tag
+  close-up with no card in it, and belongs in the listing. Check each HEIC
+  before excluding it — `build.py` converts HEIC to JPEG, so keeping one costs
+  nothing.
+- **An item may have no card at all.** Batch 5's item 5 has none; the owner
+  said so unprompted. With six cards and seven ledger rows the odd one out is
+  identifiable, but only because the batch is small — say so rather than
+  silently assigning it.
 - **A card photo's Photoroom twin is a clean full front.** Background removal
   takes the card away with the floor, so `IMG_1499-Photoroom.JPG` is a usable
   cover shot even though `IMG_1499.HEIC` is the card. Include the twin; exclude
