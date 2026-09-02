@@ -26,10 +26,18 @@ by the garment shown handles it; grouping by position would not have.
 
 ## Open — needs the owner
 
-**Three of seven rows have no Cost of Goods.** `cost-rates.csv` has no entry for:
+**One of seven rows has no Cost of Goods**, down from four.
 
-- `VWM - Windbreakers` (items 3 and 5)
-- `VWM - Lacoste Jumpers/Cardigans` (item 6)
+- **`VWM - Windbreakers` = £9.60** (owner, 2 Sep), covering items 3 and 5. Same
+  rate as `VWM - Track Jacket`, which is a consistent outerwear figure.
+- **Item 6's bundle is `World Vintage Lacoste Cardigans`** (owner, 2 Sep),
+  renamed from the ledger's `VWM - Lacoste Jumpers/Cardigans`. **Still no rate**,
+  so item 6 is the one row with a blank Cost of Goods.
+  Written exactly as the owner said it — if the SKU should keep a `VWM - `
+  prefix instead, it is a one-word change.
+
+The garment is a crew-neck pullover, not a cardigan; the SKU names the bundle it
+came out of, not what the garment is, so the category is unaffected.
 
 **Resolved 2 Sep:** the ledger's `SF - Men's Summer Designer Mix` is not a
 separate bundle. Owner confirmed it is just **Summer Designer Mix at £6.45**, so
