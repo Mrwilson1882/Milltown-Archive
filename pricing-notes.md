@@ -132,6 +132,7 @@ so an item is identified by **date + number**, never by number alone.
 | 2 Sep | 3 | Nike Track Jacket | Nike | Medium Men's | Very good | None | **VWM - Windbreakers** | £24.99 **(Claude-set — matches owner's own 14 Aug #8)** |
 | 2 Sep | 4 | Ralph Lauren Mesh Mini Polo Dress | Ralph Lauren | Large | Very good vintage | Very small discrepancy on front | VWM - RL Lacoste Polos | £14.99 |
 | 2 Sep | 5 | Nike Windbreaker | Nike | *(not stated)* | Very good vintage | White marks + discrepancies on front | VWM - Windbreakers | £24.99 |
+| 2 Sep | 6 | Lacoste Women's Jumper | Lacoste | Small | Very good | None | VWM - Lacoste Jumpers/Cardigans | £16.99 |
 
 ## Raw observations
 
@@ -258,6 +259,20 @@ default to £24.99 and defects should not be deducted — a departure from the
 gradient that governs polos and tops.
 
 Worth watching over the next few windbreakers before treating it as settled.
+
+## The knitwear tier has two levels (2 Sep #6)
+
+| Item | Brand | Price |
+|---|---|---|
+| 20 Aug #22, cable knit jumper | Ralph Lauren | £19.99 |
+| **2 Sep #6, jumper** | **Lacoste** | **£16.99** |
+
+Both owner-set, both very good and clean, both women's. **Lacoste knitwear
+sits £3 below Ralph Lauren knitwear** — the same ordering the polos show, where
+Lacoste tops out at £12.99–£14.99 against Ralph Lauren's £14.99.
+
+This is the first time a brand ordering has held across two different garment
+types, which makes it more trustworthy than either observation alone.
 
 ## Owner-stated factors
 
