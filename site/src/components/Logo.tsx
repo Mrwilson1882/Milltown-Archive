@@ -5,9 +5,11 @@ import Image from "next/image";
  * public/logo.png, rather than a recreation in type.
  *
  * The file is a transparent PNG lifted from the supplied original, so it sits
- * on any background. Its two inks are black and the logo's own green
- * (#1D502C), which is a shade warmer than the site's forest (#0F4A2E) — that
- * difference is in the artwork and is deliberately preserved.
+ * on any background. The supplied artwork's green read #1A5028, a shade warmer
+ * than the brand green the brief specifies, so the wordmark is repainted in
+ * #0F4A2E to match the rest of the site exactly. Coverage was solved against
+ * the original ink before repainting, so the letterforms and edges are the
+ * artwork's own — only the hue changed.
  *
  * To replace it, drop a new file at public/logo.png with the same 1200×296
  * proportions and update LOGO_W / LOGO_H if they change.
