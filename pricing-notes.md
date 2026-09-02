@@ -127,6 +127,7 @@ so an item is identified by **date + number**, never by number alone.
 | 20 Aug | 45 | Women's Bra | *(none given)* | 32A | *(not stated)* | None | *(not stated)* | £8.99 **(Claude-set)** |
 | 21 Aug | 1 | Tommy Hilfiger Polo | Tommy Hilfiger | Large Men's | Very good | None | *(not stated)* | £14.99 **(Claude-set)** |
 | 21 Aug | 2 | Fay Men's Top *(type not stated)* | Fay | Medium Men's | Very good | None | *(not stated)* | £19.99 **(Claude-set — see below)** |
+| 2 Sep | 1 | Daisy Fuentes Nightdress | Daisy Fuentes | Small | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -1236,6 +1237,23 @@ output, and pricing one at £19.99 would give away £20 or more.
 **Suggestion for the new dictation format**: adding the garment type after the
 brand would make it complete. *Brand, type, colour, gender, size, condition* —
 one extra word, and it is the field that most often decides the price.
+
+## 2 Sep #1 — Daisy Fuentes nightdress → £12.99
+
+**Daisy Fuentes** is a real label but a **mass-market one** — a Kohl's
+department-store brand rather than a specialist lingerie house. That is the
+difference between this and the Cinema Etoile piece at £14.99: brand
+recognition among collectors, not quality.
+
+£12.99 matches the owner's established nightwear point exactly — 19 Aug #14
+(lace babydoll set) and 20 Aug #12 (black chemise) both sit there.
+
+**On the product type**: the owner asked for identification "when you get the
+pictures". Pictures do not reach this chat, but the description is sufficient
+on its own — a pink stretch-knit (90% polyester / 10% elastane) piece the owner
+already calls a night dress is a **nightdress or chemise**, and either term
+works for listing. The one thing that would change it is length: mid-thigh or
+shorter with a flared cut would make it a **babydoll**.
 
 ## Measurements have been requested four times and never supplied
 
