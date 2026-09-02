@@ -128,6 +128,7 @@ so an item is identified by **date + number**, never by number alone.
 | 21 Aug | 1 | Tommy Hilfiger Polo | Tommy Hilfiger | Large Men's | Very good | None | *(not stated)* | £14.99 **(Claude-set)** |
 | 21 Aug | 2 | Fay Men's Top *(type not stated)* | Fay | Medium Men's | Very good | None | *(not stated)* | £19.99 **(Claude-set — see below)** |
 | 2 Sep | 1 | Daisy Fuentes Nightdress | Daisy Fuentes | Small | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
+| 2 Sep | 2 | Versace Business Fit Dress Shirt | Versace | Collar 16in / 41cm | Very good | None | SF - Men's Summer Designer Mix | £39.99 **(Claude-set — highest in ledger, see below)** |
 
 ## Raw observations
 
@@ -1254,6 +1255,39 @@ on its own — a pink stretch-knit (90% polyester / 10% elastane) piece the owne
 already calls a night dress is a **nightdress or chemise**, and either term
 works for listing. The one thing that would change it is length: mid-thigh or
 shorter with a flared cut would make it a **babydoll**.
+
+## 2 Sep #2 — Versace dress shirt → £39.99, the highest price in the ledger
+
+**"16 / 41" is a collar measurement**, not a garment size: 16 inches, which is
+41 cm — the same figure in both units, as dress shirts are always labelled.
+On UK and US sizing a 16″ collar is a **Large**; on Italian sizing 41 reads
+closer to a **Medium-Large**. List it as **"Collar 16in / 41cm"** with Large as
+the secondary term — collar size is what dress-shirt buyers actually search.
+
+£39.99 sets a new ceiling, above the £34.99 Juicy velour top. Versace mainline
+shirts retail in the hundreds and secondhand examples sit well above anything
+else in this inventory, so pricing it against the surrounding stock would
+give away real money.
+
+**Two things decide whether £39.99 is right, and both need checking on the
+label:**
+
+**1. Which Versace line?** The name spans very different tiers:
+
+| Label reads | Tier | Realistic price |
+|---|---|---|
+| **Gianni Versace** or plain **Versace** | Mainline | £49.99–£69.99 |
+| **Versace Collection** | Diffusion | £34.99–£39.99 |
+| **Versace Jeans / Versace Jeans Couture** | Entry | £24.99–£29.99 |
+
+£39.99 assumes Versace Collection, the most commonly encountered line. If the
+label says plain Versace or Gianni Versace, it is worth considerably more.
+
+**2. Authentication.** Versace is among the most counterfeited labels in
+menswear. Worth checking before listing: stitch quality on the collar and
+placket, a proper woven main label with a style and composition tag beneath,
+and branded buttons. A listing at this price will attract scrutiny, and a
+disputed authenticity claim costs more than the item.
 
 ## Measurements have been requested four times and never supplied
 
