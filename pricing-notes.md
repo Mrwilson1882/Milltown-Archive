@@ -133,6 +133,7 @@ so an item is identified by **date + number**, never by number alone.
 | 2 Sep | 4 | Ralph Lauren Mesh Mini Polo Dress | Ralph Lauren | Large | Very good vintage | Very small discrepancy on front | VWM - RL Lacoste Polos | £14.99 |
 | 2 Sep | 5 | Nike Windbreaker | Nike | *(not stated)* | Very good vintage | White marks + discrepancies on front | VWM - Windbreakers | £24.99 |
 | 2 Sep | 6 | Lacoste Women's Jumper | Lacoste | Small | Very good | None | VWM - Lacoste Jumpers/Cardigans | £16.99 |
+| 2 Sep | 7 | Lacoste Polo | Lacoste | XL Men's | Very good | None | VWM - RL Lacoste Polos | £16.00 |
 
 ## Raw observations
 
@@ -271,8 +272,25 @@ Both owner-set, both very good and clean, both women's. **Lacoste knitwear
 sits £3 below Ralph Lauren knitwear** — the same ordering the polos show, where
 Lacoste tops out at £12.99–£14.99 against Ralph Lauren's £14.99.
 
-This is the first time a brand ordering has held across two different garment
-types, which makes it more trustworthy than either observation alone.
+This looked like it matched the polo ordering — but **2 Sep #7 contradicts that
+immediately**: a Lacoste polo, XL men's, very good and clean, priced **£16.00**,
+which is above every Ralph Lauren polo in the ledger (£12.99–£14.99).
+
+So the brand ordering holds for **knitwear** and not for **polos**:
+
+| Garment | Ralph Lauren | Lacoste |
+|---|---|---|
+| Knitwear | £19.99 | £16.99 |
+| Polos | £12.99–£14.99 | £9.99–**£16.00** |
+
+The Lacoste polo range is now the widest of any brand-garment pair in the data.
+What separates £12.99 (14 Aug #14, UK Large, very good vintage, clean) from
+£16.00 (this one, XL, very good, clean) is not visible in the recorded columns —
+size is the only difference, and size has otherwise never moved a price here.
+
+**Treat neither ordering as a rule.** This is a good illustration of the
+owner's own warning: the columns do not capture whatever they are actually
+seeing.
 
 ## Owner-stated factors
 
