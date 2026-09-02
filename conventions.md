@@ -192,6 +192,21 @@ of any new session — the chat is not persistent, these files are the memory.
   rather than trusting it to have been written into the prose, and refuses to
   write a row where a stated defect is missing or is not last — items 1, 2 and
   27 shipped without theirs when it was left to hand.
+- **Measurements have started arriving** (owner, 2 Sep). The house format's
+  `Pit to Pit:` / `Length:` block, omitted since 14 Aug for want of figures,
+  comes back **per item** as soon as one is dictated, and that item's size line
+  regains "and below". Items without figures keep the shorter line — never
+  print an empty measurement.
+- **A label that disagrees with the ledger may mean the garment has shrunk.**
+  Batch 5's Lacoste jumper is labelled `FR 5 / US L` but the owner logged it
+  Small because it has shrunk to a small. So the ledger is not a transcription
+  error to be corrected — it is the garment as it measures now, which is what a
+  buyer receives. Report the label reading, list the ledger size.
+- **A dictated size can move the category.** Batch 5's Nike windbreaker was
+  logged Unisex with no size; the owner then gave "Large Women's (oversized
+  fit)", so it moved from `Men's windbreakers` to `Women's windbreakers` to
+  carry a women's size id. `Department` in the internal note stays as the ledger
+  has it. Category follows the size group the size needs.
 - **Size discrepancies:** where a garment's label disagrees with the ledger,
   **the ledger wins.** Record the discrepancy and carry on with the ledger
   value; do not silently switch to the label. Owner's instruction, 16 Aug.

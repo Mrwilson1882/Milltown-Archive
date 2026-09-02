@@ -39,12 +39,20 @@ as dictated, as the record of what was said.
 
 `SF - Birkenstock` is also still outstanding from batch 4.
 
-**Item 6, size.** The Lacoste neck label reads **FR 5 / US L**; the ledger says
-**Small**. The ledger was followed, but FR 5 is nearer a UK 14 than a small, so
-this is worth checking against the garment.
+**Resolved 2 Sep — item 6, size.** The neck label reads FR 5 / US L; the owner
+confirms **the garment has shrunk**, so the ledger's `Small` is the size as it
+actually measures. Not a transcription error.
 
-**Item 5, size.** Ledger blank and no size label in any of the ten photographs,
-so `Size id` is empty and Crosslist may reject the row.
+**Resolved 2 Sep — item 5, size.** Owner dictated **Large Women's (oversized
+fit)** with a **23.5in pit to pit**. The category moved from `Men's
+windbreakers` to `Women's windbreakers` so the row can carry a women's size id;
+`Department` stays `Unisex Adults` as the ledger has it.
+
+This is also **the first dictated measurement**, so the house format's
+`Pit to Pit:` line appears on item 5 and its size line regains "and below". The
+other six keep the shorter line.
+
+All seven rows now carry a Size id.
 
 ## Prices
 
