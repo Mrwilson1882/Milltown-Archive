@@ -130,6 +130,7 @@ so an item is identified by **date + number**, never by number alone.
 | 2 Sep | 1 | Daisy Fuentes Nightdress | Daisy Fuentes | Small | Very good | None | VWM - Women's Y2K Mix | £12.99 **(Claude-set — see below)** |
 | 2 Sep | 2 | Versace Business Fit Dress Shirt | Versace | Collar 16in / 41cm | Very good | None | SF - Men's Summer Designer Mix | £39.99 **(Claude-set — highest in ledger, see below)** |
 | 2 Sep | 3 | Nike Track Jacket | Nike | Medium Men's | Very good | None | **VWM - Windbreakers** | £24.99 **(Claude-set — matches owner's own 14 Aug #8)** |
+| 2 Sep | 4 | Ralph Lauren Mesh Mini Polo Dress | Ralph Lauren | Large | Very good vintage | Very small discrepancy on front | VWM - RL Lacoste Polos | £14.99 |
 
 ## Raw observations
 
