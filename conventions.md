@@ -177,6 +177,11 @@ of any new session — the chat is not persistent, these files are the memory.
   one, so an over-length title is a stop, not a warning. `build_items.py` now
   exits rather than write one. Trim from the tail — the last words carry the
   least search weight.
+- **The 80-character title cap has to survive Crosslist too.** A title can leave
+  `items.csv` compliant and show as over-length in the UI: Crosslist's AI Title
+  button rewrites the field on demand and does not respect its own cap. Batch 5
+  item 6 went out at 73 and displayed at 81, the extra word being a second
+  `Vintage`. Before assuming the CSV is at fault, check what was actually sent.
 - **`Y2K` goes near the front of the title**, straight after the brand (owner,
   24 Aug): "a popular search term right now". Buried at word 8 it was doing
   little. It belongs on anything of the 2000s, not only on pieces already

@@ -91,6 +91,38 @@ side — it can only be caught in the Crosslist UI.
 Colours are worth particular attention on footwear, where a wrong secondary is
 both obvious to a buyer and a filter mismatch.
 
+## Crosslist's AI Title button can push a title over its own 80 limit
+
+**Third confirmed instance of Crosslist changing imported data, 2 Sep.**
+
+Batch 5 item 6 shipped as a 73-character title:
+
+```
+Lacoste Jumper Blue Womens Small Vintage Wool Crew Neck Knit Sweater Croc
+```
+
+It shows in Crosslist as 81, flagged red against the 80 cap:
+
+```
+Lacoste Vintage Jumper Blue Womens Small Vintage Wool Crew Neck Knit Sweater Croc
+```
+
+The inserted word is `Vintage`, which leaves **Vintage in the title twice** —
+the fingerprint of a machine rewrite rather than a hand edit. All seven titles
+in that upload measured 73–78 characters; none was over.
+
+So the 80-character rule has to hold **twice**: once in `items.csv`, and again
+after any AI generate in the UI. The generate button does not respect the cap it
+enforces on paste.
+
+**Practical:** avoid the ✨AI button on Title for imported rows — the title
+arrives already optimised for the search terms the owner wants. If it has been
+clicked, re-check the character count before saving.
+
+This joins the Ralph Lauren brand remap and the blank-field repopulation above:
+three separate cases of the imported value not being the stored value. Check
+what Crosslist shows against what was sent before assuming the CSV is wrong.
+
 ## Still needed
 Style for lingerie (items 5, 6) · Vinted material (multi-select, up to 3) ·
 the top of the Department list
