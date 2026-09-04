@@ -138,6 +138,7 @@ so an item is identified by **date + number**, never by number alone.
 | 4 Sep | 2 | Trussardi T-Shirt | Trussardi | XL | Very good vintage | Small minor discrepancy on front | SF - Men's Summer Designer Mix | £19.99 **(Claude-set — see below)** |
 | 4 Sep | 3 | Lululemon Women's Hoodie | Lululemon | Medium | Very good | Sleeve cuff slightly worn | VWM - Women's Y2K Mix | £26.99 **(Claude-set — see below)** |
 | 4 Sep | 4 | Lacoste Jumper | Lacoste | Large | **Good vintage** | Orange mark on right shoulder | VWM - Lacoste Jumpers/Cardigans | £16.99 |
+| 4 Sep | 5 | Izod Lacoste Jumper | Izod Lacoste | Large | Very good vintage | None | VWM - Lacoste Jumpers/Cardigans | £19.99 |
 
 ## Raw observations
 
@@ -265,30 +266,36 @@ gradient that governs polos and tops.
 
 Worth watching over the next few windbreakers before treating it as settled.
 
-## Lacoste knitwear looks flat at £16.99 (2 Sep #6, 4 Sep #4)
+## Lacoste knitwear is NOT flat — the label variant is what moves it
 
-| Item | Condition | Defects | Price |
-|---|---|---|---|
-| 2 Sep #6, jumper, blue, Small | Very good | None | £16.99 |
-| 4 Sep #4, jumper, cream, Large | **Good vintage** | **Orange mark on shoulder** | £16.99 |
+After 4 Sep #4 it looked as though `VWM - Lacoste Jumpers/Cardigans` might be a
+flat £16.99 category, since a grade drop and a shoulder mark had not shifted
+the price. **4 Sep #5 disproved that immediately** at £19.99. All three are
+owner-set:
 
-Both owner-set. A grade drop *and* a visible shoulder mark, and the price does
-not move — the same behaviour as Birkenstocks and windbreakers.
+| Item | Label | Condition | Defects | Price |
+|---|---|---|---|---|
+| 2 Sep #6, blue, Small | Lacoste | Very good | None | £16.99 |
+| 4 Sep #4, cream, Large | **Chemise Lacoste** | Good vintage | Shoulder mark | £16.99 |
+| 4 Sep #5, green, Large | **Izod Lacoste** | Very good vintage | None | **£19.99** |
 
-**Three categories now appear to be priced flat rather than item by item**:
-Birkenstocks, Nike windbreakers, and `VWM - Lacoste Jumpers/Cardigans`. What
-they have in common is a dedicated SKU. That may be the real pattern — **a bale
-with its own SKU gets a bale price** — while the mixed bags (`Women's Y2K Mix`,
-`RL Lacoste Polos`) are priced garment by garment.
+So the "dedicated SKU means a flat bale price" idea holds for Birkenstocks and
+windbreakers but **not** here. What separates the £19.99 piece is the **label
+variant**, and that is a real collector distinction rather than a quirk.
 
-Worth testing against the next few SKU-specific items.
+## The Lacoste label tells you where and roughly when it was made
 
-## "Chemise Lacoste" is a dating signal
+Three variants, and they are not worth the same:
 
-The label on 4 Sep #4 reads *Chemise Lacoste* rather than plain *Lacoste*.
-That wording was used on older French-made production and is what vintage
-buyers search for — worth putting in the listing title, not just the
-description, since it separates a genuinely vintage piece from a recent one.
+| Label | What it means | Effect |
+|---|---|---|
+| **Izod Lacoste** | US-licensed production, roughly 1950s–1993 | Most collectable — the owner paid £3 more for it |
+| **Chemise Lacoste** | Older French-made production | Genuinely vintage, above modern |
+| **Lacoste** (plain) | Modern production | Standard |
+
+**Put the label wording in the listing title**, not just the description.
+"Izod Lacoste" and "Chemise Lacoste" are both search terms in their own right,
+and they are what separates a vintage piece from a recent one in a buyer's eyes.
 
 ## The knitwear tier has two levels (2 Sep #6)
 
