@@ -136,6 +136,7 @@ so an item is identified by **date + number**, never by number alone.
 | 2 Sep | 7 | Lacoste Polo | Lacoste | XL Men's | Very good | None | VWM - RL Lacoste Polos | £16.00 |
 | 4 Sep | 1 | Adidas Windbreaker | Adidas | Large Men's | Very good | None | VWM - Windbreakers | £24.99 **(Claude-set — windbreaker category price)** |
 | 4 Sep | 2 | Trussardi T-Shirt | Trussardi | XL | Very good vintage | Small minor discrepancy on front | SF - Men's Summer Designer Mix | £19.99 **(Claude-set — see below)** |
+| 4 Sep | 3 | Lululemon Women's Hoodie | Lululemon | Medium | Very good | Sleeve cuff slightly worn | VWM - Women's Y2K Mix | £26.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -1375,6 +1376,27 @@ would. Four items now sit at exactly £19.99, right under the line:
 That is a real cliff created by the rule rather than by the stock. If the
 owner wants any of these open to offers, a pound either way flips it — worth
 raising once rather than deciding unilaterally.
+
+## 4 Sep #3 — Lululemon hoodie → £26.99
+
+Priced from external comps rather than from 20 Aug #8 (the £22.99 Lululemon
+top), because that figure was Claude's and stacking estimates is what produced
+the early misses.
+
+Comp: a used Lululemon Scuba hoodie in good condition asking **≈€39 (£33–35)**.
+Taking the framework's turnover rule — price in the lower third of the sold
+range — gives roughly £28–30 for a clean one, then a minor deduction for the
+cuff.
+
+**Cuff wear is worth flagging as a category of defect in its own right.** It is
+not a mark that can be photographed around: it is a wear point, it signals how
+hard the garment has been used, and on activewear buyers check it specifically.
+Treated here as minor (−10%), but a cuff that is visibly stretched or bobbled
+rather than "slightly worn" would be major and take this to £19.99.
+
+Lululemon holds resale value better than any other sportswear brand in this
+ledger — well above Nike and Adidas at the same grade — which is why a hoodie
+with a defect still clears the £24.99 windbreaker point.
 
 ## Measurements have been requested four times and never supplied
 
