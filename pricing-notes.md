@@ -139,6 +139,7 @@ so an item is identified by **date + number**, never by number alone.
 | 4 Sep | 3 | Lululemon Women's Hoodie | Lululemon | Medium | Very good | Sleeve cuff slightly worn | VWM - Women's Y2K Mix | £26.99 **(Claude-set — see below)** |
 | 4 Sep | 4 | Lacoste Jumper | Lacoste | Large | **Good vintage** | Orange mark on right shoulder | VWM - Lacoste Jumpers/Cardigans | £16.99 |
 | 4 Sep | 5 | Izod Lacoste Jumper | Izod Lacoste | Large | Very good vintage | None | VWM - Lacoste Jumpers/Cardigans | £19.99 |
+| 4 Sep | 6 | Lacoste Polo | Lacoste | Large | **Good** | Slight discrepancy on front | VWM - RL Lacoste Polos | £12.99 |
 
 ## Raw observations
 
@@ -327,6 +328,30 @@ size is the only difference, and size has otherwise never moved a price here.
 **Treat neither ordering as a rule.** This is a good illustration of the
 owner's own warning: the columns do not capture whatever they are actually
 seeing.
+
+## "Slight discrepancy" and "discrepancies" are not the same defect
+
+4 Sep #6 is a **good**-condition polo with a **slight** front discrepancy at
+**£12.99** — £3 above the twice-established £9.99 for good-condition polos with
+front *discrepancies* (plural).
+
+| Item | Condition | Defect wording | Price |
+|---|---|---|---|
+| 14 Aug #12, RL polo | Good | Discrepanc**ies** on the front | £9.99 |
+| 14 Aug #13, Lacoste polo | Good | Discrepanc**ies** on the front | £9.99 |
+| 19 Aug #9, RL polo | Very good vintage | **Slight** discrepancy on the front | £12.99 |
+| **4 Sep #6, Lacoste polo** | **Good** | **Slight** discrepancy on the front | **£12.99** |
+
+The owner's own wording is carrying the severity, and it maps onto the
+minor/major split they asked for:
+
+- **"Slight discrepancy"** (singular, qualified) → minor → holds £12.99
+- **"Discrepancies"** (plural, unqualified) → major → drops to £9.99
+
+Note too that #6 sits at £12.99 despite being a **grade lower** than 19 Aug #9,
+which suggests the defect wording is doing more work here than the condition
+grade. **Transcribe the owner's defect wording exactly** — the adjectives are
+data, not padding.
 
 ## Owner-stated factors
 
