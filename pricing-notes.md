@@ -137,6 +137,7 @@ so an item is identified by **date + number**, never by number alone.
 | 4 Sep | 1 | Adidas Windbreaker | Adidas | Large Men's | Very good | None | VWM - Windbreakers | £24.99 **(Claude-set — windbreaker category price)** |
 | 4 Sep | 2 | Trussardi T-Shirt | Trussardi | XL | Very good vintage | Small minor discrepancy on front | SF - Men's Summer Designer Mix | £19.99 **(Claude-set — see below)** |
 | 4 Sep | 3 | Lululemon Women's Hoodie | Lululemon | Medium | Very good | Sleeve cuff slightly worn | VWM - Women's Y2K Mix | £26.99 **(Claude-set — see below)** |
+| 4 Sep | 4 | Lacoste Jumper | Lacoste | Large | **Good vintage** | Orange mark on right shoulder | VWM - Lacoste Jumpers/Cardigans | £16.99 |
 
 ## Raw observations
 
@@ -263,6 +264,31 @@ default to £24.99 and defects should not be deducted — a departure from the
 gradient that governs polos and tops.
 
 Worth watching over the next few windbreakers before treating it as settled.
+
+## Lacoste knitwear looks flat at £16.99 (2 Sep #6, 4 Sep #4)
+
+| Item | Condition | Defects | Price |
+|---|---|---|---|
+| 2 Sep #6, jumper, blue, Small | Very good | None | £16.99 |
+| 4 Sep #4, jumper, cream, Large | **Good vintage** | **Orange mark on shoulder** | £16.99 |
+
+Both owner-set. A grade drop *and* a visible shoulder mark, and the price does
+not move — the same behaviour as Birkenstocks and windbreakers.
+
+**Three categories now appear to be priced flat rather than item by item**:
+Birkenstocks, Nike windbreakers, and `VWM - Lacoste Jumpers/Cardigans`. What
+they have in common is a dedicated SKU. That may be the real pattern — **a bale
+with its own SKU gets a bale price** — while the mixed bags (`Women's Y2K Mix`,
+`RL Lacoste Polos`) are priced garment by garment.
+
+Worth testing against the next few SKU-specific items.
+
+## "Chemise Lacoste" is a dating signal
+
+The label on 4 Sep #4 reads *Chemise Lacoste* rather than plain *Lacoste*.
+That wording was used on older French-made production and is what vintage
+buyers search for — worth putting in the listing title, not just the
+description, since it separates a genuinely vintage piece from a recent one.
 
 ## The knitwear tier has two levels (2 Sep #6)
 
