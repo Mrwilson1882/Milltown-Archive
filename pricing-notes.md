@@ -143,6 +143,7 @@ so an item is identified by **date + number**, never by number alone.
 | 4 Sep | 7 | Birkenstock Sandals | Birkenstock | 35 | Very good | None | SF - Birkenstock | £29.99 |
 | 4 Sep | 8 | Birkenstock Shearling Sandals | Birkenstock | 37 (240mm) | Very good | None | SF - Birkenstock | £34.99 |
 | 4 Sep | 9 | Birkenstock Sandals | Birkenstock | 42 | **Good** | None | SF - Birkenstock | £24.99 |
+| 4 Sep | 10 | Birkenstock Sandals | Birkenstock | *(not stated)* | **Good** | None | SF - Birkenstock | £27.99 **(£3 above the good-condition point — size would explain it)** |
 
 ## Raw observations
 
@@ -1228,6 +1229,26 @@ supports categorising this SKU by size rather than defaulting the whole
 category one way. The earlier question about whether Birkenstocks should all be
 Women's or Unisex now has a better answer: **let the size decide** — 34–40
 women's, 41+ men's.
+
+### 4 Sep #10 — £27.99 in good condition, and no size to explain it
+
+Ten pairs in, and this is the first that does not fit. **Good** condition has
+been £24.99 four times; this took **£27.99**, which has otherwise been the
+*very good* price.
+
+**The size was not stated, and it is very likely the answer.** If this pair is
+a **34 or 35**, £27.99 is the small-size premium applied to a good-condition
+pair — a cell of the table that has been empty until now, and £27.99 sits
+exactly where it should (£29.99 very good, less the grade step):
+
+| | Size 34–35 | Size 36–42 |
+|---|---|---|
+| Plain, very good | £29.99 | £27.99 |
+| Plain, good | **£27.99 — if this pair is small** | £24.99 |
+
+If it turns out to be a 36 or larger, the model has a genuine exception and the
+condition ladder is looser than it looked. **Worth getting the size on this one
+specifically** — it either completes the table or breaks it.
 
 ## 20 Aug #34 at £29.99 breaks the Birkenstock pattern
 
