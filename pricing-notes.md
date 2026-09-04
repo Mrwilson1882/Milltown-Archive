@@ -135,6 +135,7 @@ so an item is identified by **date + number**, never by number alone.
 | 2 Sep | 6 | Lacoste Women's Jumper | Lacoste | Small | Very good | None | VWM - Lacoste Jumpers/Cardigans | £16.99 |
 | 2 Sep | 7 | Lacoste Polo | Lacoste | XL Men's | Very good | None | VWM - RL Lacoste Polos | £16.00 |
 | 4 Sep | 1 | Adidas Windbreaker | Adidas | Large Men's | Very good | None | VWM - Windbreakers | £24.99 **(Claude-set — windbreaker category price)** |
+| 4 Sep | 2 | Trussardi T-Shirt | Trussardi | XL | Very good vintage | Small minor discrepancy on front | SF - Men's Summer Designer Mix | £19.99 **(Claude-set — see below)** |
 
 ## Raw observations
 
@@ -1346,6 +1347,34 @@ menswear. Worth checking before listing: stitch quality on the collar and
 placket, a proper woven main label with a style and composition tag beneath,
 and branded buttons. A listing at this price will attract scrutiny, and a
 disputed authenticity claim costs more than the item.
+
+## 4 Sep #2 — Trussardi tee → £19.99, and the £20 offers cliff
+
+**Trussardi** is an Italian premium label — same tier as Fay, below Versace
+mainline. Placed level with the owner's other designer menswear:
+
+| Item | Price |
+|---|---|
+| Versace dress shirt, very good | £39.99 |
+| Burberry Brit polo, good, front marks | £19.99 |
+| Fay top, very good | £19.99 |
+| **Trussardi tee, very good vintage, minor front flaw** | **£19.99** |
+
+A designer **tee** is a lower garment type than a shirt or polo, which offsets
+the better condition grade — hence landing on the same figure rather than above
+it.
+
+**Note the offers threshold.** At £19.99 this takes **no offers**; at £20.99 it
+would. Four items now sit at exactly £19.99, right under the line:
+
+- 18 Aug #5, Walter Payton NFL top
+- 19 Aug #11, Burberry Brit polo
+- 19 Aug #16, Juicy Couture cardigan
+- 20 Aug #2, Nike Georgia hoodie
+
+That is a real cliff created by the rule rather than by the stock. If the
+owner wants any of these open to offers, a pound either way flips it — worth
+raising once rather than deciding unilaterally.
 
 ## Measurements have been requested four times and never supplied
 
