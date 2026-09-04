@@ -140,6 +140,7 @@ so an item is identified by **date + number**, never by number alone.
 | 4 Sep | 4 | Lacoste Jumper | Lacoste | Large | **Good vintage** | Orange mark on right shoulder | VWM - Lacoste Jumpers/Cardigans | £16.99 |
 | 4 Sep | 5 | Izod Lacoste Jumper | Izod Lacoste | Large | Very good vintage | None | VWM - Lacoste Jumpers/Cardigans | £19.99 |
 | 4 Sep | 6 | Lacoste Polo | Lacoste | Large | **Good** | Slight discrepancy on front | VWM - RL Lacoste Polos | £12.99 |
+| 4 Sep | 7 | Birkenstock Sandals | Birkenstock | 35 | Very good | None | SF - Birkenstock | £29.99 |
 
 ## Raw observations
 
@@ -1151,6 +1152,37 @@ of it so far, since both items are Ralph Lauren knitwear:
 owner-set, so this is real data rather than inference. It also confirms that
 £9.99 is functioning as a floor: it is now the price for a designer knit in
 poor order, an unbranded top, and several flawed polos alike.
+
+## RESOLVED: Birkenstock price tracks SIZE, not just condition
+
+The 20 Aug #34 anomaly below is explained. **4 Sep #7 — size 35, very good,
+clean — also took £29.99**, and the full set now sorts cleanly by size:
+
+| Size | Condition | Defects | Price |
+|---|---|---|---|
+| **34** | Very good | Water marks, worn footbed | **£29.99** |
+| **35** | Very good | None | **£29.99** |
+| 37 | Very good vintage | None | £27.99 |
+| 40 | Very good vintage | None | £27.99 |
+| 36 | Good | None | £24.99 |
+| 38 | Good | Worn footbed | £24.99 |
+| 38 | Good | None | £24.99 |
+
+**Sizes 34–35 carry a £2 premium over 37–40 at the same grade.** The
+speculation at the time — that very small Birkenstocks are scarce enough to
+outweigh their defects — was right. A size 34 with water damage still beats a
+clean size 40.
+
+Revised model for `SF - Birkenstock`:
+
+| | Size 34–35 | Size 36+ |
+|---|---|---|
+| **Very good** | £29.99 | £27.99 |
+| **Good** | *(untested)* | £24.99 |
+
+Size 36 sits with the larger group, so the premium starts at 35 and below.
+**This is the only category where size has been shown to move the price** —
+everywhere else it has made no difference at all.
 
 ## 20 Aug #34 at £29.99 breaks the Birkenstock pattern
 
