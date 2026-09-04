@@ -7,7 +7,10 @@ Claude, who reads the number cards, assigns a shot_type to each photo, and
 returns mapping.csv. Nothing in the source folder is renamed, moved or modified
 — it is only ever read.
 
-    python3 prepare.py "/Users/tobywilson94/Downloads/Batch 1"
+    python3 prepare.py "Batch 6" "Batch 6 Number Cards"
+
+Several folders can be passed at once - photos and number cards are often kept
+apart. They are merged and sorted by filename, exactly as one folder would be.
 
 Output lands in ./prepared/ :
     YYYY-MM-DD-contact-sheets.pdf 12 photos per page, captioned with index + filename
@@ -188,17 +191,22 @@ def capture_time(path):
 
 def main():
     ap = argparse.ArgumentParser(description="Build a contact sheet PDF for a photo batch.")
-    ap.add_argument("inbox", type=Path, help="folder of raw photos (read-only)")
+    ap.add_argument("inbox", type=Path, nargs="+",
+                    help="folder(s) of raw photos, read-only. Pass several when "
+                         "the number cards live in their own folder.")
     ap.add_argument("-o", "--out", type=Path, default=Path("prepared"))
     args = ap.parse_args()
 
-    if not args.inbox.is_dir():
-        sys.exit(f"Not a folder: {args.inbox}")
+    for box in args.inbox:
+        if not box.is_dir():
+            sys.exit(f"Not a folder: {box}")
 
-    photos = sorted(p for p in args.inbox.iterdir()
+    photos = sorted((p for box in args.inbox for p in box.iterdir()),
+                    key=lambda p: p.name)
+    photos = list(p for p in photos
                     if p.is_file() and p.suffix.lower() in EXTS)
     if not photos:
-        sys.exit(f"No images found in {args.inbox}")
+        sys.exit("No images found in " + ", ".join(str(b) for b in args.inbox))
 
     print(f"Found {len(photos)} photos. Making thumbnails...")
     # Cleared first, so a previous run's sheets can never be mistaken for this
