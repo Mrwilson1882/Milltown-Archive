@@ -141,6 +141,7 @@ so an item is identified by **date + number**, never by number alone.
 | 4 Sep | 5 | Izod Lacoste Jumper | Izod Lacoste | Large | Very good vintage | None | VWM - Lacoste Jumpers/Cardigans | £19.99 |
 | 4 Sep | 6 | Lacoste Polo | Lacoste | Large | **Good** | Slight discrepancy on front | VWM - RL Lacoste Polos | £12.99 |
 | 4 Sep | 7 | Birkenstock Sandals | Birkenstock | 35 | Very good | None | SF - Birkenstock | £29.99 |
+| 4 Sep | 8 | Birkenstock Shearling Sandals | Birkenstock | 37 (240mm) | Very good | None | SF - Birkenstock | £34.99 |
 
 ## Raw observations
 
@@ -1183,6 +1184,31 @@ Revised model for `SF - Birkenstock`:
 Size 36 sits with the larger group, so the premium starts at 35 and below.
 **This is the only category where size has been shown to move the price** —
 everywhere else it has made no difference at all.
+
+### Style outranks size (4 Sep #8)
+
+4 Sep #8 — **shearling-lined**, size 37, very good, clean — took **£34.99**,
+£7 above the plain size-37 point. So the model has two drivers, and style is
+much the larger:
+
+| Driver | Effect |
+|---|---|
+| **Style** — shearling vs plain | **+£7.00** |
+| **Size** — 34–35 vs 36+ | +£2.00 |
+| **Condition** — very good vs good | +£3.00 |
+
+Full `SF - Birkenstock` model as it now stands:
+
+| | Size 34–35 | Size 36+ |
+|---|---|---|
+| **Shearling, very good** | *(untested — expect £36.99)* | £34.99 |
+| **Plain, very good** | £29.99 | £27.99 |
+| **Plain, good** | *(untested)* | £24.99 |
+
+**"Fluffy" should be listed as "shearling-lined"** — that is the term buyers
+search, and it is what separates a £34.99 pair from a £27.99 one. Worth
+checking whether it is genuine shearling or a synthetic fleece lining, since
+Birkenstock made both and the real thing carries more.
 
 ## 20 Aug #34 at £29.99 breaks the Birkenstock pattern
 
