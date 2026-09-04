@@ -142,6 +142,7 @@ so an item is identified by **date + number**, never by number alone.
 | 4 Sep | 6 | Lacoste Polo | Lacoste | Large | **Good** | Slight discrepancy on front | VWM - RL Lacoste Polos | £12.99 |
 | 4 Sep | 7 | Birkenstock Sandals | Birkenstock | 35 | Very good | None | SF - Birkenstock | £29.99 |
 | 4 Sep | 8 | Birkenstock Shearling Sandals | Birkenstock | 37 (240mm) | Very good | None | SF - Birkenstock | £34.99 |
+| 4 Sep | 9 | Birkenstock Sandals | Birkenstock | 42 | **Good** | None | SF - Birkenstock | £24.99 |
 
 ## Raw observations
 
@@ -1209,6 +1210,24 @@ Full `SF - Birkenstock` model as it now stands:
 search, and it is what separates a £34.99 pair from a £27.99 one. Worth
 checking whether it is genuine shearling or a synthetic fleece lining, since
 Birkenstock made both and the real thing carries more.
+
+### The premium is at the small end only (4 Sep #9)
+
+A **size 42** pair in good condition took **£24.99** — the same as sizes 36 and
+38 at that grade. So there is no premium for large sizes, only for 34–35. Nine
+pairs now, and the model has held on every one:
+
+| | Size 34–35 | Size 36–42 |
+|---|---|---|
+| **Shearling, very good** | *(untested)* | £34.99 |
+| **Plain, very good** | £29.99 | £27.99 |
+| **Plain, good** | *(untested)* | £24.99 |
+
+Also the **first Birkenstock filed as Men's** — size 42 is squarely men's, which
+supports categorising this SKU by size rather than defaulting the whole
+category one way. The earlier question about whether Birkenstocks should all be
+Women's or Unisex now has a better answer: **let the size decide** — 34–40
+women's, 41+ men's.
 
 ## 20 Aug #34 at £29.99 breaks the Birkenstock pattern
 
