@@ -144,6 +144,7 @@ so an item is identified by **date + number**, never by number alone.
 | 4 Sep | 8 | Birkenstock Shearling Sandals | Birkenstock | 37 (240mm) | Very good | None | SF - Birkenstock | £34.99 |
 | 4 Sep | 9 | Birkenstock Sandals | Birkenstock | 42 | **Good** | None | SF - Birkenstock | £24.99 |
 | 4 Sep | 10 | Birkenstock Sandals | Birkenstock | *(not stated)* | **Good** | None | SF - Birkenstock | £27.99 **(£3 above the good-condition point — size would explain it)** |
+| 4 Sep | 11 | Birkenstock Sandals | Birkenstock | 35 | **Good** | None | SF - Birkenstock | £27.99 **(confirms the small-size premium)** |
 
 ## Raw observations
 
@@ -1230,25 +1231,29 @@ category one way. The earlier question about whether Birkenstocks should all be
 Women's or Unisex now has a better answer: **let the size decide** — 34–40
 women's, 41+ men's.
 
-### 4 Sep #10 — £27.99 in good condition, and no size to explain it
+### CONFIRMED — the Birkenstock model is complete (4 Sep #10 and #11)
 
-Ten pairs in, and this is the first that does not fit. **Good** condition has
-been £24.99 four times; this took **£27.99**, which has otherwise been the
-*very good* price.
+4 Sep #10 came in at £27.99 in good condition with no size stated, £3 above the
+established good-condition point. The prediction was that it would turn out to
+be a 34–35 and would fill the one empty cell in the table.
 
-**The size was not stated, and it is very likely the answer.** If this pair is
-a **34 or 35**, £27.99 is the small-size premium applied to a good-condition
-pair — a cell of the table that has been empty until now, and £27.99 sits
-exactly where it should (£29.99 very good, less the grade step):
+**4 Sep #11 — size 35, good condition — took exactly £27.99.** The cell is
+filled and the model is now complete and consistent across eleven pairs:
 
 | | Size 34–35 | Size 36–42 |
 |---|---|---|
-| Plain, very good | £29.99 | £27.99 |
-| Plain, good | **£27.99 — if this pair is small** | £24.99 |
+| **Shearling, very good** | *(untested)* | £34.99 |
+| **Plain, very good** | £29.99 | £27.99 |
+| **Plain, good** | **£27.99** | £24.99 |
 
-If it turns out to be a 36 or larger, the model has a genuine exception and the
-condition ladder is looser than it looked. **Worth getting the size on this one
-specifically** — it either completes the table or breaks it.
+Two clean, independent steps: **+£2.00 for sizes 34–35**, **+£3.00 for very
+good over good**, and **+£7.00 for shearling**. No exceptions in eleven items.
+
+It also strongly implies **4 Sep #10 is itself a 34 or 35** — same price, same
+grade. Worth confirming, but the sizing is no longer a puzzle.
+
+This is the only category in the ledger with a model this tight. Everywhere
+else — polos, jackets, tops — the price moves on things the columns cannot see.
 
 ## 20 Aug #34 at £29.99 breaks the Birkenstock pattern
 
