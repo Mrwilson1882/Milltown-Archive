@@ -134,6 +134,7 @@ so an item is identified by **date + number**, never by number alone.
 | 2 Sep | 5 | Nike Windbreaker | Nike | *(not stated)* | Very good vintage | White marks + discrepancies on front | VWM - Windbreakers | £24.99 |
 | 2 Sep | 6 | Lacoste Women's Jumper | Lacoste | Small | Very good | None | VWM - Lacoste Jumpers/Cardigans | £16.99 |
 | 2 Sep | 7 | Lacoste Polo | Lacoste | XL Men's | Very good | None | VWM - RL Lacoste Polos | £16.00 |
+| 4 Sep | 1 | Adidas Windbreaker | Adidas | Large Men's | Very good | None | VWM - Windbreakers | £24.99 **(Claude-set — windbreaker category price)** |
 
 ## Raw observations
 
