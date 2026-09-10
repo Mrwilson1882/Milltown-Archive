@@ -162,8 +162,16 @@ export default async function ProductPage({ params }: Params) {
             </div>
           )}
 
-          {!product.photos && (
-            <p className="text-xs text-slate">
+          {product.photos ? (
+            /* Every lot is graded from a fresh intake, so the shot is an example
+               of the line rather than the pieces that will be picked. Say so
+               plainly, next to the photograph, before anyone orders. */
+            <p className="text-xs leading-relaxed text-slate">
+              Photographs show a representative sample of this line, not the exact pieces you
+              will receive. Items, brands and colourways vary with each intake.
+            </p>
+          ) : (
+            <p className="text-xs leading-relaxed text-slate">
               Photography for this lot is being shot. Ask us for current pictures before you order.
             </p>
           )}
