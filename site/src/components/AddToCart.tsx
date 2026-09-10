@@ -135,16 +135,16 @@ export function AddToCart({ product }: { product: Product }) {
           onClick={handleAdd}
           className="flex-1 bg-forest px-6 py-3 font-bold tracking-wide text-paper uppercase transition-colors hover:bg-forest-dark"
         >
-          Add to cart
+          Add to basket
         </button>
       </div>
 
       <p aria-live="polite" className="min-h-5 text-sm">
         {added && (
           <span className="font-semibold text-forest">
-            Added to your cart.{" "}
+            Added to your basket.{" "}
             <Link href="/cart" className="underline underline-offset-4">
-              View cart
+              View basket
             </Link>
           </span>
         )}

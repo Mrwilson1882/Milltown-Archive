@@ -69,7 +69,7 @@ export function Header() {
             href="/cart"
             className="inline-flex items-center border-2 border-ink px-4 py-2 text-sm font-bold tracking-wide uppercase transition-colors hover:border-forest hover:text-forest"
           >
-            Cart
+            Basket
             <CartCount />
           </Link>
 

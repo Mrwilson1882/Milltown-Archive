@@ -5,7 +5,7 @@ import { stripeEnabled } from "@/lib/stripe";
 import { hasWhatsApp } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Your Cart",
+  title: "Your Basket",
   description: "Review your Archive Wholesale order and check out securely.",
   robots: { index: false, follow: true },
   alternates: { canonical: "/cart" },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function CartPage() {
   return (
     <>
-      <PageHeader title="Your cart" crumbs={[{ href: "/", label: "Home" }]} />
+      <PageHeader title="Your basket" crumbs={[{ href: "/", label: "Home" }]} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <CartView stripeEnabled={stripeEnabled} whatsappAvailable={hasWhatsApp} />
       </div>

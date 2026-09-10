@@ -65,7 +65,7 @@ export function CartView({
   if (resolved.length === 0) {
     return (
       <div className="py-20 text-center">
-        <p className="display text-2xl">Your cart is empty</p>
+        <p className="display text-2xl">Your basket is empty</p>
         <p className="mx-auto mt-3 max-w-md text-sm text-slate">
           Start with a reseller box, or pick a lot size from any product. Everything is sold
           wholesale — no single pieces.
@@ -185,7 +185,7 @@ export function CartView({
             onClick={clear}
             className="text-xs font-bold tracking-wide text-slate uppercase underline underline-offset-4 hover:text-forest"
           >
-            Empty cart
+            Empty basket
           </button>
         </div>
       </div>
