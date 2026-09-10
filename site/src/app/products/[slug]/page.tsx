@@ -86,6 +86,16 @@ export default async function ProductPage({ params }: Params) {
   const cheapest = fromPrice(product);
   const buyable = product.variants.some((v) => v.priceGBP !== null);
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      { "@type": "ListItem", position: 2, name: "All Products", item: `${siteConfig.url}/products` },
+      { "@type": "ListItem", position: 3, name: product.name, item: `${siteConfig.url}/products/${product.slug}` },
+    ],
+  };
+
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -114,6 +124,11 @@ export default async function ProductPage({ params }: Params) {
         type="application/ld+json"
         // Built from the local catalogue file, not from user input.
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        // Built from the local catalogue file, not from user input.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6">
@@ -232,6 +247,18 @@ export default async function ProductPage({ params }: Params) {
                 <dd className="text-slate">The {product.unit === "pairs" ? "pair" : "piece"}, in lots</dd>
               </div>
             )}
+            <div className="flex gap-6 py-3">
+              <dt className="w-36 shrink-0 font-bold">Grade</dt>
+              <dd className="text-slate">
+                Grade {product.grade ?? "A/B"}
+                <Link
+                  href="/grading-guide"
+                  className="ml-3 text-xs font-bold tracking-wide text-forest uppercase underline underline-offset-4 hover:text-ink"
+                >
+                  What our grades mean
+                </Link>
+              </dd>
+            </div>
             {product.sizeRun && (
               <div className="flex gap-6 py-3">
                 <dt className="w-36 shrink-0 font-bold">Size run</dt>

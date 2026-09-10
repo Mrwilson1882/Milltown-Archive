@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { Analytics } from "@vercel/analytics/next";
 import { siteConfig } from "@/config/site";
 
 // Archivo carries the same squared, athletic feel as the logo wordmark.
@@ -58,16 +59,44 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+/**
+ * Who we are, stated so a machine can repeat it without guessing. Answer
+ * engines lift entity facts straight from here, so every field is something we
+ * would happily see quoted back: name, legal owner, where, what, how to reach us.
+ */
 const organisationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${siteConfig.url}/#organization`,
   name: siteConfig.name,
   legalName: siteConfig.legalName,
-  parentOrganization: siteConfig.parent,
+  parentOrganization: { "@type": "Organization", name: siteConfig.parent },
   url: siteConfig.url,
+  logo: `${siteConfig.url}/logo.png`,
   email: siteConfig.email,
+  telephone: `+${siteConfig.whatsappNumber}`,
+  slogan: siteConfig.tagline,
   description: siteConfig.description,
   address: { "@type": "PostalAddress", addressLocality: "Lancashire", addressCountry: "GB" },
+  areaServed: ["GB", "IE", "FR", "DE", "NL", "BE", "ES", "IT", "PL"],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: siteConfig.email,
+      telephone: `+${siteConfig.whatsappNumber}`,
+      availableLanguage: "en",
+      areaServed: "GB",
+    },
+  ],
+  knowsAbout: [
+    "vintage clothing wholesale",
+    "Grade A vintage clothing",
+    "Grade B vintage clothing",
+    "vintage reseller boxes",
+    "vintage clothing by the kilo",
+    "branded vintage sportswear",
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -91,6 +120,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <WhatsAppFloat />
+        {/* Vercel Web Analytics: page views and referrers, no cookies, no banner.
+            Inert until Web Analytics is switched on for the project in Vercel. */}
+        <Analytics />
       </body>
     </html>
   );

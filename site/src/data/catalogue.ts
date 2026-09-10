@@ -68,6 +68,11 @@ export type Product = {
   sizeRun?: string;
   /** Anything a buyer should know before ordering. */
   notes: string[];
+  /**
+   * Condition grade as shown on the listing, e.g. "A/B". Defaults to "A/B"
+   * for every lot; set it here to say otherwise. Defined at /grading-guide.
+   */
+  grade?: string;
   /** Placeholder artwork key under /public/images/tiles until photos land. */
   art: string;
   /** Real photography, once available: paths under /public. Wins over `art`. */
@@ -609,6 +614,7 @@ const catalogue: Product[] = [
  */
 export const products: Product[] = catalogue.map((product) => ({
   ...product,
+  grade: product.grade ?? "A/B",
   inStock: product.inStock && (product.photos?.length ?? 0) > 0,
 }));
 

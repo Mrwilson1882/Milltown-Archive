@@ -1,0 +1,36 @@
+# Archive Wholesale
+
+> UK vintage clothing wholesaler based in Lancashire, England. Branded vintage
+> sportswear and designer pieces — Lacoste, Ralph Lauren, Nike, Champion,
+> Carhartt, Stone Island, Moncler, Burberry and more — sorted, hand-graded and
+> sold to vintage shops, market traders and online resellers. Trading arm of
+> Milltown Archive (MANCH LTD). Wholesale only; no single pieces.
+
+Three ways to buy:
+- Reseller boxes: fixed-price boxes of branded pieces, from a 10-piece Starter Box at £90.
+- Counted lots: by product or brand, in runs of 5 to 100 pieces, with a per-piece price that falls as the lot grows.
+- By the kilo: bags 5–25kg, bales 50–300kg, pallets 200–1,000kg, sorted by category and quoted per kilo.
+
+All standard lots are Grade A/B: a mix of Grade A (no visible faults) and
+Grade B (minor imperfections, fully saleable), with no Grade C. Every piece is
+checked by hand. Product photographs are a representative sample of each line;
+exact pieces, brands and colourways vary with each intake.
+
+Ships from Lancashire, United Kingdom, to the UK, Ireland and mainland Europe.
+Prices in GBP. Enquiries by WhatsApp (+44 7897 740194) or email
+(info@milltownarchive.co.uk).
+
+## Key pages
+
+- [All products](https://www.archivewholesale.co.uk/products): every lot with lot sizes and per-piece prices.
+- [Reseller boxes](https://www.archivewholesale.co.uk/collections/reseller-boxes): fixed-price boxes, from £90.
+- [Bulk — bags, bales and pallets](https://www.archivewholesale.co.uk/by-kilo): buying by weight, with a quote builder.
+- [Grading guide](https://www.archivewholesale.co.uk/grading-guide): what Grade A, B and C mean and how lots are graded.
+- [Brands](https://www.archivewholesale.co.uk/brands): browse by label.
+- [Product types](https://www.archivewholesale.co.uk/types): polos and t-shirts, jumpers and sweats, jackets, footwear, accessories.
+- [Contact](https://www.archivewholesale.co.uk/contact): trade enquiries.
+
+## Machine-readable
+
+- Sitemap: https://www.archivewholesale.co.uk/sitemap.xml
+- Every product page carries schema.org Product and BreadcrumbList data; the grading guide carries FAQPage data; every page carries Organization data.
