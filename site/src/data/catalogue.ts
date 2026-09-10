@@ -530,7 +530,7 @@ const catalogue: Product[] = [
     brandSlugs: ["missoni", "valentino", "stone-island", "lacoste"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["luxury", "premium-vintage", "mens"],
-    variants: [at(25, 18), at(50, 16)],
+    variants: [at(25, 16), at(50, 14)],
     unit: "pieces",
     notes: [],
     art: "halftone-ink-4",
