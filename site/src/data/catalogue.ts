@@ -103,7 +103,7 @@ const catalogue: Product[] = [
     summary: "Ten branded pieces, made up and priced. The smallest way in.",
     description: [
       "A ten-piece box put together to open a rail rather than fill one — branded, mixed across tops, tees and outerwear, and made up ready to sell.",
-      "The smallest box we do. It exists so a first order can be tested at a low outlay before committing to a twenty-piece box or a fifty-piece lot.",
+      "The smallest box we do. It exists so a first order can be tested at a low outlay before committing to a bigger box or a fifty-piece lot.",
       "Made up, priced and sold as a single box. Nothing to specify and nothing to quote: order it and it ships.",
     ],
     brandSlugs: ["mixed-brands", "nike", "harley-davidson"],
