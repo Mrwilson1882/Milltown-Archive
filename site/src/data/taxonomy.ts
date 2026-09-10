@@ -350,6 +350,16 @@ export const collections: Category[] = [
     featured: true,
   },
   {
+    slug: "winter",
+    name: "Winter",
+    blurb: "Knitwear, hoods, sweats and outerwear for the cold months.",
+    seoCopy:
+      "Winter vintage wholesale — branded knitwear, hoodies, sweatshirts and outerwear for cold-weather trading. Lacoste cardigans, premium vintage hoods and crews, shells and windbreakers, designer jackets, and a luxury knit tier from Missoni, Valentino and Stone Island. Sold in counted lots, graded A/B, shipped from Lancashire.",
+    art: "blocks-ink",
+    photoFrom: "mens-luxury-winter-mix",
+    featured: true,
+  },
+  {
     slug: "festival",
     name: "Festival",
     blurb: "Track jackets and loud pieces built for the festival run.",
