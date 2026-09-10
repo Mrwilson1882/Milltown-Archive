@@ -124,17 +124,17 @@ const catalogue: Product[] = [
   },
   {
     slug: "y2k-designer-female-mix-box-20",
-    name: "Y2K Designer Female Mix — Box of 20",
-    summary: "Twenty women's Y2K designer pieces, made up and ready to sell.",
+    name: "Y2K Designer Female Mix",
+    summary: "Women's Y2K designer pieces, made up and ready to sell — ten or twenty.",
     description: [
-      "A ready-made box of twenty women's Y2K designer pieces — the late-90s and early-2000s cuts, logos and colourways that resale is asking for.",
+      "A ready-made box of women's Y2K designer pieces — the late-90s and early-2000s cuts, logos and colourways that resale is asking for. Ten pieces to test it, twenty to fill a rail.",
       "Made up, priced and sold as a single box, so there is nothing to specify and nothing to quote. Order it and it ships. This is the quickest way to start with us, and the box most first-time buyers come back for.",
       "Sized in true women's sizing rather than pulled out of a men's lot.",
     ],
     brandSlugs: ["mixed-brands", "reebok", "harley-davidson", "ralph-lauren"],
     typeSlugs: ["polos-t-shirts", "jumpers-sweats"],
     collectionSlugs: ["reseller-boxes", "y2k", "womens"],
-    variants: [at(20, 10)],
+    variants: [at(10, 10), at(20, 9)],
     unit: "pieces",
     notes: [],
     art: "halftone-green-3",
@@ -149,17 +149,17 @@ const catalogue: Product[] = [
   },
   {
     slug: "y2k-designer-male-mix-box-20",
-    name: "Y2K Designer Male Mix — Box of 20",
-    summary: "Twenty men's Y2K designer pieces, made up and ready to sell.",
+    name: "Y2K Designer Male Mix",
+    summary: "Men's Y2K designer pieces, made up and ready to sell — ten or twenty.",
     description: [
-      "A ready-made box of twenty men's Y2K designer pieces — branded, logo-forward and cut the way the early 2000s cut it.",
+      "A ready-made box of men's Y2K designer pieces — branded, logo-forward and cut the way the early 2000s cut it. Ten pieces to test it, twenty to fill a rail.",
       "Made up, priced and sold as a single box. No specification needed and no quote to wait for: order it and it ships.",
-      "Runs alongside the women's box, so a stall can open with both sides of the rail covered for £400.",
+      "Runs alongside the women's box, so a stall can open with both sides of the rail covered for £200 — or £360 for the full forty.",
     ],
     brandSlugs: ["mixed-brands", "diesel", "hugo-boss", "lacoste", "nike"],
     typeSlugs: ["polos-t-shirts", "jumpers-sweats", "jackets"],
     collectionSlugs: ["reseller-boxes", "y2k", "mens"],
-    variants: [at(20, 10)],
+    variants: [at(10, 10), at(20, 9)],
     unit: "pieces",
     notes: [],
     art: "halftone-ink-3",
@@ -637,6 +637,19 @@ export function productsInCategory(
 ): Product[] {
   const key = kind === "brand" ? "brandSlugs" : kind === "type" ? "typeSlugs" : "collectionSlugs";
   return products.filter((p) => p[key].includes(slug));
+}
+
+/** Dearest priced variant — the top of the range for structured data. */
+export function toPrice(product: Product): number | null {
+  const priced = product.variants
+    .map((v) => v.priceGBP)
+    .filter((p): p is number => p !== null);
+  return priced.length > 0 ? Math.max(...priced) : null;
+}
+
+/** How many lot sizes actually carry a price. */
+export function pricedCount(product: Product): number {
+  return product.variants.filter((v) => v.priceGBP !== null).length;
 }
 
 /** Cheapest priced variant, for card display and price sorting. */

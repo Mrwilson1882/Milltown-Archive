@@ -304,7 +304,7 @@ export const collections: Category[] = [
     name: "Reseller Boxes",
     blurb: "Ready-made boxes at a fixed price, from ten pieces up. The quickest way to start.",
     seoCopy:
-      "Vintage reseller boxes from a UK wholesaler. Fixed-price boxes of branded pieces — a ten-piece starter box, plus twenty-piece men's and women's Y2K mixes — made up and priced so you can order in one click and start selling the week it lands. The simplest entry point into vintage wholesale.",
+      "Vintage reseller boxes from a UK wholesaler. Fixed-price boxes of branded pieces — a ten-piece starter box, plus men's and women's Y2K mixes in ten or twenty pieces — made up and priced so you can order in one click and start selling the week it lands. The simplest entry point into vintage wholesale.",
     art: "bands-green-2",
     photoFrom: "y2k-designer-female-mix-box-20",
     featured: true,

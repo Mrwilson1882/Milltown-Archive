@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { AddToCart } from "@/components/AddToCart";
 import { EnquiryActions } from "@/components/EnquiryActions";
 import { ProductCard } from "@/components/ProductCard";
-import { fromPrice, getProduct, products, quantityLabel } from "@/data/catalogue";
+import { fromPrice, getProduct, pricedCount, products, quantityLabel, toPrice } from "@/data/catalogue";
 import { findCategory, type CategoryKind } from "@/data/taxonomy";
 import { showVat, siteConfig } from "@/config/site";
 import { formatPrice, perPiece } from "@/lib/format";
@@ -84,6 +84,7 @@ export default async function ProductPage({ params }: Params) {
     .slice(0, 3);
 
   const cheapest = fromPrice(product);
+  const dearest = toPrice(product);
   const buyable = product.variants.some((v) => v.priceGBP !== null);
 
   const breadcrumbJsonLd = {
@@ -113,6 +114,8 @@ export default async function ProductPage({ params }: Params) {
         : "https://schema.org/OutOfStock",
       ...(product.variants.length > 0 ? { offerCount: product.variants.length } : {}),
       ...(cheapest !== null ? { lowPrice: cheapest.toFixed(2) } : {}),
+      // A range only exists once more than one lot size carries a price.
+      ...(dearest !== null && pricedCount(product) > 1 ? { highPrice: dearest.toFixed(2) } : {}),
     },
   };
 
