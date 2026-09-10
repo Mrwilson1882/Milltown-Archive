@@ -7,6 +7,7 @@ import { EnquiryActions } from "@/components/EnquiryActions";
 import type { Product } from "@/data/catalogue";
 import { perPiece, priceLabel } from "@/lib/format";
 import { vatSuffix } from "@/config/site";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Quantity-option picker plus add-to-cart. Products are sold in runs — 5, 10,
@@ -25,6 +26,7 @@ export function AddToCart({ product }: { product: Product }) {
   function handleAdd() {
     if (!variant) return;
     add(product.slug, variant.pieces, qty);
+    trackEvent("add_to_basket", { product: product.slug, pieces: variant.pieces, qty });
     setAdded(true);
     window.setTimeout(() => setAdded(false), 2500);
   }
@@ -95,6 +97,9 @@ export function AddToCart({ product }: { product: Product }) {
           </p>
           <EnquiryActions
             compact
+            source="product"
+            product={product.slug}
+            pieces={variant.pieces}
             subject={`Enquiry: ${product.name} (${variant.pieces} ${product.unit})`}
             message={`Hi Archive Wholesale, I'd like a price for ${variant.pieces} ${product.unit} of "${product.name}".`}
           />

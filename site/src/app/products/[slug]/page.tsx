@@ -208,6 +208,8 @@ export default async function ProductPage({ params }: Params) {
                 <div className="mt-4">
                   <EnquiryActions
                     compact
+                    source="product"
+                    product={product.slug}
                     subject={`Enquiry: ${product.name}`}
                     message={enquiryMessage}
                   />
@@ -228,6 +230,8 @@ export default async function ProductPage({ params }: Params) {
                 <div className="mt-4">
                   <EnquiryActions
                     compact
+                    source="product"
+                    product={product.slug}
                     subject={`Enquiry: ${product.name}`}
                     message={enquiryMessage}
                   />

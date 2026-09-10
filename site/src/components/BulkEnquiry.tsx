@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Bulk is quoted, never checked out — the rate per kilo moves with the format,
@@ -167,6 +168,7 @@ export function BulkEnquiry({
               href={whatsappUrl(message)}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("bulk_quote", { channel: "whatsapp", format: format.name, kg: weight, category })}
               className="inline-flex items-center gap-2 bg-forest px-6 py-3.5 text-sm font-bold tracking-wide text-paper uppercase transition-colors hover:bg-forest-dark"
             >
               <WhatsAppIcon className="h-5 w-5" />
@@ -175,6 +177,7 @@ export function BulkEnquiry({
           )}
           <a
             href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`Bulk quote — ${weight}kg ${format.name.toLowerCase()}`)}&body=${encodeURIComponent(message)}`}
+            onClick={() => trackEvent("bulk_quote", { channel: "email", format: format.name, kg: weight, category })}
             className="inline-flex items-center border-2 border-ink px-6 py-3.5 text-sm font-bold tracking-wide uppercase transition-colors hover:border-forest hover:text-forest"
           >
             Via email

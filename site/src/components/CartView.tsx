@@ -8,6 +8,7 @@ import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { cartTotals, lineKey, resolveLines } from "@/lib/cart";
 import { formatPrice, perPiece } from "@/lib/format";
 import { showVat, siteConfig, whatsappUrl } from "@/config/site";
+import { trackEvent } from "@/lib/analytics";
 
 export function CartView({
   stripeEnabled,
@@ -35,6 +36,7 @@ export function CartView({
   }, [resolved]);
 
   async function handleCheckout() {
+    trackEvent("checkout_start", { lots: itemCount, total_gbp: grossTotalGBP });
     setSubmitting(true);
     setError(null);
     try {
@@ -261,6 +263,7 @@ export function CartView({
                 href={whatsappUrl(enquiryText)}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent("enquiry_click", { channel: "whatsapp", source: "basket" })}
                 className="flex w-full items-center justify-center gap-2 border-2 border-forest px-5 py-3 text-sm font-bold tracking-wide text-forest uppercase transition-colors hover:bg-forest hover:text-paper"
               >
                 <WhatsAppIcon className="h-5 w-5" />
@@ -269,6 +272,7 @@ export function CartView({
             )}
             <a
               href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Wholesale order enquiry")}&body=${encodeURIComponent(enquiryText)}`}
+              onClick={() => trackEvent("enquiry_click", { channel: "email", source: "basket" })}
               className="flex w-full items-center justify-center border-2 border-ink px-5 py-3 text-sm font-bold tracking-wide uppercase transition-colors hover:border-forest hover:text-forest"
             >
               Send basket via email

@@ -656,4 +656,31 @@ export function quantityLabel(product: Product): string {
   return `${counts.slice(0, -1).join(", ")} or ${last} ${product.unit}`;
 }
 
-export const featuredProducts = products.filter((p) => p.featured);
+/**
+ * PAGE ONE — the "Popular lots" on the home page, in the order they appear.
+ *
+ * This is the knob the weekly review turns. Reorder it from the analytics:
+ * page views, add_to_basket and enquiry_click per product. Hottest first.
+ * Anything sold out drops off automatically; anything listed here that is not
+ * in the catalogue is ignored rather than crashing the build.
+ *
+ * Seeded with what was on page one before the list existed, so nothing moved
+ * the day it was introduced.
+ */
+export const homeFeatured = [
+  "lacoste-ralph-lauren-polos",
+  "ralph-tommy-lacoste-mix",
+  "mixed-premium-vintage-hoodies-sweatshirts",
+  "lacoste-jumpers-cardigans",
+  "festival-track-jackets",
+  "birkenstock-sandals",
+  // Bench — next in line if one above sells out or the data says so.
+  "mens-luxury-winter-mix",
+  "womens-y2k-summer-mix",
+  "jackets-windbreaker-mix",
+  "t-shirt-mix",
+];
+
+export const featuredProducts: Product[] = homeFeatured
+  .map((slug) => products.find((p) => p.slug === slug))
+  .filter((p): p is Product => Boolean(p) && (p as Product).inStock);
