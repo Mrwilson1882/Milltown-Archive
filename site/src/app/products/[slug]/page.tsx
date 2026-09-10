@@ -248,7 +248,10 @@ export default async function ProductPage({ params }: Params) {
             {product.variants.length > 0 && (
               <div className="flex gap-6 py-3">
                 <dt className="w-36 shrink-0 font-bold">Sold by</dt>
-                <dd className="text-slate">The {product.unit === "pairs" ? "pair" : "piece"}, in lots</dd>
+                <dd className="text-slate">
+                  The {product.unit === "pairs" ? "pair" : "piece"}, in lots. Wholesale only — we do
+                  not sell single pieces.
+                </dd>
               </div>
             )}
             <div className="flex gap-6 py-3">
@@ -262,6 +265,10 @@ export default async function ProductPage({ params }: Params) {
                   What our grades mean
                 </Link>
               </dd>
+            </div>
+            <div className="flex gap-6 py-3">
+              <dt className="w-36 shrink-0 font-bold">Authenticity</dt>
+              <dd className="text-slate">Every piece guaranteed genuine.</dd>
             </div>
             {product.sizeRun && (
               <div className="flex gap-6 py-3">

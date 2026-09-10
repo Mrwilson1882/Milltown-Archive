@@ -26,7 +26,7 @@ export const siteConfig = {
    */
   whatsappNumber: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447897740194").replace(/\D/g, ""),
   /** Pre-filled text for the click-to-chat link. */
-  whatsappMessage: "Hi Archive Wholesale, I'd like to enquire about your vintage wholesale lots.",
+  whatsappMessage: "Hi Archive Wholesale, I'm interested in: ",
   location: "Lancashire, United Kingdom",
   /**
    * Prices on the site are quoted EXCLUDING VAT, the way the trade quotes them.

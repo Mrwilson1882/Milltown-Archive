@@ -54,8 +54,10 @@ export function WhatsAppFloat() {
   if (HIDE_ON.some((path) => pathname === path || pathname.startsWith(`${path}/`))) return null;
 
   const page = describePage(pathname);
+  // Ends on an open cue. Three of the first ten enquiries opened with the
+  // generic line and nothing else, and the owner had to ask what they wanted.
   const message = page
-    ? `Hi Archive Wholesale, I'm looking at your ${page} page and I'd like to enquire.`
+    ? `Hi Archive Wholesale, I'm looking at your ${page} page. I'm interested in: `
     : siteConfig.whatsappMessage;
 
   return (

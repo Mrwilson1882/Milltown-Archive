@@ -65,6 +65,14 @@ const faqs = [
     a: "No. Grading is a condition scale, and different countries and suppliers run their own. The most common are letters — A, B, C — and numbers — 1, 2, 3 — with A and 1 the best in each case. The letter and number scales line up roughly one to one, but always read a supplier's own definitions rather than assuming.",
   },
   {
+    q: "Are all pieces guaranteed authentic?",
+    a: "Yes. Every branded piece Archive Wholesale sells is guaranteed genuine. Labels, branding and construction are checked as part of grading, and anything that does not pass is not sold.",
+  },
+  {
+    q: "Can I see photos of the actual pieces before I order?",
+    a: "We can send recent photographs of the line on WhatsApp, showing the kind of pieces and condition in the current intake. Like every wholesaler, we cannot photograph the specific pieces that will be picked for your lot, because lots are counted out at dispatch. The grade is the constant.",
+  },
+  {
     q: "Will I receive the exact pieces shown in the product photographs?",
     a: "No. Photographs show a representative sample of the line. Each lot is graded from a fresh intake, so the exact items, brands and colourways vary. The grade is what stays constant.",
   },
