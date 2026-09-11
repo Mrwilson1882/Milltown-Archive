@@ -73,6 +73,10 @@ const faqs = [
     a: "We can send recent photographs of the line on WhatsApp, showing the kind of pieces and condition in the current intake. Like every wholesaler, we cannot photograph the specific pieces that will be picked for your lot, because lots are counted out at dispatch. The grade is the constant.",
   },
   {
+    q: "Do the pieces arrive washed and pressed?",
+    a: "No. Lots ship as graded — checked, counted and packed, not laundered. Wash and iron everything before it goes out on the rail, as you would with any vintage intake.",
+  },
+  {
     q: "Will I receive the exact pieces shown in the product photographs?",
     a: "No. Photographs show a representative sample of the line. Each lot is graded from a fresh intake, so the exact items, brands and colourways vary. The grade is what stays constant.",
   },
