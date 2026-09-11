@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { AddToCart } from "@/components/AddToCart";
+import { ProductGallery, type GalleryItem } from "@/components/ProductGallery";
 import { EnquiryActions } from "@/components/EnquiryActions";
 import { ProductCard } from "@/components/ProductCard";
 import { fromPrice, getProduct, pricedCount, products, quantityLabel, toPrice } from "@/data/catalogue";
@@ -64,7 +64,7 @@ export default async function ProductPage({ params }: Params) {
   const product = getProduct(slug);
   if (!product) notFound();
 
-  const gallery =
+  const gallery: { src: string; alt: string }[] =
     product.photos && product.photos.length > 0
       ? product.photos
       : [
@@ -73,6 +73,12 @@ export default async function ProductPage({ params }: Params) {
             alt: `${product.name} — placeholder artwork, photography to follow`,
           },
         ];
+  // Photographs first, then any video of the rail. Both are representative of
+  // the line, not the pieces that will be picked.
+  const media: GalleryItem[] = [
+    ...gallery.map((photo) => ({ kind: "image" as const, ...photo })),
+    ...(product.videos ?? []).map((video) => ({ kind: "video" as const, ...video })),
+  ];
 
   const related = products
     .filter(
@@ -156,37 +162,16 @@ export default async function ProductPage({ params }: Params) {
 
       <article className="mx-auto grid max-w-7xl gap-10 px-4 py-8 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:py-12">
         <div className="space-y-3">
-          <div className="relative aspect-square overflow-hidden border border-ash bg-smoke">
-            <Image
-              src={gallery[0].src}
-              alt={gallery[0].alt}
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </div>
-
-          {gallery.length > 1 && (
-            <div className="grid grid-cols-4 gap-3">
-              {gallery.slice(1, 5).map((photo) => (
-                <div
-                  key={photo.src}
-                  className="relative aspect-square overflow-hidden border border-ash bg-smoke"
-                >
-                  <Image src={photo.src} alt={photo.alt} fill sizes="25vw" className="object-cover" />
-                </div>
-              ))}
-            </div>
-          )}
+          <ProductGallery items={media} priority />
 
           {product.photos ? (
             /* Every lot is graded from a fresh intake, so the shot is an example
                of the line rather than the pieces that will be picked. Say so
                plainly, next to the photograph, before anyone orders. */
             <p className="text-xs leading-relaxed text-slate">
-              Photographs show a representative sample of this line, not the exact pieces you
-              will receive. Items, brands and colourways vary with each intake.
+              {product.videos?.length ? "Photographs and video show" : "Photographs show"} a
+              representative sample of this line, not the exact pieces you will receive. Items,
+              brands and colourways vary with each intake.
             </p>
           ) : (
             <p className="text-xs leading-relaxed text-slate">

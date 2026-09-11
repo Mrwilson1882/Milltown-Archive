@@ -77,6 +77,12 @@ export type Product = {
   art: string;
   /** Real photography, once available: paths under /public. Wins over `art`. */
   photos?: { src: string; alt: string }[];
+  /**
+   * Short square clips of the actual line — a look along the rail. Shown in
+   * the product reel after the photographs. `poster` is the still shown
+   * before play and in the thumbnail; the transcode step writes one per clip.
+   */
+  videos?: { src: string; poster: string; alt: string }[];
   inStock: boolean;
   featured?: boolean;
 };
@@ -117,6 +123,18 @@ const catalogue: Product[] = [
       {
         src: "/images/products/starter-box-10/01.jpg",
         alt: "A ten-piece starter box laid out on white: a cream Harley-Davidson three-quarter-sleeve top with a world-map print, a navy and red Nike windbreaker, a black Nike Just Do It t-shirt and a black velour zip hoodie with pink shoulder stripes.",
+      },
+    ],
+    videos: [
+      {
+        src: "/videos/products/starter-box-10/01.mp4",
+        poster: "/videos/products/starter-box-10/01-poster.jpg",
+        alt: "A look through a Starter Box intake, turned over piece by piece: a tan Carhartt pocket tee, a grey Lacoste quarter-zip, a red The North Face fleece and mixed branded layers.",
+      },
+      {
+        src: "/videos/products/starter-box-10/02.mp4",
+        poster: "/videos/products/starter-box-10/02-poster.jpg",
+        alt: "A second Starter Box intake: a Chaps Ralph Lauren crew, a grey Lacoste quarter-zip, a navy shell jacket, a grey Nike hoodie, a green Champion tee and a pair of jeans.",
       },
     ],
     inStock: true,
@@ -258,6 +276,13 @@ const catalogue: Product[] = [
       {
         src: "/images/products/ralph-tommy-lacoste-mix/01.jpg",
         alt: "A Ralph, Tommy and Lacoste mix on white: a cream Lacoste diagonal-stripe knit, a mint Polo Ralph Lauren piqué polo, a red, navy and white Tommy Hilfiger striped polo and a red-striped Ralph Lauren shirt.",
+      },
+    ],
+    videos: [
+      {
+        src: "/videos/products/ralph-tommy-lacoste-mix/01.mp4",
+        poster: "/videos/products/ralph-tommy-lacoste-mix/01-poster.jpg",
+        alt: "A look through the Ralph, Tommy, Lacoste Mix: Ralph Lauren piqué polos in pink, yellow and blue, a brown Lacoste jumper, an orange Lacoste cardigan and a red gingham shirt.",
       },
     ],
     inStock: true,
@@ -527,15 +552,16 @@ const catalogue: Product[] = [
   {
     slug: "mens-luxury-winter-mix",
     name: "Men's Luxury Winter Mix",
-    summary: "Designer knitwear — Missoni, Valentino, Stone Island, Lacoste.",
+    summary: "Designer knitwear, sweatshirts, hoodies and jackets — Missoni, Valentino, Stone Island, Lacoste.",
     description: [
-      "Designer knitwear a clear tier above general premium vintage: Missoni Sport, Valentino, Stone Island and Lacoste in one lot.",
+      "Designer knitwear, sweatshirts, hoodies and jackets a clear tier above general premium vintage: Missoni Sport, Valentino, Stone Island and Lacoste in one lot.",
       "These are pieces that price on the label rather than the category, aimed at shops with an established customer for designer menswear. Small lots by nature — this is not a volume line.",
     ],
     brandSlugs: ["missoni", "valentino", "stone-island", "lacoste"],
-    typeSlugs: ["jumpers-sweats"],
+    typeSlugs: ["jumpers-sweats", "jackets"],
     collectionSlugs: ["luxury", "premium-vintage", "mens", "winter"],
-    variants: [at(10, 16), at(25, 15.5), at(50, 15)],
+    // Ten only for now — the owner's call; not a volume line.
+    variants: [at(10, 16)],
     unit: "pieces",
     notes: [],
     art: "halftone-ink-4",
@@ -612,8 +638,18 @@ const catalogue: Product[] = [
  * `inStock` in the catalogue above therefore means "we have it"; this is the
  * separate question of whether we can show it.
  */
+/**
+ * Closes every product description. Lots are graded from a fresh intake, so
+ * what is pictured is the line, not the pieces that will be picked — and the
+ * owner wants that said in the description itself, not only in the caption
+ * under the photograph, so it travels with the text wherever it is reused.
+ */
+export const REPRESENTATIVE_NOTE =
+  "The items shown are a representative example of this line, not necessarily the stock you will receive. Items, brands and colourways vary with each intake.";
+
 export const products: Product[] = catalogue.map((product) => ({
   ...product,
+  description: [...product.description, REPRESENTATIVE_NOTE],
   grade: product.grade ?? "A/B",
   inStock: product.inStock && (product.photos?.length ?? 0) > 0,
 }));
