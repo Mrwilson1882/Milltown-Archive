@@ -552,9 +552,9 @@ const catalogue: Product[] = [
   {
     slug: "mens-luxury-winter-mix",
     name: "Men's Luxury Winter Mix",
-    summary: "Designer knitwear, sweatshirts, hoodies and jackets — Missoni, Valentino, Stone Island, Lacoste.",
+    summary: "Designer knitwear, sweatshirts, hoodies, jackets and shirts — Missoni, Valentino, Stone Island, Lacoste.",
     description: [
-      "Designer knitwear, sweatshirts, hoodies and jackets a clear tier above general premium vintage: Missoni Sport, Valentino, Stone Island and Lacoste in one lot.",
+      "Designer knitwear, sweatshirts, hoodies, jackets and shirts a clear tier above general premium vintage: Missoni Sport, Valentino, Stone Island and Lacoste in one lot.",
       "These are pieces that price on the label rather than the category, aimed at shops with an established customer for designer menswear. Small lots by nature — this is not a volume line.",
     ],
     brandSlugs: ["missoni", "valentino", "stone-island", "lacoste"],
