@@ -11,7 +11,7 @@ export const siteConfig = {
   parent: "Milltown Archive",
   tagline: "Branded vintage sportswear, wholesale.",
   description:
-    "UK vintage clothing wholesale. Branded vintage — Lacoste, Ralph Lauren, Nike, Champion, Carhartt and more — sorted and graded into reseller boxes, counted lots from five pieces, or by the kilo.",
+    "UK vintage clothing wholesale. Branded vintage — Lacoste, Ralph Lauren, Nike, Champion, Carhartt and more — sorted and graded into reseller boxes, counted lots of ten, twenty-five or fifty, or by the kilo.",
   /** Canonical origin, no trailing slash. */
   url: (rawSiteUrl && rawSiteUrl.replace(/\/$/, "")) || "https://www.archivewholesale.co.uk",
   /**

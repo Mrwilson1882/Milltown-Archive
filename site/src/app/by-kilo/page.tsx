@@ -128,7 +128,7 @@ export default function BulkPage() {
             <Link href="/products" className="font-bold text-forest underline underline-offset-4">
               Browse the products
             </Link>{" "}
-            — most come in runs from five pieces to a hundred.
+            — every lot comes in ten, twenty-five or fifty.
           </p>
         </div>
 

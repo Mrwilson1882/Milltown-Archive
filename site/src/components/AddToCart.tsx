@@ -10,8 +10,8 @@ import { vatSuffix } from "@/config/site";
 import { trackEvent } from "@/lib/analytics";
 
 /**
- * Quantity-option picker plus add-to-cart. Products are sold in runs — 5, 10,
- * 25, 50, 100 — so the customer picks the lot size first, then how many of that
+ * Quantity-option picker plus add-to-cart. Products are sold in runs — 10, 25,
+ * 50 — so the customer picks the lot size first, then how many of that
  * lot they want.
  */
 export function AddToCart({ product }: { product: Product }) {

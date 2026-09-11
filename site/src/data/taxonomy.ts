@@ -36,7 +36,7 @@ export const productTypes: Category[] = [
     name: "Polos & T-Shirts",
     blurb: "Branded piqué polos and tees, sold in fives and up.",
     seoCopy:
-      "Wholesale vintage polos and t-shirts from a UK supplier. Lacoste and Ralph Lauren piqué polos, mixed branded tee lots, Carhartt and Dickies workwear tees, and designer mixes — available in quantities from five pieces up to a hundred so you can test a line before you commit to volume.",
+      "Wholesale vintage polos and t-shirts from a UK supplier. Lacoste and Ralph Lauren piqué polos, mixed branded tee lots, Carhartt and Dickies workwear tees, and designer mixes — available in ten, twenty-five or fifty so you can test a line before you commit to volume.",
     art: "grid-green",
     photoFrom: "ralph-lauren-polos",
     featured: true,
@@ -46,7 +46,7 @@ export const productTypes: Category[] = [
     name: "Jumpers & Sweats",
     blurb: "Premium vintage hoodies, sweatshirts, jumpers and cardigans.",
     seoCopy:
-      "Wholesale vintage hoodies and sweatshirts, plus Lacoste jumpers and cardigans. Premium vintage sweats are the most consistent repeat category in UK vintage retail — bought in mixed lots from five pieces, or in depth up to a hundred.",
+      "Wholesale vintage hoodies and sweatshirts, plus Lacoste jumpers and cardigans. Premium vintage sweats are the most consistent repeat category in UK vintage retail — bought in lots of ten, twenty-five or fifty.",
     art: "bands-ink",
     photoFrom: "mixed-premium-vintage-hoodies-sweatshirts",
     featured: true,
@@ -87,7 +87,7 @@ export const brands: Category[] = [
     name: "Lacoste",
     blurb: "Croc polos, jumpers and cardigans, in depth.",
     seoCopy:
-      "Wholesale vintage Lacoste from a UK supplier. Croc-logo polo shirts, knitted jumpers and zip-through cardigans in lots from ten pieces to a hundred. Lacoste is one of the two labels our buyers reorder most.",
+      "Wholesale vintage Lacoste from a UK supplier. Croc-logo polo shirts, knitted jumpers and zip-through cardigans in lots of ten, twenty-five or fifty. Lacoste is one of the two labels our buyers reorder most.",
     art: "grid-green-2",
     photoFrom: "lacoste-jumpers-cardigans",
     featured: true,
@@ -97,7 +97,7 @@ export const brands: Category[] = [
     name: "Ralph Lauren",
     blurb: "Pony polos, men's and women's, in every quantity.",
     seoCopy:
-      "Vintage Ralph Lauren wholesale in the UK. Polo Ralph Lauren pony polos in mixed colourways and sizing, sold on their own or mixed with Lacoste, from five pieces up to a hundred.",
+      "Vintage Ralph Lauren wholesale in the UK. Polo Ralph Lauren pony polos in mixed colourways and sizing, sold on their own or mixed with Lacoste, in lots of ten, twenty-five or fifty.",
     art: "diagonal-ink",
     photoFrom: "ralph-lauren-polos",
     featured: true,
@@ -382,7 +382,7 @@ export const collections: Category[] = [
     name: "Men's",
     blurb: "Men's designer and sportswear lots.",
     seoCopy:
-      "Men's vintage wholesale — designer and sportswear lots across Lacoste, Ralph Lauren, Stone Island, Nike and Champion, in quantities from five pieces to a hundred.",
+      "Men's vintage wholesale — designer and sportswear lots across Lacoste, Ralph Lauren, Stone Island, Nike and Champion, in lots of ten, twenty-five or fifty.",
     art: "blocks-ink-2",
     photoFrom: "mixed-mens-lacoste-25",
   },

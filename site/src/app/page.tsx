@@ -16,7 +16,7 @@ import { hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
 export const metadata: Metadata = {
   title: "Vintage Clothing Wholesale UK — Boxes, Lots & By The Kilo",
   description:
-    "Archive Wholesale supplies UK retailers with branded vintage — Lacoste, Ralph Lauren, Nike, Champion and more. Fixed-price reseller boxes, counted lots from five pieces, or buy by the kilo.",
+    "Archive Wholesale supplies UK retailers with branded vintage — Lacoste, Ralph Lauren, Nike, Champion and more. Fixed-price reseller boxes, counted lots of ten, twenty-five or fifty, or buy by the kilo.",
   alternates: { canonical: "/" },
 };
 
@@ -44,7 +44,7 @@ const routes = [
   },
   {
     title: "Counted lots",
-    body: "Pick a product and a lot size — five, ten, twenty-five, fifty or a hundred pieces. Test a line, then buy it in depth.",
+    body: "Pick a product and a lot size — ten, twenty-five or fifty pieces. Test a line, then buy it in depth.",
     href: "/products",
     cta: "Browse products",
   },
@@ -107,7 +107,7 @@ export default function HomePage() {
             <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-ash pt-6">
               {[
                 { k: "Boxes from", v: "£90" },
-                { k: "Lots from", v: "5 pieces" },
+                { k: "Lots from", v: "10 pieces" },
                 { k: "Bulk to", v: "1,000kg" },
               ].map((stat) => (
                 <div key={stat.k}>
@@ -304,7 +304,7 @@ export default function HomePage() {
             </p>
             <p>
               Buy however suits your business. Fixed-price reseller boxes, from ten pieces up,
-              are made up and ready to sell. Counted lots run from five pieces to a hundred, so you
+              are made up and ready to sell. Counted lots come in tens, twenty-fives and fifties, so you
               can test a line before you commit. And for volume buyers we sell by the kilo, in
               increments up to 1,000kg, sorted by category rather than shipped as unsorted bulk.
             </p>

@@ -4,7 +4,7 @@
  * ===========================================================================
  *
  * Products are the wholesale lots on sale. Most are sold in a choice of
- * quantities — "5, 10, 25, 50, 100" becomes five variants of the same product,
+ * quantities — "10, 25, 50" becomes three variants of the same product,
  * each with its own price and its own line in the cart.
  *
  * PRICES
@@ -177,16 +177,16 @@ const catalogue: Product[] = [
   {
     slug: "lacoste-ralph-lauren-polos",
     name: "Lacoste / Ralph Lauren Polos",
-    summary: "Croc and pony piqué polos mixed, from five pieces to a hundred.",
+    summary: "Croc and pony piqué polos mixed, in tens, twenty-fives and fifties.",
     description: [
       "Branded piqué polos split across Lacoste and Polo Ralph Lauren — the two labels that turn over most reliably in this category, kept in one lot so a rail reads as a designer rail rather than a single-brand run.",
-      "Available from five pieces up to a hundred. Start small to test the line, then buy in depth once you know it sells.",
+      "Available in ten, twenty-five or fifty. Start small to test the line, then buy in depth once you know it sells.",
       "Mixed colourways across solids, stripes and check.",
     ],
     brandSlugs: ["lacoste", "ralph-lauren"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: ["mens"],
-    variants: [at(10, 8.5), at(25, 8), at(50, 7.5), at(100, 7)],
+    variants: [at(10, 8.5), at(25, 8), at(50, 7.5)],
     unit: "pieces",
     notes: [],
     art: "grid-green-3",
@@ -210,7 +210,7 @@ const catalogue: Product[] = [
     brandSlugs: ["ralph-lauren"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: [],
-    variants: [at(25, 8), at(50, 7), at(100, 6)],
+    variants: [at(10, 9), at(25, 8), at(50, 7)],
     unit: "pieces",
     notes: [],
     art: "grid-ink-2",
@@ -233,7 +233,7 @@ const catalogue: Product[] = [
     brandSlugs: ["carhartt", "dickies"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: ["mens"],
-    variants: qty(25, 50),
+    variants: [at(10, 9.5), at(25, 9), at(50, 8.5)],
     unit: "pieces",
     notes: [],
     art: "blocks-ink-3",
@@ -250,7 +250,7 @@ const catalogue: Product[] = [
     brandSlugs: ["ralph-lauren", "tommy-hilfiger", "lacoste"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: ["mens"],
-    variants: [at(10, 9.5), at(25, 9), at(50, 8.5), at(100, 8)],
+    variants: [at(10, 9.5), at(25, 9), at(50, 8.5)],
     unit: "pieces",
     notes: [],
     art: "stripes-green-3",
@@ -268,16 +268,16 @@ const catalogue: Product[] = [
   {
     slug: "mixed-premium-vintage-hoodies-sweatshirts",
     name: "Mixed Premium Vintage Hoodies & Sweatshirts",
-    summary: "Premium hoods and sweats mixed, from five pieces to a hundred.",
+    summary: "Premium hoods and sweats mixed, in tens, twenty-fives and fifties.",
     description: [
       "Premium vintage hoodies and sweatshirts in one mixed lot — branded, heavyweight and graded up from general intake.",
       "The most consistent repeat category we sell. Sweats hold their ticket, sell year-round, and fill the middle of a rail without competing with your hero pieces.",
-      "Available from five pieces up to a hundred.",
+      "Available in ten, twenty-five or fifty.",
     ],
     brandSlugs: ["mixed-brands", "guess", "nautica"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage", "winter"],
-    variants: [at(25, 9), at(50, 8.5), at(100, 8)],
+    variants: [at(10, 9.5), at(25, 9), at(50, 8.5)],
     unit: "pieces",
     notes: [],
     art: "bands-ink-3",
@@ -301,7 +301,7 @@ const catalogue: Product[] = [
     brandSlugs: ["mixed-brands", "ralph-lauren", "adidas"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage", "winter"],
-    variants: [at(25, 9), at(50, 8.5), at(100, 8)],
+    variants: [at(10, 9.5), at(25, 9), at(50, 8.5)],
     unit: "pieces",
     notes: [],
     art: "grid-ink-3",
@@ -324,7 +324,7 @@ const catalogue: Product[] = [
     brandSlugs: ["mixed-brands", "guess", "nautica"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage", "winter"],
-    variants: [], // Quantities to be confirmed by the owner.
+    variants: qty(10, 25, 50), // Quantities to be confirmed by the owner.
     unit: "pieces",
     notes: [],
     art: "diagonal-ink-3",
@@ -339,10 +339,10 @@ const catalogue: Product[] = [
   {
     slug: "lacoste-jumpers-cardigans",
     name: "Lacoste Jumpers & Cardigans",
-    summary: "Croc-branded knitwear, from ten pieces to a hundred.",
+    summary: "Croc-branded knitwear, in tens, twenty-fives and fifties.",
     description: [
       "Lacoste knitwear — crew and v-neck jumpers, zip-through cardigans and patterned knits, all croc-branded.",
-      "Knitwear sells slower than jersey but holds its ticket, and the croc does the work on the label. Available in tens through to a hundred, so you can buy for a season rather than a weekend.",
+      "Knitwear sells slower than jersey but holds its ticket, and the croc does the work on the label. Available in ten, twenty-five or fifty, so you can buy for a season rather than a weekend.",
     ],
     brandSlugs: ["lacoste"],
     typeSlugs: ["jumpers-sweats"],
@@ -397,7 +397,7 @@ const catalogue: Product[] = [
     brandSlugs: ["mixed-brands"],
     typeSlugs: ["jackets"],
     collectionSlugs: ["premium-vintage", "winter"],
-    variants: qty(5, 10, 15, 20),
+    variants: qty(10, 25, 50),
     unit: "pieces",
     notes: [],
     art: "blocks-green-3",
@@ -408,7 +408,7 @@ const catalogue: Product[] = [
   {
     slug: "birkenstock-sandals",
     name: "Birkenstock Sandals",
-    summary: "Birkenstocks by the pair, from five pairs to fifty.",
+    summary: "Birkenstocks by the pair, in tens, twenty-fives and fifties.",
     description: [
       "Second-hand Birkenstock sandals sold by the pair, in lots of five, ten, twenty-five and fifty.",
       "Footwear sits alongside a clothing rail without competing with it, and Birkenstocks hold their resale value better than almost anything else in second-hand footwear.",
@@ -416,7 +416,7 @@ const catalogue: Product[] = [
     brandSlugs: ["birkenstock"],
     typeSlugs: ["footwear"],
     collectionSlugs: ["summer-mix"],
-    variants: [at(5, 10), at(10, 8)],
+    variants: [at(10, 8), { pieces: 25, priceGBP: null }, { pieces: 50, priceGBP: null }],
     unit: "pairs",
     notes: [],
     art: "blocks-green",
@@ -442,7 +442,7 @@ const catalogue: Product[] = [
     brandSlugs: ["mixed-brands"],
     typeSlugs: ["accessories"],
     collectionSlugs: [],
-    variants: [], // Quantities and detail to be confirmed by the owner.
+    variants: qty(10, 25, 50), // Quantities and detail to be confirmed by the owner.
     unit: "pieces",
     notes: [],
     art: "halftone-ink",
@@ -452,8 +452,8 @@ const catalogue: Product[] = [
   // --------------------------------------------------------------- Brand-led lots
   {
     slug: "mixed-mens-lacoste-25",
-    name: "Mixed Men's Lacoste — 25 Items",
-    summary: "Twenty-five mixed men's Lacoste pieces.",
+    name: "Mixed Men's Lacoste",
+    summary: "Mixed men's Lacoste pieces, in tens, twenty-fives and fifties.",
     description: [
       "Twenty-five mixed pieces of men's Lacoste — polos, knitwear and jersey in one lot rather than split by garment.",
       "For shops that sell Lacoste as a label in its own right. Sold as a fixed twenty-five piece mix.",
@@ -461,7 +461,7 @@ const catalogue: Product[] = [
     brandSlugs: ["lacoste"],
     typeSlugs: ["polos-t-shirts", "jumpers-sweats"],
     collectionSlugs: ["mens"],
-    variants: qty(25),
+    variants: qty(10, 25, 50),
     unit: "pieces",
     notes: [],
     art: "grid-ink",
@@ -485,7 +485,7 @@ const catalogue: Product[] = [
     brandSlugs: ["mixed-brands", "champion", "nike", "fila", "adidas"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: ["mens"],
-    variants: [at(25, 6), at(50, 5.5), at(100, 4)],
+    variants: [at(10, 6.5), at(25, 6), at(50, 5.5)],
     unit: "pieces",
     notes: [],
     art: "bands-ink-4",
@@ -511,7 +511,7 @@ const catalogue: Product[] = [
     collectionSlugs: ["festival", "winter"],
     // 100 left unpriced: quoted as matching the festival jackets, which have
     // no hundred. Awaiting the owner.
-    variants: [at(10, 12.5), at(25, 11), at(50, 9), { pieces: 100, priceGBP: null }],
+    variants: [at(10, 12.5), at(25, 11), at(50, 9)],
     unit: "pieces",
     notes: [],
     art: "diagonal-green-4",
@@ -535,7 +535,7 @@ const catalogue: Product[] = [
     brandSlugs: ["missoni", "valentino", "stone-island", "lacoste"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["luxury", "premium-vintage", "mens", "winter"],
-    variants: [at(25, 16), at(50, 14)],
+    variants: [at(10, 16), at(25, 15.5), at(50, 15)],
     unit: "pieces",
     notes: [],
     art: "halftone-ink-4",
@@ -559,7 +559,7 @@ const catalogue: Product[] = [
     brandSlugs: ["mixed-brands", "champion", "nike", "harley-davidson"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: ["y2k", "womens", "summer-mix"],
-    variants: [at(25, 9), at(50, 8)],
+    variants: [at(10, 10), at(25, 9), at(50, 8)],
     unit: "pieces",
     notes: [],
     art: "grid-ink-4",
@@ -584,7 +584,7 @@ const catalogue: Product[] = [
     brandSlugs: ["moncler", "burberry", "versace", "ralph-lauren"],
     typeSlugs: ["jackets"],
     collectionSlugs: ["luxury", "mens", "winter"],
-    variants: [], // Quantities to be confirmed by the owner.
+    variants: qty(10, 25, 50), // Quantities to be confirmed by the owner.
     unit: "pieces",
     notes: ["Contents change with each intake. Ask for current photos before ordering."],
     art: "bands-ink-5",
@@ -660,7 +660,7 @@ export function fromPrice(product: Product): number | null {
   return priced.length > 0 ? Math.min(...priced) : null;
 }
 
-/** The quantity options as a readable run, e.g. "5, 10, 25, 50 or 100". */
+/** The quantity options as a readable run, e.g. "10, 25 or 50". */
 export function quantityLabel(product: Product): string {
   if (product.variants.length === 0) return "Quantities on request";
   const counts = product.variants.map((v) => v.pieces);

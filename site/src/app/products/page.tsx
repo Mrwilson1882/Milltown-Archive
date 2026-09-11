@@ -7,7 +7,7 @@ import { brands, collections, productTypes } from "@/data/taxonomy";
 export const metadata: Metadata = {
   title: "All Wholesale Products",
   description:
-    "Every wholesale lot available from Archive Wholesale — vintage polos, tees, hoodies, sweats, knitwear, jackets and Birkenstocks, in quantities from five pieces to a hundred.",
+    "Every wholesale lot available from Archive Wholesale — vintage polos, tees, hoodies, sweats, knitwear, jackets and Birkenstocks, in lots of ten, twenty-five or fifty.",
   alternates: { canonical: "/products" },
 };
 
@@ -33,8 +33,7 @@ export default function ProductsPage() {
       <SeoBlock heading="Buying vintage clothing wholesale">
         <p>
           Everything on this page is a wholesale lot of branded vintage clothing, sorted and graded
-          in the UK. Most products come in a choice of quantities — five, ten, twenty-five, fifty or
-          a hundred pieces — so you can test a line on a stall before buying it in depth.
+          in the UK. Every lot comes in a choice of ten, twenty-five or fifty pieces — so you can test a line on a stall before buying it in depth.
         </p>
         <p>
           Lots are made up from live intake, so availability changes week to week. If you need a
