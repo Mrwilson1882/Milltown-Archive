@@ -349,7 +349,7 @@ const catalogue: Product[] = [
     brandSlugs: ["mixed-brands", "guess", "nautica"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage", "winter"],
-    variants: qty(10, 25, 50), // Quantities to be confirmed by the owner.
+    variants: [at(10, 9.5), at(25, 9), at(50, 8.5)], // Quantities to be confirmed by the owner.
     unit: "pieces",
     notes: [],
     art: "diagonal-ink-3",
