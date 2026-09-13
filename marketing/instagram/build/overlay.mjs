@@ -45,6 +45,7 @@ function sceneBody(scene, L) {
     const b = scene.boxes;
     out.push(`<div class="boxes">
       <div class="boxes-inner">
+        ${L.id === "feed" ? `<img class="boxes-logo" src="${"LOGO_SRC"}" data-in="0.0">` : ""}
         <div class="boxes-head" data-in="0.06">${esc(b.headline)}</div>
         <div class="boxes-grid">
           ${b.items
@@ -86,6 +87,16 @@ function sceneBody(scene, L) {
   }
 
   const copy = [];
+  // On 4:5 the wordmark rides the kicker's line: there are only 270px under a
+  // full-width square window, and a bar of its own would eat a fifth of them.
+  if (L.id === "feed") {
+    copy.push(
+      `<div class="brandrow">` +
+        (scene.kicker ? `<div class="kicker" data-in="0.1">${esc(scene.kicker)}</div>` : `<div></div>`) +
+        `<img class="mini-logo" src="LOGO_SRC" data-in="-0.5">` +
+        `</div>`,
+    );
+  }
   if (scene.words) {
     copy.push(
       `<div class="words">${scene.words
@@ -96,7 +107,8 @@ function sceneBody(scene, L) {
         .join(" ")}</div>`,
     );
   }
-  if (scene.kicker) copy.push(`<div class="kicker" data-in="0.1">${esc(scene.kicker)}</div>`);
+  if (scene.kicker && L.id !== "feed")
+    copy.push(`<div class="kicker" data-in="0.1">${esc(scene.kicker)}</div>`);
   if (scene.name) copy.push(`<div class="name" data-in="0.2">${esc(scene.name)}</div>`);
   if (scene.headline) copy.push(`<div class="headline">${lines(scene.headline, "hl", 0.2, 0.08)}</div>`);
   if (scene.price) copy.push(`<div class="price" data-in="0.34">${esc(scene.price)}</div>`);
@@ -137,14 +149,9 @@ export function buildHtml(ad, L, { fontDir, logoDataUri }) {
 
   const chrome = isStory
     ? `<div class="chrome">
-         <div class="eyebrow chrome-eyebrow" data-in="-0.5">${esc(ad.chrome.eyebrow)}</div>
          <img class="chrome-logo centred" src="${logoDataUri}" data-in="-0.5">
-         <div class="chrome-rule" data-in="0.05"></div>
        </div>`
-    : `<div class="chrome">
-         <img class="chrome-logo" src="${logoDataUri}" data-in="-0.5">
-         <div class="eyebrow chrome-eyebrow" data-in="-0.5">${esc(ad.chrome.eyebrow)}</div>
-       </div>`;
+    : "";
 
   const scenes = ad.scenes
     .map(
@@ -170,11 +177,12 @@ html,body{width:${L.W}px;height:${L.H}px;background:transparent;overflow:hidden}
 .chrome{position:absolute;inset:0}
 ${
   isStory
-    ? `.chrome-eyebrow{position:absolute;left:0;right:0;top:${L.chrome.eyebrowY}px;text-align:center;font-size:${t.eyebrow}px}
-.chrome-logo{position:absolute;left:50%;transform:translateX(-50%);top:${L.chrome.logoY}px;height:${L.chrome.logoH}px;width:auto}
-.chrome-rule{position:absolute;left:${m.x}px;top:${L.chrome.ruleY}px;width:${m.w}px;height:3px;background:${BRAND.forest};transform-origin:left center}`
-    : `.chrome-logo{position:absolute;left:60px;top:${(L.chrome.barH - L.chrome.logoH) / 2}px;height:${L.chrome.logoH}px;width:auto}
-.chrome-eyebrow{position:absolute;right:60px;top:${L.chrome.barH / 2 - t.eyebrow}px;font-size:${t.eyebrow}px;line-height:2}`
+    ? `.chrome-logo{position:absolute;left:50%;transform:translateX(-50%);
+  top:${L.chrome.logoY}px;height:${L.chrome.logoH}px;width:auto}`
+    : `.brandrow{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.brandrow .kicker{flex:1 1 auto;min-width:0}
+.mini-logo{flex:0 0 auto;height:${L.chrome.miniLogoH}px;width:auto}
+.boxes-logo{height:${L.chrome.miniLogoH + 8}px;width:auto;display:block;margin-bottom:26px}`
 }
 
 /* ---- scenes ---- */
@@ -194,12 +202,12 @@ ${isStory ? ".words .word{display:block}" : ".words .word{display:inline-block;m
 .sub{font-weight:600;font-size:${t.sub}px;line-height:1.3;color:${BRAND.slate}}
 
 .rows{margin-top:${isStory ? 14 : 10}px}
-.row{display:flex;align-items:baseline;gap:16px;padding:${isStory ? "9px 0" : "7px 0"};
+.row{display:flex;align-items:baseline;gap:16px;padding:${t.rowPad}px 0;
   border-top:2px solid ${BRAND.ash};font-weight:800;line-height:1.08}
 .row:last-child{border-bottom:2px solid ${BRAND.ash}}
-.row-k{font-size:${isStory ? 34 : 27}px;text-transform:uppercase;letter-spacing:.02em}
+.row-k{font-size:${t.rowK}px;text-transform:uppercase;letter-spacing:.02em}
 .row-dot{flex:1;border-bottom:2px dotted ${BRAND.ash};transform:translateY(-6px)}
-.row-v{font-size:${isStory ? 46 : 37}px;font-weight:900;color:${BRAND.forest};letter-spacing:-.02em}
+.row-v{font-size:${t.rowV}px;font-weight:900;color:${BRAND.forest};letter-spacing:-.02em}
 
 /* ---- the three boxes on one card ----
    Painted over the media window rather than the whole canvas, so the wordmark

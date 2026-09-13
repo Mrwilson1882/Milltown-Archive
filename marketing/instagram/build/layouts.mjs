@@ -2,12 +2,18 @@
  * Archive Wholesale — Instagram ad layouts.
  *
  * Two canvases, one grammar: white ground, black display type, forest green
- * (#0F4A2E) as the only accent, and a square media window with the footage or
- * the product photograph in it.
+ * (#0F4A2E) as the only accent, and the footage in a square window.
  *
- * 9:16 keeps everything inside Instagram's Stories safe area — nothing that
- * matters sits above y=250 or below y=1670, where the profile chip and the
- * reply bar land.
+ * The footage is square — 1080 × 1080 straight off the phone — so the window
+ * is square too and runs the full width of the canvas in both formats. Nothing
+ * is cropped: a square source cannot be made taller without cutting the sides
+ * off the garment, and the garments are the advert.
+ *
+ * That width is paid for out of the type. 9:16 carries the wordmark above the
+ * window and the copy below it, inside Instagram's story safe area — nothing
+ * that matters above y=250 or below y=1670, where the profile chip and the
+ * reply bar land. 4:5 has only 270px left under a full-width square, so its
+ * wordmark sits on the same line as the kicker and costs no height at all.
  */
 
 export const BRAND = {
@@ -26,23 +32,24 @@ export const LAYOUTS = {
     label: "Stories / Reels — 9:16",
     W: 1080,
     H: 1920,
-    // Square media window, inset from the edges.
-    media: { x: 90, y: 430, w: 900, h: 900 },
-    // Persistent brand chrome above the window, clear of the profile chip.
-    chrome: { eyebrowY: 268, logoY: 302, logoH: 88, ruleY: 412 },
-    // Copy block below the window, bottom-anchored clear of the reply bar.
-    copy: { x: 90, baseline: 1666, w: 900 },
+    media: { x: 0, y: 340, w: 1080, h: 1080 },
+    /** Wordmark only. The eyebrow line was the price of a full-width window. */
+    chrome: { logoY: 252, logoH: 66 },
+    copy: { x: 60, baseline: 1670, w: 960 },
     type: {
-      eyebrow: 25,
-      kicker: 27,
-      word: 84,
-      headline: 58,
-      name: 58,
-      price: 84,
-      body: 34,
-      sub: 30,
+      eyebrow: 24,
+      kicker: 26,
+      word: 76,
+      headline: 50,
+      name: 52,
+      price: 76,
+      body: 29,
+      sub: 27,
       ctaUrl: 52,
       fine: 21,
+      rowK: 30,
+      rowV: 40,
+      rowPad: 7,
     },
   },
   feed: {
@@ -50,20 +57,24 @@ export const LAYOUTS = {
     label: "Feed post — 4:5",
     W: 1080,
     H: 1350,
-    media: { x: 0, y: 88, w: 1080, h: 940 },
-    chrome: { barH: 88, logoH: 52 },
-    copy: { x: 60, baseline: 1310, w: 960 },
+    media: { x: 0, y: 0, w: 1080, h: 1080 },
+    /** Rides the kicker line inside the copy block, so it costs no height. */
+    chrome: { miniLogoH: 38 },
+    copy: { x: 60, baseline: 1320, w: 960 },
     type: {
       eyebrow: 22,
       kicker: 24,
-      word: 66,
+      word: 62,
       headline: 48,
-      name: 44,
+      name: 46,
       price: 64,
       body: 28,
       sub: 26,
       ctaUrl: 42,
       fine: 18,
+      rowK: 27,
+      rowV: 37,
+      rowPad: 7,
     },
   },
 };

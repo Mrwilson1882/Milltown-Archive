@@ -24,13 +24,10 @@ const P = (name) => `images/products/${name}`;
 export const boxesAd = {
   id: "reseller-boxes",
   duration: 14.4,
-  /** Brand chrome sits above the media window for the whole advert. */
-  chrome: { eyebrow: "VINTAGE WHOLESALE · LANCASHIRE, UK" },
-
   /** What plays in the media window. The two cards paint over it. */
   shots: [
-    { dur: 2.8, kind: "video", src: V("starter-box-10/01.mp4"), ss: 0.6, fit: "cover" },
-    { dur: 2.6, kind: "video", src: V("starter-box-10/02.mp4"), ss: 1.4, fit: "cover" },
+    { dur: 2.8, kind: "video", src: V("starter-box-10/02.mp4"), ss: 1.4, fit: "cover" },
+    { dur: 2.6, kind: "video", src: V("starter-box-10/01.mp4"), ss: 0.6, fit: "cover" },
     { dur: 5.6, kind: "plain" },
     { dur: 3.4, kind: "plain" },
   ],
@@ -92,8 +89,6 @@ export const boxesAd = {
 export const rtlAd = {
   id: "ralph-tommy-lacoste-mix",
   duration: 14.0,
-  chrome: { eyebrow: "COUNTED LOTS · 10 · 25 · 50" },
-
   /** One unbroken take — the flip-through is the advert. */
   shots: [
     { dur: 14.0, kind: "video", src: V("ralph-tommy-lacoste-mix/01.mp4"), ss: 0.15, fit: "cover" },

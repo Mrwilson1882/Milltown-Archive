@@ -24,8 +24,8 @@ it. The logo and *Vintage wholesale · Lancashire, UK* sit above the picture for
 the whole advert, and the second beat says who we are in one line — which means
 the first two seconds can still be the hook rather than a title card.
 
-1. **0.0s** — Starter Box intake, hands turning the pieces over. *Boxed.
-   Graded. Priced.*
+1. **0.0s** — Starter Box intake (second clip first), hands turning the
+   pieces over. *Boxed. Graded. Priced.*
 2. **2.8s** — *New out of Lancashire. We sort and grade it here.* Branded
    vintage for vintage shops, market traders and online resellers.
 3. **5.4s** — **Three reseller boxes on one card.** All three photographs run
@@ -70,6 +70,21 @@ interrupt it.
 5. **11.4s** — Closing card: *Test ten. Then buy in depth.*
 
 ---
+
+## The square window
+
+The footage is square — 1080 × 1080 straight off the phone — so the window it
+plays in is square too, and runs the **full width of the canvas in both
+formats**. Nothing is cropped. A square source cannot be made taller without
+cutting the sides off the garment, and the garments are the advert.
+
+That width is paid for out of the type:
+
+- **9:16** carries the wordmark above the window and the copy below it, both
+  inside the story safe area. The eyebrow line that used to sit under the
+  wordmark was the price of the wider window.
+- **4:5** has only 270px left underneath a full-width square, so its wordmark
+  rides the same line as the kicker and costs no height at all.
 
 ## Branding
 
