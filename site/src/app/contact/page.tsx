@@ -92,7 +92,8 @@ export default function ContactPage() {
               <div>
                 <dt className="eyebrow text-slate">Trading as</dt>
                 <dd className="mt-1.5 text-slate">
-                  {siteConfig.name}, a trading name of {siteConfig.legalName}
+                  {siteConfig.name}, a trading name of {siteConfig.legalName}. Company No.{" "}
+                  {siteConfig.companyNumber}
                 </dd>
               </div>
               <div>

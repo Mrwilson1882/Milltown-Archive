@@ -8,6 +8,8 @@ const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
 export const siteConfig = {
   name: "Archive Wholesale",
   legalName: "MANCH LTD",
+  /** Companies House registration number for MANCH LTD. */
+  companyNumber: "17064831",
   parent: "Milltown Archive",
   tagline: "Branded vintage sportswear, wholesale.",
   description:
