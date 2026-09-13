@@ -4,14 +4,26 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Logo } from "@/components/Logo";
+import { SearchBox, SearchIcon } from "@/components/SearchBox";
 import { useCart } from "@/components/useCart";
 import { navLinks, siteConfig } from "@/config/site";
 
+function BagIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+      <path d="M3 6h18" />
+      <path d="M16 10a4 4 0 0 1-8 0" />
+    </svg>
+  );
+}
+
+/** Count badge pinned to the corner of the bag. Hidden while the basket is empty. */
 function CartCount() {
   const { itemCount } = useCart();
   if (itemCount === 0) return null;
   return (
-    <span className="ml-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-forest px-1.5 text-[0.65rem] font-bold text-paper">
+    <span className="absolute -top-1.5 -right-1.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-forest px-1.5 text-[0.65rem] font-bold text-paper">
       {itemCount}
     </span>
   );
@@ -24,6 +36,13 @@ export function Header() {
   const [openedOn, setOpenedOn] = useState<string | null>(null);
   const open = openedOn === pathname;
   const setOpen = (next: boolean) => setOpenedOn(next ? pathname : null);
+  // Search follows the same rule, and the two panels never show together.
+  const [searchOpenedOn, setSearchOpenedOn] = useState<string | null>(null);
+  const searchOpen = searchOpenedOn === pathname;
+  const setSearchOpen = (next: boolean) => {
+    setSearchOpenedOn(next ? pathname : null);
+    if (next) setOpenedOn(null);
+  };
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
@@ -64,26 +83,55 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
+          <button
+            type="button"
+            onClick={() => setSearchOpen(!searchOpen)}
+            aria-expanded={searchOpen}
+            aria-controls="site-search"
+            aria-label={searchOpen ? "Close search" : "Search"}
+            className={`inline-flex h-11 w-11 items-center justify-center transition-colors hover:text-forest ${
+              searchOpen ? "text-forest" : "text-ink"
+            }`}
+          >
+            <SearchIcon className="h-6 w-6" />
+          </button>
+
           <Link
             href="/cart"
-            className="inline-flex items-center border-2 border-ink px-4 py-2 text-sm font-bold tracking-wide uppercase transition-colors hover:border-forest hover:text-forest"
+            aria-label="Basket"
+            className={`relative inline-flex h-11 w-11 items-center justify-center transition-colors hover:text-forest ${
+              isActive("/cart") ? "text-forest" : "text-ink"
+            }`}
           >
-            Basket
+            <BagIcon />
             <CartCount />
           </Link>
 
           <button
             type="button"
-            onClick={() => setOpen(!open)}
+            onClick={() => {
+              setOpen(!open);
+              setSearchOpenedOn(null);
+            }}
             aria-expanded={open}
             aria-controls="mobile-nav"
-            className="inline-flex items-center border-2 border-ink px-3 py-2 text-sm font-bold tracking-wide uppercase lg:hidden"
+            className="ml-1 inline-flex items-center border-2 border-ink px-3 py-2 text-sm font-bold tracking-wide uppercase lg:hidden"
           >
             {open ? "Close" : "Menu"}
           </button>
         </div>
       </div>
+
+      {searchOpen && (
+        <div id="site-search" className="border-t border-ash">
+          <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6">
+            <div className="mx-auto max-w-2xl">
+              <SearchBox autoFocus onNavigate={() => setSearchOpenedOn(null)} />
+            </div>
+          </div>
+        </div>
+      )}
 
       {open && (
         <nav id="mobile-nav" aria-label="Primary mobile" className="border-t border-ash lg:hidden">

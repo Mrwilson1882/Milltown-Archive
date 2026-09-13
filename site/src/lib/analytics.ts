@@ -11,7 +11,7 @@ import { track } from "@vercel/analytics";
  * told apart even though they all end up in the same WhatsApp inbox.
  */
 
-export type EnquirySource = "product" | "bulk" | "basket" | "float" | "grading" | "contact";
+export type EnquirySource = "product" | "bulk" | "basket" | "float" | "grading" | "contact" | "search";
 export type EnquiryChannel = "whatsapp" | "email";
 
 type Events = {
@@ -29,6 +29,8 @@ type Events = {
   checkout_start: { lots: number; total_gbp: number };
   /** The bulk quote builder was submitted. */
   bulk_quote: { channel: EnquiryChannel; format: string; kg: number; category: string };
+  /** A site search was run. Zero-result queries are the stock list customers want. */
+  search: { query: string; results: number };
 };
 
 export function trackEvent<K extends keyof Events>(name: K, props: Events[K]) {

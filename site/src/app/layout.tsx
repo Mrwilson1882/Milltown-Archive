@@ -96,6 +96,14 @@ const organisationJsonLd = {
     "vintage reseller boxes",
     "vintage clothing by the kilo",
     "branded vintage sportswear",
+    "vintage Lacoste wholesale",
+    "vintage Ralph Lauren wholesale",
+    "vintage Nike wholesale",
+    "vintage Champion wholesale",
+    "vintage The North Face wholesale",
+    "vintage Juicy Couture wholesale",
+    "vintage Y2K womenswear wholesale",
+    "vintage windbreakers and shell jackets",
   ],
 };
 

@@ -11,7 +11,9 @@ const nextConfig: NextConfig = {
     return [
       { source: "/products/mixed-mens-lacoste-25", destination: "/products/mixed-mens-lacoste", permanent: true },
       { source: "/products/y2k-designer-female-mix-box-20", destination: "/products/y2k-designer-female-mix-box", permanent: true },
-      { source: "/products/y2k-designer-male-mix-box-20", destination: "/products/y2k-designer-male-mix-box", permanent: true },
+      { source: "/products/y2k-designer-male-mix-box-20", destination: "/products/designer-male-mix-box", permanent: true },
+      // The men's box was briefly at this address before "Y2K" came out of its name.
+      { source: "/products/y2k-designer-male-mix-box", destination: "/products/designer-male-mix-box", permanent: true },
     ];
   },
   images: {

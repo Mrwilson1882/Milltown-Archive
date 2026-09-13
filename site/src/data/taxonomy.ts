@@ -274,9 +274,9 @@ export const brands: Category[] = [
     name: "Diesel",
     blurb: "Print tees and denim-led Y2K pieces.",
     seoCopy:
-      "Vintage Diesel wholesale in the UK. Print tees, denim and the logo-forward Y2K pieces the label is known for — supplied within our Y2K designer boxes and mixed lots.",
+      "Vintage Diesel wholesale in the UK. Print tees, denim and the logo-forward Y2K pieces the label is known for — supplied within our designer boxes and mixed lots.",
     art: "stripes-green-5",
-    photoFrom: "y2k-designer-male-mix-box",
+    photoFrom: "designer-male-mix-box",
   },
   {
     slug: "hugo-boss",
@@ -285,7 +285,79 @@ export const brands: Category[] = [
     seoCopy:
       "Wholesale vintage Hugo Boss from a UK supplier. Boss Sport polos, striped jersey and designer menswear — branded pieces that price above general vintage and give a rail a premium end.",
     art: "grid-ink-5",
-    photoFrom: "y2k-designer-male-mix-box",
+    photoFrom: "designer-male-mix-box",
+  },
+  {
+    slug: "chaps-ralph-lauren",
+    name: "Chaps Ralph Lauren",
+    blurb: "Ralph Lauren's diffusion line — hooded pullovers, crews and fleece.",
+    seoCopy:
+      "Vintage Chaps Ralph Lauren wholesale in the UK. The Ralph Lauren diffusion label — hooded pullovers, crewneck sweatshirts, fleece and casual outerwear — supplied within our premium vintage hoodie and sweatshirt lots. Sells on the Ralph Lauren name at a lower ticket than Polo.",
+    art: "bands-ink-3",
+    photoFrom: "mixed-premium-vintage-hoodies-sweatshirts",
+  },
+  {
+    slug: "sergio-tacchini",
+    name: "Sergio Tacchini",
+    blurb: "Italian tennis-court track tops and shells.",
+    seoCopy:
+      "Vintage Sergio Tacchini wholesale from a UK supplier. Italian sportswear — track tops, shell jackets and windbreakers with the terrace and tennis-court heritage that casual-wear buyers look for — supplied within our jackets and windbreaker lots.",
+    art: "stripes-ink-2",
+    photoFrom: "jackets-windbreaker-mix",
+  },
+  {
+    slug: "columbia",
+    name: "Columbia",
+    blurb: "Fleece, shells and outdoor jackets.",
+    seoCopy:
+      "Vintage Columbia wholesale in the UK. Fleece, shell jackets and outdoor windbreakers — the American outdoor label that turns over steadily on a vintage rail from autumn onwards — supplied within our jackets and windbreaker lots.",
+    art: "blocks-green-4",
+    photoFrom: "jackets-windbreaker-mix",
+  },
+  {
+    slug: "the-north-face",
+    name: "The North Face",
+    blurb: "Shells, fleece and outdoor outerwear.",
+    seoCopy:
+      "Vintage The North Face wholesale from a UK supplier. Shell jackets, fleece and outdoor outerwear — one of the most searched-for labels in second-hand jackets — supplied within our jackets and windbreaker lots rather than as a single-brand run.",
+    art: "diagonal-ink-2",
+    photoFrom: "jackets-windbreaker-mix",
+  },
+  {
+    slug: "von-dutch",
+    name: "Von Dutch",
+    blurb: "Trucker caps, tees and the Y2K signature.",
+    seoCopy:
+      "Vintage Von Dutch wholesale in the UK. Trucker caps, logo tees and the pieces that defined the early-2000s look — supplied within our women's Y2K designer box for resellers selling into the Depop and Vinted market.",
+    art: "halftone-ink-2",
+    photoFrom: "y2k-designer-female-mix-box",
+  },
+  {
+    slug: "juicy-couture",
+    name: "Juicy Couture",
+    blurb: "Velour tracksuits and Y2K womenswear.",
+    seoCopy:
+      "Vintage Juicy Couture wholesale from a UK supplier. Velour tracksuits, zip hoodies and logo womenswear — the Y2K label with the strongest resale demand in women's vintage — supplied within our women's Y2K designer box.",
+    art: "stripes-green-3",
+    photoFrom: "y2k-designer-female-mix-box",
+  },
+  {
+    slug: "patagonia",
+    name: "Patagonia",
+    blurb: "Fleece and outdoor pieces with a premium resale ticket.",
+    seoCopy:
+      "Vintage Patagonia wholesale in the UK. Fleece pullovers, shells and outdoor pieces that hold a premium ticket second-hand — supplied within our women's Y2K designer box and mixed lots.",
+    art: "grid-green-3",
+    photoFrom: "y2k-designer-female-mix-box",
+  },
+  {
+    slug: "morgan",
+    name: "Morgan",
+    blurb: "French Y2K womenswear — fitted tops and going-out pieces.",
+    seoCopy:
+      "Vintage Morgan wholesale from a UK supplier. The French womenswear label behind the fitted tops, cardigans and going-out pieces that Y2K buyers search for — supplied within our women's Y2K designer box.",
+    art: "bands-green-4",
+    photoFrom: "y2k-designer-female-mix-box",
   },
   {
     slug: "mixed-brands",
@@ -304,7 +376,7 @@ export const collections: Category[] = [
     name: "Reseller Boxes",
     blurb: "Ready-made boxes at a fixed price, from ten pieces up. The quickest way to start.",
     seoCopy:
-      "Vintage reseller boxes from a UK wholesaler. Fixed-price boxes of branded pieces — a ten-piece starter box, plus men's and women's Y2K mixes in ten or twenty pieces — made up and priced so you can order in one click and start selling the week it lands. The simplest entry point into vintage wholesale.",
+      "Vintage reseller boxes from a UK wholesaler. Fixed-price boxes of branded pieces — a ten-piece starter box, plus a women's Y2K mix and a men's designer mix in ten or twenty pieces — made up and priced so you can order in one click and start selling the week it lands. The simplest entry point into vintage wholesale.",
     art: "bands-green-2",
     photoFrom: "y2k-designer-female-mix-box",
     featured: true,
@@ -316,7 +388,7 @@ export const collections: Category[] = [
     seoCopy:
       "Y2K vintage wholesale in the UK. Late-90s and early-2000s designer pieces — logo-forward, bold colourways and the cuts currently driving resale demand on Depop and Vinted.",
     art: "halftone-green-2",
-    photoFrom: "y2k-designer-male-mix-box",
+    photoFrom: "y2k-designer-female-mix-box",
     featured: true,
   },
   {
