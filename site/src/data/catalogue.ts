@@ -411,23 +411,6 @@ const catalogue: Product[] = [
     inStock: true,
     featured: true,
   },
-  {
-    slug: "designer-jackets",
-    name: "Designer Jackets",
-    summary: "Designer outerwear in tens, twenty-fives and fifties.",
-    description: [
-      "Designer outerwear sold by the lot — the highest single-piece margin of anything we carry.",
-      "Available in ten, twenty-five or fifty. Start with ten if you are new to the category — depth in outerwear ties up more cash than most shops want to commit at once.",
-    ],
-    brandSlugs: ["mixed-brands"],
-    typeSlugs: ["jackets"],
-    collectionSlugs: ["premium-vintage", "winter"],
-    variants: qty(10, 25, 50),
-    unit: "pieces",
-    notes: [],
-    art: "blocks-green-3",
-    inStock: true,
-  },
 
   // --------------------------------------------------------------------- Footwear
   {
@@ -599,25 +582,25 @@ const catalogue: Product[] = [
     featured: true,
   },
   {
-    slug: "luxury-outerwear-mix",
-    name: "Luxury Outerwear Mix",
-    summary: "Moncler, Burberry, Versace and Polo Ralph Lauren outerwear.",
+    slug: "designer-jackets",
+    name: "Designer Jackets",
+    summary: "Moncler, Burberry, Versace and Polo Ralph Lauren jackets, sold in tens.",
     description: [
       "Luxury outerwear and tailoring kept apart from the general jacket lots — Moncler quilted down, Burberry field jackets, Versace tailoring and Polo Ralph Lauren shells.",
       "These pieces price on the label rather than the category, which is exactly why they are not bundled in with windbreakers. One Moncler jacket can carry a rail on its own.",
-      "Small lots by nature. Contents change with every intake, and we photograph each piece individually before you commit.",
+      "Sold in lots of ten. Contents change with every intake, and we photograph each piece individually before you commit.",
     ],
     brandSlugs: ["moncler", "burberry", "versace", "ralph-lauren"],
     typeSlugs: ["jackets"],
     collectionSlugs: ["luxury", "mens", "winter"],
-    variants: qty(10, 25, 50), // Quantities to be confirmed by the owner.
+    variants: [at(10, 30)],
     unit: "pieces",
     notes: ["Contents change with each intake. Ask for current photos before ordering."],
     art: "bands-ink-5",
     photos: [
       {
-        src: "/images/products/luxury-outerwear-mix/01.jpg",
-        alt: "A luxury outerwear lot on white: a red Polo Jeans Co zip jacket, a black quilted Moncler, a navy Burberry field jacket and a black Versace blazer with gold buttons.",
+        src: "/images/products/designer-jackets/01.jpg",
+        alt: "A designer jackets lot on white: a red Polo Jeans Co zip jacket, a black quilted Moncler, a navy Burberry field jacket and a black Versace blazer with gold buttons.",
       },
     ],
     inStock: true,

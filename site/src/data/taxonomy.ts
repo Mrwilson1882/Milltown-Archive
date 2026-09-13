@@ -56,7 +56,7 @@ export const productTypes: Category[] = [
     name: "Jackets",
     blurb: "Festival track jackets and designer outerwear.",
     seoCopy:
-      "Vintage jacket wholesale in the UK. Festival track jackets for the summer season and designer outerwear lots in tens, twenty-fives and fifties — the highest single-piece margin of anything we sell, and the fastest category to clear at a festival or market stall.",
+      "Vintage jacket wholesale in the UK. Festival track jackets for the summer season and designer jackets sold in tens — the highest single-piece margin of anything we sell, and the fastest category to clear at a festival or market stall.",
     art: "diagonal-green",
     photoFrom: "festival-track-jackets",
     featured: true,
@@ -244,9 +244,9 @@ export const brands: Category[] = [
     name: "Moncler",
     blurb: "Quilted down outerwear, sold in luxury lots.",
     seoCopy:
-      "Moncler wholesale from a UK vintage supplier. Quilted and down outerwear at the top of the price ladder, supplied within our luxury outerwear lots rather than mixed into general vintage.",
+      "Moncler wholesale from a UK vintage supplier. Quilted and down outerwear at the top of the price ladder, supplied within our Designer Jackets lot rather than mixed into general vintage.",
     art: "blocks-ink-5",
-    photoFrom: "luxury-outerwear-mix",
+    photoFrom: "designer-jackets",
     featured: true,
   },
   {
@@ -254,9 +254,9 @@ export const brands: Category[] = [
     name: "Burberry",
     blurb: "Check-lined jackets, coats and shirting.",
     seoCopy:
-      "Vintage Burberry wholesale in the UK. Jackets, coats and shirting from one of the most searched luxury labels in second-hand — supplied within our luxury outerwear lots.",
+      "Vintage Burberry wholesale in the UK. Jackets, coats and shirting from one of the most searched luxury labels in second-hand — supplied within our Designer Jackets lot.",
     art: "grid-green-5",
-    photoFrom: "luxury-outerwear-mix",
+    photoFrom: "designer-jackets",
     featured: true,
   },
   {
@@ -266,7 +266,7 @@ export const brands: Category[] = [
     seoCopy:
       "Versace wholesale, supplied within our luxury lots. Tailoring, blazers and statement pieces for retailers selling at the designer end of vintage.",
     art: "diagonal-ink-5",
-    photoFrom: "luxury-outerwear-mix",
+    photoFrom: "designer-jackets",
     featured: true,
   },
   {
@@ -398,7 +398,7 @@ export const collections: Category[] = [
     seoCopy:
       "Luxury vintage wholesale in the UK. Moncler, Burberry, Versace, Stone Island, Missoni and Valentino, kept apart from general premium vintage because they price on the label rather than the category. Small lots for retailers with an established designer customer.",
     art: "halftone-ink-5",
-    photoFrom: "luxury-outerwear-mix",
+    photoFrom: "designer-jackets",
     featured: true,
   },
   {
