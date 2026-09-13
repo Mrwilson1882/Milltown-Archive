@@ -24,8 +24,8 @@ it. The logo and *Vintage wholesale · Lancashire, UK* sit above the picture for
 the whole advert, and the second beat says who we are in one line — which means
 the first two seconds can still be the hook rather than a title card.
 
-1. **0.0s** — Starter Box intake (second clip first), hands turning the
-   pieces over. *Boxed. Graded. Priced.*
+1. **0.0s** — Starter Box intake, opening on the Chaps Ralph Lauren spellout
+   and turning it over. *Boxed. Graded. Priced.*
 2. **2.8s** — *New out of Lancashire. We sort and grade it here.* Branded
    vintage for vintage shops, market traders and online resellers.
 3. **5.4s** — **Three reseller boxes on one card.** All three photographs run

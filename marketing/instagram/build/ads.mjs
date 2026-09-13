@@ -26,7 +26,10 @@ export const boxesAd = {
   duration: 14.4,
   /** What plays in the media window. The two cards paint over it. */
   shots: [
-    { dur: 2.8, kind: "video", src: V("starter-box-10/02.mp4"), ss: 1.4, fit: "cover" },
+    // From the top: the Chaps Ralph Lauren spellout is on screen for the first
+    // second or so, then the piece is turned over. Starting any later opens on
+    // the pile underneath it instead.
+    { dur: 2.8, kind: "video", src: V("starter-box-10/02.mp4"), ss: 0, fit: "cover" },
     { dur: 2.6, kind: "video", src: V("starter-box-10/01.mp4"), ss: 0.6, fit: "cover" },
     { dur: 5.6, kind: "plain" },
     { dur: 3.4, kind: "plain" },
