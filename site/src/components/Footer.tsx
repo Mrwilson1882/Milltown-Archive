@@ -97,8 +97,8 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-2 border-t border-ash pt-6 text-xs text-slate sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {siteConfig.name}. Part of {siteConfig.parent} /{" "}
-            {siteConfig.legalName}.
+            © {new Date().getFullYear()} {siteConfig.name}, a trading name of {siteConfig.legalName}.
+            Company No. {siteConfig.companyNumber}.
           </p>
           <p>Wholesale only. Trade enquiries welcome.</p>
         </div>
