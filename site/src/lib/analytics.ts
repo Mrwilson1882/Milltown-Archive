@@ -11,7 +11,15 @@ import { track } from "@vercel/analytics";
  * told apart even though they all end up in the same WhatsApp inbox.
  */
 
-export type EnquirySource = "product" | "bulk" | "basket" | "float" | "grading" | "contact";
+export type EnquirySource =
+  | "product"
+  | "bulk"
+  | "basket"
+  | "float"
+  | "grading"
+  | "contact"
+  | "home"
+  | "footer";
 export type EnquiryChannel = "whatsapp" | "email";
 
 type Events = {
@@ -26,7 +34,13 @@ type Events = {
   /** A lot went into the basket. */
   add_to_basket: { product: string; pieces: number; qty: number };
   /** Secure checkout was pressed (whether or not Stripe is connected yet). */
-  checkout_start: { lots: number; total_gbp: number };
+  checkout_start: { lots: number; total_gbp: number; source?: string; campaign?: string };
+  /**
+   * Stripe sent them back paid. The one event that closes the loop in Vercel:
+   * `checkout_start` against `checkout_complete`, split by `source`, is the
+   * conversion rate of an ad without leaving the analytics tab.
+   */
+  checkout_complete: { source: string; campaign?: string; ref?: string };
   /** The bulk quote builder was submitted. */
   bulk_quote: { channel: EnquiryChannel; format: string; kg: number; category: string };
 };

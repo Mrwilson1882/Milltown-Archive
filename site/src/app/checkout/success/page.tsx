@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ClearCartOnMount } from "@/components/ClearCartOnMount";
+import { RecordConversion } from "@/components/RecordConversion";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -13,6 +14,7 @@ export default function CheckoutSuccessPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-24 text-center sm:px-6">
       <ClearCartOnMount />
+      <RecordConversion />
       <p className="eyebrow text-forest">Payment received</p>
       <h1 className="display mt-4 text-4xl sm:text-5xl">Thanks — you&apos;re sorted</h1>
       <p className="mt-6 text-base leading-relaxed text-slate">

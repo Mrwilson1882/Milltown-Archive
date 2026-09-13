@@ -3,6 +3,7 @@
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
 import { trackEvent, type EnquirySource } from "@/lib/analytics";
+import { useAttributionRef, withRef } from "@/components/useAttributionRef";
 
 /**
  * The WhatsApp / email pair shown wherever there is no price to check out
@@ -31,6 +32,10 @@ export function EnquiryActions({
   pieces?: number;
   compact?: boolean;
 }) {
+  const ref = useAttributionRef();
+  // The reference travels with the message, so an enquiry that closes in the
+  // inbox a fortnight later still says which ad paid to start the conversation.
+  const signed = withRef(message, ref);
   const padding = compact ? "px-5 py-3" : "px-6 py-3.5";
   const record = (channel: "whatsapp" | "email") =>
     trackEvent("enquiry_click", { channel, source, product, pieces });
@@ -43,7 +48,7 @@ export function EnquiryActions({
       <div className="flex flex-wrap gap-3">
         {hasWhatsApp && (
           <a
-            href={whatsappUrl(message)}
+            href={whatsappUrl(signed)}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => record("whatsapp")}
@@ -54,7 +59,7 @@ export function EnquiryActions({
           </a>
         )}
         <a
-          href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`}
+          href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(signed)}`}
           onClick={() => record("email")}
           className={`inline-flex items-center border-2 border-ink ${padding} text-sm font-bold tracking-wide uppercase transition-colors hover:border-forest hover:text-forest`}
         >

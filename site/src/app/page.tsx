@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { WhatsAppLink } from "@/components/WhatsAppLink";
 import type { Metadata } from "next";
 import { CategoryTile } from "@/components/CategoryTile";
 import { ProductCard } from "@/components/ProductCard";
@@ -11,7 +12,7 @@ import {
   type CategoryKind,
 } from "@/data/taxonomy";
 import { featuredProducts, productsInCategory } from "@/data/catalogue";
-import { hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
+import { hasWhatsApp, siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Vintage Clothing Wholesale UK — Boxes, Lots & By The Kilo",
@@ -85,15 +86,13 @@ export default function HomePage() {
                 Shop reseller boxes
               </Link>
               {hasWhatsApp ? (
-                <a
-                  href={whatsappUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <WhatsAppLink
+                  source="home"
                   className="inline-flex items-center gap-2 border-2 border-forest px-7 py-4 text-sm font-bold tracking-wide text-forest uppercase transition-colors hover:bg-forest hover:text-paper"
                 >
                   <WhatsAppIcon className="h-5 w-5" />
                   Enquire on WhatsApp
-                </a>
+                </WhatsAppLink>
               ) : (
                 <Link
                   href="/contact"

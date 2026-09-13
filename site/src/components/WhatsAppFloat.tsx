@@ -6,6 +6,7 @@ import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { getProduct } from "@/data/catalogue";
 import { brands, collections, productTypes } from "@/data/taxonomy";
 import { trackEvent } from "@/lib/analytics";
+import { useAttributionRef, withRef } from "@/components/useAttributionRef";
 
 /**
  * Pages where the floating button is suppressed. The basket and checkout already
@@ -49,6 +50,7 @@ function describePage(pathname: string): string | null {
  */
 export function WhatsAppFloat() {
   const pathname = usePathname();
+  const ref = useAttributionRef();
 
   if (!hasWhatsApp) return null;
   if (HIDE_ON.some((path) => pathname === path || pathname.startsWith(`${path}/`))) return null;
@@ -62,7 +64,7 @@ export function WhatsAppFloat() {
 
   return (
     <a
-      href={whatsappUrl(message)}
+      href={whatsappUrl(withRef(message, ref))}
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => trackEvent("enquiry_click", { channel: "whatsapp", source: "float", page: pathname })}

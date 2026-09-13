@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { Logo } from "@/components/Logo";
 import { brands, collections, productTypes } from "@/data/taxonomy";
-import { hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
+import { hasWhatsApp, siteConfig } from "@/config/site";
 
 function Column({
   title,
@@ -55,14 +56,12 @@ export function Footer() {
                 <div className="flex gap-2">
                   <dt className="font-bold">WhatsApp</dt>
                   <dd>
-                    <a
-                      href={whatsappUrl()}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <WhatsAppLink
+                      source="footer"
                       className="text-forest underline underline-offset-4"
                     >
                       Message us
-                    </a>
+                    </WhatsAppLink>
                   </dd>
                 </div>
               )}

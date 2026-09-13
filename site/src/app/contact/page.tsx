@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { ContactForm } from "@/components/ContactForm";
 import { PageHeader } from "@/components/PageHeader";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
-import { hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
+import { hasWhatsApp, siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -43,15 +44,13 @@ export default function ContactPage() {
                   WhatsApp is the fastest route — send us a message and we will come straight back
                   with photos, prices and availability.
                 </p>
-                <a
-                  href={whatsappUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <WhatsAppLink
+                  source="contact"
                   className="mt-5 inline-flex w-full items-center justify-center gap-2 bg-forest px-6 py-4 text-sm font-bold tracking-wide text-paper uppercase transition-colors hover:bg-forest-dark"
                 >
                   <WhatsAppIcon className="h-5 w-5" />
                   Chat on WhatsApp
-                </a>
+                </WhatsAppLink>
               </>
             ) : (
               <p className="mt-3 text-sm leading-relaxed text-slate">
@@ -75,14 +74,12 @@ export default function ContactPage() {
               <div>
                 <dt className="eyebrow text-slate">WhatsApp</dt>
                 <dd className="mt-1.5">
-                  <a
-                    href={whatsappUrl()}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <WhatsAppLink
+                    source="contact"
                     className="font-bold text-forest underline underline-offset-4"
                   >
                     07897 740194
-                  </a>
+                  </WhatsAppLink>
                 </dd>
               </div>
               <div>

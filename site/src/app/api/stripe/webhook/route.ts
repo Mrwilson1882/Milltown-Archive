@@ -46,11 +46,19 @@ export async function POST(request: Request) {
 }
 
 async function handlePaidOrder(session: Stripe.Checkout.Session) {
+  const metadata = session.metadata ?? {};
   console.log("[stripe-webhook] paid order", {
     id: session.id,
     email: session.customer_details?.email,
     amountTotal: session.amount_total,
     currency: session.currency,
-    lots: session.metadata?.lots,
+    lots: metadata.lots,
+    // What the order is worth is only half the question. The other half is what
+    // it cost to win, and that needs the source on the same line.
+    ref: metadata.ref,
+    firstSource: metadata.first_source,
+    firstCampaign: metadata.first_campaign,
+    lastSource: metadata.last_source,
+    lastCampaign: metadata.last_campaign,
   });
 }

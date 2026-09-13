@@ -9,6 +9,8 @@ import { cartTotals, lineKey, resolveLines } from "@/lib/cart";
 import { formatPrice, perPiece } from "@/lib/format";
 import { showVat, siteConfig, whatsappUrl } from "@/config/site";
 import { trackEvent } from "@/lib/analytics";
+import { getAttribution } from "@/lib/attribution";
+import { useAttributionRef, withRef } from "@/components/useAttributionRef";
 
 export function CartView({
   stripeEnabled,
@@ -22,6 +24,7 @@ export function CartView({
   const [error, setError] = useState<string | null>(null);
 
   const resolved = useMemo(() => resolveLines(lines), [lines]);
+  const ref = useAttributionRef();
   const { payable, enquiryOnly, payableTotalGBP, vatGBP, grossTotalGBP, itemCount } = useMemo(
     () => cartTotals(resolved),
     [resolved],
@@ -36,7 +39,13 @@ export function CartView({
   }, [resolved]);
 
   async function handleCheckout() {
-    trackEvent("checkout_start", { lots: itemCount, total_gbp: grossTotalGBP });
+    const attribution = getAttribution();
+    trackEvent("checkout_start", {
+      lots: itemCount,
+      total_gbp: grossTotalGBP,
+      source: attribution.last_source ?? attribution.first_source ?? "direct",
+      campaign: attribution.last_campaign ?? attribution.first_campaign,
+    });
     setSubmitting(true);
     setError(null);
     try {
@@ -49,6 +58,8 @@ export function CartView({
             pieces: l.variant.pieces,
             qty: l.qty,
           })),
+          // Labels only. Prices are resolved server-side from the catalogue.
+          attribution,
         }),
       });
       const data: { url?: string; message?: string } = await response.json();
@@ -260,7 +271,7 @@ export function CartView({
           <div className="mt-3 space-y-2">
             {whatsappAvailable && (
               <a
-                href={whatsappUrl(enquiryText)}
+                href={whatsappUrl(withRef(enquiryText, ref))}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackEvent("enquiry_click", { channel: "whatsapp", source: "basket" })}
@@ -271,7 +282,7 @@ export function CartView({
               </a>
             )}
             <a
-              href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Wholesale order enquiry")}&body=${encodeURIComponent(enquiryText)}`}
+              href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Wholesale order enquiry")}&body=${encodeURIComponent(withRef(enquiryText, ref))}`}
               onClick={() => trackEvent("enquiry_click", { channel: "email", source: "basket" })}
               className="flex w-full items-center justify-center border-2 border-ink px-5 py-3 text-sm font-bold tracking-wide uppercase transition-colors hover:border-forest hover:text-forest"
             >

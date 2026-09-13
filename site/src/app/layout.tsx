@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { Analytics } from "@vercel/analytics/next";
+import { AttributionCapture } from "@/components/AttributionCapture";
 import { siteConfig } from "@/config/site";
 
 // Archivo carries the same squared, athletic feel as the logo wordmark.
@@ -123,6 +124,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Vercel Web Analytics: page views and referrers, no cookies, no banner.
             Inert until Web Analytics is switched on for the project in Vercel. */}
         <Analytics />
+        {/* Records the ad or referrer that brought them, so a sale can name its source. */}
+        <AttributionCapture />
       </body>
     </html>
   );

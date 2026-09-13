@@ -4,6 +4,7 @@ import { useState } from "react";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
 import { trackEvent } from "@/lib/analytics";
+import { useAttributionRef, withRef } from "@/components/useAttributionRef";
 
 /**
  * Bulk is quoted, never checked out — the rate per kilo moves with the format,
@@ -37,6 +38,7 @@ export function BulkEnquiry({
   const format = formats.find((f) => f.slug === formatSlug) ?? formats[0];
   const [weight, setWeight] = useState(format.quick[1] ?? format.min);
   const [category, setCategory] = useState("Mixed — your recommendation");
+  const ref = useAttributionRef();
 
   function pickFormat(next: BulkFormat) {
     setFormatSlug(next.slug);
@@ -165,7 +167,7 @@ export function BulkEnquiry({
         <div className="mt-3 flex flex-wrap gap-3">
           {hasWhatsApp && (
             <a
-              href={whatsappUrl(message)}
+              href={whatsappUrl(withRef(message, ref))}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent("bulk_quote", { channel: "whatsapp", format: format.name, kg: weight, category })}
@@ -176,7 +178,7 @@ export function BulkEnquiry({
             </a>
           )}
           <a
-            href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`Bulk quote — ${weight}kg ${format.name.toLowerCase()}`)}&body=${encodeURIComponent(message)}`}
+            href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`Bulk quote — ${weight}kg ${format.name.toLowerCase()}`)}&body=${encodeURIComponent(withRef(message, ref))}`}
             onClick={() => trackEvent("bulk_quote", { channel: "email", format: format.name, kg: weight, category })}
             className="inline-flex items-center border-2 border-ink px-6 py-3.5 text-sm font-bold tracking-wide uppercase transition-colors hover:border-forest hover:text-forest"
           >

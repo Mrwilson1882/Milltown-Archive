@@ -3,10 +3,11 @@ import { getStripe, stripeEnabled } from "@/lib/stripe";
 import { resolveLines, type CartLine } from "@/lib/cart";
 import { toPence } from "@/lib/format";
 import { siteConfig, vatRate } from "@/config/site";
+import { sanitiseAttribution } from "@/lib/attribution";
 
 export const runtime = "nodejs";
 
-type CheckoutRequest = { items?: unknown };
+type CheckoutRequest = { items?: unknown; attribution?: unknown };
 
 function parseItems(body: CheckoutRequest): CartLine[] {
   if (!Array.isArray(body.items)) return [];
@@ -110,6 +111,10 @@ export async function POST(request: Request) {
       success_url: `${siteConfig.url}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteConfig.url}/cart`,
       metadata: {
+        // Marketing labels from the browser, so a paid order in the Stripe
+        // dashboard names the ad that produced it. Whitelisted and truncated;
+        // they touch nothing but metadata.
+        ...sanitiseAttribution(body.attribution),
         lots: payable
           .map((line) => `${line.product.slug}/${line.variant.pieces}×${line.qty}`)
           .join(", ")
