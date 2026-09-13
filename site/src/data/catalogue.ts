@@ -416,7 +416,7 @@ const catalogue: Product[] = [
     name: "Designer Jackets",
     summary: "Designer outerwear in tens, twenty-fives and fifties.",
     description: [
-      "Designer outerwear sold in small runs — the highest single-piece margin of anything we carry.",
+      "Designer outerwear sold by the lot — the highest single-piece margin of anything we carry.",
       "Available in ten, twenty-five or fifty. Start with ten if you are new to the category — depth in outerwear ties up more cash than most shops want to commit at once.",
     ],
     brandSlugs: ["mixed-brands"],
