@@ -34,7 +34,7 @@ export const productTypes: Category[] = [
   {
     slug: "polos-t-shirts",
     name: "Polos & T-Shirts",
-    blurb: "Branded piqué polos and tees, sold in fives and up.",
+    blurb: "Branded piqué polos and tees, in tens, twenty-fives and fifties.",
     seoCopy:
       "Wholesale vintage polos and t-shirts from a UK supplier. Lacoste and Ralph Lauren piqué polos, mixed branded tee lots, Carhartt and Dickies workwear tees, and designer mixes — available in ten, twenty-five or fifty so you can test a line before you commit to volume.",
     art: "grid-green",
@@ -56,7 +56,7 @@ export const productTypes: Category[] = [
     name: "Jackets",
     blurb: "Festival track jackets and designer outerwear.",
     seoCopy:
-      "Vintage jacket wholesale in the UK. Festival track jackets for the summer season and designer outerwear lots in small runs — the highest single-piece margin of anything we sell, and the fastest category to clear at a festival or market stall.",
+      "Vintage jacket wholesale in the UK. Festival track jackets for the summer season and designer outerwear lots in tens, twenty-fives and fifties — the highest single-piece margin of anything we sell, and the fastest category to clear at a festival or market stall.",
     art: "diagonal-green",
     photoFrom: "festival-track-jackets",
     featured: true,
@@ -66,7 +66,7 @@ export const productTypes: Category[] = [
     name: "Footwear",
     blurb: "Birkenstock sandals, sold by the pair in graded lots.",
     seoCopy:
-      "Wholesale vintage footwear — Birkenstock sandals in lots of five to fifty pairs. Footwear sells alongside a clothing rail without competing with it, and Birkenstocks hold their resale value better than almost anything else in second-hand footwear.",
+      "Wholesale vintage footwear — Birkenstock sandals in lots of ten, twenty-five or fifty pairs. Footwear sells alongside a clothing rail without competing with it, and Birkenstocks hold their resale value better than almost anything else in second-hand footwear.",
     art: "blocks-green",
     photoFrom: "birkenstock-sandals",
     featured: true,
@@ -125,9 +125,9 @@ export const brands: Category[] = [
   {
     slug: "carhartt",
     name: "Carhartt",
-    blurb: "Workwear tees in twenty-fives and fifties.",
+    blurb: "Workwear tees in tens, twenty-fives and fifties.",
     seoCopy:
-      "Vintage Carhartt wholesale in the UK. Workwear t-shirts sold alongside Dickies in lots of twenty-five and fifty — a category with its own dedicated buyer that rarely overlaps with sportswear.",
+      "Vintage Carhartt wholesale in the UK. Workwear t-shirts sold alongside Dickies in lots of ten, twenty-five or fifty — a category with its own dedicated buyer that rarely overlaps with sportswear.",
     art: "halftone-green",
   },
   {
@@ -135,7 +135,7 @@ export const brands: Category[] = [
     name: "Dickies",
     blurb: "Workwear tees, bundled with Carhartt.",
     seoCopy:
-      "Wholesale vintage Dickies workwear. Branded work tees in mixed lots with Carhartt, in twenty-fives and fifties, for shops selling into the workwear and skate market.",
+      "Wholesale vintage Dickies workwear. Branded work tees in mixed lots with Carhartt, in tens, twenty-fives and fifties, for shops selling into the workwear and skate market.",
     art: "stripes-green-2",
   },
   {
@@ -150,9 +150,9 @@ export const brands: Category[] = [
   {
     slug: "birkenstock",
     name: "Birkenstock",
-    blurb: "Sandals by the pair, five to fifty.",
+    blurb: "Sandals by the pair, ten to fifty.",
     seoCopy:
-      "Wholesale Birkenstock sandals from a UK vintage supplier. Sold by the pair in lots of five, ten, twenty-five and fifty — second-hand Birkenstocks hold their value and turn over fast in the right shop.",
+      "Wholesale Birkenstock sandals from a UK vintage supplier. Sold by the pair in lots of ten, twenty-five or fifty — second-hand Birkenstocks hold their value and turn over fast in the right shop.",
     art: "blocks-green-2",
     photoFrom: "birkenstock-sandals",
   },

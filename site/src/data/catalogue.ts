@@ -414,10 +414,10 @@ const catalogue: Product[] = [
   {
     slug: "designer-jackets",
     name: "Designer Jackets",
-    summary: "Designer outerwear in small runs of five to twenty.",
+    summary: "Designer outerwear in tens, twenty-fives and fifties.",
     description: [
       "Designer outerwear sold in small runs — the highest single-piece margin of anything we carry.",
-      "Kept to lots of five, ten, fifteen and twenty because depth in outerwear ties up more cash than most shops want to commit at once.",
+      "Available in ten, twenty-five or fifty. Start with ten if you are new to the category — depth in outerwear ties up more cash than most shops want to commit at once.",
     ],
     brandSlugs: ["mixed-brands"],
     typeSlugs: ["jackets"],
@@ -435,7 +435,7 @@ const catalogue: Product[] = [
     name: "Birkenstock Sandals",
     summary: "Birkenstocks by the pair, in tens, twenty-fives and fifties.",
     description: [
-      "Second-hand Birkenstock sandals sold by the pair, in lots of five, ten, twenty-five and fifty.",
+      "Second-hand Birkenstock sandals sold by the pair, in lots of ten, twenty-five or fifty.",
       "Footwear sits alongside a clothing rail without competing with it, and Birkenstocks hold their resale value better than almost anything else in second-hand footwear.",
     ],
     brandSlugs: ["birkenstock"],
@@ -480,8 +480,8 @@ const catalogue: Product[] = [
     name: "Mixed Men's Lacoste",
     summary: "Mixed men's Lacoste pieces, in tens, twenty-fives and fifties.",
     description: [
-      "Twenty-five mixed pieces of men's Lacoste — polos, knitwear and jersey in one lot rather than split by garment.",
-      "For shops that sell Lacoste as a label in its own right. Sold as a fixed twenty-five piece mix.",
+      "Mixed pieces of men's Lacoste — polos, knitwear and jersey in one lot rather than split by garment.",
+      "For shops that sell Lacoste as a label in its own right. Available in ten, twenty-five or fifty.",
     ],
     brandSlugs: ["lacoste"],
     typeSlugs: ["polos-t-shirts", "jumpers-sweats"],
