@@ -276,7 +276,7 @@ export const brands: Category[] = [
     seoCopy:
       "Vintage Diesel wholesale in the UK. Print tees, denim and the logo-forward Y2K pieces the label is known for — supplied within our Y2K designer boxes and mixed lots.",
     art: "stripes-green-5",
-    photoFrom: "y2k-designer-male-mix-box-20",
+    photoFrom: "y2k-designer-male-mix-box",
   },
   {
     slug: "hugo-boss",
@@ -285,7 +285,7 @@ export const brands: Category[] = [
     seoCopy:
       "Wholesale vintage Hugo Boss from a UK supplier. Boss Sport polos, striped jersey and designer menswear — branded pieces that price above general vintage and give a rail a premium end.",
     art: "grid-ink-5",
-    photoFrom: "y2k-designer-male-mix-box-20",
+    photoFrom: "y2k-designer-male-mix-box",
   },
   {
     slug: "mixed-brands",
@@ -306,7 +306,7 @@ export const collections: Category[] = [
     seoCopy:
       "Vintage reseller boxes from a UK wholesaler. Fixed-price boxes of branded pieces — a ten-piece starter box, plus men's and women's Y2K mixes in ten or twenty pieces — made up and priced so you can order in one click and start selling the week it lands. The simplest entry point into vintage wholesale.",
     art: "bands-green-2",
-    photoFrom: "y2k-designer-female-mix-box-20",
+    photoFrom: "y2k-designer-female-mix-box",
     featured: true,
   },
   {
@@ -316,7 +316,7 @@ export const collections: Category[] = [
     seoCopy:
       "Y2K vintage wholesale in the UK. Late-90s and early-2000s designer pieces — logo-forward, bold colourways and the cuts currently driving resale demand on Depop and Vinted.",
     art: "halftone-green-2",
-    photoFrom: "y2k-designer-male-mix-box-20",
+    photoFrom: "y2k-designer-male-mix-box",
     featured: true,
   },
   {
@@ -384,7 +384,7 @@ export const collections: Category[] = [
     seoCopy:
       "Men's vintage wholesale — designer and sportswear lots across Lacoste, Ralph Lauren, Stone Island, Nike and Champion, in lots of ten, twenty-five or fifty.",
     art: "blocks-ink-2",
-    photoFrom: "mixed-mens-lacoste-25",
+    photoFrom: "mixed-mens-lacoste",
   },
 ];
 

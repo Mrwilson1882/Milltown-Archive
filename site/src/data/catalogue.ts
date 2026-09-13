@@ -141,7 +141,7 @@ const catalogue: Product[] = [
     featured: true,
   },
   {
-    slug: "y2k-designer-female-mix-box-20",
+    slug: "y2k-designer-female-mix-box",
     name: "Y2K Designer Female Mix",
     summary: "Women's Y2K designer pieces, made up and ready to sell — ten or twenty.",
     description: [
@@ -158,7 +158,7 @@ const catalogue: Product[] = [
     art: "halftone-green-3",
     photos: [
       {
-        src: "/images/products/y2k-designer-female-mix-box-20/01.jpg",
+        src: "/images/products/y2k-designer-female-mix-box/01.jpg",
         alt: "A women's Y2K mix laid out on white: a white and grey Reebok shell jacket, a black Harley-Davidson Indiana long-sleeve top, a red Ralph Lauren polo and a pair of brown Birkenstock sandals.",
       },
     ],
@@ -166,7 +166,7 @@ const catalogue: Product[] = [
     featured: true,
   },
   {
-    slug: "y2k-designer-male-mix-box-20",
+    slug: "y2k-designer-male-mix-box",
     name: "Y2K Designer Male Mix",
     summary: "Men's Y2K designer pieces, made up and ready to sell — ten or twenty.",
     description: [
@@ -183,7 +183,7 @@ const catalogue: Product[] = [
     art: "halftone-ink-3",
     photos: [
       {
-        src: "/images/products/y2k-designer-male-mix-box-20/01.jpg",
+        src: "/images/products/y2k-designer-male-mix-box/01.jpg",
         alt: "A men's Y2K designer mix on white: a cream Diesel brushstroke tee, a navy-striped Boss Sport polo, a blue Lacoste V-neck knit and a black and yellow Nike shell jacket.",
       },
     ],
@@ -476,7 +476,7 @@ const catalogue: Product[] = [
 
   // --------------------------------------------------------------- Brand-led lots
   {
-    slug: "mixed-mens-lacoste-25",
+    slug: "mixed-mens-lacoste",
     name: "Mixed Men's Lacoste",
     summary: "Mixed men's Lacoste pieces, in tens, twenty-fives and fifties.",
     description: [
@@ -492,7 +492,7 @@ const catalogue: Product[] = [
     art: "grid-ink",
     photos: [
       {
-        src: "/images/products/mixed-mens-lacoste-25/01.jpg",
+        src: "/images/products/mixed-mens-lacoste/01.jpg",
         alt: "A men's Lacoste lot on white: a black piqué polo, an olive quarter-zip sweatshirt, a grey and black Lacoste shell jacket and a navy sweatshirt with tricolour ribbing.",
       },
     ],
