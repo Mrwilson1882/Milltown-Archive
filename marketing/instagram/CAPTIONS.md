@@ -16,13 +16,13 @@ number the storefront does not.
 > vintage in Lancashire and sell it on to vintage shops, market traders and
 > online resellers.
 >
-> The quickest way to start with us is a reseller box. Made up, graded and
+> The quickest way to start with us is a reseller box. Sorted, graded and
 > priced already: nothing to specify, no quote to wait for. Order it and it
 > ships.
 >
-> · Starter Box — 10 items · £90
-> · Designer Male Mix — 20 pieces · £180 (or 10 for £100)
-> · Y2K Designer Female Mix — 20 pieces · £180 (or 10 for £100)
+> · Starter Box — ten pieces, £90
+> · Designer Male Mix or Y2K Designer Female Mix — ten pieces £100,
+>   twenty pieces £180
 >
 > Lacoste, Ralph Lauren, Nike, Champion, Carhartt and more. Graded A/B.
 >
@@ -82,7 +82,7 @@ If the first line needs testing, these keep the same claims:
 
 **Boxes**
 
-- "A box of twenty designer pieces, priced and ready to sell, is £180."
+- "Twenty designer pieces, graded and priced, is £180."
 - "We're new. This is what we do."
 - "Ten pieces, ninety pounds, no quote to wait for."
 

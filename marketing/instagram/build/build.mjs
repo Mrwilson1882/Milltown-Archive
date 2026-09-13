@@ -136,6 +136,22 @@ function renderShot(shot, L, dest) {
   return n;
 }
 
+/**
+ * A thumbnail for the three-box card, cropped to the garments the same way the
+ * full-frame stills are, then inlined so the page needs no file access.
+ */
+function thumbDataUri(relSrc, dir, i) {
+  const src = path.join(PUBLIC, relSrc);
+  const box = contentSquare(src);
+  const pre = box
+    ? `crop=iw*${box.side.toFixed(4)}:ih*${box.side.toFixed(4)}:` +
+      `iw*${(box.cx - box.side / 2).toFixed(4)}:ih*${(box.cy - box.side / 2).toFixed(4)},`
+    : "";
+  const dest = path.join(dir, `thumb-${i}.jpg`);
+  ff(["-loop", "1", "-i", src, "-vf", `${pre}scale=720:720`, "-frames:v", "1", "-q:v", "3", dest]);
+  return `data:image/jpeg;base64,${fs.readFileSync(dest).toString("base64")}`;
+}
+
 function buildFootage(ad, L, dir) {
   const parts = [];
   let total = 0;
@@ -155,8 +171,15 @@ function buildFootage(ad, L, dir) {
 
 async function buildOverlay(ad, L, dir, browser) {
   const logo = `data:image/png;base64,${fs.readFileSync(path.join(PUBLIC, "logo.png")).toString("base64")}`;
-  const html = buildHtml(ad, L, { fontDir: FONTS, logoDataUri: logo });
-  fs.writeFileSync(path.join(dir, "overlay.html"), html);
+  let html = buildHtml(ad, L, { fontDir: FONTS, logoDataUri: logo });
+
+  // Swap the IMG: placeholders the card leaves behind for inlined thumbnails.
+  const thumbs = new Map();
+  html = html.replace(/IMG:([^"]+)/g, (_, rel) => {
+    if (!thumbs.has(rel)) thumbs.set(rel, thumbDataUri(rel, dir, thumbs.size));
+    return thumbs.get(rel);
+  });
+  fs.writeFileSync(path.join(dir, "overlay.html"), html.replace(/data:[^"]+/g, "data:…"));
 
   const page = await browser.newPage({
     viewport: { width: L.W, height: L.H },

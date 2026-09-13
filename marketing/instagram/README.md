@@ -7,8 +7,8 @@ garment.
 
 | File | Where it goes | Size | Length |
 |---|---|---|---|
-| `reseller-boxes-feed.mp4` | Feed post · Explore | 1080 × 1350 (4:5) | 14.5s |
-| `reseller-boxes-story.mp4` | Stories · Reels | 1080 × 1920 (9:16) | 14.5s |
+| `reseller-boxes-feed.mp4` | Feed post · Explore | 1080 × 1350 (4:5) | 14.4s |
+| `reseller-boxes-story.mp4` | Stories · Reels | 1080 × 1920 (9:16) | 14.4s |
 | `ralph-tommy-lacoste-mix-feed.mp4` | Feed post · Explore | 1080 × 1350 (4:5) | 14.0s |
 | `ralph-tommy-lacoste-mix-story.mp4` | Stories · Reels | 1080 × 1920 (9:16) | 14.0s |
 
@@ -25,18 +25,34 @@ the whole advert, and the second beat says who we are in one line — which mean
 the first two seconds can still be the hook rather than a title card.
 
 1. **0.0s** — Starter Box intake, hands turning the pieces over. *Boxed.
-   Priced. Ready to sell.*
+   Graded. Priced.*
 2. **2.8s** — *New out of Lancashire. We sort and grade it here.* Branded
    vintage for vintage shops, market traders and online resellers.
-3. **5.2s** — Starter Box · 10 items · £90
-4. **7.6s** — Designer Male Mix · 20 pieces · £180
-5. **10.0s** — Y2K Designer Female Mix · 20 pieces · £180
-6. **12.4s** — Closing card: the wordmark, *Made up. Priced. Ready to sell.*,
-   the grade and the labels, and archivewholesale.co.uk on a green block.
+3. **5.4s** — **Three reseller boxes on one card.** All three photographs run
+   edge to edge as a triptych, then the price ladder lands under them.
+4. **11.0s** — Closing card: the wordmark, *We sort it. You sell it.*, the
+   grade and the labels, and archivewholesale.co.uk on a green block.
 
-Real footage for the opening, the studio photographs for the three boxes. The
-boxes are the thing being sold, so they get a still each and a slow push in
-rather than a clip — a buyer needs to read the contents, not watch them move.
+### Why the prices are written the way they are
+
+The two Mix boxes are priced identically — ten pieces £100, twenty £180 — so
+the ladder is written **per price rather than per box**. Each figure appears
+exactly once:
+
+| | |
+|---|---|
+| Starter Box · 10 | £90 |
+| Either Mix Box · 10 | £100 |
+| Either Mix Box · 20 | £180 |
+
+The Starter Box keeps its own line because it is *not* the same price and has
+no twenty-piece option. Repeating £100/£180 under both Mix boxes would have
+read as four prices where there are three.
+
+The three photographs run edge to edge with no gutter between them. Three
+across a 1080-wide canvas is only ever about 360px each, so every pixel of
+white space between them comes off the garments — the names underneath do the
+dividing instead.
 
 ## Advert two — Ralph, Tommy, Lacoste Mix
 

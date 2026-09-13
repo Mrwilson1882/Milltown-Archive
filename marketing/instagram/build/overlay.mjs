@@ -41,6 +41,35 @@ function sceneBody(scene, L) {
   const t = L.type;
   const out = [];
 
+  if (scene.boxes) {
+    const b = scene.boxes;
+    out.push(`<div class="boxes">
+      <div class="boxes-inner">
+        <div class="boxes-head" data-in="0.06">${esc(b.headline)}</div>
+        <div class="boxes-grid">
+          ${b.items
+            .map(
+              (it, i) =>
+                `<div class="box" data-in="${(0.24 + i * 0.2).toFixed(2)}">
+                   <img src="IMG:${it.photo}">
+                   <div class="box-name">${esc(it.name).replaceAll("\n", "<br>")}</div>
+                 </div>`,
+            )
+            .join("")}
+        </div>
+        <div class="rows">${b.rows
+          .map(
+            (r, i) =>
+              `<div class="row" data-in="${(1.0 + i * 0.24).toFixed(2)}"><span class="row-k">${esc(
+                r[0],
+              )}</span><span class="row-dot"></span><span class="row-v">${esc(r[1])}</span></div>`,
+          )
+          .join("")}</div>
+      </div>
+    </div>`);
+    return out.join("");
+  }
+
   if (scene.card) {
     const c = scene.card;
     out.push(`<div class="card">
@@ -172,6 +201,31 @@ ${isStory ? ".words .word{display:block}" : ".words .word{display:inline-block;m
 .row-dot{flex:1;border-bottom:2px dotted ${BRAND.ash};transform:translateY(-6px)}
 .row-v{font-size:${isStory ? 46 : 37}px;font-weight:900;color:${BRAND.forest};letter-spacing:-.02em}
 
+/* ---- the three boxes on one card ----
+   Painted over the media window rather than the whole canvas, so the wordmark
+   and the rule above it stay put while the boxes land. */
+.boxes{position:absolute;left:0;right:0;top:${m.y}px;bottom:0;background:${BRAND.paper}}
+.boxes-inner{position:absolute;left:${isStory ? 90 : 60}px;right:${isStory ? 90 : 60}px;
+  top:${Math.round((m.y + (isStory ? 1670 : L.H)) / 2) - m.y}px;transform:translateY(-50%)}
+/* The three shots run edge to edge as a triptych. Three across a 1080 canvas
+   is only ever ~360px each, so every pixel of gutter is taken off the garments
+   — the names below do the dividing instead of white space. */
+.boxes-grid{display:flex;gap:0;margin-top:${isStory ? 58 : 46}px;
+  margin-left:-${isStory ? 90 : 60}px;margin-right:-${isStory ? 90 : 60}px}
+.box{flex:1 1 0;min-width:0;text-align:center}
+.box img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:${BRAND.paper}}
+.box-name{margin-top:${isStory ? 14 : 12}px;padding:0 10px;font-weight:900;
+  text-transform:uppercase;letter-spacing:-.01em;line-height:1.06;
+  font-size:${isStory ? 26 : 24}px}
+.boxes-head{font-weight:900;text-transform:uppercase;letter-spacing:-.025em;
+  line-height:.95;font-size:${isStory ? 58 : 48}px}
+/* The prices are the point of this card, so they carry more weight here than
+   in the lot ladder on the other advert. */
+.boxes .rows{margin-top:${isStory ? 64 : 50}px}
+.boxes .row{padding:${isStory ? "16px 0" : "13px 0"}}
+.boxes .row-k{font-size:${isStory ? 38 : 31}px}
+.boxes .row-v{font-size:${isStory ? 60 : 48}px}
+
 /* ---- closing card ---- */
 .card{position:absolute;inset:0;background:${BRAND.paper}}
 .card-inner{position:absolute;left:${isStory ? 100 : 70}px;right:${isStory ? 100 : 70}px;
@@ -229,7 +283,7 @@ window.measureScenes = function () {
   for (const s of scenes) {
     const mid = s.start + Math.min(0.7, (s.end - s.start) / 2);
     renderFrame(mid);
-    const blocks = [...s.el.querySelectorAll('.copy, .card-inner')];
+    const blocks = [...s.el.querySelectorAll('.copy, .card-inner, .boxes-inner')];
     for (const b of blocks) {
       const r = b.getBoundingClientRect();
       out.push({ start: s.start, kind: b.className, top: r.top, bottom: r.bottom });

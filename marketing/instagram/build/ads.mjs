@@ -23,18 +23,16 @@ const P = (name) => `images/products/${name}`;
 
 export const boxesAd = {
   id: "reseller-boxes",
-  duration: 14.5,
+  duration: 14.4,
   /** Brand chrome sits above the media window for the whole advert. */
   chrome: { eyebrow: "VINTAGE WHOLESALE · LANCASHIRE, UK" },
 
-  /** What plays in the media window. */
+  /** What plays in the media window. The two cards paint over it. */
   shots: [
     { dur: 2.8, kind: "video", src: V("starter-box-10/01.mp4"), ss: 0.6, fit: "cover" },
-    { dur: 2.4, kind: "video", src: V("starter-box-10/02.mp4"), ss: 1.4, fit: "cover" },
-    { dur: 2.4, kind: "photo", src: P("starter-box-10/01.jpg"), zoom: 0.09, fit: "contain" },
-    { dur: 2.4, kind: "photo", src: P("designer-male-mix-box/01.jpg"), zoom: 0.09, fit: "contain" },
-    { dur: 2.4, kind: "photo", src: P("y2k-designer-female-mix-box/01.jpg"), zoom: 0.09, fit: "contain" },
-    { dur: 2.1, kind: "plain" },
+    { dur: 2.6, kind: "video", src: V("starter-box-10/02.mp4"), ss: 1.4, fit: "cover" },
+    { dur: 5.6, kind: "plain" },
+    { dur: 3.4, kind: "plain" },
   ],
 
   /** What is written over it. */
@@ -42,45 +40,44 @@ export const boxesAd = {
     {
       start: 0,
       end: 2.8,
-      words: ["BOXED.", "PRICED.", "READY TO SELL."],
+      words: ["BOXED.", "GRADED.", "PRICED."],
     },
     {
       start: 2.8,
-      end: 5.2,
+      end: 5.4,
       kicker: "NEW OUT OF LANCASHIRE",
       headline: "WE SORT AND GRADE IT HERE",
       body: "Branded vintage for vintage shops, market traders and online resellers.",
     },
     {
-      start: 5.2,
-      end: 7.6,
-      kicker: "RESELLER BOX 01",
-      name: "STARTER BOX",
-      price: "10 ITEMS · £90",
-      sub: "The smallest way in.",
+      /**
+       * All three boxes on one card. The two Mix boxes are priced identically,
+       * so the ladder is written per price rather than per box — each figure
+       * appears once, and the Starter Box keeps its own £90 because it is not
+       * the same price and has no twenty.
+       */
+      start: 5.4,
+      end: 11.0,
+      boxes: {
+        headline: "THREE RESELLER BOXES",
+        items: [
+          { photo: P("starter-box-10/01.jpg"), name: "STARTER\nBOX" },
+          { photo: P("designer-male-mix-box/01.jpg"), name: "DESIGNER\nMALE MIX" },
+          { photo: P("y2k-designer-female-mix-box/01.jpg"), name: "Y2K DESIGNER\nFEMALE MIX" },
+        ],
+        rows: [
+          ["STARTER BOX · 10", "£90"],
+          ["EITHER MIX BOX · 10", "£100"],
+          ["EITHER MIX BOX · 20", "£180"],
+        ],
+      },
     },
     {
-      start: 7.6,
-      end: 10.0,
-      kicker: "RESELLER BOX 02",
-      name: "DESIGNER MALE MIX",
-      price: "20 PIECES · £180",
-      sub: "Or ten pieces for £100.",
-    },
-    {
-      start: 10.0,
-      end: 12.4,
-      kicker: "RESELLER BOX 03",
-      name: "Y2K DESIGNER FEMALE MIX",
-      price: "20 PIECES · £180",
-      sub: "Or ten pieces for £100.",
-    },
-    {
-      start: 12.4,
-      end: 14.5,
+      start: 11.0,
+      end: 14.4,
       card: {
-        headline: "MADE UP.\nPRICED.\nREADY TO SELL.",
-        sub: "A/B grade · Lacoste · Ralph Lauren · Nike · Champion · Carhartt",
+        headline: "WE SORT IT.\nYOU SELL IT.",
+        sub: "Graded A/B · Lacoste · Ralph Lauren · Nike · Champion · Carhartt",
         url: SITE,
         fine: FINE_PRINT,
       },
