@@ -77,8 +77,7 @@ export default function HomePage() {
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-slate sm:text-lg">
               Lacoste, Ralph Lauren, Nike, Champion, Carhartt and more — sorted and graded in the UK
-              for vintage shops, market traders and online resellers. Start with a £90 reseller box
-              or buy a tonne.
+              for vintage shops, market traders and online resellers.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
