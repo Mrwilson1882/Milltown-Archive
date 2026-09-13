@@ -176,6 +176,34 @@ photograph is exactly the failure this is designed to avoid. Open those yourself
 
 ---
 
+## The camper business
+
+This number ran your camper business until **Thursday 10 September 2026**, so
+some of the contact list — and, if Coexistence syncs history, some of the
+conversations — belong to that business rather than this one.
+
+Two separate things are in place, because one date does not cover it:
+
+1. **Nothing before the cutoff is given to the drafter.** Those messages still
+   appear in the inbox so a thread reads properly, greyed out and marked
+   *camper business — not used for drafts*, with a divider where Archive
+   Wholesale begins. A thread with nothing after the cutoff gets no draft at
+   all, and says why.
+2. **A camper enquiry arriving *today* is not answered.** A date cannot catch
+   that, so the drafter is told plainly what the old business was. Anything
+   about vans, conversions, hire, servicing, parts or a previous camper job
+   gets a short holding reply and lands in *Needs you* — it is never answered,
+   and the clothing catalogue is never mentioned to those customers.
+
+Because the drafter is shown only part of a conversation, it is also told the
+history is clipped: if a customer refers back to something it cannot see, it
+says you will pick it up rather than inventing what was agreed.
+
+The date is `WHATSAPP_HISTORY_CUTOFF`. Change it if the handover date is
+different, or set it to `0` to switch the cutoff off entirely.
+
+---
+
 ## The 24-hour rule
 
 This one is Meta's, and it catches people out.

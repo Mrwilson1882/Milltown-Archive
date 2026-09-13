@@ -97,4 +97,5 @@ export const UNKNOWNS = `
 - Returns, refunds and exchange policy.
 - Whether a specific brand, size, colour or era can be picked out of a lot.
 - Anything about a customer's existing order, invoice or payment.
+- Anything at all to do with the camper business this number used to run.
 `.trim();

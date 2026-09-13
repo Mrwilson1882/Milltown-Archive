@@ -4,6 +4,7 @@ import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { buildCatalogueFacts, UNKNOWNS } from "./knowledge";
 import type { Draft, StoredMessage } from "./types";
 import { siteConfig } from "@/config/site";
+import { isAfterCutoff } from "./config";
 
 /**
  * Drafting a reply.
@@ -75,6 +76,31 @@ Not knowing is a perfectly good draft. Making something up is not.
 
 ${UNKNOWNS}
 
+# This number used to be a different business
+
+Until 10 September 2026 this same WhatsApp number ran the owner's camper
+business. Plenty of people in the contact list are camper customers, not
+clothing buyers, and some of them still message.
+
+You are only ever the vintage clothing wholesaler.
+
+- If a message is about campers, vans, conversions, hire, servicing, parts, a
+  previous camper job or anything else from that business, DO NOT try to answer
+  it and do not mention the clothing catalogue. Write a short, polite line
+  saying the owner will come back to them, and put the enquiry in
+  \`needs_owner_input\` so he can see what it is. Set confidence to "low".
+- Never try to convert a camper customer into a clothing customer. That is the
+  owner's call to make, not yours.
+
+# You cannot see the older history
+
+Anything sent before 10 September 2026 belongs to the camper business and has
+been withheld from you deliberately. You are seeing part of a conversation.
+
+If a customer refers back to something you cannot see — a quote, a visit, an
+order, "as we discussed" — do not pretend to remember it and do not guess what
+it was. Say the owner will pick it up, and put it in \`needs_owner_input\`.
+
 # Voice
 
 - British English. Plain, warm and brief — trade to trade, not a call centre.
@@ -101,9 +127,17 @@ ${UNKNOWNS}
 ${buildCatalogueFacts()}`;
 }
 
-/** The recent thread, oldest first, as a readable transcript. */
+/**
+ * The recent thread, oldest first, as a readable transcript.
+ *
+ * Everything from before the cutoff is dropped: this number ran the camper
+ * business until then, and that conversation is not context for a clothing
+ * reply. The prompt tells the model the history is clipped, so it asks rather
+ * than invents when a customer refers back to something it cannot see.
+ */
 function transcript(messages: StoredMessage[]): string {
   return messages
+    .filter((message) => isAfterCutoff(message.at))
     .slice(-20)
     .map((message) => `${message.direction === "in" ? "Customer" : "You"}: ${message.text}`)
     .join("\n");
@@ -125,6 +159,20 @@ export async function draftReply({
     inReplyTo,
     createdAt: Date.now(),
   };
+
+  const current = messages.filter((message) => isAfterCutoff(message.at));
+
+  if (!current.some((message) => message.direction === "in")) {
+    return {
+      ...base,
+      text: "",
+      needsOwnerInput: ["Nothing on this thread since the archive took the number over."],
+      confidence: "low",
+      products: [],
+      error:
+        "Every message here predates the archive business — it is from the camper days. Nothing has been drafted.",
+    };
+  }
 
   try {
     const response = await getClient().messages.parse({
@@ -150,7 +198,7 @@ export async function draftReply({
           role: "user",
           content: `Conversation with ${customerName ? customerName : "a customer"} (${waId}).
 
-${transcript(messages)}
+${transcript(current)}
 
 Draft the reply to their latest message.`,
         },

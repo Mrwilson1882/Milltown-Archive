@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { isSignedIn } from "@/lib/whatsapp/auth";
 import { getConversation, getDraft, getMessages, markConversationRead } from "@/lib/whatsapp/store";
-import { windowRemainingMs } from "@/lib/whatsapp/config";
+import { historyCutoff, windowRemainingMs } from "@/lib/whatsapp/config";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -29,5 +29,6 @@ export async function GET(request: Request) {
     },
     messages,
     draft,
+    historyCutoff,
   });
 }

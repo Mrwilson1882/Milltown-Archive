@@ -51,6 +51,37 @@ export function graphUrl(path: string): string {
 }
 
 /**
+ * This number ran the owner's camper business until the archive took it over.
+ * Anything before this moment belongs to that business and must never be fed
+ * to the drafter as context — a reply built on a camper conversation would be
+ * both wrong and confusing.
+ *
+ * Defaults to the start of Thursday 10 September 2026, UK time. Override with
+ * WHATSAPP_HISTORY_CUTOFF as an ISO date, e.g. "2026-09-10T00:00:00+01:00".
+ * Set it to "0" to switch the cutoff off entirely.
+ */
+const DEFAULT_CUTOFF = "2026-09-10T00:00:00+01:00";
+
+function readCutoff(): number {
+  const raw = env("WHATSAPP_HISTORY_CUTOFF") || DEFAULT_CUTOFF;
+  if (raw === "0") return 0;
+
+  const parsed = Date.parse(raw);
+  if (Number.isNaN(parsed)) {
+    console.warn(`[whatsapp] WHATSAPP_HISTORY_CUTOFF is not a date: "${raw}". Using the default.`);
+    return Date.parse(DEFAULT_CUTOFF);
+  }
+  return parsed;
+}
+
+export const historyCutoff = readCutoff();
+
+/** Is this message from the archive business, rather than the camper one? */
+export function isAfterCutoff(at: number): boolean {
+  return at >= historyCutoff;
+}
+
+/**
  * Meta's customer service window: once a customer messages you, you have 24
  * hours to reply in free text. After that only an approved template may be
  * sent. The inbox counts this down so a draft is never left to go stale

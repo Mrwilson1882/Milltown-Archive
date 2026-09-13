@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
 
 /**
  * The review inbox.
@@ -44,6 +44,12 @@ type Thread = {
   conversation: Conversation;
   messages: Message[];
   draft: Draft | null;
+  /**
+   * This number ran the camper business until this moment. Anything older is
+   * shown so the thread reads properly, but it is greyed out and is never sent
+   * to the drafter.
+   */
+  historyCutoff: number;
 };
 
 const confidenceLabel: Record<Draft["confidence"], { text: string; className: string }> = {
@@ -288,28 +294,45 @@ export function Inbox({
               </div>
 
               <ol className="mt-4 max-h-[24rem] space-y-3 overflow-y-auto pr-1">
-                {thread.messages.map((message) => (
-                  <li
-                    key={message.id}
-                    className={message.direction === "in" ? "text-left" : "text-right"}
-                  >
-                    <div
-                      className={`inline-block max-w-[85%] px-3 py-2 text-sm whitespace-pre-wrap ${
-                        message.direction === "in"
-                          ? "bg-smoke text-ink"
-                          : "bg-forest text-paper"
-                      }`}
-                    >
-                      {message.text}
-                    </div>
-                    <p className="mt-1 text-[0.625rem] text-slate">
-                      {formatTime(message.at)}
-                      {message.sentBy === "business-app" && " · sent from your phone"}
-                      {message.status && ` · ${message.status}`}
-                      {message.error && ` · ${message.error}`}
-                    </p>
-                  </li>
-                ))}
+                {thread.messages.map((message, index) => {
+                  const fromCamperDays = message.at < thread.historyCutoff;
+                  const isFirstAfter =
+                    !fromCamperDays &&
+                    index > 0 &&
+                    thread.messages[index - 1].at < thread.historyCutoff;
+
+                  return (
+                    <Fragment key={message.id}>
+                      {isFirstAfter && (
+                        <li className="flex items-center gap-3 py-1" aria-hidden>
+                          <span className="h-px flex-1 bg-ash" />
+                          <span className="text-[0.625rem] font-bold tracking-wide text-slate uppercase">
+                            Archive Wholesale from here
+                          </span>
+                          <span className="h-px flex-1 bg-ash" />
+                        </li>
+                      )}
+                      <li className={message.direction === "in" ? "text-left" : "text-right"}>
+                        <div
+                          className={`inline-block max-w-[85%] px-3 py-2 text-sm whitespace-pre-wrap ${
+                            message.direction === "in"
+                              ? "bg-smoke text-ink"
+                              : "bg-forest text-paper"
+                          } ${fromCamperDays ? "opacity-50" : ""}`}
+                        >
+                          {message.text}
+                        </div>
+                        <p className="mt-1 text-[0.625rem] text-slate">
+                          {formatTime(message.at)}
+                          {fromCamperDays && " · camper business — not used for drafts"}
+                          {message.sentBy === "business-app" && " · sent from your phone"}
+                          {message.status && ` · ${message.status}`}
+                          {message.error && ` · ${message.error}`}
+                        </p>
+                      </li>
+                    </Fragment>
+                  );
+                })}
               </ol>
 
               {/* ------------------------------------------- The draft and Send */}
