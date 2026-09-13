@@ -43,8 +43,39 @@ export function CategoryTile({
     : `${category.name} — vintage wholesale lots`;
 
   return (
-    <Link
+    <Tile
       href={categoryPath(kind, category.slug)}
+      eyebrow={kindLabel[kind]}
+      title={category.name}
+      blurb={category.blurb}
+      src={src}
+      alt={alt}
+      priority={priority}
+    />
+  );
+}
+
+/** The square photo tile itself, for anything that wants to sit in the grid. */
+export function Tile({
+  href,
+  eyebrow,
+  title,
+  blurb,
+  src,
+  alt,
+  priority = false,
+}: {
+  href: string;
+  eyebrow: string;
+  title: string;
+  blurb?: string;
+  src: string;
+  alt: string;
+  priority?: boolean;
+}) {
+  return (
+    <Link
+      href={href}
       className="group relative block aspect-square overflow-hidden border border-ash bg-smoke"
     >
       <Image
@@ -62,11 +93,11 @@ export function CategoryTile({
       <span className="absolute inset-0 bg-gradient-to-t from-paper from-28% via-paper/55 via-50% to-transparent to-72%" />
 
       <span className="absolute inset-x-0 bottom-0 flex flex-col gap-1 p-4 sm:p-5">
-        <span className="eyebrow text-forest">{kindLabel[kind]}</span>
-        <span className="display text-xl leading-none sm:text-2xl">{category.name}</span>
-        <span className="mt-1 hidden text-xs leading-snug text-slate sm:block">
-          {category.blurb}
-        </span>
+        <span className="eyebrow text-forest">{eyebrow}</span>
+        <span className="display text-xl leading-none sm:text-2xl">{title}</span>
+        {blurb && (
+          <span className="mt-1 hidden text-xs leading-snug text-slate sm:block">{blurb}</span>
+        )}
         <span className="mt-2 inline-flex items-center gap-1.5 text-xs font-bold tracking-wide text-forest uppercase">
           Shop now
           <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">

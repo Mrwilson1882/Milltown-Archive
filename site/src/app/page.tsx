@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { CategoryTile } from "@/components/CategoryTile";
+import { CategoryTile, Tile } from "@/components/CategoryTile";
 import { ProductCard } from "@/components/ProductCard";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import {
@@ -10,7 +10,7 @@ import {
   type Category,
   type CategoryKind,
 } from "@/data/taxonomy";
-import { featuredProducts, productsInCategory } from "@/data/catalogue";
+import { featuredProducts, getProduct, productsInCategory } from "@/data/catalogue";
 import { hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -32,7 +32,11 @@ const homeTiles: { kind: CategoryKind; category: Category }[] = [
     .map((category) => ({ kind: "collection" as const, category })),
 ];
 
-const heroTiles = homeTiles.slice(0, 4);
+// Three garment tiles and a door to everything. Footwear is one lot, and a
+// single-lot category is better reached from the browse grid below than
+// from the front of the shop.
+const heroTiles = homeTiles.filter((t) => t.kind === "type").slice(0, 3);
+const allProductsPhoto = getProduct("ralph-tommy-lacoste-mix")?.photos?.[0];
 const resellerBoxes = productsInCategory("collection", "reseller-boxes");
 
 const routes = [
@@ -127,6 +131,14 @@ export default function HomePage() {
                 priority={i < 2}
               />
             ))}
+            <Tile
+              href="/products"
+              eyebrow="Everything"
+              title="All Products"
+              blurb="Every box and lot we have made up, in one place."
+              src={allProductsPhoto?.src ?? "/images/tiles/halftone-green.svg"}
+              alt={allProductsPhoto ? `All products — ${allProductsPhoto.alt}` : "All products"}
+            />
           </div>
         </div>
       </section>
