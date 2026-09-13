@@ -105,6 +105,22 @@ export function ProductBrowser({
   const [type, setType] = useState<string | null>(null);
   const [collection, setCollection] = useState<string | null>(null);
   const [sort, setSort] = useState<SortKey>("featured");
+  // Filters stay folded away until asked for. On a page with a handful of
+  // lots the products are the point; a wall of brand chips above them was
+  // pulling the eye. They are buttons, not links, so hiding them costs
+  // nothing in search — the crawlable brand and category links sit under
+  // the grid instead.
+  const [filtersOpen, setFiltersOpen] = useState(false);
+
+  // Only offer options that would actually match something on this page.
+  // Cheap enough to do each render: a few dozen products, a few dozen slugs.
+  const present = (list: Category[], key: "brandSlugs" | "typeSlugs" | "collectionSlugs") =>
+    list.filter((c) => products.some((p) => p[key].includes(c.slug)));
+  const options = {
+    types: hide.includes("type") ? [] : present(productTypes, "typeSlugs"),
+    brands: hide.includes("brand") ? [] : present(brands, "brandSlugs"),
+    collections: hide.includes("collection") ? [] : present(collections, "collectionSlugs"),
+  };
 
   const visible = useMemo(() => {
     const filtered = products.filter(
@@ -151,47 +167,57 @@ export function ProductBrowser({
   }, [products, brand, type, collection, sort, demote]);
 
   const hasFilters = brand !== null || type !== null || collection !== null;
+  const activeCount = [brand, type, collection].filter((v) => v !== null).length;
+  // A facet with one option filters nothing; a page with three lots needs no filter at all.
+  const rows = [
+    { key: "type", label: "Product", options: options.types, value: type, onChange: setType },
+    { key: "brand", label: "Brand", options: options.brands, value: brand, onChange: setBrand },
+    { key: "collection", label: "Collection", options: options.collections, value: collection, onChange: setCollection },
+  ].filter((row) => row.options.length >= 2);
+  const canFilter = rows.length > 0 && products.length > 3;
+  const showPanel = canFilter && (filtersOpen || hasFilters);
 
   return (
     <div>
-      <div className="border-y border-ash py-5">
-        <div className="space-y-4">
-          {!hide.includes("type") && (
-            <FilterRow label="Product" options={productTypes} value={type} onChange={setType} />
+      <div className="flex flex-wrap items-center justify-between gap-3 border-y border-ash py-3">
+        <p className="text-xs font-bold tracking-wide uppercase">
+          {visible.length} {visible.length === 1 ? "product" : "products"}
+          {hasFilters && (
+            <button
+              type="button"
+              onClick={() => {
+                setBrand(null);
+                setType(null);
+                setCollection(null);
+              }}
+              className="ml-3 font-bold text-forest underline underline-offset-4"
+            >
+              Clear filters
+            </button>
           )}
-          {!hide.includes("brand") && (
-            <FilterRow label="Brand" options={brands} value={brand} onChange={setBrand} />
-          )}
-          {!hide.includes("collection") && (
-            <FilterRow
-              label="Collection"
-              options={collections}
-              value={collection}
-              onChange={setCollection}
-            />
-          )}
-        </div>
+        </p>
 
-        <div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-ash pt-4">
-          <p className="text-xs font-bold tracking-wide uppercase">
-            {visible.length} {visible.length === 1 ? "product" : "products"}
-            {hasFilters && (
-              <button
-                type="button"
-                onClick={() => {
-                  setBrand(null);
-                  setType(null);
-                  setCollection(null);
-                }}
-                className="ml-3 font-bold text-forest underline underline-offset-4"
-              >
-                Clear filters
-              </button>
-            )}
-          </p>
+        <div className="flex items-center gap-2">
+          {canFilter && (
+            <button
+              type="button"
+              onClick={() => setFiltersOpen(!showPanel)}
+              aria-expanded={showPanel}
+              aria-controls="browser-filters"
+              className={`inline-flex items-center gap-1.5 border px-3 py-1.5 text-xs font-bold tracking-wide uppercase transition-colors ${
+                showPanel ? "border-forest text-forest" : "border-ash text-ink hover:border-ink"
+              }`}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" className="h-3.5 w-3.5" aria-hidden="true">
+                <path d="M4 6h16M7 12h10M10 18h4" />
+              </svg>
+              Filter
+              {activeCount > 0 && <span className="text-forest">({activeCount})</span>}
+            </button>
+          )}
 
           <label className="flex items-center gap-2 text-xs font-bold tracking-wide uppercase">
-            Sort
+            <span className="sr-only sm:not-sr-only">Sort</span>
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value as SortKey)}
@@ -206,6 +232,20 @@ export function ProductBrowser({
           </label>
         </div>
       </div>
+
+      {showPanel && (
+        <div id="browser-filters" className="space-y-4 border-b border-ash py-5">
+          {rows.map((row) => (
+            <FilterRow
+              key={row.key}
+              label={row.label}
+              options={row.options}
+              value={row.value}
+              onChange={row.onChange}
+            />
+          ))}
+        </div>
+      )}
 
       {visible.length === 0 ? (
         <p className="py-20 text-center text-sm text-slate">
