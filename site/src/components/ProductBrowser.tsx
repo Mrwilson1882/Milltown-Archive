@@ -86,12 +86,20 @@ export function ProductBrowser({
   productTypes,
   collections,
   hide = [],
+  demote,
 }: {
   products: Product[];
   brands: Category[];
   productTypes: Category[];
   collections: Category[];
   hide?: ("brand" | "type" | "collection")[];
+  /**
+   * Collection whose lots sink to the bottom of the default order. On a
+   * product-type page the counted lots are the point — a polos page should
+   * lead with the Lacoste and Ralph Lauren polos, not the mixed starter boxes
+   * that happen to contain a polo or two.
+   */
+  demote?: string;
 }) {
   const [brand, setBrand] = useState<string | null>(null);
   const [type, setType] = useState<string | null>(null);
@@ -105,6 +113,8 @@ export function ProductBrowser({
         (!type || p.typeSlugs.includes(type)) &&
         (!collection || p.collectionSlugs.includes(collection)),
     );
+
+    const isDemoted = (p: Product) => demote !== undefined && p.collectionSlugs.includes(demote);
 
     const sorted = [...filtered];
     switch (sort) {
@@ -131,10 +141,14 @@ export function ProductBrowser({
         break;
       }
       default:
-        sorted.sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
+        sorted.sort(
+          (a, b) =>
+            Number(isDemoted(a)) - Number(isDemoted(b)) ||
+            Number(Boolean(b.featured)) - Number(Boolean(a.featured)),
+        );
     }
     return sorted;
-  }, [products, brand, type, collection, sort]);
+  }, [products, brand, type, collection, sort, demote]);
 
   const hasFilters = brand !== null || type !== null || collection !== null;
 

@@ -246,7 +246,7 @@ const catalogue: Product[] = [
     summary: "Workwear tees mixed across both labels, in 25s and 50s.",
     description: [
       "Branded workwear t-shirts split across Carhartt and Dickies.",
-      "Workwear has its own buyer and rarely competes with the sportswear rail, which makes it a useful second category rather than more of the same. Sold in twenty-fives and fifties.",
+      "Workwear has its own buyer and rarely competes with the sportswear rail, which makes it a useful second category rather than more of the same. Sold in tens, twenty-fives and fifties.",
     ],
     brandSlugs: ["carhartt", "dickies"],
     typeSlugs: ["polos-t-shirts"],
@@ -260,10 +260,10 @@ const catalogue: Product[] = [
   {
     slug: "ralph-tommy-lacoste-mix",
     name: "Ralph, Tommy, Lacoste Mix",
-    summary: "Twenty-five branded designer pieces across the three labels.",
+    summary: "Branded designer pieces across the three labels, in tens, twenty-fives and fifties.",
     description: [
-      "Twenty-five branded pieces split across Ralph Lauren, Tommy Hilfiger and Lacoste — the three designer labels that carry a rail on their own.",
-      "Colour-led and built to look bright from across a market hall. Sold as a fixed twenty-five piece lot.",
+      "Branded pieces split across Ralph Lauren, Tommy Hilfiger and Lacoste — the three designer labels that carry a rail on their own.",
+      "Colour-led and built to look bright from across a market hall. Sold in ten, twenty-five or fifty.",
     ],
     brandSlugs: ["ralph-lauren", "tommy-hilfiger", "lacoste"],
     typeSlugs: ["polos-t-shirts"],
@@ -486,7 +486,7 @@ const catalogue: Product[] = [
     brandSlugs: ["lacoste"],
     typeSlugs: ["polos-t-shirts", "jumpers-sweats"],
     collectionSlugs: ["mens"],
-    variants: qty(10, 25, 50),
+    variants: [at(10, 9), at(25, 8.5), at(50, 8)],
     unit: "pieces",
     notes: [],
     art: "grid-ink",

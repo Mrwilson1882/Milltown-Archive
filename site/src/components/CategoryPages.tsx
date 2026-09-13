@@ -84,6 +84,7 @@ export function CategoryDetail({ kind, slug }: { kind: CategoryKind; slug: strin
             productTypes={productTypes}
             collections={collections}
             hide={[kind]}
+            demote={kind === "type" ? "reseller-boxes" : undefined}
           />
         )}
       </div>
