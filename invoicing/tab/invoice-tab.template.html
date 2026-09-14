@@ -1,0 +1,1096 @@
+<title>Archive Wholesale Invoice Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap">
+<style>
+  /* =====================================================================
+     Archive Wholesale — invoice book
+
+     Brand tokens are the site's own (site/src/app/globals.css): black type
+     on a white ground, forest green #0F4A2E as the only accent, Archivo,
+     2px rules, 2px radius. Nothing here invents a colour.
+
+     The page is deliberately single-theme. An invoice is a printed white
+     document; it is the same document on every screen and on paper, so
+     every colour is painted explicitly rather than inherited from the
+     viewer's theme.
+     ===================================================================== */
+
+  :root {
+    --ink: #000000;
+    --paper: #ffffff;
+    --forest: #0f4a2e;
+    --forest-dark: #0a3520;
+    --smoke: #f4f4f2;
+    --ash: #e4e4e0;
+    --slate: #5b5b57;
+    --alert: #8a1c1c;
+    --alert-wash: #fbf0f0;
+    --font: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color-scheme: light;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--smoke);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .workbench {
+    max-width: 232mm;
+    margin: 0 auto;
+    padding-block: 20px 56px;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .display { font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.95; margin: 0; }
+  .eyebrow { font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; font-size: 10px; color: var(--slate); margin: 0; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* ---------------------------------------------------------------- rail */
+  .rail {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 2px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .rail-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .rail-head h1 { font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 800; margin: 0; }
+
+  .status { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: var(--slate); }
+  .status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ash); flex: none; }
+  .status[data-state="live"] .dot { background: var(--forest); }
+  .status[data-state="local"] .dot { background: var(--alert); }
+
+  .rail-group { display: flex; flex-direction: column; gap: 7px; }
+
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: stretch; }
+  .controls > * { min-height: 38px; }
+
+  select.ctl, input.ctl {
+    font: inherit;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--ash);
+    border-radius: 2px;
+    padding: 7px 10px;
+    min-width: 0;
+  }
+  select.ctl:focus-visible, input.ctl:focus-visible { outline: 2px solid var(--forest); outline-offset: 1px; }
+  select.ctl.grow { flex: 3 1 220px; }
+  select.ctl.lot { flex: 2 1 150px; }
+  input.ctl.qty { width: 78px; flex: none; }
+  input.ctl.grow { flex: 2 1 180px; }
+
+  button {
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    padding: 9px 16px;
+    cursor: pointer;
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    transition: background-color 0.12s ease, color 0.12s ease;
+  }
+  button:hover { background: var(--smoke); }
+  button:focus-visible { outline: 2px solid var(--forest); outline-offset: 2px; }
+  button.primary { background: var(--forest); border-color: var(--forest); color: var(--paper); }
+  button.primary:hover { background: var(--forest-dark); border-color: var(--forest-dark); }
+  button.quiet { border-color: var(--ash); color: var(--slate); }
+  button.quiet:hover { border-color: var(--slate); color: var(--ink); }
+  button[disabled] { opacity: 0.45; cursor: not-allowed; }
+
+  .toast {
+    font-size: 13px;
+    color: var(--forest);
+    font-weight: 700;
+    min-height: 19px;
+  }
+  .toast[data-kind="bad"] { color: var(--alert); }
+
+  /* --------------------------------------------------------------- sheet */
+  .sheet {
+    background: var(--paper);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: 2px;
+    padding: 16mm 14mm 14mm;
+    display: flex;
+    flex-direction: column;
+    gap: 9mm;
+    font-size: 10.5pt;
+  }
+
+  /* Fields are the document. On screen they carry a faint rule so it is
+     obvious what can be typed into; on paper the rule goes and what is left
+     is plain set text. */
+  .f {
+    font: inherit;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px dashed var(--ash);
+    border-radius: 0;
+    padding: 1px 2px;
+    width: 100%;
+    min-width: 0;
+    appearance: none;
+    resize: none;
+    overflow: hidden;
+  }
+  .f::placeholder { color: #a9a9a4; font-style: italic; }
+  .f:focus { outline: none; border-bottom-color: var(--forest); background: #f7fbf9; }
+  .f:focus-visible { outline: 2px solid var(--forest); outline-offset: 1px; }
+  .f.bold { font-weight: 700; }
+  .f.r { text-align: right; }
+  .f.c { text-align: center; }
+  textarea.f { line-height: 1.5; display: block; }
+
+  /* ------------------------------------------------------------ masthead */
+  .masthead {
+    display: flex; flex-wrap: wrap; gap: 8mm;
+    align-items: flex-start; justify-content: space-between;
+    border-bottom: 2px solid var(--ink); padding-bottom: 6mm;
+  }
+  .masthead img { display: block; height: 15mm; width: auto; max-width: 100%; }
+  .trading-line { margin: 3mm 0 0; font-size: 8pt; color: var(--slate); max-width: 72mm; text-wrap: balance; }
+  .doc-title { text-align: right; min-width: 48mm; }
+  .doc-title h2 { font-size: 24pt; }
+  .doc-title .f {
+    margin-top: 2mm; font-size: 13pt; font-weight: 700; color: var(--forest);
+    text-align: right; font-variant-numeric: tabular-nums;
+  }
+
+  /* ------------------------------------------------------------- warning */
+  .incomplete {
+    border: 2px solid var(--alert); background: var(--alert-wash); color: var(--alert);
+    border-radius: 2px; padding: 4mm 5mm;
+  }
+  .incomplete h3 { font-size: 9pt; margin: 0 0 2mm; }
+  .incomplete ul { margin: 0; padding-left: 5mm; font-size: 9pt; }
+  .incomplete li { margin-bottom: 1mm; }
+
+  /* ------------------------------------------------------------- parties */
+  .parties { display: grid; grid-template-columns: repeat(auto-fit, minmax(72mm, 1fr)); gap: 7mm; }
+  .party .body { margin-top: 2.5mm; font-size: 9.5pt; display: grid; gap: 0.8mm; }
+  .party .name { font-weight: 700; }
+  .party .muted { color: var(--slate); }
+
+  .meta { display: grid; gap: 1.5mm; margin: 2.5mm 0 0; font-size: 9.5pt; }
+  .meta .row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; align-items: baseline;
+    border-bottom: 1px solid var(--ash); padding-bottom: 1.2mm;
+  }
+  .meta .row[hidden] { display: none; }
+  .print-only { display: none; }
+  .meta .row dt { margin: 0; color: var(--slate); }
+  .meta .row dd { margin: 0; font-weight: 700; text-align: right; }
+  .meta .row dd .f { text-align: right; font-weight: 700; border-bottom-color: transparent; }
+  .meta .row dd .f:focus { border-bottom-color: var(--forest); }
+
+  /* --------------------------------------------------------------- items */
+  .items-wrap { overflow-x: auto; }
+  table.items { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+  table.items thead th {
+    text-align: left; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: 7.5pt; color: var(--paper); background: var(--forest); padding: 2.5mm 3mm;
+    white-space: nowrap;
+  }
+  table.items th.r, table.items td.r { text-align: right; }
+  table.items th.c, table.items td.c { text-align: center; }
+  table.items col.qty { width: 24mm; }
+  table.items col.unit { width: 28mm; }
+  table.items col.amount { width: 28mm; }
+  table.items col.act { width: 12mm; }
+  table.items tbody td { padding: 2.5mm 3mm; border-bottom: 1px solid var(--ash); vertical-align: top; }
+  table.items tbody tr:last-child td { border-bottom: 2px solid var(--ink); }
+  table.items td.r, table.items td.c { white-space: nowrap; }
+  .item-detail { display: block; margin-top: 0.8mm; color: var(--slate); font-size: 8.5pt; }
+  .amount { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .empty-row td { color: var(--slate); font-style: italic; }
+
+  .drop {
+    border: 0; background: transparent; color: var(--slate); cursor: pointer;
+    font-size: 14px; line-height: 1; padding: 2px 5px; border-radius: 2px; font-weight: 700;
+  }
+  .drop:hover { color: var(--alert); background: var(--alert-wash); }
+
+  /* -------------------------------------------------------------- totals */
+  .totals { display: flex; flex-wrap: wrap; gap: 6mm; align-items: flex-start; justify-content: space-between; }
+  .totals-inner { width: 100%; max-width: 85mm; margin-left: auto; }
+  .lot-summary { max-width: 78mm; }
+  .lot-summary dl, .pay dl { margin: 2.5mm 0 0; display: grid; gap: 1.2mm; font-size: 9.5pt; }
+  .lot-summary .row, .pay .row { display: flex; justify-content: space-between; gap: 4mm; align-items: baseline; }
+  .lot-summary .row dt, .pay .row dt { margin: 0; color: var(--slate); }
+  .lot-summary .row dd, .pay .row dd { margin: 0; font-weight: 700; text-align: right; }
+  .pay .row dd .f { text-align: right; font-weight: 700; }
+  .pay .missing { color: var(--alert); }
+
+  .totals .row {
+    display: flex; justify-content: space-between; gap: 6mm; align-items: baseline;
+    padding: 1.8mm 0; font-size: 9.5pt; border-bottom: 1px solid var(--ash);
+  }
+  .totals .row dt { margin: 0; color: var(--slate); }
+  .totals .row dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .totals .row dd .f { text-align: right; font-weight: 700; width: 30mm; }
+
+  .total-due {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 6mm;
+    background: var(--forest); color: var(--paper); padding: 4mm 5mm; margin-top: 3mm; border-radius: 2px;
+  }
+  .total-due .label { font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 8.5pt; }
+  .total-due .value { font-size: 17pt; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .vat-statement { margin: 3mm 0 0; font-size: 8.5pt; color: var(--slate); text-align: right; }
+
+  /* ----------------------------------------------------------- pay/terms */
+  .pay {
+    background: var(--smoke); border: 1px solid var(--ash); border-left: 3px solid var(--forest);
+    border-radius: 2px; padding: 5mm;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(58mm, 1fr)); gap: 6mm;
+  }
+  .pay p { margin: 2.5mm 0 0; font-size: 9pt; }
+  .notes p { margin: 2mm 0 0; }
+  .terms ol { margin: 2mm 0 0; padding-left: 5mm; font-size: 8.5pt; color: var(--slate); }
+  .terms li { margin-bottom: 1.2mm; }
+
+  .foot {
+    border-top: 2px solid var(--ink); padding-top: 4mm;
+    display: flex; flex-wrap: wrap; gap: 3mm 8mm; justify-content: space-between;
+    font-size: 8pt; color: var(--slate);
+  }
+  .foot a { color: var(--forest); text-decoration: none; font-weight: 700; }
+  .foot .reg { max-width: 105mm; }
+
+  /* ---------------------------------------------------------------- print */
+  @page { size: A4; margin: 12mm; }
+
+  @media print {
+    body { background: var(--paper); }
+    .print-only { display: inline; }
+    /* An optional field nobody filled in is not a blank line on a customer's
+       invoice — it is simply not there. */
+    .meta .row[data-empty="1"] { display: none; }
+    .workbench { max-width: none; padding: 0; gap: 0; }
+    .no-print { display: none !important; }
+    .sheet { border: 0; padding: 0; gap: 7mm; }
+    .f { border-bottom-color: transparent !important; background: transparent !important; }
+    .f::placeholder { color: transparent; }
+    table.items thead { display: table-header-group; }
+    table.items tr, .pay, .total-due, .incomplete, .foot { break-inside: avoid; }
+  }
+
+  @media (max-width: 620px) {
+    .sheet { padding: 10mm 6mm; font-size: 11pt; }
+    .doc-title { text-align: left; }
+    .doc-title .f { text-align: left; }
+    .total-due .value { font-size: 15pt; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+</style>
+
+<div class="workbench">
+
+  <!-- ============================================================ the rail -->
+  <header class="rail no-print">
+    <div class="rail-head">
+      <h1>Invoice book</h1>
+      <span class="status" id="status" data-state="pending"><span class="dot"></span><span id="statusText">Connecting to the register…</span></span>
+    </div>
+
+    <div class="rail-group">
+      <p class="eyebrow">Add a lot from the catalogue</p>
+      <div class="controls">
+        <select class="ctl grow" id="pickProduct" aria-label="Product"></select>
+        <select class="ctl lot" id="pickLot" aria-label="Lot size"></select>
+        <input class="ctl qty num" id="pickQty" type="number" min="1" step="1" value="1" aria-label="Number of lots">
+        <button type="button" class="primary" id="addLot">Add lot</button>
+        <button type="button" id="addCustom">Add a custom line</button>
+      </div>
+    </div>
+
+    <div class="rail-group">
+      <p class="eyebrow">This invoice</p>
+      <div class="controls">
+        <select class="ctl grow" id="recallCustomer" aria-label="Recall a saved customer">
+          <option value="">Recall a saved customer…</option>
+        </select>
+        <select class="ctl grow" id="recallInvoice" aria-label="Open an invoice from the register">
+          <option value="">Open an invoice from the register…</option>
+        </select>
+        <button type="button" class="primary" id="issue">Save to register</button>
+        <button type="button" id="print">Print / save PDF</button>
+        <button type="button" class="quiet" id="fresh">Start a new invoice</button>
+      </div>
+      <p class="toast" id="toast" role="status" aria-live="polite"></p>
+    </div>
+  </header>
+
+  <!-- =========================================================== the sheet -->
+  <main class="sheet" id="sheet">
+
+    <header class="masthead">
+      <div>
+        <img src="__LOGO__" alt="Archive Wholesale">
+        <p class="trading-line">Archive Wholesale is a trading name of MANCH Ltd.</p>
+      </div>
+      <div class="doc-title">
+        <h2 class="display">Invoice</h2>
+        <input class="f" id="invoiceNo" aria-label="Invoice number" placeholder="AW-0001">
+      </div>
+    </header>
+
+    <section class="incomplete" id="incomplete" hidden>
+      <h3 class="display">Not ready to send</h3>
+      <ul id="incompleteList"></ul>
+    </section>
+
+    <section class="parties">
+      <div class="party">
+        <p class="eyebrow">From</p>
+        <div class="body">
+          <span class="name">MANCH LTD</span>
+          <span>t/a Archive Wholesale</span>
+          <textarea class="f" id="regOffice" rows="1" aria-label="Registered office address"
+            placeholder="Registered office address — as recorded at Companies House"></textarea>
+        </div>
+      </div>
+
+      <div class="party">
+        <p class="eyebrow">Details</p>
+        <dl class="meta">
+          <div class="row"><dt>Invoice date</dt><dd>
+            <input class="f no-print" id="invoiceDate" type="date" aria-label="Invoice date">
+            <span class="print-only" id="invoiceDateText"></span>
+          </dd></div>
+          <div class="row" id="supplyRow"><dt>Date of supply</dt><dd>
+            <input class="f no-print" id="supplyDate" type="date" aria-label="Date of supply">
+            <span class="print-only" id="supplyDateText"></span>
+          </dd></div>
+          <div class="row"><dt>Payment terms</dt><dd>
+            <select class="f" id="terms" aria-label="Payment terms">
+              <option>Due on receipt</option>
+              <option>Paid in advance</option>
+              <option>7 days</option>
+              <option>14 days</option>
+              <option>30 days</option>
+            </select>
+          </dd></div>
+          <div class="row" id="dueRow"><dt>Payment due</dt><dd id="dueDate">—</dd></div>
+          <div class="row" id="poRow"><dt>Your order ref</dt><dd><input class="f" id="poNumber" aria-label="Customer order reference" placeholder="optional"></dd></div>
+          <div class="row"><dt>Company no.</dt><dd class="num">17064831</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="parties">
+      <div class="party">
+        <p class="eyebrow">Invoice to</p>
+        <div class="body">
+          <input class="f bold" id="custBusiness" aria-label="Customer business name" placeholder="Business name">
+          <input class="f" id="custContact" aria-label="Customer contact name" placeholder="Contact name (optional)">
+          <textarea class="f" id="custAddress" rows="1" aria-label="Customer address" placeholder="Address, one line each, postcode last"></textarea>
+          <input class="f" id="custEmail" type="email" aria-label="Customer email" placeholder="Email (optional)">
+          <input class="f" id="custPhone" aria-label="Customer phone" placeholder="Phone (optional)">
+        </div>
+      </div>
+
+      <div class="party">
+        <p class="eyebrow">Deliver to</p>
+        <div class="body">
+          <textarea class="f" id="deliverTo" rows="1" aria-label="Delivery address"
+            placeholder="Leave blank if the same as the invoice address"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="items-wrap">
+      <table class="items">
+        <colgroup>
+          <col><col class="qty"><col class="unit"><col class="amount"><col class="act no-print">
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">Description</th>
+            <th scope="col" class="c">Qty</th>
+            <th scope="col" class="r">Unit price</th>
+            <th scope="col" class="r">Amount</th>
+            <th scope="col" class="no-print"><span class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Remove</span></th>
+          </tr>
+        </thead>
+        <tbody id="lines"></tbody>
+      </table>
+    </section>
+
+    <section class="totals">
+      <div class="lot-summary" id="lotSummary" hidden>
+        <p class="eyebrow">This consignment</p>
+        <dl>
+          <div class="row"><dt>Lines</dt><dd class="num" id="sumLines">0</dd></div>
+          <div class="row"><dt>Pieces</dt><dd class="num" id="sumPieces">0</dd></div>
+          <div class="row"><dt>Grade</dt><dd>A/B unless stated</dd></div>
+        </dl>
+      </div>
+
+      <div class="totals-inner">
+        <dl style="margin:0">
+          <div class="row"><dt>Subtotal</dt><dd id="subtotal">£0.00</dd></div>
+          <div class="row"><dt>Discount</dt><dd><input class="f r num" id="discount" type="number" min="0" step="0.01" placeholder="0.00" aria-label="Discount"></dd></div>
+          <div class="row"><dt>Delivery</dt><dd><input class="f r num" id="delivery" type="number" min="0" step="0.01" placeholder="0.00" aria-label="Delivery"></dd></div>
+          <div class="row"><dt>VAT</dt><dd>Not applicable</dd></div>
+        </dl>
+        <div class="total-due">
+          <span class="label">Total due</span>
+          <span class="value" id="total">£0.00</span>
+        </div>
+        <p class="vat-statement">MANCH Ltd is not registered for VAT. No VAT is charged on this invoice and none is recoverable from it.</p>
+      </div>
+    </section>
+
+    <section class="pay">
+      <div>
+        <p class="eyebrow">How to pay</p>
+        <dl>
+          <div class="row"><dt>Account name</dt><dd><input class="f" id="bankName" aria-label="Account name" placeholder="not set"></dd></div>
+          <div class="row"><dt>Sort code</dt><dd><input class="f num" id="bankSort" aria-label="Sort code" placeholder="not set"></dd></div>
+          <div class="row"><dt>Account number</dt><dd><input class="f num" id="bankAcc" aria-label="Account number" placeholder="not set"></dd></div>
+          <div class="row"><dt>Payment reference</dt><dd class="num" id="payRef">—</dd></div>
+        </dl>
+        <p>Please quote <strong id="payRefInline">the invoice number</strong> as the payment reference so the payment can be matched to this invoice.</p>
+      </div>
+      <div>
+        <p class="eyebrow">Queries</p>
+        <dl>
+          <div class="row"><dt>Email</dt><dd>info@milltownarchive.co.uk</dd></div>
+          <div class="row"><dt>WhatsApp</dt><dd class="num">+44 7897 740194</dd></div>
+          <div class="row"><dt>Web</dt><dd>www.archivewholesale.co.uk</dd></div>
+        </dl>
+        <p>Delivery is quoted separately once we have your address and total weight.</p>
+      </div>
+    </section>
+
+    <section class="notes">
+      <p class="eyebrow">Notes</p>
+      <textarea class="f" id="notes" rows="1" aria-label="Notes" placeholder="Anything the customer should know — booked delivery day, part shipment, what was agreed"></textarea>
+    </section>
+
+    <section class="terms">
+      <p class="eyebrow">Terms of sale</p>
+      <ol>
+        <li>Goods remain the property of MANCH Ltd until paid for in full.</li>
+        <li>Wholesale lots are sold as graded and described. Grades are defined at www.archivewholesale.co.uk/grading-guide.</li>
+        <li>Lots are representative of the sort described; individual garments, brands and colourways vary.</li>
+        <li>Sold as a trade supply to a business buyer. Consumer distance-selling cancellation rights do not apply.</li>
+        <li>Shortages or discrepancies must be notified within 48 hours of delivery.</li>
+      </ol>
+    </section>
+
+    <footer class="foot">
+      <span class="reg">Archive Wholesale is a trading name of MANCH LTD, registered in England and Wales, company number 17064831.</span>
+      <span><a href="https://www.archivewholesale.co.uk">www.archivewholesale.co.uk</a></span>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  const CATALOGUE = __CATALOGUE__;
+  const PREFIX = "AW";
+  const PADDING = 4;
+
+  const $ = (id) => document.getElementById(id);
+  const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 2 });
+  const money = (n) => gbp.format(Number.isFinite(n) ? n : 0);
+  const round2 = (n) => Math.round(n * 100) / 100;
+  const todayISO = () => new Date().toISOString().slice(0, 10);
+  const num = (v) => { const n = parseFloat(v); return Number.isFinite(n) ? n : 0; };
+
+  /** Lines are the only structural state; every other field is read from the
+   *  DOM when it is needed, so typing never fights a re-render. */
+  let lines = [];
+  let db = null;
+  let numberTouched = false;
+
+  /* ------------------------------------------------------------- helpers */
+
+  function toast(msg, kind) {
+    const el = $("toast");
+    el.textContent = msg || "";
+    el.dataset.kind = kind || "good";
+  }
+
+  function setStatus(state, text) {
+    const el = $("status");
+    el.dataset.state = state;
+    $("statusText").textContent = text;
+  }
+
+  function grow(el) {
+    el.style.height = "auto";
+    el.style.height = `${el.scrollHeight}px`;
+  }
+
+  function growAll() {
+    document.querySelectorAll("textarea.f").forEach(grow);
+  }
+
+  function formatNumber(n) {
+    return `${PREFIX}-${String(n).padStart(PADDING, "0")}`;
+  }
+
+  function addDays(iso, days) {
+    const d = new Date(`${iso}T00:00:00Z`);
+    d.setUTCDate(d.getUTCDate() + days);
+    return d.toISOString().slice(0, 10);
+  }
+
+  function longDate(iso) {
+    if (!iso) return "";
+    const d = new Date(`${iso}T00:00:00Z`);
+    if (Number.isNaN(d.getTime())) return iso;
+    return d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  }
+
+  function slugify(s) {
+    return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60);
+  }
+
+  /* -------------------------------------------------------- the picker */
+
+  function fillProducts() {
+    const sel = $("pickProduct");
+    sel.innerHTML = CATALOGUE
+      .map((p, i) => `<option value="${i}">${p.name}</option>`)
+      .join("");
+    fillLots();
+  }
+
+  function fillLots() {
+    const p = CATALOGUE[Number($("pickProduct").value)];
+    const sel = $("pickLot");
+    if (!p) { sel.innerHTML = ""; return; }
+    sel.innerHTML = p.variants
+      .map(([pieces, price], i) => {
+        const label = price == null
+          ? `${pieces} ${p.unit} — price on request`
+          : `${pieces} ${p.unit} — ${money(price)}`;
+        return `<option value="${i}">${label}</option>`;
+      })
+      .join("");
+  }
+
+  /* ---------------------------------------------------------- the lines */
+
+  function addCatalogueLine() {
+    const p = CATALOGUE[Number($("pickProduct").value)];
+    if (!p) return;
+    const [pieces, price] = p.variants[Number($("pickLot").value)] || [];
+    if (pieces == null) return;
+    const qty = Math.max(1, Math.round(num($("pickQty").value)) || 1);
+
+    const unitWord = p.unit === "pairs" ? "pair" : "piece";
+    const detail = [`${pieces} ${p.unit} per lot`];
+    if (price != null) detail.push(`${money(round2(price / pieces))} per ${unitWord}`);
+    detail.push(`Grade ${p.grade}`);
+
+    lines.push({
+      name: p.name,
+      detail: detail.join(" · "),
+      qty,
+      qtyUnit: "lot",
+      unitPrice: price == null ? 0 : price,
+      pieces: pieces * qty,
+      needsPrice: price == null,
+      slug: p.slug,
+      lotPieces: pieces,
+    });
+
+    renderLines();
+    toast(price == null
+      ? `${p.name} added — this lot has no price on the site, so type the price you agreed.`
+      : `${p.name} added.`, price == null ? "bad" : "good");
+  }
+
+  function addCustomLine() {
+    lines.push({
+      name: "",
+      detail: "",
+      qty: 1,
+      qtyUnit: "item",
+      unitPrice: 0,
+      pieces: 0,
+      custom: true,
+    });
+    renderLines();
+    const last = document.querySelector("#lines tr:last-child .f");
+    if (last) last.focus();
+    toast("Custom line added — describe it, then set the quantity and price.");
+  }
+
+  function renderLines() {
+    const tb = $("lines");
+
+    if (!lines.length) {
+      tb.innerHTML = `<tr class="empty-row">
+        <td>No lines yet — add a lot from the catalogue above, or a custom line.</td>
+        <td class="c">—</td><td class="r">—</td><td class="r">—</td><td class="no-print"></td>
+      </tr>`;
+      recalc();
+      return;
+    }
+
+    tb.innerHTML = lines.map((l, i) => `
+      <tr data-i="${i}">
+        <td>
+          <input class="f bold" data-field="name" value="${escAttr(l.name)}"
+                 placeholder="Description" aria-label="Line ${i + 1} description">
+          <input class="f item-detail" data-field="detail" value="${escAttr(l.detail)}"
+                 placeholder="${l.custom ? "Optional detail — rate, sort, what was agreed" : ""}"
+                 aria-label="Line ${i + 1} detail">
+        </td>
+        <td class="c">
+          <input class="f c num" data-field="qty" type="number" min="0" step="1" value="${l.qty}"
+                 aria-label="Line ${i + 1} quantity">
+          <input class="f c item-detail" data-field="qtyUnit" value="${escAttr(l.qtyUnit)}"
+                 aria-label="Line ${i + 1} unit">
+        </td>
+        <td class="r">
+          <input class="f r num" data-field="unitPrice" type="number" min="0" step="0.01"
+                 value="${l.unitPrice ? l.unitPrice : ""}" placeholder="0.00"
+                 aria-label="Line ${i + 1} unit price">
+        </td>
+        <td class="r amount" data-amount>${money(l.qty * l.unitPrice)}</td>
+        <td class="no-print">
+          <button type="button" class="drop" data-drop aria-label="Remove line ${i + 1}">&times;</button>
+        </td>
+      </tr>`).join("");
+
+    recalc();
+  }
+
+  function escAttr(s) {
+    return String(s ?? "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+  }
+
+  /* --------------------------------------------------------- the totals */
+
+  function recalc() {
+    let subtotal = 0;
+    let pieces = 0;
+
+    document.querySelectorAll("#lines tr[data-i]").forEach((tr) => {
+      const l = lines[Number(tr.dataset.i)];
+      if (!l) return;
+      const amount = round2(l.qty * l.unitPrice);
+      subtotal += amount;
+      pieces += l.pieces || 0;
+      const cell = tr.querySelector("[data-amount]");
+      if (cell) cell.textContent = money(amount);
+    });
+
+    subtotal = round2(subtotal);
+    const total = round2(subtotal - num($("discount").value) + num($("delivery").value));
+
+    $("subtotal").textContent = money(subtotal);
+    $("total").textContent = money(total);
+
+    const summary = $("lotSummary");
+    summary.hidden = !lines.length;
+    $("sumLines").textContent = String(lines.length);
+    $("sumPieces").textContent = String(pieces);
+
+    updateDates();
+    updateDue();
+    updateRef();
+    checkReady();
+  }
+
+  /* `<input type="date">` renders in the BROWSER's locale, so on an American
+     machine 14 September would print as 09/14/2026 on a British invoice. The
+     inputs are therefore screen-only, and what prints is long-form text this
+     page formats itself. */
+  function updateDates() {
+    const inv = $("invoiceDate").value;
+    const sup = $("supplyDate").value;
+    $("invoiceDateText").textContent = longDate(inv);
+    $("supplyDateText").textContent = longDate(sup);
+    $("supplyRow").dataset.empty = sup ? "0" : "1";
+    $("poRow").dataset.empty = $("poNumber").value.trim() ? "0" : "1";
+  }
+
+  function updateDue() {
+    const terms = $("terms").value;
+    const m = /(\d+)\s*days?/i.exec(terms);
+    const date = $("invoiceDate").value;
+    const row = $("dueRow");
+    // "30 days" resolves to a date the customer can diary. "Due on receipt"
+    // and "Paid in advance" already say everything, so the row goes away
+    // rather than repeating the terms back.
+    if (m && date) {
+      row.hidden = false;
+      $("dueDate").textContent = longDate(addDays(date, Number(m[1])));
+    } else {
+      row.hidden = true;
+      $("dueDate").textContent = terms;
+    }
+  }
+
+  function updateRef() {
+    const n = $("invoiceNo").value.trim();
+    $("payRef").textContent = n || "—";
+    $("payRefInline").textContent = n || "the invoice number";
+  }
+
+  /* ------------------------------------------------ ready-to-send checks */
+
+  function checkReady() {
+    const problems = [];
+
+    if (!$("regOffice").value.trim()) {
+      problems.push("Registered office address is not filled in — a UK company must show it on its invoices.");
+    }
+    if (!$("bankName").value.trim() || !$("bankSort").value.trim() || !$("bankAcc").value.trim()) {
+      problems.push("Bank details are not filled in — the customer has no way to pay this invoice.");
+    }
+    if (!$("invoiceNo").value.trim()) problems.push("This invoice has no number.");
+    if (!$("custBusiness").value.trim() && !$("custContact").value.trim()) problems.push("No customer name.");
+    if (!$("custAddress").value.trim()) problems.push("No customer address.");
+    if (!lines.length) problems.push("No line items.");
+    if (lines.some((l) => !String(l.name || "").trim())) problems.push("A line has no description.");
+    if (lines.some((l) => !(l.unitPrice > 0))) problems.push("A line has no price — no price is ever assumed, so type the figure agreed.");
+
+    const box = $("incomplete");
+    box.hidden = problems.length === 0;
+    $("incompleteList").innerHTML = problems.map((p) => `<li>${p}</li>`).join("");
+  }
+
+  /* ------------------------------------------------------ reading/writing */
+
+  function readInvoice() {
+    return {
+      invoiceNumber: $("invoiceNo").value.trim(),
+      invoiceDate: $("invoiceDate").value,
+      supplyDate: $("supplyDate").value,
+      paymentTerms: $("terms").value,
+      dueDate: $("dueRow").hidden ? "" : $("dueDate").textContent,
+      poNumber: $("poNumber").value.trim(),
+      customer: {
+        business: $("custBusiness").value.trim(),
+        contact: $("custContact").value.trim(),
+        address: $("custAddress").value.trim(),
+        email: $("custEmail").value.trim(),
+        phone: $("custPhone").value.trim(),
+      },
+      deliverTo: $("deliverTo").value.trim(),
+      lines: lines.map((l) => ({ ...l, amount: round2(l.qty * l.unitPrice) })),
+      discount: round2(num($("discount").value)),
+      delivery: round2(num($("delivery").value)),
+      vat: { registered: false, amount: 0 },
+      subtotal: round2(lines.reduce((s, l) => s + l.qty * l.unitPrice, 0)),
+      total: round2(lines.reduce((s, l) => s + l.qty * l.unitPrice, 0) - num($("discount").value) + num($("delivery").value)),
+      notes: $("notes").value.trim(),
+      savedAt: new Date().toISOString(),
+    };
+  }
+
+  function writeInvoice(inv) {
+    $("invoiceNo").value = inv.invoiceNumber || "";
+    $("invoiceDate").value = inv.invoiceDate || todayISO();
+    $("supplyDate").value = inv.supplyDate || "";
+    $("terms").value = inv.paymentTerms || "Due on receipt";
+    $("poNumber").value = inv.poNumber || "";
+    const c = inv.customer || {};
+    $("custBusiness").value = c.business || "";
+    $("custContact").value = c.contact || "";
+    $("custAddress").value = c.address || "";
+    $("custEmail").value = c.email || "";
+    $("custPhone").value = c.phone || "";
+    $("deliverTo").value = inv.deliverTo || "";
+    $("discount").value = inv.discount || "";
+    $("delivery").value = inv.delivery || "";
+    $("notes").value = inv.notes || "";
+    lines = (inv.lines || []).map((l) => ({ ...l }));
+    numberTouched = true;
+    renderLines();
+    growAll();
+  }
+
+  function fillCustomer(c) {
+    $("custBusiness").value = c.business || "";
+    $("custContact").value = c.contact || "";
+    $("custAddress").value = c.address || "";
+    $("custEmail").value = c.email || "";
+    $("custPhone").value = c.phone || "";
+    growAll();
+    checkReady();
+  }
+
+  /* ------------------------------------------------------------ the store */
+
+  async function connect() {
+    try {
+      db = await window.claude?.use?.("db");
+    } catch { db = null; }
+
+    if (!db) {
+      setStatus("local", "Not saving — this view can't reach the register. Everything still works; print before you leave.");
+      $("issue").textContent = "Register unavailable";
+      $("issue").disabled = true;
+      $("recallCustomer").disabled = true;
+      $("recallInvoice").disabled = true;
+      return;
+    }
+
+    setStatus("live", "Saving to the register.");
+
+    // Company details the owner fills in once, then never again.
+    try {
+      db.doc("settings/company").onSnapshot((snap) => {
+        if (!snap.exists) return;
+        const d = snap.data() || {};
+        const apply = (id, v) => { const el = $(id); if (v != null && document.activeElement !== el) el.value = v; };
+        apply("regOffice", d.registeredOffice);
+        apply("bankName", d.bankAccountName);
+        apply("bankSort", d.bankSortCode);
+        apply("bankAcc", d.bankAccountNumber);
+        growAll();
+        checkReady();
+      }, () => {});
+    } catch { /* a malformed path is a programming error, not a runtime one */ }
+
+    // Next number, live, so the blank sheet always shows the right one.
+    db.doc("settings/counter").onSnapshot((snap) => {
+      const next = snap.exists ? (snap.data().next ?? 1) : 1;
+      if (!numberTouched) $("invoiceNo").value = formatNumber(next);
+      updateRef();
+      checkReady();
+    }, () => {});
+
+    db.collection("customers").orderBy("business").limit(200).onSnapshot((snap) => {
+      const sel = $("recallCustomer");
+      const keep = sel.value;
+      sel.innerHTML = `<option value="">Recall a saved customer…</option>` +
+        snap.docs.map((d) => {
+          const c = d.data() || {};
+          return `<option value="${escAttr(d.id)}">${escAttr(c.business || c.contact || d.id)}</option>`;
+        }).join("");
+      sel.value = keep;
+    }, () => {});
+
+    db.collection("invoices").orderBy("invoiceNumber", "desc").limit(100).onSnapshot((snap) => {
+      const sel = $("recallInvoice");
+      const keep = sel.value;
+      sel.innerHTML = `<option value="">Open an invoice from the register…</option>` +
+        snap.docs.map((d) => {
+          const v = d.data() || {};
+          const who = (v.customer && (v.customer.business || v.customer.contact)) || "—";
+          return `<option value="${escAttr(d.id)}">${escAttr(v.invoiceNumber || d.id)} · ${escAttr(who)} · ${money(v.total || 0)}</option>`;
+        }).join("");
+      sel.value = keep;
+    }, () => {});
+  }
+
+  /** Reserve the next number under a short lease, so two open tabs can never
+   *  hand out the same one. */
+  async function reserveNumber() {
+    const ref = db.doc("settings/counter");
+    const lease = await ref.acquire({ holder: `tab-${Math.random().toString(36).slice(2)}`, ttlMs: 8000 });
+    if (!lease.acquired) return null;
+    const snap = await ref.get();
+    const next = snap.exists ? (snap.data().next ?? 1) : 1;
+    await ref.set({ next: next + 1, prefix: PREFIX, padding: PADDING });
+    return formatNumber(next);
+  }
+
+  async function saveCompany() {
+    if (!db) return;
+    try {
+      await db.doc("settings/company").set({
+        registeredOffice: $("regOffice").value.trim(),
+        bankAccountName: $("bankName").value.trim(),
+        bankSortCode: $("bankSort").value.trim(),
+        bankAccountNumber: $("bankAcc").value.trim(),
+        updatedAt: new Date().toISOString(),
+      });
+    } catch (e) {
+      toast(e && e.code === "revoked" ? "Lost access to the register." : "Could not save the company details.", "bad");
+    }
+  }
+
+  async function issue() {
+    if (!db) return;
+    if (!lines.length) { toast("Nothing to save — this invoice has no lines.", "bad"); return; }
+
+    $("issue").disabled = true;
+    try {
+      let number = $("invoiceNo").value.trim();
+      if (!numberTouched) {
+        const reserved = await reserveNumber();
+        if (reserved) { number = reserved; $("invoiceNo").value = number; }
+      }
+      if (!number) { toast("This invoice needs a number before it can be saved.", "bad"); return; }
+
+      const inv = readInvoice();
+      inv.invoiceNumber = number;
+
+      await db.doc(`invoices/${slugify(number) || "unnumbered"}`).set(inv);
+
+      const key = slugify(inv.customer.business || inv.customer.contact);
+      if (key) await db.doc(`customers/${key}`).set({ ...inv.customer, updatedAt: inv.savedAt });
+
+      numberTouched = true;
+      updateRef();
+      toast(`${number} saved to the register.`);
+    } catch (e) {
+      const code = e && e.code;
+      toast(
+        code === "quota_exceeded" ? "The register is full — remove some old invoices first." :
+        code === "revoked" ? "Lost access to the register. Print this invoice before you leave the page." :
+        "Could not save to the register. Print this invoice before you leave the page.",
+        "bad",
+      );
+    } finally {
+      $("issue").disabled = false;
+    }
+  }
+
+  function fresh() {
+    lines = [];
+    numberTouched = false;
+    ["custBusiness", "custContact", "custAddress", "custEmail", "custPhone",
+     "deliverTo", "poNumber", "notes", "discount", "delivery", "supplyDate"]
+      .forEach((id) => { $(id).value = ""; });
+    $("invoiceDate").value = todayISO();
+    $("terms").value = "Due on receipt";
+    $("recallCustomer").value = "";
+    $("recallInvoice").value = "";
+
+    if (db) {
+      db.doc("settings/counter").get()
+        .then((s) => { $("invoiceNo").value = formatNumber(s.exists ? (s.data().next ?? 1) : 1); updateRef(); checkReady(); })
+        .catch(() => {});
+    }
+
+    renderLines();
+    growAll();
+    toast("Blank invoice ready.");
+  }
+
+  /* --------------------------------------------------------------- wiring */
+
+  $("pickProduct").addEventListener("change", fillLots);
+  $("addLot").addEventListener("click", addCatalogueLine);
+  $("addCustom").addEventListener("click", addCustomLine);
+  $("print").addEventListener("click", () => window.print());
+  $("issue").addEventListener("click", issue);
+  $("fresh").addEventListener("click", fresh);
+
+  $("lines").addEventListener("input", (e) => {
+    const field = e.target.dataset && e.target.dataset.field;
+    if (!field) return;
+    const tr = e.target.closest("tr[data-i]");
+    const l = lines[Number(tr.dataset.i)];
+    if (!l) return;
+
+    if (field === "qty") {
+      const wasQty = l.qty;
+      l.qty = num(e.target.value);
+      if (l.lotPieces) l.pieces = l.lotPieces * l.qty;
+      else if (wasQty) l.pieces = 0;
+    } else if (field === "unitPrice") {
+      l.unitPrice = num(e.target.value);
+      l.needsPrice = false;
+    } else {
+      l[field] = e.target.value;
+    }
+    recalc();
+  });
+
+  $("lines").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-drop]");
+    if (!btn) return;
+    const tr = btn.closest("tr[data-i]");
+    lines.splice(Number(tr.dataset.i), 1);
+    renderLines();
+    toast("Line removed.");
+  });
+
+  $("invoiceNo").addEventListener("input", () => { numberTouched = true; updateRef(); checkReady(); });
+  $("terms").addEventListener("change", updateDue);
+  $("invoiceDate").addEventListener("change", () => { updateDates(); updateDue(); });
+  $("supplyDate").addEventListener("change", updateDates);
+  $("poNumber").addEventListener("input", updateDates);
+
+  ["discount", "delivery"].forEach((id) => $(id).addEventListener("input", recalc));
+
+  ["custBusiness", "custContact", "custAddress", "invoiceNo"].forEach((id) =>
+    $(id).addEventListener("input", checkReady));
+
+  ["regOffice", "bankName", "bankSort", "bankAcc"].forEach((id) => {
+    const el = $(id);
+    el.addEventListener("input", checkReady);
+    el.addEventListener("change", saveCompany);
+  });
+
+  document.querySelectorAll("textarea.f").forEach((el) => {
+    el.addEventListener("input", () => grow(el));
+  });
+
+  $("recallCustomer").addEventListener("change", async (e) => {
+    const id = e.target.value;
+    if (!id || !db) return;
+    try {
+      const snap = await db.doc(`customers/${id}`).get();
+      if (snap.exists) { fillCustomer(snap.data()); toast("Customer details filled in."); }
+    } catch { toast("Could not load that customer.", "bad"); }
+  });
+
+  $("recallInvoice").addEventListener("change", async (e) => {
+    const id = e.target.value;
+    if (!id || !db) return;
+    try {
+      const snap = await db.doc(`invoices/${id}`).get();
+      if (snap.exists) { writeInvoice(snap.data()); toast(`${snap.data().invoiceNumber || id} opened.`); }
+    } catch { toast("Could not open that invoice.", "bad"); }
+  });
+
+  /* ----------------------------------------------------------------- boot */
+
+  fillProducts();
+  $("invoiceDate").value = todayISO();
+  $("invoiceNo").value = formatNumber(1);
+  renderLines();
+  growAll();
+  connect();
+})();
+</script>

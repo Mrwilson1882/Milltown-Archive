@@ -19,9 +19,12 @@ back as an error naming the lot, never as a guess.
 generated here, committed to `out/`, and the numbers come from the catalogue
 automatically.
 
-**2. In the browser.** The blank invoice tab — a published Artifact — holds a
-blank invoice with the whole catalogue loaded, a customer book and a running
-invoice number. Fill it in, print to PDF, send.
+**2. In the browser.** The blank invoice tab holds a blank invoice with the
+whole catalogue loaded, a customer book and a running invoice number. Fill it
+in, print to PDF, send.
+
+> **The blank invoice tab**
+> <https://claude.ai/artifact/43tP58LSPpD9XqSnwjKumX>
 
 Both produce the same document.
 
@@ -161,18 +164,52 @@ disagree. VAT then appears as its own line above the total.
 
 ---
 
+## The blank invoice tab
+
+<https://claude.ai/artifact/43tP58LSPpD9XqSnwjKumX>
+
+Built from [`tab/invoice-tab.template.html`](tab/invoice-tab.template.html). The
+catalogue and the logo are injected at build time, so the lot sizes and prices
+in its picker are the site's own and cannot drift:
+
+```bash
+node invoicing/tab/build-tab.mjs   # rebuild after any catalogue change
+```
+
+Then republish it to the same URL. Re-run this whenever a price changes on the
+site, or the tab will keep offering yesterday's figures.
+
+What it holds:
+
+- **The catalogue** — pick a product and a lot size and the price comes with it.
+  Every figure stays editable on the line, so an agreed price just gets typed over.
+- **A customer book** — saving an invoice saves the customer, and the next
+  invoice for them is one dropdown away.
+- **The register** — every invoice saved, recallable, with a running number.
+- **Your company details** — the registered office and bank details are typed in
+  once and remembered for every invoice after.
+- **The same "Not ready to send" band**, live, updating as fields are filled.
+
+Print (⌘P / Ctrl-P) drops the controls and prints the sheet alone at A4.
+
+---
+
 ## Invoice numbers
 
-`next-number.json` holds the next number in the sequence — `AW-0001`, `AW-0002`,
-and so on. Generating a real invoice reserves its number and writes the file
-back immediately, so the same number is never issued twice. Sequential
-numbering with no gaps is what makes a set of invoices auditable.
+The sequence is `AW-0001`, `AW-0002`, and so on. Sequential numbering with no
+gaps is what makes a set of invoices auditable.
+
+**The tab's register is the authority.** It holds the next number and reserves
+it under a short lease when an invoice is saved, so two open tabs can never hand
+out the same one.
+
+An invoice raised in chat takes its number from that same register and bumps it,
+so the two ways of working share one sequence rather than running two that
+collide. `next-number.json` is the generator's own fallback for when the
+register is not reachable.
 
 `--blank` and any job with an explicit `"invoiceNumber"` do **not** consume a
 number.
-
-The blank invoice tab keeps its own sequence. If you raise invoices in both
-places, give one of them a different prefix so the two can never collide.
 
 ---
 
@@ -186,7 +223,11 @@ invoicing/
 ├── render.mjs            the document itself: layout, brand, print rules
 ├── jobs/                 one file per invoice raised
 │   └── example.json      a worked example of all three line shapes
-└── out/                  generated invoices — the record of what was sent
+├── out/                  generated invoices — the record of what was sent
+└── tab/
+    ├── invoice-tab.template.html   the fillable tab — edit this
+    ├── build-tab.mjs               injects the catalogue and the logo
+    └── invoice-tab.html            the built page that gets published
 ```
 
 The design follows the site's brand tokens in `site/src/app/globals.css`: black
