@@ -324,27 +324,35 @@
       width: auto;
       padding: 0;
       gap: 3mm;
-      font-size: 9.5pt;
+      font-size: 9pt;
     }
+    /* Almost every block sets its own absolute pt size, so the sheet's
+       font-size alone changes nothing on paper. These are the sizes that
+       actually decide how tall the document prints. */
+    .party .body, .meta, table.items, .totals .row, .pay dl, .lot-summary dl { font-size: 8.5pt; }
+    .item-detail { font-size: 7.5pt; }
+    .pay p, .vat-statement, .notes p { font-size: 8pt; }
+    .trading-line { font-size: 7.5pt; }
+
     .masthead { padding-bottom: 4mm; gap: 6mm; }
-    .masthead img { height: 12mm; }
+    .masthead img { height: 11mm; }
     .parties { gap: 5mm; }
     .party .body { margin-top: 2mm; }
     .meta { gap: 1mm; }
     .meta .row { padding-bottom: 0.8mm; }
     table.items tbody td { padding: 2mm 3mm; }
     table.items thead th { padding: 2mm 3mm; }
-    .totals .row { padding: 1.2mm 0; }
-    .total-due { padding: 3mm 5mm; margin-top: 2mm; }
+    .totals .row { padding: 0.8mm 0; }
+    .total-due { padding: 3mm 5mm; margin-top: 1.5mm; }
     .total-due .amount { font-size: 15pt; }
-    .pay { padding: 4mm; gap: 5mm; }
+    .pay { padding: 3.5mm; gap: 5mm; }
     .pay dl, .lot-summary dl { margin-top: 2mm; }
     .pay p { margin-top: 2mm; }
     .vat-statement { margin-top: 2mm; }
     /* Two columns halves the depth of the terms, which is what decides whether
        a short order comes off the printer as one sheet or two. */
     .terms ol { font-size: 7.5pt; columns: 2; column-gap: 8mm; padding-left: 4mm; }
-    .terms li { margin-bottom: 0.6mm; break-inside: avoid; }
+    .terms li { margin-bottom: 0.4mm; break-inside: avoid; }
     .foot { padding-top: 2mm; border-top-width: 1px; font-size: 7pt; }
     table.items thead { display: table-header-group; }
     table.items tr, .pay, .total-due, .incomplete { break-inside: avoid; }
@@ -442,11 +450,11 @@
             <tr>
               <td>
                 <span class="item-name">Ralph Lauren Polos</span>
-                <span class="item-detail">25 pieces per lot · £7.60 per piece · Grade A/B · Price as agreed</span>
+                <span class="item-detail">25 pieces per lot · £8.00 per piece · Grade A/B</span>
               </td>
               <td class="c num" data-label="Qty">1 lot</td>
-              <td class="r num" data-label="Unit price">£190.00</td>
-              <td class="r num" data-label="Amount">£190.00</td>
+              <td class="r num" data-label="Unit price">£200.00</td>
+              <td class="r num" data-label="Amount">£200.00</td>
             </tr></tbody>
     </table>
   </section>
@@ -462,14 +470,14 @@
            </div>
     <div class="totals-inner">
       <dl style="margin:0">
-        <div class="row"><dt>Subtotal</dt><dd class="num">£190.00</dd></div>
-        
-        <div class="row"><dt>Delivery</dt><dd class="num">£10.00</dd></div>
+        <div class="row"><dt>Subtotal</dt><dd class="num">£200.00</dd></div>
+        <div class="row"><dt>Discount</dt><dd class="num">-£10.00</dd></div>
+        <div class="row"><dt>Delivery</dt><dd class="num">£25.00</dd></div>
         <div class="row"><dt>VAT</dt><dd>Not applicable</dd></div>
       </dl>
       <div class="total-due">
         <span class="label">Total payable</span>
-        <span class="amount num">£200.00</span>
+        <span class="amount num">£215.00</span>
       </div>
       <p class="vat-statement">MANCH Ltd is not registered for VAT. No VAT is charged on this pro forma and none is recoverable from it.</p>
     </div>
@@ -481,7 +489,7 @@
       <dl>
         <div class="row"><dt>Method</dt><dd>Secure payment link</dd></div>
         
-        <div class="row"><dt>Amount to pay</dt><dd class="num">£200.00</dd></div>
+        <div class="row"><dt>Amount to pay</dt><dd class="num">£215.00</dd></div>
         <div class="row"><dt>Payment reference</dt><dd class="num">PF-0002</dd></div>
       </dl>
       <p>A secure payment link is sent with this pro forma.</p>

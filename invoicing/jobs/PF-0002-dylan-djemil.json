@@ -1,6 +1,6 @@
 {
-  "invoiceNumber": "PF-0002",
   "status": "proforma",
+  "invoiceNumber": "PF-0002",
   "orderNumber": "ORD-0008",
   "invoiceDate": "2026-09-14",
   "paymentTerms": "Due on receipt",
@@ -13,8 +13,9 @@
   },
 
   "lines": [
-    { "slug": "ralph-lauren-polos", "pieces": 25, "qty": 1, "unitPrice": 190 }
+    { "slug": "ralph-lauren-polos", "pieces": 25, "qty": 1 }
   ],
 
-  "delivery": 10
+  "discount": 10,
+  "delivery": 25
 }
