@@ -1,0 +1,18 @@
+{
+  "invoiceNumber": "AW-0002",
+  "invoiceDate": "2026-09-14",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Dylan Djemil",
+    "lines": ["35 Copthorne Avenue", "Ilford"],
+    "postcode": "IG6 2SG",
+    "email": "Dylan-Djemil@outlook.com"
+  },
+
+  "lines": [
+    { "slug": "ralph-lauren-polos", "pieces": 25, "qty": 1, "unitPrice": 190 }
+  ],
+
+  "delivery": 10
+}

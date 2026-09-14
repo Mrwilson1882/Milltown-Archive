@@ -1,0 +1,20 @@
+{
+  "invoiceNumber": "AW-0001",
+  "invoiceDate": "2026-09-14",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "business": "SC Carpentry & Construction",
+    "lines": ["Longbrook Barn", "Milton Abbot", "Tavistock", "Devon"],
+    "postcode": "PL19 0PS",
+    "email": "sccarpentrysw@gmail.com",
+    "phone": "07368 937417"
+  },
+
+  "lines": [
+    { "slug": "lacoste-ralph-lauren-polos", "pieces": 25, "qty": 1 },
+    { "slug": "mens-luxury-winter-mix", "pieces": 10, "qty": 1 }
+  ],
+
+  "delivery": 25
+}
