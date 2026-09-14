@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Milltown Archive
+
+   Warm paper, near-black ink, one brick-red accent, and a serif that does the
+   talking. Photographs carry the colour; the interface stays out of the way.
+   --------------------------------------------------------------------------- */
+@theme {
+  --color-paper: #fbfaf7;
+  --color-paper-2: #f3f0e9;
+  --color-paper-3: #e9e5db;
+  --color-ink: #14130f;
+  --color-ink-2: #454037;
+  --color-ink-3: #756e61;
+  --color-line: #ddd8cc;
+  --color-brick: #9c3d21;
+  --color-brick-dark: #7c2f18;
+  --color-brick-tint: #f7ece6;
+
+  --font-display: var(--font-instrument), "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-card: 4px;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/*
+  The shop is a shop for photographs of clothes: a dark mode that inverts the
+  paper keeps the garments the brightest thing on the page in either setting.
+*/
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-paper: #131210;
+    --color-paper-2: #1c1a17;
+    --color-paper-3: #262320;
+    --color-ink: #f4f1ea;
+    --color-ink-2: #c3bdb1;
+    --color-ink-3: #928b7d;
+    --color-line: #332f2a;
+    --color-brick: #d96a44;
+    --color-brick-dark: #c25a36;
+    --color-brick-tint: #241a15;
+  }
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* The display face. Set large, tight and never in capitals — the capitals are
+   the wholesale site's voice, not this one. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+}
+
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-3);
+}
+
+/* Prices, sizes and other figures line up in columns when they are tabular. */
+.numeric {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* A hairline that survives the dark-mode swap without extra classes. */
+.rule {
+  border-color: var(--color-line);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brick);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Product images fade up as they decode rather than snapping in. */
+.media-fade {
+  animation: media-fade 0.5s var(--ease-out-soft) both;
+}
+
+@keyframes media-fade {
+  from { opacity: 0; transform: scale(1.01); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Hide the number input spinners in the quantity and price fields. */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,40 @@
+IMPORTANT:,Upload your listings into Crosslist using the 'Template' sheet. Below is an overview of the required fields and format requirements.,,
+,Make sure the file is saved in CSV (.csv) format.,,
+,,,
+Field,Explanation,Allowed values / format,Example input
+Id,"Unique Crosslist identifier for the listing.
+Only necessary when updating listings.",Crosslist id; must be unique.,7d952d33-3e44-45d1-bf08-dacd9e8420a1
+Title,"Short, searchable name of the listing.",Text; 5–255 characters.,Classic Denim Jacket
+Description,Full description shown to buyers.,Text; can include line breaks; max 12 000 characters,Stylish vintage denim jacket in great condition
+Price,Sale price.,"Number; >= 0 (e.g., 49.99).",49.99
+Original Price,Compare-at/MSRP price.,Number; blank or >= price.,79.99
+Brand,Brand of the item.,Text.,Levis
+Category id,Crosslist category id of your listing.,Existing category ID see sheet 'Categories',0b6009b3-0082-7581-7b4b-096e0b105294
+Size id,Crosslist clothing size id.,"Existing size ID see sheet 'Sizes'; allowed values depend on the size group of the selected category. First check the size group in sheet 'Categories', then use sheet 'Sizes' to find the allowed size ids.",3ff7287f-9598-0e52-4919-ba3e0bbf751f
+Condition,Item condition state.,"One of: NewWithTags, NewWithoutTags, VeryGood, Good, Fair, Poor.",VeryGood
+Color,Primary color.,"One of: Red, Pink,Orange, Yellow, Green, Blue, Purple, Gold, Silver, Black, Gray, White, Cream, Beige, Brown, Tan, Khaki, Turquoise, Apricot, Coral, Burgundy, Rose, Lilac, LightBlue, Navy, DarkGreen, Mustard, Mint, Multi, Clear.",Blue
+Secondary color,Optional secondary color.,"One of: Red, Pink,Orange, Yellow, Green, Blue, Purple, Gold, Silver, Black, Gray, White, Cream, Beige, Brown, Tan, Khaki, Turquoise, Apricot, Coral, Burgundy, Rose, Lilac, LightBlue, Navy, DarkGreen, Mustard, Mint, Multi, Clear.",LightBlue
+Images,Image file names.,"Pipe delimited list (e.g., file1.jpg|file2.png|file3). Must match the file names (including extension) in the uploaded zip file",img1.jpg|img2.jpg
+Quantity,Number of items available.,Integer >= 0.,1
+Shipping weight,Weight for shipping calculation.,"Integer >= 0; Uses the unit specified in the “Shipping weight unit” column (if provided). Otherwise, defaults to ounces when Crosslist is set to Imperial, or grams when set to Metric.",4
+Shipping weight unit,Unit of the shipping weight.,"One of: Ounces, Grams",Ounces
+Shipping height,Package height.,"Integer >= 0; Uses inches if Crosslist is set to Imperial, or centimeters if set to Metric.",10
+Shipping width,Package width.,"Integer >= 0; Uses inches if Crosslist is set to Imperial, or centimeters if set to Metric.",30
+Shipping length,Package length.,"Integer >= 0; Uses inches if Crosslist is set to Imperial, or centimeters if set to Metric.",40
+Domestic shipping price,Shipping cost domestic.,Number >= 0 or empty.,5.99
+Worldwide shipping price,Shipping cost international.,Number >= 0 or empty.,14.99
+Free domestic shipping,Is domestic shipping free.,Boolean: TRUE/FALSE.,FALSE
+Free worldwide shipping,Is worldwide shipping free.,Boolean: TRUE/FALSE.,FALSE
+Tags,Search keywords.,Pipe delimited tags.,denim|jacket|vintage
+SKU,Stock keeping unit.,Text; should be unique.,SKU12345
+Who made,Who created the item.,"One of: IDid, SomeoneElse, Collective.",SomeoneElse
+When made,Production era.,"One of: MadeToOrder, From2020To2026, From2010To2019, From2007To2009, From2000To2006, 
+ From1990s, From1980s, From1970s, From1960s, From1950s, From1940s, From1930s, From1920s, 
+ From1910s, From1900s, From1800s, From1700s, Before1700, Before2007.",From1990s
+Smart pricing,Automatic pricing enabled.,Boolean: TRUE/FALSE.,FALSE
+Smart pricing price,Price used for smart pricing.,Number or empty;,10.5
+Accept offers,Can buyers make offers.,Boolean: TRUE/FALSE.,TRUE
+Is auction,Auction format enabled.,Boolean: TRUE/FALSE.,FALSE
+Auction starting price,Starting bid price.,Number;applicable if auction.,20
+Internal note,Private internal note.,Text.,Sample internal note
+Cost of goods,The cost of the product.,Number >= 0 or empty.,4.99

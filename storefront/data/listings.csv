@@ -1,0 +1,24 @@
+Id,Title,Description,Price,Original Price,Brand,Category id,Size id,Condition,Color,Secondary color,Images,Quantity,Shipping weight,Shipping weight unit,Shipping height,Shipping width,Shipping length,Domestic shipping price,Worldwide shipping price,Free domestic shipping,Free worldwide shipping,Tags,SKU,Who made,When made,Smart pricing,Smart pricing price,Accept offers,Is auction,Auction starting price,Internal note,Cost of goods,Size,Defects,Date Added
+MA-0001,Skinny Minnie,,9.99,,Skinny Minnie,,,VeryGood,,,,1,,,,,,,,FALSE,FALSE,vintage|summer|womens,VWM - Summer Women's Mix,SomeoneElse,,FALSE,,TRUE,FALSE,,,,Large Women's,,2026-08-14
+MA-0002,Ralph Lauren Polo,Navy with pinstripes,14.99,,Ralph Lauren,,,VeryGood,Navy,,,1,,,,,,,,FALSE,FALSE,vintage|polo,,SomeoneElse,,FALSE,,TRUE,FALSE,,,,XXL,,2026-08-14
+MA-0003,Ralph Lauren Polo,"Tartan check, labels cut",14.99,,Ralph Lauren,,,VeryGood,,,,1,,,,,,,,FALSE,FALSE,vintage|polo,VWM - RL Lacoste Polos,SomeoneElse,,FALSE,,TRUE,FALSE,,,,Small Men's,,2026-08-14
+MA-0004,Ralph Lauren Women's Polo Shirt,Black,12.99,,Ralph Lauren,,,VeryGood,Black,,,1,,,,,,,,FALSE,FALSE,vintage|y2k|polo|womens,VWM - Women's Y2K Mix,SomeoneElse,,FALSE,,TRUE,FALSE,,,,Large Women's,,2026-08-14
+MA-0005,Women's Bralette,Red,12.99,,,,,VeryGood,Red,,,1,,,,,,,,FALSE,FALSE,vintage|summer|womens,VWM - Women's Summer Mix,SomeoneElse,,FALSE,,TRUE,FALSE,,,,36,None,2026-08-14
+MA-0006,Women's Bralette,Black,8.99,,,,,VeryGood,Black,,,1,,,,,,,,FALSE,FALSE,vintage|y2k|womens,VWM - Women's Y2K Mix,SomeoneElse,,FALSE,,TRUE,FALSE,,,,Small,None,2026-08-14
+MA-0007,Ralph Lauren Women's Polo,Navy,12.99,,Ralph Lauren,,,VeryGood,Navy,,,1,,,,,,,,FALSE,FALSE,vintage|y2k|polo|womens,VWM - Women's Y2K Mix,SomeoneElse,,FALSE,,TRUE,FALSE,,,,Medium (10-12),,2026-08-14
+MA-0008,Nike Track Jacket,Green,24.99,,Nike,,,VeryGood,Green,,,1,,,,,,,,FALSE,FALSE,vintage|track jacket,VWM - Track Jacket,SomeoneElse,,FALSE,,TRUE,FALSE,,,,Large (oversized fit),,2026-08-14
+MA-0009,Harley Davidson Women's Cardigan,White,14.99,,Harley Davidson,,,VeryGood,White,,,1,,,,,,,,FALSE,FALSE,vintage|y2k|womens,VWM - Women's Y2K Mix,SomeoneElse,,FALSE,,TRUE,FALSE,,,,Medium,None,2026-08-14
+MA-0010,Ralph Lauren Women's Polo,"Navy
+
+Faults: One small discrepancy on the front (see images)",9.99,,Ralph Lauren,,,VeryGood,Navy,,,1,,,,,,,,FALSE,FALSE,vintage|polo|womens,VWM - RL Lacoste Polos,SomeoneElse,,FALSE,,TRUE,FALSE,,,,XL Women's,One small discrepancy on the front (see images),2026-08-14
+MA-0011,Nike Track Jacket,"Black and navy
+
+Faults: White marks on right sleeve (see images)",14.99,,Nike,,,VeryGood,Black,Navy,,1,,,,,,,,FALSE,FALSE,vintage|track jacket,VWM - Track Jacket,SomeoneElse,,FALSE,,TRUE,FALSE,,,,XL,White marks on right sleeve (see images),2026-08-14
+MA-0012,Ralph Lauren Polo,"Green with orange pony
+
+Faults: Discrepancies on the front",9.99,,Ralph Lauren,,,Good,Green,Orange,,1,,,,,,,,FALSE,FALSE,vintage|polo,VWM - RL Lacoste Polos,SomeoneElse,,FALSE,,TRUE,FALSE,,,,XXL Men's,Discrepancies on the front,2026-08-14
+MA-0013,Lacoste Polo,"Light green
+
+Faults: Discrepancies on the front (see images)",9.99,,Lacoste,,,Good,Green,,,1,,,,,,,,FALSE,FALSE,vintage|polo,VWM - RL Lacoste Polos,SomeoneElse,,FALSE,,TRUE,FALSE,,,,UK Small,Discrepancies on the front (see images),2026-08-14
+MA-0014,Lacoste Polo,Dark green,12.99,,Lacoste,,,VeryGood,DarkGreen,,,1,,,,,,,,FALSE,FALSE,vintage|polo,VWM - RL Lacoste Polos,SomeoneElse,,FALSE,,TRUE,FALSE,,,,UK Large,None,2026-08-14
+MA-0015,Ralph Lauren Polo,Turquoise,14.99,,Ralph Lauren,,,VeryGood,Turquoise,,,1,,,,,,,,FALSE,FALSE,vintage|polo,VWM - RL Lacoste Polos,SomeoneElse,,FALSE,,TRUE,FALSE,,,,Large,,2026-08-14

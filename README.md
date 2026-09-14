@@ -1,6 +1,6 @@
 # Milltown Archive
 
-Two things live in this repository.
+Three things live in this repository.
 
 ## The stock ledger (repository root)
 
@@ -12,7 +12,20 @@ The record of what has been logged from voice notes.
 - `pricing-notes.md` — the pricing data ledger. Prices are set by the owner;
   no price is ever suggested or inferred.
 
-## The website (`site/`)
+## The shop (`storefront/`)
+
+The retail storefront for **www.milltownarchive.co.uk** — one-of-one vintage,
+sold a piece at a time. A Next.js site whose whole catalogue is built from one
+file: `storefront/data/listings.csv`, the same Crosslist listing export that is
+uploaded to the marketplaces.
+
+`node storefront/scripts/inventory-to-crosslist.mjs` turns the ledger above
+into that CSV, so one voice note feeds the ledger, Crosslist and the shop.
+
+See [`storefront/README.md`](storefront/README.md) for the column mapping, how
+photographs are matched, and the six things to do before launch.
+
+## The trade site (`site/`)
 
 The Archive Wholesale storefront for **www.archivewholesale.co.uk** — a Next.js
 site with three ways to buy: fixed-price reseller boxes, counted lots from five
