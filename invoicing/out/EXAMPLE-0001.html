@@ -251,6 +251,7 @@
   .pay .row dt { margin: 0; color: var(--slate); }
   .pay .row dd { margin: 0; font-weight: 700; text-align: right; }
   .pay .missing { color: var(--alert); font-weight: 700; }
+  .pay a { color: var(--forest); font-weight: 700; word-break: break-all; }
   .pay p { margin: 2.5mm 0 0; font-size: 9pt; }
 
   .notes .eyebrow, .terms .eyebrow, .lot-summary .eyebrow { margin-bottom: 0; }
@@ -311,10 +312,7 @@
     </div>
   </header>
 
-  <section class="incomplete">
-           <h2 class="display">Not ready to send</h2>
-           <ul><li>Registered office address is not set in invoicing/company.json — a UK company must show it on its invoices.</li><li>Bank details are not set in invoicing/company.json — the customer has no way to pay.</li></ul>
-         </section>
+  
 
   <section class="parties">
     <div class="party">
@@ -322,7 +320,7 @@
       <div class="body">
         <span class="name">MANCH LTD</span>
         <span>t/a Archive Wholesale</span>
-        <span class="muted">[registered office address not set]</span>
+        <span>6 Knowsley Street</span><span>BB8 0SD</span>
         
       </div>
     </div>
@@ -444,15 +442,13 @@
     <div>
       <p class="eyebrow">How to pay</p>
       <dl>
-        <div class="row"><dt>Account name</dt><dd class="missing">not set</dd></div>
-        <div class="row"><dt>Sort code</dt><dd class="missing">not set</dd></div>
-        <div class="row"><dt>Account number</dt><dd class="missing">not set</dd></div>
+        <div class="row"><dt>Method</dt><dd>Secure payment link</dd></div>
         
-        
-        
+        <div class="row"><dt>Amount to pay</dt><dd class="num">£1,035.00</dd></div>
         <div class="row"><dt>Payment reference</dt><dd class="num">EXAMPLE-0001</dd></div>
       </dl>
-      <p>Please quote <strong>EXAMPLE-0001</strong> as the payment reference so the payment can be matched to this invoice.</p>
+      <p>A secure payment link is sent with this invoice.</p>
+             <p>Please quote <strong>EXAMPLE-0001</strong> if you need to reference this payment.</p>
     </div>
     <div>
       <p class="eyebrow">Queries</p>

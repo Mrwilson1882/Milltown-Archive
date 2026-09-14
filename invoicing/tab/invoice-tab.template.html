@@ -294,7 +294,7 @@
     .print-only { display: inline; }
     /* An optional field nobody filled in is not a blank line on a customer's
        invoice — it is simply not there. */
-    .meta .row[data-empty="1"] { display: none; }
+    .meta .row[data-empty="1"], .pay .row[data-empty="1"] { display: none; }
     .workbench { max-width: none; padding: 0; gap: 0; }
     .no-print { display: none !important; }
     .sheet { border: 0; padding: 0; gap: 7mm; }
@@ -478,12 +478,13 @@
       <div>
         <p class="eyebrow">How to pay</p>
         <dl>
-          <div class="row"><dt>Account name</dt><dd><input class="f" id="bankName" aria-label="Account name" placeholder="not set"></dd></div>
-          <div class="row"><dt>Sort code</dt><dd><input class="f num" id="bankSort" aria-label="Sort code" placeholder="not set"></dd></div>
-          <div class="row"><dt>Account number</dt><dd><input class="f num" id="bankAcc" aria-label="Account number" placeholder="not set"></dd></div>
+          <div class="row"><dt>Method</dt><dd>Secure payment link</dd></div>
+          <div class="row"><dt>Amount to pay</dt><dd class="num" id="payAmount">£0.00</dd></div>
           <div class="row"><dt>Payment reference</dt><dd class="num" id="payRef">—</dd></div>
+          <div class="row" id="payLinkRow"><dt>Pay online</dt><dd><input class="f" id="paymentLink" type="url"
+            aria-label="Payment link" placeholder="paste the link (optional)"></dd></div>
         </dl>
-        <p>Please quote <strong id="payRefInline">the invoice number</strong> as the payment reference so the payment can be matched to this invoice.</p>
+        <p>A secure payment link is sent with this invoice. Please quote <strong id="payRefInline">the invoice number</strong> if you need to reference this payment.</p>
       </div>
       <div>
         <p class="eyebrow">Queries</p>
@@ -723,6 +724,7 @@
 
     $("subtotal").textContent = money(subtotal);
     $("total").textContent = money(total);
+    $("payAmount").textContent = money(total);
 
     const summary = $("lotSummary");
     summary.hidden = !lines.length;
@@ -769,6 +771,7 @@
     const n = $("invoiceNo").value.trim();
     $("payRef").textContent = n || "—";
     $("payRefInline").textContent = n || "the invoice number";
+    $("payLinkRow").dataset.empty = $("paymentLink").value.trim() ? "0" : "1";
   }
 
   /* ------------------------------------------------ ready-to-send checks */
@@ -778,9 +781,6 @@
 
     if (!$("regOffice").value.trim()) {
       problems.push("Registered office address is not filled in — a UK company must show it on its invoices.");
-    }
-    if (!$("bankName").value.trim() || !$("bankSort").value.trim() || !$("bankAcc").value.trim()) {
-      problems.push("Bank details are not filled in — the customer has no way to pay this invoice.");
     }
     if (!$("invoiceNo").value.trim()) problems.push("This invoice has no number.");
     if (!$("custBusiness").value.trim() && !$("custContact").value.trim()) problems.push("No customer name.");
@@ -812,6 +812,7 @@
         phone: $("custPhone").value.trim(),
       },
       deliverTo: $("deliverTo").value.trim(),
+      paymentLink: $("paymentLink").value.trim(),
       lines: lines.map((l) => ({ ...l, amount: round2(l.qty * l.unitPrice) })),
       discount: round2(num($("discount").value)),
       delivery: round2(num($("delivery").value)),
@@ -836,6 +837,7 @@
     $("custEmail").value = c.email || "";
     $("custPhone").value = c.phone || "";
     $("deliverTo").value = inv.deliverTo || "";
+    $("paymentLink").value = inv.paymentLink || "";
     $("discount").value = inv.discount || "";
     $("delivery").value = inv.delivery || "";
     $("notes").value = inv.notes || "";
@@ -880,9 +882,6 @@
         const d = snap.data() || {};
         const apply = (id, v) => { const el = $(id); if (v != null && document.activeElement !== el) el.value = v; };
         apply("regOffice", d.registeredOffice);
-        apply("bankName", d.bankAccountName);
-        apply("bankSort", d.bankSortCode);
-        apply("bankAcc", d.bankAccountNumber);
         growAll();
         checkReady();
       }, () => {});
@@ -937,9 +936,6 @@
     try {
       await db.doc("settings/company").set({
         registeredOffice: $("regOffice").value.trim(),
-        bankAccountName: $("bankName").value.trim(),
-        bankSortCode: $("bankSort").value.trim(),
-        bankAccountNumber: $("bankAcc").value.trim(),
         updatedAt: new Date().toISOString(),
       });
     } catch (e) {
@@ -988,7 +984,7 @@
     lines = [];
     numberTouched = false;
     ["custBusiness", "custContact", "custAddress", "custEmail", "custPhone",
-     "deliverTo", "poNumber", "notes", "discount", "delivery", "supplyDate"]
+     "deliverTo", "poNumber", "notes", "discount", "delivery", "supplyDate", "paymentLink"]
       .forEach((id) => { $(id).value = ""; });
     $("invoiceDate").value = todayISO();
     $("terms").value = "Due on receipt";
@@ -1052,11 +1048,12 @@
   $("poNumber").addEventListener("input", updateDates);
 
   ["discount", "delivery"].forEach((id) => $(id).addEventListener("input", recalc));
+  $("paymentLink").addEventListener("input", updateRef);
 
   ["custBusiness", "custContact", "custAddress", "invoiceNo"].forEach((id) =>
     $(id).addEventListener("input", checkReady));
 
-  ["regOffice", "bankName", "bankSort", "bankAcc"].forEach((id) => {
+  ["regOffice"].forEach((id) => {
     const el = $(id);
     el.addEventListener("input", checkReady);
     el.addEventListener("change", saveCompany);

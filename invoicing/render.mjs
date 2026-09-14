@@ -305,6 +305,7 @@ const css = `
   .pay .row dt { margin: 0; color: var(--slate); }
   .pay .row dd { margin: 0; font-weight: 700; text-align: right; }
   .pay .missing { color: var(--alert); font-weight: 700; }
+  .pay a { color: var(--forest); font-weight: 700; word-break: break-all; }
   .pay p { margin: 2.5mm 0 0; font-size: 9pt; }
 
   .notes .eyebrow, .terms .eyebrow, .lot-summary .eyebrow { margin-bottom: 0; }
@@ -363,6 +364,9 @@ export function renderInvoice(inv, company, logoDataUri) {
     `<span class="muted">[registered office address not set]</span>`;
   const despatch = addressBlock(company.tradingAddress);
 
+  const method = company.payment?.method ?? "bank";
+  const showLink = method === "link" || method === "both";
+  const showBank = method === "bank" || method === "both";
   const bank = company.bank ?? {};
   const bankRow = (label, value) =>
     `<div class="row"><dt>${esc(label)}</dt><dd class="${value ? "num" : "missing"}">${
@@ -539,15 +543,27 @@ export function renderInvoice(inv, company, logoDataUri) {
     <div>
       <p class="eyebrow">How to pay</p>
       <dl>
-        ${bankRow("Account name", bank.accountName)}
-        ${bankRow("Sort code", bank.sortCode)}
-        ${bankRow("Account number", bank.accountNumber)}
-        ${bank.bankName ? `<div class="row"><dt>Bank</dt><dd>${esc(bank.bankName)}</dd></div>` : ""}
-        ${bank.iban ? `<div class="row"><dt>IBAN</dt><dd class="num">${esc(bank.iban)}</dd></div>` : ""}
-        ${bank.swift ? `<div class="row"><dt>SWIFT/BIC</dt><dd class="num">${esc(bank.swift)}</dd></div>` : ""}
+        ${showLink ? `<div class="row"><dt>Method</dt><dd>Secure payment link</dd></div>` : ""}
+        ${showBank ? `
+          ${bankRow("Account name", bank.accountName)}
+          ${bankRow("Sort code", bank.sortCode)}
+          ${bankRow("Account number", bank.accountNumber)}
+          ${bank.bankName ? `<div class="row"><dt>Bank</dt><dd>${esc(bank.bankName)}</dd></div>` : ""}
+          ${bank.iban ? `<div class="row"><dt>IBAN</dt><dd class="num">${esc(bank.iban)}</dd></div>` : ""}
+          ${bank.swift ? `<div class="row"><dt>SWIFT/BIC</dt><dd class="num">${esc(bank.swift)}</dd></div>` : ""}` : ""}
+        <div class="row"><dt>Amount to pay</dt><dd class="num">${money(inv.total)}</dd></div>
         <div class="row"><dt>Payment reference</dt><dd class="num">${esc(inv.invoiceNumber)}</dd></div>
       </dl>
-      <p>Please quote <strong>${esc(inv.invoiceNumber)}</strong> as the payment reference so the payment can be matched to this invoice.</p>
+      ${
+        showLink
+          ? `<p>${esc(company.payment.linkStatement)}${
+              inv.paymentLink
+                ? ` Pay online at <a href="${esc(inv.paymentLink)}">${esc(inv.paymentLink)}</a>.`
+                : ""
+            }</p>
+             <p>Please quote <strong>${esc(inv.invoiceNumber)}</strong> if you need to reference this payment.</p>`
+          : `<p>Please quote <strong>${esc(inv.invoiceNumber)}</strong> as the payment reference so the payment can be matched to this invoice.</p>`
+      }
     </div>
     <div>
       <p class="eyebrow">Queries</p>

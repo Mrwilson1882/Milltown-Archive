@@ -135,19 +135,30 @@ line with the rate you quoted.
 Everything printed in the company's own name lives in
 [`company.json`](company.json) — edit that file, never the generator.
 
-**Two things are deliberately blank and need filling in:**
+The registered office is **6 Knowsley Street, BB8 0SD**, as given by the owner.
+Companies House also carries a town line for that postcode — add it to
+`registeredOffice.lines` when confirmed rather than assuming it.
 
-1. **`registeredOffice`** — the registered office address as recorded at
-   Companies House for MANCH LTD (17064831). It could not be looked up
-   automatically: the Companies House site is blocked by this environment's
-   network policy. A UK limited company must show its registered office on its
-   invoices.
-2. **`bank`** — account name, sort code and account number. Without them the
-   customer has no way to pay.
+An invoice that is still missing something it needs — a customer, an address, a
+line, a price — **prints a red "Not ready to send" band** listing exactly what,
+so a half-finished invoice cannot go out by accident.
 
-Until both are set, **every invoice prints a red "Not ready to send" band**
-listing what is missing, so a half-finished invoice cannot go out by accident.
-Fill them in and the band disappears.
+### How the customer pays
+
+`payment.method` decides what the How to pay block shows:
+
+| Method | What prints |
+|---|---|
+| `"link"` *(current)* | "Secure payment link", the amount, the invoice number as reference, and the link itself if the job carries one |
+| `"bank"` | The account name, sort code and account number from `bank` |
+| `"both"` | Both |
+
+Payment is currently by link, so the `bank` fields are unused and not printed —
+they are kept in the file so bank transfer can be switched on later by changing
+one word.
+
+Add `"paymentLink": "https://…"` to a job to print the actual link on the
+invoice. Without one it just says a link is sent alongside.
 
 ### VAT
 
@@ -186,8 +197,9 @@ What it holds:
 - **A customer book** — saving an invoice saves the customer, and the next
   invoice for them is one dropdown away.
 - **The register** — every invoice saved, recallable, with a running number.
-- **Your company details** — the registered office and bank details are typed in
-  once and remembered for every invoice after.
+- **Your company details** — the registered office is typed in once and
+  remembered for every invoice after.
+- **A payment link field** — paste the link for that invoice and it prints on it.
 - **The same "Not ready to send" band**, live, updating as fields are filled.
 
 Print (⌘P / Ctrl-P) drops the controls and prints the sheet alone at A4.

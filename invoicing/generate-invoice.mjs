@@ -164,9 +164,13 @@ function findMissing(inv, company) {
       "Registered office address is not set in invoicing/company.json — a UK company must show it on its invoices.",
     );
   }
-  const bank = company.bank ?? {};
-  if (!bank.accountName || !bank.sortCode || !bank.accountNumber) {
-    out.push("Bank details are not set in invoicing/company.json — the customer has no way to pay.");
+  // Only bank transfer needs bank details. Payment by link needs nothing here —
+  // the link is sent alongside the invoice.
+  if ((company.payment?.method ?? "bank") !== "link") {
+    const bank = company.bank ?? {};
+    if (!bank.accountName || !bank.sortCode || !bank.accountNumber) {
+      out.push("Bank details are not set in invoicing/company.json — the customer has no way to pay.");
+    }
   }
   if (!inv.customer.business && !inv.customer.contact) {
     out.push("No customer name on this invoice.");
@@ -213,6 +217,7 @@ export function buildInvoice(job, company, catalogue, { reserveNumber = true } =
     delivery,
     vat,
     total: round2(net + vat),
+    paymentLink: job.paymentLink || "",
     notes: job.notes || "",
     totalPieces: lines.reduce((s, l) => s + l.pieces, 0),
   };
