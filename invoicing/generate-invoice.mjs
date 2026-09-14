@@ -22,6 +22,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { renderInvoice, money } from "./render.mjs";
+import { takeNext as takeOrderNumber, claim as claimOrderNumber, peek as peekOrderNumber } from "./reserve-order-numbers.mjs";
 
 /* Node reports the catalogue as a "typeless package" because it strips the
    TypeScript types at load. That is expected here and says nothing useful, so
@@ -193,9 +194,24 @@ export function buildInvoice(job, company, catalogue, { reserveNumber = true } =
   const net = round2(subtotal - discount + delivery);
   const vat = company.vat.registered ? round2(net * (company.vat.ratePercent / 100)) : 0;
 
+  const invoiceNumber =
+    job.invoiceNumber || (reserveNumber ? nextInvoiceNumber() : peekInvoiceNumber());
+
+  // An order number already quoted to the customer wins; otherwise take the
+  // oldest reserved-but-unused one, or reserve a fresh one. A blank invoice
+  // only peeks, so previewing one never burns a number.
+  let orderNumber = job.orderNumber || "";
+  if (orderNumber) {
+    if (reserveNumber) claimOrderNumber(orderNumber, invoiceNumber);
+  } else if (reserveNumber) {
+    orderNumber = takeOrderNumber(invoiceNumber);
+  } else {
+    orderNumber = peekOrderNumber();
+  }
+
   const inv = {
-    invoiceNumber:
-      job.invoiceNumber || (reserveNumber ? nextInvoiceNumber() : peekInvoiceNumber()),
+    invoiceNumber,
+    orderNumber,
     invoiceDate,
     supplyDate: job.supplyDate || "",
     paymentTerms,
@@ -256,7 +272,7 @@ async function main() {
   const outPath = join(OUT_DIR, `${blank ? "blank" : inv.invoiceNumber}.html`);
   writeFileSync(outPath, html);
 
-  console.log(`Invoice ${inv.invoiceNumber}  ->  ${outPath}`);
+  console.log(`Invoice ${inv.invoiceNumber}  ·  order ${inv.orderNumber}  ->  ${outPath}`);
   console.log(`  ${inv.lines.length} line(s), ${inv.totalPieces} pieces, total ${money(inv.total)}`);
   if (inv.missing.length) {
     console.log("\n  NOT READY TO SEND:");

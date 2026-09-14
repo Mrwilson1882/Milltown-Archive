@@ -125,6 +125,17 @@
   button.quiet:hover { border-color: var(--slate); color: var(--ink); }
   button[disabled] { opacity: 0.45; cursor: not-allowed; }
 
+  textarea.paste {
+    font: inherit; font-size: 14px; color: var(--ink); background: var(--paper);
+    border: 1px solid var(--ash); border-radius: 2px; padding: 9px 10px;
+    width: 100%; resize: vertical; min-height: 76px; line-height: 1.5;
+  }
+  textarea.paste:focus-visible { outline: 2px solid var(--forest); outline-offset: 1px; }
+
+  .report { margin: 0; font-size: 12.5px; color: var(--slate); line-height: 1.6; }
+  .report strong { color: var(--ink); }
+  .report .skipped { color: var(--alert); }
+
   .toast {
     font-size: 13px;
     color: var(--forest);
@@ -367,6 +378,18 @@
     </div>
 
     <div class="rail-group">
+      <p class="eyebrow">Paste from WhatsApp</p>
+      <textarea class="ctl paste" id="paste" rows="3"
+        aria-label="Paste the customer's WhatsApp message"
+        placeholder="Paste the whole message — name, address, email, phone, and the basket if they sent one"></textarea>
+      <div class="controls">
+        <button type="button" class="primary" id="readPaste">Read it</button>
+        <button type="button" class="quiet" id="clearPaste">Clear</button>
+      </div>
+      <p class="report" id="pasteReport" role="status" aria-live="polite"></p>
+    </div>
+
+    <div class="rail-group">
       <p class="eyebrow">This invoice</p>
       <div class="controls">
         <select class="ctl grow" id="recallCustomer" aria-label="Recall a saved customer">
@@ -375,6 +398,7 @@
         <select class="ctl grow" id="recallInvoice" aria-label="Open an invoice from the register">
           <option value="">Open an invoice from the register…</option>
         </select>
+        <button type="button" id="takeOrder">Take an order number</button>
         <button type="button" class="primary" id="issue">Save to register</button>
         <button type="button" id="print">Print / save PDF</button>
         <button type="button" class="quiet" id="fresh">Start a new invoice</button>
@@ -424,6 +448,7 @@
             <input class="f no-print" id="supplyDate" type="date" aria-label="Date of supply">
             <span class="print-only" id="supplyDateText"></span>
           </dd></div>
+          <div class="row"><dt>Order no.</dt><dd><input class="f num" id="orderNo" aria-label="Order number" placeholder="ORD-0007"></dd></div>
           <div class="row"><dt>Payment terms</dt><dd>
             <select class="f" id="terms" aria-label="Payment terms">
               <option>Due on receipt</option>
@@ -571,6 +596,9 @@
   let lines = [];
   let db = null;
   let numberTouched = false;
+  let orderTouched = false;
+  let orderPrefix = "ORD";
+  let orderPadding = 4;
 
   /* ------------------------------------------------------------- helpers */
 
@@ -597,6 +625,10 @@
 
   function formatNumber(n) {
     return `${PREFIX}-${String(n).padStart(PADDING, "0")}`;
+  }
+
+  function formatOrder(n) {
+    return `${orderPrefix}-${String(n).padStart(orderPadding, "0")}`;
   }
 
   function addDays(iso, days) {
@@ -824,11 +856,175 @@
     $("incompleteList").innerHTML = problems.map((p) => `<li>${p}</li>`).join("");
   }
 
+
+  /* ------------------------------------------------- reading a pasted message
+
+     Customer details are pulled out of whatever shape the message arrives in.
+     Order lines are only read when they are in the site's OWN basket format —
+     `• 1 × Product Name (25 pieces)`, written by CartView — because that one is
+     machine-generated and matches the catalogue exactly. Anything else is
+     listed back as skipped rather than guessed at, and no price is ever taken
+     from a message: prices come from the catalogue or from you.
+  */
+
+  const BOILERPLATE = [
+    /^hi\s+archive\s+wholesale/i,
+    /i'?d\s+like\s+to\s+order/i,
+    /i'?m\s+interested\s+in/i,
+    /^(order|this please|thanks|cheers|hi|hello|ok|okay)\b[\s.!]*$/i,
+    /^no problem/i,
+    /invoice is fine/i,
+  ];
+
+  const BASKET = /^[•\-*•]?\s*(\d+)\s*[x×*]\s*(.+?)\s*\((\d+)\s*(pieces|pairs|piece|pair)\)\s*$/i;
+  const EMAIL = /[\w.+-]+@[\w-]+\.[\w.-]+/;
+  const PHONE = /(?:\+44\s?|0)(?:\d\s?){9,12}/;
+  const POSTCODE = /\b[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}\b/i;
+  const CARRIAGE = /(?:postage|delivery|carriage|shipping)[^£\d]*£\s*(\d+(?:\.\d{1,2})?)|£\s*(\d+(?:\.\d{1,2})?)[^£\d]{0,20}?(?:postage|delivery|carriage|shipping)/i;
+
+  const norm = (s) => String(s).toLowerCase().replace(/[^a-z0-9]/g, "");
+
+  function matchProduct(name) {
+    const n = norm(name);
+    return CATALOGUE.find((p) => norm(p.name) === n)
+        || CATALOGUE.find((p) => norm(p.name).includes(n) || n.includes(norm(p.name)));
+  }
+
+  function parsePaste(text) {
+    const found = {
+      business: "", contact: "", address: [], email: "", phone: "",
+      delivery: null, lines: [], skipped: [],
+    };
+    const leftovers = [];
+
+    for (const raw of text.replace(/\r/g, "").split("\n")) {
+      const line = raw.trim().replace(/^[>*]\s*/, "");
+      if (!line) continue;
+      if (BOILERPLATE.some((re) => re.test(line))) continue;
+
+      const basket = BASKET.exec(line);
+      if (basket) {
+        const [, qty, name, pieces] = basket;
+        const product = matchProduct(name);
+        const variant = product && product.variants.find(([p]) => p === Number(pieces));
+        if (product && variant) {
+          const [lotPieces, price] = variant;
+          const unitWord = product.unit === "pairs" ? "pair" : "piece";
+          const detail = [`${lotPieces} ${product.unit} per lot`];
+          if (price != null) detail.push(`${money(round2(price / lotPieces))} per ${unitWord}`);
+          detail.push(`Grade ${product.grade}`);
+          found.lines.push({
+            name: product.name, detail: detail.join(" · "),
+            qty: Number(qty), qtyUnit: "lot",
+            unitPrice: price == null ? 0 : price,
+            pieces: lotPieces * Number(qty),
+            needsPrice: price == null, slug: product.slug, lotPieces,
+          });
+        } else {
+          found.skipped.push(`"${line}" — no ${pieces}-piece lot of that name in the catalogue`);
+        }
+        continue;
+      }
+
+      const labelled = /^([A-Za-z/ ]{2,30})\s*:\s*(.*)$/.exec(line);
+      const label = labelled ? labelled[1].trim().toLowerCase() : "";
+      const value = labelled ? labelled[2].trim() : "";
+
+      if (labelled && value) {
+        if (/^(full name|name|contact)$/.test(label)) { found.contact = value; continue; }
+        if (/^(business|company|trading name|business name)$/.test(label)) { found.business = value; continue; }
+        if (/address$/.test(label)) {
+          value.split(",").map((x) => x.trim()).filter(Boolean).forEach((x) => found.address.push(x));
+          continue;
+        }
+        if (/^e-?mail$/.test(label)) { found.email = value; continue; }
+        if (/^(phone|tel|telephone|mobile|number|contact number)$/.test(label)) { found.phone = value; continue; }
+      }
+
+      const email = EMAIL.exec(line);
+      if (email && line.replace(email[0], "").trim().length < 4) { found.email = email[0]; continue; }
+
+      const carriage = CARRIAGE.exec(line);
+      if (carriage) { found.delivery = Number(carriage[1] ?? carriage[2]); continue; }
+
+      const phone = PHONE.exec(line);
+      if (phone && line.replace(phone[0], "").replace(/[^\w]/g, "").length < 4) {
+        found.phone = phone[0].trim();
+        continue;
+      }
+
+      leftovers.push(line);
+    }
+
+    // Whatever is left is the name and the address. A line with a postcode in it
+    // is certainly address, and nothing above it can be the name.
+    if (leftovers.length) {
+      const firstPostcode = leftovers.findIndex((l) => POSTCODE.test(l));
+      const start = found.business || found.contact ? 0 : 1;
+      if (!found.business && !found.contact && firstPostcode !== 0) {
+        found.business = leftovers[0];
+      }
+      leftovers.slice(start).forEach((l) => {
+        l.split(",").map((x) => x.trim()).filter(Boolean).forEach((x) => found.address.push(x));
+      });
+    }
+
+    // A business name that is plainly a person keeps the person field instead.
+    if (found.business && !found.contact && /^[A-Z][a-z]+(?: [A-Z][a-z'-]+){1,2}$/.test(found.business)) {
+      found.contact = found.business;
+      found.business = "";
+    }
+
+    return found;
+  }
+
+  function applyPaste() {
+    const text = $("paste").value;
+    if (!text.trim()) { report("Nothing pasted yet."); return; }
+
+    const f = parsePaste(text);
+    const filled = [];
+
+    if (f.business) { $("custBusiness").value = f.business; filled.push(`business <strong>${escAttr(f.business)}</strong>`); }
+    if (f.contact) { $("custContact").value = f.contact; filled.push(`contact <strong>${escAttr(f.contact)}</strong>`); }
+    if (f.address.length) { $("custAddress").value = f.address.join("\n"); filled.push(`a ${f.address.length}-line address`); }
+    if (f.email) { $("custEmail").value = f.email; filled.push(`email <strong>${escAttr(f.email)}</strong>`); }
+    if (f.phone) { $("custPhone").value = f.phone; filled.push(`phone <strong>${escAttr(f.phone)}</strong>`); }
+    if (f.delivery != null) { $("delivery").value = f.delivery; filled.push(`delivery <strong>${money(f.delivery)}</strong>`); }
+
+    if (f.lines.length) {
+      lines = lines.concat(f.lines);
+      filled.push(`<strong>${f.lines.length}</strong> order line${f.lines.length === 1 ? "" : "s"}`);
+      renderLines();
+    }
+
+    growAll();
+    recalc();
+
+    if (!filled.length && !f.skipped.length) {
+      report("Nothing recognised in that. Fill the fields in by hand, or paste the message with the address on its own lines.");
+      return;
+    }
+
+    const unpriced = f.lines.filter((l) => l.needsPrice).length;
+    report(
+      `Filled in ${filled.join(", ")}.` +
+      (unpriced ? ` <span class="skipped">${unpriced} lot has no price on the site — type the price you agreed.</span>` : "") +
+      (f.skipped.length ? ` <span class="skipped">Skipped: ${f.skipped.map(escAttr).join("; ")}.</span>` : "") +
+      ` Check it against the message before you send.`,
+    );
+  }
+
+  function report(html) {
+    $("pasteReport").innerHTML = html;
+  }
+
   /* ------------------------------------------------------ reading/writing */
 
   function readInvoice() {
     return {
       invoiceNumber: $("invoiceNo").value.trim(),
+      orderNumber: $("orderNo").value.trim(),
       invoiceDate: $("invoiceDate").value,
       supplyDate: $("supplyDate").value,
       paymentTerms: $("terms").value,
@@ -856,6 +1052,7 @@
 
   function writeInvoice(inv) {
     $("invoiceNo").value = inv.invoiceNumber || "";
+    $("orderNo").value = inv.orderNumber || "";
     $("invoiceDate").value = inv.invoiceDate || todayISO();
     $("supplyDate").value = inv.supplyDate || "";
     $("terms").value = inv.paymentTerms || "Due on receipt";
@@ -917,6 +1114,16 @@
       }, () => {});
     } catch { /* a malformed path is a programming error, not a runtime one */ }
 
+    // Next order number, live. Shown as a preview until an invoice claims it,
+    // so simply opening the page never burns one.
+    db.doc("settings/orderCounter").onSnapshot((snap) => {
+      const next = snap.exists ? (snap.data().next ?? 1) : 1;
+      orderPrefix = snap.exists ? (snap.data().prefix ?? orderPrefix) : orderPrefix;
+      orderPadding = snap.exists ? (snap.data().padding ?? orderPadding) : orderPadding;
+      if (!orderTouched) $("orderNo").value = formatOrder(next);
+      checkReady();
+    }, () => {});
+
     // Next number, live, so the blank sheet always shows the right one.
     db.doc("settings/counter").onSnapshot((snap) => {
       const next = snap.exists ? (snap.data().next ?? 1) : 1;
@@ -943,7 +1150,8 @@
         snap.docs.map((d) => {
           const v = d.data() || {};
           const who = (v.customer && (v.customer.business || v.customer.contact)) || "—";
-          return `<option value="${escAttr(d.id)}">${escAttr(v.invoiceNumber || d.id)} · ${escAttr(who)} · ${money(v.total || 0)}</option>`;
+          const ord = v.orderNumber ? ` · ${escAttr(v.orderNumber)}` : "";
+          return `<option value="${escAttr(d.id)}">${escAttr(v.invoiceNumber || d.id)}${ord} · ${escAttr(who)} · ${money(v.total || 0)}</option>`;
         }).join("");
       sel.value = keep;
     }, () => {});
@@ -959,6 +1167,33 @@
     const next = snap.exists ? (snap.data().next ?? 1) : 1;
     await ref.set({ next: next + 1, prefix: PREFIX, padding: PADDING });
     return formatNumber(next);
+  }
+
+  /** Reserve the next order number and put it on the sheet. Used when an order
+   *  comes in and the customer wants a reference there and then, before there is
+   *  an invoice to hang it on. */
+  async function takeOrderNumber() {
+    if (!db) return;
+    const btn = $("takeOrder");
+    btn.disabled = true;
+    try {
+      const ref = db.doc("settings/orderCounter");
+      const lease = await ref.acquire({ holder: `tab-${Math.random().toString(36).slice(2)}`, ttlMs: 8000 });
+      if (!lease.acquired) { toast("Another tab is taking a number — try again in a moment.", "bad"); return; }
+      const snap = await ref.get();
+      const d = snap.exists ? snap.data() : {};
+      const next = d.next ?? 1;
+      await ref.set({ next: next + 1, prefix: d.prefix ?? orderPrefix, padding: d.padding ?? orderPadding });
+      const number = formatOrder(next);
+      $("orderNo").value = number;
+      orderTouched = true;
+      checkReady();
+      toast(`${number} is yours — quote it to the customer.`);
+    } catch {
+      toast("Could not take an order number.", "bad");
+    } finally {
+      btn.disabled = false;
+    }
   }
 
   async function saveCompany() {
@@ -994,9 +1229,25 @@
       const key = slugify(inv.customer.business || inv.customer.contact);
       if (key) await db.doc(`customers/${key}`).set({ ...inv.customer, updatedAt: inv.savedAt });
 
+      // The sheet has been showing this order number as a preview; saving is
+      // what claims it, so the counter moves past it here rather than on load.
+      const order = $("orderNo").value.trim();
+      if (order && !orderTouched) {
+        try {
+          const ref = db.doc("settings/orderCounter");
+          const snap = await ref.get();
+          const d = snap.exists ? snap.data() : {};
+          const next = d.next ?? 1;
+          if (formatOrder(next) === order) {
+            await ref.set({ next: next + 1, prefix: d.prefix ?? orderPrefix, padding: d.padding ?? orderPadding });
+          }
+        } catch { /* the invoice is saved either way; the number can be fixed by hand */ }
+      }
+
       numberTouched = true;
+      orderTouched = true;
       updateRef();
-      toast(`${number} saved to the register.`);
+      toast(`${number} saved to the register${order ? ` under order ${order}` : ""}.`);
     } catch (e) {
       const code = e && e.code;
       toast(
@@ -1014,16 +1265,22 @@
     lines = [];
     numberTouched = false;
     ["custBusiness", "custContact", "custAddress", "custEmail", "custPhone",
-     "deliverTo", "poNumber", "notes", "discount", "delivery", "supplyDate", "paymentLink"]
+     "deliverTo", "poNumber", "notes", "discount", "delivery", "supplyDate", "paymentLink", "orderNo"]
       .forEach((id) => { $(id).value = ""; });
     $("invoiceDate").value = todayISO();
     $("terms").value = "Due on receipt";
+    $("paste").value = "";
+    report("");
     $("recallCustomer").value = "";
     $("recallInvoice").value = "";
 
+    orderTouched = false;
     if (db) {
       db.doc("settings/counter").get()
         .then((s) => { $("invoiceNo").value = formatNumber(s.exists ? (s.data().next ?? 1) : 1); updateRef(); checkReady(); })
+        .catch(() => {});
+      db.doc("settings/orderCounter").get()
+        .then((s) => { $("orderNo").value = formatOrder(s.exists ? (s.data().next ?? 1) : 1); checkReady(); })
         .catch(() => {});
     }
 
@@ -1040,6 +1297,10 @@
   $("print").addEventListener("click", () => window.print());
   $("issue").addEventListener("click", issue);
   $("fresh").addEventListener("click", fresh);
+  $("takeOrder").addEventListener("click", takeOrderNumber);
+  $("readPaste").addEventListener("click", applyPaste);
+  $("clearPaste").addEventListener("click", () => { $("paste").value = ""; report(""); $("paste").focus(); });
+  $("orderNo").addEventListener("input", () => { orderTouched = true; checkReady(); });
 
   $("lines").addEventListener("input", (e) => {
     const field = e.target.dataset && e.target.dataset.field;
@@ -1116,6 +1377,7 @@
   fillProducts();
   $("invoiceDate").value = todayISO();
   $("invoiceNo").value = formatNumber(1);
+  $("orderNo").value = formatOrder(7);
   renderLines();
   growAll();
   connect();
