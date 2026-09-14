@@ -192,6 +192,12 @@
   .trading-line { margin: 3mm 0 0; font-size: 8pt; color: var(--slate); max-width: 72mm; text-wrap: balance; }
   .doc-title { text-align: right; min-width: 48mm; }
   .doc-title h2 { font-size: 24pt; }
+  .doc-note {
+    margin: 1.5mm 0 0; font-size: 7.5pt; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em; color: var(--slate);
+  }
+  .doc-note[hidden] { display: none; }
+
   .doc-title .f {
     margin-top: 2mm; font-size: 13pt; font-weight: 700; color: var(--forest);
     text-align: right; font-variant-numeric: tabular-nums;
@@ -348,7 +354,13 @@
   @media (max-width: 620px) {
     .sheet { padding: 10mm 6mm; font-size: 11pt; }
     .doc-title { text-align: left; }
-    .doc-title .f { text-align: left; }
+    .doc-note {
+    margin: 1.5mm 0 0; font-size: 7.5pt; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em; color: var(--slate);
+  }
+  .doc-note[hidden] { display: none; }
+
+  .doc-title .f { text-align: left; }
     .total-due .value { font-size: 15pt; }
   }
 
@@ -390,8 +402,12 @@
     </div>
 
     <div class="rail-group">
-      <p class="eyebrow">This invoice</p>
+      <p class="eyebrow">This document</p>
       <div class="controls">
+        <select class="ctl lot" id="docType" aria-label="Document type">
+          <option value="proforma">Pro forma — order not confirmed</option>
+          <option value="invoice">Invoice — confirmed sale</option>
+        </select>
         <select class="ctl grow" id="recallCustomer" aria-label="Recall a saved customer">
           <option value="">Recall a saved customer…</option>
         </select>
@@ -416,8 +432,9 @@
         <p class="trading-line">Archive Wholesale is a trading name of MANCH Ltd.</p>
       </div>
       <div class="doc-title">
-        <h2 class="display">Invoice</h2>
-        <input class="f" id="invoiceNo" aria-label="Invoice number" placeholder="AW-0001">
+        <h2 class="display" id="docTitle">Pro forma</h2>
+        <input class="f" id="invoiceNo" aria-label="Document number" placeholder="PF-0001">
+        <p class="doc-note" id="docNote">Not a tax invoice</p>
       </div>
     </header>
 
@@ -440,7 +457,7 @@
       <div class="party">
         <p class="eyebrow">Details</p>
         <dl class="meta">
-          <div class="row"><dt>Invoice date</dt><dd>
+          <div class="row"><dt id="dateLabel">Date</dt><dd>
             <input class="f no-print" id="invoiceDate" type="date" aria-label="Invoice date">
             <span class="print-only" id="invoiceDateText"></span>
           </dd></div>
@@ -467,7 +484,7 @@
 
     <section class="parties">
       <div class="party">
-        <p class="eyebrow">Invoice to</p>
+        <p class="eyebrow" id="toLabel">To</p>
         <div class="body">
           <input class="f bold" id="custBusiness" aria-label="Customer business name" placeholder="Business name">
           <input class="f" id="custContact" aria-label="Customer contact name" placeholder="Contact name (optional)">
@@ -522,10 +539,10 @@
           <div class="row"><dt>VAT</dt><dd>Not applicable</dd></div>
         </dl>
         <div class="total-due">
-          <span class="label">Total due</span>
+          <span class="label" id="totalLabel">Total payable</span>
           <span class="value" id="total">£0.00</span>
         </div>
-        <p class="vat-statement">MANCH Ltd is not registered for VAT. No VAT is charged on this invoice and none is recoverable from it.</p>
+        <p class="vat-statement" id="vatStatement">MANCH Ltd is not registered for VAT. No VAT is charged on this pro forma and none is recoverable from it.</p>
       </div>
     </section>
 
@@ -539,7 +556,7 @@
           <div class="row" id="payLinkRow"><dt>Pay online</dt><dd><input class="f" id="paymentLink" type="url"
             aria-label="Payment link" placeholder="paste the link (optional)"></dd></div>
         </dl>
-        <p>A secure payment link is sent with this invoice. Please quote <strong id="payRefInline">the invoice number</strong> if you need to reference this payment.</p>
+        <p>A secure payment link is sent with this document. Please quote <strong id="payRefInline">the reference above</strong> if you need to reference this payment.<span id="proformaPay"> Your order is held but not confirmed until payment is received, and a full invoice follows once it clears.</span></p>
       </div>
       <div>
         <p class="eyebrow">Queries</p>
@@ -558,8 +575,9 @@
     </section>
 
     <section class="terms">
-      <p class="eyebrow">Terms of sale</p>
+      <p class="eyebrow" id="termsLabel">Terms</p>
       <ol>
+        <li id="proformaTerm">This is a pro forma, not a tax invoice. It sets out what the order described would cost; no sale is made until it is paid.</li>
         <li>Goods remain the property of MANCH Ltd until paid for in full.</li>
         <li>Wholesale lots are sold as graded and described. Grades are defined at www.archivewholesale.co.uk/grading-guide.</li>
         <li>Lots are representative of the sort described; individual garments, brands and colourways vary.</li>
@@ -581,8 +599,10 @@
   "use strict";
 
   const CATALOGUE = [{"slug":"starter-box-10","name":"Starter Box — 10 Items","unit":"pieces","grade":"A/B","variants":[[10,90]]},{"slug":"y2k-designer-female-mix-box","name":"Y2K Designer Female Mix","unit":"pieces","grade":"A/B","variants":[[10,100],[20,180]]},{"slug":"designer-male-mix-box","name":"Designer Male Mix","unit":"pieces","grade":"A/B","variants":[[10,100],[20,180]]},{"slug":"lacoste-ralph-lauren-polos","name":"Lacoste / Ralph Lauren Polos","unit":"pieces","grade":"A/B","variants":[[10,85],[25,200],[50,375]]},{"slug":"ralph-lauren-polos","name":"Ralph Lauren Polos","unit":"pieces","grade":"A/B","variants":[[10,90],[25,200],[50,350]]},{"slug":"carhartt-dickies-t-shirts","name":"Carhartt / Dickies T-Shirts","unit":"pieces","grade":"A/B","variants":[[10,75],[25,181.25],[50,375]]},{"slug":"ralph-tommy-lacoste-mix","name":"Ralph, Tommy, Lacoste Mix","unit":"pieces","grade":"A/B","variants":[[10,95],[25,225],[50,425]]},{"slug":"mixed-premium-vintage-hoodies-sweatshirts","name":"Mixed Premium Vintage Hoodies & Sweatshirts","unit":"pieces","grade":"A/B","variants":[[10,95],[25,225],[50,425]]},{"slug":"mixed-premium-vintage-hoodies","name":"Mixed Premium Vintage Hoodies","unit":"pieces","grade":"A/B","variants":[[10,95],[25,225],[50,425]]},{"slug":"mixed-premium-vintage-sweatshirts","name":"Mixed Premium Vintage Sweatshirts","unit":"pieces","grade":"A/B","variants":[[10,95],[25,225],[50,425]]},{"slug":"lacoste-jumpers-cardigans","name":"Lacoste Jumpers & Cardigans","unit":"pieces","grade":"A/B","variants":[[10,100],[25,225],[50,425]]},{"slug":"festival-track-jackets","name":"Festival Track Jackets","unit":"pieces","grade":"A/B","variants":[[10,125],[25,275],[50,450]]},{"slug":"birkenstock-sandals","name":"Birkenstock Sandals","unit":"pairs","grade":"A/B","variants":[[10,80],[25,null],[50,null]]},{"slug":"bags","name":"Bags","unit":"pieces","grade":"A/B","variants":[[10,null],[25,null],[50,null]]},{"slug":"mixed-mens-lacoste","name":"Mixed Men's Lacoste","unit":"pieces","grade":"A/B","variants":[[10,90],[25,218.75],[50,425]]},{"slug":"t-shirt-mix","name":"Branded T-Shirt Mix","unit":"pieces","grade":"A/B","variants":[[10,65],[25,150],[50,275]]},{"slug":"jackets-windbreaker-mix","name":"Jackets & Windbreaker Mix","unit":"pieces","grade":"A/B","variants":[[10,125],[25,275],[50,450]]},{"slug":"mens-luxury-winter-mix","name":"Men's Luxury Winter Mix","unit":"pieces","grade":"A/B","variants":[[10,160]]},{"slug":"womens-y2k-summer-mix","name":"Women's Y2K Summer Mix","unit":"pieces","grade":"A/B","variants":[[10,100],[25,225],[50,400]]},{"slug":"designer-jackets","name":"Designer Jackets","unit":"pieces","grade":"A/B","variants":[[10,300]]}];
-  const PREFIX = "AW";
-  const PADDING = 4;
+  const SEQUENCES = {
+    proforma: { prefix: "PF", padding: 4, doc: "settings/proformaCounter" },
+    invoice: { prefix: "AW", padding: 4, doc: "settings/counter" },
+  };
 
   const $ = (id) => document.getElementById(id);
   const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 2 });
@@ -597,6 +617,7 @@
   let db = null;
   let numberTouched = false;
   let orderTouched = false;
+  const nextOf = { proforma: 1, invoice: 1 };
   let orderPrefix = "ORD";
   let orderPadding = 4;
 
@@ -623,8 +644,33 @@
     document.querySelectorAll("textarea.f").forEach(grow);
   }
 
-  function formatNumber(n) {
-    return `${PREFIX}-${String(n).padStart(PADDING, "0")}`;
+  const docType = () => ($("docType").value === "invoice" ? "invoice" : "proforma");
+
+  function formatNumber(n, type = docType()) {
+    const seq = SEQUENCES[type];
+    return `${seq.prefix}-${String(n).padStart(seq.padding, "0")}`;
+  }
+
+  /* A pro forma is a request for payment against an order that is not confirmed
+     yet; an invoice records a sale. They run separate number sequences, because
+     a pro forma that is never taken up must not leave a hole in the invoice
+     run. The wording follows the same switch. */
+  function applyDocType() {
+    const pf = docType() === "proforma";
+    $("docTitle").textContent = pf ? "Pro forma" : "Invoice";
+    $("docNote").hidden = !pf;
+    $("dateLabel").textContent = pf ? "Date" : "Invoice date";
+    $("toLabel").textContent = pf ? "To" : "Invoice to";
+    $("totalLabel").textContent = pf ? "Total payable" : "Total due";
+    $("termsLabel").textContent = pf ? "Terms" : "Terms of sale";
+    $("proformaTerm").hidden = !pf;
+    $("proformaPay").hidden = !pf;
+    $("vatStatement").textContent =
+      `MANCH Ltd is not registered for VAT. No VAT is charged on this ${pf ? "pro forma" : "invoice"} and none is recoverable from it.`;
+    $("invoiceNo").placeholder = pf ? "PF-0001" : "AW-0001";
+    // Left alone when the register is unreachable, so the switch cannot relabel
+    // a button that connect() has already disabled and explained.
+    if (db) $("issue").textContent = pf ? "Save pro forma" : "Save invoice";
   }
 
   function formatOrder(n) {
@@ -1023,6 +1069,7 @@
 
   function readInvoice() {
     return {
+      status: docType(),
       invoiceNumber: $("invoiceNo").value.trim(),
       orderNumber: $("orderNo").value.trim(),
       invoiceDate: $("invoiceDate").value,
@@ -1051,6 +1098,8 @@
   }
 
   function writeInvoice(inv) {
+    $("docType").value = inv.status === "invoice" ? "invoice" : "proforma";
+    applyDocType();
     $("invoiceNo").value = inv.invoiceNumber || "";
     $("orderNo").value = inv.orderNumber || "";
     $("invoiceDate").value = inv.invoiceDate || todayISO();
@@ -1124,13 +1173,16 @@
       checkReady();
     }, () => {});
 
-    // Next number, live, so the blank sheet always shows the right one.
-    db.doc("settings/counter").onSnapshot((snap) => {
-      const next = snap.exists ? (snap.data().next ?? 1) : 1;
-      if (!numberTouched) $("invoiceNo").value = formatNumber(next);
-      updateRef();
-      checkReady();
-    }, () => {});
+    // Next number for each sequence, live, so the sheet always shows the right
+    // one for whichever type is selected.
+    Object.entries(SEQUENCES).forEach(([type, seq]) => {
+      db.doc(seq.doc).onSnapshot((snap) => {
+        nextOf[type] = snap.exists ? (snap.data().next ?? 1) : 1;
+        if (!numberTouched && docType() === type) $("invoiceNo").value = formatNumber(nextOf[type], type);
+        updateRef();
+        checkReady();
+      }, () => {});
+    });
 
     db.collection("customers").orderBy("business").limit(200).onSnapshot((snap) => {
       const sel = $("recallCustomer");
@@ -1151,7 +1203,8 @@
           const v = d.data() || {};
           const who = (v.customer && (v.customer.business || v.customer.contact)) || "—";
           const ord = v.orderNumber ? ` · ${escAttr(v.orderNumber)}` : "";
-          return `<option value="${escAttr(d.id)}">${escAttr(v.invoiceNumber || d.id)}${ord} · ${escAttr(who)} · ${money(v.total || 0)}</option>`;
+          const kind = v.status === "invoice" ? "" : " · pro forma";
+          return `<option value="${escAttr(d.id)}">${escAttr(v.invoiceNumber || d.id)}${ord} · ${escAttr(who)} · ${money(v.total || 0)}${kind}</option>`;
         }).join("");
       sel.value = keep;
     }, () => {});
@@ -1160,12 +1213,13 @@
   /** Reserve the next number under a short lease, so two open tabs can never
    *  hand out the same one. */
   async function reserveNumber() {
-    const ref = db.doc("settings/counter");
+    const ref = db.doc(SEQUENCES[docType()].doc);
     const lease = await ref.acquire({ holder: `tab-${Math.random().toString(36).slice(2)}`, ttlMs: 8000 });
     if (!lease.acquired) return null;
     const snap = await ref.get();
     const next = snap.exists ? (snap.data().next ?? 1) : 1;
-    await ref.set({ next: next + 1, prefix: PREFIX, padding: PADDING });
+    const seq = SEQUENCES[docType()];
+    await ref.set({ next: next + 1, prefix: seq.prefix, padding: seq.padding });
     return formatNumber(next);
   }
 
@@ -1276,7 +1330,7 @@
 
     orderTouched = false;
     if (db) {
-      db.doc("settings/counter").get()
+      db.doc(SEQUENCES[docType()].doc).get()
         .then((s) => { $("invoiceNo").value = formatNumber(s.exists ? (s.data().next ?? 1) : 1); updateRef(); checkReady(); })
         .catch(() => {});
       db.doc("settings/orderCounter").get()
@@ -1298,6 +1352,12 @@
   $("issue").addEventListener("click", issue);
   $("fresh").addEventListener("click", fresh);
   $("takeOrder").addEventListener("click", takeOrderNumber);
+  $("docType").addEventListener("change", () => {
+    applyDocType();
+    if (!numberTouched) $("invoiceNo").value = formatNumber(nextOf[docType()]);
+    updateRef();
+    checkReady();
+  });
   $("readPaste").addEventListener("click", applyPaste);
   $("clearPaste").addEventListener("click", () => { $("paste").value = ""; report(""); $("paste").focus(); });
   $("orderNo").addEventListener("input", () => { orderTouched = true; checkReady(); });
@@ -1378,6 +1438,7 @@
   $("invoiceDate").value = todayISO();
   $("invoiceNo").value = formatNumber(1);
   $("orderNo").value = formatOrder(7);
+  applyDocType();
   renderLines();
   growAll();
   connect();

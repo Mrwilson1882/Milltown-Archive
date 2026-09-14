@@ -1,7 +1,9 @@
 {
-  "_readme": "A worked example showing every line shape. Copy this file, edit it, run the generator against it. Delete nothing you need — every field except `lines` is optional.",
+  "_readme": "A worked example showing every line shape. Copy this file, edit it, run the generator against it. Every field except `lines` is optional. `status` is \"proforma\" (the default — an order that is not confirmed yet) or \"invoice\" (a confirmed sale). The two run separate number sequences.",
 
+  "status": "invoice",
   "invoiceNumber": "EXAMPLE-0001",
+  "orderNumber": "ORD-EXAMPLE",
   "invoiceDate": "2026-09-14",
   "supplyDate": "2026-09-16",
   "paymentTerms": "30 days",

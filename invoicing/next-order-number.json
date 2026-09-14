@@ -7,12 +7,12 @@
     {
       "number": "ORD-0007",
       "reservedAt": "2026-09-14T19:36:16.446Z",
-      "usedOn": null
+      "usedOn": "AW-0001"
     },
     {
       "number": "ORD-0008",
       "reservedAt": "2026-09-14T19:36:16.446Z",
-      "usedOn": null
+      "usedOn": "AW-0002"
     },
     {
       "number": "ORD-0009",

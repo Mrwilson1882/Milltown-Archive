@@ -206,6 +206,35 @@ Print (⌘P / Ctrl-P) drops the controls and prints the sheet alone at A4.
 
 ---
 
+## Pro forma or invoice
+
+A **pro forma** is a request for payment against an order that is not confirmed
+yet — which is what a document sent alongside a payment link usually is. It is
+not a tax invoice, and it says so on its face. An **invoice** records a
+confirmed sale.
+
+They run **separate number sequences**, `PF-0001…` and `AW-0001…`, because a
+pro forma that is never taken up must not leave a hole in the invoice run.
+
+```jsonc
+{ "status": "proforma", … }   // the default
+{ "status": "invoice",  … }   // a confirmed sale
+```
+
+On a pro forma the document reads *Pro forma* under *Not a tax invoice*, the
+date is *Date* rather than *Invoice date*, the customer block is *To*, the total
+is *Total payable*, and the terms open with a line saying no sale is made until
+it is paid. In the tab it is the first dropdown under **This document**.
+
+`"validUntil": "2026-09-30"` adds a *Valid until* row, for holding a price.
+
+**When an order is confirmed and paid**, re-run the same job with
+`"status": "invoice"` and the `"invoiceNumber"` line removed. It takes the next
+AW number, keeps its order number, and the pro forma stays on file as the record
+of what was quoted.
+
+---
+
 ## Order numbers
 
 An order gets its number the moment it comes in — usually on WhatsApp, long
@@ -234,7 +263,8 @@ In the tab, **Take an order number** reserves one on the spot and puts it on the
 sheet. Otherwise the sheet previews the next one and claims it when the invoice
 is saved, so simply opening the page never burns a number.
 
-`ORD-0007` to `ORD-0011` are reserved and free to give out right now.
+`ORD-0007` went to SC Carpentry and `ORD-0008` to Dylan Djemil. **`ORD-0009`,
+`ORD-0010` and `ORD-0011` are reserved and free to give out right now.**
 
 ---
 
@@ -286,7 +316,8 @@ number.
 ```
 invoicing/
 ├── company.json          MANCH LTD's own details, bank, terms — edit this
-├── next-number.json      the invoice sequence
+├── next-number.json      the invoice sequence (AW-)
+├── next-proforma-number.json  the pro forma sequence (PF-)
 ├── next-order-number.json  the order sequence, and what is reserved
 ├── reserve-order-numbers.mjs  take order numbers ahead of an invoice
 ├── generate-invoice.mjs  the CLI

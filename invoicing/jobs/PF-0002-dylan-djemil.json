@@ -1,5 +1,7 @@
 {
-  "invoiceNumber": "AW-0002",
+  "invoiceNumber": "PF-0002",
+  "status": "proforma",
+  "orderNumber": "ORD-0008",
   "invoiceDate": "2026-09-14",
   "paymentTerms": "Due on receipt",
 

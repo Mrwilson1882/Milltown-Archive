@@ -96,6 +96,15 @@
 
   .doc-title { text-align: right; }
   .doc-title h1 { font-size: 24pt; }
+  .doc-note {
+    margin: 1.5mm 0 0;
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--slate);
+  }
+
   .doc-title .ref {
     margin: 2mm 0 0;
     font-size: 13pt;
@@ -338,6 +347,7 @@
     <div class="doc-title">
       <h1 class="display">Invoice</h1>
       <p class="ref num">EXAMPLE-0001</p>
+      
     </div>
   </header>
 
@@ -359,6 +369,8 @@
       <dl class="meta body">
         <div class="row"><dt>Invoice date</dt><dd>14 September 2026</dd></div>
         <div class="row"><dt>Date of supply</dt><dd>16 September 2026</dd></div>
+        <div class="row"><dt>Order no.</dt><dd class="num">ORD-EXAMPLE</dd></div>
+        
         <div class="row"><dt>Payment terms</dt><dd>30 days</dd></div>
         <div class="row"><dt>Payment due</dt><dd>14 October 2026</dd></div>
         <div class="row"><dt>Your order ref</dt><dd>PO-4471</dd></div>
@@ -495,7 +507,10 @@
 
   <section class="terms">
     <p class="eyebrow">Terms of sale</p>
-    <ol><li>Goods remain the property of MANCH Ltd until paid for in full.</li><li>Wholesale lots are sold as graded and described. Grades are defined at www.archivewholesale.co.uk/grading-guide.</li><li>Lots are representative of the sort described; individual garments, brands and colourways vary.</li><li>Sold as a trade supply to a business buyer. Consumer distance-selling cancellation rights do not apply.</li><li>Shortages or discrepancies must be notified within 48 hours of delivery.</li></ol>
+    <ol>
+      
+      <li>Goods remain the property of MANCH Ltd until paid for in full.</li><li>Wholesale lots are sold as graded and described. Grades are defined at www.archivewholesale.co.uk/grading-guide.</li><li>Lots are representative of the sort described; individual garments, brands and colourways vary.</li><li>Sold as a trade supply to a business buyer. Consumer distance-selling cancellation rights do not apply.</li><li>Shortages or discrepancies must be notified within 48 hours of delivery.</li>
+    </ol>
   </section>
 
   <footer class="foot">

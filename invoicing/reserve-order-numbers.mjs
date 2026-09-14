@@ -52,10 +52,12 @@ export function claim(number, invoiceNumber) {
   write(state);
 }
 
-/** The next number, without reserving it. */
+/** The number the next invoice would take, without taking it: the oldest
+ *  reserved-but-unused one, or the next unreserved. */
 export function peek() {
   const state = read();
-  return formatOrder(state, state.next);
+  const free = state.reserved.find((r) => !r.usedOn);
+  return free ? free.number : formatOrder(state, state.next);
 }
 
 /** Take the oldest reserved-but-unused number, or reserve a fresh one. */

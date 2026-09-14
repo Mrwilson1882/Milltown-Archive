@@ -150,6 +150,15 @@ const css = `
 
   .doc-title { text-align: right; }
   .doc-title h1 { font-size: 24pt; }
+  .doc-note {
+    margin: 1.5mm 0 0;
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--slate);
+  }
+
   .doc-title .ref {
     margin: 2mm 0 0;
     font-size: 13pt;
@@ -388,6 +397,11 @@ const css = `
  */
 export function renderInvoice(inv, company, logoDataUri) {
   const missing = inv.missing ?? [];
+  // A pro forma is a request for payment against an order that is not confirmed
+  // yet. It is not a tax invoice and says so, so nobody's bookkeeper treats it
+  // as one.
+  const proforma = inv.status === "proforma";
+  const docTitle = proforma ? "Pro forma" : "Invoice";
 
   const regOffice = addressBlock(company.registeredOffice) ||
     `<span class="muted">[registered office address not set]</span>`;
@@ -447,8 +461,9 @@ export function renderInvoice(inv, company, logoDataUri) {
       <p class="trading-line">${esc(company.tradingStatement)}</p>
     </div>
     <div class="doc-title">
-      <h1 class="display">Invoice</h1>
+      <h1 class="display">${docTitle}</h1>
       <p class="ref num">${esc(inv.invoiceNumber)}</p>
+      ${proforma ? `<p class="doc-note">Not a tax invoice</p>` : ""}
     </div>
   </header>
 
@@ -475,9 +490,10 @@ export function renderInvoice(inv, company, logoDataUri) {
     <div class="party">
       <p class="eyebrow">Details</p>
       <dl class="meta body">
-        <div class="row"><dt>Invoice date</dt><dd>${esc(longDate(inv.invoiceDate))}</dd></div>
+        <div class="row"><dt>${proforma ? "Date" : "Invoice date"}</dt><dd>${esc(longDate(inv.invoiceDate))}</dd></div>
         ${inv.supplyDate ? `<div class="row"><dt>Date of supply</dt><dd>${esc(longDate(inv.supplyDate))}</dd></div>` : ""}
         ${inv.orderNumber ? `<div class="row"><dt>Order no.</dt><dd class="num">${esc(inv.orderNumber)}</dd></div>` : ""}
+        ${proforma && inv.validUntil ? `<div class="row"><dt>Valid until</dt><dd>${esc(longDate(inv.validUntil))}</dd></div>` : ""}
         <div class="row"><dt>Payment terms</dt><dd>${esc(inv.paymentTerms)}</dd></div>
         ${inv.dueDate ? `<div class="row"><dt>Payment due</dt><dd>${esc(longDate(inv.dueDate))}</dd></div>` : ""}
         ${inv.poNumber ? `<div class="row"><dt>Your order ref</dt><dd>${esc(inv.poNumber)}</dd></div>` : ""}
@@ -488,7 +504,7 @@ export function renderInvoice(inv, company, logoDataUri) {
 
   <section class="parties">
     <div class="party">
-      <p class="eyebrow">Invoice to</p>
+      <p class="eyebrow">${proforma ? "To" : "Invoice to"}</p>
       <div class="body">
         ${
           inv.customer.business || inv.customer.contact
@@ -558,13 +574,17 @@ export function renderInvoice(inv, company, logoDataUri) {
         }
       </dl>
       <div class="total-due">
-        <span class="label">Total due</span>
+        <span class="label">${proforma ? "Total payable" : "Total due"}</span>
         <span class="amount num">${money(inv.total)}</span>
       </div>
       ${
         company.vat.registered
           ? ""
-          : `<p class="vat-statement">${esc(company.vat.notRegisteredStatement)}</p>`
+          : `<p class="vat-statement">${esc(
+              proforma
+                ? company.vat.notRegisteredStatement.replace(/\bthis invoice\b/gi, "this pro forma")
+                : company.vat.notRegisteredStatement,
+            )}</p>`
       }
     </div>
   </section>
@@ -591,7 +611,11 @@ export function renderInvoice(inv, company, logoDataUri) {
                 ? ` Pay online at <a href="${esc(inv.paymentLink)}">${esc(inv.paymentLink)}</a>.`
                 : ""
             }</p>
-             <p>Please quote <strong>${esc(inv.invoiceNumber)}</strong> if you need to reference this payment.</p>`
+             <p>Please quote <strong>${esc(inv.invoiceNumber)}</strong> if you need to reference this payment.${
+               proforma
+                 ? " Your order is held but not confirmed until payment is received, and a full invoice follows once it clears."
+                 : ""
+             }</p>`
           : `<p>Please quote <strong>${esc(inv.invoiceNumber)}</strong> as the payment reference so the payment can be matched to this invoice.</p>`
       }
     </div>
@@ -614,8 +638,11 @@ export function renderInvoice(inv, company, logoDataUri) {
   }
 
   <section class="terms">
-    <p class="eyebrow">Terms of sale</p>
-    <ol>${(company.defaults.terms ?? []).map((t) => `<li>${esc(t)}</li>`).join("")}</ol>
+    <p class="eyebrow">${proforma ? "Terms" : "Terms of sale"}</p>
+    <ol>
+      ${proforma ? `<li>This is a pro forma, not a tax invoice. It sets out what the order described would cost; no sale is made until it is paid.</li>` : ""}
+      ${(company.defaults.terms ?? []).map((t) => `<li>${esc(t)}</li>`).join("")}
+    </ol>
   </section>
 
   <footer class="foot">

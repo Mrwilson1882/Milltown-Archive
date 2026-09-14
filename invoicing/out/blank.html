@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Invoice AW-0003 — Archive Wholesale</title>
+<title>Invoice PF-0001 — Archive Wholesale</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap">
@@ -96,6 +96,15 @@
 
   .doc-title { text-align: right; }
   .doc-title h1 { font-size: 24pt; }
+  .doc-note {
+    margin: 1.5mm 0 0;
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--slate);
+  }
+
   .doc-title .ref {
     margin: 2mm 0 0;
     font-size: 13pt;
@@ -336,8 +345,9 @@
       <p class="trading-line">Archive Wholesale is a trading name of MANCH Ltd.</p>
     </div>
     <div class="doc-title">
-      <h1 class="display">Invoice</h1>
-      <p class="ref num">AW-0003</p>
+      <h1 class="display">Pro forma</h1>
+      <p class="ref num">PF-0001</p>
+      <p class="doc-note">Not a tax invoice</p>
     </div>
   </header>
 
@@ -360,9 +370,10 @@
     <div class="party">
       <p class="eyebrow">Details</p>
       <dl class="meta body">
-        <div class="row"><dt>Invoice date</dt><dd>14 September 2026</dd></div>
+        <div class="row"><dt>Date</dt><dd>14 September 2026</dd></div>
         
-        <div class="row"><dt>Order no.</dt><dd class="num">ORD-0007</dd></div>
+        <div class="row"><dt>Order no.</dt><dd class="num">ORD-0009</dd></div>
+        
         <div class="row"><dt>Payment terms</dt><dd>Due on receipt</dd></div>
         
         
@@ -373,7 +384,7 @@
 
   <section class="parties">
     <div class="party">
-      <p class="eyebrow">Invoice to</p>
+      <p class="eyebrow">To</p>
       <div class="body">
         <span class="muted">[customer not set]</span>
       </div>
@@ -422,10 +433,10 @@
         <div class="row"><dt>VAT</dt><dd>Not applicable</dd></div>
       </dl>
       <div class="total-due">
-        <span class="label">Total due</span>
+        <span class="label">Total payable</span>
         <span class="amount num">£0.00</span>
       </div>
-      <p class="vat-statement">MANCH Ltd is not registered for VAT. No VAT is charged on this invoice and none is recoverable from it.</p>
+      <p class="vat-statement">MANCH Ltd is not registered for VAT. No VAT is charged on this pro forma and none is recoverable from it.</p>
     </div>
   </section>
 
@@ -436,10 +447,10 @@
         <div class="row"><dt>Method</dt><dd>Secure payment link</dd></div>
         
         <div class="row"><dt>Amount to pay</dt><dd class="num">£0.00</dd></div>
-        <div class="row"><dt>Payment reference</dt><dd class="num">AW-0003</dd></div>
+        <div class="row"><dt>Payment reference</dt><dd class="num">PF-0001</dd></div>
       </dl>
       <p>A secure payment link is sent with this invoice.</p>
-             <p>Please quote <strong>AW-0003</strong> if you need to reference this payment.</p>
+             <p>Please quote <strong>PF-0001</strong> if you need to reference this payment. Your order is held but not confirmed until payment is received, and a full invoice follows once it clears.</p>
     </div>
     <div>
       <p class="eyebrow">Queries</p>
@@ -456,8 +467,11 @@
   
 
   <section class="terms">
-    <p class="eyebrow">Terms of sale</p>
-    <ol><li>Goods remain the property of MANCH Ltd until paid for in full.</li><li>Wholesale lots are sold as graded and described. Grades are defined at www.archivewholesale.co.uk/grading-guide.</li><li>Lots are representative of the sort described; individual garments, brands and colourways vary.</li><li>Sold as a trade supply to a business buyer. Consumer distance-selling cancellation rights do not apply.</li><li>Shortages or discrepancies must be notified within 48 hours of delivery.</li></ol>
+    <p class="eyebrow">Terms</p>
+    <ol>
+      <li>This is a pro forma, not a tax invoice. It sets out what the order described would cost; no sale is made until it is paid.</li>
+      <li>Goods remain the property of MANCH Ltd until paid for in full.</li><li>Wholesale lots are sold as graded and described. Grades are defined at www.archivewholesale.co.uk/grading-guide.</li><li>Lots are representative of the sort described; individual garments, brands and colourways vary.</li><li>Sold as a trade supply to a business buyer. Consumer distance-selling cancellation rights do not apply.</li><li>Shortages or discrepancies must be notified within 48 hours of delivery.</li>
+    </ol>
   </section>
 
   <footer class="foot">

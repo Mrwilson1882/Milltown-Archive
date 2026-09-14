@@ -36,6 +36,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = resolve(HERE, "..");
 const OUT_DIR = join(HERE, "out");
 const COUNTER = join(HERE, "next-number.json");
+const PF_COUNTER = join(HERE, "next-proforma-number.json");
 const LOGO = join(REPO, "site", "public", "logo.png");
 
 const readJson = (p) => JSON.parse(readFileSync(p, "utf8"));
@@ -57,23 +58,36 @@ function dueDateFor(terms, invoiceDate) {
   return m ? addDays(invoiceDate, Number(m[1])) : "";
 }
 
-/** The next invoice number, reserved and written back immediately so the same
- *  number is never issued twice. Sequential numbering is what makes a set of
- *  invoices auditable. */
-function nextInvoiceNumber() {
-  const state = existsSync(COUNTER)
-    ? readJson(COUNTER)
+/** Pro formas and invoices run separate sequences. A pro forma that is never
+ *  taken up must not leave a hole in the invoice run, so it never touches it. */
+const counterFor = (status) => (status === "proforma" ? PF_COUNTER : COUNTER);
+
+function counterState(status) {
+  const file = counterFor(status);
+  if (existsSync(file)) return readJson(file);
+  return status === "proforma"
+    ? { prefix: "PF", next: 1, padding: 4 }
     : { prefix: "AW", next: 1, padding: 4 };
-  const number = `${state.prefix}-${String(state.next).padStart(state.padding, "0")}`;
-  writeFileSync(COUNTER, `${JSON.stringify({ ...state, next: state.next + 1 }, null, 2)}\n`);
+}
+
+const formatRef = (state) =>
+  `${state.prefix}-${String(state.next).padStart(state.padding, "0")}`;
+
+/** The next number, reserved and written back immediately so the same number is
+ *  never issued twice. Sequential numbering is what makes a set of documents
+ *  auditable. */
+function nextInvoiceNumber(status) {
+  const state = counterState(status);
+  const number = formatRef(state);
+  writeFileSync(
+    counterFor(status),
+    `${JSON.stringify({ ...state, next: state.next + 1 }, null, 2)}\n`,
+  );
   return number;
 }
 
-function peekInvoiceNumber() {
-  const state = existsSync(COUNTER)
-    ? readJson(COUNTER)
-    : { prefix: "AW", next: 1, padding: 4 };
-  return `${state.prefix}-${String(state.next).padStart(state.padding, "0")}`;
+function peekInvoiceNumber(status) {
+  return formatRef(counterState(status));
 }
 
 /**
@@ -180,6 +194,9 @@ function findMissing(inv, company) {
     out.push("No customer address on this invoice.");
   }
   if (!inv.lines.length) out.push("No line items on this invoice.");
+  if (inv.status === "proforma" && inv.lines.some((l) => l.unitPrice === 0)) {
+    out.push("A line has no price — a pro forma exists to state the cost, so every line needs one.");
+  }
   return out;
 }
 
@@ -194,8 +211,13 @@ export function buildInvoice(job, company, catalogue, { reserveNumber = true } =
   const net = round2(subtotal - discount + delivery);
   const vat = company.vat.registered ? round2(net * (company.vat.ratePercent / 100)) : 0;
 
+  // Pro forma until the purchase is confirmed. That is the normal state of a
+  // document sent with a payment link, so it is the default.
+  const status = job.status === "invoice" ? "invoice" : "proforma";
+
   const invoiceNumber =
-    job.invoiceNumber || (reserveNumber ? nextInvoiceNumber() : peekInvoiceNumber());
+    job.invoiceNumber ||
+    (reserveNumber ? nextInvoiceNumber(status) : peekInvoiceNumber(status));
 
   // An order number already quoted to the customer wins; otherwise take the
   // oldest reserved-but-unused one, or reserve a fresh one. A blank invoice
@@ -210,8 +232,10 @@ export function buildInvoice(job, company, catalogue, { reserveNumber = true } =
   }
 
   const inv = {
+    status,
     invoiceNumber,
     orderNumber,
+    validUntil: job.validUntil || "",
     invoiceDate,
     supplyDate: job.supplyDate || "",
     paymentTerms,
@@ -260,7 +284,7 @@ async function main() {
   const catalogue = await import(join(REPO, "site", "src", "data", "catalogue.ts"));
 
   const job = blank
-    ? { invoiceNumber: peekInvoiceNumber(), lines: [] }
+    ? { status: "proforma", invoiceNumber: peekInvoiceNumber("proforma"), lines: [] }
     : readJson(resolve(jobPath));
 
   const inv = buildInvoice(job, company, catalogue, { reserveNumber: !blank && !job.invoiceNumber });
@@ -272,7 +296,8 @@ async function main() {
   const outPath = join(OUT_DIR, `${blank ? "blank" : inv.invoiceNumber}.html`);
   writeFileSync(outPath, html);
 
-  console.log(`Invoice ${inv.invoiceNumber}  ·  order ${inv.orderNumber}  ->  ${outPath}`);
+  const label = inv.status === "proforma" ? "Pro forma" : "Invoice";
+  console.log(`${label} ${inv.invoiceNumber}  ·  order ${inv.orderNumber}  ->  ${outPath}`);
   console.log(`  ${inv.lines.length} line(s), ${inv.totalPieces} pieces, total ${money(inv.total)}`);
   if (inv.missing.length) {
     console.log("\n  NOT READY TO SEND:");
