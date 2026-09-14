@@ -13,9 +13,8 @@
   },
 
   "lines": [
-    { "slug": "ralph-lauren-polos", "pieces": 25, "qty": 1 }
+    { "slug": "ralph-lauren-polos", "pieces": 25, "qty": 1, "unitPrice": 190 }
   ],
 
-  "discount": 10,
   "delivery": 25
 }
