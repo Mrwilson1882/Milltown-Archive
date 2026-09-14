@@ -1,0 +1,34 @@
+{
+  "_readme": "A worked example showing every line shape. Copy this file, edit it, run the generator against it. Delete nothing you need — every field except `lines` is optional.",
+
+  "invoiceNumber": "EXAMPLE-0001",
+  "invoiceDate": "2026-09-14",
+  "supplyDate": "2026-09-16",
+  "paymentTerms": "30 days",
+  "poNumber": "PO-4471",
+
+  "customer": {
+    "business": "Northern Thrift Co.",
+    "contact": "Sam Okafor",
+    "lines": ["Unit 7, Dale Street Mills", "Dale Street", "Manchester"],
+    "postcode": "M1 2HF",
+    "email": "buying@example.co.uk",
+    "phone": "0161 496 0000"
+  },
+
+  "deliverTo": {
+    "lines": ["Northern Thrift Co. — Warehouse", "Bay 3, Ashton Trade Park", "Ashton-under-Lyne"],
+    "postcode": "OL7 0PG"
+  },
+
+  "lines": [
+    { "slug": "lacoste-ralph-lauren-polos", "pieces": 25, "qty": 2 },
+    { "slug": "t-shirt-mix", "pieces": 50, "qty": 1 },
+    { "slug": "festival-track-jackets", "pieces": 10, "qty": 1, "unitPrice": 115, "note": "Agreed on WhatsApp, 14 Sep" },
+    { "description": "Mixed vintage — sorted, by the kilo", "qty": 50, "unit": "kg", "unitPrice": 4.5, "note": "50kg bale, women's summer sort" }
+  ],
+
+  "delivery": 45,
+  "discount": 25,
+  "notes": "Two pallets, booked for Wednesday. Shortages to be reported within 48 hours of delivery."
+}

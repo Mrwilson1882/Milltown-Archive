@@ -1,6 +1,6 @@
 # Milltown Archive
 
-Two things live in this repository.
+Three things live in this repository.
 
 ## The stock ledger (repository root)
 
@@ -23,5 +23,16 @@ things to do before launch (set prices, fill the catalogue gaps, add
 photography, add the WhatsApp number, connect Stripe).
 
 The same rule from `pricing-notes.md` applies there: only prices the owner has
-actually given are on the site. The two £200 reseller boxes are priced;
-everything else shows "Price on request" until a price is set.
+actually given are on the site. Anything still unpriced shows "Price on
+request" and takes an enquiry rather than an order.
+
+## Invoicing (`invoicing/`)
+
+Invoices for MANCH LTD, trading as Archive Wholesale. Prices are read from the
+website catalogue, so an invoice cannot quote a figure the site does not — and
+the same rule applies again: no price is ever inferred, and a lot with no price
+comes back as an error rather than a guess.
+
+See [`invoicing/README.md`](invoicing/README.md). Two fields are deliberately
+blank and need filling in before an invoice can be sent: the registered office
+address and the bank details.

@@ -1,0 +1,60 @@
+{
+  "_readme": "Company details printed on every invoice. Edit this file, not the generator. Fields left blank are NOT guessed — the generator prints a visible 'incomplete' band on the invoice until they are filled in, so a half-finished invoice can never be sent by accident.",
+
+  "legalName": "MANCH LTD",
+  "tradingAs": "Archive Wholesale",
+  "tradingStatement": "Archive Wholesale is a trading name of MANCH Ltd.",
+  "companyNumber": "17064831",
+  "registeredIn": "England and Wales",
+
+  "registeredOffice": {
+    "_note": "REQUIRED. The registered office address exactly as recorded at Companies House for MANCH LTD (17064831). Could not be looked up automatically — the Companies House site is blocked by this environment's network policy. Fill it in and the warning band disappears.",
+    "lines": [],
+    "postcode": ""
+  },
+
+  "tradingAddress": {
+    "_note": "Optional. Only set this if goods are despatched from somewhere other than the registered office. Leave lines empty to print the registered office alone.",
+    "lines": [],
+    "postcode": ""
+  },
+
+  "vat": {
+    "_note": "MANCH LTD is not VAT registered. Mirrors siteConfig.vat.registered in site/src/config/site.ts — flip BOTH together when registration comes through, and add the VAT number here.",
+    "registered": false,
+    "ratePercent": 20,
+    "number": "",
+    "notRegisteredStatement": "MANCH Ltd is not registered for VAT. No VAT is charged on this invoice and none is recoverable from it."
+  },
+
+  "contact": {
+    "email": "info@milltownarchive.co.uk",
+    "phone": "",
+    "whatsapp": "+44 7897 740194",
+    "website": "www.archivewholesale.co.uk"
+  },
+
+  "bank": {
+    "_note": "REQUIRED. Without these a customer cannot pay the invoice. Not guessed — fill them in.",
+    "accountName": "",
+    "sortCode": "",
+    "accountNumber": "",
+    "bankName": "",
+    "iban": "",
+    "swift": ""
+  },
+
+  "defaults": {
+    "paymentTerms": "Due on receipt",
+    "currency": "GBP",
+    "grade": "A/B",
+    "deliveryNote": "Delivery is quoted separately once we have your address and total weight.",
+    "terms": [
+      "Goods remain the property of MANCH Ltd until paid for in full.",
+      "Wholesale lots are sold as graded and described. Grades are defined at www.archivewholesale.co.uk/grading-guide.",
+      "Lots are representative of the sort described; individual garments, brands and colourways vary.",
+      "Sold as a trade supply to a business buyer. Consumer distance-selling cancellation rights do not apply.",
+      "Shortages or discrepancies must be notified within 48 hours of delivery."
+    ]
+  }
+}
