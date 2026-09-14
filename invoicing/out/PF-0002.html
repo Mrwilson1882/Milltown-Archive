@@ -312,7 +312,9 @@
   .foot .reg { max-width: 105mm; }
 
   /* ---- print ------------------------------------------------------------ */
-  @page { size: A4; margin: 12mm; }
+  /* 10mm, not the browser default: a short order then lands on one sheet, which
+     measured at 279mm of content against 273mm of usable page at 12mm. */
+  @page { size: A4; margin: 10mm; }
 
   @media print {
     body { background: var(--paper); padding: 0; }
@@ -321,8 +323,29 @@
       max-width: none;
       width: auto;
       padding: 0;
-      gap: 7mm;
+      gap: 3mm;
+      font-size: 9.5pt;
     }
+    .masthead { padding-bottom: 4mm; gap: 6mm; }
+    .masthead img { height: 12mm; }
+    .parties { gap: 5mm; }
+    .party .body { margin-top: 2mm; }
+    .meta { gap: 1mm; }
+    .meta .row { padding-bottom: 0.8mm; }
+    table.items tbody td { padding: 2mm 3mm; }
+    table.items thead th { padding: 2mm 3mm; }
+    .totals .row { padding: 1.2mm 0; }
+    .total-due { padding: 3mm 5mm; margin-top: 2mm; }
+    .total-due .amount { font-size: 15pt; }
+    .pay { padding: 4mm; gap: 5mm; }
+    .pay dl, .lot-summary dl { margin-top: 2mm; }
+    .pay p { margin-top: 2mm; }
+    .vat-statement { margin-top: 2mm; }
+    /* Two columns halves the depth of the terms, which is what decides whether
+       a short order comes off the printer as one sheet or two. */
+    .terms ol { font-size: 7.5pt; columns: 2; column-gap: 8mm; padding-left: 4mm; }
+    .terms li { margin-bottom: 0.6mm; break-inside: avoid; }
+    .foot { padding-top: 2mm; border-top-width: 1px; font-size: 7pt; }
     table.items thead { display: table-header-group; }
     table.items tr, .pay, .total-due, .incomplete { break-inside: avoid; }
     .foot { break-inside: avoid; }
@@ -461,7 +484,7 @@
         <div class="row"><dt>Amount to pay</dt><dd class="num">£200.00</dd></div>
         <div class="row"><dt>Payment reference</dt><dd class="num">PF-0002</dd></div>
       </dl>
-      <p>A secure payment link is sent with this invoice.</p>
+      <p>A secure payment link is sent with this pro forma.</p>
              <p>Please quote <strong>PF-0002</strong> if you need to reference this payment. Your order is held but not confirmed until payment is received, and a full invoice follows once it clears.</p>
     </div>
     <div>

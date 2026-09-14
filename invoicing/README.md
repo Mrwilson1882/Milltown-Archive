@@ -41,9 +41,23 @@ Output lands in `invoicing/out/<invoice-number>.html` — one self-contained fil
 with the logo embedded, so it opens anywhere, survives being emailed as an
 attachment, and prints to A4 with no assets to chase.
 
-**To make a PDF:** open the file in a browser and print (⌘P / Ctrl-P) →
-*Save as PDF*. The page is set to A4 with print margins, the controls and screen
-chrome drop away, and the table header repeats if it runs to a second page.
+**To make a PDF:**
+
+```bash
+node invoicing/to-pdf.mjs invoicing/out/PF-0001.html
+node invoicing/to-pdf.mjs --all
+```
+
+It writes `PF-0001.pdf` alongside the HTML. Archivo is inlined from
+`invoicing/fonts/` rather than pulled from Google, so the PDF is typeset in the
+brand face on any machine, online or not — without that, Chrome silently falls
+back to Helvetica and the document goes out looking like someone else's.
+
+Or open the `.html` in a browser and print (⌘P / Ctrl-P) → *Save as PDF*. Same
+result, as long as you are online for the font.
+
+The printed page is A4 at 10mm margins, tightened so a short order lands on one
+sheet; a longer one runs on, with the table header repeating.
 
 ---
 
