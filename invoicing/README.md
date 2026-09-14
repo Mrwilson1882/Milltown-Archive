@@ -135,9 +135,9 @@ line with the rate you quoted.
 Everything printed in the company's own name lives in
 [`company.json`](company.json) — edit that file, never the generator.
 
-The registered office is **6 Knowsley Street, BB8 0SD**, as given by the owner.
-Companies House also carries a town line for that postcode — add it to
-`registeredOffice.lines` when confirmed rather than assuming it.
+The registered office is **6 Knowsley Street, Colne, BB8 0SD**.
+
+
 
 An invoice that is still missing something it needs — a customer, an address, a
 line, a price — **prints a red "Not ready to send" band** listing exactly what,

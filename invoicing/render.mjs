@@ -235,6 +235,35 @@ const css = `
   .item-detail { display: block; margin-top: 1mm; color: var(--slate); font-size: 8.5pt; }
   .item-empty td { color: var(--slate); font-style: italic; }
 
+
+  /* On a narrow screen — a phone, or a preview panel — a four-column money
+     table pushes Unit price and Amount off the right edge, which reads as an
+     invoice with no prices on it. Below 640px each line becomes a block and
+     every figure carries its own label, so nothing is ever out of sight. */
+  @media screen and (max-width: 640px) {
+    table.items, table.items tbody, table.items tr, table.items td { display: block; width: 100%; }
+    table.items colgroup { display: none; }
+    table.items thead {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+    table.items tbody tr { border-bottom: 1px solid var(--ash); padding: 3mm 0; }
+    table.items tbody tr:last-child { border-bottom: 2px solid var(--ink); }
+    /* The cell rules belong to the column layout; in stacked mode the row
+       carries the only rule, so they are cleared at matching specificity. */
+    table.items tbody td,
+    table.items tbody tr:last-child td { border: 0; padding: 0; text-align: left; white-space: normal; }
+    table.items tbody td[data-label] {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 4mm; margin-top: 1.5mm;
+    }
+    table.items tbody td[data-label]::before {
+      content: attr(data-label);
+      color: var(--slate); font-size: 7.5pt; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; flex: none;
+    }
+  }
+
   /* ---- totals ----------------------------------------------------------- */
   .totals {
     display: flex;
@@ -382,17 +411,17 @@ export function renderInvoice(inv, company, logoDataUri) {
                 <span class="item-name">${esc(l.name)}</span>
                 ${l.detail ? `<span class="item-detail">${esc(l.detail)}</span>` : ""}
               </td>
-              <td class="c num">${esc(l.qtyLabel)}</td>
-              <td class="r num">${money(l.unitPrice)}</td>
-              <td class="r num">${money(l.lineTotal)}</td>
+              <td class="c num" data-label="Qty">${esc(l.qtyLabel)}</td>
+              <td class="r num" data-label="Unit price">${money(l.unitPrice)}</td>
+              <td class="r num" data-label="Amount">${money(l.lineTotal)}</td>
             </tr>`,
         )
         .join("")
     : `<tr class="item-empty">
          <td>No lines on this invoice yet</td>
-         <td class="c">&mdash;</td>
-         <td class="r">&mdash;</td>
-         <td class="r">&mdash;</td>
+         <td class="c" data-label="Qty">&mdash;</td>
+         <td class="r" data-label="Unit price">&mdash;</td>
+         <td class="r" data-label="Amount">&mdash;</td>
        </tr>`;
 
   const optionalTotal = (label, value) =>

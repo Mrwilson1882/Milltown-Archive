@@ -6,9 +6,10 @@
   "companyNumber": "17064831",
   "registeredIn": "England and Wales",
   "registeredOffice": {
-    "_note": "The registered office as given by the owner, 14 Sep 2026. Companies House also carries a town line for BB8 0SD — add it here when confirmed rather than assuming it.",
+    "_note": "The registered office as recorded at Companies House for MANCH LTD (17064831), confirmed by the owner 14 Sep 2026.",
     "lines": [
-      "6 Knowsley Street"
+      "6 Knowsley Street",
+      "Colne"
     ],
     "postcode": "BB8 0SD"
   },
@@ -25,10 +26,11 @@
     "notRegisteredStatement": "MANCH Ltd is not registered for VAT. No VAT is charged on this invoice and none is recoverable from it."
   },
   "contact": {
-    "email": "info@milltownarchive.co.uk",
+    "email": "info@archivewholesale.com",
     "phone": "",
     "whatsapp": "+44 7897 740194",
-    "website": "www.archivewholesale.co.uk"
+    "website": "www.archivewholesale.co.uk",
+    "_note": "Email given by the owner 14 Sep 2026 as info@archivewholesale.com — note .com, while the website is archivewholesale.co.uk. Confirm which is the live mailbox."
   },
   "bank": {
     "_note": "Only used when payment.method is 'bank' or 'both'. Payment is currently by link, so these are not required and are not printed.",

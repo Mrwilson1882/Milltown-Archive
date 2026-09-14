@@ -240,6 +240,36 @@
   }
   .drop:hover { color: var(--alert); background: var(--alert-wash); }
 
+
+  /* On a narrow screen — a phone, or a preview panel — a four-column money
+     table pushes Unit price and Amount off the right edge, which reads as an
+     invoice with no prices on it. Below 640px each line becomes a block and
+     every figure carries its own label, so nothing is ever out of sight. */
+  @media screen and (max-width: 640px) {
+    table.items, table.items tbody, table.items tr, table.items td { display: block; width: 100%; }
+    table.items colgroup { display: none; }
+    table.items thead {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+    table.items tbody tr { border-bottom: 1px solid var(--ash); padding: 3mm 0; }
+    table.items tbody tr:last-child { border-bottom: 2px solid var(--ink); }
+    /* The cell rules belong to the column layout; in stacked mode the row
+       carries the only rule, so they are cleared at matching specificity. */
+    table.items tbody td,
+    table.items tbody tr:last-child td { border: 0; padding: 0; text-align: left; white-space: normal; }
+    table.items tbody td[data-label] {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 4mm; margin-top: 1.5mm;
+    }
+    table.items tbody td[data-label] .item-detail { margin-top: 0; text-align: right; }
+    table.items tbody td[data-label]::before {
+      content: attr(data-label);
+      color: var(--slate); font-size: 7.5pt; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; flex: none;
+    }
+  }
+
   /* -------------------------------------------------------------- totals */
   .totals { display: flex; flex-wrap: wrap; gap: 6mm; align-items: flex-start; justify-content: space-between; }
   .totals-inner { width: 100%; max-width: 85mm; margin-left: auto; }
@@ -489,7 +519,7 @@
       <div>
         <p class="eyebrow">Queries</p>
         <dl>
-          <div class="row"><dt>Email</dt><dd>info@milltownarchive.co.uk</dd></div>
+          <div class="row"><dt>Email</dt><dd>info@archivewholesale.com</dd></div>
           <div class="row"><dt>WhatsApp</dt><dd class="num">+44 7897 740194</dd></div>
           <div class="row"><dt>Web</dt><dd>www.archivewholesale.co.uk</dd></div>
         </dl>
@@ -664,7 +694,7 @@
     if (!lines.length) {
       tb.innerHTML = `<tr class="empty-row">
         <td>No lines yet — add a lot from the catalogue above, or a custom line.</td>
-        <td class="c">—</td><td class="r">—</td><td class="r">—</td><td class="no-print"></td>
+        <td class="c" data-label="Qty">—</td><td class="r" data-label="Unit price">—</td><td class="r" data-label="Amount">—</td><td class="no-print"></td>
       </tr>`;
       recalc();
       return;
@@ -679,18 +709,18 @@
                  placeholder="${l.custom ? "Optional detail — rate, sort, what was agreed" : ""}"
                  aria-label="Line ${i + 1} detail">
         </td>
-        <td class="c">
+        <td class="c" data-label="Qty">
           <input class="f c num" data-field="qty" type="number" min="0" step="1" value="${l.qty}"
                  aria-label="Line ${i + 1} quantity">
           <input class="f c item-detail" data-field="qtyUnit" value="${escAttr(l.qtyUnit)}"
                  aria-label="Line ${i + 1} unit">
         </td>
-        <td class="r">
+        <td class="r" data-label="Unit price">
           <input class="f r num" data-field="unitPrice" type="number" min="0" step="0.01"
                  value="${l.unitPrice ? l.unitPrice : ""}" placeholder="0.00"
                  aria-label="Line ${i + 1} unit price">
         </td>
-        <td class="r amount" data-amount>${money(l.qty * l.unitPrice)}</td>
+        <td class="r amount" data-label="Amount" data-amount>${money(l.qty * l.unitPrice)}</td>
         <td class="no-print">
           <button type="button" class="drop" data-drop aria-label="Remove line ${i + 1}">&times;</button>
         </td>

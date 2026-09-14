@@ -181,6 +181,35 @@
   .item-detail { display: block; margin-top: 1mm; color: var(--slate); font-size: 8.5pt; }
   .item-empty td { color: var(--slate); font-style: italic; }
 
+
+  /* On a narrow screen — a phone, or a preview panel — a four-column money
+     table pushes Unit price and Amount off the right edge, which reads as an
+     invoice with no prices on it. Below 640px each line becomes a block and
+     every figure carries its own label, so nothing is ever out of sight. */
+  @media screen and (max-width: 640px) {
+    table.items, table.items tbody, table.items tr, table.items td { display: block; width: 100%; }
+    table.items colgroup { display: none; }
+    table.items thead {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+    table.items tbody tr { border-bottom: 1px solid var(--ash); padding: 3mm 0; }
+    table.items tbody tr:last-child { border-bottom: 2px solid var(--ink); }
+    /* The cell rules belong to the column layout; in stacked mode the row
+       carries the only rule, so they are cleared at matching specificity. */
+    table.items tbody td,
+    table.items tbody tr:last-child td { border: 0; padding: 0; text-align: left; white-space: normal; }
+    table.items tbody td[data-label] {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 4mm; margin-top: 1.5mm;
+    }
+    table.items tbody td[data-label]::before {
+      content: attr(data-label);
+      color: var(--slate); font-size: 7.5pt; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; flex: none;
+    }
+  }
+
   /* ---- totals ----------------------------------------------------------- */
   .totals {
     display: flex;
@@ -320,7 +349,7 @@
       <div class="body">
         <span class="name">MANCH LTD</span>
         <span>t/a Archive Wholesale</span>
-        <span>6 Knowsley Street</span><span>BB8 0SD</span>
+        <span>6 Knowsley Street</span><span>Colne</span><span>BB8 0SD</span>
         
       </div>
     </div>
@@ -380,36 +409,36 @@
                 <span class="item-name">Lacoste / Ralph Lauren Polos</span>
                 <span class="item-detail">25 pieces per lot · £8.00 per piece · Grade A/B</span>
               </td>
-              <td class="c num">2 lots</td>
-              <td class="r num">£200.00</td>
-              <td class="r num">£400.00</td>
+              <td class="c num" data-label="Qty">2 lots</td>
+              <td class="r num" data-label="Unit price">£200.00</td>
+              <td class="r num" data-label="Amount">£400.00</td>
             </tr>
             <tr>
               <td>
                 <span class="item-name">Branded T-Shirt Mix</span>
                 <span class="item-detail">50 pieces per lot · £5.50 per piece · Grade A/B</span>
               </td>
-              <td class="c num">1 lot</td>
-              <td class="r num">£275.00</td>
-              <td class="r num">£275.00</td>
+              <td class="c num" data-label="Qty">1 lot</td>
+              <td class="r num" data-label="Unit price">£275.00</td>
+              <td class="r num" data-label="Amount">£275.00</td>
             </tr>
             <tr>
               <td>
                 <span class="item-name">Festival Track Jackets</span>
                 <span class="item-detail">10 pieces per lot · £11.50 per piece · Grade A/B · Price as agreed · Agreed on WhatsApp, 14 Sep</span>
               </td>
-              <td class="c num">1 lot</td>
-              <td class="r num">£115.00</td>
-              <td class="r num">£115.00</td>
+              <td class="c num" data-label="Qty">1 lot</td>
+              <td class="r num" data-label="Unit price">£115.00</td>
+              <td class="r num" data-label="Amount">£115.00</td>
             </tr>
             <tr>
               <td>
                 <span class="item-name">Mixed vintage — sorted, by the kilo</span>
                 <span class="item-detail">50kg bale, women's summer sort</span>
               </td>
-              <td class="c num">50 kg</td>
-              <td class="r num">£4.50</td>
-              <td class="r num">£225.00</td>
+              <td class="c num" data-label="Qty">50 kg</td>
+              <td class="r num" data-label="Unit price">£4.50</td>
+              <td class="r num" data-label="Amount">£225.00</td>
             </tr></tbody>
     </table>
   </section>
@@ -453,7 +482,7 @@
     <div>
       <p class="eyebrow">Queries</p>
       <dl>
-        <div class="row"><dt>Email</dt><dd>info@milltownarchive.co.uk</dd></div>
+        <div class="row"><dt>Email</dt><dd>info@archivewholesale.com</dd></div>
         <div class="row"><dt>WhatsApp</dt><dd class="num">+44 7897 740194</dd></div>
         
         <div class="row"><dt>Web</dt><dd>www.archivewholesale.co.uk</dd></div>
