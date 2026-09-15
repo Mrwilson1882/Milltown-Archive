@@ -1,0 +1,17 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0005",
+  "orderNumber": "ORD-0010",
+  "invoiceDate": "2026-09-15",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Maia",
+    "lines": [],
+    "postcode": ""
+  },
+
+  "lines": [
+    { "slug": "starter-box-10", "pieces": 10, "qty": 1 }
+  ]
+}
