@@ -1,23 +1,23 @@
 {
   "_readme": "Order numbers run their own sequence, separate from invoice numbers, because an order gets its number the moment it comes in — on WhatsApp, before there is anything to invoice. Orders 1-6 predate this system; the owner confirmed 14 Sep 2026 that the next one is 7.",
   "prefix": "ORD",
-  "next": 12,
+  "next": 13,
   "padding": 4,
   "reserved": [
     {
       "number": "ORD-0007",
       "reservedAt": "2026-09-14T19:36:16.446Z",
-      "usedOn": "AW-0001"
+      "usedOn": "PF-0001"
     },
     {
       "number": "ORD-0008",
       "reservedAt": "2026-09-14T19:36:16.446Z",
-      "usedOn": "AW-0002"
+      "usedOn": "PF-0002"
     },
     {
       "number": "ORD-0009",
       "reservedAt": "2026-09-14T19:36:16.446Z",
-      "usedOn": null
+      "usedOn": "PF-0004"
     },
     {
       "number": "ORD-0010",
@@ -28,6 +28,11 @@
       "number": "ORD-0011",
       "reservedAt": "2026-09-14T19:36:16.446Z",
       "usedOn": null
+    },
+    {
+      "number": "ORD-0012",
+      "reservedAt": "2026-09-14T19:53:10.000Z",
+      "usedOn": "PF-0003"
     }
   ]
 }

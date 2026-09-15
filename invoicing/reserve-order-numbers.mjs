@@ -83,7 +83,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     const state = read();
     const open = state.reserved.filter((r) => !r.usedOn);
     const used = state.reserved.filter((r) => r.usedOn);
-    console.log(`Next unreserved: ${peek()}\n`);
+    console.log(`Next number an invoice would take: ${peek()}\n`);
     console.log(`Reserved and free to give out (${open.length}):`);
     for (const r of open) console.log(`  ${r.number}`);
     console.log(`\nUsed (${used.length}):`);

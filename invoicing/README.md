@@ -61,6 +61,17 @@ sheet; a longer one runs on, with the table header repeating.
 
 ---
 
+## Dates
+
+**A document carries the date it was asked for**, not the date the order came
+in and not the date a job file happens to be re-run. Owner's rule, 15 Sep 2026.
+
+Omitting `invoiceDate` dates it today, which is the same thing on the day. Write
+the date into the job anyway once it is raised, so re-running it later to fix a
+line does not silently move the date on a document the customer already has.
+
+---
+
 ## Writing a job file
 
 Copy [`jobs/example.json`](jobs/example.json) and edit it. Everything except
@@ -68,7 +79,7 @@ Copy [`jobs/example.json`](jobs/example.json) and edit it. Everything except
 
 ```jsonc
 {
-  "invoiceDate": "2026-09-14",      // defaults to today
+  "invoiceDate": "2026-09-15",      // the day it was asked for; defaults to today
   "supplyDate":  "2026-09-16",      // when the goods went out
   "paymentTerms": "30 days",        // free text; "N days" also sets a due date
   "poNumber": "PO-4471",            // the customer's own order reference
