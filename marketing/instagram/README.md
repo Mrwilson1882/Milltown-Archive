@@ -1,6 +1,6 @@
 # Instagram adverts
 
-Four files, two adverts. Each advert is cut twice because Instagram crops
+Six files, three adverts. Each advert is cut twice because Instagram crops
 differently in the two places you post it — a feed post is 4:5, a story or reel
 is 9:16, and one file will not do both without losing either the type or the
 garment.
@@ -11,6 +11,8 @@ garment.
 | `reseller-boxes-story.mp4` | Stories · Reels | 1080 × 1920 (9:16) | 14.4s |
 | `ralph-tommy-lacoste-mix-feed.mp4` | Feed post · Explore | 1080 × 1350 (4:5) | 14.0s |
 | `ralph-tommy-lacoste-mix-story.mp4` | Stories · Reels | 1080 × 1920 (9:16) | 14.0s |
+| `three-boxes-feed.mp4` | Feed post · Explore | 1080 × 1350 (4:5) | 9.0s |
+| `three-boxes-story.mp4` | Stories · Reels | 1080 × 1920 (9:16) | 9.0s |
 
 H.264, 30fps, silent stereo track, faststart. Under fifteen seconds each, as
 asked. Captions to go with them are in [`CAPTIONS.md`](CAPTIONS.md).
@@ -53,6 +55,24 @@ The three photographs run edge to edge with no gutter between them. Three
 across a 1080-wide canvas is only ever about 360px each, so every pixel of
 white space between them comes off the garments — the names underneath do the
 dividing instead.
+
+## Advert three — the three boxes, without the footage
+
+`three-boxes-*.mp4` is advert one with the opening taken off: no intake footage,
+just the box card and the closing card. Nine seconds instead of fourteen, and
+nothing in it that is not in the long cut — both adverts build their cards from
+the same `BOXES_CARD` and `CLOSING_CARD` in `build/ads.mjs`, so a price can only
+ever be changed in both at once.
+
+It opens differently, because it has to. With no footage ahead of it, the first
+frame *is* the cover image, so the headline and all three photographs are up
+from frame one and only the prices arrive — a white card caught mid-fade would
+waste the one frame that gets seen whether or not anyone presses play. The
+photographs also carry a very slow push, because nine seconds of a dead still
+reads as a picture and gets scrolled past.
+
+Use it where the price is the whole message: retargeting someone who has
+already seen the long cut, or a story slide that has to land in a thumb-flick.
 
 ## Advert two — Ralph, Tommy, Lacoste Mix
 

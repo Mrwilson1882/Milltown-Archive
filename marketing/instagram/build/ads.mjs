@@ -17,6 +17,33 @@ const FINE_PRINT =
 const V = (name) => `videos/products/${name}`;
 const P = (name) => `images/products/${name}`;
 
+/**
+ * The three boxes and the closing card, held in one place: the long cut plays
+ * them after the footage, and the short cut is nothing but these two.
+ */
+const BOXES_CARD = {
+  boxes: {
+    headline: "THREE RESELLER BOXES",
+    items: [
+      { photo: P("starter-box-10/01.jpg"), name: "STARTER\nBOX" },
+      { photo: P("designer-male-mix-box/01.jpg"), name: "DESIGNER\nMALE MIX" },
+      { photo: P("y2k-designer-female-mix-box/01.jpg"), name: "Y2K DESIGNER\nFEMALE MIX" },
+    ],
+    rows: [
+      ["STARTER BOX · 10", "£90"],
+      ["EITHER MIX BOX · 10", "£100"],
+      ["EITHER MIX BOX · 20", "£180"],
+    ],
+  },
+};
+
+const CLOSING_CARD = {
+  headline: "WE SORT IT.\nYOU SELL IT.",
+  sub: "Graded A/B · Lacoste · Ralph Lauren · Nike · Champion · Carhartt",
+  url: SITE,
+  fine: FINE_PRINT,
+};
+
 /* ===========================================================================
    ADVERT ONE — the reseller boxes, and the introduction
    =========================================================================== */
@@ -49,39 +76,8 @@ export const boxesAd = {
       headline: "WE SORT AND GRADE IT HERE",
       body: "Branded vintage for vintage shops, market traders and online resellers.",
     },
-    {
-      /**
-       * All three boxes on one card. The two Mix boxes are priced identically,
-       * so the ladder is written per price rather than per box — each figure
-       * appears once, and the Starter Box keeps its own £90 because it is not
-       * the same price and has no twenty.
-       */
-      start: 5.4,
-      end: 11.0,
-      boxes: {
-        headline: "THREE RESELLER BOXES",
-        items: [
-          { photo: P("starter-box-10/01.jpg"), name: "STARTER\nBOX" },
-          { photo: P("designer-male-mix-box/01.jpg"), name: "DESIGNER\nMALE MIX" },
-          { photo: P("y2k-designer-female-mix-box/01.jpg"), name: "Y2K DESIGNER\nFEMALE MIX" },
-        ],
-        rows: [
-          ["STARTER BOX · 10", "£90"],
-          ["EITHER MIX BOX · 10", "£100"],
-          ["EITHER MIX BOX · 20", "£180"],
-        ],
-      },
-    },
-    {
-      start: 11.0,
-      end: 14.4,
-      card: {
-        headline: "WE SORT IT.\nYOU SELL IT.",
-        sub: "Graded A/B · Lacoste · Ralph Lauren · Nike · Champion · Carhartt",
-        url: SITE,
-        fine: FINE_PRINT,
-      },
-    },
+    { start: 5.4, end: 11.0, ...BOXES_CARD },
+    { start: 11.0, end: 14.4, card: CLOSING_CARD },
   ],
 };
 
@@ -140,4 +136,39 @@ export const rtlAd = {
   ],
 };
 
-export const ADS = [boxesAd, rtlAd];
+/* ===========================================================================
+   ADVERT THREE — the same two cards, on their own
+   ===========================================================================
+   The long cut opens on footage of a box being turned over piece by piece.
+   This one drops it and runs only the boxes and the closing card, for the
+   times when the prices are the whole message. Nine seconds rather than
+   fourteen, and nothing in it that is not in the long cut.
+   =========================================================================== */
+
+export const threeBoxesAd = {
+  id: "three-boxes",
+  duration: 9.0,
+
+  /** Both scenes are full cards, so the window underneath is plain. */
+  shots: [
+    { dur: 5.4, kind: "plain" },
+    { dur: 3.6, kind: "plain" },
+  ],
+
+  scenes: [
+    {
+      start: 0,
+      end: 5.4,
+      /**
+       * `instant` puts the headline and all three photographs up on the first
+       * frame instead of building them in. With no footage ahead of it this is
+       * the advert's opening frame and Instagram's cover image, and a white
+       * card mid-fade is a wasted first beat. Only the prices arrive.
+       */
+      boxes: { ...BOXES_CARD.boxes, instant: true },
+    },
+    { start: 5.4, end: 9.0, card: CLOSING_CARD },
+  ],
+};
+
+export const ADS = [boxesAd, rtlAd, threeBoxesAd];

@@ -45,14 +45,20 @@ function sceneBody(scene, L) {
     const b = scene.boxes;
     out.push(`<div class="boxes">
       <div class="boxes-inner">
-        ${L.id === "feed" ? `<img class="boxes-logo" src="${"LOGO_SRC"}" data-in="0.0">` : ""}
-        <div class="boxes-head" data-in="0.06">${esc(b.headline)}</div>
+        ${
+          L.id === "feed"
+            ? `<img class="boxes-logo" src="${"LOGO_SRC"}" data-in="${b.instant ? "-0.5" : "0.0"}">`
+            : ""
+        }
+        <div class="boxes-head" data-in="${b.instant ? "-0.5" : "0.06"}">${esc(b.headline)}</div>
         <div class="boxes-grid">
           ${b.items
             .map(
               (it, i) =>
-                `<div class="box" data-in="${(0.24 + i * 0.2).toFixed(2)}">
-                   <img src="IMG:${it.photo}">
+                `<div class="box" data-in="${(b.instant ? -0.5 : 0.24 + i * 0.2).toFixed(2)}">
+                   <div class="box-shot"><img src="IMG:${it.photo}"${
+                     b.instant ? ' data-drift="0.055"' : ""
+                   }></div>
                    <div class="box-name">${esc(it.name).replaceAll("\n", "<br>")}</div>
                  </div>`,
             )
@@ -61,7 +67,9 @@ function sceneBody(scene, L) {
         <div class="rows">${b.rows
           .map(
             (r, i) =>
-              `<div class="row" data-in="${(1.0 + i * 0.24).toFixed(2)}"><span class="row-k">${esc(
+              `<div class="row" data-in="${(
+                b.instant ? 0.45 + i * 0.28 : 1.0 + i * 0.24
+              ).toFixed(2)}"><span class="row-k">${esc(
                 r[0],
               )}</span><span class="row-dot"></span><span class="row-v">${esc(r[1])}</span></div>`,
           )
@@ -221,7 +229,8 @@ ${isStory ? ".words .word{display:block}" : ".words .word{display:inline-block;m
 .boxes-grid{display:flex;gap:0;margin-top:${isStory ? 58 : 46}px;
   margin-left:-${isStory ? 90 : 60}px;margin-right:-${isStory ? 90 : 60}px}
 .box{flex:1 1 0;min-width:0;text-align:center}
-.box img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:${BRAND.paper}}
+.box-shot{overflow:hidden;aspect-ratio:1;background:${BRAND.paper}}
+.box-shot img{display:block;width:100%;height:100%;object-fit:cover;transform-origin:center}
 .box-name{margin-top:${isStory ? 14 : 12}px;padding:0 10px;font-weight:900;
   text-transform:uppercase;letter-spacing:-.01em;line-height:1.06;
   font-size:${isStory ? 26 : 24}px}
@@ -262,6 +271,10 @@ const scenes = [...document.querySelectorAll('.scene')].map((el) => ({
   start: parseFloat(el.dataset.start),
   end: parseFloat(el.dataset.end),
   items: [...el.querySelectorAll('[data-in]')],
+  // A very slow push on the photographs. A card with no footage behind it is
+  // otherwise nine seconds of a still, which the feed reads as a picture and
+  // scrolls straight past.
+  drifts: [...el.querySelectorAll('[data-drift]')],
 }));
 const chromeItems = [...document.querySelectorAll('.chrome [data-in]')];
 
@@ -306,7 +319,13 @@ window.renderFrame = function (t) {
   for (const s of scenes) {
     const on = t >= s.start && t < s.end;
     s.el.style.display = on ? 'block' : 'none';
-    if (on) animate(s.items, t - s.start, s.end - s.start);
+    if (!on) continue;
+    animate(s.items, t - s.start, s.end - s.start);
+    const progress = clamp01((t - s.start) / (s.end - s.start));
+    for (const el of s.drifts) {
+      const amount = parseFloat(el.dataset.drift);
+      el.style.transform = 'scale(' + (1 + amount * progress).toFixed(4) + ')';
+    }
   }
   return true;
 };
