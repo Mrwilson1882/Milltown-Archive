@@ -191,33 +191,42 @@ function defaultCarriage(lines, company) {
  *  accident. */
 function findMissing(inv, company) {
   const out = [];
+  const add = (key, text) => out.push({ key, text });
+
   const office = company.registeredOffice ?? {};
   if (!(office.lines ?? []).filter(Boolean).length) {
-    out.push(
-      "Registered office address is not set in invoicing/company.json — a UK company must show it on its invoices.",
-    );
+    add("registeredOffice",
+      "Registered office address is not set in invoicing/company.json — a UK company must show it on its invoices.");
   }
+
   // Only bank transfer needs bank details. Payment by link needs nothing here —
   // the link is sent alongside the invoice.
   if ((company.payment?.method ?? "bank") !== "link") {
     const bank = company.bank ?? {};
     if (!bank.accountName || !bank.sortCode || !bank.accountNumber) {
-      out.push("Bank details are not set in invoicing/company.json — the customer has no way to pay.");
+      add("bank", "Bank details are not set in invoicing/company.json — the customer has no way to pay.");
     }
   }
-  if (!inv.customer.business && !inv.customer.contact) {
-    out.push("No customer name on this invoice.");
-  }
+
+  if (!inv.customer.business && !inv.customer.contact) add("customerName", "No customer name on this invoice.");
+
   // A pro forma is a quotation; it can go out before an address is known. A
-  // sales invoice cannot.
+  // sales invoice cannot — so this one is only waivable deliberately, by naming
+  // it in the job's `acknowledge` list.
   if (inv.status === "invoice" && !(inv.customer.lines ?? []).filter(Boolean).length) {
-    out.push("No customer address on this invoice.");
+    add("customerAddress", "No customer address on this invoice.");
   }
-  if (!inv.lines.length) out.push("No line items on this invoice.");
+
+  if (!inv.lines.length) add("lines", "No line items on this invoice.");
   if (inv.status === "proforma" && inv.lines.some((l) => l.unitPrice === 0)) {
-    out.push("A line has no price — a pro forma exists to state the cost, so every line needs one.");
+    add("linePrice", "A line has no price — a pro forma exists to state the cost, so every line needs one.");
   }
-  return out;
+
+  const acknowledged = new Set(inv.acknowledge ?? []);
+  return {
+    problems: out.filter((p) => !acknowledged.has(p.key)).map((p) => p.text),
+    waived: out.filter((p) => acknowledged.has(p.key)).map((p) => p.text),
+  };
 }
 
 export function buildInvoice(job, company, catalogue, { reserveNumber = true } = {}) {
@@ -285,11 +294,14 @@ export function buildInvoice(job, company, catalogue, { reserveNumber = true } =
     total: round2(net + vat),
     paymentLink: job.paymentLink || "",
     notes: job.notes || "",
+    acknowledge: job.acknowledge ?? [],
     carriageDefaulted: carriageDefaulted && delivery > 0,
     totalPieces: lines.reduce((s, l) => s + l.pieces, 0),
   };
 
-  inv.missing = findMissing(inv, company);
+  const checks = findMissing(inv, company);
+  inv.missing = checks.problems;
+  inv.waived = checks.waived;
   return inv;
 }
 
@@ -329,6 +341,10 @@ async function main() {
   console.log(`  ${inv.lines.length} line(s), ${inv.totalPieces} pieces, total ${money(inv.total)}`);
   if (inv.carriageDefaulted) {
     console.log(`  carriage ${money(inv.delivery)} from the standing rate for a ${inv.lines[0].lotPieces}-piece lot`);
+  }
+  if (inv.waived.length) {
+    console.log("\n  WAIVED at your request (not shown on the document):");
+    for (const m of inv.waived) console.log(`  - ${m}`);
   }
   if (inv.missing.length) {
     console.log("\n  NOT READY TO SEND:");

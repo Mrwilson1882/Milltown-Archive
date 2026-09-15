@@ -85,6 +85,28 @@ carriage £10.00 from the standing rate for a 10-piece lot
 
 ---
 
+## Waiving a check
+
+An invoice that is missing something it needs prints the red band. To send one
+anyway, name the check in the job — the waiver is then recorded in the job file
+rather than being a check quietly skipped:
+
+```jsonc
+{
+  "_acknowledge": "why this was waived, and who asked",
+  "acknowledge": ["customerAddress"]
+}
+```
+
+Keys: `registeredOffice`, `bank`, `customerName`, `customerAddress`, `lines`,
+`linePrice`. The generator lists what it waived every time it runs.
+
+Used once so far, on AW-0001: the owner asked for a sales invoice with no
+address. A UK sales invoice should carry the customer's address, so it is
+waived deliberately and on the record, not dropped.
+
+---
+
 ## Dates
 
 **A document carries the date it was asked for**, not the date the order came
