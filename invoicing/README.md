@@ -61,6 +61,30 @@ sheet; a longer one runs on, with the table header repeating.
 
 ---
 
+## Carriage
+
+A standing rate fills itself in: **£10 on a single 10-piece lot**. Owner's rule,
+15 Sep 2026 — *"£10 for 10 polos always unless stated"*.
+
+It applies only when a job states no `delivery` of its own **and** the order is a
+single lot of that size. A bigger or mixed order is quoted, because a rate for
+one parcel says nothing about two. `"delivery": 0` is a statement and wins, the
+same as any other figure.
+
+Rates live in `company.json` under `defaults.carriage.byLotSize`. Only the
+10-piece rate is set. The £15 on PF-0001's 25-piece lot and the £25 on a two-lot
+order were quoted case by case and are deliberately **not** in the table — one
+quote is not a rate.
+
+The generator says so when it applies one, so a defaulted figure is never
+silent:
+
+```
+carriage £10.00 from the standing rate for a 10-piece lot
+```
+
+---
+
 ## Dates
 
 **A document carries the date it was asked for**, not the date the order came

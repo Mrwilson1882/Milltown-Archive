@@ -599,6 +599,11 @@
   "use strict";
 
   const CATALOGUE = [{"slug":"starter-box-10","name":"Starter Box — 10 Items","unit":"pieces","grade":"A/B","variants":[[10,90]]},{"slug":"y2k-designer-female-mix-box","name":"Y2K Designer Female Mix","unit":"pieces","grade":"A/B","variants":[[10,100],[20,180]]},{"slug":"designer-male-mix-box","name":"Designer Male Mix","unit":"pieces","grade":"A/B","variants":[[10,100],[20,180]]},{"slug":"lacoste-ralph-lauren-polos","name":"Lacoste / Ralph Lauren Polos","unit":"pieces","grade":"A/B","variants":[[10,85],[25,200],[50,375]]},{"slug":"ralph-lauren-polos","name":"Ralph Lauren Polos","unit":"pieces","grade":"A/B","variants":[[10,90],[25,200],[50,350]]},{"slug":"carhartt-dickies-t-shirts","name":"Carhartt / Dickies T-Shirts","unit":"pieces","grade":"A/B","variants":[[10,75],[25,181.25],[50,375]]},{"slug":"ralph-tommy-lacoste-mix","name":"Ralph, Tommy, Lacoste Mix","unit":"pieces","grade":"A/B","variants":[[10,95],[25,225],[50,425]]},{"slug":"mixed-premium-vintage-hoodies-sweatshirts","name":"Mixed Premium Vintage Hoodies & Sweatshirts","unit":"pieces","grade":"A/B","variants":[[10,95],[25,225],[50,425]]},{"slug":"mixed-premium-vintage-hoodies","name":"Mixed Premium Vintage Hoodies","unit":"pieces","grade":"A/B","variants":[[10,95],[25,225],[50,425]]},{"slug":"mixed-premium-vintage-sweatshirts","name":"Mixed Premium Vintage Sweatshirts","unit":"pieces","grade":"A/B","variants":[[10,95],[25,225],[50,425]]},{"slug":"lacoste-jumpers-cardigans","name":"Lacoste Jumpers & Cardigans","unit":"pieces","grade":"A/B","variants":[[10,100],[25,225],[50,425]]},{"slug":"festival-track-jackets","name":"Festival Track Jackets","unit":"pieces","grade":"A/B","variants":[[10,125],[25,275],[50,450]]},{"slug":"birkenstock-sandals","name":"Birkenstock Sandals","unit":"pairs","grade":"A/B","variants":[[10,80],[25,null],[50,null]]},{"slug":"bags","name":"Bags","unit":"pieces","grade":"A/B","variants":[[10,null],[25,null],[50,null]]},{"slug":"mixed-mens-lacoste","name":"Mixed Men's Lacoste","unit":"pieces","grade":"A/B","variants":[[10,90],[25,218.75],[50,425]]},{"slug":"t-shirt-mix","name":"Branded T-Shirt Mix","unit":"pieces","grade":"A/B","variants":[[10,65],[25,150],[50,275]]},{"slug":"jackets-windbreaker-mix","name":"Jackets & Windbreaker Mix","unit":"pieces","grade":"A/B","variants":[[10,125],[25,275],[50,450]]},{"slug":"mens-luxury-winter-mix","name":"Men's Luxury Winter Mix","unit":"pieces","grade":"A/B","variants":[[10,160]]},{"slug":"womens-y2k-summer-mix","name":"Women's Y2K Summer Mix","unit":"pieces","grade":"A/B","variants":[[10,100],[25,225],[50,400]]},{"slug":"designer-jackets","name":"Designer Jackets","unit":"pieces","grade":"A/B","variants":[[10,300]]}];
+  /* Standing carriage by lot size — the owner's rule, "£10 for 10 polos always
+     unless stated". It fills in only while the delivery box is untouched and the
+     order is a single lot of that size; a bigger or mixed order is quoted. */
+  const CARRIAGE_BY_LOT = { 10: 10 };
+
   const SEQUENCES = {
     proforma: { prefix: "PF", padding: 4, doc: "settings/proformaCounter" },
     invoice: { prefix: "AW", padding: 4, doc: "settings/counter" },
@@ -617,6 +622,7 @@
   let db = null;
   let numberTouched = false;
   let orderTouched = false;
+  let deliveryTouched = false;
   const nextOf = { proforma: 1, invoice: 1 };
   let orderPrefix = "ORD";
   let orderPadding = 4;
@@ -813,7 +819,20 @@
 
   /* --------------------------------------------------------- the totals */
 
+  function standingCarriage() {
+    if (lines.length !== 1) return null;
+    const [l] = lines;
+    if (l.qty !== 1 || l.lotPieces == null) return null;
+    const rate = CARRIAGE_BY_LOT[l.lotPieces];
+    return rate == null ? null : rate;
+  }
+
   function recalc() {
+    if (!deliveryTouched) {
+      const rate = standingCarriage();
+      $("delivery").value = rate == null ? "" : rate;
+    }
+
     let subtotal = 0;
     let pieces = 0;
 
@@ -1036,7 +1055,11 @@
     if (f.address.length) { $("custAddress").value = f.address.join("\n"); filled.push(`a ${f.address.length}-line address`); }
     if (f.email) { $("custEmail").value = f.email; filled.push(`email <strong>${escAttr(f.email)}</strong>`); }
     if (f.phone) { $("custPhone").value = f.phone; filled.push(`phone <strong>${escAttr(f.phone)}</strong>`); }
-    if (f.delivery != null) { $("delivery").value = f.delivery; filled.push(`delivery <strong>${money(f.delivery)}</strong>`); }
+    if (f.delivery != null) {
+      $("delivery").value = f.delivery;
+      deliveryTouched = true;
+      filled.push(`delivery <strong>${money(f.delivery)}</strong>`);
+    }
 
     if (f.lines.length) {
       lines = lines.concat(f.lines);
@@ -1116,6 +1139,7 @@
     $("paymentLink").value = inv.paymentLink || "";
     $("discount").value = inv.discount || "";
     $("delivery").value = inv.delivery || "";
+    deliveryTouched = true;
     $("notes").value = inv.notes || "";
     lines = (inv.lines || []).map((l) => ({ ...l }));
     numberTouched = true;
@@ -1329,6 +1353,7 @@
     $("recallInvoice").value = "";
 
     orderTouched = false;
+    deliveryTouched = false;
     if (db) {
       db.doc(SEQUENCES[docType()].doc).get()
         .then((s) => { $("invoiceNo").value = formatNumber(s.exists ? (s.data().next ?? 1) : 1); updateRef(); checkReady(); })
@@ -1398,7 +1423,8 @@
   $("supplyDate").addEventListener("change", updateDates);
   $("poNumber").addEventListener("input", updateDates);
 
-  ["discount", "delivery"].forEach((id) => $(id).addEventListener("input", recalc));
+  $("discount").addEventListener("input", recalc);
+  $("delivery").addEventListener("input", () => { deliveryTouched = true; recalc(); });
   $("paymentLink").addEventListener("input", updateRef);
 
   ["custBusiness", "custContact", "custAddress", "invoiceNo"].forEach((id) =>

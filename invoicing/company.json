@@ -52,7 +52,13 @@
       "Lots are representative of the sort described; individual garments, brands and colourways vary.",
       "Sold as a trade supply to a business buyer. Consumer distance-selling cancellation rights do not apply.",
       "Shortages or discrepancies must be notified within 48 hours of delivery."
-    ]
+    ],
+    "carriage": {
+      "_note": "Standing carriage rates by lot size, given by the owner 15 Sep 2026: \"£10 for 10 polos always unless stated\". Applied only when a job states no `delivery` of its own AND the order is a single lot of that size — a bigger or mixed order is quoted, not defaulted. Every other lot size is left out on purpose: £15 on PF-0001's 25-piece lot and £25 on a two-lot order were quoted case by case, and one quote is not a rate.",
+      "byLotSize": {
+        "10": 10
+      }
+    }
   },
   "payment": {
     "_note": "How the customer pays. 'link' = a secure payment link sent with the invoice. 'bank' = the bank details below. 'both' = show both. Only 'bank' makes the bank fields required before an invoice can be sent.",

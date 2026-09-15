@@ -147,6 +147,8 @@ function resolveLine(line, catalogue, defaults) {
       unitPrice: round2(unitPrice),
       lineTotal: round2(unitPrice * qty),
       pieces: variant.pieces * qty,
+      lotPieces: variant.pieces,
+      qty,
     };
   }
 
@@ -166,6 +168,22 @@ function resolveLine(line, catalogue, defaults) {
     lineTotal: round2(Number(line.unitPrice) * qty),
     pieces: 0,
   };
+}
+
+/**
+ * The standing carriage rate for this order, where the owner has set one.
+ *
+ * Only a single lot of a size named in company.json gets one — a bigger or
+ * mixed order is quoted, because a rate for one parcel says nothing about two.
+ * A job that states its own `delivery` always wins, including `0`.
+ */
+function defaultCarriage(lines, company) {
+  const table = company.defaults?.carriage?.byLotSize;
+  if (!table || lines.length !== 1) return 0;
+  const [line] = lines;
+  if (line.qty !== 1 || line.lotPieces == null) return 0;
+  const rate = table[String(line.lotPieces)];
+  return rate == null ? 0 : round2(Number(rate));
 }
 
 /** Everything that must be filled in before this invoice can go to a customer.
@@ -207,7 +225,10 @@ export function buildInvoice(job, company, catalogue, { reserveNumber = true } =
   const lines = (job.lines ?? []).map((l) => resolveLine(l, catalogue, company.defaults));
   const subtotal = round2(lines.reduce((s, l) => s + l.lineTotal, 0));
   const discount = round2(Number(job.discount ?? 0));
-  const delivery = round2(Number(job.delivery ?? 0));
+  const carriageDefaulted = job.delivery == null;
+  const delivery = carriageDefaulted
+    ? defaultCarriage(lines, company)
+    : round2(Number(job.delivery));
   const net = round2(subtotal - discount + delivery);
   const vat = company.vat.registered ? round2(net * (company.vat.ratePercent / 100)) : 0;
 
@@ -259,6 +280,7 @@ export function buildInvoice(job, company, catalogue, { reserveNumber = true } =
     total: round2(net + vat),
     paymentLink: job.paymentLink || "",
     notes: job.notes || "",
+    carriageDefaulted: carriageDefaulted && delivery > 0,
     totalPieces: lines.reduce((s, l) => s + l.pieces, 0),
   };
 
@@ -299,6 +321,9 @@ async function main() {
   const label = inv.status === "proforma" ? "Pro forma" : "Invoice";
   console.log(`${label} ${inv.invoiceNumber}  ·  order ${inv.orderNumber}  ->  ${outPath}`);
   console.log(`  ${inv.lines.length} line(s), ${inv.totalPieces} pieces, total ${money(inv.total)}`);
+  if (inv.carriageDefaulted) {
+    console.log(`  carriage ${money(inv.delivery)} from the standing rate for a ${inv.lines[0].lotPieces}-piece lot`);
+  }
   if (inv.missing.length) {
     console.log("\n  NOT READY TO SEND:");
     for (const m of inv.missing) console.log(`  - ${m}`);
