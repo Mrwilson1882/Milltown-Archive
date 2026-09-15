@@ -14,9 +14,8 @@
   },
 
   "lines": [
-    { "slug": "lacoste-ralph-lauren-polos", "pieces": 25, "qty": 1 },
-    { "slug": "mens-luxury-winter-mix", "pieces": 10, "qty": 1 }
+    { "slug": "lacoste-ralph-lauren-polos", "pieces": 25, "qty": 1 }
   ],
 
-  "delivery": 25
+  "delivery": 15
 }
