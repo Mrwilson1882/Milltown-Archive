@@ -1,0 +1,18 @@
+{
+  "status": "invoice",
+  "invoiceDate": "2026-09-15",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Bradley"
+  },
+
+  "lines": [
+    { "slug": "starter-box-10", "pieces": 10, "qty": 1 }
+  ],
+
+  "delivery": 10,
+
+  "_acknowledge": "Raised on a name alone, like AW-0001. A UK sales invoice should carry the customer's address; waiving it is a deliberate choice recorded here rather than a check quietly skipped.",
+  "acknowledge": ["customerAddress"]
+}

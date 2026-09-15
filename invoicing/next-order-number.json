@@ -1,7 +1,7 @@
 {
   "_readme": "Order numbers belong to sales invoices, not pro formas: an order is not an order until it is confirmed and paid. Orders 1-6 predate this system; the owner confirmed 14 Sep 2026 that the next is 7. A number held against a pro forma is not free to give away and not issued either — it becomes used when that pro forma converts to an AW- sales invoice.",
   "prefix": "ORD",
-  "next": 13,
+  "next": 19,
   "padding": 4,
   "reserved": [
     {
@@ -38,6 +38,36 @@
       "reservedAt": "2026-09-14T19:53:10.000Z",
       "usedOn": null,
       "earmarkedFor": "PF-0003"
+    },
+    {
+      "number": "ORD-0013",
+      "reservedAt": "2026-09-15T17:16:25.689Z",
+      "usedOn": "AW-0002"
+    },
+    {
+      "number": "ORD-0014",
+      "reservedAt": "2026-09-15T17:16:32.049Z",
+      "usedOn": null
+    },
+    {
+      "number": "ORD-0015",
+      "reservedAt": "2026-09-15T17:16:32.049Z",
+      "usedOn": null
+    },
+    {
+      "number": "ORD-0016",
+      "reservedAt": "2026-09-15T17:16:32.049Z",
+      "usedOn": null
+    },
+    {
+      "number": "ORD-0017",
+      "reservedAt": "2026-09-15T17:16:32.049Z",
+      "usedOn": null
+    },
+    {
+      "number": "ORD-0018",
+      "reservedAt": "2026-09-15T17:16:32.049Z",
+      "usedOn": null
     }
   ]
 }
