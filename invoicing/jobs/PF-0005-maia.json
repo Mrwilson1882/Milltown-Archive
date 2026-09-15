@@ -13,5 +13,7 @@
 
   "lines": [
     { "slug": "starter-box-10", "pieces": 10, "qty": 1 }
-  ]
+  ],
+
+  "delivery": 8
 }
