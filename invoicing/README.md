@@ -273,7 +273,12 @@ pro forma that is never taken up must not leave a hole in the invoice run.
 On a pro forma the document reads *Pro forma* under *Not a tax invoice*, the
 date is *Date* rather than *Invoice date*, the customer block is *To*, the total
 is *Total payable*, and the terms open with a line saying no sale is made until
-it is paid. In the tab it is the first dropdown under **This document**.
+it is paid. There is no order number. In the tab it is the first dropdown under
+**This document**.
+
+**A pro forma does not need a customer address.** It is a quotation and can go
+out on a name alone. A sales invoice does need one, and is held back until it
+has it.
 
 `"validUntil": "2026-09-30"` adds a *Valid until* row, for holding a price.
 
@@ -286,9 +291,11 @@ of what was quoted.
 
 ## Order numbers
 
-An order gets its number the moment it comes in — usually on WhatsApp, long
-before there is anything to invoice — so order numbers run their own sequence,
-separate from invoice numbers.
+**Order numbers belong to sales invoices, not pro formas.** An order is not an
+order until it is confirmed and paid, so a pro forma carries only its own
+`PF-` reference. The order number appears when it converts.
+
+Order numbers run their own sequence, separate from invoice numbers.
 
 Orders 1 to 6 predate this system. The sequence starts at **ORD-0007**.
 
@@ -298,9 +305,16 @@ node invoicing/reserve-order-numbers.mjs 5      # take a block of five
 node invoicing/reserve-order-numbers.mjs --list # what is reserved and still free
 ```
 
-Reserving is not the same as using. A number quoted to a customer who never
-ordered stays reserved and unused rather than quietly going back in the pot —
-that is what keeps the run gap-free and auditable.
+A number has three states, and the difference is what keeps the run gap-free:
+
+| State | Meaning |
+|---|---|
+| **Free** | Reserved and not yet spoken for — give it out |
+| **Held** | Earmarked against a pro forma; not free, not issued. Becomes used when that pro forma converts |
+| **Used** | Issued on an AW- sales invoice |
+
+A number quoted to a customer who never ordered stays reserved rather than
+quietly going back in the pot.
 
 An invoice takes the oldest reserved-but-unused number unless the job names one:
 
@@ -308,9 +322,9 @@ An invoice takes the oldest reserved-but-unused number unless the job names one:
 { "orderNumber": "ORD-0009", … }
 ```
 
-In the tab, **Take an order number** reserves one on the spot and puts it on the
-sheet. Otherwise the sheet previews the next one and claims it when the invoice
-is saved, so simply opening the page never burns a number.
+In the tab, the Order no. row and **Take an order number** appear only when the
+document type is *Invoice*. On a pro forma they are hidden, because the number
+is not issued yet.
 
 `ORD-0007` went to SC Carpentry and `ORD-0008` to Dylan Djemil. **`ORD-0009`,
 `ORD-0010` and `ORD-0011` are reserved and free to give out right now.**

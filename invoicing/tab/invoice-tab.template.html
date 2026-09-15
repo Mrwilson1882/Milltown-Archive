@@ -414,7 +414,7 @@
         <select class="ctl grow" id="recallInvoice" aria-label="Open an invoice from the register">
           <option value="">Open an invoice from the register…</option>
         </select>
-        <button type="button" id="takeOrder">Take an order number</button>
+        <button type="button" id="takeOrder" hidden>Take an order number</button>
         <button type="button" class="primary" id="issue">Save to register</button>
         <button type="button" id="print">Print / save PDF</button>
         <button type="button" class="quiet" id="fresh">Start a new invoice</button>
@@ -465,7 +465,7 @@
             <input class="f no-print" id="supplyDate" type="date" aria-label="Date of supply">
             <span class="print-only" id="supplyDateText"></span>
           </dd></div>
-          <div class="row"><dt>Order no.</dt><dd><input class="f num" id="orderNo" aria-label="Order number" placeholder="ORD-0007"></dd></div>
+          <div class="row" id="orderRow"><dt>Order no.</dt><dd><input class="f num" id="orderNo" aria-label="Order number" placeholder="ORD-0011"></dd></div>
           <div class="row"><dt>Payment terms</dt><dd>
             <select class="f" id="terms" aria-label="Payment terms">
               <option>Due on receipt</option>
@@ -674,6 +674,10 @@
     $("vatStatement").textContent =
       `MANCH Ltd is not registered for VAT. No VAT is charged on this ${pf ? "pro forma" : "invoice"} and none is recoverable from it.`;
     $("invoiceNo").placeholder = pf ? "PF-0001" : "AW-0001";
+    /* An order number belongs to a sales invoice: an order is not an order
+       until it is confirmed and paid. */
+    $("orderRow").hidden = pf;
+    $("takeOrder").hidden = pf;
     // Left alone when the register is unreachable, so the switch cannot relabel
     // a button that connect() has already disabled and explained.
     if (db) $("issue").textContent = pf ? "Save pro forma" : "Save invoice";
@@ -911,7 +915,11 @@
     }
     if (!$("invoiceNo").value.trim()) problems.push("This invoice has no number.");
     if (!$("custBusiness").value.trim() && !$("custContact").value.trim()) problems.push("No customer name.");
-    if (!$("custAddress").value.trim()) problems.push("No customer address.");
+    // A pro forma is a quotation and can go out before an address is known.
+    // A sales invoice cannot.
+    if (docType() === "invoice" && !$("custAddress").value.trim()) {
+      problems.push("No customer address.");
+    }
     if (!lines.length) problems.push("No line items.");
     if (lines.some((l) => !String(l.name || "").trim())) problems.push("A line has no description.");
     if (lines.some((l) => !(l.unitPrice > 0))) problems.push("A line has no price — no price is ever assumed, so type the figure agreed.");

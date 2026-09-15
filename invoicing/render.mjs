@@ -523,7 +523,7 @@ export function renderInvoice(inv, company, logoDataUri) {
       <dl class="meta body">
         <div class="row"><dt>${proforma ? "Date" : "Invoice date"}</dt><dd>${esc(longDate(inv.invoiceDate))}</dd></div>
         ${inv.supplyDate ? `<div class="row"><dt>Date of supply</dt><dd>${esc(longDate(inv.supplyDate))}</dd></div>` : ""}
-        ${inv.orderNumber ? `<div class="row"><dt>Order no.</dt><dd class="num">${esc(inv.orderNumber)}</dd></div>` : ""}
+        ${!proforma && inv.orderNumber ? `<div class="row"><dt>Order no.</dt><dd class="num">${esc(inv.orderNumber)}</dd></div>` : ""}
         ${proforma && inv.validUntil ? `<div class="row"><dt>Valid until</dt><dd>${esc(longDate(inv.validUntil))}</dd></div>` : ""}
         <div class="row"><dt>Payment terms</dt><dd>${esc(inv.paymentTerms)}</dd></div>
         ${inv.dueDate ? `<div class="row"><dt>Payment due</dt><dd>${esc(longDate(inv.dueDate))}</dd></div>` : ""}

@@ -42,6 +42,19 @@ export function reserve(count = 1) {
   return out;
 }
 
+/** Hold a number against a pro forma without spending it. The number is not
+ *  free to give to anyone else, but it is not issued either — it becomes used
+ *  only when that pro forma converts to a sales invoice. */
+export function earmark(number, documentNumber) {
+  const state = read();
+  const row = state.reserved.find((r) => r.number === number);
+  if (row) {
+    row.earmarkedFor = documentNumber;
+    row.usedOn = null;
+  }
+  write(state);
+}
+
 /** Mark a reserved number as used by an invoice. Reserving is not the same as
  *  using: a number quoted to a customer who never ordered stays reserved and
  *  unused rather than silently going back in the pot. */
@@ -56,14 +69,14 @@ export function claim(number, invoiceNumber) {
  *  reserved-but-unused one, or the next unreserved. */
 export function peek() {
   const state = read();
-  const free = state.reserved.find((r) => !r.usedOn);
+  const free = state.reserved.find((r) => !r.usedOn && !r.earmarkedFor);
   return free ? free.number : formatOrder(state, state.next);
 }
 
 /** Take the oldest reserved-but-unused number, or reserve a fresh one. */
 export function takeNext(invoiceNumber) {
   const state = read();
-  const free = state.reserved.find((r) => !r.usedOn);
+  const free = state.reserved.find((r) => !r.usedOn && !r.earmarkedFor);
   if (free) {
     free.usedOn = invoiceNumber;
     write(state);
@@ -81,12 +94,15 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 
   if (args.includes("--list")) {
     const state = read();
-    const open = state.reserved.filter((r) => !r.usedOn);
+    const open = state.reserved.filter((r) => !r.usedOn && !r.earmarkedFor);
+    const held = state.reserved.filter((r) => !r.usedOn && r.earmarkedFor);
     const used = state.reserved.filter((r) => r.usedOn);
     console.log(`Next number an invoice would take: ${peek()}\n`);
     console.log(`Reserved and free to give out (${open.length}):`);
     for (const r of open) console.log(`  ${r.number}`);
-    console.log(`\nUsed (${used.length}):`);
+    console.log(`\nHeld against a pro forma, issued when it converts (${held.length}):`);
+    for (const r of held) console.log(`  ${r.number}  ->  ${r.earmarkedFor}`);
+    console.log(`\nUsed on a sales invoice (${used.length}):`);
     for (const r of used) console.log(`  ${r.number}  ->  ${r.usedOn}`);
   } else {
     const count = Math.max(1, Math.round(Number(args[0]) || 1));

@@ -22,7 +22,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { renderInvoice, money } from "./render.mjs";
-import { takeNext as takeOrderNumber, claim as claimOrderNumber, peek as peekOrderNumber } from "./reserve-order-numbers.mjs";
+import { takeNext as takeOrderNumber, claim as claimOrderNumber, earmark as earmarkOrderNumber } from "./reserve-order-numbers.mjs";
 
 /* Node reports the catalogue as a "typeless package" because it strips the
    TypeScript types at load. That is expected here and says nothing useful, so
@@ -208,7 +208,9 @@ function findMissing(inv, company) {
   if (!inv.customer.business && !inv.customer.contact) {
     out.push("No customer name on this invoice.");
   }
-  if (!(inv.customer.lines ?? []).filter(Boolean).length) {
+  // A pro forma is a quotation; it can go out before an address is known. A
+  // sales invoice cannot.
+  if (inv.status === "invoice" && !(inv.customer.lines ?? []).filter(Boolean).length) {
     out.push("No customer address on this invoice.");
   }
   if (!inv.lines.length) out.push("No line items on this invoice.");
@@ -240,16 +242,19 @@ export function buildInvoice(job, company, catalogue, { reserveNumber = true } =
     job.invoiceNumber ||
     (reserveNumber ? nextInvoiceNumber(status) : peekInvoiceNumber(status));
 
-  // An order number already quoted to the customer wins; otherwise take the
-  // oldest reserved-but-unused one, or reserve a fresh one. A blank invoice
-  // only peeks, so previewing one never burns a number.
+  /* Order numbers belong to sales invoices, not pro formas: an order is not an
+     order until it is confirmed and paid. A pro forma may still name the number
+     earmarked for it, which is then held rather than used, so the run stays
+     gap-free when it converts. */
   let orderNumber = job.orderNumber || "";
-  if (orderNumber) {
-    if (reserveNumber) claimOrderNumber(orderNumber, invoiceNumber);
-  } else if (reserveNumber) {
-    orderNumber = takeOrderNumber(invoiceNumber);
-  } else {
-    orderNumber = peekOrderNumber();
+  if (status === "invoice") {
+    if (orderNumber) {
+      if (reserveNumber) claimOrderNumber(orderNumber, invoiceNumber);
+    } else if (reserveNumber) {
+      orderNumber = takeOrderNumber(invoiceNumber);
+    }
+  } else if (orderNumber && reserveNumber) {
+    earmarkOrderNumber(orderNumber, invoiceNumber);
   }
 
   const inv = {
@@ -319,7 +324,8 @@ async function main() {
   writeFileSync(outPath, html);
 
   const label = inv.status === "proforma" ? "Pro forma" : "Invoice";
-  console.log(`${label} ${inv.invoiceNumber}  ·  order ${inv.orderNumber}  ->  ${outPath}`);
+  const order = inv.orderNumber ? `  ·  order ${inv.orderNumber}` : "";
+  console.log(`${label} ${inv.invoiceNumber}${order}  ->  ${outPath}`);
   console.log(`  ${inv.lines.length} line(s), ${inv.totalPieces} pieces, total ${money(inv.total)}`);
   if (inv.carriageDefaulted) {
     console.log(`  carriage ${money(inv.delivery)} from the standing rate for a ${inv.lines[0].lotPieces}-piece lot`);
