@@ -597,7 +597,9 @@ export function renderInvoice(inv, company, logoDataUri) {
       <dl style="margin:0">
         <div class="row"><dt>Subtotal</dt><dd class="num">${money(inv.subtotal)}</dd></div>
         ${optionalTotal("Discount", inv.discount ? -inv.discount : 0)}
-        ${optionalTotal("Delivery", inv.delivery)}
+        ${inv.deliveryFree
+          ? `<div class="row"><dt>Delivery</dt><dd>Free</dd></div>`
+          : optionalTotal("Delivery", inv.delivery)}
         ${
           company.vat.registered
             ? `<div class="row"><dt>VAT at ${esc(company.vat.ratePercent)}%</dt><dd class="num">${money(inv.vat)}</dd></div>`

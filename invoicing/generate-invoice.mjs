@@ -296,6 +296,9 @@ export function buildInvoice(job, company, catalogue, { reserveNumber = true } =
     notes: job.notes || "",
     acknowledge: job.acknowledge ?? [],
     carriageDefaulted: carriageDefaulted && delivery > 0,
+    // "delivery": 0 stated in the job is a gift, and prints as one. A missing
+    // figure prints nothing at all.
+    deliveryFree: job.delivery === 0,
     totalPieces: lines.reduce((s, l) => s + l.pieces, 0),
   };
 
