@@ -434,7 +434,7 @@ const catalogue: Product[] = [
         alt: "Six pairs of second-hand Birkenstock sandals on white: four brown nubuck pairs in two-strap and toe-post styles, one white toe-post pair and one metallic snake-print pair.",
       },
     ],
-    inStock: true,
+    inStock: false, // Marked out of stock by the owner, 16 Sep 2026.
     featured: true,
   },
 
