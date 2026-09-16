@@ -517,9 +517,7 @@ const catalogue: Product[] = [
     brandSlugs: ["mixed-brands", "sergio-tacchini", "adidas", "nike", "fila", "columbia", "the-north-face", "reebok", "tommy-hilfiger", "ralph-lauren"],
     typeSlugs: ["jackets"],
     collectionSlugs: ["festival", "winter"],
-    // 100 left unpriced: quoted as matching the festival jackets, which have
-    // no hundred. Awaiting the owner.
-    variants: [at(10, 12.5), at(25, 11), at(50, 9)],
+    variants: [at(10, 12.5), at(25, 11), at(50, 10)],
     unit: "pieces",
     notes: [],
     art: "diagonal-green-4",
