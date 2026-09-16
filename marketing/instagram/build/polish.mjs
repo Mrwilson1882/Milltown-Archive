@@ -2,7 +2,7 @@
  * Polishes a phone clip into a post: speeds it up a touch and bookends it with
  * the wordmark, at the clip's own resolution and frame rate.
  *
- *   node polish.mjs <clip.mp4> [--speed 1.15] [--out name]
+ *   node polish.mjs <clip.mp4> [--speed 1.15] [--out name] [--crf 16]
  *
  * The output lands beside the build folder as <name>.mp4, where <name> is the
  * clip's own filename unless --out says otherwise.
@@ -57,6 +57,8 @@ const flag = (name, fallback) => {
 };
 const speed = parseFloat(flag("speed", "1.15"));
 const outName = flag("out", path.basename(src, path.extname(src)));
+// 16 is the master. Raise it only for a copy that has to fit through a size limit.
+const crf = flag("crf", "16");
 
 /* --------------------------------------------------------------- probe */
 
@@ -162,7 +164,7 @@ execFileSync(
     "-filter_complex", filter,
     "-map", "[v]", "-map", "[a]",
     "-t", total.toFixed(3),
-    "-c:v", "libx264", "-preset", "slow", "-crf", "16",
+    "-c:v", "libx264", "-preset", "slow", "-crf", crf,
     "-profile:v", "high", "-level", "4.2", "-pix_fmt", "yuv420p",
     "-r", String(fps),
     "-c:a", "aac", "-b:a", "192k",
