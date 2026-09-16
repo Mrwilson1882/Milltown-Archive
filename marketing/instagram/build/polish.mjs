@@ -10,12 +10,13 @@
  * What it does to the picture, and what it does not
  * -------------------------------------------------
  * The clip is re-encoded once — there is no way round that, because changing
- * its speed and joining it to two cards both mean new frames. It is encoded at
- * CRF 16 with the slow preset, which is a notch below "visually lossless" and
- * well above anything Instagram keeps: the upload is re-encoded far harder on
- * their side whatever it is fed. Resolution and frame rate are the source's;
- * nothing is scaled or dropped except the frames the speed-up removes, which is
- * how every editor does it.
+ * its speed and joining it to two cards both mean new frames. It is encoded on
+ * the slow preset at CRF 16 (H.264) or 18 (10-bit HEVC), a notch below
+ * "visually lossless" and well above anything Instagram keeps: the upload is
+ * re-encoded far harder on their side whatever it is fed. Resolution, frame
+ * rate and colour are the source's own — an HDR clip stays HDR, nothing is
+ * tonemapped — and nothing is scaled or dropped except the frames the speed-up
+ * removes, which is how every editor does it.
  *
  * The two cards are rendered in Chromium at the clip's size, so the wordmark
  * is sharp at 4K and the type is the storefront's own Archivo.
@@ -57,8 +58,9 @@ const flag = (name, fallback) => {
 };
 const speed = parseFloat(flag("speed", "1.15"));
 const outName = flag("out", path.basename(src, path.extname(src)));
-// 16 is the master. Raise it only for a copy that has to fit through a size limit.
-const crf = flag("crf", "16");
+// The master. Raise it only for a copy that has to fit through a size limit.
+// (Set after the probe: x265 and x264 do not share a CRF scale.)
+const crfFlag = flag("crf", null);
 
 /* --------------------------------------------------------------- probe */
 
@@ -87,10 +89,11 @@ const mainDur = srcDur / speed;
 const total = OPEN - FADE_IN + mainDur - FADE_OUT + CLOSE;
 
 const hdr = /smpte2084|arib-std-b67/.test(video.color_transfer ?? "") || /10le/.test(video.pix_fmt ?? "");
+const crf = crfFlag ?? (hdr ? "18" : "16");
 
 console.log(
   `${path.basename(src)}: ${W}x${H} ${fps}fps ${srcDur.toFixed(2)}s ${video.codec_name}` +
-    `${audio ? ` + ${audio.codec_name} audio` : ", silent"}${hdr ? "  [HDR — will be flattened to SDR]" : ""}`,
+    `${audio ? ` + ${audio.codec_name} audio` : ", silent"}${hdr ? `  [HDR ${video.color_transfer} — kept as shot]` : ""}`,
 );
 console.log(`→ ${speed}× speed, ${OPEN}s open card, ${CLOSE}s close card, ${total.toFixed(2)}s total`);
 
@@ -136,15 +139,30 @@ const openPng = path.join(work, "open.png");
 const closePng = path.join(work, "close.png");
 const dest = path.join(OUT, `${outName}.mp4`);
 
-// Both cards and the clip are brought to the same size, rate and pixel format
-// before xfade, which will not join streams that differ in any of them.
-const norm = `fps=${fps},scale=${W}:${H}:flags=lanczos,setsar=1,format=yuv420p`;
-const tone = hdr ? "zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=hable,zscale=t=bt709:m=bt709:r=tv," : "";
+// The footage is never colour-converted. An HDR clip stays HDR — same
+// primaries, same transfer, same 10-bit depth — because converting it to
+// standard range is exactly the "lighting" change nobody asked for. The two
+// cards are the ones that move: rendered as ordinary sRGB, they are lifted
+// into the clip's own space so the white card lands at HDR reference white
+// (about 0.75 of the signal, which is where a lit white floor sits) rather
+// than reading as a grey slab between two bright shots.
+const pix = hdr ? "yuv420p10le" : "yuv420p";
+const norm = `fps=${fps},scale=${W}:${H}:flags=lanczos,setsar=1`;
+// One zscale does the whole trip — sRGB card to the clip's primaries, transfer
+// and matrix. npl sets how bright the card's white comes out: 270 nits puts it
+// at ~0.78 of the HLG signal, which is where this footage's lit floor sits, so
+// the crossfade from card to clip does not step in brightness. (Splitting the
+// conversion into stages, tonemap-style, breaks: zimg finds no path.)
+const cardToClip = hdr
+  ? `format=rgb24,zscale=tin=iec61966-2-1:pin=bt709:min=bt709:rin=full:` +
+    `t=${video.color_transfer}:p=${video.color_primaries}:m=${video.color_space}:r=tv:npl=270,` +
+    `format=${pix}`
+  : `format=${pix}`;
 
 const filter = [
-  `[1:v]${norm}[open]`,
-  `[0:v]${tone}setpts=PTS/${speed},${norm}[main]`,
-  `[2:v]${norm}[close]`,
+  `[1:v]${norm},${cardToClip}[open]`,
+  `[0:v]setpts=PTS/${speed},${norm},format=${pix}[main]`,
+  `[2:v]${norm},${cardToClip}[close]`,
   `[open][main]xfade=transition=fade:duration=${FADE_IN}:offset=${(OPEN - FADE_IN).toFixed(3)}[ab]`,
   `[ab][close]xfade=transition=fade:duration=${FADE_OUT}:offset=${(OPEN - FADE_IN + mainDur - FADE_OUT).toFixed(3)}[v]`,
   audio
@@ -164,8 +182,17 @@ execFileSync(
     "-filter_complex", filter,
     "-map", "[v]", "-map", "[a]",
     "-t", total.toFixed(3),
-    "-c:v", "libx264", "-preset", "slow", "-crf", crf,
-    "-profile:v", "high", "-level", "4.2", "-pix_fmt", "yuv420p",
+    ...(hdr
+      ? [
+          // HEVC 10-bit with the source's own colour signalling, tagged hvc1 so
+          // an iPhone and QuickTime play it without complaint.
+          "-c:v", "libx265", "-preset", "slow", "-crf", crf, "-pix_fmt", pix, "-tag:v", "hvc1",
+          "-color_primaries", video.color_primaries, "-color_trc", video.color_transfer,
+          "-colorspace", video.color_space, "-color_range", "tv",
+          "-x265-params",
+          `colorprim=${video.color_primaries}:transfer=${video.color_transfer}:colormatrix=${video.color_space}:range=limited:log-level=error`,
+        ]
+      : ["-c:v", "libx264", "-preset", "slow", "-crf", crf, "-profile:v", "high", "-level", "4.2", "-pix_fmt", pix]),
     "-r", String(fps),
     "-c:a", "aac", "-b:a", "192k",
     "-movflags", "+faststart",

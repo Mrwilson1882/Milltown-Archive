@@ -159,12 +159,17 @@ it is too big for the chat.
 
 **On quality.** The clip is re-encoded once; there is no way round that,
 because changing its speed and joining it to two cards both mean new frames.
-It is encoded at CRF 16 on the slow preset — a notch below "visually
-lossless" and far above anything Instagram keeps, because the upload is
-re-encoded much harder on their side whatever it is fed. Resolution and frame
-rate are the source's own, and nothing is scaled or dropped except the frames
-the speed-up removes, which is how every editor does it. HDR footage from a
-recent iPhone is flattened to SDR, which Instagram would do anyway.
+It is encoded on the slow preset — CRF 16 for H.264, 18 for 10-bit HEVC — a
+notch below "visually lossless" and far above anything Instagram keeps,
+because the upload is re-encoded much harder on their side whatever it is fed.
+Resolution, frame rate and **colour** are the source's own: an HDR clip from a
+recent iPhone stays HDR, with the same primaries, transfer and bit depth, and
+nothing is tonemapped. (The first pass flattened it to SDR, and the lighting
+visibly changed — that was wrong and is gone.) The two logo cards are the ones
+that get converted, *into* the clip's space, with their white pinned to where
+the footage's lit floor sits so the crossfade does not step in brightness.
+Nothing is scaled or dropped except the frames the speed-up removes, which is
+how every editor does it.
 
 ## Re-rendering
 
