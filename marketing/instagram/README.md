@@ -141,6 +141,31 @@ representative-stock line come from the same place. No price was inferred —
 - **Prices.** Change one on the site and this folder is out of date. Edit
   `build/ads.mjs` and re-render, then update `CAPTIONS.md`.
 
+## Polishing a raw clip
+
+`build/polish.mjs` takes a phone clip as shot, speeds it up a touch and
+bookends it with the wordmark — a plain card in, wordmark and address out — at
+the clip's own resolution and frame rate.
+
+```bash
+cd marketing/instagram/build
+node polish.mjs ../source/clip.mp4 --speed 1.15        # 15% faster
+node polish.mjs ../source/clip.mp4 --speed 1.1 --out rtl-polos
+```
+
+The output lands in this folder as `<name>.mp4`. Drop raw clips in
+[`source/`](source/README.md) — that file explains how to get one here when
+it is too big for the chat.
+
+**On quality.** The clip is re-encoded once; there is no way round that,
+because changing its speed and joining it to two cards both mean new frames.
+It is encoded at CRF 16 on the slow preset — a notch below "visually
+lossless" and far above anything Instagram keeps, because the upload is
+re-encoded much harder on their side whatever it is fed. Resolution and frame
+rate are the source's own, and nothing is scaled or dropped except the frames
+the speed-up removes, which is how every editor does it. HDR footage from a
+recent iPhone is flattened to SDR, which Instagram would do anyway.
+
 ## Re-rendering
 
 ```bash

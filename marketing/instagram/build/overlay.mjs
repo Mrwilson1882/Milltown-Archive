@@ -15,7 +15,7 @@ const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 /** Archivo, embedded — the site's typeface, so the ads match the storefront. */
-function fontFaces(fontDir) {
+export function fontFaces(fontDir) {
   const weights = [400, 500, 700, 800, 900];
   return weights
     .map((w) => {
