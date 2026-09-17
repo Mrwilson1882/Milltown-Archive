@@ -4,7 +4,7 @@ Every change that reached the live site, newest first. Each entry names the git 
 
 ## How to go back to an earlier version
 
-1. Pick the version below you want (for example `v2026.09.17-1`, or a commit such as `081cf58`).
+1. Pick the version below you want. Every entry carries its commit hash (for example `ceb2a8f`); that hash is the reliable identifier, the version name is just the label.
 2. Tell Claude: **"revert the site to v2026.09.17-1"**. It rebuilds that exact state, verifies it, pushes it to `main` and Vercel redeploys within a couple of minutes. Nothing is lost: the newer versions stay in the log and can be re-applied later.
 3. Doing it by hand instead: in Vercel, open the project → Deployments → find the deployment for that commit → "Promote to Production" (instant, no rebuild). Or in git: `git checkout -b restore <tag>` then push that to `main`.
 
@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.09.17-1 — 2026-09-17
+## v2026.09.17-1 — 2026-09-17 — commit `ceb2a8f`
 
 **Home page**
 - Removed the four square tiles from the top of the home page. The hero is now the headline, intro and buttons only.
