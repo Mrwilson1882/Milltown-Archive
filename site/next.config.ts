@@ -9,7 +9,9 @@ const nextConfig: NextConfig = {
   // so they redirect permanently rather than 404.
   async redirects() {
     return [
-      { source: "/products/mixed-mens-lacoste-25", destination: "/products/mixed-mens-lacoste", permanent: true },
+      { source: "/products/mixed-mens-lacoste-25", destination: "/products/lacoste-knitwear", permanent: true },
+      // Mixed Men's Lacoste was replaced by the Lacoste Knitwear lot.
+      { source: "/products/mixed-mens-lacoste", destination: "/products/lacoste-knitwear", permanent: true },
       { source: "/products/y2k-designer-female-mix-box-20", destination: "/products/y2k-designer-female-mix-box", permanent: true },
       { source: "/products/y2k-designer-male-mix-box-20", destination: "/products/designer-male-mix-box", permanent: true },
       // The men's box was briefly at this address before "Y2K" came out of its name.

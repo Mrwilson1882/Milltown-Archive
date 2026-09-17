@@ -49,6 +49,7 @@ check(read("src/app/grading-guide/page.tsx").includes("FAQPage"), "grading guide
 //    quoted must land somewhere, and no new product may reuse an old slug.
 const retired = [
   "mixed-mens-lacoste-25",
+  "mixed-mens-lacoste",
   "y2k-designer-female-mix-box-20",
   "y2k-designer-male-mix-box-20",
   "y2k-designer-male-mix-box",

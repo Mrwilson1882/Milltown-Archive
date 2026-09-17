@@ -73,6 +73,11 @@ export type Product = {
    * for every lot; set it here to say otherwise. Defined at /grading-guide.
    */
   grade?: string;
+  /**
+   * Where a lot grades differently from the site-wide norm, say so here in
+   * words, e.g. "roughly 85% Grade A, 15% Grade B". Shown after the grade.
+   */
+  gradeNote?: string;
   /** Placeholder artwork key under /public/images/tiles until photos land. */
   art: string;
   /** Real photography, once available: paths under /public. Wins over `art`. */
@@ -412,6 +417,39 @@ const catalogue: Product[] = [
     inStock: true,
     featured: true,
   },
+  {
+    slug: "lacoste-knitwear",
+    name: "Lacoste Knitwear",
+    summary: "Croc-logo jumpers and cardigans, graded around 85% A, in tens, twenty-fives and fifties.",
+    description: [
+      "Lacoste knitwear on its own — crew and v-neck jumpers, button and zip cardigans, patterned knits — every piece with the croc on the chest.",
+      "Graded higher than our standard lots: roughly 85% Grade A to 15% Grade B, so nearly all of it goes straight on the rail. Knitwear holds its ticket better than jersey, and the croc does the selling.",
+      "Available in ten, twenty-five or fifty.",
+    ],
+    brandSlugs: ["lacoste"],
+    typeSlugs: ["jumpers-sweats"],
+    collectionSlugs: ["premium-vintage", "winter", "mens"],
+    variants: [at(10, 12), at(25, 11), at(50, 10)],
+    unit: "pieces",
+    notes: [],
+    gradeNote: "roughly 85% Grade A, 15% Grade B",
+    art: "grid-ink",
+    photos: [
+      {
+        src: "/images/products/lacoste-knitwear/01.jpg",
+        alt: "Four Lacoste knits laid flat on white: a pale blue IZOD Lacoste button cardigan, a cream v-neck with blue and yellow diagonal stripes, a navy crew with red, white and blue tipping, and a green v-neck jumper.",
+      },
+    ],
+    videos: [
+      {
+        src: "/videos/products/lacoste-knitwear/01.mp4",
+        poster: "/videos/products/lacoste-knitwear/01-poster.jpg",
+        alt: "A look through the Lacoste Knitwear lot, turned over piece by piece: a navy button cardigan, a navy quarter-zip knit and a black crew, each with the croc on the chest.",
+      },
+    ],
+    inStock: true,
+    featured: true,
+  },
 
   // ---------------------------------------------------------------------- Jackets
   {
@@ -485,29 +523,6 @@ const catalogue: Product[] = [
   },
 
   // --------------------------------------------------------------- Brand-led lots
-  {
-    slug: "mixed-mens-lacoste",
-    name: "Mixed Men's Lacoste",
-    summary: "Mixed men's Lacoste pieces, in tens, twenty-fives and fifties.",
-    description: [
-      "Mixed pieces of men's Lacoste — polos, knitwear and jersey in one lot rather than split by garment.",
-      "For shops that sell Lacoste as a label in its own right. Available in ten, twenty-five or fifty.",
-    ],
-    brandSlugs: ["lacoste"],
-    typeSlugs: ["polos-t-shirts", "jumpers-sweats"],
-    collectionSlugs: ["mens"],
-    variants: [at(10, 9), at(25, 8.75), at(50, 8.5)],
-    unit: "pieces",
-    notes: [],
-    art: "grid-ink",
-    photos: [
-      {
-        src: "/images/products/mixed-mens-lacoste/01.jpg",
-        alt: "A men's Lacoste lot on white: a black piqué polo, an olive quarter-zip sweatshirt, a grey and black Lacoste shell jacket and a navy sweatshirt with tricolour ribbing.",
-      },
-    ],
-    inStock: true,
-  },
   // ------------------------------------------- Lots first seen in the photography
   {
     slug: "t-shirt-mix",

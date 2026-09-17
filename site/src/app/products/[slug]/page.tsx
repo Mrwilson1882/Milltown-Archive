@@ -268,6 +268,7 @@ export default async function ProductPage({ params }: Params) {
               <dt className="w-36 shrink-0 font-bold">Grade</dt>
               <dd className="text-slate">
                 Grade {product.grade ?? "A/B"}
+                {product.gradeNote && <span> — {product.gradeNote}</span>}
                 <Link
                   href="/grading-guide"
                   className="ml-3 text-xs font-bold tracking-wide text-forest uppercase underline underline-offset-4 hover:text-ink"
