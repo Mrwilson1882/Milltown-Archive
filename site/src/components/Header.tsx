@@ -52,7 +52,7 @@ export function Header() {
         <p className="mx-auto max-w-7xl px-4 py-2 text-center text-[0.7rem] font-semibold tracking-[0.14em] uppercase sm:px-6">
           <span className="sm:hidden">UK vintage clothing wholesale</span>
           <span className="hidden sm:inline">
-            UK vintage clothing wholesale · Boxes, lots &amp; by the kilo · Shipped from{" "}
+            UK vintage clothing wholesale · Reseller boxes &amp; counted lots · Shipped from{" "}
             {siteConfig.location}
           </span>
         </p>

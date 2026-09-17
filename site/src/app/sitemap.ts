@@ -9,7 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${siteConfig.url}/`, priority: 1, changeFrequency: "weekly" },
     { url: `${siteConfig.url}/products`, priority: 0.9, changeFrequency: "weekly" },
-    { url: `${siteConfig.url}/by-kilo`, priority: 0.8, changeFrequency: "monthly" },
     { url: `${siteConfig.url}/types`, priority: 0.8, changeFrequency: "monthly" },
     { url: `${siteConfig.url}/brands`, priority: 0.8, changeFrequency: "monthly" },
     { url: `${siteConfig.url}/collections`, priority: 0.8, changeFrequency: "monthly" },

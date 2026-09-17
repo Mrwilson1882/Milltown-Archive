@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { fromPrice, type Product } from "@/data/catalogue";
+import { fromPrice, merchRank, type Product } from "@/data/catalogue";
 import { ProductCard } from "@/components/ProductCard";
 import type { Category } from "@/data/taxonomy";
 
@@ -159,8 +159,7 @@ export function ProductBrowser({
       default:
         sorted.sort(
           (a, b) =>
-            Number(isDemoted(a)) - Number(isDemoted(b)) ||
-            Number(Boolean(b.featured)) - Number(Boolean(a.featured)),
+            Number(isDemoted(a)) - Number(isDemoted(b)) || merchRank(a) - merchRank(b),
         );
     }
     return sorted;

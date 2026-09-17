@@ -13,14 +13,14 @@ export const siteConfig = {
   parent: "Milltown Archive",
   tagline: "Branded vintage sportswear, wholesale.",
   description:
-    "UK vintage clothing wholesale. Branded vintage — Lacoste, Ralph Lauren, Nike, Champion, Carhartt and more — sorted and graded into reseller boxes, counted lots of ten, twenty-five or fifty, or by the kilo.",
+    "UK vintage clothing wholesale. Branded vintage — Lacoste, Ralph Lauren, Nike, Champion, Carhartt and more — sorted and graded into reseller boxes, counted lots of ten, twenty-five or fifty.",
   /** Canonical origin, no trailing slash. */
   url: (rawSiteUrl && rawSiteUrl.replace(/\/$/, "")) || "https://www.archivewholesale.co.uk",
   /**
    * Contact inbox shown on the site. Change this to an @archivewholesale.co.uk
    * address once that mailbox is live.
    */
-  email: "info@milltownarchive.co.uk",
+  email: "info@archivewholesale.com",
   /**
    * WhatsApp business number in full international format, digits only.
    * 07897 740194 is 44 7897 740194. NEXT_PUBLIC_WHATSAPP_NUMBER overrides it,
@@ -62,7 +62,6 @@ export const navLinks = [
   { href: "/collections/reseller-boxes", label: "Reseller Boxes" },
   { href: "/types", label: "By Product" },
   { href: "/brands", label: "Brands" },
-  { href: "/by-kilo", label: "Bulk" },
   { href: "/products", label: "All Products" },
   { href: "/contact", label: "Contact" },
 ] as const;

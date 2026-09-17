@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { CategoryTile, Tile } from "@/components/CategoryTile";
+import { CategoryTile } from "@/components/CategoryTile";
 import { ProductCard } from "@/components/ProductCard";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import {
@@ -10,13 +10,13 @@ import {
   type Category,
   type CategoryKind,
 } from "@/data/taxonomy";
-import { featuredProducts, getProduct, productsInCategory } from "@/data/catalogue";
+import { featuredProducts, merchRank, productsInCategory } from "@/data/catalogue";
 import { hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Vintage Clothing Wholesale UK — Boxes, Lots & By The Kilo",
+  title: "Vintage Clothing Wholesale UK — Reseller Boxes & Counted Lots",
   description:
-    "Archive Wholesale supplies UK retailers with branded vintage — Lacoste, Ralph Lauren, Nike, Champion and more. Fixed-price reseller boxes, counted lots of ten, twenty-five or fifty, or buy by the kilo.",
+    "Archive Wholesale supplies UK retailers with branded vintage — Lacoste, Ralph Lauren, Nike, Champion and more. Fixed-price reseller boxes, counted lots of ten, twenty-five or fifty.",
   alternates: { canonical: "/" },
 };
 
@@ -32,12 +32,10 @@ const homeTiles: { kind: CategoryKind; category: Category }[] = [
     .map((category) => ({ kind: "collection" as const, category })),
 ];
 
-// Three garment tiles and a door to everything. Footwear is one lot, and a
-// single-lot category is better reached from the browse grid below than
-// from the front of the shop.
-const heroTiles = homeTiles.filter((t) => t.kind === "type").slice(0, 3);
-const allProductsPhoto = getProduct("ralph-tommy-lacoste-mix")?.photos?.[0];
-const resellerBoxes = productsInCategory("collection", "reseller-boxes");
+// Boxes in selling order: the ones with a rail video first.
+const resellerBoxes = [...productsInCategory("collection", "reseller-boxes")].sort(
+  (a, b) => merchRank(a) - merchRank(b),
+);
 
 const routes = [
   {
@@ -52,12 +50,6 @@ const routes = [
     href: "/products",
     cta: "Browse products",
   },
-  {
-    title: "Bulk by weight",
-    body: "For volume buyers. Bags from 5kg, bales to 300kg, pallets to a full tonne — sorted by category and quoted per kilo.",
-    href: "/by-kilo",
-    cta: "See how it works",
-  },
 ];
 
 export default function HomePage() {
@@ -65,15 +57,15 @@ export default function HomePage() {
     <>
       {/* ---------------------------------------------------------------- Hero */}
       <section className="border-b border-ash">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:py-20">
           <div className="flex flex-col justify-center">
             <p className="eyebrow text-forest">Vintage wholesale · United Kingdom</p>
             <h1 className="display mt-5 text-4xl sm:text-6xl lg:text-7xl">
               Branded vintage,
               <br />
-              <span className="text-forest">by the box,</span>
+              <span className="text-forest">by the box</span>
               <br />
-              the lot or the kilo.
+              or by the lot.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-slate sm:text-lg">
               Lacoste, Ralph Lauren, Nike, Champion, Carhartt and more — sorted and graded in the UK
@@ -111,7 +103,7 @@ export default function HomePage() {
               {[
                 { k: "Boxes from", v: "£90" },
                 { k: "Lots from", v: "10 pieces" },
-                { k: "Bulk to", v: "1,000kg" },
+                { k: "Grade", v: "A/B" },
               ].map((stat) => (
                 <div key={stat.k}>
                   <dt className="eyebrow text-slate">{stat.k}</dt>
@@ -121,46 +113,6 @@ export default function HomePage() {
             </dl>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            {heroTiles.map(({ kind, category }, i) => (
-              <CategoryTile
-                key={`${kind}-${category.slug}`}
-                kind={kind}
-                category={category}
-                priority={i < 2}
-              />
-            ))}
-            <Tile
-              href="/products"
-              eyebrow="Everything"
-              title="All Products"
-              blurb="Every box and lot we have made up, in one place."
-              src={allProductsPhoto?.src ?? "/images/tiles/halftone-green.svg"}
-              alt={allProductsPhoto ? `All products — ${allProductsPhoto.alt}` : "All products"}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* --------------------------------------------------- Three ways to buy */}
-      <section className="border-b border-ash bg-smoke">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
-          <p className="eyebrow text-forest">Three ways to buy</p>
-          <h2 className="display mt-3 text-3xl sm:text-4xl">However you are set up</h2>
-          <div className="mt-9 grid gap-px bg-ash md:grid-cols-3">
-            {routes.map((route) => (
-              <div key={route.href} className="flex flex-col bg-paper p-6">
-                <h3 className="display text-xl">{route.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-slate">{route.body}</p>
-                <Link
-                  href={route.href}
-                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold tracking-wide text-forest uppercase underline underline-offset-8 hover:text-ink"
-                >
-                  {route.cta} →
-                </Link>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -199,6 +151,53 @@ export default function HomePage() {
         </section>
       )}
 
+      {/* ----------------------------------------------------- Featured products */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="eyebrow text-forest">In stock now</p>
+            <h2 className="display mt-3 text-3xl sm:text-4xl">Popular lots</h2>
+          </div>
+          <Link
+            href="/products"
+            className="text-sm font-bold tracking-wide text-forest uppercase underline underline-offset-8 hover:text-ink"
+          >
+            All products →
+          </Link>
+        </div>
+
+        <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredProducts
+            .filter((p) => !p.collectionSlugs.includes("reseller-boxes"))
+            .slice(0, 6)
+            .map((product) => (
+              <ProductCard key={product.slug} product={product} />
+            ))}
+        </div>
+      </section>
+
+      {/* --------------------------------------------------- Three ways to buy */}
+      <section className="border-b border-ash bg-smoke">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
+          <p className="eyebrow text-forest">Two ways to buy</p>
+          <h2 className="display mt-3 text-3xl sm:text-4xl">However you are set up</h2>
+          <div className="mt-9 grid gap-px bg-ash md:grid-cols-2">
+            {routes.map((route) => (
+              <div key={route.href} className="flex flex-col bg-paper p-6">
+                <h3 className="display text-xl">{route.title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-slate">{route.body}</p>
+                <Link
+                  href={route.href}
+                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold tracking-wide text-forest uppercase underline underline-offset-8 hover:text-ink"
+                >
+                  {route.cta} →
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* -------------------------------------------------------- Category grid */}
       <section className="border-y border-ash bg-smoke">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
@@ -222,31 +221,6 @@ export default function HomePage() {
               <CategoryTile key={`${kind}-${category.slug}`} kind={kind} category={category} />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ----------------------------------------------------- Featured products */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="eyebrow text-forest">In stock now</p>
-            <h2 className="display mt-3 text-3xl sm:text-4xl">Popular lots</h2>
-          </div>
-          <Link
-            href="/products"
-            className="text-sm font-bold tracking-wide text-forest uppercase underline underline-offset-8 hover:text-ink"
-          >
-            All products →
-          </Link>
-        </div>
-
-        <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredProducts
-            .filter((p) => !p.collectionSlugs.includes("reseller-boxes"))
-            .slice(0, 6)
-            .map((product) => (
-              <ProductCard key={product.slug} product={product} />
-            ))}
         </div>
       </section>
 
@@ -316,8 +290,7 @@ export default function HomePage() {
             <p>
               Buy however suits your business. Fixed-price reseller boxes, from ten pieces up,
               are made up and ready to sell. Counted lots come in tens, twenty-fives and fifties, so you
-              can test a line before you commit. And for volume buyers we sell by the kilo, in
-              increments up to 1,000kg, sorted by category rather than shipped as unsorted bulk.
+              can test a line before you commit.
             </p>
             <p>
               We ship across the United Kingdom and into Europe from {siteConfig.location}. Whether

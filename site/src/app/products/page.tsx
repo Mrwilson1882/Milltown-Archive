@@ -38,7 +38,7 @@ export default function ProductsPage() {
         <p>
           Lots are made up from live intake, so availability changes week to week. If you need a
           custom mix, a specific size run or a bigger volume, get in touch and we will build it from
-          the next sort. We also sell by the kilo for buyers working at volume.
+          the next sort.
         </p>
       </SeoBlock>
     </>

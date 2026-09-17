@@ -156,6 +156,31 @@ const catalogue: Product[] = [
     featured: true,
   },
   {
+    slug: "ralph-lauren-polo-box-10",
+    name: "Ralph Lauren Polo Box — 10 Items",
+    summary: "Ten Polo Ralph Lauren piqué polos, made up and priced. One label, one box.",
+    description: [
+      "A ten-piece box of Polo Ralph Lauren piqué polos — mixed colourways and sizes, the pony on every chest — made up and ready to sell.",
+      "Made up, priced and sold as a single box. Nothing to specify and nothing to quote: order it and it ships. Want depth in the line? The same polos come as counted lots of 25 and 50.",
+    ],
+    brandSlugs: ["ralph-lauren"],
+    typeSlugs: ["polos-t-shirts"],
+    collectionSlugs: ["reseller-boxes", "mens"],
+    // Priced at the Ralph Lauren Polos 10-lot rate, £9 a piece.
+    variants: [at(10, 9)],
+    unit: "pieces",
+    notes: [],
+    art: "grid-green-2",
+    photos: [
+      {
+        src: "/images/products/ralph-lauren-polos/01.jpg",
+        alt: "Four Polo Ralph Lauren piqué polos on white: navy, black and white stripe, pink marl and green marl.",
+      },
+    ],
+    inStock: true,
+    featured: true,
+  },
+  {
     slug: "y2k-designer-female-mix-box",
     name: "Y2K Designer Female Mix",
     summary: "Women's Y2K designer pieces, made up and ready to sell — ten or twenty.",
@@ -755,19 +780,40 @@ export function quantityLabel(product: Product): string {
  * Seeded with what was on page one before the list existed, so nothing moved
  * the day it was introduced.
  */
+/**
+ * Selling order. Lots with a rail video convert best, so they lead; the
+ * home page "Popular lots" takes the first six in stock, and the default
+ * sort on every grid follows the same order. `sinkSlugs` always sit last.
+ */
 export const homeFeatured = [
-  "lacoste-ralph-lauren-polos",
   "ralph-tommy-lacoste-mix",
-  "mixed-premium-vintage-hoodies-sweatshirts",
   "lacoste-jumpers-cardigans",
-  "festival-track-jackets",
-  "birkenstock-sandals",
-  // Bench — next in line if one above sells out or the data says so.
-  "mens-luxury-winter-mix",
-  "womens-y2k-summer-mix",
   "jackets-windbreaker-mix",
+  "mixed-premium-vintage-hoodies",
   "t-shirt-mix",
+  "festival-track-jackets",
+  "carhartt-dickies-t-shirts",
+  "lacoste-ralph-lauren-polos",
+  "ralph-lauren-polos",
+  "mixed-premium-vintage-hoodies-sweatshirts",
+  "mixed-premium-vintage-sweatshirts",
+  "womens-y2k-summer-mix",
 ];
+
+/** Lots the owner wants kept low on every page: high ticket, niche, or paused. */
+export const sinkSlugs = ["designer-jackets", "birkenstock-sandals", "mens-luxury-winter-mix"];
+
+/** Lower is more prominent. Ties fall back to catalogue order. */
+export function merchRank(product: Product): number {
+  const i = products.findIndex((p) => p.slug === product.slug);
+  if (sinkSlugs.includes(product.slug)) return 9000 + i;
+  if (!product.inStock) return 8000 + i;
+  const spot = homeFeatured.indexOf(product.slug);
+  if (spot >= 0) return spot;
+  if ((product.videos?.length ?? 0) > 0) return 1000 + i;
+  if (product.featured) return 2000 + i;
+  return 3000 + i;
+}
 
 export const featuredProducts: Product[] = homeFeatured
   .map((slug) => products.find((p) => p.slug === slug))

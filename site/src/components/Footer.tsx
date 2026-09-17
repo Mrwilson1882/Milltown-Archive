@@ -78,7 +78,6 @@ export function Footer() {
             links={[
               ...productTypes.map((t) => ({ href: `/types/${t.slug}`, label: t.name })),
               { href: "/products", label: "All Products" },
-              { href: "/by-kilo", label: "Bulk — Bags, Bales & Pallets" },
             ]}
           />
           <Column

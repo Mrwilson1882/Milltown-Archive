@@ -94,7 +94,6 @@ const organisationJsonLd = {
     "Grade A vintage clothing",
     "Grade B vintage clothing",
     "vintage reseller boxes",
-    "vintage clothing by the kilo",
     "branded vintage sportswear",
     "vintage Lacoste wholesale",
     "vintage Ralph Lauren wholesale",
