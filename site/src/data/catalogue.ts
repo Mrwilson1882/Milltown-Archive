@@ -228,7 +228,7 @@ const catalogue: Product[] = [
     brandSlugs: ["ralph-lauren"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: [],
-    variants: [at(10, 9), at(25, 8), at(50, 7)],
+    variants: [at(10, 9), at(25, 8), at(50, 7.5)],
     unit: "pieces",
     notes: [],
     art: "grid-ink-2",
