@@ -162,6 +162,13 @@ const catalogue: Product[] = [
         alt: "A women's Y2K mix laid out on white: a white and grey Reebok shell jacket, a black Harley-Davidson Indiana long-sleeve top, a red Ralph Lauren polo and a pair of brown Birkenstock sandals.",
       },
     ],
+    videos: [
+      {
+        src: "/videos/products/y2k-designer-female-mix-box/01.mp4",
+        poster: "/videos/products/y2k-designer-female-mix-box/01-poster.jpg",
+        alt: "A look through the Y2K Designer Female Mix: a pink and grey The North Face fleece, a pink velour zip hoodie, a blue shell jacket and embellished denim.",
+      },
+    ],
     inStock: true,
     featured: true,
   },
@@ -243,7 +250,7 @@ const catalogue: Product[] = [
   {
     slug: "carhartt-dickies-t-shirts",
     name: "Carhartt / Dickies T-Shirts",
-    summary: "Workwear tees mixed across both labels, in 25s and 50s.",
+    summary: "Workwear tees mixed across both labels, in tens, twenty-fives and fifties.",
     description: [
       "Branded workwear t-shirts split across Carhartt and Dickies.",
       "Workwear has its own buyer and rarely competes with the sportswear rail, which makes it a useful second category rather than more of the same. Sold in tens, twenty-fives and fifties.",
@@ -255,7 +262,20 @@ const catalogue: Product[] = [
     unit: "pieces",
     notes: [],
     art: "blocks-ink-3",
-    inStock: false,
+    photos: [
+      {
+        src: "/images/products/carhartt-dickies-t-shirts/01.jpg",
+        alt: "Carhartt / Dickies workwear t-shirts laid flat: a black Carhartt pocket tee over layered tan, navy and green tees.",
+      },
+    ],
+    videos: [
+      {
+        src: "/videos/products/carhartt-dickies-t-shirts/01.mp4",
+        poster: "/videos/products/carhartt-dickies-t-shirts/01-poster.jpg",
+        alt: "A look through the Carhartt / Dickies T-Shirts: a black Carhartt pocket tee, a navy long-sleeve and layered tan and green workwear tees.",
+      },
+    ],
+    inStock: true,
   },
   {
     slug: "ralph-tommy-lacoste-mix",
@@ -334,6 +354,13 @@ const catalogue: Product[] = [
       {
         src: "/images/products/mixed-premium-vintage-hoodies/01.jpg",
         alt: "Three vintage hoodies laid flat on white: a red and navy Polo Ralph Lauren colour-block hood with sleeve spellout, a green adidas three-stripe hood, and a grey Universal Studios Florida embroidered hood.",
+      },
+    ],
+    videos: [
+      {
+        src: "/videos/products/mixed-premium-vintage-hoodies/01.mp4",
+        poster: "/videos/products/mixed-premium-vintage-hoodies/01-poster.jpg",
+        alt: "A look through the Mixed Premium Vintage Hoodies: a navy Nike swoosh hoodie, a royal blue Nike hoodie and layered grey and red hoods.",
       },
     ],
     inStock: true,
@@ -503,6 +530,13 @@ const catalogue: Product[] = [
         alt: "Four branded vintage t-shirts laid flat on white: a purple Champion script tee, a blue Nike swoosh tee, a navy Fila logo tee and a black adidas trefoil tee.",
       },
     ],
+    videos: [
+      {
+        src: "/videos/products/t-shirt-mix/01.mp4",
+        poster: "/videos/products/t-shirt-mix/01-poster.jpg",
+        alt: "A look through the Branded T-Shirt Mix: a navy Nike graphic tee, a grey Puma logo tee, an olive long-sleeve and layered branded tees.",
+      },
+    ],
     inStock: true,
     featured: true,
   },
@@ -525,6 +559,13 @@ const catalogue: Product[] = [
       {
         src: "/images/products/jackets-windbreaker-mix/01.jpg",
         alt: "Four vintage jackets laid flat on white: a navy Nike quarter-zip pullover, a red Chaps Ralph Lauren hooded pullover, a grey and navy Tommy Hilfiger hooded jacket and a white and red Reebok fleece-lined jacket.",
+      },
+    ],
+    videos: [
+      {
+        src: "/videos/products/jackets-windbreaker-mix/01.mp4",
+        poster: "/videos/products/jackets-windbreaker-mix/01-poster.jpg",
+        alt: "A look through the Jackets & Windbreaker Mix, turned over piece by piece: a navy, white and green Nike shell jacket, a green Champion half-zip pullover and layered branded windbreakers.",
       },
     ],
     inStock: true,
