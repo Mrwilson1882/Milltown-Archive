@@ -396,30 +396,6 @@ const catalogue: Product[] = [
   {
     slug: "lacoste-jumpers-cardigans",
     name: "Lacoste Jumpers & Cardigans",
-    summary: "Croc-branded knitwear, in tens, twenty-fives and fifties.",
-    description: [
-      "Lacoste knitwear — crew and v-neck jumpers, zip-through cardigans and patterned knits, all croc-branded.",
-      "Knitwear sells slower than jersey but holds its ticket, and the croc does the work on the label. Available in ten, twenty-five or fifty, so you can buy for a season rather than a weekend.",
-    ],
-    brandSlugs: ["lacoste"],
-    typeSlugs: ["jumpers-sweats"],
-    collectionSlugs: ["premium-vintage", "winter"],
-    variants: [at(10, 10), at(25, 9), at(50, 8.5)],
-    unit: "pieces",
-    notes: [],
-    art: "diagonal-green-2",
-    photos: [
-      {
-        src: "/images/products/lacoste-jumpers-cardigans/01.jpg",
-        alt: "Four Lacoste knits laid flat on white: a navy zip-through cardigan, a black zip cardigan, a black zip knit with cream striped collar and cuffs, and a green v-neck jumper.",
-      },
-    ],
-    inStock: true,
-    featured: true,
-  },
-  {
-    slug: "lacoste-knitwear",
-    name: "Lacoste Knitwear",
     summary: "Croc-logo jumpers and cardigans, graded around 85% A, in tens, twenty-fives and fifties.",
     description: [
       "Lacoste knitwear on its own — crew and v-neck jumpers, button and zip cardigans, patterned knits — every piece with the croc on the chest.",
@@ -436,15 +412,15 @@ const catalogue: Product[] = [
     art: "grid-ink",
     photos: [
       {
-        src: "/images/products/lacoste-knitwear/01.jpg",
+        src: "/images/products/lacoste-jumpers-cardigans/01.jpg",
         alt: "Four Lacoste knits laid flat on white: a pale blue IZOD Lacoste button cardigan, a green v-neck jumper, a navy crew with red, white and blue tipping, and a navy zip-through with the croc on the chest.",
       },
     ],
     videos: [
       {
-        src: "/videos/products/lacoste-knitwear/01.mp4",
-        poster: "/videos/products/lacoste-knitwear/01-poster.jpg",
-        alt: "A look through the Lacoste Knitwear lot, turned over piece by piece: a navy button cardigan, a navy quarter-zip knit and a black crew, each with the croc on the chest.",
+        src: "/videos/products/lacoste-jumpers-cardigans/01.mp4",
+        poster: "/videos/products/lacoste-jumpers-cardigans/01-poster.jpg",
+        alt: "A look through the Lacoste Jumpers & Cardigans lot, turned over piece by piece: a navy button cardigan, a navy quarter-zip knit and a black crew, each with the croc on the chest.",
       },
     ],
     inStock: true,
@@ -471,6 +447,15 @@ const catalogue: Product[] = [
       {
         src: "/images/products/festival-track-jackets/01.jpg",
         alt: "Four festival track jackets on white: a blue and pink Reebok shell, a black and white Adidas taped track top, a navy and red Nike shell and a purple Adidas trefoil jacket.",
+      },
+    ],
+    // The same rail as the Jackets & Windbreaker Mix: the owner shoots these
+    // jackets as one line, so both pages carry the clip.
+    videos: [
+      {
+        src: "/videos/products/jackets-windbreaker-mix/01.mp4",
+        poster: "/videos/products/jackets-windbreaker-mix/01-poster.jpg",
+        alt: "A look through the festival jacket rail, turned over piece by piece: a navy, white and green Nike shell jacket, a green Champion half-zip pullover and layered branded windbreakers.",
       },
     ],
     inStock: true,

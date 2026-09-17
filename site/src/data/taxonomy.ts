@@ -456,7 +456,7 @@ export const collections: Category[] = [
     seoCopy:
       "Men's vintage wholesale — designer and sportswear lots across Lacoste, Ralph Lauren, Stone Island, Nike and Champion, in lots of ten, twenty-five or fifty.",
     art: "blocks-ink-2",
-    photoFrom: "lacoste-knitwear",
+    photoFrom: "lacoste-jumpers-cardigans",
   },
 ];
 

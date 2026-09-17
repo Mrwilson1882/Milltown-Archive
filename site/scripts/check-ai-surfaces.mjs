@@ -50,6 +50,7 @@ check(read("src/app/grading-guide/page.tsx").includes("FAQPage"), "grading guide
 const retired = [
   "mixed-mens-lacoste-25",
   "mixed-mens-lacoste",
+  "lacoste-knitwear",
   "y2k-designer-female-mix-box-20",
   "y2k-designer-male-mix-box-20",
   "y2k-designer-male-mix-box",
