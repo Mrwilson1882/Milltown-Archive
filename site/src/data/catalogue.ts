@@ -87,7 +87,17 @@ export type Product = {
    * the product reel after the photographs. `poster` is the still shown
    * before play and in the thumbnail; the transcode step writes one per clip.
    */
-  videos?: { src: string; poster: string; alt: string }[];
+  videos?: {
+    src: string;
+    poster: string;
+    alt: string;
+    /**
+     * The same clip as shot: 10-bit HEVC in HLG, the iPhone's own HDR format.
+     * Offered first; browsers that can play it (Safari, most Android) show the
+     * footage with its original light and colour, others fall back to `src`.
+     */
+    hdr?: string;
+  }[];
   inStock: boolean;
   featured?: boolean;
 };
@@ -170,6 +180,7 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/y2k-designer-female-mix-box/01.mp4",
+        hdr: "/videos/products/y2k-designer-female-mix-box/01-hdr.mp4",
         poster: "/videos/products/y2k-designer-female-mix-box/01-poster.jpg",
         alt: "A look through the Y2K Designer Female Mix: a pink and grey The North Face fleece, a pink velour zip hoodie, a blue shell jacket and embellished denim.",
       },
@@ -276,6 +287,7 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/carhartt-dickies-t-shirts/01.mp4",
+        hdr: "/videos/products/carhartt-dickies-t-shirts/01-hdr.mp4",
         poster: "/videos/products/carhartt-dickies-t-shirts/01-poster.jpg",
         alt: "A look through the Carhartt / Dickies T-Shirts: a black Carhartt pocket tee, a navy long-sleeve and layered tan and green workwear tees.",
       },
@@ -364,6 +376,7 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/mixed-premium-vintage-hoodies/01.mp4",
+        hdr: "/videos/products/mixed-premium-vintage-hoodies/01-hdr.mp4",
         poster: "/videos/products/mixed-premium-vintage-hoodies/01-poster.jpg",
         alt: "A look through the Mixed Premium Vintage Hoodies: a navy Nike swoosh hoodie, a royal blue Nike hoodie and layered grey and red hoods.",
       },
@@ -419,6 +432,7 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/lacoste-jumpers-cardigans/01.mp4",
+        hdr: "/videos/products/lacoste-jumpers-cardigans/01-hdr.mp4",
         poster: "/videos/products/lacoste-jumpers-cardigans/01-poster.jpg",
         alt: "A look through the Lacoste Jumpers & Cardigans lot, turned over piece by piece: a navy button cardigan, a navy quarter-zip knit and a black crew, each with the croc on the chest.",
       },
@@ -454,6 +468,7 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/jackets-windbreaker-mix/01.mp4",
+        hdr: "/videos/products/jackets-windbreaker-mix/01-hdr.mp4",
         poster: "/videos/products/jackets-windbreaker-mix/01-poster.jpg",
         alt: "A look through the festival jacket rail, turned over piece by piece: a navy, white and green Nike shell jacket, a green Champion half-zip pullover and layered branded windbreakers.",
       },
@@ -533,6 +548,7 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/t-shirt-mix/01.mp4",
+        hdr: "/videos/products/t-shirt-mix/01-hdr.mp4",
         poster: "/videos/products/t-shirt-mix/01-poster.jpg",
         alt: "A look through the Branded T-Shirt Mix: a navy Nike graphic tee, a grey Puma logo tee, an olive long-sleeve and layered branded tees.",
       },
@@ -564,6 +580,7 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/jackets-windbreaker-mix/01.mp4",
+        hdr: "/videos/products/jackets-windbreaker-mix/01-hdr.mp4",
         poster: "/videos/products/jackets-windbreaker-mix/01-poster.jpg",
         alt: "A look through the Jackets & Windbreaker Mix, turned over piece by piece: a navy, white and green Nike shell jacket, a green Champion half-zip pullover and layered branded windbreakers.",
       },
