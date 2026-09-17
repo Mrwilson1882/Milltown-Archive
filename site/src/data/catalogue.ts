@@ -437,7 +437,7 @@ const catalogue: Product[] = [
     photos: [
       {
         src: "/images/products/lacoste-knitwear/01.jpg",
-        alt: "Four Lacoste knits laid flat on white: a pale blue IZOD Lacoste button cardigan, a cream v-neck with blue and yellow diagonal stripes, a navy crew with red, white and blue tipping, and a green v-neck jumper.",
+        alt: "Four Lacoste knits laid flat on white: a pale blue IZOD Lacoste button cardigan, a green v-neck jumper, a navy crew with red, white and blue tipping, and a navy zip-through with the croc on the chest.",
       },
     ],
     videos: [
