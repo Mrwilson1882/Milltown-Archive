@@ -84,7 +84,14 @@ const organisationJsonLd = {
   telephone: `+${siteConfig.whatsappNumber}`,
   slogan: siteConfig.tagline,
   description: siteConfig.description,
-  address: { "@type": "PostalAddress", addressLocality: "Lancashire", addressCountry: "GB" },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: `${siteConfig.address.unit}, ${siteConfig.address.street}`,
+    addressLocality: siteConfig.address.town,
+    addressRegion: siteConfig.address.county,
+    postalCode: siteConfig.address.postcode,
+    addressCountry: "GB",
+  },
   areaServed: ["GB", "IE", "FR", "DE", "NL", "BE", "ES", "IT", "PL"],
   contactPoint: [
     {

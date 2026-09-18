@@ -7,10 +7,19 @@ const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
 
 export const siteConfig = {
   name: "Archive Wholesale",
-  legalName: "MANCH LTD",
-  /** Companies House registration number for MANCH LTD. */
+  legalName: "Archivio Group Ltd",
+  /** Registered trading address, one line per part. */
+  address: {
+    unit: "Vo-10, Empire Business Park",
+    street: "2 Empire Way",
+    town: "Burnley",
+    county: "Lancashire",
+    postcode: "BB12 6HA",
+    country: "United Kingdom",
+  },
+  /** Companies House registration number for Archivio Group Ltd. */
   companyNumber: "17064831",
-  /** Year MANCH LTD was incorporated. */
+  /** Year Archivio Group Ltd was incorporated. */
   established: 2025,
   /**
    * An unrelated "Archive Wholesale Ltd" was dissolved in 2019. Anyone who
@@ -46,7 +55,7 @@ export const siteConfig = {
    */
   vat: {
     /**
-     * Flip to true once MANCH LTD is VAT registered. Everything follows from
+     * Flip to true once Archivio Group Ltd is VAT registered. Everything follows from
      * this one flag: the "+ VAT" suffix on prices, the VAT line in the cart,
      * the VAT line item at checkout and the wording on the price tables.
      */
@@ -54,6 +63,9 @@ export const siteConfig = {
     ratePercent: 20,
   },
 } as const;
+
+/** "Vo-10, Empire Business Park, 2 Empire Way, Burnley BB12 6HA" */
+export const addressLine = `${siteConfig.address.unit}, ${siteConfig.address.street}, ${siteConfig.address.town} ${siteConfig.address.postcode}`;
 
 export const showVat = siteConfig.vat.registered;
 export const vatRate = showVat ? siteConfig.vat.ratePercent / 100 : 0;

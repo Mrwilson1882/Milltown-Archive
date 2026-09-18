@@ -12,6 +12,13 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.09.18-4 — 2026-09-18 — commit `68bc42c`
+
+- Legal name changed from MANCH LTD to Archivio Group Ltd everywhere: footer, contact page, structured data, llms.txt and the buyer guide. Company number 17064831 and "established 2025" unchanged.
+- Business address added: Vo-10, Empire Business Park, 2 Empire Way, Burnley, Lancashire BB12 6HA. Shown in the footer and on the contact page, and given to Google as a postal address in the Organization structured data (replacing the previous "Lancashire" only).
+
+---
+
 ## v2026.09.18-3 — 2026-09-18 — commit `917b61d`
 
 - Selling order: Starter Box and Y2K Designer Female Mix moved up to second and third on All Products and every grid, ahead of the Ralph Lauren Polo Box. Home page Popular lots is unchanged (it excludes boxes); the Reseller Boxes page and home row now run Starter Box, Y2K Female, Ralph Lauren Polo Box, Designer Male Mix.

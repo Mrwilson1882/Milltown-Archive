@@ -86,8 +86,14 @@ export default function ContactPage() {
                 </dd>
               </div>
               <div>
-                <dt className="eyebrow text-slate">Based in</dt>
-                <dd className="mt-1.5 text-slate">{siteConfig.location}</dd>
+                <dt className="eyebrow text-slate">Address</dt>
+                <dd className="mt-1.5 text-slate">
+                  {siteConfig.address.unit}
+                  <br />
+                  {siteConfig.address.street}
+                  <br />
+                  {siteConfig.address.town}, {siteConfig.address.county} {siteConfig.address.postcode}
+                </dd>
               </div>
               <div>
                 <dt className="eyebrow text-slate">Trading as</dt>

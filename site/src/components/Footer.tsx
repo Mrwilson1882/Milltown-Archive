@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { brands, collections, productTypes } from "@/data/taxonomy";
-import { hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
+import { addressLine, hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
 import { builtOnLabel } from "@/lib/buildInfo";
 
 function Column({
@@ -68,8 +68,8 @@ export function Footer() {
                 </div>
               )}
               <div className="flex gap-2">
-                <dt className="font-bold">Based in</dt>
-                <dd className="text-slate">{siteConfig.location}</dd>
+                <dt className="font-bold">Address</dt>
+                <dd className="text-slate">{addressLine}</dd>
               </div>
             </dl>
           </div>
