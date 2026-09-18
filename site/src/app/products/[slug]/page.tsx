@@ -73,7 +73,9 @@ export default async function ProductPage({ params }: Params) {
   const gallery: { src: string; alt: string }[] =
     product.photos && product.photos.length > 0
       ? product.photos
-      : [
+      : (product.videos?.length ?? 0) > 0
+        ? [] // the video reel fronts the page on its own
+        : [
           {
             src: `/images/tiles/${product.art}.svg`,
             alt: `${product.name} — placeholder artwork, photography to follow`,

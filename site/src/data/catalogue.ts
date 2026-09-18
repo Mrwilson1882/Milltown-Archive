@@ -177,6 +177,15 @@ const catalogue: Product[] = [
         alt: "Four Polo Ralph Lauren piqué polos on white: navy, black and white stripe, pink marl and green marl.",
       },
     ],
+    // The Ralph, Tommy, Lacoste rail clip opens on the Ralph Lauren polos; it
+    // fronts this box until a Ralph Lauren-only clip is shot.
+    videos: [
+      {
+        src: "/videos/products/ralph-tommy-lacoste-mix/01.mp4",
+        poster: "/videos/products/ralph-tommy-lacoste-mix/01-poster.jpg",
+        alt: "A look along the rail: Polo Ralph Lauren piqué polos in pink, yellow and blue, turned over piece by piece.",
+      },
+    ],
     inStock: true,
     featured: true,
   },
@@ -303,12 +312,6 @@ const catalogue: Product[] = [
     unit: "pieces",
     notes: [],
     art: "blocks-ink-3",
-    photos: [
-      {
-        src: "/images/products/carhartt-dickies-t-shirts/01.jpg",
-        alt: "Carhartt / Dickies workwear t-shirts laid flat: a black Carhartt pocket tee over layered tan, navy and green tees.",
-      },
-    ],
     videos: [
       {
         src: "/videos/products/carhartt-dickies-t-shirts/01.mp4",
@@ -715,7 +718,9 @@ export const products: Product[] = catalogue.map((product) => ({
   ...product,
   description: [...product.description, REPRESENTATIVE_NOTE],
   grade: product.grade ?? "A/B",
-  inStock: product.inStock && (product.photos?.length ?? 0) > 0,
+  // A lot needs something to show before it can sell: a photograph or a video.
+  inStock:
+    product.inStock && ((product.photos?.length ?? 0) > 0 || (product.videos?.length ?? 0) > 0),
 }));
 
 /** Lots held back only for want of a photograph — the shot list, in effect. */
@@ -787,6 +792,7 @@ export function quantityLabel(product: Product): string {
  */
 export const homeFeatured = [
   "ralph-tommy-lacoste-mix",
+  "ralph-lauren-polo-box-10",
   "lacoste-jumpers-cardigans",
   "jackets-windbreaker-mix",
   "mixed-premium-vintage-hoodies",
@@ -818,3 +824,15 @@ export function merchRank(product: Product): number {
 export const featuredProducts: Product[] = homeFeatured
   .map((slug) => products.find((p) => p.slug === slug))
   .filter((p): p is Product => Boolean(p) && (p as Product).inStock);
+
+/**
+ * The picture that fronts a lot on cards, tiles and search: its first
+ * photograph, else the poster of its first video, else the placeholder art.
+ */
+export function coverImage(product: Product): { src: string; alt: string; video: boolean } {
+  const photo = product.photos?.[0];
+  if (photo) return { src: photo.src, alt: photo.alt, video: false };
+  const video = product.videos?.[0];
+  if (video) return { src: video.poster, alt: video.alt, video: true };
+  return { src: `/images/tiles/${product.art}.svg`, alt: `${product.name} — ${product.summary}`, video: false };
+}

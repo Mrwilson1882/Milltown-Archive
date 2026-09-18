@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useId, useMemo, useState } from "react";
-import { fromPrice, quantityLabel } from "@/data/catalogue";
+import { coverImage, fromPrice, quantityLabel } from "@/data/catalogue";
 import { categoryPath } from "@/data/taxonomy";
 import { trackEvent } from "@/lib/analytics";
 import { perPiece } from "@/lib/format";
@@ -111,7 +111,7 @@ export function SearchBox({
               )}
               <ul>
                 {results.products.map((product) => {
-                  const photo = product.photos?.[0];
+                  const cover = coverImage(product);
                   const price = fromPrice(product);
                   const cheapest = product.variants
                     .filter((v) => v.priceGBP !== null)
@@ -125,7 +125,7 @@ export function SearchBox({
                       >
                         <span className="relative h-12 w-12 shrink-0 overflow-hidden bg-smoke">
                           <Image
-                            src={photo?.src ?? `/images/tiles/${product.art}.svg`}
+                            src={cover.src}
                             alt=""
                             fill
                             sizes="48px"
