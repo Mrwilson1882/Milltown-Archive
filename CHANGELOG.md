@@ -12,6 +12,12 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.09.18-5 — 2026-09-18 — commit `c004e4c`
+
+- Every remaining reference to MANCH LTD and Milltown Archive removed: the home page About paragraph no longer calls Archive Wholesale the trade arm of Milltown Archive, the Organization structured data no longer lists a parent organisation, and the repository README is retitled. The site presents Archive Wholesale (Archivio Group Ltd) on its own.
+
+---
+
 ## v2026.09.18-4 — 2026-09-18 — commit `68bc42c`
 
 - Legal name changed from MANCH LTD to Archivio Group Ltd everywhere: footer, contact page, structured data, llms.txt and the buyer guide. Company number 17064831 and "established 2025" unchanged.

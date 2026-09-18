@@ -28,7 +28,6 @@ export const siteConfig = {
    */
   activeNotice:
     "An active, trading business established in 2025 — not connected with any earlier company of a similar name.",
-  parent: "Milltown Archive",
   tagline: "Branded vintage sportswear, wholesale.",
   description:
     "UK vintage clothing wholesale. Branded vintage — Lacoste, Ralph Lauren, Nike, Champion, Carhartt and more — sorted and graded into reseller boxes, counted lots of ten, twenty-five or fifty.",

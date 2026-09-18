@@ -236,7 +236,7 @@ export default function HomePage() {
               </h2>
               <div className="mt-6 space-y-4 text-base leading-relaxed text-slate">
                 <p>
-                  {siteConfig.name} is the trade arm of {siteConfig.parent}. We buy, sort and grade
+                  {siteConfig.name} is a UK vintage wholesaler. We buy, sort and grade
                   branded vintage in {siteConfig.location}, and sell it on to the shops, stalls and
                   online sellers who put it in front of customers.
                 </p>

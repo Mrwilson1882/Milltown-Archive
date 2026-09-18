@@ -77,7 +77,6 @@ const organisationJsonLd = {
     value: siteConfig.companyNumber,
   },
   disambiguatingDescription: siteConfig.activeNotice,
-  parentOrganization: { "@type": "Organization", name: siteConfig.parent },
   url: siteConfig.url,
   logo: `${siteConfig.url}/logo.png`,
   email: siteConfig.email,
