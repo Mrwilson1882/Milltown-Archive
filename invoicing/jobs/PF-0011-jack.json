@@ -1,0 +1,16 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0011",
+  "invoiceDate": "2026-09-18",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Jack"
+  },
+
+  "lines": [
+    { "slug": "jackets-windbreaker-mix", "pieces": 10, "qty": 1, "unitPrice": 112.50 }
+  ],
+
+  "delivery": 12.50
+}
