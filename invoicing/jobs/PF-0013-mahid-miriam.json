@@ -1,0 +1,17 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0013",
+  "invoiceDate": "2026-09-18",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Mahid Miriam"
+  },
+
+  "lines": [
+    { "slug": "jackets-windbreaker-mix", "pieces": 10, "qty": 1, "unitPrice": 110 },
+    { "slug": "mixed-mens-lacoste", "pieces": 10, "qty": 1, "unitPrice": 110 }
+  ],
+
+  "delivery": 20
+}
