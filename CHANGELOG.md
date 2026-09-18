@@ -12,6 +12,12 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.09.18-3 — 2026-09-18 — commit `917b61d`
+
+- Selling order: Starter Box and Y2K Designer Female Mix moved up to second and third on All Products and every grid, ahead of the Ralph Lauren Polo Box. Home page Popular lots is unchanged (it excludes boxes); the Reseller Boxes page and home row now run Starter Box, Y2K Female, Ralph Lauren Polo Box, Designer Male Mix.
+
+---
+
 ## v2026.09.18-2 — 2026-09-18 — commit `66d2f4f`
 
 - Signals that the business is live, to separate it from the unrelated "Archive Wholesale Ltd" dissolved in 2019: footer and contact page state "established 2025" and "an active, trading business — not connected with any earlier company of a similar name"; footer shows "Site last updated <date>" and the home page eyebrow "Live stock, updated <date>", both stamped at each deploy; Organization structured data gains foundingDate, the Companies House number and the same disambiguation; llms.txt states the business status for AI assistants.

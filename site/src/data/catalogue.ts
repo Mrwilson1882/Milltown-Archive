@@ -783,6 +783,8 @@ export function quantityLabel(product: Product): string {
  */
 export const homeFeatured = [
   "ralph-tommy-lacoste-mix",
+  "starter-box-10",
+  "y2k-designer-female-mix-box",
   "ralph-lauren-polo-box-10",
   "lacoste-jumpers-cardigans",
   "jackets-windbreaker-mix",
