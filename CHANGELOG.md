@@ -17,7 +17,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 - Carhartt / Dickies T-Shirts: the video still used as its photo is removed. Its card now shows the logo poster with a Video badge, and the product page opens straight on the video.
 - Every lot that has a video now carries a "Video" badge on its card in every grid.
 - A lot with a video but no photograph counts as in stock (previously a photo was required).
-- Ralph Lauren Polo Box: moved to second in the selling order (after the Ralph, Tommy, Lacoste Mix) and given the Ralph, Tommy, Lacoste rail clip until a Ralph Lauren-only clip is shot.
+- Ralph Lauren Polo Box: moved to second in the selling order (after the Ralph, Tommy, Lacoste Mix). It briefly carried the Ralph, Tommy, Lacoste rail clip; that was the wrong video and was removed the same day (commit noted below). No video until a Ralph Lauren-only clip is shot.
 
 ---
 

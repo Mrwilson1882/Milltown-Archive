@@ -177,15 +177,6 @@ const catalogue: Product[] = [
         alt: "Four Polo Ralph Lauren piqué polos on white: navy, black and white stripe, pink marl and green marl.",
       },
     ],
-    // The Ralph, Tommy, Lacoste rail clip opens on the Ralph Lauren polos; it
-    // fronts this box until a Ralph Lauren-only clip is shot.
-    videos: [
-      {
-        src: "/videos/products/ralph-tommy-lacoste-mix/01.mp4",
-        poster: "/videos/products/ralph-tommy-lacoste-mix/01-poster.jpg",
-        alt: "A look along the rail: Polo Ralph Lauren piqué polos in pink, yellow and blue, turned over piece by piece.",
-      },
-    ],
     inStock: true,
     featured: true,
   },
