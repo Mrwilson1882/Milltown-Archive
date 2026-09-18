@@ -70,6 +70,13 @@ const organisationJsonLd = {
   "@id": `${siteConfig.url}/#organization`,
   name: siteConfig.name,
   legalName: siteConfig.legalName,
+  foundingDate: String(siteConfig.established),
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "Companies House",
+    value: siteConfig.companyNumber,
+  },
+  disambiguatingDescription: siteConfig.activeNotice,
   parentOrganization: { "@type": "Organization", name: siteConfig.parent },
   url: siteConfig.url,
   logo: `${siteConfig.url}/logo.png`,

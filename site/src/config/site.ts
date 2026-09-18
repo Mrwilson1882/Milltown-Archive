@@ -10,6 +10,15 @@ export const siteConfig = {
   legalName: "MANCH LTD",
   /** Companies House registration number for MANCH LTD. */
   companyNumber: "17064831",
+  /** Year MANCH LTD was incorporated. */
+  established: 2025,
+  /**
+   * An unrelated "Archive Wholesale Ltd" was dissolved in 2019. Anyone who
+   * searches the name finds that first, so the site says plainly, in words
+   * and in structured data, that this business is live and separate.
+   */
+  activeNotice:
+    "An active, trading business established in 2025 — not connected with any earlier company of a similar name.",
   parent: "Milltown Archive",
   tagline: "Branded vintage sportswear, wholesale.",
   description:

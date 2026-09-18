@@ -12,6 +12,7 @@ import {
 } from "@/data/taxonomy";
 import { featuredProducts, merchRank, productsInCategory } from "@/data/catalogue";
 import { hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
+import { builtOnLabel } from "@/lib/buildInfo";
 
 export const metadata: Metadata = {
   title: "Vintage Clothing Wholesale UK — Reseller Boxes & Counted Lots",
@@ -59,7 +60,7 @@ export default function HomePage() {
       <section className="border-b border-ash">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:py-20">
           <div className="flex flex-col justify-center">
-            <p className="eyebrow text-forest">Vintage wholesale · United Kingdom</p>
+            <p className="eyebrow text-forest">Vintage wholesale · United Kingdom · Live stock, updated {builtOnLabel}</p>
             <h1 className="display mt-5 text-4xl sm:text-6xl lg:text-7xl">
               Branded vintage,
               <br />

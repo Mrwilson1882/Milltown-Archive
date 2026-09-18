@@ -12,6 +12,12 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.09.18-2 — 2026-09-18 — commit `66d2f4f`
+
+- Signals that the business is live, to separate it from the unrelated "Archive Wholesale Ltd" dissolved in 2019: footer and contact page state "established 2025" and "an active, trading business — not connected with any earlier company of a similar name"; footer shows "Site last updated <date>" and the home page eyebrow "Live stock, updated <date>", both stamped at each deploy; Organization structured data gains foundingDate, the Companies House number and the same disambiguation; llms.txt states the business status for AI assistants.
+
+---
+
 ## v2026.09.18-1 — 2026-09-18 — commit `da1f303`
 
 - Carhartt / Dickies T-Shirts: the video still used as its photo is removed. Its card now shows the logo poster with a Video badge, and the product page opens straight on the video.
