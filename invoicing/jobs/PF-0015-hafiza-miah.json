@@ -1,0 +1,16 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0015",
+  "invoiceDate": "2026-09-19",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Hafiza Miah"
+  },
+
+  "lines": [
+    { "slug": "ralph-lauren-polos", "pieces": 10, "qty": 1, "description": "Ralph Lauren Polos — Starter Box" }
+  ],
+
+  "delivery": 10
+}
