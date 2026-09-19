@@ -256,6 +256,7 @@ const catalogue: Product[] = [
     summary: "Croc and pony piqué polos mixed, in tens, twenty-fives and fifties.",
     description: [
       "Branded piqué polos split across Lacoste and Polo Ralph Lauren — the two labels that turn over most reliably in this category, kept in one lot so a rail reads as a designer rail rather than a single-brand run.",
+      "Roughly 85% men's and 15% women's across the lot.",
       "Available in ten, twenty-five or fifty. Start small to test the line, then buy in depth once you know it sells.",
       "Mixed colourways across solids, stripes and check.",
     ],

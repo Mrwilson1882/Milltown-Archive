@@ -12,6 +12,12 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.09.19-3 — 2026-09-19 — commit `5374991`
+
+- Lacoste / Ralph Lauren Polos description now states the split: roughly 85% men's and 15% women's across the lot.
+
+---
+
 ## v2026.09.19-2 — 2026-09-19 — commit `3be01f8`
 
 - Lacoste / Ralph Lauren Polos gains a rail video: 47.6 seconds of portrait footage sped 2x to 25.2 seconds, same glare correction as the Ralph Lauren clip, cropped square with the chest logos in frame, logo intro added.
