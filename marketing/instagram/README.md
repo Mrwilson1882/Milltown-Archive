@@ -171,6 +171,22 @@ the footage's lit floor sits so the crossfade does not step in brightness.
 Nothing is scaled or dropped except the frames the speed-up removes, which is
 how every editor does it.
 
+## A story from a run of clips
+
+`build/story.mjs` cuts one Instagram story from several square product clips:
+wordmark in, then four seconds of each lot in the square window with its name
+and ten-piece price in the band beneath, wordmark and address out. The clips
+are listed at the top of the script — file, where the four seconds start, name
+and prices — and a re-cut is an edit there and `node story.mjs`.
+
+Same colour rule as `polish.mjs`: HDR footage is never converted; the white
+ground and the type are lifted into the clips' own space instead. Silent on
+purpose — five clips of rustling do not cut together, and a story gets its
+music in the app.
+
+First cut: `this-weeks-lots-story.mp4` — windbreakers, tees, women's Y2K,
+hoodies, Carhartt/Dickies tees. 21.5 seconds.
+
 ## Re-rendering
 
 ```bash
