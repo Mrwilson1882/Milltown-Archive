@@ -177,6 +177,16 @@ const catalogue: Product[] = [
         alt: "Four Polo Ralph Lauren piqué polos on white: navy, black and white stripe, pink marl and green marl.",
       },
     ],
+    // Shot portrait and at two different speeds; evened out to one pace,
+    // graded to take the glare off, and cropped square. No HDR rendition:
+    // the corrected grade is the point, so every browser sees the same thing.
+    videos: [
+      {
+        src: "/videos/products/ralph-lauren-polo-box-10/01.mp4",
+        poster: "/videos/products/ralph-lauren-polo-box-10/01-poster.jpg",
+        alt: "A look through a Ralph Lauren Polo Box, turned over piece by piece: piqué polos in red, green, navy, pale blue, white and mint, each with the pony on the chest.",
+      },
+    ],
     inStock: true,
     featured: true,
   },
