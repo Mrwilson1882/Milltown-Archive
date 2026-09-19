@@ -272,6 +272,13 @@ const catalogue: Product[] = [
         alt: "Three vintage piqué polos laid flat on white: a faded navy Ralph Lauren with a red pony, a cream Ralph Lauren, and a Lacoste striped in teal, lilac and cream.",
       },
     ],
+    videos: [
+      {
+        src: "/videos/products/lacoste-ralph-lauren-polos/01.mp4",
+        poster: "/videos/products/lacoste-ralph-lauren-polos/01-poster.jpg",
+        alt: "A look along the polo rail, turned over piece by piece: Lacoste croc polos in red and Polo Ralph Lauren pony polos in white, grey, red, yellow, black and blue.",
+      },
+    ],
     inStock: true,
     featured: true,
   },

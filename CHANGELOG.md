@@ -12,6 +12,12 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.09.19-2 — 2026-09-19 — commit `3be01f8`
+
+- Lacoste / Ralph Lauren Polos gains a rail video: 47.6 seconds of portrait footage sped 2x to 25.2 seconds, same glare correction as the Ralph Lauren clip, cropped square with the chest logos in frame, logo intro added.
+
+---
+
 ## v2026.09.19-1 — 2026-09-19 — commit `2d8e8cb`
 
 - Ralph Lauren Polos and the Ralph Lauren Polo Box both gain the same rail video (one shoot, both listings), replacing the borrowed clip removed on 18 September. The source ran 71.5 seconds at two different speeds; the slow section is sped up 3.8x to match the opening, bringing it to 21.6 seconds and cutting dead time from 52% to 21%. Highlights were clipping, which showed as glare on fabric and hands, so the HDR-to-standard conversion now uses highlight rolloff and desaturation: blown-out pixels are down from 12.4% on the worst frame to zero. Cropped square with the collar and pony in frame, logo intro added. No HDR rendition on this clip, so every browser sees the corrected grade.
