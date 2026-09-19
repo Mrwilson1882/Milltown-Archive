@@ -296,6 +296,14 @@ const catalogue: Product[] = [
         alt: "Four Polo Ralph Lauren piqué polos on white: navy, black and white stripe, pink marl and green marl.",
       },
     ],
+    // Same rail as the Ralph Lauren Polo Box — one shoot, both listings.
+    videos: [
+      {
+        src: "/videos/products/ralph-lauren-polo-box-10/01.mp4",
+        poster: "/videos/products/ralph-lauren-polo-box-10/01-poster.jpg",
+        alt: "A look along the Ralph Lauren polo rail, turned over piece by piece: piqué polos in red, green, navy, pale blue, white and mint, each with the pony on the chest.",
+      },
+    ],
     inStock: true,
   },
   {
