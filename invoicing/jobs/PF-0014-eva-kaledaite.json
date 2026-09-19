@@ -1,0 +1,16 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0014",
+  "invoiceDate": "2026-09-19",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Eva Kaledaite"
+  },
+
+  "lines": [
+    { "slug": "ralph-lauren-polos", "pieces": 10, "qty": 1 }
+  ],
+
+  "delivery": 10
+}
