@@ -1,0 +1,19 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0020",
+  "invoiceDate": "2026-09-21",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Jort De Gans",
+    "lines": ["Netherlands"]
+  },
+
+  "lines": [
+    { "slug": "ralph-lauren-polos", "pieces": 25, "qty": 1 }
+  ],
+
+  "delivery": 38,
+
+  "notes": "Shipping to the Netherlands. The customer is the importer of record and is responsible for any duty or import VAT charged on arrival."
+}

@@ -1,6 +1,6 @@
 {
   "_readme": "Pro formas run their own sequence. A pro forma is not an invoice — it is a request for payment for an order that is not confirmed yet — so it must never consume an invoice number, or the invoice run ends up full of gaps where quotes were never taken up. A confirmed sale gets a fresh AW- number from next-number.json. PF-0003 was raised in the tab, not here.",
   "prefix": "PF",
-  "next": 20,
+  "next": 21,
   "padding": 4
 }
