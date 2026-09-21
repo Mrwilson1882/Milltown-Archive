@@ -439,7 +439,7 @@ const catalogue: Product[] = [
     brandSlugs: ["mixed-brands", "chaps-ralph-lauren", "nautica", "champion", "nike", "guess"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage", "winter"],
-    variants: [at(10, 9.5), at(25, 9), at(50, 8.5)], // Quantities to be confirmed by the owner.
+    variants: [at(10, 10), at(25, 9.5), at(50, 9.25)],
     unit: "pieces",
     notes: [],
     art: "diagonal-ink-3",

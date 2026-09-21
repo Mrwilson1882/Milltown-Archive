@@ -12,6 +12,12 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.09.21-1 — 2026-09-21 — commit `12858b5`
+
+- Mixed Premium Vintage Sweatshirts repriced: 10 at £10, 25 at £9.50, 50 at £9.25 per piece (was £9.50 / £9 / £8.50). The lot no longer matches the hoodies.
+
+---
+
 ## v2026.09.19-3 — 2026-09-19 — commit `5374991`
 
 - Lacoste / Ralph Lauren Polos description now states the split: roughly 85% men's and 15% women's across the lot.
