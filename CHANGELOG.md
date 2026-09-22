@@ -12,6 +12,12 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.09.22-1 — 2026-09-22 — commit `9a091d2`
+
+- Grading: a broken, stuck or missing zip is now stated as Grade B, not Grade C. Written into the Grade B definition and its allowed list, taken out of the Grade C definition, added to the fastenings check step, given its own FAQ entry ("What grade is a garment with a broken zip?") which also feeds the page's FAQ structured data, and stated in llms.txt for AI assistants. Grade B's wording no longer claims every piece needs no mending, since a faulty zip does.
+
+---
+
 ## v2026.09.21-1 — 2026-09-21 — commit `12858b5`
 
 - Mixed Premium Vintage Sweatshirts repriced: 10 at £10, 25 at £9.50, 50 at £9.25 per piece (was £9.50 / £9 / £8.50). The lot no longer matches the hoodies.

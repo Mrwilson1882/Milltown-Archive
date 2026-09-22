@@ -29,15 +29,15 @@ const grades = [
     grade: "B",
     alias: "Grade 2",
     headline: "Good condition. Sells as it is, priced to reflect minor wear.",
-    rule: "Clean and complete, with one or two small imperfections you would notice on close inspection but that do not stop a sale. Every Grade B piece is wearable today with nothing that needs mending.",
-    allows: ["A small, faint mark in an unobtrusive place", "Light pilling or bobbling on knitwear", "Slight fading or a softened print", "Minor loose threads or a small pull that has not become a hole"],
-    excludes: ["Anything that needs repairing before it can be sold", "Stains that are the first thing you see", "Holes, tears or damaged seams", "Odour, damp or moth damage"],
+    rule: "One or two small imperfections you would notice on close inspection but that do not stop a sale. A broken, stuck or missing zip grades B: the fabric is sound, the fastening is not.",
+    allows: ["A small, faint mark in an unobtrusive place", "Light pilling or bobbling on knitwear", "Slight fading or a softened print", "Minor loose threads or a small pull that has not become a hole", "A broken, stuck or missing zip — a working zip is a Grade A requirement, so a faulty one drops the piece to B"],
+    excludes: ["Fabric damage that needs repairing before it can be sold", "Stains that are the first thing you see", "Holes, tears or damaged seams", "Odour, damp or moth damage"],
   },
   {
     grade: "C",
     alias: "Grade 3",
     headline: "Visible wear or damage. For rework, upcycling and rag — not resale as it is.",
-    rule: "Pieces with obvious faults: prominent stains, holes, heavy fading, broken fastenings or worn-through fabric. Some are worth reworking or cropping; most are rag. We do not put Grade C into our lots.",
+    rule: "Pieces with obvious faults: prominent stains, holes, heavy fading or worn-through fabric. A broken zip on its own is not Grade C — that grades B. Some are worth reworking or cropping; most are rag. We do not put Grade C into our lots.",
     allows: [],
     excludes: [],
   },
@@ -50,15 +50,19 @@ const faqs = [
   },
   {
     q: "What does Grade B mean in vintage clothing?",
-    a: "Grade B is clean, complete and wearable today, with one or two small imperfections you would notice on close inspection — a faint mark, light pilling, slight fading — but nothing that needs repairing and nothing that stops a sale. It is priced to reflect that. Some suppliers call it Grade 2.",
+    a: "Grade B has one or two small imperfections you would notice on close inspection — a faint mark, light pilling, slight fading — but nothing that stops a sale. A broken, stuck or missing zip also grades B: the garment itself is sound, so it still sells, and it is priced to reflect the fault. Some suppliers call it Grade 2.",
   },
   {
     q: "What does Grade C mean, and do you sell it?",
-    a: "Grade C has visible wear or damage: prominent stains, holes, heavy fading or broken fastenings. It is sold for rework, upcycling or rag rather than resale as it is. Archive Wholesale does not put Grade C into its lots.",
+    a: "Grade C has visible wear or damage: prominent stains, holes, heavy fading or worn-through fabric. It is sold for rework, upcycling or rag rather than resale as it is. A broken zip on its own does not make a piece Grade C — that grades B. Archive Wholesale does not put Grade C into its lots.",
   },
   {
     q: "What does 'Grade A/B' mean on an Archive Wholesale listing?",
     a: "It means the lot is a mix of Grade A and Grade B pieces and contains no Grade C. Every piece in the lot is ready to sell as it is; some are flawless and some carry a minor imperfection that has been reflected in the price.",
+  },
+  {
+    q: "What grade is a garment with a broken zip?",
+    a: "Grade B. A broken, stuck or missing zip is a fault in the fastening rather than the garment, so the piece is still saleable and is graded and priced as B. A working zip is one of the things checked for Grade A, so a faulty one always drops a piece out of A. It does not make it Grade C.",
   },
   {
     q: "Are vintage clothing grades the same everywhere?",
@@ -245,7 +249,7 @@ export default function GradingGuidePage() {
               ["Fabric", "Held up to the light for thinning, holes, pulls and moth damage."],
               ["Surface", "Front and back checked for marks, stains, fading and print wear."],
               ["Construction", "Seams, hems and cuffs checked for splits, unpicking and repairs."],
-              ["Fastenings", "Every zip run, every button and popper counted and tested."],
+              ["Fastenings", "Every zip run, every button and popper counted and tested. A zip that sticks, breaks or is missing grades the piece B."],
               ["Freshness", "Anything with odour, damp or mustiness is pulled regardless of how it looks."],
               ["Grade", "The piece is graded A, B or C, and only A and B go forward into lots."],
             ].map(([step, detail], i) => (
