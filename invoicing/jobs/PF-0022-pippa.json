@@ -5,7 +5,9 @@
   "paymentTerms": "Due on receipt",
 
   "customer": {
-    "contact": "Pippa"
+    "contact": "Pippa Beddow",
+    "lines": ["19 Longmeadow Road", "Walsall"],
+    "postcode": "WS5 3BZ"
   },
 
   "lines": [
