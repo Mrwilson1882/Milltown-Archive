@@ -35,12 +35,13 @@ MARGIN, LABEL_H, GUTTER = 24, 16, 10
 
 # ---------------------------------------------------------------- thumbnails
 
-def make_thumb(src, dest):
+def make_thumb(src, dest, px=None):
     """Downscale one photo to a JPEG. sips on macOS, Pillow as a fallback."""
+    px = px or THUMB_PX
     if shutil.which("sips"):
         r = subprocess.run(
             ["sips", "-s", "format", "jpeg", "-s", "formatOptions", "55",
-             "-Z", str(THUMB_PX), str(src), "--out", str(dest)],
+             "-Z", str(px), str(src), "--out", str(dest)],
             capture_output=True,
         )
         return r.returncode == 0 and dest.exists()
@@ -48,7 +49,7 @@ def make_thumb(src, dest):
         from PIL import Image, ImageOps
         with Image.open(src) as im:
             im = ImageOps.exif_transpose(im).convert("RGB")
-            im.thumbnail((THUMB_PX, THUMB_PX))
+            im.thumbnail((px, px))
             im.save(dest, "JPEG", quality=55, optimize=True)
         return True
     except Exception:
@@ -200,8 +201,6 @@ def main():
                          "be read off tape-measure shots; 500 is enough to group "
                          "photos and read a brand label, not always a ruler.")
     args = ap.parse_args()
-    global THUMB_PX
-    THUMB_PX = args.thumb_px
 
     for box in args.inbox:
         if not box.is_dir():
@@ -232,7 +231,7 @@ def main():
                 print(f"  {i}/{len(photos)}")
             thumb = Path(tmp) / f"{i:03d}.jpg"
             size = None
-            if make_thumb(src, thumb):
+            if make_thumb(src, thumb, args.thumb_px):
                 size = jpeg_size(thumb)
             if not size:
                 failed.append(src.name)
