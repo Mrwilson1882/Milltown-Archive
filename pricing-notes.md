@@ -256,3 +256,33 @@ type was exactly the over-fitting the owner called out.
 Reassess in a few months, once the dataset is substantially larger and spans
 more garment types, condition grades and defect severities. Until the owner
 says otherwise, this file is a ledger, not a model.
+
+## Batch 7 — 23 Sep 2026: first run of the four-factor method
+
+Seven items, six priced by the owner, one (item 7) with no price. The owner
+asked for a sense check on all of them.
+
+**What the comps could and could not reach.** `WebSearch` returned usable Vinted
+UK bands for Belstaff and D&G. For Krizia, Fay and Moncler it returned brand
+landing pages rather than priced listings, so those rest on general knowledge of
+the labels plus one-off comparables — weaker evidence, and said so below.
+
+| # | Item | Owner | Comps found | Read |
+|---|---|---|---|---|
+| 1 | Krizia quilted jacket, W | £44.99 | Krizia quilted puffer ~£55 (US Poshmark); no UK comps | **Fair.** "Per Te by Krizia" is a diffusion line, not mainline — priced accordingly. Keep. |
+| 2 | Fay gilet, M | £39.99 | none found | **Possibly low.** Fay is a respected Italian label; men's gilets retail £300+. £49.99 looks defensible. Weak evidence. |
+| 3 | D&G fur-collar jacket, XL | £89.99 | Vinted UK D&G puffers **£45–£199** | **Well judged.** Mid-band, sells quickly. |
+| 4 | Belstaff, XL | £79.99 | Vinted UK Belstaff XL **£65–£150**; Trialmaster XL VG at £150 | **Under.** This one is labelled *Designed & Made in England* — the premium production. £89.99–£99.99 is supportable. |
+| 5 | Moncler puffer, W | £129.99 | Rokit vintage Moncler **£147–£250** | **Under, and the biggest gap.** Genuine Moncler down in very good condition rarely moves below £150. £169.99 suggested. |
+| 6 | Fay long quilted coat, XS | £110.00 | none found | **Fair**, though XS narrows the buyer pool. Keep. |
+| 7 | Belstaff, XL | *(none)* | as item 4 | **£74.99 set.** Outer is 100% nylon, not waxed cotton, and no Made in England label — so below item 4 deliberately, and the two do not compete at the same price. |
+
+**The pattern worth noting:** both underprices are the two most collected labels
+in the batch, Moncler and the England-made Belstaff. That is the third time
+this has shown up, after the Miss Me shorts and the Juicy velour — **the
+recognisable premium name is exactly where the estimate runs short.** Recorded
+in `price-corrections.csv` once the owner rules.
+
+**Turnover caveat:** every suggestion above is still bounded by the quick-sale
+objective. Item 5 at £169.99 rather than the £200+ a vintage retailer asks is
+that trade-off made deliberately.
