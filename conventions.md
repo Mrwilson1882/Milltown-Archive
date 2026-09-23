@@ -106,6 +106,13 @@ of any new session — the chat is not persistent, these files are the memory.
   cards sit back to back, the first closes the run before it and the second
   opens the run after it. Cards are not always in numeric order either: batch
   4's `IMG_1470` is card 19 and `IMG_1471` is card 18.
+- **A batch can contain photos that belong to no listing** (owner, 23 Sep).
+  Stock gets shot that has no ledger row yet — t-shirts, in that batch. Those
+  photos are left out of the upload entirely rather than forced onto the nearest
+  item. The ledger decides what ships; the folder does not.
+  **Say which files were dropped and why.** Silently binning photos is the one
+  way this rule could lose a real product, so the excluded list goes in the
+  batch notes and in the reply, for the owner to check.
 - **Not every HEIC is a number card.** Batch 4's were, which made "exclude the
   HEICs" look like a rule. Batch 5's `IMG_2332.heic` is a composition-tag
   close-up with no card in it, and belongs in the listing. Check each HEIC
