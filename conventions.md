@@ -113,6 +113,12 @@ of any new session — the chat is not persistent, these files are the memory.
   **Say which files were dropped and why.** Silently binning photos is the one
   way this rule could lose a real product, so the excluded list goes in the
   batch notes and in the reply, for the owner to check.
+- **The Crosslist template workbook lives in the repo**, at
+  `crosslist/reference/CSV_listing_template.xlsx`. It used to exist only as a
+  chat upload; when uploads were cleared mid-batch, no category or size id could
+  be verified against anything. **Never write a UUID from memory** — look it up
+  in that file, and if it is somehow missing, ask for it rather than guess. An
+  invented men's sandals id nearly shipped in batch 6.
 - **Not every HEIC is a number card.** Batch 4's were, which made "exclude the
   HEICs" look like a rule. Batch 5's `IMG_2332.heic` is a composition-tag
   close-up with no card in it, and belongs in the listing. Check each HEIC

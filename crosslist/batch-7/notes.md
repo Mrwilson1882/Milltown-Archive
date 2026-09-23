@@ -37,8 +37,40 @@ would not.
 Every item has both a pit-to-pit and a length shot, so the ones without a legible
 size label can be sized from the tape.
 
-## Blocked
+## Item 7 is not in the ledger
 
-**The 23 Sep ledger has not arrived.** Without it there are no titles, prices,
-SKUs, conditions or defects, so `items.csv` cannot be built. The mapping is
-finished and waiting.
+`inventory-2026-09-23.csv` has six rows. Item 7, the black Belstaff, has none.
+Condition and size come from the owner's message of 23 Sep — very good, XL —
+and its price is Claude-set, since none was ever given.
+
+## SKU
+
+Every ledger SKU cell was empty. Owner, 23 Sep: the whole batch is
+**`SF - Fripe Winter Jackets` at £14.61 per item**, now in `cost-rates.csv`.
+That is the highest per-item cost recorded — the previous top was £9.60 — which
+suits winter outerwear. Every row clears 2.5x cost; the thinnest is item 2 at
+2.7x.
+
+## Sizes
+
+| Item | Ledger | Set | From |
+|---|---|---|---|
+| 1 | *(blank)* | Large | pit to pit ~23in — **a reading, not a label** |
+| 2 | Medium Men's | M | neck label confirms |
+| 3 | XL | XL | D&G size tab confirms |
+| 4 | XL **or XXL** | **XL** | pit to pit ~22in |
+| 5 | Large **or XL** | **Large** | pit to pit ~19.5in; no numeric Moncler tag in any of its 13 photos |
+| 6 | XS Women's | XS | ledger |
+| 7 | *(not in ledger)* | XL | owner's message |
+
+## Brands confirmed
+
+All three "brand to confirm" rows resolved from labels: item 1 is
+**PER TE BY KRIZIA**, items 2 and 6 are **Fay**.
+
+## The workbook now lives in the repo
+
+`crosslist/reference/CSV_listing_template.xlsx`. It had only ever existed as a
+chat upload, and when those were cleared no category id could be verified —
+which is how an invented UUID nearly shipped in batch 6. Committed so that
+cannot recur.
