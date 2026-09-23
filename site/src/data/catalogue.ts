@@ -329,6 +329,12 @@ const catalogue: Product[] = [
     unit: "pieces",
     notes: [],
     art: "blocks-ink-3",
+    photos: [
+      {
+        src: "/images/products/carhartt-dickies-t-shirts/01.jpg",
+        alt: "Four workwear t-shirts laid flat on white: a grey Carhartt pocket tee, a navy Carhartt Action Electric print tee, a tan Dickies pocket tee with a wave graphic and a charcoal Carhartt long-sleeve pocket tee.",
+      },
+    ],
     videos: [
       {
         src: "/videos/products/carhartt-dickies-t-shirts/01.mp4",
