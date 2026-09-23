@@ -1581,3 +1581,67 @@ been seen in person. Both should be overridden freely.
 Reassess in a few months, once the dataset is substantially larger and spans
 more garment types, condition grades and defect severities. Until the owner
 says otherwise, this file is a ledger, not a model.
+
+## CORRECTION — 23 Sep #6, Fay women's trench: £59.99 → £110.00
+
+The largest miss in the ledger so far, and the first correction since pricing
+came back to this chat.
+
+| | |
+|---|---|
+| Item | Fay trench jacket, XS women's, very good, no defects |
+| Claude said | £59.99 |
+| Owner said | **£110.00** |
+| Error | **−£50.01 — 45% low** |
+
+**The owner's words:** *"it's easily worth £110, check Vinted for future!
+Women's fay jackets are expensive."*
+
+### Why the miss happened
+
+Every external figure available pointed low, and all of them were wrong:
+
+| Source | What it showed | Why it misled |
+|---|---|---|
+| eBay | one vintage Fay trench sold at **US $45** (≈£34) | a single old piece, US market, not representative of the brand's outerwear |
+| Vinted (via search snippets) | a **£6–£25** range for "Fay" | almost certainly accessories and mis-matched brand hits, not women's outerwear |
+| Lyst / Fay retail | from **$557**, sale only to 55% off | retail anchoring, useless at resale level |
+
+Two independent sources agreed with each other and both were still wrong. That
+is the part worth remembering.
+
+### What it teaches
+
+1. **Women's Fay outerwear is a premium category in its own right.** It is not
+   a mid-tier Italian label. Treat it nearer Belstaff and Moncler than nearer
+   Ralph Lauren.
+2. **A gilet is not a scale model of a coat.** #2's Fay gilet at £39.99 was used
+   as the anchor and the trench pitched just above it. The jump from gilet to
+   trench in the same house is roughly **2.75×**, not the 1.5× assumed.
+3. **XS was over-penalised.** Size was marked down as a drag on turnover. In a
+   brand with a genuine collector and quality market, the buyer travels to the
+   size — scarcity of the garment outweighs scarcity of the buyer.
+4. **Sold-comp scarcity is itself information.** Thin comps were read as "weak
+   market". They more often mean the piece rarely comes up, which is an argument
+   for pricing *up*, not down.
+5. **The owner's market knowledge beats scraped comps for niche brands.** On
+   a label the search engines index badly, ask rather than infer.
+
+### Standing instruction from the owner
+
+**Check Vinted first for future pricing.** Noting the practical limit honestly:
+this environment's proxy blocks Vinted, eBay and Depop outright, and the search
+snippets that do get through are — as above — unreliable enough to be dangerous.
+Vinted checks need to happen where the browser is: in the Photo Processing chat
+or by the owner directly. Where a brand cannot be checked, say so and give a
+range rather than a single confident number.
+
+### New anchor
+
+| Item | Price |
+|---|---|
+| **Fay women's trench, very good, no defects, XS** | **£110.00** |
+| Fay men's gilet, very good, no defects, Medium | £39.99 |
+
+Note the price is a **round £110.00**, not £109.99 — the owner's own figure, and
+house convention is not to tidy round prices into .99 ones.

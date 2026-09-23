@@ -127,9 +127,11 @@ regardless of size, colour or footbed wear.
 - **£9.99 is the floor.** It is the price for a designer knit in poor order, an
   unbranded top, and a flawed polo alike. Below that, only £8.99 has been used.
 - Always written with the **£** symbol.
-- **£39.99 is the current ceiling** (Versace shirt). Anything above that is
-  genuinely exceptional and worth flagging to the owner rather than just
-  setting.
+- **There is no low ceiling any more.** £39.99 held until 23 Sep 2026, when a
+  batch of designer outerwear took the top of the ledger to **£129.99**
+  (Moncler), with a Dolce & Gabbana jacket at £89.99, a Belstaff at £79.99 and
+  an owner-set Fay trench at £110.00. Do not anchor a designer coat to the
+  £10–£40 band the earlier items sit in — they are different markets.
 
 ---
 
@@ -178,6 +180,12 @@ it. Photographs may.
 | Nike windbreaker, very good vintage, front marks | £24.99 |
 | Nike women's track jacket, good vintage, sleeve marks | £17.99 |
 | Nike track jacket, very good vintage, sleeve marks | £14.99 |
+| **Fay women's trench, very good, no defects, XS** | **£110.00** |
+
+**Designer outerwear is a separate market from everything above it.** The Fay
+anchor is owner-set and was a £50 correction upward from Claude's estimate. See
+§7. Women's Fay sits with Belstaff and Moncler, not with the high-street and
+sportswear labels that make up most of this ledger.
 
 ### Tops
 
@@ -242,9 +250,16 @@ Past examples worth keeping in mind:
 | Women's bralette | £12.99 | £8.99 | Matching on product type alone is not enough |
 | Ralph Lauren women's polo | £12.99 | £9.99 | Defects were not priced in at all |
 | Nike track jacket, marked | £21.99 | £14.99 | Deductions are not flat; a £3 rule from a polo does not transfer to a jacket |
+| **Fay women's trench, XS, very good** | **£59.99** | **£110.00** | **Thin sold comps mean the piece is rare, not that the market is weak. On a niche premium label, price up and ask — do not infer down from a single cheap sale.** |
 
 Two of the first three misses were **too high**, both from leaning on brand and
-product type while underweighting defects. Bias accordingly.
+product type while underweighting defects. Bias accordingly **on the
+high-street and sportswear items**.
+
+**Designer pieces bias the other way.** The one correction in that band was 45%
+**too low**. The two halves of this ledger need opposite instincts: deductions
+matter more than you think on a £15 polo, and brand strength matters more than
+you think on a £100 coat.
 
 ---
 
