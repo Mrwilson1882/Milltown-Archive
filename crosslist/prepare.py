@@ -27,7 +27,7 @@ from pathlib import Path
 
 EXTS = {".jpg", ".jpeg", ".png", ".heic", ".heif", ".tif", ".tiff", ".webp"}
 
-THUMB_PX = 500          # long edge of each embedded thumbnail
+THUMB_PX = 500          # long edge of each embedded thumbnail; --thumb-px overrides
 COLS, ROWS = 3, 4       # 12 per page
 PAGE_W, PAGE_H = 595, 842   # A4 in points
 MARGIN, LABEL_H, GUTTER = 24, 16, 10
@@ -195,7 +195,13 @@ def main():
                     help="folder(s) of raw photos, read-only. Pass several when "
                          "the number cards live in their own folder.")
     ap.add_argument("-o", "--out", type=Path, default=Path("prepared"))
+    ap.add_argument("--thumb-px", type=int, default=THUMB_PX,
+                    help="long edge of each thumbnail. Raise it when sizes have to "
+                         "be read off tape-measure shots; 500 is enough to group "
+                         "photos and read a brand label, not always a ruler.")
     args = ap.parse_args()
+    global THUMB_PX
+    THUMB_PX = args.thumb_px
 
     for box in args.inbox:
         if not box.is_dir():
