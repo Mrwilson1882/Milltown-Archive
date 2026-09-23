@@ -38,14 +38,23 @@ of any new session — the chat is not persistent, these files are the memory.
   item is clean. Write **`None`** in the Defects column and add nothing to the
   description — do not leave it blank and do not query it.
   *(Rule set by the owner, 19 Aug 2026.)*
-- **Never guess anything else.** Any other field not stated is left blank and
-  flagged back to the owner.
+- **Never guess anything else.** Any field not stated is left blank.
+- **Leave blanks blank and say nothing.** Anything that cannot be determined
+  from the voice note alone — colour, size, SKU, a brand spelling, an
+  authentication mark — is left empty and **passed on without comment**. The
+  Photo Processing chat can see the item and fills these in. Do not chase them,
+  do not list them back at the end of each confirmation, and do not hold a row
+  open waiting for them.
+  *(Rule set by the owner, 23 Sep 2026: "ignore anything you can't identify as
+  the photo processor will.")*
+
+  This chat's job is to **capture what was said, accurately and fast**. Judging
+  what the item looks like is a different job, done downstream by something with
+  eyes on it. Flagging a blank here costs the owner a reply and gains nothing.
 - **Colour: the owner states it only when it is hard to read from the photos.**
-  When colour is missing it is because the photos make it obvious.
-  **Claude cannot see the photos** — no images reach this chat, only the text
-  of the voice notes — so a missing colour cannot be filled in here and must be
-  asked for or left blank. Say so plainly rather than inventing a colour; a
-  wrong colour on a listing causes returns.
+  When colour is missing it is because the photos make it obvious. Claude cannot
+  see the photos, so a missing colour is simply left blank — see the rule above.
+  Never invent one; a wrong colour on a listing causes returns.
 - **Price** is always written with the £ symbol, e.g. `£12.99`. Never a bare
   number, never another currency.
 - **"as you can see in the pictures"** (or any similar phrase) is recorded as
