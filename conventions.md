@@ -117,3 +117,66 @@ defaulting to No.
 **Do not suggest prices.** The owner sets every price. If a voice note arrives
 without one, leave the cell blank and ask. See `pricing-notes.md` — pricing
 data is being collected for later use, not modelled now.
+
+## Italian size labels — a bare number is a size, and it tells you the gender
+
+Italian designer stock arrives with a single number on the inner label and no
+S/M/L anywhere. The number alone answers both the size and, usually, whether the
+piece is men's or women's, because the two ranges barely overlap.
+
+**Menswear — IT number, jackets and coats:**
+
+| IT | UK chest | UK size |
+|---|---|---|
+| 46 | 36" | S |
+| 48 | 38" | M |
+| **50** | **40"** | **L** |
+| 52 | 42" | L–XL |
+| 54 | 44" | XL |
+| 56 | 46" | XXL |
+
+**Womenswear — IT number:**
+
+| IT | UK |
+|---|---|
+| 38 | 6 |
+| 40 | 8 |
+| 42 | 10 |
+| 44 | 12 |
+| 46 | 14 |
+| 48 | 16 |
+
+**The overlap is the only trap.** Menswear runs 46–56 and womenswear 38–48, so
+**46 and 48 are ambiguous** and need another signal. Anything **50 or above is
+menswear**; anything **44 or below is womenswear**.
+
+Other tells when the number is ambiguous:
+- **Button or zip placket** — right over left is men's, left over right is
+  women's.
+- **Darts** — bust darts mean womenswear.
+
+*(Written up 26 Sep 2026, after Trussardi, Krizia, Fay, Les Copains and Ungaro
+all arrived inside two days with numeric labels only.)*
+
+## "Real leather" on the label means suede counts
+
+**Suede is leather.** It is the napped underside of the hide, so a coat that
+looks and feels like suede and carries a "real leather" label is not a
+contradiction — it is a suede coat.
+
+| | What it is | How it looks |
+|---|---|---|
+| **Smooth leather** | outer grain, finished | sheen, no nap |
+| **Nubuck** | outer grain, lightly sanded | fine short nap, dense, slightly stiff |
+| **Suede** | inner split of the hide | longer softer nap, floppier, matte |
+| **Brushed cotton / moleskin** | **not leather** | woven, and the label would not say leather |
+
+**The test that settles it** — find an unfinished inner edge or seam allowance.
+Leather and suede have **no weave on the reverse and do not fray**; brushed
+cotton shows a visible weave and frays at a cut edge.
+
+This matters for pricing: a suede or leather coat is a different tier from the
+polyamide and cotton shells most 1990s diffusion-line outerwear is made from.
+Always check whether the leather is the **whole garment or only a trim** — a
+leather collar or elbow patches on a fabric coat still gets a "real leather"
+label.
