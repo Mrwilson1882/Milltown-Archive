@@ -180,3 +180,24 @@ polyamide and cotton shells most 1990s diffusion-line outerwear is made from.
 Always check whether the leather is the **whole garment or only a trim** — a
 leather collar or elbow patches on a fabric coat still gets a "real leather"
 label.
+
+### A "USA" number on the label means womenswear — and it runs small
+
+A dual marking such as **`46` / `USA 12`** settles the gender question on its own.
+Men's jackets are never sized "USA 12" — menswear uses chest inches (38, 40, 42)
+or S/M/L. **A "USA" dress number is always womenswear.**
+
+The catch is that **vintage US sizing runs roughly two sizes smaller than
+modern.** Decades of vanity sizing have shifted the numbers down, so the pairing
+on an old Italian designer label will not match a modern conversion chart:
+
+| | Modern chart | On a 1980s–90s label |
+|---|---|---|
+| IT 46 pairs with | USA 10 | **USA 12** |
+| IT 48 pairs with | USA 12 | USA 14 |
+
+So a vintage **USA 12 is closer to a modern USA 8**, and IT 46 / USA 12 together
+land at about **UK 12–14**. Quote the range, not a single size, and say the piece
+is vintage-sized — it is a common source of returns.
+
+*(Rule set 26 Sep 2026, from the GFF Gianfranco Ferré jacket.)*
