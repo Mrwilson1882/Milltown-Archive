@@ -1645,3 +1645,45 @@ range rather than a single confident number.
 
 Note the price is a **round £110.00**, not £109.99 — the owner's own figure, and
 house convention is not to tidy round prices into .99 ones.
+
+## First cost figure recorded — `SF Fripe - Jackets` at £14.61 per piece
+
+*(Owner, 26 Sep 2026.)* Until now the ledger held only sale prices, so margin was
+unknowable and "healthy profit" could not be checked against anything. It can
+now, for this bale at least.
+
+The seven jackets from it, gross of fees and postage:
+
+| Date | # | Item | Price | Gross profit | Multiple |
+|---|---|---|---|---|---|
+| 23 Sep | 1 | Krizia jacket | £44.99 | £30.38 | 3.08× |
+| 23 Sep | 2 | Fay gilet | £39.99 | £25.38 | 2.74× |
+| 23 Sep | 3 | Dolce & Gabbana jacket | £89.99 | £75.38 | 6.16× |
+| 23 Sep | 4 | Belstaff jacket | £79.99 | £65.38 | 5.48× |
+| 23 Sep | 5 | Moncler jacket | £129.99 | £115.38 | 8.90× |
+| 23 Sep | 6 | Fay trench | £110.00 | £95.39 | 7.53× |
+| 26 Sep | 1 | Les Copains denim jacket | £49.99 | £35.38 | 3.42× |
+| | | **Total** | **£544.94** | **£442.67** | **5.33×** |
+
+**Outlay £102.27 against £544.94 of stock.** The spread between the cheapest and
+dearest piece in one bale is 2.74× to 8.90× — the bale price says nothing about
+what any individual piece is worth, which is the whole argument for pricing each
+one on its own merits rather than applying a markup.
+
+### What this changes
+
+1. **There is now a floor with a reason behind it.** Roughly **£29.99** for a
+   jacket from this bale — 2× cost. Below that, fees and a postage label eat
+   enough of a £10 gross to make the handling questionable.
+2. **Pricing low is not the real risk.** At £14.61 in, nearly any sale clears a
+   profit. The expensive mistake is a piece that sits, because the capital and
+   the shelf space are both tied up. This supports the lower-third rule.
+3. **Cost must not become the anchor.** The Fay at £59.99 was 4.1× — comfortably
+   "healthy" by any markup test, and still £50 short. Multiples are a sanity
+   check on the bottom end only, never a way to arrive at a price.
+
+### Still needed
+
+Cost figures for the other SKUs — the Y2K and summer women's mixes that make up
+most of the ledger. If those bales cost materially less per piece, the £9.99 and
+£12.99 items may be carrying a better multiple than any of these jackets.

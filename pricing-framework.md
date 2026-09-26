@@ -22,6 +22,36 @@ A garment that sells in a fortnight at £18 beats one that sits for four months
 at £24. Stock that does not move is capital doing nothing, and in a
 bale-buying operation the space matters as much as the money.
 
+### 1.1 The cost basis — what "healthy margin" actually means
+
+**`SF Fripe - Jackets` cost £14.61 per piece.** *(Owner, 26 Sep 2026 — the first
+cost figure recorded.)*
+
+This is the number that makes "healthy margin" measurable instead of a feeling.
+Everything below is gross, before platform fees and postage.
+
+| Multiple of cost | Gross profit | Read |
+|---|---|---|
+| **1.0×** — £14.61 | £0 | break-even. Never price here. |
+| **1.5×** — £21.99 | £7.38 | thin. Only to shift something slow. |
+| **2.0×** — £29.99 | £15.38 | the working floor for a jacket. |
+| **3.0×** — £43.99 | £29.38 | healthy. |
+| **5.0×** — £73.99 | £59.38 | strong — a recognised designer name. |
+| **8.0×** — £116.99 | £102.38 | exceptional. Moncler territory. |
+
+**A jacket from this bale should not be priced below about £29.99** unless it is
+damaged. At £24.99 the gross is £10.38, and after fees and a postage label there
+is little left to justify the handling.
+
+The corollary matters just as much: at £14.61 in, **almost any sale is
+profitable**, so the risk is not pricing too low on any one piece — it is
+pricing high enough that pieces sit. That is what the lower-third rule is for.
+
+**And it reframes the Fay correction.** £59.99 was 4.1× cost — which *felt*
+healthy, and that is exactly why the miss was easy to make. The owner's £110.00
+is 7.5×. Judging a price against cost tells you nothing about whether it is
+right; only the market does. Cost sets the floor, never the target.
+
 ---
 
 ## 2. The four inputs
