@@ -82,9 +82,12 @@ function formatNumber(waId: string): string {
 export function Inbox({
   initialConversations,
   storeIsDurable: initialDurable,
+  sendingEnabled,
 }: {
   initialConversations: Conversation[];
   storeIsDurable: boolean;
+  /** False until the access token is set. The thread still reads; Send does not. */
+  sendingEnabled: boolean;
 }) {
   const [conversations, setConversations] = useState<Conversation[]>(initialConversations);
   const [storeIsDurable, setStoreIsDurable] = useState(initialDurable);
@@ -393,6 +396,12 @@ export function Inbox({
                   </p>
                 )}
 
+                {!sendingEnabled && (
+                  <p className="mt-2 text-sm text-slate">
+                    Sending is not configured yet, so this reply cannot go from here. Send it from
+                    your phone for now.
+                  </p>
+                )}
                 {!windowOpen && (
                   <p className="mt-2 text-sm text-red-700">
                     More than 24 hours have passed since they last messaged. WhatsApp will only
@@ -404,7 +413,7 @@ export function Inbox({
                   <button
                     type="button"
                     onClick={handleSend}
-                    disabled={busy !== null || !reply.trim() || !windowOpen}
+                    disabled={busy !== null || !reply.trim() || !windowOpen || !sendingEnabled}
                     className="bg-forest px-6 py-3 text-sm font-bold tracking-wide text-paper uppercase transition-colors hover:bg-forest-dark disabled:opacity-40"
                   >
                     {busy === "sending" ? "Sending…" : "Send"}

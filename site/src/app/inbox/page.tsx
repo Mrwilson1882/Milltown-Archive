@@ -26,28 +26,27 @@ export default async function InboxPage() {
 
   if (!(await isSignedIn())) return <InboxLogin />;
 
-  if (!canSend || !canReceive) {
+  if (!canReceive) {
     return (
       <Setup title="WhatsApp is not connected yet">
-        {!canReceive && (
-          <>
-            Messages cannot be received: set <code>WHATSAPP_APP_SECRET</code> and{" "}
-            <code>WHATSAPP_VERIFY_TOKEN</code>.{" "}
-          </>
-        )}
-        {!canSend && (
-          <>
-            Replies cannot be sent: set <code>WHATSAPP_PHONE_NUMBER_ID</code> and{" "}
-            <code>WHATSAPP_ACCESS_TOKEN</code>.{" "}
-          </>
-        )}
-        The full walkthrough is in <code>docs/whatsapp-connector.md</code>.
+        Messages cannot be received until <code>WHATSAPP_APP_SECRET</code> and{" "}
+        <code>WHATSAPP_VERIFY_TOKEN</code> are set, so there is nothing to show. The full
+        walkthrough is in <code>docs/whatsapp-connector.md</code>.
       </Setup>
     );
   }
 
   return (
     <>
+      {!canSend && (
+        <p className="mx-auto max-w-6xl px-4 pt-6">
+          <span className="block border-2 border-ash bg-smoke p-4 text-sm text-slate">
+            Messages are arriving, but replies cannot be sent yet — set{" "}
+            <code>WHATSAPP_PHONE_NUMBER_ID</code> and <code>WHATSAPP_ACCESS_TOKEN</code>. Until
+            then, answer from your phone as usual.
+          </span>
+        </p>
+      )}
       {!draftingEnabled && (
         <p className="mx-auto max-w-6xl px-4 pt-6">
           <span className="block border-2 border-ash bg-smoke p-4 text-sm text-slate">
@@ -56,7 +55,11 @@ export default async function InboxPage() {
           </span>
         </p>
       )}
-      <Inbox initialConversations={await loadConversationSummaries()} storeIsDurable={storeIsDurable} />
+      <Inbox
+        initialConversations={await loadConversationSummaries()}
+        storeIsDurable={storeIsDurable}
+        sendingEnabled={canSend}
+      />
     </>
   );
 }
