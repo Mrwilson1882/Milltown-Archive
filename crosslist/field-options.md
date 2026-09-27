@@ -91,6 +91,24 @@ side — it can only be caught in the Crosslist UI.
 Colours are worth particular attention on footwear, where a wrong secondary is
 both obvious to a buyer and a filter mismatch.
 
+## Colour is spelled `Gray`, never `Grey`
+
+**Confirmed 27 Sep**, on the two batch-8 rows Crosslist rejected: item 9's
+secondary colour and item 20's primary. Crosslist's colour list is American, so
+`Grey` is not a value and the row fails validation on import.
+
+Every colour that has imported cleanly so far, primary or secondary:
+
+```
+Apricot · Beige · Black · Blue · Brown · Burgundy · Cream · Gold · Gray ·
+Green · Lilac · Mint · Multi · Navy · Orange · Pink · Purple · Red · Silver ·
+Tan · Turquoise · White · Yellow
+```
+
+The **title and tags keep `Grey`** — that is what a UK buyer types into Vinted
+search. Only the `Color` and `Secondary color` columns take the American
+spelling. The two are allowed to disagree, and on grey items they must.
+
 ## Crosslist's AI Title button can push a title over its own 80 limit
 
 **Third confirmed instance of Crosslist changing imported data, 2 Sep.**
