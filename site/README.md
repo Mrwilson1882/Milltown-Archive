@@ -177,6 +177,25 @@ pretends a message was delivered.
 
 ---
 
+## WhatsApp inbox
+
+Incoming WhatsApp Business messages land in a review inbox at `/inbox`, each with
+a suggested reply drafted against the live catalogue. You edit it if you want to
+and press Send. **Nothing is sent to a customer without that press** — there is
+no code path that sends on its own.
+
+The drafter is held to the same rule as the rest of the repo: it quotes a price
+only where one is set in `catalogue.ts`, and asks you for anything else. Set a
+price on the site and the drafts start using it immediately.
+
+Setup is a one-off job with Meta — and it starts with a decision about whether
+to keep the WhatsApp Business app on your phone. Read
+[`docs/whatsapp-connector.md`](docs/whatsapp-connector.md) before touching
+anything in the Meta dashboard.
+
+Leave the environment variables blank and none of this is active; `/inbox` simply
+says it is switched off and the rest of the site is unaffected.
+
 ## SEO
 
 Already in place:
