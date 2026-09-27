@@ -322,3 +322,23 @@ The fur jacket cannot be priced until it is established whether the fur is real
 or faux. That is a **platform policy question before it is a pricing one** —
 Vinted and eBay both restrict real fur — so it needs the label read and the
 owner's decision, not an estimate.
+
+### Owner corrections, 27 Sep — two reads adjusted
+
+**Izod / Lacoste knitwear is a £25–£35 item**, not £39.99. Poorer quality or
+condition takes it to **£20**, and only certain pieces go above the band. My
+error was reading eBay's "over £55" bracket as evidence of the middle when it
+described the top. A price bracket with an open upper bound says nothing about
+where the mass sits.
+
+**Burberry carries more than a mid-band read allows.** £89.99 was too cautious
+on a size 54 in very good condition. The right anchor is the Large-VG comp at
+£150, not the £30–£100 bulk of the listings — that bulk is Burberry London
+diffusion and poorly photographed pieces, which a good listing is not competing
+with.
+
+**The pattern these two share** is the one already recorded three times: on a
+collected name the estimate runs short. It now has a second form — reading the
+*bulk* of a listing band rather than the part of it a well-photographed, well
+described listing actually competes in. Both are corrections downward in
+confidence, not just in number.

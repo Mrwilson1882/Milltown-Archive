@@ -244,6 +244,15 @@ of the day, export the whole sheet to `.xlsx`.
   than the garment; it records that these bundle names are aliases of one
   another.
 
+- **Known price bands, from the owner's corrections.** These outrank any search
+  result, and live in full in `price-corrections.csv`:
+  - **Izod / Lacoste vintage knitwear: £25–£35.** Poorer quality or condition
+    takes it to **£20**. Only exceptional pieces exceed the band.
+  - **Burberry**: a mid-band read is too cautious. Anchor on the comparable in
+    the same size and condition, not on the bulk of the listings, which is
+    diffusion-label and poorly photographed stock a good listing does not
+    compete with.
+
 ## Pricing
 
 **Prices ending other than `.99` are deliberate** (owner, 19 Aug). Batch 3's
