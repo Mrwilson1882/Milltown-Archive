@@ -1,5 +1,5 @@
 import { NextResponse, after } from "next/server";
-import { canReceive, draftingEnabled, whatsappConfig } from "@/lib/whatsapp/config";
+import { canReceive, draftingEnabled, missingReceiveConfig, whatsappConfig } from "@/lib/whatsapp/config";
 import { verifySignature } from "@/lib/whatsapp/signature";
 import { markAsRead } from "@/lib/whatsapp/client";
 import { draftReply } from "@/lib/whatsapp/draft";
@@ -40,7 +40,10 @@ export async function GET(request: Request) {
   const challenge = params.get("hub.challenge");
 
   if (!canReceive) {
-    return NextResponse.json({ error: "webhook_not_configured" }, { status: 503 });
+    return NextResponse.json(
+      { error: "webhook_not_configured", missing: missingReceiveConfig() },
+      { status: 503 },
+    );
   }
 
   if (mode === "subscribe" && token === whatsappConfig.verifyToken && challenge) {
@@ -55,7 +58,10 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   if (!canReceive) {
-    return NextResponse.json({ error: "webhook_not_configured" }, { status: 503 });
+    return NextResponse.json(
+      { error: "webhook_not_configured", missing: missingReceiveConfig() },
+      { status: 503 },
+    );
   }
 
   const rawBody = await request.text();
