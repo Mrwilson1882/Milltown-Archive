@@ -286,3 +286,39 @@ in `price-corrections.csv` once the owner rules.
 **Turnover caveat:** every suggestion above is still bounded by the quick-sale
 objective. Item 5 at £169.99 rather than the £200+ a vintage retailer asks is
 that trade-off made deliberately.
+
+## Batch 8 — 26/27 Sep 2026: twenty items, seventeen unpriced
+
+Owner asked for every price to be set from Vinted UK comparables rather than
+taken from the ledger, including the three the ledger already carried.
+
+**A limit worth stating.** The owner asked specifically for **Vinted pro
+sellers**. `WebSearch` cannot filter by seller type — it returns Vinted listings
+generally, private and pro mixed. Pro-seller prices usually sit above private
+ones, so where a figure below comes from a mixed band it is **conservative
+against a pro benchmark**, not aligned to it.
+
+### Where the comps were real
+
+| Item | Search result | Read |
+|---|---|---|
+| 3 Barbour Beaufort | eBay UK used **£150–£240**; Vinted X/XL brown VG listed; new £319 | Ledger's **£74.99 is well under.** The Beaufort is Barbour's most collected model. Good condition pulls it down, not that far. **£119.99** |
+| 10 Burberry quilted | Vinted UK **£24–£200**, most £30–£100; Large VG at £150, Medium VG at £36 | Wide band, size 54 in very good condition sits upper-middle. **£89.99** |
+| 5 Hugo Boss leather | Vinted UK **£20–£260**; vintage XL new-without-tags at £260 | Removable liner and very good condition put it above the middle. **£129.99** |
+| 17–20 Izod/Lacoste knits | eBay UK brackets: under £25 / £25–55 / **over £55** | Vintage Izod Lacoste is a collected 80s name. **£39.99** each, less for the two with flaws |
+| 16 Belstaff | Vinted UK XL **£65–£150** (from the 23 Sep research) | Navy, very good. **£89.99** |
+
+### Where the comps were not real
+
+Searches for Barbour tartan, Diesel, Les Copains, Ungaro, Trussardi, GFF,
+Cacharel, Pal Zileri, Nazareno Gabrielli, Pierre Cardin and Mizone returned
+**brand landing pages, not priced listings**. Those figures rest on the tier the
+label sits in and on this ledger's own history, which is weaker evidence and is
+marked as such in `items.csv`.
+
+### Item 8 is not priced
+
+The fur jacket cannot be priced until it is established whether the fur is real
+or faux. That is a **platform policy question before it is a pricing one** —
+Vinted and eBay both restrict real fur — so it needs the label read and the
+owner's decision, not an estimate.
