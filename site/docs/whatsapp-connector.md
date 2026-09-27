@@ -176,6 +176,32 @@ photograph is exactly the failure this is designed to avoid. Open those yourself
 
 ---
 
+## What drafting costs, and when it happens
+
+Every draft is a paid call to the Claude API, billed to the account behind
+`ANTHROPIC_API_KEY` — separately from any Claude subscription, and it needs
+credit on it. Everything else in the connector is free: receiving, sending,
+storage and hosting all sit inside free tiers at your volume.
+
+**Drafts are written only when you ask for one.** A message arrives, it lands
+in the inbox, and nothing is drafted until you press **Draft a reply**. That
+is deliberate — spam, wrong numbers and one-word messages then cost nothing.
+
+To have every inbound message drafted on arrival instead, set
+`WHATSAPP_AUTO_DRAFT=true`. Worth doing once real enquiries outnumber the
+rubbish and waiting for a button press is the bigger cost.
+
+Drafting runs on **Claude Sonnet**, which is a good deal cheaper than the top
+model and well up to short replies written against a fixed rulebook. If cost
+is still higher than you want once there is a week of real usage to look at,
+the next lever is a cheaper model again — but check its drafts against real
+enquiries before trusting it with the pricing rule.
+
+Set a monthly spend limit in the Anthropic console. It costs nothing and it
+is the backstop if anything ever misbehaves.
+
+---
+
 ## The camper business
 
 This number ran your camper business until **Thursday 10 September 2026**, so
