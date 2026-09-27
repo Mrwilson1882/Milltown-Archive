@@ -235,6 +235,15 @@ One product per voice note. After each: append the row, commit, push, confirm
 back to the owner with the row as recorded plus any missing fields. At the end
 of the day, export the whole sheet to `.xlsx`.
 
+- **Cost is set by what the garment is, not only by the SKU string** (owner,
+  27 Sep). Every jacket takes **£14.61**, whichever way the bundle name came
+  through the voice note — `SF Fripe - Jackets`, `SF - Fripe Winter Jackets`
+  and `SF3` are all that rate. The Lacoste cardigans are the exception at
+  **£9.60**, under `World Vintage Lacoste Cardigans`.
+  This does not reverse the earlier rule that rates key on the bundle rather
+  than the garment; it records that these bundle names are aliases of one
+  another.
+
 ## Pricing
 
 **Prices ending other than `.99` are deliberate** (owner, 19 Aug). Batch 3's
