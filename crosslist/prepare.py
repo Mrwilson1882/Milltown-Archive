@@ -196,6 +196,10 @@ def main():
                     help="folder(s) of raw photos, read-only. Pass several when "
                          "the number cards live in their own folder.")
     ap.add_argument("-o", "--out", type=Path, default=Path("prepared"))
+    ap.add_argument("--split", type=int, default=0, metavar="PAGES",
+                    help="write several PDFs of at most PAGES pages each, instead "
+                         "of one. Use it when a big batch at high --thumb-px "
+                         "makes a single PDF too large to send.")
     ap.add_argument("--thumb-px", type=int, default=THUMB_PX,
                     help="long edge of each thumbnail. Raise it when sizes have to "
                          "be read off tape-measure shots; 500 is enough to group "
@@ -241,18 +245,29 @@ def main():
 
         per_page = COLS * ROWS
         pages = [tiles[j:j + per_page] for j in range(0, len(tiles), per_page)]
-        pdf = args.out / f"{stamp}-contact-sheets.pdf"
         print(f"Writing {len(pages)} pages...")
-        build_pdf(pages, pdf)
+        if args.split:
+            chunks = [pages[j:j + args.split] for j in range(0, len(pages), args.split)]
+            pdfs = []
+            for n, chunk in enumerate(chunks, 1):
+                out = args.out / f"{stamp}-contact-sheets-part{n}.pdf"
+                build_pdf(chunk, out)
+                pdfs.append(out)
+            pdf = pdfs[0]
+        else:
+            pdf = args.out / f"{stamp}-contact-sheets.pdf"
+            build_pdf(pages, pdf)
+            pdfs = [pdf]
 
     with open(args.out / f"{stamp}-manifest.csv", "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["index", "filename", "capture_time"])
         w.writerows(rows)
 
-    mb = pdf.stat().st_size / 1_000_000
-    print(f"\nDone. {len(tiles)} photos over {len(pages)} pages — {mb:.1f} MB")
-    print(f"  {pdf}")
+    total_mb = sum(p.stat().st_size for p in pdfs) / 1_000_000
+    print(f"\nDone. {len(tiles)} photos over {len(pages)} pages — {total_mb:.1f} MB")
+    for p in pdfs:
+        print(f"  {p}  ({p.stat().st_size / 1_000_000:.1f} MB)")
     print(f"  {args.out / (stamp + '-manifest.csv')}")
     if failed:
         print(f"\n{len(failed)} could not be read: {', '.join(failed[:10])}"
