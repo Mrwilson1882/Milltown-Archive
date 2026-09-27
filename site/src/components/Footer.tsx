@@ -102,6 +102,11 @@ export function Footer() {
               Company No. {siteConfig.companyNumber}. Established {siteConfig.established}.
             </p>
             <p>{siteConfig.activeNotice}</p>
+            <p>
+              <Link href="/privacy" className="underline underline-offset-4 transition-colors hover:text-forest">
+                Privacy Policy
+              </Link>
+            </p>
           </div>
           <p className="sm:text-right">
             Wholesale only. Trade enquiries welcome.
