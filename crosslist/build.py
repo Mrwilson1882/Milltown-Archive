@@ -70,7 +70,8 @@ for f in (itemfile, mapfile):
 
 # Report what is about to be used, so the wrong batch is obvious before the work.
 n_items = sum(1 for _ in csv.DictReader(open(itemfile)))
-n_photos = sum(1 for r in csv.DictReader(open(mapfile)) if r["shot_type"] != "card")
+SKIP = ("card", "excluded")   # neither reaches a buyer
+n_photos = sum(1 for r in csv.DictReader(open(mapfile)) if r["shot_type"] not in SKIP)
 print(f"{itemfile}: {n_items} items\n{mapfile}: {n_photos} listed photos\nphotos from: {inbox}\n")
 
 stamp = datetime.date.today().isoformat()   # so batches never overwrite each other
@@ -78,7 +79,7 @@ images.mkdir(parents=True)
 
 photos = {}
 for r in csv.DictReader(open(mapfile)):
-    if r["shot_type"] == "card":            # number cards never reach a buyer
+    if r["shot_type"] in SKIP:              # number cards and duplicate frames
         continue
     photos.setdefault(r["item_no"], []).append((int(r["photo_index"]), r["source_filename"]))
 

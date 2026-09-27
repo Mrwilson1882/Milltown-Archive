@@ -244,6 +244,27 @@ of the day, export the whole sheet to `.xlsx`.
   than the garment; it records that these bundle names are aliases of one
   another.
 
+- **A batch can arrive as two passes from two cameras.** Batch 8's `DSC…`
+  series was the clean Photoroom flat-lays in ledger order, item 1 through 20;
+  the `IMG_…` series was the details, labels, measurements and defects, also in
+  ledger order. Number cards sat in whichever series happened to catch them, so
+  the cards do **not** run in file order across the batch. Establish the two
+  runs first, then read the cards; do not assume one continuous sequence. Expect
+  a stray late pass too — batch 8 had six more frames at the very end belonging
+  to items already numbered.
+- **A contact sheet's tiles can be pulled back out at full resolution.** The
+  thumbnails are embedded as whole images, so `pdfimages -j -f <page> -l <page>`
+  hands back the tile at its own size (1100px in batch 8) — enough to read a
+  neck label, a size tab or a tape measure without ever needing the originals.
+  Tile *n* of a page is the *n*th image on that page, so index → page → position
+  is arithmetic. Work out each part PDF's starting index from its own captions
+  rather than assuming the parts tile end to end: batch 8's four parts
+  overlapped, and an off-by-two put the wrong garment's label in front of me.
+- **The ledger's garment type and brand both come from a voice note, and both
+  mishear.** Batch 8 alone: "Fur Jacket" was **Fay**, "Mizone Uomo" was
+  **Missoni Uomo**, a "Lacoste Jacket" was a cardigan and a "denim jacket" was
+  cotton twill. Read the label and the garment; correct the type and the brand
+  in the listing, and record the correction in the batch notes.
 - **A brand's line name must be read at full resolution, never off a contact
   sheet tile.** Batch 8 item 9 was read as "Missoni Sport" from a thumbnail and
   is in fact **Missoni Uomo** — different lines, different values. The brand may
