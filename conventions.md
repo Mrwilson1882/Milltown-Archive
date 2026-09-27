@@ -260,6 +260,13 @@ of the day, export the whole sheet to `.xlsx`.
   is arithmetic. Work out each part PDF's starting index from its own captions
   rather than assuming the parts tile end to end: batch 8's four parts
   overlapped, and an off-by-two put the wrong garment's label in front of me.
+- **"No inside label" is a defect, not a description.** The ledger writes it
+  into the Colour/Description cell and leaves Defects as `None`, so it slips
+  past the pricing step and never reaches the buyer. Treat a cut-out or missing
+  neck label as both: a deduction on the price, and a sentence at the very end
+  of the Item Description like any other defect. Batch 8 item 18 went from
+  £32.99 to £19.99 on this alone. Check the neck shot before pricing any
+  branded knit — the cut usually leaves a white stub stitched into the seam.
 - **The ledger's garment type and brand both come from a voice note, and both
   mishear.** Batch 8 alone: "Fur Jacket" was **Fay**, "Mizone Uomo" was
   **Missoni Uomo**, a "Lacoste Jacket" was a cardigan and a "denim jacket" was
@@ -274,6 +281,10 @@ of the day, export the whole sheet to `.xlsx`.
   result, and live in full in `price-corrections.csv`:
   - **Izod / Lacoste vintage knitwear: £25–£35.** Poorer quality or condition
     takes it to **£20**. Only exceptional pieces exceed the band.
+  - **A cut-out or missing neck label takes an Izod / Lacoste knit to £19.99**
+    (owner, 27 Sep, on batch 8 item 18) — *below* the £20 poorer-quality floor,
+    and regardless of how good the garment is otherwise. That piece was Very
+    Good with no wear and still came down from £32.99.
   - **Burberry**: a mid-band read is too cautious. Anchor on the comparable in
     the same size and condition, not on the bulk of the listings, which is
     diffusion-label and poorly photographed stock a good listing does not
