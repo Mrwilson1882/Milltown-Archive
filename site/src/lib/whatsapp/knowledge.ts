@@ -1,6 +1,6 @@
 import { products, quantityLabel } from "@/data/catalogue";
 import { brands, collections, productTypes } from "@/data/taxonomy";
-import { siteConfig } from "@/config/site";
+import { addressLine, siteConfig } from "@/config/site";
 import { formatPrice } from "@/lib/format";
 
 /**
@@ -21,9 +21,16 @@ export function buildCatalogueFacts(): string {
   const lines: string[] = [];
 
   lines.push("## The business");
-  lines.push(`${siteConfig.name} (${siteConfig.legalName}), part of ${siteConfig.parent}.`);
+  lines.push(
+    `${siteConfig.name} is the trading name of ${siteConfig.legalName}, ` +
+      `company number ${siteConfig.companyNumber}, established ${siteConfig.established}.`,
+  );
   lines.push(siteConfig.description);
-  lines.push(`Based in ${siteConfig.location}. Website: ${siteConfig.url}. Email: ${siteConfig.email}.`);
+  lines.push(`Address: ${addressLine}, ${siteConfig.address.country}.`);
+  lines.push(`Website: ${siteConfig.url}. Email: ${siteConfig.email}.`);
+  // A dissolved company of a similar name outranks us in search, so customers
+  // do ask. The answer is a stated fact, not something to improvise.
+  lines.push(siteConfig.activeNotice);
   lines.push(
     siteConfig.vat.registered
       ? `Prices are quoted excluding VAT; ${siteConfig.vat.ratePercent}% VAT is added at checkout.`
@@ -34,7 +41,10 @@ export function buildCatalogueFacts(): string {
   lines.push("## How stock is sold");
   lines.push("- Reseller boxes — fixed-price made-up boxes.");
   lines.push("- Counted lots — a set number of pieces, e.g. 10, 25, 50.");
-  lines.push("- By the kilo — 25kg to 1,000kg, quoted on enquiry. THERE IS NO PUBLISHED RATE PER KILO.");
+  lines.push(
+    "Selling by the kilo is NOT currently promoted — it is off the site navigation. " +
+      "Never offer it. If a customer asks for kilo pricing, say the owner will come back to them.",
+  );
   lines.push("");
 
   lines.push("## Grading");
