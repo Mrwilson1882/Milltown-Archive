@@ -33,6 +33,20 @@ export const canReceive = Boolean(whatsappConfig.appSecret && whatsappConfig.ver
 export const whatsappConfigured = canSend && canReceive;
 
 /**
+ * Which environment variables are missing, by name.
+ *
+ * Returned in the webhook's 503 so a misconfigured deployment says what is
+ * wrong instead of just refusing. Names only — never values — so it is safe
+ * to read from a browser.
+ */
+export function missingReceiveConfig(): string[] {
+  const missing: string[] = [];
+  if (!whatsappConfig.appSecret) missing.push("WHATSAPP_APP_SECRET");
+  if (!whatsappConfig.verifyToken) missing.push("WHATSAPP_VERIFY_TOKEN");
+  return missing;
+}
+
+/**
  * Phase two. While this is false — and it is false unless someone deliberately
  * sets it to "true" — nothing is sent to a customer without the owner pressing
  * Send in the inbox. Turning it on is a business decision, not a deploy detail.
