@@ -176,10 +176,14 @@ export async function draftReply({
 
   try {
     const response = await getClient().messages.parse({
-      model: "claude-opus-5",
+      // Sonnet 5 rather than Opus: roughly two and a half times cheaper, and
+      // this is short-form writing against a rulebook rather than hard
+      // reasoning. The price rule is carried by the prompt and by the facts
+      // sheet, both of which are unchanged.
+      model: "claude-sonnet-5",
       max_tokens: 4000,
-      // Medium effort: this is short-form writing against a fixed rulebook, run
-      // on every inbound message. High earns nothing here and costs on volume.
+      // Medium effort: short-form writing against a fixed rulebook. High earns
+      // little here and costs on volume.
       output_config: {
         effort: "medium",
         format: zodOutputFormat(DraftSchema),

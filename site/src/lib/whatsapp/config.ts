@@ -47,6 +47,19 @@ export function missingReceiveConfig(): string[] {
 }
 
 /**
+ * Whether an inbound message drafts a reply the moment it lands.
+ *
+ * Off by default, and deliberately so: a draft costs money, and a fair share
+ * of what arrives on a business number is spam, wrong numbers, or "hi" with
+ * nothing after it. Paying to draft a reply to those is waste. The inbox has
+ * a Draft a reply button — the owner decides which messages are worth it.
+ *
+ * Set WHATSAPP_AUTO_DRAFT=true to have every inbound message drafted on
+ * arrival instead.
+ */
+export const autoDraftEnabled = env("WHATSAPP_AUTO_DRAFT").toLowerCase() === "true";
+
+/**
  * Phase two. While this is false — and it is false unless someone deliberately
  * sets it to "true" — nothing is sent to a customer without the owner pressing
  * Send in the inbox. Turning it on is a business decision, not a deploy detail.

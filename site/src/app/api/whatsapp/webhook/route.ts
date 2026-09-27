@@ -1,5 +1,11 @@
 import { NextResponse, after } from "next/server";
-import { canReceive, draftingEnabled, missingReceiveConfig, whatsappConfig } from "@/lib/whatsapp/config";
+import {
+  autoDraftEnabled,
+  canReceive,
+  draftingEnabled,
+  missingReceiveConfig,
+  whatsappConfig,
+} from "@/lib/whatsapp/config";
 import { verifySignature } from "@/lib/whatsapp/signature";
 import { markAsRead } from "@/lib/whatsapp/client";
 import { draftReply } from "@/lib/whatsapp/draft";
@@ -91,7 +97,9 @@ export async function POST(request: Request) {
     }
   }
 
-  if (draftingEnabled && newlyReceived.length > 0) {
+  // Drafting on arrival is opt-in. Off, the message is stored and the owner
+  // presses Draft a reply on the ones worth answering — so spam costs nothing.
+  if (autoDraftEnabled && draftingEnabled && newlyReceived.length > 0) {
     after(async () => {
       for (const received of newlyReceived) {
         await produceDraft(received);
