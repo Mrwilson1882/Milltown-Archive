@@ -6,12 +6,13 @@ import { PageHeader, SeoBlock } from "@/components/PageHeader";
 import {
   brands,
   categoryGroups,
+  categoryPath,
   collections,
   findCategory,
   productTypes,
   type CategoryKind,
 } from "@/data/taxonomy";
-import { productsInCategory } from "@/data/catalogue";
+import { productsInCategory, type Product } from "@/data/catalogue";
 
 const kindNoun: Record<CategoryKind, string> = {
   brand: "brand",
@@ -41,6 +42,47 @@ export function CategoryIndex({ kind }: { kind: CategoryKind }) {
         </div>
       </div>
     </>
+  );
+}
+
+/**
+ * Real links to the brands, garments and collections represented on this
+ * page. These do the job the filter chips never could for search: a crawler
+ * following "Reseller Boxes" reaches Juicy Couture, Von Dutch and Diesel by
+ * name, and each brand page picks up an internal link with the brand as its
+ * anchor text.
+ */
+function RelatedLinks({ kind, slug, matching }: { kind: CategoryKind; slug: string; matching: Product[] }) {
+  const present = (list: { slug: string; name: string }[], key: "brandSlugs" | "typeSlugs" | "collectionSlugs") =>
+    list.filter((c) => c.slug !== slug && c.slug !== "mixed-brands" && matching.some((p) => p[key].includes(c.slug)));
+  const groups: { label: string; kind: CategoryKind; items: { slug: string; name: string }[] }[] = [
+    { label: "Brands you may see", kind: "brand" as const, items: present(brands, "brandSlugs") },
+    { label: "Garments", kind: "type" as const, items: present(productTypes, "typeSlugs") },
+    { label: "Also in", kind: "collection" as const, items: present(collections, "collectionSlugs") },
+  ].filter((g) => g.kind !== kind && g.items.length > 0);
+  if (groups.length === 0) return null;
+
+  return (
+    <nav aria-label="Related pages" className="mt-12 border-t border-ash pt-8">
+      <dl className="space-y-4">
+        {groups.map((group) => (
+          <div key={group.kind} className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
+            <dt className="eyebrow w-40 shrink-0 text-slate">{group.label}</dt>
+            <dd className="flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <Link
+                  key={item.slug}
+                  href={categoryPath(group.kind, item.slug)}
+                  className="border border-ash px-3 py-1 text-xs font-bold tracking-wide text-ink uppercase transition-colors hover:border-forest hover:text-forest"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </nav>
   );
 }
 
@@ -87,6 +129,7 @@ export function CategoryDetail({ kind, slug }: { kind: CategoryKind; slug: strin
             demote={kind === "type" ? "reseller-boxes" : undefined}
           />
         )}
+        {matching.length > 0 && <RelatedLinks kind={kind} slug={slug} matching={matching} />}
       </div>
 
       <SeoBlock heading={`${category.name} — vintage wholesale`}>

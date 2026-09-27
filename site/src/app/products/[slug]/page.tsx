@@ -34,6 +34,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   };
 }
 
+/** "Lacoste, Nike and Fila" — a readable run of names. */
+function listNames(names: string[]): string {
+  if (names.length <= 1) return names.join("");
+  return `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+}
+
 function CategoryTags({
   kind,
   slugs,
@@ -67,7 +73,9 @@ export default async function ProductPage({ params }: Params) {
   const gallery: { src: string; alt: string }[] =
     product.photos && product.photos.length > 0
       ? product.photos
-      : [
+      : (product.videos?.length ?? 0) > 0
+        ? [] // the video reel fronts the page on its own
+        : [
           {
             src: `/images/tiles/${product.art}.svg`,
             alt: `${product.name} — placeholder artwork, photography to follow`,
@@ -89,6 +97,16 @@ export default async function ProductPage({ params }: Params) {
     )
     .slice(0, 3);
 
+  // The labels that turn up in this line. "Mixed brands" is a browsing bucket,
+  // not a label, so it stays out of the list a buyer reads.
+  const labelSlugs = product.brandSlugs.filter((slug) => slug !== "mixed-brands");
+  const labelNames = labelSlugs
+    .map((slug) => findCategory("brand", slug)?.name)
+    .filter((name): name is string => Boolean(name));
+  const typeNames = product.typeSlugs
+    .map((slug) => findCategory("type", slug)?.name)
+    .filter((name): name is string => Boolean(name));
+
   const cheapest = fromPrice(product);
   const dearest = toPrice(product);
   const buyable = product.variants.some((v) => v.priceGBP !== null);
@@ -107,7 +125,13 @@ export default async function ProductPage({ params }: Params) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
-    description: product.summary,
+    description:
+      labelNames.length > 0
+        ? `${product.summary} Labels you may see in this lot include ${listNames(labelNames)}.`
+        : product.summary,
+    // The labels a buyer can expect, named for search engines and AI
+    // assistants that answer "who sells vintage North Face wholesale".
+    keywords: [...labelNames, ...typeNames, "vintage wholesale", "UK"].join(", "),
     brand: { "@type": "Brand", name: siteConfig.name },
     url: `${siteConfig.url}/products/${product.slug}`,
     // Availability is always declared, even for a lot with no published sizes —
@@ -246,6 +270,7 @@ export default async function ProductPage({ params }: Params) {
               <dt className="w-36 shrink-0 font-bold">Grade</dt>
               <dd className="text-slate">
                 Grade {product.grade ?? "A/B"}
+                {product.gradeNote && <span> — {product.gradeNote}</span>}
                 <Link
                   href="/grading-guide"
                   className="ml-3 text-xs font-bold tracking-wide text-forest uppercase underline underline-offset-4 hover:text-ink"
@@ -325,9 +350,23 @@ export default async function ProductPage({ params }: Params) {
             ))}
           </div>
 
+          {labelNames.length > 0 && (
+            <section aria-labelledby="labels-heading" className="mt-8 border border-ash bg-smoke p-5">
+              <h2 id="labels-heading" className="eyebrow text-forest">
+                Brands you may see in this lot
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-slate">
+                Labels that turn up in this line include {listNames(labelNames)}. The mix changes with
+                every intake, so no single brand is guaranteed in a given lot.
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <CategoryTags kind="brand" slugs={labelSlugs} basePath="/brands" />
+              </div>
+            </section>
+          )}
+
           <div className="mt-8 flex flex-wrap gap-2">
             <CategoryTags kind="type" slugs={product.typeSlugs} basePath="/types" />
-            <CategoryTags kind="brand" slugs={product.brandSlugs} basePath="/brands" />
             <CategoryTags kind="collection" slugs={product.collectionSlugs} basePath="/collections" />
           </div>
         </div>

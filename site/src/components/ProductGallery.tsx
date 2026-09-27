@@ -5,7 +5,15 @@ import { useState } from "react";
 
 export type GalleryItem =
   | { kind: "image"; src: string; alt: string }
-  | { kind: "video"; src: string; poster: string; alt: string };
+  | { kind: "video"; src: string; poster: string; alt: string; hdr?: string };
+
+/**
+ * MIME types with codec strings, so a browser decides from the tag alone and
+ * never downloads a file it cannot decode. The HDR string is read from the
+ * files themselves (Main 10 profile, level 4); the H.264 one is High 4.0.
+ */
+const HDR_TYPE = 'video/mp4; codecs="hvc1.2.4.L120.90"';
+const SDR_TYPE = 'video/mp4; codecs="avc1.640028"';
 
 /**
  * The product reel: one big square, a row of square thumbnails under it, tap
@@ -36,7 +44,6 @@ export function ProductGallery({
         {current.kind === "video" ? (
           <video
             key={current.src}
-            src={current.src}
             poster={current.poster}
             autoPlay={!reducedMotion}
             controls={reducedMotion}
@@ -46,7 +53,11 @@ export function ProductGallery({
             preload="metadata"
             aria-label={current.alt}
             className="h-full w-full object-cover"
-          />
+          >
+            {/* Sources are tried in order: the HDR original where it plays, else the standard file. */}
+            {current.hdr && <source src={current.hdr} type={HDR_TYPE} />}
+            <source src={current.src} type={SDR_TYPE} />
+          </video>
         ) : (
           <Image
             src={current.src}

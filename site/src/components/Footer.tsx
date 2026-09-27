@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { brands, collections, productTypes } from "@/data/taxonomy";
-import { hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
+import { addressLine, hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
+import { builtOnLabel } from "@/lib/buildInfo";
 
 function Column({
   title,
@@ -67,8 +68,8 @@ export function Footer() {
                 </div>
               )}
               <div className="flex gap-2">
-                <dt className="font-bold">Based in</dt>
-                <dd className="text-slate">{siteConfig.location}</dd>
+                <dt className="font-bold">Address</dt>
+                <dd className="text-slate">{addressLine}</dd>
               </div>
             </dl>
           </div>
@@ -78,7 +79,6 @@ export function Footer() {
             links={[
               ...productTypes.map((t) => ({ href: `/types/${t.slug}`, label: t.name })),
               { href: "/products", label: "All Products" },
-              { href: "/by-kilo", label: "Bulk — Bags, Bales & Pallets" },
             ]}
           />
           <Column
@@ -96,11 +96,18 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-2 border-t border-ash pt-6 text-xs text-slate sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {new Date().getFullYear()} {siteConfig.name}. Part of {siteConfig.parent} /{" "}
-            {siteConfig.legalName}.
+          <div className="space-y-1">
+            <p>
+              © {new Date().getFullYear()} {siteConfig.name}, a trading name of {siteConfig.legalName}.
+              Company No. {siteConfig.companyNumber}. Established {siteConfig.established}.
+            </p>
+            <p>{siteConfig.activeNotice}</p>
+          </div>
+          <p className="sm:text-right">
+            Wholesale only. Trade enquiries welcome.
+            <br />
+            Site last updated {builtOnLabel}.
           </p>
-          <p>Wholesale only. Trade enquiries welcome.</p>
         </div>
       </div>
     </footer>

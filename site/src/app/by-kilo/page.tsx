@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description:
     "Buy vintage clothing wholesale by the kilo in the UK — 5kg to 25kg bags, 50kg to 300kg bales and 200kg to 1,000kg pallets. Tell us the format, weight and category and we quote a rate per kilo.",
   alternates: { canonical: "/by-kilo" },
+  // Bulk is paused: the page stays reachable for anyone holding the link, but
+  // it is out of the navigation and the sitemap and asks not to be indexed.
+  robots: { index: false, follow: true },
 };
 
 /**

@@ -37,6 +37,8 @@ function describePage(pathname: string): string | null {
       return "bulk — bags, bales and pallets";
     case "grading-guide":
       return "grading guide";
+    case "search":
+      return "search";
     default:
       return null;
   }

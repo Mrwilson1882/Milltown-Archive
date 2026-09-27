@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { quantityLabel, type Product } from "@/data/catalogue";
+import { coverImage, quantityLabel, type Product } from "@/data/catalogue";
 import { perPiece } from "@/lib/format";
 import { vatSuffix } from "@/config/site";
 
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
-  const photo = product.photos?.[0];
-  const src = photo?.src ?? `/images/tiles/${product.art}.svg`;
-  const alt = photo?.alt ?? `${product.name} — ${product.summary}`;
+  const { src, alt } = coverImage(product);
+  const hasVideo = (product.videos?.length ?? 0) > 0;
 
   const hasChoice = product.variants.length > 1;
   // Cards lead on the per-piece rate — the number a buyer actually compares.
@@ -32,6 +31,16 @@ export function ProductCard({ product, priority = false }: { product: Product; p
         {!product.inStock && (
           <span className="absolute top-3 left-3 bg-ink px-2.5 py-1 text-[0.65rem] font-bold tracking-wider text-paper uppercase">
             Sold out
+          </span>
+        )}
+        {hasVideo && (
+          <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-ink/85 py-1 pr-3 pl-1.5 text-[0.65rem] font-bold tracking-wider text-paper uppercase">
+            <span className="grid h-5 w-5 place-items-center rounded-full bg-paper text-ink">
+              <svg viewBox="0 0 24 24" className="ml-0.5 h-3 w-3" fill="currentColor" aria-hidden="true">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+            Video
           </span>
         )}
         {product.variants.length > 0 && (

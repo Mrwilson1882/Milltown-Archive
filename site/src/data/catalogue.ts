@@ -73,6 +73,11 @@ export type Product = {
    * for every lot; set it here to say otherwise. Defined at /grading-guide.
    */
   grade?: string;
+  /**
+   * Where a lot grades differently from the site-wide norm, say so here in
+   * words, e.g. "roughly 85% Grade A, 15% Grade B". Shown after the grade.
+   */
+  gradeNote?: string;
   /** Placeholder artwork key under /public/images/tiles until photos land. */
   art: string;
   /** Real photography, once available: paths under /public. Wins over `art`. */
@@ -82,7 +87,17 @@ export type Product = {
    * the product reel after the photographs. `poster` is the still shown
    * before play and in the thumbnail; the transcode step writes one per clip.
    */
-  videos?: { src: string; poster: string; alt: string }[];
+  videos?: {
+    src: string;
+    poster: string;
+    alt: string;
+    /**
+     * The same clip as shot: 10-bit HEVC in HLG, the iPhone's own HDR format.
+     * Offered first; browsers that can play it (Safari, most Android) show the
+     * footage with its original light and colour, others fall back to `src`.
+     */
+    hdr?: string;
+  }[];
   inStock: boolean;
   featured?: boolean;
 };
@@ -141,7 +156,42 @@ const catalogue: Product[] = [
     featured: true,
   },
   {
-    slug: "y2k-designer-female-mix-box-20",
+    slug: "ralph-lauren-polo-box-10",
+    name: "Ralph Lauren Polo Box — 10 Items",
+    summary: "Ten Polo Ralph Lauren piqué polos, made up and priced. One label, one box.",
+    description: [
+      "A ten-piece box of Polo Ralph Lauren piqué polos — mixed colourways and sizes, the pony on every chest — made up and ready to sell.",
+      "Made up, priced and sold as a single box. Nothing to specify and nothing to quote: order it and it ships. Want depth in the line? The same polos come as counted lots of 25 and 50.",
+    ],
+    brandSlugs: ["ralph-lauren"],
+    typeSlugs: ["polos-t-shirts"],
+    collectionSlugs: ["reseller-boxes", "mens"],
+    // Priced at the Ralph Lauren Polos 10-lot rate, £9 a piece.
+    variants: [at(10, 9)],
+    unit: "pieces",
+    notes: [],
+    art: "grid-green-2",
+    photos: [
+      {
+        src: "/images/products/ralph-lauren-polos/01.jpg",
+        alt: "Four Polo Ralph Lauren piqué polos on white: navy, black and white stripe, pink marl and green marl.",
+      },
+    ],
+    // Shot portrait and at two different speeds; evened out to one pace,
+    // graded to take the glare off, and cropped square. No HDR rendition:
+    // the corrected grade is the point, so every browser sees the same thing.
+    videos: [
+      {
+        src: "/videos/products/ralph-lauren-polo-box-10/01.mp4",
+        poster: "/videos/products/ralph-lauren-polo-box-10/01-poster.jpg",
+        alt: "A look through a Ralph Lauren Polo Box, turned over piece by piece: piqué polos in red, green, navy, pale blue, white and mint, each with the pony on the chest.",
+      },
+    ],
+    inStock: true,
+    featured: true,
+  },
+  {
+    slug: "y2k-designer-female-mix-box",
     name: "Y2K Designer Female Mix",
     summary: "Women's Y2K designer pieces, made up and ready to sell — ten or twenty.",
     description: [
@@ -149,7 +199,7 @@ const catalogue: Product[] = [
       "Made up, priced and sold as a single box, so there is nothing to specify and nothing to quote. Order it and it ships. This is the quickest way to start with us, and the box most first-time buyers come back for.",
       "Sized in true women's sizing rather than pulled out of a men's lot.",
     ],
-    brandSlugs: ["mixed-brands", "reebok", "harley-davidson", "ralph-lauren"],
+    brandSlugs: ["mixed-brands", "harley-davidson", "von-dutch", "juicy-couture", "nike", "adidas", "patagonia", "morgan", "reebok", "ralph-lauren"],
     typeSlugs: ["polos-t-shirts", "jumpers-sweats"],
     collectionSlugs: ["reseller-boxes", "y2k", "womens"],
     variants: [at(10, 10), at(20, 9)],
@@ -158,33 +208,41 @@ const catalogue: Product[] = [
     art: "halftone-green-3",
     photos: [
       {
-        src: "/images/products/y2k-designer-female-mix-box-20/01.jpg",
+        src: "/images/products/y2k-designer-female-mix-box/01.jpg",
         alt: "A women's Y2K mix laid out on white: a white and grey Reebok shell jacket, a black Harley-Davidson Indiana long-sleeve top, a red Ralph Lauren polo and a pair of brown Birkenstock sandals.",
+      },
+    ],
+    videos: [
+      {
+        src: "/videos/products/y2k-designer-female-mix-box/01.mp4",
+        hdr: "/videos/products/y2k-designer-female-mix-box/01-hdr.mp4",
+        poster: "/videos/products/y2k-designer-female-mix-box/01-poster.jpg",
+        alt: "A look through the Y2K Designer Female Mix: a pink and grey The North Face fleece, a pink velour zip hoodie, a blue shell jacket and embellished denim.",
       },
     ],
     inStock: true,
     featured: true,
   },
   {
-    slug: "y2k-designer-male-mix-box-20",
-    name: "Y2K Designer Male Mix",
-    summary: "Men's Y2K designer pieces, made up and ready to sell — ten or twenty.",
+    slug: "designer-male-mix-box",
+    name: "Designer Male Mix",
+    summary: "Men's designer pieces, made up and ready to sell — ten or twenty.",
     description: [
-      "A ready-made box of men's Y2K designer pieces — branded, logo-forward and cut the way the early 2000s cut it. Ten pieces to test it, twenty to fill a rail.",
+      "A ready-made box of men's designer pieces — branded, logo-forward and picked to sell straight off a rail. Ten pieces to test it, twenty to fill a rail.",
       "Made up, priced and sold as a single box. No specification needed and no quote to wait for: order it and it ships.",
       "Runs alongside the women's box, so a stall can open with both sides of the rail covered for £200 — or £360 for the full forty.",
     ],
     brandSlugs: ["mixed-brands", "diesel", "hugo-boss", "lacoste", "nike"],
     typeSlugs: ["polos-t-shirts", "jumpers-sweats", "jackets"],
-    collectionSlugs: ["reseller-boxes", "y2k", "mens"],
+    collectionSlugs: ["reseller-boxes", "mens"],
     variants: [at(10, 10), at(20, 9)],
     unit: "pieces",
     notes: [],
     art: "halftone-ink-3",
     photos: [
       {
-        src: "/images/products/y2k-designer-male-mix-box-20/01.jpg",
-        alt: "A men's Y2K designer mix on white: a cream Diesel brushstroke tee, a navy-striped Boss Sport polo, a blue Lacoste V-neck knit and a black and yellow Nike shell jacket.",
+        src: "/images/products/designer-male-mix-box/01.jpg",
+        alt: "A men's designer mix on white: a cream Diesel brushstroke tee, a navy-striped Boss Sport polo, a blue Lacoste V-neck knit and a black and yellow Nike shell jacket.",
       },
     ],
     inStock: true,
@@ -198,6 +256,7 @@ const catalogue: Product[] = [
     summary: "Croc and pony piqué polos mixed, in tens, twenty-fives and fifties.",
     description: [
       "Branded piqué polos split across Lacoste and Polo Ralph Lauren — the two labels that turn over most reliably in this category, kept in one lot so a rail reads as a designer rail rather than a single-brand run.",
+      "Roughly 85% men's and 15% women's across the lot.",
       "Available in ten, twenty-five or fifty. Start small to test the line, then buy in depth once you know it sells.",
       "Mixed colourways across solids, stripes and check.",
     ],
@@ -214,6 +273,13 @@ const catalogue: Product[] = [
         alt: "Three vintage piqué polos laid flat on white: a faded navy Ralph Lauren with a red pony, a cream Ralph Lauren, and a Lacoste striped in teal, lilac and cream.",
       },
     ],
+    videos: [
+      {
+        src: "/videos/products/lacoste-ralph-lauren-polos/01.mp4",
+        poster: "/videos/products/lacoste-ralph-lauren-polos/01-poster.jpg",
+        alt: "A look along the polo rail, turned over piece by piece: Lacoste croc polos in red and Polo Ralph Lauren pony polos in white, grey, red, yellow, black and blue.",
+      },
+    ],
     inStock: true,
     featured: true,
   },
@@ -228,7 +294,7 @@ const catalogue: Product[] = [
     brandSlugs: ["ralph-lauren"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: [],
-    variants: [at(10, 9), at(25, 8), at(50, 7)],
+    variants: [at(10, 9), at(25, 8), at(50, 7.5)],
     unit: "pieces",
     notes: [],
     art: "grid-ink-2",
@@ -238,12 +304,20 @@ const catalogue: Product[] = [
         alt: "Four Polo Ralph Lauren piqué polos on white: navy, black and white stripe, pink marl and green marl.",
       },
     ],
+    // Same rail as the Ralph Lauren Polo Box — one shoot, both listings.
+    videos: [
+      {
+        src: "/videos/products/ralph-lauren-polo-box-10/01.mp4",
+        poster: "/videos/products/ralph-lauren-polo-box-10/01-poster.jpg",
+        alt: "A look along the Ralph Lauren polo rail, turned over piece by piece: piqué polos in red, green, navy, pale blue, white and mint, each with the pony on the chest.",
+      },
+    ],
     inStock: true,
   },
   {
     slug: "carhartt-dickies-t-shirts",
     name: "Carhartt / Dickies T-Shirts",
-    summary: "Workwear tees mixed across both labels, in 25s and 50s.",
+    summary: "Workwear tees mixed across both labels, in tens, twenty-fives and fifties.",
     description: [
       "Branded workwear t-shirts split across Carhartt and Dickies.",
       "Workwear has its own buyer and rarely competes with the sportswear rail, which makes it a useful second category rather than more of the same. Sold in tens, twenty-fives and fifties.",
@@ -251,11 +325,25 @@ const catalogue: Product[] = [
     brandSlugs: ["carhartt", "dickies"],
     typeSlugs: ["polos-t-shirts"],
     collectionSlugs: ["mens"],
-    variants: [at(10, 9.5), at(25, 9), at(50, 8.5)],
+    variants: [at(10, 7.5), at(25, 7.25), at(50, 7.5)],
     unit: "pieces",
     notes: [],
     art: "blocks-ink-3",
-    inStock: false,
+    photos: [
+      {
+        src: "/images/products/carhartt-dickies-t-shirts/01.jpg",
+        alt: "Four workwear t-shirts laid flat on white: a grey Carhartt pocket tee, a navy Carhartt Action Electric print tee, a tan Dickies pocket tee with a wave graphic and a charcoal Carhartt long-sleeve pocket tee.",
+      },
+    ],
+    videos: [
+      {
+        src: "/videos/products/carhartt-dickies-t-shirts/01.mp4",
+        hdr: "/videos/products/carhartt-dickies-t-shirts/01-hdr.mp4",
+        poster: "/videos/products/carhartt-dickies-t-shirts/01-poster.jpg",
+        alt: "A look through the Carhartt / Dickies T-Shirts: a black Carhartt pocket tee, a navy long-sleeve and layered tan and green workwear tees.",
+      },
+    ],
+    inStock: true,
   },
   {
     slug: "ralph-tommy-lacoste-mix",
@@ -299,7 +387,7 @@ const catalogue: Product[] = [
       "The most consistent repeat category we sell. Sweats hold their ticket, sell year-round, and fill the middle of a rail without competing with your hero pieces.",
       "Available in ten, twenty-five or fifty.",
     ],
-    brandSlugs: ["mixed-brands", "guess", "nautica"],
+    brandSlugs: ["mixed-brands", "chaps-ralph-lauren", "nautica", "champion", "nike", "guess"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage", "winter"],
     variants: [at(10, 9.5), at(25, 9), at(50, 8.5)],
@@ -323,7 +411,7 @@ const catalogue: Product[] = [
       "Premium vintage hoodies on their own, for buyers who want hoods without the sweatshirts mixed in.",
       "Branded, heavyweight and weighted towards the larger end of the size run, because that is where hoodie demand sits.",
     ],
-    brandSlugs: ["mixed-brands", "ralph-lauren", "adidas"],
+    brandSlugs: ["mixed-brands", "chaps-ralph-lauren", "nautica", "champion", "nike", "ralph-lauren", "adidas"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage", "winter"],
     variants: [at(10, 9.5), at(25, 9), at(50, 8.5)],
@@ -336,6 +424,14 @@ const catalogue: Product[] = [
         alt: "Three vintage hoodies laid flat on white: a red and navy Polo Ralph Lauren colour-block hood with sleeve spellout, a green adidas three-stripe hood, and a grey Universal Studios Florida embroidered hood.",
       },
     ],
+    videos: [
+      {
+        src: "/videos/products/mixed-premium-vintage-hoodies/01.mp4",
+        hdr: "/videos/products/mixed-premium-vintage-hoodies/01-hdr.mp4",
+        poster: "/videos/products/mixed-premium-vintage-hoodies/01-poster.jpg",
+        alt: "A look through the Mixed Premium Vintage Hoodies: a navy Nike swoosh hoodie, a royal blue Nike hoodie and layered grey and red hoods.",
+      },
+    ],
     inStock: true,
   },
   {
@@ -346,10 +442,10 @@ const catalogue: Product[] = [
       "Premium vintage sweatshirts on their own — crewnecks and quarter-zips, no hoods.",
       "The quieter half of the sweats category and the one that suits a shop with a more grown-up customer.",
     ],
-    brandSlugs: ["mixed-brands", "guess", "nautica"],
+    brandSlugs: ["mixed-brands", "chaps-ralph-lauren", "nautica", "champion", "nike", "guess"],
     typeSlugs: ["jumpers-sweats"],
     collectionSlugs: ["premium-vintage", "winter"],
-    variants: [at(10, 9.5), at(25, 9), at(50, 8.5)], // Quantities to be confirmed by the owner.
+    variants: [at(10, 10), at(25, 9.5), at(50, 9.25)],
     unit: "pieces",
     notes: [],
     art: "diagonal-ink-3",
@@ -364,22 +460,32 @@ const catalogue: Product[] = [
   {
     slug: "lacoste-jumpers-cardigans",
     name: "Lacoste Jumpers & Cardigans",
-    summary: "Croc-branded knitwear, in tens, twenty-fives and fifties.",
+    summary: "Croc-logo jumpers and cardigans, graded around 85% A, in tens, twenty-fives and fifties.",
     description: [
-      "Lacoste knitwear — crew and v-neck jumpers, zip-through cardigans and patterned knits, all croc-branded.",
-      "Knitwear sells slower than jersey but holds its ticket, and the croc does the work on the label. Available in ten, twenty-five or fifty, so you can buy for a season rather than a weekend.",
+      "Lacoste knitwear on its own — crew and v-neck jumpers, button and zip cardigans, patterned knits — every piece with the croc on the chest.",
+      "Graded higher than our standard lots: roughly 85% Grade A to 15% Grade B, so nearly all of it goes straight on the rail. Knitwear holds its ticket better than jersey, and the croc does the selling.",
+      "Available in ten, twenty-five or fifty.",
     ],
     brandSlugs: ["lacoste"],
     typeSlugs: ["jumpers-sweats"],
-    collectionSlugs: ["premium-vintage", "winter"],
-    variants: [at(10, 10), at(25, 9), at(50, 8.5)],
+    collectionSlugs: ["premium-vintage", "winter", "mens"],
+    variants: [at(10, 12), at(25, 11), at(50, 10)],
     unit: "pieces",
     notes: [],
-    art: "diagonal-green-2",
+    gradeNote: "roughly 85% Grade A, 15% Grade B",
+    art: "grid-ink",
     photos: [
       {
         src: "/images/products/lacoste-jumpers-cardigans/01.jpg",
-        alt: "Four Lacoste knits laid flat on white: a navy zip-through cardigan, a black zip cardigan, a black zip knit with cream striped collar and cuffs, and a green v-neck jumper.",
+        alt: "Four Lacoste knits laid flat on white: a pale blue IZOD Lacoste button cardigan, a green v-neck jumper, a navy crew with red, white and blue tipping, and a navy zip-through with the croc on the chest.",
+      },
+    ],
+    videos: [
+      {
+        src: "/videos/products/lacoste-jumpers-cardigans/01.mp4",
+        hdr: "/videos/products/lacoste-jumpers-cardigans/01-hdr.mp4",
+        poster: "/videos/products/lacoste-jumpers-cardigans/01-poster.jpg",
+        alt: "A look through the Lacoste Jumpers & Cardigans lot, turned over piece by piece: a navy button cardigan, a navy quarter-zip knit and a black crew, each with the croc on the chest.",
       },
     ],
     inStock: true,
@@ -408,25 +514,18 @@ const catalogue: Product[] = [
         alt: "Four festival track jackets on white: a blue and pink Reebok shell, a black and white Adidas taped track top, a navy and red Nike shell and a purple Adidas trefoil jacket.",
       },
     ],
+    // The same rail as the Jackets & Windbreaker Mix: the owner shoots these
+    // jackets as one line, so both pages carry the clip.
+    videos: [
+      {
+        src: "/videos/products/jackets-windbreaker-mix/01.mp4",
+        hdr: "/videos/products/jackets-windbreaker-mix/01-hdr.mp4",
+        poster: "/videos/products/jackets-windbreaker-mix/01-poster.jpg",
+        alt: "A look through the festival jacket rail, turned over piece by piece: a navy, white and green Nike shell jacket, a green Champion half-zip pullover and layered branded windbreakers.",
+      },
+    ],
     inStock: true,
     featured: true,
-  },
-  {
-    slug: "designer-jackets",
-    name: "Designer Jackets",
-    summary: "Designer outerwear in small runs of five to twenty.",
-    description: [
-      "Designer outerwear sold in small runs — the highest single-piece margin of anything we carry.",
-      "Kept to lots of five, ten, fifteen and twenty because depth in outerwear ties up more cash than most shops want to commit at once.",
-    ],
-    brandSlugs: ["mixed-brands"],
-    typeSlugs: ["jackets"],
-    collectionSlugs: ["premium-vintage", "winter"],
-    variants: qty(10, 25, 50),
-    unit: "pieces",
-    notes: [],
-    art: "blocks-green-3",
-    inStock: true,
   },
 
   // --------------------------------------------------------------------- Footwear
@@ -435,7 +534,7 @@ const catalogue: Product[] = [
     name: "Birkenstock Sandals",
     summary: "Birkenstocks by the pair, in tens, twenty-fives and fifties.",
     description: [
-      "Second-hand Birkenstock sandals sold by the pair, in lots of five, ten, twenty-five and fifty.",
+      "Second-hand Birkenstock sandals sold by the pair, in lots of ten, twenty-five or fifty.",
       "Footwear sits alongside a clothing rail without competing with it, and Birkenstocks hold their resale value better than almost anything else in second-hand footwear.",
     ],
     brandSlugs: ["birkenstock"],
@@ -451,7 +550,7 @@ const catalogue: Product[] = [
         alt: "Six pairs of second-hand Birkenstock sandals on white: four brown nubuck pairs in two-strap and toe-post styles, one white toe-post pair and one metallic snake-print pair.",
       },
     ],
-    inStock: true,
+    inStock: false, // Marked out of stock by the owner, 16 Sep 2026.
     featured: true,
   },
 
@@ -475,29 +574,6 @@ const catalogue: Product[] = [
   },
 
   // --------------------------------------------------------------- Brand-led lots
-  {
-    slug: "mixed-mens-lacoste-25",
-    name: "Mixed Men's Lacoste",
-    summary: "Mixed men's Lacoste pieces, in tens, twenty-fives and fifties.",
-    description: [
-      "Twenty-five mixed pieces of men's Lacoste — polos, knitwear and jersey in one lot rather than split by garment.",
-      "For shops that sell Lacoste as a label in its own right. Sold as a fixed twenty-five piece mix.",
-    ],
-    brandSlugs: ["lacoste"],
-    typeSlugs: ["polos-t-shirts", "jumpers-sweats"],
-    collectionSlugs: ["mens"],
-    variants: [at(10, 9), at(25, 8.5), at(50, 8)],
-    unit: "pieces",
-    notes: [],
-    art: "grid-ink",
-    photos: [
-      {
-        src: "/images/products/mixed-mens-lacoste-25/01.jpg",
-        alt: "A men's Lacoste lot on white: a black piqué polo, an olive quarter-zip sweatshirt, a grey and black Lacoste shell jacket and a navy sweatshirt with tricolour ribbing.",
-      },
-    ],
-    inStock: true,
-  },
   // ------------------------------------------- Lots first seen in the photography
   {
     slug: "t-shirt-mix",
@@ -520,6 +596,14 @@ const catalogue: Product[] = [
         alt: "Four branded vintage t-shirts laid flat on white: a purple Champion script tee, a blue Nike swoosh tee, a navy Fila logo tee and a black adidas trefoil tee.",
       },
     ],
+    videos: [
+      {
+        src: "/videos/products/t-shirt-mix/01.mp4",
+        hdr: "/videos/products/t-shirt-mix/01-hdr.mp4",
+        poster: "/videos/products/t-shirt-mix/01-poster.jpg",
+        alt: "A look through the Branded T-Shirt Mix: a navy Nike graphic tee, a grey Puma logo tee, an olive long-sleeve and layered branded tees.",
+      },
+    ],
     inStock: true,
     featured: true,
   },
@@ -528,15 +612,13 @@ const catalogue: Product[] = [
     name: "Jackets & Windbreaker Mix",
     summary: "Branded shells, pullovers and windbreakers, mixed.",
     description: [
-      "Lightweight branded outerwear mixed across labels — quarter-zip pullovers, hooded shells and fleece-lined windbreakers from Nike, Ralph Lauren, Tommy Hilfiger and Reebok.",
+      "Lightweight branded outerwear mixed across labels — quarter-zip pullovers, hooded shells and fleece-lined windbreakers from Sergio Tacchini, adidas, Nike, Fila, Columbia, The North Face, Reebok, Tommy Hilfiger and Ralph Lauren.",
       "Outerwear carries the highest single-piece ticket on a vintage rail, and this category picks up from late summer onwards.",
     ],
-    brandSlugs: ["mixed-brands", "nike", "ralph-lauren", "tommy-hilfiger", "reebok"],
+    brandSlugs: ["mixed-brands", "sergio-tacchini", "adidas", "nike", "fila", "columbia", "the-north-face", "reebok", "tommy-hilfiger", "ralph-lauren"],
     typeSlugs: ["jackets"],
     collectionSlugs: ["festival", "winter"],
-    // 100 left unpriced: quoted as matching the festival jackets, which have
-    // no hundred. Awaiting the owner.
-    variants: [at(10, 12.5), at(25, 11), at(50, 9)],
+    variants: [at(10, 12.5), at(25, 11), at(50, 10)],
     unit: "pieces",
     notes: [],
     art: "diagonal-green-4",
@@ -544,6 +626,14 @@ const catalogue: Product[] = [
       {
         src: "/images/products/jackets-windbreaker-mix/01.jpg",
         alt: "Four vintage jackets laid flat on white: a navy Nike quarter-zip pullover, a red Chaps Ralph Lauren hooded pullover, a grey and navy Tommy Hilfiger hooded jacket and a white and red Reebok fleece-lined jacket.",
+      },
+    ],
+    videos: [
+      {
+        src: "/videos/products/jackets-windbreaker-mix/01.mp4",
+        hdr: "/videos/products/jackets-windbreaker-mix/01-hdr.mp4",
+        poster: "/videos/products/jackets-windbreaker-mix/01-poster.jpg",
+        alt: "A look through the Jackets & Windbreaker Mix, turned over piece by piece: a navy, white and green Nike shell jacket, a green Champion half-zip pullover and layered branded windbreakers.",
       },
     ],
     inStock: true,
@@ -599,25 +689,25 @@ const catalogue: Product[] = [
     featured: true,
   },
   {
-    slug: "luxury-outerwear-mix",
-    name: "Luxury Outerwear Mix",
-    summary: "Moncler, Burberry, Versace and Polo Ralph Lauren outerwear.",
+    slug: "designer-jackets",
+    name: "Designer Jackets",
+    summary: "Moncler, Burberry, Versace and Polo Ralph Lauren jackets, sold in tens.",
     description: [
       "Luxury outerwear and tailoring kept apart from the general jacket lots — Moncler quilted down, Burberry field jackets, Versace tailoring and Polo Ralph Lauren shells.",
       "These pieces price on the label rather than the category, which is exactly why they are not bundled in with windbreakers. One Moncler jacket can carry a rail on its own.",
-      "Small lots by nature. Contents change with every intake, and we photograph each piece individually before you commit.",
+      "Sold in lots of ten. Contents change with every intake, and we photograph each piece individually before you commit.",
     ],
     brandSlugs: ["moncler", "burberry", "versace", "ralph-lauren"],
     typeSlugs: ["jackets"],
     collectionSlugs: ["luxury", "mens", "winter"],
-    variants: qty(10, 25, 50), // Quantities to be confirmed by the owner.
+    variants: [at(10, 30)],
     unit: "pieces",
     notes: ["Contents change with each intake. Ask for current photos before ordering."],
     art: "bands-ink-5",
     photos: [
       {
-        src: "/images/products/luxury-outerwear-mix/01.jpg",
-        alt: "A luxury outerwear lot on white: a red Polo Jeans Co zip jacket, a black quilted Moncler, a navy Burberry field jacket and a black Versace blazer with gold buttons.",
+        src: "/images/products/designer-jackets/01.jpg",
+        alt: "A designer jackets lot on white: a red Polo Jeans Co zip jacket, a black quilted Moncler, a navy Burberry field jacket and a black Versace blazer with gold buttons.",
       },
     ],
     inStock: true,
@@ -651,7 +741,9 @@ export const products: Product[] = catalogue.map((product) => ({
   ...product,
   description: [...product.description, REPRESENTATIVE_NOTE],
   grade: product.grade ?? "A/B",
-  inStock: product.inStock && (product.photos?.length ?? 0) > 0,
+  // A lot needs something to show before it can sell: a photograph or a video.
+  inStock:
+    product.inStock && ((product.photos?.length ?? 0) > 0 || (product.videos?.length ?? 0) > 0),
 }));
 
 /** Lots held back only for want of a photograph — the shot list, in effect. */
@@ -716,20 +808,56 @@ export function quantityLabel(product: Product): string {
  * Seeded with what was on page one before the list existed, so nothing moved
  * the day it was introduced.
  */
+/**
+ * Selling order. Lots with a rail video convert best, so they lead; the
+ * home page "Popular lots" takes the first six in stock, and the default
+ * sort on every grid follows the same order. `sinkSlugs` always sit last.
+ */
 export const homeFeatured = [
-  "lacoste-ralph-lauren-polos",
   "ralph-tommy-lacoste-mix",
-  "mixed-premium-vintage-hoodies-sweatshirts",
+  "starter-box-10",
+  "y2k-designer-female-mix-box",
+  "ralph-lauren-polo-box-10",
   "lacoste-jumpers-cardigans",
-  "festival-track-jackets",
-  "birkenstock-sandals",
-  // Bench — next in line if one above sells out or the data says so.
-  "mens-luxury-winter-mix",
-  "womens-y2k-summer-mix",
   "jackets-windbreaker-mix",
+  "mixed-premium-vintage-hoodies",
   "t-shirt-mix",
+  "festival-track-jackets",
+  "carhartt-dickies-t-shirts",
+  "lacoste-ralph-lauren-polos",
+  "ralph-lauren-polos",
+  "mixed-premium-vintage-hoodies-sweatshirts",
+  "mixed-premium-vintage-sweatshirts",
+  "womens-y2k-summer-mix",
 ];
+
+/** Lots the owner wants kept low on every page: high ticket, niche, or paused. */
+export const sinkSlugs = ["designer-jackets", "birkenstock-sandals", "mens-luxury-winter-mix"];
+
+/** Lower is more prominent. Ties fall back to catalogue order. */
+export function merchRank(product: Product): number {
+  const i = products.findIndex((p) => p.slug === product.slug);
+  if (sinkSlugs.includes(product.slug)) return 9000 + i;
+  if (!product.inStock) return 8000 + i;
+  const spot = homeFeatured.indexOf(product.slug);
+  if (spot >= 0) return spot;
+  if ((product.videos?.length ?? 0) > 0) return 1000 + i;
+  if (product.featured) return 2000 + i;
+  return 3000 + i;
+}
 
 export const featuredProducts: Product[] = homeFeatured
   .map((slug) => products.find((p) => p.slug === slug))
   .filter((p): p is Product => Boolean(p) && (p as Product).inStock);
+
+/**
+ * The picture that fronts a lot on cards, tiles and search: its first
+ * photograph, else the poster of its first video, else the placeholder art.
+ */
+export function coverImage(product: Product): { src: string; alt: string; video: boolean } {
+  const photo = product.photos?.[0];
+  if (photo) return { src: photo.src, alt: photo.alt, video: false };
+  const video = product.videos?.[0];
+  if (video) return { src: video.poster, alt: video.alt, video: true };
+  return { src: `/images/tiles/${product.art}.svg`, alt: `${product.name} — ${product.summary}`, video: false };
+}
