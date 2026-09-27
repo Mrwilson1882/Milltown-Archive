@@ -342,3 +342,12 @@ collected name the estimate runs short. It now has a second form — reading the
 *bulk* of a listing band rather than the part of it a well-photographed, well
 described listing actually competes in. Both are corrections downward in
 confidence, not just in number.
+
+### Owner's figures, 27 Sep
+
+- **Burberry, item 10: £150.** Owner set it directly. That is the Large-in-very-
+  good comparable exactly, not a discount from it.
+- **Item 9 is Missoni Uomo**, confirmed off the full-resolution neck label after
+  Claude first read it as Missoni Sport from a contact-sheet tile. The two are
+  different lines. **A line name is not readable at thumbnail size** — open the
+  tile before writing it down.

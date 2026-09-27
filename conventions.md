@@ -244,6 +244,11 @@ of the day, export the whole sheet to `.xlsx`.
   than the garment; it records that these bundle names are aliases of one
   another.
 
+- **A brand's line name must be read at full resolution, never off a contact
+  sheet tile.** Batch 8 item 9 was read as "Missoni Sport" from a thumbnail and
+  is in fact **Missoni Uomo** — different lines, different values. The brand may
+  be legible small; the line rarely is. Extract the tile and look before writing
+  either into a title.
 - **Known price bands, from the owner's corrections.** These outrank any search
   result, and live in full in `price-corrections.csv`:
   - **Izod / Lacoste vintage knitwear: £25–£35.** Poorer quality or condition
