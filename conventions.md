@@ -285,6 +285,10 @@ of the day, export the whole sheet to `.xlsx`.
     (owner, 27 Sep, on batch 8 item 18) — *below* the £20 poorer-quality floor,
     and regardless of how good the garment is otherwise. That piece was Very
     Good with no wear and still came down from £32.99.
+  - **Barbour wax jackets: anchor at £99.99, not mid-band** (owner, 28 Sep, on
+    batch 8's made-in-England Beaufort). Made-in-England Beauforts do reach
+    £160, but the mass of the range sits at £90–£110, and a jacket in Good
+    rather than Very Good condition belongs at the bottom of it.
   - **Burberry**: a mid-band read is too cautious. Anchor on the comparable in
     the same size and condition, not on the bulk of the listings, which is
     diffusion-label and poorly photographed stock a good listing does not
@@ -297,6 +301,15 @@ of the day, export the whole sheet to `.xlsx`.
 
 **The owner's price always wins.** Where a price is dictated, record it exactly
 and never override it.
+
+**A wide comp range is not priced from its middle.** Two owner corrections in
+two days came from the same habit — reading a range's middle or top as its
+centre of gravity. The Izod knits: an eBay "over £55" bracket was the top of the
+range, not the middle. The Barbour Beaufort: £90–£160 is real, but the mass sits
+at £90–£110 and the jacket was Good, not Very Good. **Price off the comparables
+that match this garment's condition, not off the average of the range** — and
+when condition is a step below the batch's best, that alone puts it at the
+bottom of the band.
 
 **Where no price is dictated, Claude sets one** — and from 2 Sep 2026 this
 happens **in the photo-processing chat**, not the voice-note chat, because that
