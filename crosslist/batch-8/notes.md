@@ -85,6 +85,15 @@ Item 3 is the one real departure from the ledger: it asked 74.99, and a
 made-in-England Beaufort in this size sells for 90–160 on Vinted UK, so it is
 listed at 119.99.
 
+## Photo order
+
+`mapping.csv` was rebuilt on 28 Sep to the owner's layout: whole-garment shots
+and key details first, **chest measure at 9 and length measure at 10**, the rest
+of the details after, defects last. It first shipped with the measurements at
+slots 3 and 4 on every item — the shapewear exception applied where it does not
+belong. **The upload the owner imported on 27 Sep carries the old order**, so
+the repo and that import disagree on photo order until the batch is rebuilt.
+
 ## Still open
 
 * **Item 6's condition is blank in the ledger** and has now been asked about

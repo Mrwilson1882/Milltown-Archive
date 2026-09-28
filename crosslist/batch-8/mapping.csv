@@ -7,13 +7,13 @@ item_no,source_filename,shot_type,photo_index,notes
 001,DSC00035-Photoroom.JPG,front,1,
 001,IMG_3219-Photoroom.JPG,back,2,
 001,IMG_2930-Photoroom.JPG,detail,3,
-001,IMG_2929-Photoroom.JPG,measurement,4,chest measure
-001,IMG_2928-Photoroom.JPG,measurement,5,length measure
-001,IMG_2927-Photoroom.JPG,detail,6,
-001,IMG_2921-Photoroom.JPG,detail,7,
-001,IMG_2931-Photoroom.JPG,label,8,"brand label (Jeans Les Copains, 42/28)"
-001,IMG_2932-Photoroom.JPG,detail,9,
-001,IMG_2934-Photoroom.JPG,detail,10,
+001,IMG_2927-Photoroom.JPG,detail,4,
+001,IMG_2921-Photoroom.JPG,detail,5,
+001,IMG_2931-Photoroom.JPG,label,6,"brand label (Jeans Les Copains, 42/28)"
+001,IMG_2932-Photoroom.JPG,detail,7,
+001,IMG_2934-Photoroom.JPG,detail,8,
+001,IMG_2929-Photoroom.JPG,measurement,9,chest measure
+001,IMG_2928-Photoroom.JPG,measurement,10,length measure
 001,IMG_2922-Photoroom.JPG,detail,11,
 001,IMG_2923-Photoroom.JPG,detail,12,
 001,IMG_2924-Photoroom.JPG,detail,13,
@@ -23,13 +23,13 @@ item_no,source_filename,shot_type,photo_index,notes
 002,DSC00036-Photoroom.JPG,front,1,
 002,DSC00037-Photoroom.JPG,back,2,
 002,IMG_2936-Photoroom.JPG,detail,3,
-002,IMG_2946-Photoroom.JPG,measurement,4,chest measure
-002,IMG_2947-Photoroom.JPG,measurement,5,length measure
-002,IMG_2935-Photoroom.JPG,detail,6,
-002,IMG_2941-Photoroom.JPG,detail,7,
-002,IMG_2945-Photoroom.JPG,detail,8,
-002,IMG_2937-Photoroom.JPG,detail,9,
-002,IMG_2938-Photoroom.JPG,detail,10,
+002,IMG_2935-Photoroom.JPG,detail,4,
+002,IMG_2941-Photoroom.JPG,detail,5,
+002,IMG_2945-Photoroom.JPG,detail,6,
+002,IMG_2937-Photoroom.JPG,detail,7,
+002,IMG_2938-Photoroom.JPG,detail,8,
+002,IMG_2946-Photoroom.JPG,measurement,9,chest measure
+002,IMG_2947-Photoroom.JPG,measurement,10,length measure
 002,IMG_2939-Photoroom.JPG,detail,11,
 002,IMG_2940-Photoroom.JPG,detail,12,
 002,IMG_2943-Photoroom.JPG,label,13,logo label
@@ -40,13 +40,13 @@ item_no,source_filename,shot_type,photo_index,notes
 003,DSC00038-Photoroom.JPG,front,1,
 003,DSC00040-Photoroom.JPG,back,2,
 003,DSC00039-Photoroom.JPG,detail,3,
-003,IMG_2959-Photoroom.JPG,measurement,4,chest measure
-003,IMG_2958-Photoroom.JPG,measurement,5,length measure
-003,IMG_2950-Photoroom.JPG,label,6,Barbour BEAUFORT label
-003,IMG_2957-Photoroom.JPG,label,7,Barbour BEAUFORT interior label
-003,IMG_2949-Photoroom.JPG,detail,8,
-003,IMG_2948-Photoroom.JPG,detail,9,
-003,IMG_2951-Photoroom.JPG,detail,10,
+003,IMG_2950-Photoroom.JPG,label,4,Barbour BEAUFORT label
+003,IMG_2957-Photoroom.JPG,label,5,Barbour BEAUFORT interior label
+003,IMG_2949-Photoroom.JPG,detail,6,
+003,IMG_2948-Photoroom.JPG,detail,7,
+003,IMG_2951-Photoroom.JPG,detail,8,
+003,IMG_2959-Photoroom.JPG,measurement,9,chest measure
+003,IMG_2958-Photoroom.JPG,measurement,10,length measure
 003,IMG_2954-Photoroom.JPG,detail,11,
 003,IMG_2953-Photoroom.JPG,detail,12,
 003,IMG_2955-Photoroom.JPG,detail,13,
@@ -55,25 +55,25 @@ item_no,source_filename,shot_type,photo_index,notes
 004,IMG_2968.heic,card,0,number card - never uploaded
 004,DSC00041-Photoroom.JPG,front,1,
 004,DSC00042-Photoroom.JPG,back,2,
-004,IMG_2967-Photoroom.JPG,measurement,3,chest measure
-004,IMG_2966-Photoroom.JPG,measurement,4,length measure
-004,IMG_2960-Photoroom.JPG,label,5,TRUSSARDI ACTION label
-004,IMG_2964-Photoroom.JPG,label,6,brand label
-004,IMG_2965-Photoroom.JPG,detail,7,
-004,IMG_2961-Photoroom.JPG,detail,8,
-004,IMG_2962-Photoroom.JPG,detail,9,
-004,IMG_2963-Photoroom.JPG,detail,10,
+004,IMG_2960-Photoroom.JPG,label,3,TRUSSARDI ACTION label
+004,IMG_2964-Photoroom.JPG,label,4,brand label
+004,IMG_2965-Photoroom.JPG,detail,5,
+004,IMG_2961-Photoroom.JPG,detail,6,
+004,IMG_2962-Photoroom.JPG,detail,7,
+004,IMG_2963-Photoroom.JPG,detail,8,
+004,IMG_2967-Photoroom.JPG,measurement,9,chest measure
+004,IMG_2966-Photoroom.JPG,measurement,10,length measure
 005,DSC00044.JPG,card,0,number card - never uploaded
 005,DSC00043-Photoroom.JPG,front,1,
 005,DSC00044-Photoroom.JPG,back,2,
-005,IMG_2976-Photoroom.JPG,measurement,3,chest measure
-005,IMG_2975-Photoroom.JPG,measurement,4,length measure
-005,IMG_2970-Photoroom.JPG,label,5,BOSS label
-005,IMG_2980-Photoroom.JPG,label,6,BOSS label
-005,IMG_2982-Photoroom.JPG,label,7,BOSS label
-005,IMG_2983-Photoroom.JPG,detail,8,
-005,IMG_2969-Photoroom.JPG,detail,9,
-005,IMG_2978-Photoroom.JPG,detail,10,
+005,IMG_2970-Photoroom.JPG,label,3,BOSS label
+005,IMG_2980-Photoroom.JPG,label,4,BOSS label
+005,IMG_2982-Photoroom.JPG,label,5,BOSS label
+005,IMG_2983-Photoroom.JPG,detail,6,
+005,IMG_2969-Photoroom.JPG,detail,7,
+005,IMG_2978-Photoroom.JPG,detail,8,
+005,IMG_2976-Photoroom.JPG,measurement,9,chest measure
+005,IMG_2975-Photoroom.JPG,measurement,10,length measure
 005,IMG_2977-Photoroom.JPG,detail,11,
 005,IMG_2971-Photoroom.JPG,detail,12,
 005,IMG_2972-Photoroom.JPG,detail,13,
@@ -84,40 +84,40 @@ item_no,source_filename,shot_type,photo_index,notes
 006,DSC00047.JPG,card,0,number card - never uploaded
 006,DSC00045-Photoroom.JPG,front,1,
 006,DSC00046-Photoroom.JPG,back,2,
-006,IMG_2993-Photoroom.JPG,measurement,3,chest measure
-006,IMG_2992-Photoroom.JPG,measurement,4,length measure
-006,IMG_2990-Photoroom.JPG,label,5,"GFF Gianfranco Ferre label, I 46 / USA 12"
-006,IMG_2984-Photoroom.JPG,detail,6,
-006,IMG_2989-Photoroom.JPG,detail,7,
-006,IMG_2986-Photoroom.JPG,detail,8,
-006,IMG_2987-Photoroom.JPG,detail,9,
-006,IMG_2988-Photoroom.JPG,detail,10,
+006,IMG_2990-Photoroom.JPG,label,3,"GFF Gianfranco Ferre label, I 46 / USA 12"
+006,IMG_2984-Photoroom.JPG,detail,4,
+006,IMG_2989-Photoroom.JPG,detail,5,
+006,IMG_2986-Photoroom.JPG,detail,6,
+006,IMG_2987-Photoroom.JPG,detail,7,
+006,IMG_2988-Photoroom.JPG,detail,8,
+006,IMG_2993-Photoroom.JPG,measurement,9,chest measure
+006,IMG_2992-Photoroom.JPG,measurement,10,length measure
 006,IMG_2985-Photoroom.JPG,detail,11,
 006,DSC00047-Photoroom.JPG,detail,12,
 007,IMG_3005.heic,card,0,number card - never uploaded
 007,DSC00048-Photoroom.JPG,front,1,
 007,DSC00049-Photoroom.JPG,back,2,
-007,IMG_2994-Photoroom.JPG,measurement,3,chest measure
-007,IMG_2995-Photoroom.JPG,measurement,4,length measure
-007,IMG_2996-Photoroom.JPG,label,5,Cacharel label
-007,IMG_3003-Photoroom.JPG,label,6,Cacharel label and lining
-007,IMG_3002-Photoroom.JPG,detail,7,
-007,IMG_2997-Photoroom.JPG,detail,8,
-007,IMG_2998-Photoroom.JPG,detail,9,
-007,IMG_2999-Photoroom.JPG,detail,10,
+007,IMG_2996-Photoroom.JPG,label,3,Cacharel label
+007,IMG_3003-Photoroom.JPG,label,4,Cacharel label and lining
+007,IMG_3002-Photoroom.JPG,detail,5,
+007,IMG_2997-Photoroom.JPG,detail,6,
+007,IMG_2998-Photoroom.JPG,detail,7,
+007,IMG_2999-Photoroom.JPG,detail,8,
+007,IMG_2994-Photoroom.JPG,measurement,9,chest measure
+007,IMG_2995-Photoroom.JPG,measurement,10,length measure
 007,IMG_3004-Photoroom.JPG,detail,11,
 007,IMG_3001-Photoroom.JPG,detail,12,
 008,IMG_3015.heic,card,0,number card - never uploaded
 008,DSC00050-Photoroom.JPG,front,1,
 008,DSC00051-Photoroom.JPG,back,2,
 008,DSC00052-Photoroom.JPG,detail,3,
-008,IMG_3017-Photoroom.JPG,measurement,4,chest measure
-008,IMG_3016-Photoroom.JPG,measurement,5,length measure
-008,IMG_3013-Photoroom.JPG,label,6,"Fay label, size L"
-008,IMG_3006-Photoroom.JPG,label,7,Fay label
-008,IMG_3014-Photoroom.JPG,detail,8,
-008,IMG_3011-Photoroom.JPG,detail,9,
-008,IMG_3012-Photoroom.JPG,detail,10,
+008,IMG_3013-Photoroom.JPG,label,4,"Fay label, size L"
+008,IMG_3006-Photoroom.JPG,label,5,Fay label
+008,IMG_3014-Photoroom.JPG,detail,6,
+008,IMG_3011-Photoroom.JPG,detail,7,
+008,IMG_3012-Photoroom.JPG,detail,8,
+008,IMG_3017-Photoroom.JPG,measurement,9,chest measure
+008,IMG_3016-Photoroom.JPG,measurement,10,length measure
 008,IMG_3015-Photoroom.JPG,detail,11,
 008,IMG_3007-Photoroom.JPG,detail,12,
 008,IMG_3010-Photoroom.JPG,detail,13,
@@ -126,14 +126,14 @@ item_no,source_filename,shot_type,photo_index,notes
 009,IMG_3028.heic,card,0,number card - never uploaded
 009,DSC00053-Photoroom.JPG,front,1,
 009,DSC00054-Photoroom.JPG,back,2,
-009,IMG_3029-Photoroom.JPG,measurement,3,chest measure
-009,IMG_3028-Photoroom.JPG,measurement,4,length measure
-009,IMG_3018-Photoroom.JPG,label,5,MISSONI UOMO label
-009,IMG_3030-Photoroom.JPG,detail,6,
-009,IMG_3019-Photoroom.JPG,detail,7,
-009,IMG_3024-Photoroom.JPG,detail,8,
-009,IMG_3027-Photoroom.JPG,detail,9,
-009,IMG_3022-Photoroom.JPG,detail,10,
+009,IMG_3018-Photoroom.JPG,label,3,MISSONI UOMO label
+009,IMG_3030-Photoroom.JPG,detail,4,
+009,IMG_3019-Photoroom.JPG,detail,5,
+009,IMG_3024-Photoroom.JPG,detail,6,
+009,IMG_3027-Photoroom.JPG,detail,7,
+009,IMG_3022-Photoroom.JPG,detail,8,
+009,IMG_3029-Photoroom.JPG,measurement,9,chest measure
+009,IMG_3028-Photoroom.JPG,measurement,10,length measure
 009,IMG_3020-Photoroom.JPG,detail,11,
 009,IMG_3021-Photoroom.JPG,detail,12,
 009,IMG_3023-Photoroom.JPG,defect,13,DEFECT - discolouration
@@ -143,13 +143,13 @@ item_no,source_filename,shot_type,photo_index,notes
 010,DSC00055-Photoroom.JPG,front,1,
 010,DSC00057-Photoroom.JPG,back,2,
 010,IMG_3046-Photoroom.JPG,detail,3,
-010,IMG_3045-Photoroom.JPG,measurement,4,chest measure
-010,IMG_3044-Photoroom.JPG,measurement,5,length measure
-010,IMG_3041-Photoroom.JPG,label,6,BURBERRY label
-010,IMG_3042.heic,label,7,BURBERRY label 54
-010,IMG_3043.heic,label,8,BURBERRY label 54
-010,IMG_3038-Photoroom.JPG,detail,9,reversible - brown side
-010,IMG_3039-Photoroom.JPG,detail,10,reversible - brown side
+010,IMG_3041-Photoroom.JPG,label,4,BURBERRY label
+010,IMG_3042.heic,label,5,BURBERRY label 54
+010,IMG_3043.heic,label,6,BURBERRY label 54
+010,IMG_3038-Photoroom.JPG,detail,7,reversible - brown side
+010,IMG_3039-Photoroom.JPG,detail,8,reversible - brown side
+010,IMG_3045-Photoroom.JPG,measurement,9,chest measure
+010,IMG_3044-Photoroom.JPG,measurement,10,length measure
 010,IMG_3040-Photoroom.JPG,detail,11,reversible - brown side
 010,IMG_3031-Photoroom.JPG,detail,12,
 010,IMG_3032-Photoroom.JPG,detail,13,
@@ -162,13 +162,13 @@ item_no,source_filename,shot_type,photo_index,notes
 011,DSC00058-Photoroom.JPG,front,1,
 011,DSC00060-Photoroom.JPG,back,2,
 011,DSC00059-Photoroom.JPG,detail,3,
-011,IMG_3055-Photoroom.JPG,measurement,4,chest measure
-011,IMG_3056-Photoroom.JPG,measurement,5,length measure
-011,IMG_3053-Photoroom.JPG,label,6,"Barbour Dress Tartan label, size M"
-011,IMG_3054-Photoroom.JPG,detail,7,Dress Tartan lining
-011,IMG_3047-Photoroom.JPG,detail,8,
-011,IMG_3048-Photoroom.JPG,detail,9,
-011,IMG_3052-Photoroom.JPG,detail,10,
+011,IMG_3053-Photoroom.JPG,label,4,"Barbour Dress Tartan label, size M"
+011,IMG_3054-Photoroom.JPG,detail,5,Dress Tartan lining
+011,IMG_3047-Photoroom.JPG,detail,6,
+011,IMG_3048-Photoroom.JPG,detail,7,
+011,IMG_3052-Photoroom.JPG,detail,8,
+011,IMG_3055-Photoroom.JPG,measurement,9,chest measure
+011,IMG_3056-Photoroom.JPG,measurement,10,length measure
 011,IMG_3049-Photoroom.JPG,detail,11,
 011,IMG_3050-Photoroom.JPG,detail,12,
 011,IMG_3051-Photoroom.JPG,detail,13,
@@ -185,27 +185,27 @@ item_no,source_filename,shot_type,photo_index,notes
 013,IMG_3069.heic,card,0,number card - never uploaded
 013,DSC00063-Photoroom.JPG,front,1,
 013,DSC00064-Photoroom.JPG,back,2,
-013,IMG_3074-Photoroom.JPG,measurement,3,chest measure
-013,IMG_3075-Photoroom.JPG,measurement,4,length measure
-013,IMG_3077.heic,label,5,Easy by Nazareno Gabrielli label
-013,IMG_3076.heic,label,6,composition label
-013,IMG_3065-Photoroom.JPG,detail,7,
-013,IMG_3070-Photoroom.JPG,detail,8,
-013,IMG_3069-Photoroom.JPG,detail,9,
-013,IMG_3071-Photoroom.JPG,detail,10,
+013,IMG_3077.heic,label,3,Easy by Nazareno Gabrielli label
+013,IMG_3076.heic,label,4,composition label
+013,IMG_3065-Photoroom.JPG,detail,5,
+013,IMG_3070-Photoroom.JPG,detail,6,
+013,IMG_3069-Photoroom.JPG,detail,7,
+013,IMG_3071-Photoroom.JPG,detail,8,
+013,IMG_3074-Photoroom.JPG,measurement,9,chest measure
+013,IMG_3075-Photoroom.JPG,measurement,10,length measure
 013,IMG_3072-Photoroom.JPG,detail,11,
 013,IMG_3080.heic,defect,12,DEFECT - broken zip
 014,DSC00065.JPG,card,0,number card - never uploaded
 014,DSC00066-Photoroom.jpg,front,1,
 014,DSC00067-Photoroom.jpg,back,2,
-014,IMG_3091-Photoroom.JPG,measurement,3,chest measure
-014,IMG_3089-Photoroom.JPG,measurement,4,length measure
-014,IMG_3092-Photoroom.jpg,label,5,"DIESEL label, XXL"
-014,IMG_3093.heic,detail,6,
-014,IMG_3087-Photoroom.JPG,detail,7,"Made in Italy, 100% cotton"
-014,IMG_3081-Photoroom.JPG,detail,8,
-014,IMG_3088-Photoroom.JPG,detail,9,
-014,IMG_3085-Photoroom.JPG,detail,10,
+014,IMG_3092-Photoroom.jpg,label,3,"DIESEL label, XXL"
+014,IMG_3093.heic,detail,4,
+014,IMG_3087-Photoroom.JPG,detail,5,"Made in Italy, 100% cotton"
+014,IMG_3081-Photoroom.JPG,detail,6,
+014,IMG_3088-Photoroom.JPG,detail,7,
+014,IMG_3085-Photoroom.JPG,detail,8,
+014,IMG_3091-Photoroom.JPG,measurement,9,chest measure
+014,IMG_3089-Photoroom.JPG,measurement,10,length measure
 014,IMG_3082-Photoroom.JPG,detail,11,
 014,IMG_3083-Photoroom.JPG,detail,12,
 014,IMG_3084-Photoroom.JPG,detail,13,
@@ -228,64 +228,64 @@ item_no,source_filename,shot_type,photo_index,notes
 016,DSC00070.JPG,card,0,number card - never uploaded
 016,DSC00070-Photoroom.JPG,front,1,
 016,DSC00071-Photoroom.JPG,back,2,
-016,IMG_3127-Photoroom.JPG,measurement,3,chest measure
-016,IMG_3128-Photoroom.JPG,measurement,4,length measure
-016,IMG_3118-Photoroom.JPG,label,5,Belstaff label
-016,IMG_3124-Photoroom.JPG,label,6,Belstaff lining label
-016,IMG_3123-Photoroom.JPG,detail,7,
-016,IMG_3125-Photoroom.JPG,detail,8,
-016,IMG_3126-Photoroom.JPG,detail,9,
-016,IMG_3119-Photoroom.JPG,detail,10,
+016,IMG_3118-Photoroom.JPG,label,3,Belstaff label
+016,IMG_3124-Photoroom.JPG,label,4,Belstaff lining label
+016,IMG_3123-Photoroom.JPG,detail,5,
+016,IMG_3125-Photoroom.JPG,detail,6,
+016,IMG_3126-Photoroom.JPG,detail,7,
+016,IMG_3119-Photoroom.JPG,detail,8,
+016,IMG_3127-Photoroom.JPG,measurement,9,chest measure
+016,IMG_3128-Photoroom.JPG,measurement,10,length measure
 016,IMG_3122-Photoroom.JPG,detail,11,
 016,IMG_3120-Photoroom.JPG,detail,12,
 016,IMG_3121-Photoroom.JPG,detail,13,
 017,DSC00072.JPG,card,0,number card - never uploaded
 017,DSC00072-Photoroom.JPG,front,1,
 017,DSC00073-Photoroom.JPG,back,2,
-017,IMG_3139-Photoroom.JPG,measurement,3,chest measure
-017,IMG_3140-Photoroom.JPG,measurement,4,length measure
-017,IMG_3135-Photoroom.JPG,label,5,IZOD LACOSTE label
-017,IMG_7940-Photoroom.JPG,detail,6,
-017,IMG_7935-Photoroom.JPG,detail,7,
-017,IMG_7936-Photoroom.JPG,detail,8,
-017,IMG_7938-Photoroom.JPG,detail,9,
-017,IMG_7937-Photoroom.JPG,detail,10,
+017,IMG_3135-Photoroom.JPG,label,3,IZOD LACOSTE label
+017,IMG_7940-Photoroom.JPG,detail,4,
+017,IMG_7935-Photoroom.JPG,detail,5,
+017,IMG_7936-Photoroom.JPG,detail,6,
+017,IMG_7938-Photoroom.JPG,detail,7,
+017,IMG_7937-Photoroom.JPG,detail,8,
+017,IMG_3139-Photoroom.JPG,measurement,9,chest measure
+017,IMG_3140-Photoroom.JPG,measurement,10,length measure
 017,IMG_3138-Photoroom.JPG,label,11,care label
 017,IMG_3137-Photoroom.JPG,defect,12,DEFECT - snag holes
 017,IMG_3136-Photoroom.JPG,defect,13,DEFECT - snag holes
 018,DSC00074.JPG,card,0,number card - never uploaded
 018,DSC00074-Photoroom.JPG,front,1,
 018,DSC00075-Photoroom.JPG,back,2,
-018,IMG_3148-Photoroom.JPG,measurement,3,chest measure
-018,IMG_3149-Photoroom.JPG,measurement,4,length measure
-018,IMG_3147-Photoroom.JPG,detail,5,
-018,IMG_3141-Photoroom.JPG,detail,6,
-018,IMG_3145-Photoroom.JPG,detail,7,
-018,IMG_3142-Photoroom.JPG,detail,8,
-018,IMG_3143-Photoroom.JPG,detail,9,
-018,IMG_3144-Photoroom.JPG,detail,10,
+018,IMG_3147-Photoroom.JPG,detail,3,
+018,IMG_3141-Photoroom.JPG,detail,4,
+018,IMG_3145-Photoroom.JPG,detail,5,
+018,IMG_3142-Photoroom.JPG,detail,6,
+018,IMG_3143-Photoroom.JPG,detail,7,
+018,IMG_3144-Photoroom.JPG,detail,8,
+018,IMG_3148-Photoroom.JPG,measurement,9,chest measure
+018,IMG_3149-Photoroom.JPG,measurement,10,length measure
 018,IMG_3146-Photoroom.JPG,detail,11,
 019,DSC00077.JPG,card,0,number card - never uploaded
 019,DSC00076-Photoroom.jpg,front,1,
 019,DSC00077-Photoroom.jpg,back,2,
-019,IMG_3155-Photoroom.JPG,measurement,3,chest measure
-019,IMG_3156-Photoroom.JPG,measurement,4,length measure
-019,IMG_3158.heic,detail,5,
-019,IMG_3150-Photoroom.JPG,detail,6,
-019,IMG_3151-Photoroom.JPG,detail,7,
-019,IMG_3152-Photoroom.JPG,detail,8,
-019,IMG_3153-Photoroom.JPG,detail,9,
-019,IMG_3154-Photoroom.JPG,detail,10,
+019,IMG_3158.heic,detail,3,
+019,IMG_3150-Photoroom.JPG,detail,4,
+019,IMG_3151-Photoroom.JPG,detail,5,
+019,IMG_3152-Photoroom.JPG,detail,6,
+019,IMG_3153-Photoroom.JPG,detail,7,
+019,IMG_3154-Photoroom.JPG,detail,8,
+019,IMG_3155-Photoroom.JPG,measurement,9,chest measure
+019,IMG_3156-Photoroom.JPG,measurement,10,length measure
 019,IMG_3157-Photoroom.JPG,defect,11,DEFECT - 2 small stains on sleeve
 020,DSC00079.JPG,card,0,number card - never uploaded
 020,DSC00078-Photoroom.JPG,front,1,
 020,DSC00079-Photoroom.JPG,back,2,
-020,IMG_3166-Photoroom.JPG,measurement,3,chest measure
-020,IMG_3167-Photoroom.JPG,measurement,4,length measure
-020,IMG_3164.heic,label,5,"IZOD LACOSTE label, size L, 100% Orlon acrylic"
-020,IMG_3159-Photoroom.JPG,detail,6,
-020,IMG_3163-Photoroom.JPG,detail,7,
-020,IMG_3160-Photoroom.JPG,detail,8,
-020,IMG_3165-Photoroom.JPG,detail,9,
-020,IMG_3161-Photoroom.JPG,detail,10,
+020,IMG_3164.heic,label,3,"IZOD LACOSTE label, size L, 100% Orlon acrylic"
+020,IMG_3159-Photoroom.JPG,detail,4,
+020,IMG_3163-Photoroom.JPG,detail,5,
+020,IMG_3160-Photoroom.JPG,detail,6,
+020,IMG_3165-Photoroom.JPG,detail,7,
+020,IMG_3161-Photoroom.JPG,detail,8,
+020,IMG_3166-Photoroom.JPG,measurement,9,chest measure
+020,IMG_3167-Photoroom.JPG,measurement,10,length measure
 020,IMG_3162-Photoroom.JPG,detail,11,

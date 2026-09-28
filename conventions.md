@@ -181,10 +181,20 @@ of any new session — the chat is not persistent, these files are the memory.
   composition tag), then the tape-measure shots, then the remaining details,
   with defects last as always. Burying the measurements at the end of a
   twelve-photo listing hides the thing a buyer most needs.
-  **On fit-critical pieces the measurements come straight after front and back**
-  — slots 3 and 4. Waist trainers, corsetry and shapewear: the fit *is* the
-  purchase decision and the garment has little else to show. Batch 4's
-  fit-critical set was items 12, 24, 25, 26, 27, 28, 29 and 45.
+  **Re-confirmed 28 Sep** from the owner's Crosslist screenshot of batch 8
+  item 1, photo by photo: full front, full back, a third whole-garment view,
+  then five close details (cuff, hood and brand label, lining, pocket), then
+  **chest measure at 9 and length measure at 10**, then the remaining details.
+  That is the general layout for every garment.
+
+  **Slots 3 and 4 are for shapewear only** — waist trainers, corsets, cinchers,
+  basques. There the fit *is* the purchase decision and the garment has little
+  else to show, so the measurements are pulled forward. Batch 4's set was items
+  12, 24, 25, 26, 27, 28, 29 and 45. **This is a narrow exception, not a
+  category of "fit-critical" garments to be judged case by case.** Batch 8
+  shipped with the measurements at slots 3 and 4 on every jacket and cardigan
+  because the exception was read as a principle; outerwear and knitwear take the
+  general order, always.
 - **Crosslist titles are capped at 80 characters** (owner, 24 Aug), not the
   5–255 the template workbook's Info tab claims. The UI refuses to save a longer
   one, so an over-length title is a stop, not a warning. `build_items.py` now
