@@ -1687,3 +1687,46 @@ one on its own merits rather than applying a markup.
 Cost figures for the other SKUs — the Y2K and summer women's mixes that make up
 most of the ledger. If those bales cost materially less per piece, the £9.99 and
 £12.99 items may be carrying a better multiple than any of these jackets.
+
+## CONFIRMED — the Izod premium on Lacoste knitwear is about £8 (28 Sep #2)
+
+The label-variant theory has been in this file since 2 Sep as an inference from
+polos. This is the first time the owner has priced an **Izod Lacoste knit**, and
+it confirms it outright.
+
+| Item | Label | Condition | Price |
+|---|---|---|---|
+| Lacoste jumper | plain Lacoste | very good | £16.99 |
+| **Izod Lacoste cardigan, men's L** | **Izod Lacoste** | **very good** | **£24.99** |
+
+**+£8.00, a 47% uplift**, with condition held constant at very good and nothing
+else in the recorded columns to explain it. The label is doing the work.
+
+### Why the premium is real and not a fluke
+
+**Izod held the US licence for Lacoste until 1993**, when Lacoste took American
+distribution back in house. So an "Izod Lacoste" label is a hard date stamp: the
+piece is **pre-1993**, and therefore genuine vintage rather than recent stock.
+That is a fact a buyer can verify from a photograph of the label, which is
+exactly the kind of provenance that carries a premium in resale.
+
+The established ordering now has a number attached to its top step:
+
+| Label | Era | Relative |
+|---|---|---|
+| **Izod Lacoste** | pre-1993 | **+£8 on knitwear** |
+| Chemise Lacoste | French vintage | above plain |
+| Lacoste | modern | baseline £16.99 |
+
+### What to do with it
+
+1. **Read the label before pricing any Lacoste piece.** It is worth more than
+   the colour, the size or the garment type.
+2. **Put "Izod Lacoste" in the listing title**, not just the description.
+   Collectors search the variant by name.
+3. **£24.99 is also the first Lacoste knit over the £20 offers threshold**, so
+   it takes offers where the plain ones do not.
+
+One caution: this is a single pairing, and the earlier Lacoste polo range of
+£9.99 to £16.00 was never fully explained by the recorded columns either. Treat
+£8 as the order of magnitude, not a constant to apply mechanically.

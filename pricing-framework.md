@@ -198,6 +198,7 @@ it. Photographs may.
 |---|---|
 | Ralph Lauren cable knit jumper, very good | £19.99 |
 | Lacoste jumper, very good | £16.99 |
+| **Izod Lacoste cardigan, very good, men's L** | **£24.99** |
 | Harley Davidson cardigan, very good | £14.99 |
 | The North Face pullover, very good, clean | £14.99 |
 | The North Face zip fleece, very good vintage, arm marks | £12.99 |
