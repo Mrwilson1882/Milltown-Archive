@@ -1768,3 +1768,31 @@ it. Failing that, **move the chipped button to the bottom position**, where it i
 least seen and most often left undone, and put an intact one at the fourth hole.
 Do not fit a non-matching replacement to a collectable vintage piece; a
 mismatched button is more visible than a chipped original.
+
+## Hugo Boss sets a new top for polos — £18.00 (28 Sep #4)
+
+The highest polo price in the ledger, and the first Hugo Boss polo in it.
+
+| Brand | Condition | Price |
+|---|---|---|
+| **Hugo Boss, men's M** | very good, clean | **£18.00** |
+| Lacoste, XL men's | very good, clean | £16.00 |
+| Lacoste, UK Large | very good vintage, clean | £12.99 |
+| Ralph Lauren | very good, clean | £14.99 |
+
+**Treat this as one data point, not an ordering.** The last time a brand
+hierarchy was asserted in this file — Lacoste below Ralph Lauren on knitwear —
+the very next item disproved it. What can be said is narrower and safer:
+
+> A Hugo Boss polo in very good clean condition is worth at least as much as the
+> best Ralph Lauren or Lacoste polo recorded, and £18.00 is now the ceiling for
+> the category.
+
+The Lacoste polo range alone still runs £9.99 to £16.00 with nothing in the
+recorded columns explaining the spread, so a single Boss price cannot establish
+a rank order across brands. It needs two or three more Boss polos before the
+position is real.
+
+**Note it is priced at a round £18.00, under the £20 offers threshold.** The same
+figure the owner used for two Ralph Lauren women's shirts in August, which
+suggests £18.00 is a deliberate price point rather than a calculation.

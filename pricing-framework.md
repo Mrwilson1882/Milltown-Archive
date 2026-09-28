@@ -175,6 +175,7 @@ the early misses happened.
 
 | Item | Price |
 |---|---|
+| **Hugo Boss polo, very good, clean, men's M** | **£18.00** |
 | Ralph Lauren polo, very good, clean | £14.99 |
 | Ralph Lauren polo, very good, small **back** flaw | £13.99 |
 | Ralph Lauren polo, very good, slight **front** flaw | £12.99 |
