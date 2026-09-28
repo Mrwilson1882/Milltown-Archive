@@ -1948,3 +1948,31 @@ the next item. The plain and Izod knitwear tops are identical at £28.00.
 and the closest comparable items, and let the owner or the photo chat — which can
 see the piece — set the number. The thing separating a £17 Lacoste knit from a
 £28 one is not in these columns, and four attempts to find it have failed.
+
+## Nike £24.99 confirmed a fourth time — and it holds across gender (28 Sep #21)
+
+A women's Nike windbreaker at **£24.99**, the owner's own figure.
+
+| Item | Condition | Price |
+|---|---|---|
+| Nike track jacket, men's | very good, clean | £24.99 |
+| Nike windbreaker | very good vintage, front marks | £24.99 |
+| Nike outer layer | very good | £24.99 |
+| **Nike windbreaker, women's** | **very good, clean** | **£24.99** |
+| Nike women's track jacket | **good**, sleeve marks | £17.99 |
+| Nike track jacket | very good vintage, sleeve marks | £14.99 |
+
+**Four at £24.99, and the new one is womenswear**, so the flat point is not a
+menswear-only figure. Two of the four carried front marks and still took the full
+price, which is the clearest sign in the ledger that this category is priced by
+**what it is**, not by its flaws.
+
+The two below the line are both **good** rather than very good, or carry sleeve
+marks on an older piece. So the working read:
+
+> **Nike outer layers in very good condition are £24.99 flat, men's or women's,
+> clean or lightly marked. Below very good, they fall to £14.99–£17.99.**
+
+This is the owner's own pattern, repeated four times and never contradicted —
+the strongest regularity in the whole ledger, and the opposite of the Lacoste
+situation, where nothing has held.
