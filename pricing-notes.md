@@ -1881,3 +1881,30 @@ The £12.99 polo still has no accounted-for reason for being £3 light.
 | Lacoste women's jumper, very good | £18.00 |
 | **Izod Lacoste cardigan, very good** | **£24.00 – £24.99** |
 | **Izod Lacoste jumper, very good** | **£28.00** |
+
+## £16.99 is a floor for plain Lacoste knitwear, not the going rate (28 Sep #13)
+
+Three plain-label Lacoste knits have now been priced, and the original anchor is
+the lowest of them:
+
+| Item | Detail | Price |
+|---|---|---|
+| Jumper | very good | £16.99 |
+| Women's jumper | very good, yellow, EU 38 | £18.00 |
+| **Jumper** | **very good, blue/black stripe, 3XL US** | **£22.00** |
+
+**£16.99 now looks like the bottom of the plain-label range rather than its
+centre.** Deliberately not proposing what moves it — the candidates here are size
+(3XL) and pattern (stripes), and one item cannot separate two variables. Recorded
+as an observation only.
+
+What can be used: **a plain Lacoste knit in very good condition is £17–£22**, and
+the £16.99 figure should stop being quoted as *the* price.
+
+### One thing worth knowing about the 3XL
+
+Large sizes are **underserved in vintage resale**. Bales yield far fewer of them,
+so competition on a 3XL listing is thinner than on a Medium, and buyers in that
+size have less to choose from. A 3XL is usually easier to move than its
+availability suggests, not harder — worth remembering before discounting one for
+being an awkward size.
