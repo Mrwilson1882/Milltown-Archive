@@ -273,3 +273,24 @@ Pit-to-pit, laid flat, for a men's polo:
 | XL | 23 – 24" |
 
 *(First seen 28 Sep 2026 on a Jeans Les Copains polo.)*
+
+### The French/Italian split is a **womenswear** problem only
+
+Menswear does not have this issue. Continental **menswear** numbering is
+chest-based and consistent across Italy, France and Germany:
+
+| EU / IT / FR | UK chest | UK size |
+|---|---|---|
+| **46** | **36"** | **S** |
+| 48 | 38" | M |
+| 50 | 40" | L |
+| 52 | 42" | L–XL |
+| 54 | 44" | XL |
+| 56 | 46" | XXL |
+
+So on a **men's** garment the country of origin does not matter — 46 is a Small
+whether the label is French or Italian. Only on **womenswear** do the two scales
+diverge, and there the brand's country decides which table to use.
+
+*(Clarified 28 Sep 2026, so the womenswear correction above is not misapplied to
+men's stock.)*
