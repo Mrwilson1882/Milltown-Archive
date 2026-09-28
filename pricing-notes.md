@@ -1796,3 +1796,21 @@ position is real.
 **Note it is priced at a round £18.00, under the £20 offers threshold.** The same
 figure the owner used for two Ralph Lauren women's shirts in August, which
 suggests £18.00 is a deliberate price point rather than a calculation.
+
+### Update, same day: the Boss polo ceiling lasted two items (28 Sep #6)
+
+A second Hugo Boss polo, very good and clean like the first, came in at
+**£16.00** against #4's £18.00.
+
+| # | Colour | Size | Price |
+|---|---|---|---|
+| 4 | Dark grey | Medium | £18.00 |
+| 6 | Green | *(not stated)* | £16.00 |
+
+So the Boss polo range is **£16.00–£18.00**, and nothing in the recorded columns
+explains the £2 — the same pattern as Lacoste's unexplained £9.99–£16.00 spread.
+
+The caution written two items earlier was the right call: a single price is not a
+brand position. What survives is only that **Boss polos sit at the top of the
+polo band**, overlapping Lacoste's best (£16.00) at the bottom of their range and
+clearing every Ralph Lauren at the top.

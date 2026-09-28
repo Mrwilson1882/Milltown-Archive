@@ -201,3 +201,19 @@ land at about **UK 12–14**. Quote the range, not a single size, and say the pi
 is vintage-sized — it is a common source of returns.
 
 *(Rule set 26 Sep 2026, from the GFF Gianfranco Ferré jacket.)*
+
+## "SF Freep" / "SF Freak" is always **SF Fripe**
+
+The bale prefix is spelled **F-R-I-P-E**. It transcribes badly from speech and has
+come through as "Freep", "Freak" and "Frip". **Every one of those is `SF Fripe`** —
+correct it silently and do not open a new bucket for a spelling variant.
+
+*(Spelling confirmed by the owner, 28 Sep 2026, as a standing rule for all future
+notes.)*
+
+Current SF Fripe buckets:
+
+| SKU |
+|---|
+| `SF Fripe - Jackets` |
+| `SF Fripe - Summer Mix` |
