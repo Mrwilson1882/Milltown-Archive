@@ -1838,3 +1838,46 @@ best remaining explanation, and the next Lacoste polo described as "vintage"
 will test it directly.
 
 **Working anchor for a clean Lacoste polo: £16.00 at Large and XL.**
+
+## Izod Lacoste knitwear tops out at £28.00 (28 Sep #11) — and it undercuts the "vintage" theory
+
+A red Izod Lacoste jumper at **£28.00**: the highest Lacoste price in the ledger,
+and the fourth Izod knit priced in a single day.
+
+| # | Item | Label | Condition | Price |
+|---|---|---|---|---|
+| — | Jumper | plain Lacoste | very good | £16.99 |
+| 3 | Cardigan, L | Izod | very good **vintage**, chipped button | £24.00 |
+| 2 | Cardigan, L | Izod | very good | £24.99 |
+| **11** | **Jumper** | **Izod** | **very good vintage** | **£28.00** |
+
+**The Izod premium on knitwear is now £8 to £11** over the plain-label baseline —
+a 47% to 65% uplift. Wider than the single pairing logged this morning suggested,
+and consistently upward.
+
+### This weakens the theory logged three items earlier
+
+On #9 the best remaining explanation for a £12.99 Lacoste polo against two at
+£16.00 was that it alone was graded "very good **vintage**", implying the
+descriptor carried roughly **−£3**.
+
+**The most expensive Lacoste piece in the ledger is also graded "very good
+vintage".** So the descriptor is plainly not a blanket discount.
+
+Two honest caveats before writing the theory off entirely:
+
+1. This is a **jumper**, not a polo — the polo observation is not strictly tested.
+2. It is an **Izod** label, where the premium may simply swamp any small effect.
+
+But the general claim — that "vintage" in the condition field costs money — is
+not supported. Downgrade it from "best remaining explanation" to "unexplained".
+The £12.99 polo still has no accounted-for reason for being £3 light.
+
+### Working anchors for Lacoste knitwear
+
+| | Price |
+|---|---|
+| Plain Lacoste jumper, very good | £16.99 |
+| Lacoste women's jumper, very good | £18.00 |
+| **Izod Lacoste cardigan, very good** | **£24.00 – £24.99** |
+| **Izod Lacoste jumper, very good** | **£28.00** |
