@@ -1814,3 +1814,27 @@ The caution written two items earlier was the right call: a single price is not 
 brand position. What survives is only that **Boss polos sit at the top of the
 polo band**, overlapping Lacoste's best (£16.00) at the bottom of their range and
 clearing every Ralph Lauren at the top.
+
+## Size is NOT what separates the £12.99 Lacoste polo from the £16.00 ones (28 Sep #9)
+
+A men's Large Lacoste polo at **£16.00** closes off a theory that has been open
+since August.
+
+| Date | Size | Condition | Price |
+|---|---|---|---|
+| Aug | UK Large | very good **vintage**, clean | £12.99 |
+| Sep | XL men's | very good, clean | £16.00 |
+| **28 Sep #9** | **Large men's** | **very good, clean** | **£16.00** |
+
+The £12.99 and the £16.00 both sit at Large. **Size does not explain the £3.**
+
+What is left as the candidate: the £12.99 piece is the only one graded "very good
+**vintage**" rather than plain "very good". If that descriptor is carrying a real
+price signal rather than being decorative, it is worth about **−£3 on a polo** —
+possibly because an older piece reads as more worn, whatever the grade says.
+
+That is one pairing and should not be treated as a rule yet. But it is now the
+best remaining explanation, and the next Lacoste polo described as "vintage"
+will test it directly.
+
+**Working anchor for a clean Lacoste polo: £16.00 at Large and XL.**
