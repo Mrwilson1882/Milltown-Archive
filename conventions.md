@@ -302,6 +302,19 @@ of the day, export the whole sheet to `.xlsx`.
 **The owner's price always wins.** Where a price is dictated, record it exactly
 and never override it.
 
+**But say so when a dictated price sits at the bottom of the comp band.** The
+ledger price is the owner's first pass, made from the garment in hand rather
+than from the market, and it can be under-set — batch 8's Emanuel Ungaro was
+raised from its own ledger's £69.99 to **£85** on 28 Sep. Keeping it was right;
+staying silent about it was not. Never change a dictated figure, always flag it.
+
+**Corrections have a direction, and it is not random.** Every correction so far
+on a designer or collectable name has gone **up** (Burberry £89.99 → £150,
+Ungaro £69.99 → £85); every correction on volume vintage has gone **down** (Izod
+£32.99 → £19.99, Barbour Beaufort £119.99 → £99.99). Of the four evenly weighted
+factors, **rarity/collectability is being under-weighted and comp volume
+over-weighted**. On a collected house, lean up; on a common label, lean down.
+
 **A wide comp range is not priced from its middle.** Two owner corrections in
 two days came from the same habit — reading a range's middle or top as its
 centre of gravity. The Izod knits: an eBay "over £55" bracket was the top of the
