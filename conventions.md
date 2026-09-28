@@ -294,3 +294,26 @@ diverge, and there the brand's country decides which table to use.
 
 *(Clarified 28 Sep 2026, so the womenswear correction above is not misapplied to
 men's stock.)*
+
+## When the label size and the actual size disagree
+
+Vintage stock often does not match its own label — 1990s sportswear in particular
+was cut far more generously than modern sizing, so a 90s Small can wear like a
+current Large.
+
+**Record both, and lead with the real one:**
+
+`Large (labelled Small but fits large - confirm by measurement)`
+
+**In the listing, say it outright and give the measurement.** Never quietly list
+it as the size it wears — the label is visible in the photographs, and a buyer
+who sees "S" on a garment sold as "L" opens a case. The wording that works:
+
+> *Labelled S, but cut generously and fits like a modern L. Pit to pit 23", length 28".*
+
+Buyers accept a mismatch that is declared. They do not accept finding one.
+
+**The mismatch is also a dating clue.** A garment that runs one to two sizes
+larger than its label is very likely 1990s — which on brands like Tommy Hilfiger,
+Nike and Ralph Lauren is a point in its favour, not against, and belongs in the
+listing as vintage.
