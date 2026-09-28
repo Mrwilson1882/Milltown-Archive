@@ -217,3 +217,30 @@ Current SF Fripe buckets:
 |---|
 | `SF Fripe - Jackets` |
 | `SF Fripe - Summer Mix` |
+
+### Careful — French/EU 38 and Italian 38 are two sizes apart
+
+The Italian womenswear table above applies to **Italian** labels only. French,
+German and general EU sizing runs on a different scale, and the same number means
+a different size:
+
+| Label number | **French / EU / German** | **Italian** |
+|---|---|---|
+| 36 | UK 8 | UK 4 |
+| **38** | **UK 10** | UK 6 |
+| 40 | UK 12 | UK 8 |
+| 42 | UK 14 | UK 10 |
+| 44 | UK 16 | UK 12 |
+
+**Italian is UK + 4 below the number; French/EU is UK + 6.** Getting this wrong
+mis-sizes a garment by two full sizes, which is a guaranteed return.
+
+**Go by where the brand is from**, not by the look of the number:
+
+| Brand seen so far | Scale |
+|---|---|
+| Lacoste, Cacharel, Emanuel Ungaro, Pierre Cardin | **French / EU** |
+| Krizia, Fay, Trussardi, Les Copains, Pal Zileri, Gianfranco Ferré, Prada | **Italian** |
+
+*(Correction added 28 Sep 2026 — the Italian table alone would have sized a
+French Lacoste 38 as a UK 6 instead of a UK 10.)*
