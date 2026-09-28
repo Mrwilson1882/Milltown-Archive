@@ -244,3 +244,32 @@ mis-sizes a garment by two full sizes, which is a guaranteed return.
 
 *(Correction added 28 Sep 2026 — the Italian table alone would have sized a
 French Lacoste 38 as a UK 6 instead of a UK 10.)*
+
+## Roman numeral size labels (I, II, III, IV, V, VI)
+
+Some Italian makers size by Roman numeral instead of a number or a letter. The
+numeral is a **position in a size run**, not a measurement — so it only means
+something once you know where the run starts, and makers differ:
+
+| Numeral | Run starting at XS | Run starting at S |
+|---|---|---|
+| I | XS | S |
+| II | S | M |
+| III | M | L |
+| **IV** | **L** | **XL** |
+| V | XL | XXL |
+| VI | XXL | — |
+
+**So a IV is either a Large or an XL and the label alone cannot tell you which.**
+Settle it by measuring, and quote the measurement in the listing as well as the
+size.
+
+Pit-to-pit, laid flat, for a men's polo:
+
+| Size | Pit to pit |
+|---|---|
+| M | 20 – 21" |
+| L | 21 – 22" |
+| XL | 23 – 24" |
+
+*(First seen 28 Sep 2026 on a Jeans Les Copains polo.)*
