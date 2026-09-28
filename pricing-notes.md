@@ -1908,3 +1908,43 @@ so competition on a 3XL listing is thinner than on a Medium, and buyers in that
 size have less to choose from. A 3XL is usually easier to move than its
 availability suggests, not harder — worth remembering before discounting one for
 being an awkward size.
+
+## STOP MODELLING LACOSTE (28 Sep #15)
+
+A plain-label Lacoste argyle cardigan at **£28.00** — level with the Izod jumper
+that set the day's high three items earlier.
+
+### Three Lacoste generalisations were overturned in a single day
+
+| Logged | Claim | Overturned by | Gap |
+|---|---|---|---|
+| #9 | "very good vintage" costs about −£3 | #11, the dearest Lacoste, is graded vintage | 2 items |
+| #11 | Izod carries an £8–£11 premium over plain | #15, plain label, matches the Izod top price | 4 items |
+| #13 | £16.99 is the plain-label floor | still holds, but the ceiling moved £6 in one item | — |
+
+Every one of these was built from two or three points and broken by the next
+arrival. That is the same failure the owner called out in August:
+
+> *"Stop trying to make price suggestions of limited data. Things aren't as
+> linear and as obvious as you're thinking."*
+
+### What the Lacoste data actually supports
+
+Nothing mechanistic. The honest statement of the whole Lacoste record:
+
+| Category | Observed range |
+|---|---|
+| Polos | £9.99 – £18.00 |
+| Knitwear, plain label | £16.99 – £28.00 |
+| Knitwear, Izod label | £24.00 – £28.00 |
+
+**The ranges overlap almost completely.** Label variant, size, colour, pattern
+and condition have all been proposed as the driver and none survives contact with
+the next item. The plain and Izod knitwear tops are identical at £28.00.
+
+### The rule going forward
+
+**Record Lacoste prices. Do not derive Lacoste pricing rules.** Report the range
+and the closest comparable items, and let the owner or the photo chat — which can
+see the piece — set the number. The thing separating a £17 Lacoste knit from a
+£28 one is not in these columns, and four attempts to find it have failed.
