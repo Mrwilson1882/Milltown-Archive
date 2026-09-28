@@ -1730,3 +1730,41 @@ The established ordering now has a number attached to its top step:
 One caution: this is a single pairing, and the earlier Lacoste polo range of
 £9.99 to £16.00 was never fully explained by the recorded columns either. Treat
 £8 as the order of magnitude, not a constant to apply mechanically.
+
+## A chipped button costs £0.99 (28 Sep #2 vs #3)
+
+The cleanest controlled pair in the ledger. Two Izod Lacoste cardigans, priced
+minutes apart, identical on every recorded field except one:
+
+| | #2 | #3 |
+|---|---|---|
+| Label | Izod Lacoste | Izod Lacoste |
+| Size | Men's Large | Men's Large |
+| Condition | Very good | Very good vintage |
+| Defect | none | **4th button chipped, half missing** |
+| **Price** | **£24.99** | **£24.00** |
+
+**Difference: £0.99, or 4%.**
+
+This is the first time damaged *hardware* has been isolated from damaged
+*fabric*, and the two are not comparable:
+
+| Defect type | Effect |
+|---|---|
+| Chipped button | **−£0.99 (4%)** |
+| Small mark on the back | −£1.00 |
+| Slight mark on the front | −£2.00 |
+| Front marks + a grade drop | −£5.00 |
+| Broken zip | major, −30% to −50% |
+
+A chipped button sits at the very bottom of the scale — level with a small back
+mark, and nowhere near the framework's "broken fastenings are major" line. The
+distinction that matters is **whether the fastening still works**. A chipped
+button that still buttons is cosmetic; a broken zip is not.
+
+**It is also the one defect that can be removed for nothing.** Knitwear and
+shirts often carry a **spare button stitched inside the hem or side seam** — use
+it. Failing that, **move the chipped button to the bottom position**, where it is
+least seen and most often left undone, and put an intact one at the fourth hole.
+Do not fit a non-matching replacement to a collectable vintage piece; a
+mismatched button is more visible than a chipped original.
