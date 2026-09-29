@@ -332,6 +332,12 @@ of the day, export the whole sheet to `.xlsx`.
     (owner, 27 Sep, on batch 8 item 18) — *below* the £20 poorer-quality floor,
     and regardless of how good the garment is otherwise. That piece was Very
     Good with no wear and still came down from £32.99.
+  - **Polo shirts, the owner's own scale** (all from batch 9, 29 Sep): a
+    **volume label in Very Good is £16–£18** (Hugo Boss, Lacoste), the **same
+    label in Good is £10** (Tommy), and a **designer name in Very Good tops out
+    at about £25** (Fay, an Italian house with a three-figure retail). Price
+    every polo off this scale, not off listing prices — Fay was showing 25–45
+    and Prada 45–85 on Vinted, and **listings are not sales**.
   - **Light nylon windbreakers and shells: £25–£35, and Tommy tops out at
     £34.99** (owner, 29 Sep). This is a ceiling set by the *garment*, not the
     label — see the rule below.
