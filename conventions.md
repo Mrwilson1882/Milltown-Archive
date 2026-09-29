@@ -205,6 +205,30 @@ of any new session — the chat is not persistent, these files are the memory.
   button rewrites the field on demand and does not respect its own cap. Batch 5
   item 6 went out at 73 and displayed at 81, the extra word being a second
   `Vintage`. Before assuming the CSV is at fault, check what was actually sent.
+- **The layout of the title and the description never changes; the keywords
+  inside them do** (owner, 29 Sep). Keep the title's order — brand, garment,
+  colour, gender, size, then descriptors — and keep the description block
+  exactly as it is: condition line, size line, era line, blank, the three
+  emoji lines, blank, `Item Description:`. Within that fixed shape, every word
+  should be one a buyer might type.
+  - **Tags are the largest untapped surface, and were being wasted.** They were
+    the title re-split into its own words on 82 of 143 items shipped to date —
+    100% of batches 5, 6, 8 and 9 — which adds no search surface whatsoever.
+    The title is capped at 80 characters, so the terms that will not fit live
+    in Tags **or nowhere**: era synonyms (`y2k`, `00s`, `90s`, `80s`, `retro`),
+    style tribes (`preppy`, `streetwear`, `ivy league`, `gorpcore`,
+    `athleisure`, `grandpa cardigan`), garment synonyms (`jumper`/`sweater`,
+    `windbreaker`/`shell jacket`/`rain jacket`, `anorak`/`smock`/`cagoule`),
+    brand shorthand (`croc`, `swoosh`, `flag logo`, `rl67`), fit (`oversized`,
+    `boxy`, `big and tall`) and origin (`made in usa`, `italian`). Curated
+    terms lead, the title's own words follow, deduped. Twenty-odd tags is a
+    reasonable target.
+  - **Lead the Item Description prose with the era keyword.** Vinted and eBay
+    both index description text. `Vintage` for anything pre-2000, `Vintage Y2K`
+    for the 2000s, nothing for 2010s stock — it is not vintage and saying so
+    reads as padding. Never recase the sentence when prefixing: the next word
+    is almost always a brand name, and `Vintage Y2K ralph Lauren` is worse than
+    no keyword at all.
 - **`Y2K` goes near the front of the title**, straight after the brand (owner,
   24 Aug): "a popular search term right now". Buried at word 8 it was doing
   little. It belongs on anything of the 2000s, not only on pieces already
