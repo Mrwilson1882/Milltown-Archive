@@ -317,3 +317,15 @@ Buyers accept a mismatch that is declared. They do not accept finding one.
 larger than its label is very likely 1990s — which on brands like Tommy Hilfiger,
 Nike and Ralph Lauren is a point in its favour, not against, and belongs in the
 listing as vintage.
+
+## Exports — send the day only
+
+**Send only the day's CSV**, e.g. `inventory-2026-09-28.csv`. That is the file
+that goes to the photo processing chat.
+
+**Do not send `inventory.xlsx`**, and do not send the full ledger in any form.
+*(Owner, 29 Sep 2026: "I never need all of them.")*
+
+`inventory.csv` remains the master record and lives in the repository. The
+workbook can still be rebuilt on request with `python3 build_xlsx.py` — it is
+just not part of the routine hand-off.
