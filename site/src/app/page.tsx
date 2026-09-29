@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { CategoryTile } from "@/components/CategoryTile";
+import { GoogleRating } from "@/components/GoogleRating";
 import { ProductCard } from "@/components/ProductCard";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import {
@@ -100,7 +101,9 @@ export default function HomePage() {
               )}
             </div>
 
-            <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-ash pt-6">
+            <GoogleRating className="mt-6" />
+
+            <dl className="mt-8 grid max-w-lg grid-cols-3 gap-4 border-t border-ash pt-6">
               {[
                 { k: "Boxes from", v: "£90" },
                 { k: "Lots from", v: "10 pieces" },

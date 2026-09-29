@@ -12,6 +12,12 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.09.29-1 — 2026-09-29 — commit `d03b2b0`
+
+- "Rated 5 stars on Google" with a five-star row added to the home page hero, directly under the call-to-action buttons, and to the contact page details list. Deliberately not added as schema.org aggregateRating: Google does not allow a business to mark up its own rating on its own site and doing so risks a manual penalty. A `googleReviewUrl` setting exists in the site config — filling it in turns the line into a link to the real listing.
+
+---
+
 ## v2026.09.23-1 — 2026-09-23 — commit `5c1620f`
 
 - Carhartt / Dickies T-Shirts gets a proper hero photograph (four workwear tees laid flat), replacing the logo card its listing had been fronting with since the video still was removed. Its card now shows the garments; the rail video stays as the second item with the Video badge.

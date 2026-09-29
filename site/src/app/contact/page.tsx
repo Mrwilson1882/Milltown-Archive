@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
+import { GoogleRating } from "@/components/GoogleRating";
 import { PageHeader } from "@/components/PageHeader";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { hasWhatsApp, siteConfig, whatsappUrl } from "@/config/site";
@@ -83,6 +84,12 @@ export default function ContactPage() {
                   >
                     07897 740194
                   </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="eyebrow text-slate">Reviews</dt>
+                <dd className="mt-1.5">
+                  <GoogleRating />
                 </dd>
               </div>
               <div>

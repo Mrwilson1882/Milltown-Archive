@@ -48,6 +48,12 @@ export const siteConfig = {
   whatsappMessage: "Hi Archive Wholesale, I'm interested in: ",
   location: "Lancashire, United Kingdom",
   /**
+   * Link to the Google Business Profile reviews. Set this and the star line
+   * on the home page becomes a link to the real listing, which is what makes
+   * the rating checkable rather than a claim. Leave blank for plain text.
+   */
+  googleReviewUrl: "",
+  /**
    * Prices on the site are quoted EXCLUDING VAT, the way the trade quotes them.
    * VAT is added as its own line in the cart and as its own line item at
    * checkout, so the customer pays the correct total.
