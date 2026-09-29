@@ -11,5 +11,7 @@
   "lines": [
     { "slug": "ralph-lauren-polos", "pieces": 10, "qty": 1, "description": "Ralph Lauren Polo Box — 10 Items" },
     { "slug": "jackets-windbreaker-mix", "pieces": 10, "qty": 1 }
-  ]
+  ],
+
+  "delivery": 15
 }
