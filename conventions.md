@@ -332,6 +332,9 @@ of the day, export the whole sheet to `.xlsx`.
     (owner, 27 Sep, on batch 8 item 18) — *below* the £20 poorer-quality floor,
     and regardless of how good the garment is otherwise. That piece was Very
     Good with no wear and still came down from £32.99.
+  - **Light nylon windbreakers and shells: £25–£35, and Tommy tops out at
+    £34.99** (owner, 29 Sep). This is a ceiling set by the *garment*, not the
+    label — see the rule below.
   - **Barbour wax jackets: anchor at £99.99, not mid-band** (owner, 28 Sep, on
     batch 8's made-in-England Beaufort). Made-in-England Beauforts do reach
     £160, but the mass of the range sits at £90–£110, and a jacket in Good
@@ -354,6 +357,16 @@ ledger price is the owner's first pass, made from the garment in hand rather
 than from the market, and it can be under-set — batch 8's Emanuel Ungaro was
 raised from its own ledger's £69.99 to **£85** on 28 Sep. Keeping it was right;
 staying silent about it was not. Never change a dictated figure, always flag it.
+
+**The garment type sets the ceiling. Brand and era move you within it, never
+above it.** A lightweight nylon windbreaker tops out near £35 however collected
+the label — batch 9's Tommy Hilfiger Outdoors jacket came down from £54.99 to
+£34.99 on exactly that. This is the **limit on the "lean up on collected names"
+rule below**: leaning up applies to garment types that can carry the money —
+padded and waxed outerwear, leather, knitwear, tailoring — and not to a light
+shell, a t-shirt or a polo. Ask what the *garment* is worth before asking what
+the *label* adds, and when a prestige name sits on a humble type, say so in
+`flags` rather than quietly pricing it like the name.
 
 **Corrections have a direction, and it is not random.** Every correction so far
 on a designer or collectable name has gone **up** (Burberry £89.99 → £150,
