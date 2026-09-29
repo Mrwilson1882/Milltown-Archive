@@ -14,7 +14,8 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ## v2026.09.29-1 — 2026-09-29 — commit `d03b2b0`
 
-- "Rated 5 stars on Google" with a five-star row added to the home page hero, directly under the call-to-action buttons, and to the contact page details list. Deliberately not added as schema.org aggregateRating: Google does not allow a business to mark up its own rating on its own site and doing so risks a manual penalty. A `googleReviewUrl` setting exists in the site config — filling it in turns the line into a link to the real listing.
+- "Rated 5 stars on Google" added to the home page hero, directly under the call-to-action buttons, and to the contact page details list. Shown as a bordered badge with gold stars and the score, sized down on phones so it reads on two lines.
+- The dashed "More boxes coming / Ask for a custom box" tile has been removed from the home page reseller boxes row. Deliberately not added as schema.org aggregateRating: Google does not allow a business to mark up its own rating on its own site and doing so risks a manual penalty. A `googleReviewUrl` setting exists in the site config — filling it in turns the line into a link to the real listing.
 
 ---
 

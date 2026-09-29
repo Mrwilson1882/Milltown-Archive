@@ -138,19 +138,6 @@ export default function HomePage() {
             {resellerBoxes.map((product, i) => (
               <ProductCard key={product.slug} product={product} priority={i < 2} />
             ))}
-            <div className="flex flex-col justify-center border-2 border-dashed border-ash p-8 text-center">
-              <p className="display text-lg">More boxes coming</p>
-              <p className="mt-3 text-sm leading-relaxed text-slate">
-                Tell us what sells for you and we will make up a box to suit — brand-led,
-                garment-led or sized to your rail.
-              </p>
-              <Link
-                href="/contact"
-                className="mt-6 inline-flex items-center justify-center self-center border-2 border-forest px-6 py-3 text-sm font-bold tracking-wide text-forest uppercase transition-colors hover:bg-forest hover:text-paper"
-              >
-                Ask for a custom box
-              </Link>
-            </div>
           </div>
         </section>
       )}
