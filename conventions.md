@@ -358,6 +358,14 @@ than from the market, and it can be under-set — batch 8's Emanuel Ungaro was
 raised from its own ledger's £69.99 to **£85** on 28 Sep. Keeping it was right;
 staying silent about it was not. Never change a dictated figure, always flag it.
 
+**A comp band describes Very Good stock. `Good` prices below it, not low in
+it.** Dropping one condition step on a volume label roughly halves the figure —
+batch 9's Tommy polo went from £16.99 to **£10** on nothing but its Good rating,
+against a £12–£25 band, and the owner's own Lacoste Club cardigan sits at £17.99
+against a £25–£35 band for the same reason. Reading a defect as a small
+adjustment *inside* the band is the mistake; on a common label the condition is
+most of the price. Designer names compress this less, but they do not escape it.
+
 **The garment type sets the ceiling. Brand and era move you within it, never
 above it.** A lightweight nylon windbreaker tops out near £35 however collected
 the label — batch 9's Tommy Hilfiger Outdoors jacket came down from £54.99 to
