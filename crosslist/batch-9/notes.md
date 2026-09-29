@@ -1,60 +1,82 @@
 # Batch 9 — 29th September
 
-21 items, ledger `inventory-2026-09-28.csv`. Photos in the folder
-**29th September**. Waiting on the contact sheets before the mapping can start.
+21 ledger rows, 229 photographs, ledger `inventory-2026-09-28.csv`.
+**20 items ship. Item 9 is held back — see below.**
 
-A different batch from 8: mostly polos, knitwear and windbreakers rather than
-outerwear, so the cost rates are lower and more varied.
+```
+python3 build.py "29th September" itemsb9.csv mappingb9.csv
+```
 
-## Cost rates
+## How the batch is laid out
 
-| SKU as the ledger writes it | n | Rate |
+**No number cards in this batch at all.** Instead there are two clean runs:
+
+* **#001–#040** — the Photoroom flat-lays, front and back, in ledger order.
+* **#041–#229** — the details, labels, measurements and defects, also in ledger
+  order, across the `FullSizeRender…` and `IMG_…` series.
+
+Only four files are HEIC (#077, #079, #111, #210) and all four are label shots,
+so `sips` has to convert them on the Mac — they are not cards.
+
+Two strays worth knowing about: **#078 and #079** sit in the middle of the
+navy cardigan's run but belong to **item 20**, the Tommy jacket — the silver
+crumpled background is that jacket's reflective hood lining.
+
+## Item 9 has no photographs
+
+The ledger's item 9 is a Lacoste polo shirt, Large, £16.00, `VWM - RL Lacoste
+Polos`. Every one of the 229 photographs belongs to one of the other twenty
+items — all twenty flat-lay pairs are accounted for and none is a plain Lacoste
+polo. **It is left out of `items.csv` entirely** rather than shipped with no
+images, on the same principle as batch 7's unmatched t-shirts. Photograph it and
+it can go up on its own.
+
+## Corrections the photographs forced on the ledger
+
+| Item | Ledger says | Photographs say |
 |---|---|---|
-| `VWM - Lacoste Jumpers/Cardigans` | 7 | £9.60 — alias of `World Vintage Lacoste Cardigans` |
-| `SF Fripe - Summer Mix` | 4 | £6.45 **assumed** — see below |
-| `VWM - Windbreakers` | 4 | £9.60 |
-| `VWM - Hoodies/Sweatshirts` | 1 | £9.00 — `VWM Hoodie` and `VWM Sweat` are both 9.00 |
-| `VWM - Women's Y2K Mix` | 1 | £5.23 |
-| `SF - Men's Summer Designer Mix` | 1 | £6.45 — no separate men's bundle (owner, 23 Sep) |
-| `VWM - RL Lacoste Polos` | 1 | £6.60 |
-| `SF Fripe - RL Tommy Lacoste Mix` | 1 | **no rate given** |
-| *(blank — item 4)* | 1 | **no SKU given** |
+| 14 | "Polo Shirt (brand not stated)" | **Fay** — chest script and collar tab, the same house as batch 8's jacket |
+| 16 | "Anorak (confirm pullover or full-zip)" | a **pullover smock** with a quarter zip |
+| 7 | "Full-Zip Jacket (product type to confirm)" | a **full-zip hooded jacket**, not a pullover |
+| 2 | colour blank | navy |
+| 18 | colour blank | black |
+| 13 | gender blank | `FR 8 / US 3XL` — menswear |
 
-Two need the owner: the rate for `SF Fripe - RL Tommy Lacoste Mix`, and item 4's
-missing SKU. `SF Fripe - Summer Mix` is being read as `SF - Summer Designer Mix`
-at £6.45 on the same alias pattern that settled `SF Fripe - Jackets`, but that is
-an inference, not an instruction.
+## Sizes
 
-## What the photographs have to settle
+Labels settled items 13 (`FR 8 / US 3XL`), 16 (`L`) and 17 (`L/G Classic Fit`).
+Measurements settled 6 (~22in, Large), 7 (~17.5in, womens Medium), 11 (~21in,
+Large) and 20 (~25in, XL).
 
-**Sizes** — items 6, 7, 11, 16, 17 have none.
-Item 12 is `IV` in Roman numerals, item 14 is continental `46`, and item 20 is
-"labelled Small but fits large" — all three need measuring, and item 20 is the
-shrunk-label case where **the ledger's size wins over the label**.
+**Item 20 is the one that moved.** The ledger says "Large (labelled Small but
+fits large — confirm by measurement)"; the tape reads about 25in pit to pit,
+which is an XL. The measurement is used because the ledger asked it to be. The
+label saying Small is ignored on the shrunk-garment rule.
 
-**Gender / category** — items 5, 12, 13, 17, 19 are blank.
+**Item 12's size rests on the label alone** — Roman numeral `IV`, no tape shot in
+the batch. The ledger itself says "Large or XL, confirm by measurement".
 
-**Product type** — item 7 is "Lululemon Full-Zip Jacket (product type to
-confirm)", item 16 is "Chaps Ralph Lauren Anorak (confirm pullover or full-zip)",
-and item 14 has no brand stated at all. All three are label-and-photo questions.
+## Pricing
 
-**Condition** — item 12 is blank. Batch 8's item 6 had the same gap.
+Eleven are the owner's own figures and are kept. Nine are set here, and follow
+the 28 Sep correction — lean **down** on volume labels, keep the rarity weight
+for collected names:
 
-## Prices to set
+* **Prada polo (8) at £49.99** and **Tommy Outdoors jacket (20) at £54.99** are
+  the two carrying rarity weight.
+* **Jeans Les Copains polo (12) at £34.99** and **Krizia Jeans tee (5) at
+  £24.99** are collected Italian names in a volume batch.
+* Chaps anorak (16), Tommy polo (17) and Nike jacket (18) sit at or below
+  mid-band because each has wear or is a high-volume label.
 
-Nine have none: 5, 7, 8, 12, 14, 16, 17, 18, 20.
-The dictated ones run £16–£28, so this is a fast-turnover batch, not a
-designer one. Applying the 28 Sep correction: lean **down** on the volume
-labels here, and keep rarity weight for anything that turns out to be a
-collected piece — the Prada polo (item 8) and the Krizia Jeans tee (item 5) are
-the two most likely to carry more than their bundle suggests.
+Two of the owner's own prices are flagged as **under** their band rather than
+changed: item 1 (RL hoodie, £19.99 against £25–45) and item 21 (90s Nike
+windbreaker, £24.99 against £25–45).
 
-## Carried over
+## Still open
 
-Item 1 and item 16 are Ralph Lauren. `Brand` ships as `Ralph Lauren`; Crosslist
-remaps it to `Lauren Ralph Lauren` on import and that is **not** a CSV fault to
-be fixed.
-
-Photo order follows the 28 Sep layout from the start: whole-garment shots and
-key details first, measurements at 9 and 10, remaining details after, defects
-last.
+* **Item 9 needs photographing** before it can be listed.
+* **Item 12's condition was blank** in the ledger and is set to Very Good from
+  the photographs.
+* **Item 17 ships with `Cost of Goods` empty** — the `SF Fripe - RL Tommy
+  Lacoste Mix` rate is not set yet (owner, 29 Sep).
