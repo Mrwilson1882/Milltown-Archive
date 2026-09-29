@@ -107,11 +107,22 @@ export default function HomePage() {
               {[
                 { k: "Boxes from", v: "£90" },
                 { k: "Lots from", v: "10 pieces" },
-                { k: "Grade", v: "A/B" },
+                { k: "Grade", v: "A/B", href: "/grading-guide" },
               ].map((stat) => (
                 <div key={stat.k}>
                   <dt className="eyebrow text-slate">{stat.k}</dt>
-                  <dd className="display mt-1 text-sm sm:text-base">{stat.v}</dd>
+                  <dd className="display mt-1 text-sm sm:text-base">
+                    {stat.href ? (
+                      <Link
+                        href={stat.href}
+                        className="text-forest underline decoration-2 underline-offset-4 transition-colors hover:text-ink"
+                      >
+                        {stat.v}
+                      </Link>
+                    ) : (
+                      stat.v
+                    )}
+                  </dd>
                 </div>
               ))}
             </dl>
