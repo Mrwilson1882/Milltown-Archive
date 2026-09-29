@@ -1,0 +1,15 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0029",
+  "invoiceDate": "2026-09-29",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Shaquille Henry"
+  },
+
+  "lines": [
+    { "slug": "ralph-lauren-polos", "pieces": 10, "qty": 1, "description": "Ralph Lauren Polo Box — 10 Items" },
+    { "slug": "jackets-windbreaker-mix", "pieces": 10, "qty": 1 }
+  ]
+}
