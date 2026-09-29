@@ -245,6 +245,19 @@ One product per voice note. After each: append the row, commit, push, confirm
 back to the owner with the row as recorded plus any missing fields. At the end
 of the day, export the whole sheet to `.xlsx`.
 
+- **`SF` is Seve Fripe, the supplier** (owner, 29 Sep) — not a bundle code and
+  not shorthand for "summer". That is why every `SF…` name resolves to the same
+  handful of rates: `SF`, `SF3`, `SF Fripe - …` and `SF - …` are all one
+  supplier written down different ways by a voice note. `VWM` is a separate
+  supplier. So when an unrecognised SKU appears, match it **within its own
+  supplier's rates first** — an `SF Fripe - Summer Mix` is the `SF - Summer
+  Designer Mix`, and it is never a `VWM` bundle however close the wording looks.
+  Read the rest of the name for the garment type, and confirm before shipping.
+- **A rate can be deliberately blank.** `SF Fripe - RL Tommy Lacoste Mix` has no
+  rate yet (owner, 29 Sep: "leave it blank, it shouldn't cause the upload to
+  fail"). `Cost of Goods` is internal bookkeeping, not a listing field, so an
+  empty cell imports fine. Ship it empty rather than guessing a neighbouring
+  bundle's figure.
 - **Cost is set by what the garment is, not only by the SKU string** (owner,
   27 Sep). Every jacket takes **£14.61**, whichever way the bundle name came
   through the voice note — `SF Fripe - Jackets`, `SF - Fripe Winter Jackets`
