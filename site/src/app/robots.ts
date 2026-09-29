@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
         // Nothing to index in a basket or a payment return page.
-        disallow: ["/cart", "/checkout/", "/api/"],
+        disallow: ["/cart", "/checkout/", "/api/", "/inbox"],
       },
       // AI search and answer engines, named so nobody can mistake the default
       // for an oversight. ChatGPT search is built on OAI-SearchBot and Bing's
@@ -34,7 +34,7 @@ export default function robots(): MetadataRoute.Robots {
       ].map((userAgent) => ({
         userAgent,
         allow: "/",
-        disallow: ["/cart", "/checkout/", "/api/"],
+        disallow: ["/cart", "/checkout/", "/api/", "/inbox"],
       })),
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,
