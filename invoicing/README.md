@@ -6,12 +6,11 @@ The company's name appears in the wording as `{company}`, substituted from
 `shortName` in `company.json`, so a change of name is one edit rather than a
 hunt through the sentences.
 
-**Two required fields are blank on purpose, and every document prints the red
-band until they are set:** the **company registration number** and the
-**registered office**. The previous company is not connected to this one, so
-nothing was carried across — a registration number and a registered office on a
-legal document are not things to assume. Archivio Group Ltd's own go in
-`company.json`.
+Company number **17461677**, registered office **VO-10, Empire Business Centre,
+2 Empire Way, Burnley BB12 6HA**. The business trades from its registered
+office, so the address prints once under the company name; `tradingAddress` in
+`company.json` is empty and only needs filling in if goods are ever despatched
+from somewhere else.
 
 Prices come from the live website catalogue (`site/src/data/catalogue.ts`), so an
 invoice can never quote a figure the site does not — unless a price is
@@ -217,17 +216,16 @@ line with the rate you quoted.
 Everything printed in the company's own name lives in
 [`company.json`](company.json) — edit that file, never the generator.
 
-Two addresses sit in `company.json` and both appear on every document:
+Addresses live in `company.json`:
 
-- **`tradingAddress`** — VO-10, Empire Business Centre, 2 Empire Way, Burnley
-  BB12 6HA. Where the business actually trades from, and what a customer needs.
-  It prints as the main address under the company name.
-- **`registeredOffice`** — **not set.** A legal requirement rather than a useful
-  address; once it is filled in it prints in small type beneath the trading
-  address as *"Registered office: …"*.
+- **`tradingAddress`** — empty, because the business trades from its registered
+  office. Set it only if goods are despatched from somewhere else.
+- **`registeredOffice`** — VO-10, Empire Business Centre, 2 Empire Way, Burnley
+  BB12 6HA. Prints as the main address under the company name. If
+  `tradingAddress` is ever set to somewhere different, this drops into small
+  type beneath it as *"Registered office: …"*.
 
-Clear `tradingAddress.lines` and the registered office goes back to being the
-main address on its own.
+
 
 
 

@@ -3,21 +3,21 @@
   "legalName": "ARCHIVIO GROUP LTD",
   "tradingAs": "Archive Wholesale",
   "tradingStatement": "Archive Wholesale is a trading name of {company}.",
-  "companyNumber": "",
+  "companyNumber": "17461677",
   "registeredIn": "England and Wales",
   "registeredOffice": {
-    "_note": "REQUIRED, and blank on purpose. Archivio Group Ltd's registered office as recorded at Companies House goes here — a UK limited company must show it on its invoices. Nothing was carried over from the business's previous arrangements; do not fill this from an older document.",
-    "lines": [],
-    "postcode": ""
-  },
-  "tradingAddress": {
-    "_note": "Where the business actually trades from, given by the owner 30 Sep 2026 and matching the Google listing. Printed as the main address on every invoice; the registered office still appears below it in small type, because a UK limited company must show it.",
+    "_note": "Archivio Group Ltd's registered office, confirmed by the owner 30 Sep 2026. The business trades from the same address, so it prints once as the main address under the company name.",
     "lines": [
       "VO-10, Empire Business Centre",
       "2 Empire Way",
       "Burnley"
     ],
     "postcode": "BB12 6HA"
+  },
+  "tradingAddress": {
+    "_note": "Empty because the business trades from its registered office. Only fill this in if goods are ever despatched from somewhere else — the registered office then drops into small type beneath it.",
+    "lines": [],
+    "postcode": ""
   },
   "vat": {
     "_note": "Archivio Group Ltd is not VAT registered. Mirrors siteConfig.vat.registered in site/src/config/site.ts — flip BOTH together when registration comes through, and add the VAT number here.",
@@ -67,6 +67,5 @@
     "linkStatement": "A secure payment link is sent with this invoice."
   },
   "shortName": "Archivio Group Ltd",
-  "_shortName": "How the company is referred to in prose. {company} in the statements below is replaced with it, so a change of name is one line here rather than a hunt through the wording.",
-  "_companyNumber": "REQUIRED, and blank on purpose. Archivio Group Ltd's own registration number goes here. Nothing was carried over from the business's previous arrangements; do not fill this from an older document."
+  "_shortName": "How the company is referred to in prose. {company} in the statements below is replaced with it, so a change of name is one line here rather than a hunt through the wording."
 }
