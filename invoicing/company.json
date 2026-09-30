@@ -14,9 +14,13 @@
     "postcode": "BB8 0SD"
   },
   "tradingAddress": {
-    "_note": "Optional. Only set this if goods are despatched from somewhere other than the registered office. Leave lines empty to print the registered office alone.",
-    "lines": [],
-    "postcode": ""
+    "_note": "Where the business actually trades from, given by the owner 30 Sep 2026 and matching the Google listing. Printed as the main address on every invoice; the registered office still appears below it in small type, because a UK limited company must show it.",
+    "lines": [
+      "VO-10, Empire Business Centre",
+      "2 Empire Way",
+      "Burnley"
+    ],
+    "postcode": "BB12 6HA"
   },
   "vat": {
     "_note": "MANCH LTD is not VAT registered. Mirrors siteConfig.vat.registered in site/src/config/site.ts — flip BOTH together when registration comes through, and add the VAT number here.",
@@ -27,7 +31,7 @@
   },
   "contact": {
     "email": "info@archivewholesale.com",
-    "phone": "",
+    "phone": "07897 740194",
     "whatsapp": "+44 7897 740194",
     "website": "www.archivewholesale.co.uk",
     "_note": "Email given by the owner 14 Sep 2026 as info@archivewholesale.com — note .com, while the website is archivewholesale.co.uk. Confirm which is the live mailbox."

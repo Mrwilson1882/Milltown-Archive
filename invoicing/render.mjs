@@ -191,6 +191,12 @@ const css = `
   .party .body { margin-top: 2.5mm; font-size: 9.5pt; }
   .party .body span { line-height: 1.5; }
   .party .muted { color: var(--slate); }
+  .party .reg-office {
+    margin-top: 2.5mm;
+    font-size: 8pt;
+    line-height: 1.35;
+    color: var(--slate);
+  }
 
   .meta { display: grid; gap: 1.5mm; }
   .meta .row {
@@ -434,9 +440,22 @@ export function renderInvoice(inv, company, logoDataUri) {
   const proforma = inv.status === "proforma";
   const docTitle = proforma ? "Pro forma" : "Invoice";
 
-  const regOffice = addressBlock(company.registeredOffice) ||
-    `<span class="muted">[registered office address not set]</span>`;
-  const despatch = addressBlock(company.tradingAddress);
+  /* The trading address is what a customer needs — where the goods come from
+     and where to write. The registered office is a legal requirement rather
+     than a useful address, so where the two differ it sits underneath in small
+     type instead of standing in for the real one. */
+  const regLines = [...(company.registeredOffice?.lines ?? []), company.registeredOffice?.postcode]
+    .filter(Boolean);
+  const tradingLines = [...(company.tradingAddress?.lines ?? []), company.tradingAddress?.postcode]
+    .filter(Boolean);
+
+  const fromAddress = tradingLines.length
+    ? lines(tradingLines)
+    : (lines(regLines) || `<span class="muted">[registered office address not set]</span>`);
+
+  const registeredNote = tradingLines.length && regLines.length
+    ? `<span class="reg-office">Registered office: ${esc(regLines.join(", "))}</span>`
+    : "";
 
   const method = company.payment?.method ?? "bank";
   const showLink = method === "link" || method === "both";
@@ -513,8 +532,8 @@ export function renderInvoice(inv, company, logoDataUri) {
       <div class="body">
         <span class="name">${esc(company.legalName)}</span>
         <span>t/a ${esc(company.tradingAs)}</span>
-        ${regOffice}
-        ${despatch ? `<span class="muted" style="margin-top:2mm">Despatch: ${esc((company.tradingAddress.lines ?? []).concat(company.tradingAddress.postcode).filter(Boolean).join(", "))}</span>` : ""}
+        ${fromAddress}
+        ${registeredNote}
       </div>
     </div>
 

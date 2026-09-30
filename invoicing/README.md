@@ -206,7 +206,17 @@ line with the rate you quoted.
 Everything printed in the company's own name lives in
 [`company.json`](company.json) — edit that file, never the generator.
 
-The registered office is **6 Knowsley Street, Colne, BB8 0SD**.
+Two addresses sit in `company.json` and both appear on every document:
+
+- **`tradingAddress`** — VO-10, Empire Business Centre, 2 Empire Way, Burnley
+  BB12 6HA. Where the business actually trades from, and what a customer needs.
+  It prints as the main address under the company name.
+- **`registeredOffice`** — 6 Knowsley Street, Colne, BB8 0SD. A legal
+  requirement rather than a useful address, so it prints in small type beneath
+  as *"Registered office: …"*.
+
+Clear `tradingAddress.lines` and the registered office goes back to being the
+main address on its own.
 
 
 
