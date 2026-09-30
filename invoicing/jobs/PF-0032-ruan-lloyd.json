@@ -4,12 +4,11 @@
   "invoiceDate": "2026-09-30",
   "paymentTerms": "Due on receipt",
 
-  "customer": {},
+  "customer": {
+    "contact": "Ruan Lloyd"
+  },
 
   "lines": [
     { "slug": "starter-box-10", "pieces": 10, "qty": 1 }
-  ],
-
-  "_acknowledge": "No customer given with the request. The name goes on before it is sent.",
-  "acknowledge": ["customerName"]
+  ]
 }
