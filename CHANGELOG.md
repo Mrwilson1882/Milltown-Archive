@@ -12,6 +12,13 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.09.30-2 — 2026-09-30 — commit `6ed041f`
+
+- Grade A now states that minor fading is acceptable: the grade means no damage (no stains, holes, tears, repairs or broken fastenings) rather than no visible wear, so a piece may look its age.
+- The B/C boundary is stated as size: a small hole is Grade B, a large hole is Grade C and is never sold. Grade C is named only as the line lots are kept above, not as a grade on offer. Added an FAQ, "What grade is a garment with a hole in it?", which also feeds the page's FAQ structured data. Carried through to the A/B panel, the checking steps, llms.txt and the buyer guide.
+
+---
+
 ## v2026.09.30-1 — 2026-09-30 — commit `7c617d0`
 
 - Grading simplified to two grades. Grade C is removed from the site entirely: the guide, the FAQs, its structured data, llms.txt and the buyer guide. The "Never at this grade" exclusion list is removed from every grade.

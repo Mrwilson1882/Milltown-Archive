@@ -21,14 +21,14 @@ const grades = [
     grade: "A",
     alias: "Grade 1",
     headline: "Excellent condition. Ready for the rail as it is.",
-    rule: "No visible faults. No stains, holes, tears, repairs or damaged fastenings. Colour is strong, fabric is sound, and any wear is so light it does not register at arm's length. A Grade A piece goes straight from the box to the hanger.",
-    allows: ["Light softening of the fabric consistent with age", "Faint wash fading on dark cottons that reads as vintage, not as wear"],
+    rule: "No damage. No stains, no holes, no tears, no repairs and no broken fastenings. Fabric is sound throughout. Minor fading is fine — a Grade A piece is allowed to look its age, it just does not carry a fault. It goes straight from the box to the hanger.",
+    allows: ["Minor fading, including wash fading on dark cottons", "Light softening of the fabric consistent with age", "Honest vintage character, as long as nothing is damaged"],
   },
   {
     grade: "B",
     alias: "Grade 2",
     headline: "Good condition with honest wear, priced to reflect it.",
-    rule: "Still wearable and still saleable, but carrying a visible sign of use: a small stain, a small hole, pilling, fading, or a zip that no longer works. Anything that would grade A does not need mentioning; Grade B is where a fault is named and reflected in the price.",
+    rule: "Still wearable and still saleable, but carrying a visible sign of use: a small stain, a small hole, pilling, heavier fading, or a zip that no longer works. Grade B is where a fault is named and reflected in the price. The line is size: a small hole grades B, a large one grades C, and we do not sell Grade C.",
     allows: ["A small stain or faint mark", "A small hole, pull or thinning patch", "Light pilling or bobbling on knitwear", "Fading or a softened print", "A broken, stuck or missing zip"],
   },
 ] as const;
@@ -36,15 +36,19 @@ const grades = [
 const faqs = [
   {
     q: "What does Grade A mean in vintage clothing?",
-    a: "Grade A is the top grade: no visible faults, no stains, holes, repairs or damaged fastenings, and only the lightest wear consistent with age. It can go straight onto the rail. Some suppliers call the same standard Grade 1.",
+    a: "Grade A is the top grade: no damage at all — no stains, no holes, no tears, no repairs and no broken fastenings. Minor fading is still Grade A; a piece is allowed to look its age, it just cannot carry a fault. It goes straight onto the rail. Some suppliers call the same standard Grade 1.",
   },
   {
     q: "What does Grade B mean in vintage clothing?",
-    a: "Grade B is a piece that still wears and still sells, but carries a visible sign of use: a small stain, a small hole, pilling, fading, or a zip that no longer works. The fault is reflected in the price. Some suppliers call it Grade 2.",
+    a: "Grade B is a piece that still wears and still sells, but carries a visible sign of use: a small stain, a small hole, pilling, fading, or a zip that no longer works. The fault is reflected in the price. Size is what separates B from C — a small hole is Grade B, a large one is Grade C. Some suppliers call Grade B Grade 2.",
   },
   {
     q: "What does 'Grade A/B' mean on an Archive Wholesale listing?",
-    a: "It means the lot is a mix of Grade A and Grade B pieces. Some are flawless; others carry honest wear such as a small stain, a small hole, pilling, fading or a faulty zip, and the lot is priced to reflect that.",
+    a: "It means the lot is a mix of Grade A and Grade B pieces. Grade A carries no damage, though it may be slightly faded. Grade B carries honest wear such as a small stain, a small hole, pilling, fading or a faulty zip, and the lot is priced to reflect that. Nothing graded C goes into a lot.",
+  },
+  {
+    q: "What grade is a garment with a hole in it?",
+    a: "It depends on the size. A small hole, pull or thinning patch is Grade B: the piece still sells, and the fault is reflected in the price. A large hole is Grade C, and Archive Wholesale does not sell Grade C, so it never goes into a lot.",
   },
   {
     q: "What grade is a garment with a broken zip?",
@@ -144,8 +148,9 @@ export default function GradingGuidePage() {
             <p className="display mt-3 text-4xl">Grade A/B</p>
             <p className="mt-4 text-sm leading-relaxed text-slate">
               Our standard lots are graded <strong className="text-ink">A/B</strong>: a mix of Grade A
-              and Grade B pieces. Some are flawless. Some carry honest wear — a small stain, a small
-              hole, pilling, fading or a faulty zip — and the lot is priced to reflect that.
+              and Grade B pieces. Grade A carries no damage, though it may be slightly faded. Grade B
+              carries honest wear — a small stain, a small hole, pilling, fading or a faulty zip — and
+              the lot is priced to reflect that. Nothing graded C goes into a lot.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-slate">
               The grade is the constant. The exact pieces, brands and colourways in a lot vary with
@@ -222,7 +227,7 @@ export default function GradingGuidePage() {
               ["Surface", "Front and back checked for marks, stains, fading and print wear."],
               ["Construction", "Seams, hems and cuffs checked for splits, unpicking and repairs."],
               ["Fastenings", "Every zip run, every button and popper counted and tested. A zip that sticks, breaks or is missing grades the piece B."],
-              ["Grade", "The piece is graded A or B. Anything too far gone for either does not go into a lot."],
+              ["Grade", "The piece is graded A or B. Anything with damage bigger than that grades C and is kept out of the lots."],
             ].map(([step, detail], i) => (
               <li key={step} className="flex gap-5 border-l-2 border-ash pl-5">
                 <span className="display w-8 shrink-0 text-2xl text-forest">
