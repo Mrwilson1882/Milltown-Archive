@@ -2,16 +2,16 @@
 
 Invoices for **ARCHIVIO GROUP LTD**, trading as **Archive Wholesale**.
 
-The business moved from MANCH LTD to Archivio Group Ltd on 30 Sep 2026. The
-company's name appears in the wording as `{company}`, substituted from
+The company's name appears in the wording as `{company}`, substituted from
 `shortName` in `company.json`, so a change of name is one edit rather than a
 hunt through the sentences.
 
-**The company registration number is blank and every document says so.**
-17064831 was MANCH LTD's. If Archivio Group Ltd is that company renamed at
-Companies House the number carries over unchanged; if it is a different company
-it has its own. A registration number is not something to assume, so nothing is
-printed until it is confirmed — and the registered office needs the same check.
+**Two required fields are blank on purpose, and every document prints the red
+band until they are set:** the **company registration number** and the
+**registered office**. The previous company is not connected to this one, so
+nothing was carried across — a registration number and a registered office on a
+legal document are not things to assume. Archivio Group Ltd's own go in
+`company.json`.
 
 Prices come from the live website catalogue (`site/src/data/catalogue.ts`), so an
 invoice can never quote a figure the site does not — unless a price is
@@ -222,9 +222,9 @@ Two addresses sit in `company.json` and both appear on every document:
 - **`tradingAddress`** — VO-10, Empire Business Centre, 2 Empire Way, Burnley
   BB12 6HA. Where the business actually trades from, and what a customer needs.
   It prints as the main address under the company name.
-- **`registeredOffice`** — 6 Knowsley Street, Colne, BB8 0SD. A legal
-  requirement rather than a useful address, so it prints in small type beneath
-  as *"Registered office: …"*.
+- **`registeredOffice`** — **not set.** A legal requirement rather than a useful
+  address; once it is filled in it prints in small type beneath the trading
+  address as *"Registered office: …"*.
 
 Clear `tradingAddress.lines` and the registered office goes back to being the
 main address on its own.
@@ -254,11 +254,11 @@ invoice. Without one it just says a link is sent alongside.
 
 ### VAT
 
-MANCH LTD is not VAT registered. The invoice says so explicitly rather than
-staying silent about it:
+Archivio Group Ltd is not VAT registered. The invoice says so explicitly rather
+than staying silent about it:
 
-> MANCH Ltd is not registered for VAT. No VAT is charged on this invoice and
-> none is recoverable from it.
+> Archivio Group Ltd is not registered for VAT. No VAT is charged on this
+> invoice and none is recoverable from it.
 
 When registration comes through, set `vat.registered` to `true` and add the VAT
 number in `company.json` — **and flip `siteConfig.vat.registered` in
@@ -421,7 +421,7 @@ number.
 
 ```
 invoicing/
-├── company.json          MANCH LTD's own details, bank, terms — edit this
+├── company.json          the company's own details, bank, terms — edit this
 ├── next-number.json      the invoice sequence (AW-)
 ├── next-proforma-number.json  the pro forma sequence (PF-)
 ├── next-order-number.json  the order sequence, and what is reserved

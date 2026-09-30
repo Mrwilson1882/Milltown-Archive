@@ -436,7 +436,7 @@ export function renderInvoice(inv, company, logoDataUri) {
   const missing = inv.missing ?? [];
 
   /* `{company}` in the owner's own wording stands for the company's name, so a
-     change of name is one edit in company.json and never a stale "MANCH Ltd"
+     change of name is one edit in company.json and never a stale company name
      left behind in a sentence somewhere. */
   const shortName = company.shortName || company.legalName;
   const say = (text) => String(text ?? "").replace(/\{company\}/g, shortName);

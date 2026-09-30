@@ -6,12 +6,9 @@
   "companyNumber": "",
   "registeredIn": "England and Wales",
   "registeredOffice": {
-    "_note": "6 Knowsley Street, Colne, BB8 0SD was MANCH LTD's registered office. It carries over if Archivio Group Ltd is the same company renamed; confirm it if the company is a new one.",
-    "lines": [
-      "6 Knowsley Street",
-      "Colne"
-    ],
-    "postcode": "BB8 0SD"
+    "_note": "REQUIRED, and blank on purpose. Archivio Group Ltd's registered office as recorded at Companies House goes here — a UK limited company must show it on its invoices. Nothing was carried over from the business's previous arrangements; do not fill this from an older document.",
+    "lines": [],
+    "postcode": ""
   },
   "tradingAddress": {
     "_note": "Where the business actually trades from, given by the owner 30 Sep 2026 and matching the Google listing. Printed as the main address on every invoice; the registered office still appears below it in small type, because a UK limited company must show it.",
@@ -23,7 +20,7 @@
     "postcode": "BB12 6HA"
   },
   "vat": {
-    "_note": "MANCH LTD is not VAT registered. Mirrors siteConfig.vat.registered in site/src/config/site.ts — flip BOTH together when registration comes through, and add the VAT number here.",
+    "_note": "Archivio Group Ltd is not VAT registered. Mirrors siteConfig.vat.registered in site/src/config/site.ts — flip BOTH together when registration comes through, and add the VAT number here.",
     "registered": false,
     "ratePercent": 20,
     "number": "",
@@ -71,5 +68,5 @@
   },
   "shortName": "Archivio Group Ltd",
   "_shortName": "How the company is referred to in prose. {company} in the statements below is replaced with it, so a change of name is one line here rather than a hunt through the wording.",
-  "_companyNumber": "WAS 17064831, which is MANCH LTD's. The owner moved the business to Archivio Group Ltd on 30 Sep 2026 without saying whether that is MANCH LTD renamed at Companies House — in which case the number carries over unchanged — or a different company with its own number. A registration number is not something to assume, so it is blank and the invoice says so until the owner confirms."
+  "_companyNumber": "REQUIRED, and blank on purpose. Archivio Group Ltd's own registration number goes here. Nothing was carried over from the business's previous arrangements; do not fill this from an older document."
 }
