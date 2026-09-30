@@ -193,6 +193,11 @@ function findMissing(inv, company) {
   const out = [];
   const add = (key, text) => out.push({ key, text });
 
+  if (!company.companyNumber) {
+    add("companyNumber",
+      "No company registration number set in invoicing/company.json — a UK limited company must show it on its invoices.");
+  }
+
   const office = company.registeredOffice ?? {};
   if (!(office.lines ?? []).filter(Boolean).length) {
     add("registeredOffice",

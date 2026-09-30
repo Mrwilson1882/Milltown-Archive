@@ -434,6 +434,12 @@ const css = `
  */
 export function renderInvoice(inv, company, logoDataUri) {
   const missing = inv.missing ?? [];
+
+  /* `{company}` in the owner's own wording stands for the company's name, so a
+     change of name is one edit in company.json and never a stale "MANCH Ltd"
+     left behind in a sentence somewhere. */
+  const shortName = company.shortName || company.legalName;
+  const say = (text) => String(text ?? "").replace(/\{company\}/g, shortName);
   // A pro forma is a request for payment against an order that is not confirmed
   // yet. It is not a tax invoice and says so, so nobody's bookkeeper treats it
   // as one.
@@ -508,7 +514,7 @@ export function renderInvoice(inv, company, logoDataUri) {
   <header class="masthead">
     <div>
       <img src="${logoDataUri}" alt="Archive Wholesale">
-      <p class="trading-line">${esc(company.tradingStatement)}</p>
+      <p class="trading-line">${esc(say(company.tradingStatement))}</p>
     </div>
     <div class="doc-title">
       <h1 class="display">${docTitle}</h1>
@@ -547,7 +553,7 @@ export function renderInvoice(inv, company, logoDataUri) {
         <div class="row"><dt>Payment terms</dt><dd>${esc(inv.paymentTerms)}</dd></div>
         ${inv.dueDate ? `<div class="row"><dt>Payment due</dt><dd>${esc(longDate(inv.dueDate))}</dd></div>` : ""}
         ${inv.poNumber ? `<div class="row"><dt>Your order ref</dt><dd>${esc(inv.poNumber)}</dd></div>` : ""}
-        <div class="row"><dt>Company no.</dt><dd class="num">${esc(company.companyNumber)}</dd></div>
+        ${company.companyNumber ? `<div class="row"><dt>Company no.</dt><dd class="num">${esc(company.companyNumber)}</dd></div>` : ""}
       </dl>
     </div>
   </section>
@@ -634,8 +640,8 @@ export function renderInvoice(inv, company, logoDataUri) {
           ? ""
           : `<p class="vat-statement">${esc(
               proforma
-                ? company.vat.notRegisteredStatement.replace(/\bthis invoice\b/gi, "this pro forma")
-                : company.vat.notRegisteredStatement,
+                ? say(company.vat.notRegisteredStatement).replace(/\bthis invoice\b/gi, "this pro forma")
+                : say(company.vat.notRegisteredStatement),
             )}</p>`
       }
     </div>
@@ -660,8 +666,8 @@ export function renderInvoice(inv, company, logoDataUri) {
         showLink
           ? `<p>${esc(
               proforma
-                ? company.payment.linkStatement.replace(/\bthis invoice\b/gi, "this pro forma")
-                : company.payment.linkStatement,
+                ? say(company.payment.linkStatement).replace(/\bthis invoice\b/gi, "this pro forma")
+                : say(company.payment.linkStatement),
             )}${
               inv.paymentLink
                 ? ` Pay online at <a href="${esc(inv.paymentLink)}">${esc(inv.paymentLink)}</a>.`
@@ -697,12 +703,12 @@ export function renderInvoice(inv, company, logoDataUri) {
     <p class="eyebrow">${proforma ? "Terms" : "Terms of sale"}</p>
     <ol>
       ${proforma ? `<li>This is a pro forma, not a tax invoice. It sets out what the order described would cost; no sale is made until it is paid.</li>` : ""}
-      ${(company.defaults.terms ?? []).map((t) => `<li>${esc(t)}</li>`).join("")}
+      ${(company.defaults.terms ?? []).map((t) => `<li>${esc(say(t))}</li>`).join("")}
     </ol>
   </section>
 
   <footer class="foot">
-    <span class="reg">Archive Wholesale is a trading name of ${esc(company.legalName)}, registered in ${esc(company.registeredIn)}, company number ${esc(company.companyNumber)}.${company.vat.registered && company.vat.number ? ` VAT number ${esc(company.vat.number)}.` : ""}</span>
+    <span class="reg">Archive Wholesale is a trading name of ${esc(company.legalName)}, registered in ${esc(company.registeredIn)}${company.companyNumber ? `, company number ${esc(company.companyNumber)}` : ""}.${company.vat.registered && company.vat.number ? ` VAT number ${esc(company.vat.number)}.` : ""}</span>
     <span><a href="https://${esc(company.contact.website)}">${esc(company.contact.website)}</a></span>
   </footer>
 

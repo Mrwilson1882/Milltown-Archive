@@ -1,0 +1,15 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0032",
+  "invoiceDate": "2026-09-30",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {},
+
+  "lines": [
+    { "slug": "starter-box-10", "pieces": 10, "qty": 1 }
+  ],
+
+  "_acknowledge": "No customer given with the request. The name goes on before it is sent.",
+  "acknowledge": ["customerName"]
+}

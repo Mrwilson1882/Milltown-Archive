@@ -1,6 +1,17 @@
 # Invoicing
 
-Invoices for **MANCH LTD**, trading as **Archive Wholesale**.
+Invoices for **ARCHIVIO GROUP LTD**, trading as **Archive Wholesale**.
+
+The business moved from MANCH LTD to Archivio Group Ltd on 30 Sep 2026. The
+company's name appears in the wording as `{company}`, substituted from
+`shortName` in `company.json`, so a change of name is one edit rather than a
+hunt through the sentences.
+
+**The company registration number is blank and every document says so.**
+17064831 was MANCH LTD's. If Archivio Group Ltd is that company renamed at
+Companies House the number carries over unchanged; if it is a different company
+it has its own. A registration number is not something to assume, so nothing is
+printed until it is confirmed — and the registered office needs the same check.
 
 Prices come from the live website catalogue (`site/src/data/catalogue.ts`), so an
 invoice can never quote a figure the site does not — unless a price is

@@ -1,12 +1,12 @@
 {
   "_readme": "Company details printed on every invoice. Edit this file, not the generator. Fields left blank are NOT guessed — the generator prints a visible 'incomplete' band on the invoice until they are filled in, so a half-finished invoice can never be sent by accident.",
-  "legalName": "MANCH LTD",
+  "legalName": "ARCHIVIO GROUP LTD",
   "tradingAs": "Archive Wholesale",
-  "tradingStatement": "Archive Wholesale is a trading name of MANCH Ltd.",
-  "companyNumber": "17064831",
+  "tradingStatement": "Archive Wholesale is a trading name of {company}.",
+  "companyNumber": "",
   "registeredIn": "England and Wales",
   "registeredOffice": {
-    "_note": "The registered office as recorded at Companies House for MANCH LTD (17064831), confirmed by the owner 14 Sep 2026.",
+    "_note": "6 Knowsley Street, Colne, BB8 0SD was MANCH LTD's registered office. It carries over if Archivio Group Ltd is the same company renamed; confirm it if the company is a new one.",
     "lines": [
       "6 Knowsley Street",
       "Colne"
@@ -27,7 +27,7 @@
     "registered": false,
     "ratePercent": 20,
     "number": "",
-    "notRegisteredStatement": "MANCH Ltd is not registered for VAT. No VAT is charged on this invoice and none is recoverable from it."
+    "notRegisteredStatement": "{company} is not registered for VAT. No VAT is charged on this invoice and none is recoverable from it."
   },
   "contact": {
     "email": "info@archivewholesale.com",
@@ -51,7 +51,7 @@
     "grade": "A/B",
     "deliveryNote": "Delivery is quoted separately once we have your address and total weight.",
     "terms": [
-      "Goods remain the property of MANCH Ltd until paid for in full.",
+      "Goods remain the property of {company} until paid for in full.",
       "Wholesale lots are sold as graded and described. Grades are defined at www.archivewholesale.co.uk/grading-guide.",
       "Lots are representative of the sort described; individual garments, brands and colourways vary.",
       "Sold as a trade supply to a business buyer. Consumer distance-selling cancellation rights do not apply.",
@@ -68,5 +68,8 @@
     "_note": "How the customer pays. 'link' = a secure payment link sent with the invoice. 'bank' = the bank details below. 'both' = show both. Only 'bank' makes the bank fields required before an invoice can be sent.",
     "method": "link",
     "linkStatement": "A secure payment link is sent with this invoice."
-  }
+  },
+  "shortName": "Archivio Group Ltd",
+  "_shortName": "How the company is referred to in prose. {company} in the statements below is replaced with it, so a change of name is one line here rather than a hunt through the wording.",
+  "_companyNumber": "WAS 17064831, which is MANCH LTD's. The owner moved the business to Archivio Group Ltd on 30 Sep 2026 without saying whether that is MANCH LTD renamed at Companies House — in which case the number carries over unchanged — or a different company with its own number. A registration number is not something to assume, so it is blank and the invoice says so until the owner confirms."
 }
