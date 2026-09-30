@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.09.30-1 — 2026-09-30 — commit `7c617d0`
+
+- Grading simplified to two grades. Grade C is removed from the site entirely: the guide, the FAQs, its structured data, llms.txt and the buyer guide. The "Never at this grade" exclusion list is removed from every grade.
+- Grade B widened: it now openly allows a small stain and a small hole alongside pilling, fading and a faulty zip, and is described as "good condition with honest wear, priced to reflect it". The odour and damp line is gone from both the grade definition and the checking steps.
+- Wording that depended on the old promise was updated to match: the A/B panel no longer says "no Grade C" or "ready to sell as it arrives", the grading step reads "graded A or B", and the page title and description now say Grade A and Grade B.
+
+---
+
 ## v2026.09.29-1 — 2026-09-29 — commit `d03b2b0`
 
 - "Rated 5 stars on Google" added to the home page hero, directly under the call-to-action buttons, and to the contact page details list. Shown as a bordered badge with gold stars and the score, sized down on phones so it reads on two lines.

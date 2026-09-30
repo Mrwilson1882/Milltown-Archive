@@ -5,9 +5,9 @@ import { PageHeader } from "@/components/PageHeader";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Vintage Clothing Grading Guide — Grade A, B and C Explained",
+  title: "Vintage Clothing Grading Guide — Grade A and Grade B Explained",
   description:
-    "How Archive Wholesale grades vintage clothing. What Grade A, Grade B and Grade C mean, what 'Grade A/B' on a listing tells you, how our grades map to the 1/2/3 scale, and how every piece is checked before it ships.",
+    "How Archive Wholesale grades vintage clothing. What Grade A and Grade B mean, what 'Grade A/B' on a listing tells you, how our grades map to the 1/2 scale, and how every piece is checked before it ships.",
   alternates: { canonical: "/grading-guide" },
 };
 
@@ -23,23 +23,13 @@ const grades = [
     headline: "Excellent condition. Ready for the rail as it is.",
     rule: "No visible faults. No stains, holes, tears, repairs or damaged fastenings. Colour is strong, fabric is sound, and any wear is so light it does not register at arm's length. A Grade A piece goes straight from the box to the hanger.",
     allows: ["Light softening of the fabric consistent with age", "Faint wash fading on dark cottons that reads as vintage, not as wear"],
-    excludes: ["Marks or stains of any size", "Holes, pulls or thinning", "Repairs, replaced buttons or altered hems", "Broken or missing zips, poppers or buttons"],
   },
   {
     grade: "B",
     alias: "Grade 2",
-    headline: "Good condition. Sells as it is, priced to reflect minor wear.",
-    rule: "One or two small imperfections you would notice on close inspection but that do not stop a sale. A broken, stuck or missing zip grades B: the fabric is sound, the fastening is not.",
-    allows: ["A small, faint mark in an unobtrusive place", "Light pilling or bobbling on knitwear", "Slight fading or a softened print", "Minor loose threads or a small pull that has not become a hole", "A broken, stuck or missing zip — a working zip is a Grade A requirement, so a faulty one drops the piece to B"],
-    excludes: ["Fabric damage that needs repairing before it can be sold", "Stains that are the first thing you see", "Holes, tears or damaged seams", "Odour, damp or moth damage"],
-  },
-  {
-    grade: "C",
-    alias: "Grade 3",
-    headline: "Visible wear or damage. For rework, upcycling and rag — not resale as it is.",
-    rule: "Pieces with obvious faults: prominent stains, holes, heavy fading or worn-through fabric. A broken zip on its own is not Grade C — that grades B. Some are worth reworking or cropping; most are rag. We do not put Grade C into our lots.",
-    allows: [],
-    excludes: [],
+    headline: "Good condition with honest wear, priced to reflect it.",
+    rule: "Still wearable and still saleable, but carrying a visible sign of use: a small stain, a small hole, pilling, fading, or a zip that no longer works. Anything that would grade A does not need mentioning; Grade B is where a fault is named and reflected in the price.",
+    allows: ["A small stain or faint mark", "A small hole, pull or thinning patch", "Light pilling or bobbling on knitwear", "Fading or a softened print", "A broken, stuck or missing zip"],
   },
 ] as const;
 
@@ -50,23 +40,19 @@ const faqs = [
   },
   {
     q: "What does Grade B mean in vintage clothing?",
-    a: "Grade B has one or two small imperfections you would notice on close inspection — a faint mark, light pilling, slight fading — but nothing that stops a sale. A broken, stuck or missing zip also grades B: the garment itself is sound, so it still sells, and it is priced to reflect the fault. Some suppliers call it Grade 2.",
-  },
-  {
-    q: "What does Grade C mean, and do you sell it?",
-    a: "Grade C has visible wear or damage: prominent stains, holes, heavy fading or worn-through fabric. It is sold for rework, upcycling or rag rather than resale as it is. A broken zip on its own does not make a piece Grade C — that grades B. Archive Wholesale does not put Grade C into its lots.",
+    a: "Grade B is a piece that still wears and still sells, but carries a visible sign of use: a small stain, a small hole, pilling, fading, or a zip that no longer works. The fault is reflected in the price. Some suppliers call it Grade 2.",
   },
   {
     q: "What does 'Grade A/B' mean on an Archive Wholesale listing?",
-    a: "It means the lot is a mix of Grade A and Grade B pieces and contains no Grade C. Every piece in the lot is ready to sell as it is; some are flawless and some carry a minor imperfection that has been reflected in the price.",
+    a: "It means the lot is a mix of Grade A and Grade B pieces. Some are flawless; others carry honest wear such as a small stain, a small hole, pilling, fading or a faulty zip, and the lot is priced to reflect that.",
   },
   {
     q: "What grade is a garment with a broken zip?",
-    a: "Grade B. A broken, stuck or missing zip is a fault in the fastening rather than the garment, so the piece is still saleable and is graded and priced as B. A working zip is one of the things checked for Grade A, so a faulty one always drops a piece out of A. It does not make it Grade C.",
+    a: "Grade B. A broken, stuck or missing zip is a fault in the fastening rather than the garment, so the piece is still saleable and is graded and priced as B. A working zip is one of the things checked for Grade A, so a faulty one always drops a piece out of A.",
   },
   {
     q: "Are vintage clothing grades the same everywhere?",
-    a: "No. Grading is a condition scale, and different countries and suppliers run their own. The most common are letters — A, B, C — and numbers — 1, 2, 3 — with A and 1 the best in each case. The letter and number scales line up roughly one to one, but always read a supplier's own definitions rather than assuming.",
+    a: "No. Grading is a condition scale, and different countries and suppliers run their own. The most common are letters — A, B, C — and numbers — 1, 2, 3 — with A and 1 the best in each case. Archive Wholesale sells Grade A and Grade B only. The letter and number scales line up roughly one to one, but always read a supplier's own definitions rather than assuming.",
   },
   {
     q: "Are all pieces guaranteed authentic?",
@@ -121,7 +107,7 @@ export default function GradingGuidePage() {
       <PageHeader
         eyebrow="How we grade"
         title="Grading guide"
-        intro="Every lot we sell carries a grade, and every grade means one thing. This is what Grade A, Grade B and Grade C mean at Archive Wholesale, and what to expect when a listing says A/B."
+        intro="Every lot we sell carries a grade, and every grade means one thing. This is what Grade A and Grade B mean at Archive Wholesale, and what to expect when a listing says A/B."
         crumbs={[{ href: "/", label: "Home" }]}
       />
 
@@ -158,9 +144,8 @@ export default function GradingGuidePage() {
             <p className="display mt-3 text-4xl">Grade A/B</p>
             <p className="mt-4 text-sm leading-relaxed text-slate">
               Our standard lots are graded <strong className="text-ink">A/B</strong>: a mix of Grade A
-              and Grade B pieces, and no Grade C. Every piece in the lot is ready to sell as it
-              arrives. Some are flawless; some carry a minor imperfection, and the lot is priced to
-              reflect that.
+              and Grade B pieces. Some are flawless. Some carry honest wear — a small stain, a small
+              hole, pilling, fading or a faulty zip — and the lot is priced to reflect that.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-slate">
               The grade is the constant. The exact pieces, brands and colourways in a lot vary with
@@ -213,19 +198,6 @@ export default function GradingGuidePage() {
                   </div>
                 )}
 
-                {g.excludes.length > 0 && (
-                  <div className="mt-5">
-                    <p className="eyebrow text-slate">Never at this grade</p>
-                    <ul className="mt-2 space-y-1.5 text-sm text-slate">
-                      {g.excludes.map((item) => (
-                        <li key={item} className="flex gap-2">
-                          <span aria-hidden="true">✕</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
               </article>
             ))}
           </div>
@@ -250,8 +222,7 @@ export default function GradingGuidePage() {
               ["Surface", "Front and back checked for marks, stains, fading and print wear."],
               ["Construction", "Seams, hems and cuffs checked for splits, unpicking and repairs."],
               ["Fastenings", "Every zip run, every button and popper counted and tested. A zip that sticks, breaks or is missing grades the piece B."],
-              ["Freshness", "Anything with odour, damp or mustiness is pulled regardless of how it looks."],
-              ["Grade", "The piece is graded A, B or C, and only A and B go forward into lots."],
+              ["Grade", "The piece is graded A or B. Anything too far gone for either does not go into a lot."],
             ].map(([step, detail], i) => (
               <li key={step} className="flex gap-5 border-l-2 border-ash pl-5">
                 <span className="display w-8 shrink-0 text-2xl text-forest">
