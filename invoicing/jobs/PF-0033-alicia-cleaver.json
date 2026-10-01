@@ -1,0 +1,16 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0033",
+  "invoiceDate": "2026-10-01",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Alicia Cleaver"
+  },
+
+  "lines": [
+    { "slug": "ralph-lauren-polos", "pieces": 10, "qty": 1 }
+  ],
+
+  "delivery": 9.50
+}
