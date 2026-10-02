@@ -5,6 +5,25 @@ when someone buys on www.archivewholesale.co.uk, Claude should be told and
 should raise the invoice from what the site already captured, rather than the
 owner retyping it in chat.
 
+## Nobody can buy online yet
+
+Confirmed by the owner, 2 Oct 2026: **Stripe is not integrated.** The site is
+built for it — checkout route, webhook, the lot of it — but no keys are set, so
+the checkout button tells the customer card payment is not switched on and
+points them at WhatsApp instead. Until that changes there are no online orders
+to invoice, and the rest of this note has nothing to act on.
+
+The payment links going out with the pro formas today are therefore **not
+Stripe**. Whatever provider they come from is the thing that actually knows when
+a customer has paid, and most of them will send a webhook of some kind. So the
+first question is not "how do we automate this" but **which provider is sending
+those links** — the answer decides whether the plumbing below is the Stripe
+route already in the repo, or the same shape pointed somewhere else.
+
+The shape does not change either way: *provider says paid → order details land
+somewhere Claude can read → job file → invoice.* Only the first arrow is
+provider-specific.
+
 ---
 
 ## It is a sales invoice, not a pro forma
@@ -28,7 +47,7 @@ be wrong.
 
 ---
 
-## The hook already exists
+## If it ends up being Stripe, the hook already exists
 
 `site/src/app/api/stripe/webhook/route.ts` → `handlePaidOrder()`. It is wired,
 signature-verified, and currently logs the order and nothing else. The comment
@@ -82,12 +101,12 @@ or a small order store first.
 
 ## Before any of it
 
-- `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` are not set, so no order can
-  be paid online yet and the webhook returns 503. Nothing downstream can be
-  tested until they are.
-- **Payment currently goes through a link sent with each pro forma**, not
-  through the site. If that link is Stripe, the same webhook may already be the
-  right place to catch those too — worth checking before building a second path.
+- **Settle the payment provider first.** Stripe is not integrated and the live
+  payment links come from somewhere else. Everything below the first arrow is
+  the same whoever it is; everything above it is not.
+- `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` are unset, so the webhook
+  returns 503 and nothing downstream can be tested — relevant only if Stripe is
+  the one chosen.
 - The company changed to Archivio Group Ltd (17461677) on 30 Sep 2026. The site
   still says MANCH LTD in `site/src/config/site.ts` and `public/llms.txt`,
   including the old company number. **That wants fixing regardless of any of
