@@ -288,6 +288,18 @@ const catalogue: Product[] = [
         src: "/images/products/lacoste-ralph-lauren-polos/03.jpg",
         alt: "Close-up of the charcoal collar, buttoned placket and embroidered croc on a grey marl Lacoste polo.",
       },
+      {
+        src: "/images/products/lacoste-ralph-lauren-polos/04.jpg",
+        alt: "A brown Lacoste piqué polo laid flat on white, with a two-button placket and the croc on the chest.",
+      },
+      {
+        src: "/images/products/lacoste-ralph-lauren-polos/05.jpg",
+        alt: "Close-up of a brown Lacoste polo: the ribbed collar, buttoned placket, woven Lacoste label and the embroidered croc.",
+      },
+      {
+        src: "/images/products/lacoste-ralph-lauren-polos/06.jpg",
+        alt: "The back of the brown Lacoste piqué polo, laid flat on white.",
+      },
     ],
     videos: [
       {
@@ -439,6 +451,14 @@ const catalogue: Product[] = [
         src: "/images/products/mixed-premium-vintage-hoodies/01.jpg",
         alt: "Three vintage hoodies laid flat on white: a red and navy Polo Ralph Lauren colour-block hood with sleeve spellout, a green adidas three-stripe hood, and a grey Universal Studios Florida embroidered hood.",
       },
+      {
+        src: "/images/products/mixed-premium-vintage-hoodies/02.jpg",
+        alt: "A Trussardi zip-through hoodie laid flat on white: charcoal body with a patterned grey, black and white banded yoke and hood, and a full-length zip.",
+      },
+      {
+        src: "/images/products/mixed-premium-vintage-hoodies/03.jpg",
+        alt: "Close-up of the Trussardi hoodie's banded hood and the embossed metal logo badge above the zip.",
+      },
     ],
     videos: [
       {
@@ -503,6 +523,22 @@ const catalogue: Product[] = [
         src: "/images/products/lacoste-jumpers-cardigans/03.jpg",
         alt: "The back of the royal blue Lacoste lambswool jumper, showing the navy and red striped hem.",
       },
+      {
+        src: "/images/products/lacoste-jumpers-cardigans/04.jpg",
+        alt: "A cream Lacoste V-neck jumper laid flat on white, the croc embroidered on the chest.",
+      },
+      {
+        src: "/images/products/lacoste-jumpers-cardigans/05.jpg",
+        alt: "The back of the cream Lacoste V-neck jumper, laid flat on white.",
+      },
+      {
+        src: "/images/products/lacoste-jumpers-cardigans/06.jpg",
+        alt: "A green IZOD Lacoste V-neck jumper laid flat on white, the croc embroidered on the chest.",
+      },
+      {
+        src: "/images/products/lacoste-jumpers-cardigans/07.jpg",
+        alt: "Close-up of the embroidered croc and the knitted V-neck on a green Lacoste jumper.",
+      },
     ],
     videos: [
       {
@@ -536,6 +572,18 @@ const catalogue: Product[] = [
       {
         src: "/images/products/track-jackets-windbreakers/01.jpg",
         alt: "Four vintage track jackets on white: a blue and pink Reebok shell, a black and white Adidas taped track top, a navy and red Nike shell and a purple Adidas trefoil jacket.",
+      },
+      {
+        src: "/images/products/track-jackets-windbreakers/02.jpg",
+        alt: "An adidas hooded windbreaker laid flat on white: pale blue nylon with crimson three-stripe taping down the sleeves, a crimson-lined hood and a half-length zip.",
+      },
+      {
+        src: "/images/products/track-jackets-windbreakers/03.jpg",
+        alt: "The back of the pale blue adidas hooded windbreaker, showing the crimson shoulder taping and the hood up.",
+      },
+      {
+        src: "/images/products/track-jackets-windbreakers/04.jpg",
+        alt: "Close-up of the adidas windbreaker: the crimson-lined hood, half zip, woven adidas neck label and the trefoil logo on the chest.",
       },
     ],
     // The same rail as the Jackets & Windbreaker Mix: the owner shoots these
@@ -572,6 +620,26 @@ const catalogue: Product[] = [
       {
         src: "/images/products/birkenstock-sandals/01.jpg",
         alt: "Six pairs of second-hand Birkenstock sandals on white: four brown nubuck pairs in two-strap and toe-post styles, one white toe-post pair and one metallic snake-print pair.",
+      },
+      {
+        src: "/images/products/birkenstock-sandals/02.jpg",
+        alt: "A pair of pink patent Birkenstock sandals on white: two buckled straps, an ankle strap and the contoured cork footbed.",
+      },
+      {
+        src: "/images/products/birkenstock-sandals/03.jpg",
+        alt: "A pair of brown oiled-leather Birkenstock Gizeh toe-post sandals on white, with the cork footbed worn in.",
+      },
+      {
+        src: "/images/products/birkenstock-sandals/04.jpg",
+        alt: "A pair of silver-grey Birkenstock Madrid two-strap sandals on white, buckles open, cork footbed showing.",
+      },
+      {
+        src: "/images/products/birkenstock-sandals/05.jpg",
+        alt: "A pair of black and grey woven-strap Birkenstock sandals on white, the straps crossed over the cork footbed.",
+      },
+      {
+        src: "/images/products/birkenstock-sandals/06.jpg",
+        alt: "A pair of black shearling-lined Birkenstock sandals on white: two buckled leather straps over a fleece-lined footbed.",
       },
     ],
     inStock: false, // Marked out of stock by the owner, 16 Sep 2026.
@@ -618,6 +686,14 @@ const catalogue: Product[] = [
       {
         src: "/images/products/t-shirt-mix/01.jpg",
         alt: "Four branded vintage t-shirts laid flat on white: a purple Champion script tee, a blue Nike swoosh tee, a navy Fila logo tee and a black adidas trefoil tee.",
+      },
+      {
+        src: "/images/products/t-shirt-mix/02.jpg",
+        alt: "A Trussardi V-neck t-shirt laid flat on white: grey marl with a deep red TRU Trussardi collegiate print across the chest.",
+      },
+      {
+        src: "/images/products/t-shirt-mix/03.jpg",
+        alt: "The grey marl Trussardi V-neck t-shirt laid flat on white, showing the full collegiate chest print.",
       },
     ],
     videos: [

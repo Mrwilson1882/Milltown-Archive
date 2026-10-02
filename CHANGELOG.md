@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.02-6 — 2026-10-02 — commit `74bfe98`
+
+- Nineteen more photographs added from the owner's own stock (Batch 6), all shot on white and resized to 1600px, following the owner's rule that nothing goes on the site without a white background.
+- Track Jackets & Windbreakers gains three (a pale blue and crimson adidas hooded windbreaker, front, back and hood detail). Mixed Premium Vintage Hoodies gains two (a charcoal Trussardi zip-through with a banded hood). Lacoste Jumpers & Cardigans gains four (cream V-neck front and back, green IZOD Lacoste V-neck and a croc detail). Lacoste & Ralph Lauren Polos gains three (a brown piqué polo, front, back and collar detail). Branded T-Shirt Mix gains two (a grey marl Trussardi V-neck with a collegiate chest print). Birkenstock Sandals gains five (pink patent, brown Gizeh, silver Madrid, black and grey woven, black shearling-lined) — the lot stays out of stock, but its page is now ready for the moment it comes back.
+- Every photograph carries alt text naming brand, colourway and detail.
+
+---
+
 ## v2026.10.02-5 — 2026-10-02 — commit `ec6c407`
 
 - Grading rewritten to the owner's own rules. **Grade A**: no stains, holes, tears or repairs, but fading no longer costs a grade — on a garment this old it is expected and it is what vintage looks like — and nor does one minor broken fastening (a clasp or a popper) on an otherwise sound piece, or a pluck in the weave. The false claim that a Grade A piece "goes straight from the box to the hanger" is gone; the page now says plainly that lots ship as graded, not laundered, and everything should be washed first.
