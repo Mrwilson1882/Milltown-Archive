@@ -25,6 +25,9 @@ back as an error naming the lot, never as a guess.
 
 ## Two ways to raise an invoice
 
+A third is noted but not built: an order paid on the website should raise its
+own invoice. See [`online-orders.md`](online-orders.md).
+
 **1. In chat.** Post the customer and what they have bought. The invoice is
 generated here, committed to `out/`, and the numbers come from the catalogue
 automatically.
@@ -420,6 +423,7 @@ number.
 ```
 invoicing/
 ├── company.json          the company's own details, bank, terms — edit this
+├── online-orders.md      note: invoicing straight from a website order
 ├── next-number.json      the invoice sequence (AW-)
 ├── next-proforma-number.json  the pro forma sequence (PF-)
 ├── next-order-number.json  the order sequence, and what is reserved
