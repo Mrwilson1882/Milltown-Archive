@@ -618,7 +618,7 @@ const catalogue: Product[] = [
     brandSlugs: ["mixed-brands", "sergio-tacchini", "adidas", "nike", "fila", "columbia", "the-north-face", "reebok", "tommy-hilfiger", "ralph-lauren"],
     typeSlugs: ["jackets"],
     collectionSlugs: ["festival", "winter"],
-    variants: [at(10, 12.5), at(25, 11), at(50, 10)],
+    variants: [at(10, 10.75), at(25, 10.5), at(50, 10)],
     unit: "pieces",
     notes: [],
     art: "diagonal-green-4",

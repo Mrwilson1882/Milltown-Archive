@@ -12,6 +12,13 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.02-2 — 2026-10-02 — commit `d5ab119`
+
+- Jackets & Windbreaker Mix repriced: £10.75 per piece on a 10 (£107.50), £10.50 on a 25 (£262.50), £10.00 on a 50 (£500). Previously £12.50 / £11.00 / £10.00.
+- Festival Track Jackets left untouched at £12.50 / £11.00 / £9.00 — say the word if that line should follow the same prices.
+
+---
+
 ## v2026.10.02-1 — 2026-10-02 — commit `a446774`
 
 - Email capture built but NOT launched. A one-time pop-up offers 10% off a first order in exchange for a trade-list sign-up: it waits 20 seconds, never shows on the basket, checkout or inbox, closes by button, backdrop or Escape, and does not return once dismissed or signed up on that browser. Sign-ups POST to a new /api/subscribe route which forwards to NEWSLETTER_FORWARD_WEBHOOK and refuses honestly when that is unset. Two analytics events added: newsletter_signup and newsletter_dismiss.
