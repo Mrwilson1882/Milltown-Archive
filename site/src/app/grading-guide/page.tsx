@@ -7,7 +7,7 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   title: "Vintage Clothing Grading Guide — Grade A and Grade B Explained",
   description:
-    "How Archive Wholesale grades vintage clothing. What Grade A and Grade B mean, what 'Grade A/B' on a listing tells you, how our grades map to the 1/2 scale, and how every piece is checked before it ships.",
+    "How Archive Wholesale grades vintage clothing. What Grade A and Grade B mean, why fading does not cost a grade, where the line falls between a small hole and a large one, and what 'Grade A/B' on a listing tells you.",
   alternates: { canonical: "/grading-guide" },
 };
 
@@ -21,38 +21,38 @@ const grades = [
     grade: "A",
     alias: "Grade 1",
     headline: "Excellent condition. Ready for the rail as it is.",
-    rule: "No damage. No stains, no holes, no tears, no repairs and no broken fastenings. Fabric is sound throughout. Minor fading is fine — a Grade A piece is allowed to look its age, it just does not carry a fault. It goes straight from the box to the hanger.",
-    allows: ["Minor fading, including wash fading on dark cottons", "Light softening of the fabric consistent with age", "Honest vintage character, as long as nothing is damaged"],
+    rule: "No stains, no holes, no tears and no repairs. Fabric is sound throughout. Fading does not cost a grade — on a piece this old it is expected, and it is what vintage looks like. One minor broken fastening, a clasp or a popper, on a garment that is otherwise perfect does not cost a grade either, and nor does a pluck in the weave. Everything ships as graded rather than laundered, so wash it before it goes on the rail.",
+    allows: ["Fading appropriate to the age of the piece, including wash fading on dark cottons", "A pluck or small snag in the weave", "One minor broken fastening, such as a clasp or popper, where the rest of the garment is sound", "Light softening of the fabric consistent with age"],
   },
   {
     grade: "B",
     alias: "Grade 2",
     headline: "Good condition with honest wear, priced to reflect it.",
-    rule: "Still wearable and still saleable, but carrying a visible sign of use: a small stain, a small hole, pilling, heavier fading, or a zip that no longer works. Grade B is where a fault is named and reflected in the price. The line is size: a small hole grades B, a large one grades C, and we do not sell Grade C.",
-    allows: ["A small stain or faint mark", "A small hole, pull or thinning patch", "Light pilling or bobbling on knitwear", "Fading or a softened print", "A broken, stuck or missing zip"],
+    rule: "Small holes, small stains or small marks, pilling, or a zip that no longer works. Grade B is where a fault is named and reflected in the price, and it sells hard as workwear — Carhartt, Dickies and Lacoste especially. The line is size: a small hole grades B. A large hole, several holes, or a stain that would stop the piece being worn even as workwear is Grade C, and we do not sell Grade C.",
+    allows: ["A small stain or mark", "A small hole, pull or thinning patch", "Light pilling or bobbling on knitwear", "A broken, stuck or missing zip"],
   },
 ] as const;
 
 const faqs = [
   {
     q: "What does Grade A mean in vintage clothing?",
-    a: "Grade A is the top grade: no damage at all — no stains, no holes, no tears, no repairs and no broken fastenings. Minor fading is still Grade A; a piece is allowed to look its age, it just cannot carry a fault. It goes straight onto the rail. Some suppliers call the same standard Grade 1.",
+    a: "Grade A is the top grade: no stains, no holes, no tears and no repairs. Fading does not cost a grade — on a thirty-year-old garment it is expected, and it is what vintage looks like. A single minor broken fastening, such as one clasp or popper, on a piece that is otherwise perfect stays Grade A, as does a pluck in the weave. Some suppliers call the same standard Grade 1. Lots ship as graded rather than laundered, so everything is washed before it goes on the rail.",
   },
   {
     q: "What does Grade B mean in vintage clothing?",
-    a: "Grade B is a piece that still wears and still sells, but carries a visible sign of use: a small stain, a small hole, pilling, fading, or a zip that no longer works. The fault is reflected in the price. Size is what separates B from C — a small hole is Grade B, a large one is Grade C. Some suppliers call Grade B Grade 2.",
+    a: "Grade B is a piece that still wears and still sells, but carries a visible sign of use: a small hole, a small stain or mark, pilling, or a zip that no longer works. The fault is reflected in the price, and Grade B moves quickly as workwear — Carhartt, Dickies and Lacoste especially. Size is what separates B from C: a small hole is Grade B; a large hole, several holes, or a stain that would stop the piece being worn even as workwear is Grade C. Some suppliers call Grade B Grade 2.",
   },
   {
     q: "What does 'Grade A/B' mean on an Archive Wholesale listing?",
-    a: "It means the lot is a mix of Grade A and Grade B pieces. Grade A carries no damage, though it may be slightly faded. Grade B carries honest wear such as a small stain, a small hole, pilling, fading or a faulty zip, and the lot is priced to reflect that. Nothing graded C goes into a lot.",
+    a: "It means the lot is a mix of Grade A and Grade B pieces. Grade A carries no stains, holes, tears or repairs, though fading is expected and does not cost it the grade. Grade B carries honest wear such as a small hole, a small stain, pilling or a faulty zip, and the lot is priced to reflect that. Nothing graded C goes into a lot.",
   },
   {
     q: "What grade is a garment with a hole in it?",
-    a: "It depends on the size. A small hole, pull or thinning patch is Grade B: the piece still sells, and the fault is reflected in the price. A large hole is Grade C, and Archive Wholesale does not sell Grade C, so it never goes into a lot.",
+    a: "It depends on the size and the number. A single small hole, pull or thinning patch is Grade B: the piece still sells, and the fault is reflected in the price. A large hole, or several holes, is Grade C, and Archive Wholesale does not sell Grade C, so it never goes into a lot.",
   },
   {
     q: "What grade is a garment with a broken zip?",
-    a: "Grade B. A broken, stuck or missing zip is a fault in the fastening rather than the garment, so the piece is still saleable and is graded and priced as B. A working zip is one of the things checked for Grade A, so a faulty one always drops a piece out of A.",
+    a: "Grade B. A zip is the fastening a garment is worn by, so when it no longer works the piece is graded and priced as B. Smaller fastenings are treated differently: one broken clasp or popper on a garment that is otherwise perfect stays Grade A.",
   },
   {
     q: "Are vintage clothing grades the same everywhere?",

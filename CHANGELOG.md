@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.02-5 — 2026-10-02 — commit `ec6c407`
+
+- Grading rewritten to the owner's own rules. **Grade A**: no stains, holes, tears or repairs, but fading no longer costs a grade — on a garment this old it is expected and it is what vintage looks like — and nor does one minor broken fastening (a clasp or a popper) on an otherwise sound piece, or a pluck in the weave. The false claim that a Grade A piece "goes straight from the box to the hanger" is gone; the page now says plainly that lots ship as graded, not laundered, and everything should be washed first.
+- **Grade B**: small holes, small stains or marks, pilling, or a failed zip — and it is named as the workwear grade, Carhartt, Dickies and Lacoste especially. **Grade C** is defined only as the line we do not cross: a large hole, several holes, or a stain that would stop the piece being worn even as workwear.
+- The five FAQ answers that repeated the old wording were rewritten with it, so the FAQPage structured data Google and the AI crawlers read now matches. llms.txt updated to the same rules.
+
+---
+
 ## v2026.10.02-4 — 2026-10-02 — commit `1d1243e`
 
 - "Festival Track Jackets" renamed **Track Jackets & Windbreakers**, at the owner's instruction: the lot is track tops and windbreakers, not a festival line. New address /products/track-jackets-windbreakers, with a permanent redirect from the old one so nothing already linked or indexed breaks. Summary, description and both image and video alt texts rewritten to drop the festival framing; the image folder moved to match.
