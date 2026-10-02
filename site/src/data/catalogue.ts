@@ -176,6 +176,14 @@ const catalogue: Product[] = [
         src: "/images/products/ralph-lauren-polos/01.jpg",
         alt: "Four Polo Ralph Lauren piqué polos on white: navy, black and white stripe, pink marl and green marl.",
       },
+      {
+        src: "/images/products/ralph-lauren-polos/02.jpg",
+        alt: "A Polo Ralph Lauren piqué polo on white: navy and cream block stripes with a navy collar and the pony embroidered on the chest.",
+      },
+      {
+        src: "/images/products/ralph-lauren-polos/03.jpg",
+        alt: "Close-up of the navy and cream striped Ralph Lauren polo, showing the Polo Ralph Lauren neck label and the embroidered pony.",
+      },
     ],
     // Shot portrait and at two different speeds; evened out to one pace,
     // graded to take the glare off, and cropped square. No HDR rendition:
@@ -271,6 +279,14 @@ const catalogue: Product[] = [
       {
         src: "/images/products/lacoste-ralph-lauren-polos/01.jpg",
         alt: "Three vintage piqué polos laid flat on white: a faded navy Ralph Lauren with a red pony, a cream Ralph Lauren, and a Lacoste striped in teal, lilac and cream.",
+      },
+      {
+        src: "/images/products/lacoste-ralph-lauren-polos/02.jpg",
+        alt: "A Lacoste colour-block piqué polo on white: a grey marl body with cream sleeves, a charcoal collar and placket, and the croc on the chest.",
+      },
+      {
+        src: "/images/products/lacoste-ralph-lauren-polos/03.jpg",
+        alt: "Close-up of the charcoal collar, buttoned placket and embroidered croc on a grey marl Lacoste polo.",
       },
     ],
     videos: [
@@ -479,6 +495,14 @@ const catalogue: Product[] = [
         src: "/images/products/lacoste-jumpers-cardigans/01.jpg",
         alt: "Four Lacoste knits laid flat on white: a pale blue IZOD Lacoste button cardigan, a green v-neck jumper, a navy crew with red, white and blue tipping, and a navy zip-through with the croc on the chest.",
       },
+      {
+        src: "/images/products/lacoste-jumpers-cardigans/02.jpg",
+        alt: "A Lacoste lambswool crew-neck jumper laid flat on white: royal blue with navy and red striped ribbing at the hem and cuffs, and the croc embroidered on the chest.",
+      },
+      {
+        src: "/images/products/lacoste-jumpers-cardigans/03.jpg",
+        alt: "The back of the royal blue Lacoste lambswool jumper, showing the navy and red striped hem.",
+      },
     ],
     videos: [
       {
@@ -626,6 +650,26 @@ const catalogue: Product[] = [
       {
         src: "/images/products/jackets-windbreaker-mix/01.jpg",
         alt: "Four vintage jackets laid flat on white: a navy Nike quarter-zip pullover, a red Chaps Ralph Lauren hooded pullover, a grey and navy Tommy Hilfiger hooded jacket and a white and red Reebok fleece-lined jacket.",
+      },
+      {
+        src: "/images/products/jackets-windbreaker-mix/02.jpg",
+        alt: "A vintage Nike windbreaker laid flat on white: a navy body with green and white colour-blocked panels across the chest and sleeves, a full-length zip and an elasticated hem.",
+      },
+      {
+        src: "/images/products/jackets-windbreaker-mix/03.jpg",
+        alt: "The back of the same navy, green and white Nike windbreaker, showing the colour-blocked yoke and the elasticated cuffs.",
+      },
+      {
+        src: "/images/products/jackets-windbreaker-mix/04.jpg",
+        alt: "A Nike quarter-zip windbreaker pullover on white: two tones of blue with a navy ribbed collar, a yellow zip pull and a yellow lining showing at the hem.",
+      },
+      {
+        src: "/images/products/jackets-windbreaker-mix/05.jpg",
+        alt: "The back of the two-tone blue Nike quarter-zip pullover, laid flat on white.",
+      },
+      {
+        src: "/images/products/jackets-windbreaker-mix/06.jpg",
+        alt: "Close-up of a navy Nike windbreaker: the embroidered Nike script and swoosh beside a full-length metal zip and the original woven neck label.",
       },
     ],
     videos: [

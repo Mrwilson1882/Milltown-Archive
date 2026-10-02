@@ -12,6 +12,13 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.02-3 — 2026-10-02 — commit `b36db75`
+
+- Eleven product photographs added from the owner's own stock (Batch 5), shot on white and resized to 1600px. Jackets & Windbreaker Mix gains five (a navy/green/white Nike windbreaker front and back, a two-tone blue Nike quarter-zip front and back, and a Nike zip and script detail). Lacoste Jumpers & Cardigans gains two (royal blue lambswool crew, front and back). Lacoste & Ralph Lauren Polos gains two (grey marl colour-block Lacoste polo and a croc detail). Ralph Lauren Polos gains two (navy and cream striped piqué polo and a neck-label detail).
+- All eleven carry full alt text naming brand, colourway and detail, which is what Google Images and the AI crawlers read.
+
+---
+
 ## v2026.10.02-2 — 2026-10-02 — commit `d5ab119`
 
 - Jackets & Windbreaker Mix repriced: £10.75 per piece on a 10 (£107.50), £10.50 on a 25 (£262.50), £10.00 on a 50 (£500). Previously £12.50 / £11.00 / £10.00.
