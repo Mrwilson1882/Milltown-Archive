@@ -54,6 +54,19 @@ export const siteConfig = {
    */
   googleReviewUrl: "",
   /**
+   * The email capture pop-up, and the discount it promises.
+   *
+   * Off until card checkout is live: the code is redeemed at the Stripe
+   * checkout, so offering it before payments work would be a promise the
+   * site cannot keep. Flip `newsletterPopup` to true once Stripe is set up
+   * and the matching promotion code exists in the Stripe dashboard.
+   */
+  newsletter: {
+    popup: false,
+    discountPercent: 10,
+    code: "ARCHIVE10",
+  },
+  /**
    * Prices on the site are quoted EXCLUDING VAT, the way the trade quotes them.
    * VAT is added as its own line in the cart and as its own line item at
    * checkout, so the customer pays the correct total.

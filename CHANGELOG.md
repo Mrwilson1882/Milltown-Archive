@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.02-1 — 2026-10-02 — commit `a446774`
+
+- Email capture built but NOT launched. A one-time pop-up offers 10% off a first order in exchange for a trade-list sign-up: it waits 20 seconds, never shows on the basket, checkout or inbox, closes by button, backdrop or Escape, and does not return once dismissed or signed up on that browser. Sign-ups POST to a new /api/subscribe route which forwards to NEWSLETTER_FORWARD_WEBHOOK and refuses honestly when that is unset. Two analytics events added: newsletter_signup and newsletter_dismiss.
+- Stripe checkout now accepts promotion codes (`allow_promotion_codes`), which is how the discount is redeemed.
+- Controlled by `siteConfig.newsletter.popup`, which is **false**. Nothing is visible to customers until that is flipped, the ARCHIVE10 promotion code exists in Stripe, and NEWSLETTER_FORWARD_WEBHOOK is set.
+
+---
+
 ## v2026.09.30-2 — 2026-09-30 — commit `6ed041f`
 
 - Grade A now states that minor fading is acceptable: the grade means no damage (no stains, holes, tears, repairs or broken fastenings) rather than no visible wear, so a piece may look its age.

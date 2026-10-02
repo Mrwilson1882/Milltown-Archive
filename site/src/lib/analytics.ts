@@ -31,6 +31,10 @@ type Events = {
   bulk_quote: { channel: EnquiryChannel; format: string; kg: number; category: string };
   /** A site search was run. Zero-result queries are the stock list customers want. */
   search: { query: string; results: number };
+  /** Someone joined the trade list from the email capture. */
+  newsletter_signup: { page: string };
+  /** Someone closed the email capture without signing up. */
+  newsletter_dismiss: { page: string };
 };
 
 export function trackEvent<K extends keyof Events>(name: K, props: Events[K]) {

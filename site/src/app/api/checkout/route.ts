@@ -97,6 +97,9 @@ export async function POST(request: Request) {
           : []),
       ],
       // Wholesale buyers are businesses; capture what is needed to invoice and ship.
+      // Lets a customer redeem the newsletter discount, or any promotion code
+      // created in the Stripe dashboard, on the checkout page itself.
+      allow_promotion_codes: true,
       billing_address_collection: "required",
       shipping_address_collection: {
         allowed_countries: ["GB", "IE", "FR", "DE", "NL", "BE", "ES", "IT", "PL"],

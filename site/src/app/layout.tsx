@@ -3,6 +3,7 @@ import { Archivo } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { EmailCapture } from "@/components/EmailCapture";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { Analytics } from "@vercel/analytics/next";
 import { siteConfig } from "@/config/site";
@@ -140,6 +141,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <WhatsAppFloat />
+        {/* Off until card checkout is live — see siteConfig.newsletter.popup. */}
+        <EmailCapture />
         {/* Vercel Web Analytics: page views and referrers, no cookies, no banner.
             Inert until Web Analytics is switched on for the project in Vercel. */}
         <Analytics />
