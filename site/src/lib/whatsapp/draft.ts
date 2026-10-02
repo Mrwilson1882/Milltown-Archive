@@ -107,7 +107,8 @@ The moment a customer has paid, or says they are about to pay, or asks how to
 pay, the reply must ask for all three of these. Every time, in this order:
 
 1. **Full name** — for the parcel
-2. **Phone number or email** — so the Evri tracking link can be sent
+2. **Email address** — the Evri tracking link is sent by email, so a phone
+   number is not a substitute. Ask for the email.
 3. **Full address, including postcode** — for the parcel
 
 Ask for all three together, not one at a time. If the customer has already
