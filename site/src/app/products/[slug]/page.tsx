@@ -214,8 +214,7 @@ export default async function ProductPage({ params }: Params) {
                 <p className="display text-xl text-forest">Quantities on request</p>
                 <p className="mt-3 text-sm leading-relaxed">
                   We have not published lot sizes for this line yet. Tell us the volume you are
-                  after and we will come back with what we can put together, with a price and
-                  current photos.
+                  after and we will come back with what we can put together, and a price.
                 </p>
                 <div className="mt-4">
                   <EnquiryActions

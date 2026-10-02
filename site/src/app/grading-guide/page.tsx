@@ -64,7 +64,7 @@ const faqs = [
   },
   {
     q: "Can I see photos of the actual pieces before I order?",
-    a: "We can send recent photographs of the line on WhatsApp, showing the kind of pieces and condition in the current intake. Like every wholesaler, we cannot photograph the specific pieces that will be picked for your lot, because lots are counted out at dispatch. The grade is the constant.",
+    a: "Every lot has photographs on its product page, and several carry a short video of the rail, showing the kind of pieces and the condition in the line. Like every wholesaler, we do not photograph stock to order: lots are counted out from a fresh intake at dispatch, so the specific pieces do not exist as a lot until they are picked. The grade is the constant.",
   },
   {
     q: "Do the pieces arrive washed and pressed?",

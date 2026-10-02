@@ -815,14 +815,14 @@ const catalogue: Product[] = [
     description: [
       "Luxury outerwear and tailoring kept apart from the general jacket lots — Moncler quilted down, Burberry field jackets, Versace tailoring and Polo Ralph Lauren shells.",
       "These pieces price on the label rather than the category, which is exactly why they are not bundled in with windbreakers. One Moncler jacket can carry a rail on its own.",
-      "Sold in lots of ten. Contents change with every intake, and we photograph each piece individually before you commit.",
+      "Sold in lots of ten. Contents change with every intake, so the exact labels in a lot vary.",
     ],
     brandSlugs: ["moncler", "burberry", "versace", "ralph-lauren"],
     typeSlugs: ["jackets"],
     collectionSlugs: ["luxury", "mens", "winter"],
     variants: [at(10, 30)],
     unit: "pieces",
-    notes: ["Contents change with each intake. Ask for current photos before ordering."],
+    notes: ["Contents change with each intake."],
     art: "bands-ink-5",
     photos: [
       {

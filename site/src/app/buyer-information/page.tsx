@@ -59,7 +59,7 @@ const faqs = [
   },
   {
     q: "Can I see the stock before I buy?",
-    a: "We will send recent photographs of the current intake on WhatsApp, labels included if you ask, and several lines carry a short video of the rail on their product page so you can judge volume and condition rather than a flat lay.",
+    a: "Every lot has photographs on its product page, and several carry a short video of the rail so you can judge volume and condition rather than a flat lay. Those show the kind of pieces and the condition in the line. We do not photograph stock to order — lots are counted out from a fresh intake at dispatch, so there is nothing to photograph until it is picked.",
   },
   {
     q: "Where do you ship from?",

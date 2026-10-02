@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.02-8 — 2026-10-02 — commit `2ea3b0a`
+
+- "Ask for current photos before ordering" removed from the Designer Jackets listing, along with the claim that we photograph each piece individually before a buyer commits. We do not shoot stock to order, and the site no longer says we do.
+- The same promise taken out of three other places it had spread to: the "quantities on request" panel on product pages (which offered "a price and current photos"), the grading guide's "can I see photos" answer, and the matching answer on the buyer information page. All four now say the same thing — every lot is photographed and several carry video, those show the line, and lots are counted out from a fresh intake at dispatch so the pieces do not exist as a lot until they are picked.
+- The buyer information document and its PDF updated to match.
+
+---
+
 ## v2026.10.02-7 — 2026-10-02 — commit `e18d663`
 
 - **New page: /buyer-information.** The buyer guide is now on the website, not just in a PDF. It answers what a first-time trade buyer actually asks before ordering: how to order, how to pay, what we need from them at payment (name, email for the Evri tracking link, address), the £90 minimum, delivery cost and timing, what condition to expect, and whether the photographs show the exact pieces. Four at-a-glance figures, a five-step order process, delivery and condition panels, and twelve questions wired into FAQPage structured data.
