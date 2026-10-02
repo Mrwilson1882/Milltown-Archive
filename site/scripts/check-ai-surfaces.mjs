@@ -55,6 +55,7 @@ const retired = [
   "y2k-designer-male-mix-box-20",
   "y2k-designer-male-mix-box",
   "luxury-outerwear-mix",
+  "festival-track-jackets",
 ];
 const config = read("next.config.ts");
 const catalogue = read("src/data/catalogue.ts");

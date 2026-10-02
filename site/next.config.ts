@@ -20,6 +20,10 @@ const nextConfig: NextConfig = {
       { source: "/products/y2k-designer-male-mix-box", destination: "/products/designer-male-mix-box", permanent: true },
       // The luxury outerwear lot was renamed Designer Jackets when it was priced.
       { source: "/products/luxury-outerwear-mix", destination: "/products/designer-jackets", permanent: true },
+
+      // Renamed October 2026: the owner sells these as track jackets and
+      // windbreakers, not as a festival line.
+      { source: "/products/festival-track-jackets", destination: "/products/track-jackets-windbreakers", permanent: true },
     ];
   },
   images: {

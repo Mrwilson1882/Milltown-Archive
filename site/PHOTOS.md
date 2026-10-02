@@ -39,7 +39,7 @@ Then add it to the product in `src/data/catalogue.ts`:
 
 ```ts
 photos: [
-  { src: "/images/products/festival-track-jackets/01.jpg", alt: "Ten vintage festival track jackets laid out on white" },
+  { src: "/images/products/track-jackets-windbreakers/01.jpg", alt: "Ten vintage track jackets laid out on white" },
 ],
 ```
 
@@ -51,7 +51,7 @@ read aloud by screen readers and indexed by Google.
 carhartt-dickies-t-shirts · ralph-tommy-lacoste-mix ·
 y2k-designer-male-mix-box-20 ·
 mixed-premium-vintage-hoodies-sweatshirts · mixed-premium-vintage-sweatshirts ·
-ralph-lauren-polos · festival-track-jackets · designer-jackets · bags ·
+ralph-lauren-polos · track-jackets-windbreakers · designer-jackets · bags ·
 mixed-mens-lacoste-25
 
 These show generated placeholder artwork until a photograph replaces it.

@@ -286,7 +286,7 @@ export default function HomePage() {
               Archive Wholesale is a UK vintage clothing wholesaler supplying branded vintage to
               retailers, market traders and online sellers. We carry Lacoste and Ralph Lauren polos,
               mixed branded tee lots, Carhartt and Dickies workwear, designer knitwear,
-              premium vintage hoodies and sweatshirts, Lacoste knitwear, festival track jackets,
+              premium vintage hoodies and sweatshirts, Lacoste knitwear, track jackets and windbreakers,
               designer outerwear and Birkenstock sandals.
             </p>
             <p>

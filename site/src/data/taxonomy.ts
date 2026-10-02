@@ -58,7 +58,7 @@ export const productTypes: Category[] = [
     seoCopy:
       "Vintage jacket wholesale in the UK. Festival track jackets for the summer season and designer jackets sold in tens — the highest single-piece margin of anything we sell, and the fastest category to clear at a festival or market stall.",
     art: "diagonal-green",
-    photoFrom: "festival-track-jackets",
+    photoFrom: "track-jackets-windbreakers",
     featured: true,
   },
   {
@@ -163,7 +163,7 @@ export const brands: Category[] = [
     seoCopy:
       "Wholesale vintage Adidas from a UK supplier. Trefoil and three-stripe tees, hooded sweats and track pieces, sold in mixed lots alongside the other sportswear labels we carry.",
     art: "bands-green-4",
-    photoFrom: "festival-track-jackets",
+    photoFrom: "track-jackets-windbreakers",
     featured: true,
   },
   {
@@ -173,7 +173,7 @@ export const brands: Category[] = [
     seoCopy:
       "Vintage Reebok wholesale in the UK. Shell jackets, windbreakers and 90s sportswear — a label that sells strongly to buyers working the terrace and festival end of the market.",
     art: "stripes-ink-4",
-    photoFrom: "festival-track-jackets",
+    photoFrom: "track-jackets-windbreakers",
   },
   {
     slug: "fila",
@@ -438,7 +438,7 @@ export const collections: Category[] = [
     seoCopy:
       "Festival vintage wholesale — track jackets and bold branded pieces for the summer festival circuit. Bright, recognisable and priced to sell fast at a temporary pitch.",
     art: "diagonal-ink-2",
-    photoFrom: "festival-track-jackets",
+    photoFrom: "track-jackets-windbreakers",
   },
   {
     slug: "womens",

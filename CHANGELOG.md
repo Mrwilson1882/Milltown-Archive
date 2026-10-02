@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.02-4 — 2026-10-02 — commit `1d1243e`
+
+- "Festival Track Jackets" renamed **Track Jackets & Windbreakers**, at the owner's instruction: the lot is track tops and windbreakers, not a festival line. New address /products/track-jackets-windbreakers, with a permanent redirect from the old one so nothing already linked or indexed breaks. Summary, description and both image and video alt texts rewritten to drop the festival framing; the image folder moved to match.
+- The lot is still tagged to the Festival collection, which is a browse route and a search term buyers use — the name no longer says festival, but the page can still be found that way. Say if you want it off that route entirely.
+- Prices unchanged at £12.50 / £11.00 / £9.00.
+
+---
+
 ## v2026.10.02-3 — 2026-10-02 — commit `b36db75`
 
 - Eleven product photographs added from the owner's own stock (Batch 5), shot on white and resized to 1600px. Jackets & Windbreaker Mix gains five (a navy/green/white Nike windbreaker front and back, a two-tone blue Nike quarter-zip front and back, and a Nike zip and script detail). Lacoste Jumpers & Cardigans gains two (royal blue lambswool crew, front and back). Lacoste & Ralph Lauren Polos gains two (grey marl colour-block Lacoste polo and a croc detail). Ralph Lauren Polos gains two (navy and cream striped piqué polo and a neck-label detail).

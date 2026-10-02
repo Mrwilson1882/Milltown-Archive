@@ -29,7 +29,7 @@
  *   - ralph-lauren-polos                     (listed with no quantities)
  *   - mixed-premium-vintage-hoodies          (listed with no quantities)
  *   - mixed-premium-vintage-sweatshirts      (listed with no quantities)
- *   - festival-track-jackets                 (listed with no quantities)
+ *   - track-jackets-windbreakers             (listed with no quantities)
  *   - bags                                   (listed with no detail at all)
  *
  *   - t-shirt-mix                            (first seen in the photography)
@@ -518,12 +518,12 @@ const catalogue: Product[] = [
 
   // ---------------------------------------------------------------------- Jackets
   {
-    slug: "festival-track-jackets",
-    name: "Festival Track Jackets",
-    summary: "Loud branded zip-throughs, built for the festival run.",
+    slug: "track-jackets-windbreakers",
+    name: "Track Jackets & Windbreakers",
+    summary: "Branded zip-through track tops and windbreakers, mixed.",
     description: [
-      "Track jackets picked for the festival circuit — bright, branded and recognisable from a distance.",
-      "A seasonal buy with a short, sharp selling window. Festival pitches clear these faster than anything else on the rail.",
+      "Branded zip-through track tops and windbreakers — bright, recognisable shells from the sportswear labels, picked so the colour reads from across a rail.",
+      "Outerwear earns its space on a rail: a single track top or windbreaker carries a higher ticket than almost anything else sold by the piece.",
     ],
     brandSlugs: ["mixed-brands"],
     typeSlugs: ["jackets"],
@@ -534,8 +534,8 @@ const catalogue: Product[] = [
     art: "stripes-ink-3",
     photos: [
       {
-        src: "/images/products/festival-track-jackets/01.jpg",
-        alt: "Four festival track jackets on white: a blue and pink Reebok shell, a black and white Adidas taped track top, a navy and red Nike shell and a purple Adidas trefoil jacket.",
+        src: "/images/products/track-jackets-windbreakers/01.jpg",
+        alt: "Four vintage track jackets on white: a blue and pink Reebok shell, a black and white Adidas taped track top, a navy and red Nike shell and a purple Adidas trefoil jacket.",
       },
     ],
     // The same rail as the Jackets & Windbreaker Mix: the owner shoots these
@@ -545,7 +545,7 @@ const catalogue: Product[] = [
         src: "/videos/products/jackets-windbreaker-mix/01.mp4",
         hdr: "/videos/products/jackets-windbreaker-mix/01-hdr.mp4",
         poster: "/videos/products/jackets-windbreaker-mix/01-poster.jpg",
-        alt: "A look through the festival jacket rail, turned over piece by piece: a navy, white and green Nike shell jacket, a green Champion half-zip pullover and layered branded windbreakers.",
+        alt: "A look through the track jacket and windbreaker rail, turned over piece by piece: a navy, white and green Nike shell jacket, a green Champion half-zip pullover and layered branded windbreakers.",
       },
     ],
     inStock: true,
@@ -866,7 +866,7 @@ export const homeFeatured = [
   "jackets-windbreaker-mix",
   "mixed-premium-vintage-hoodies",
   "t-shirt-mix",
-  "festival-track-jackets",
+  "track-jackets-windbreakers",
   "carhartt-dickies-t-shirts",
   "lacoste-ralph-lauren-polos",
   "ralph-lauren-polos",
