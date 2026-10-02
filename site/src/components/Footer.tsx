@@ -90,6 +90,7 @@ export function Footer() {
             links={[
               ...collections.map((c) => ({ href: `/collections/${c.slug}`, label: c.name })),
               { href: "/grading-guide", label: "Grading Guide" },
+              { href: "/buyer-information", label: "Buyer Information" },
               { href: "/contact", label: "Contact Us" },
             ]}
           />

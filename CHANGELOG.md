@@ -12,6 +12,15 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.02-7 — 2026-10-02 — commit `e18d663`
+
+- **New page: /buyer-information.** The buyer guide is now on the website, not just in a PDF. It answers what a first-time trade buyer actually asks before ordering: how to order, how to pay, what we need from them at payment (name, email for the Evri tracking link, address), the £90 minimum, delivery cost and timing, what condition to expect, and whether the photographs show the exact pieces. Four at-a-glance figures, a five-step order process, delivery and condition panels, and twelve questions wired into FAQPage structured data.
+- Deliberately does not repeat the grading definitions in full — it states them once and links to the grading guide, so the two pages never drift apart or compete with each other in search.
+- Linked from the footer, listed in the sitemap and named in llms.txt so the AI crawlers find it.
+- Two more places on the grading guide still carried the old "Grade A carries no damage" wording — the Grade A/B panel and the last step of the grading process. Both now match the owner's rules.
+
+---
+
 ## v2026.10.02-6 — 2026-10-02 — commit `74bfe98`
 
 - Nineteen more photographs added from the owner's own stock (Batch 6), all shot on white and resized to 1600px, following the owner's rule that nothing goes on the site without a white background.

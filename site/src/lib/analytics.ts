@@ -11,7 +11,7 @@ import { track } from "@vercel/analytics";
  * told apart even though they all end up in the same WhatsApp inbox.
  */
 
-export type EnquirySource = "product" | "bulk" | "basket" | "float" | "grading" | "contact" | "search";
+export type EnquirySource = "product" | "bulk" | "basket" | "float" | "grading" | "contact" | "search" | "buyer-information";
 export type EnquiryChannel = "whatsapp" | "email";
 
 type Events = {

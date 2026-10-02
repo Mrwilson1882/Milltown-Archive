@@ -148,9 +148,10 @@ export default function GradingGuidePage() {
             <p className="display mt-3 text-4xl">Grade A/B</p>
             <p className="mt-4 text-sm leading-relaxed text-slate">
               Our standard lots are graded <strong className="text-ink">A/B</strong>: a mix of Grade A
-              and Grade B pieces. Grade A carries no damage, though it may be slightly faded. Grade B
-              carries honest wear — a small stain, a small hole, pilling, fading or a faulty zip — and
-              the lot is priced to reflect that. Nothing graded C goes into a lot.
+              and Grade B pieces. Grade A carries no stains, holes, tears or repairs — fading is
+              expected on vintage and does not cost it the grade. Grade B carries honest wear — a
+              small hole, a small stain, pilling or a faulty zip — and the lot is priced to reflect
+              that. Nothing graded C goes into a lot.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-slate">
               The grade is the constant. The exact pieces, brands and colourways in a lot vary with
@@ -227,7 +228,7 @@ export default function GradingGuidePage() {
               ["Surface", "Front and back checked for marks, stains, fading and print wear."],
               ["Construction", "Seams, hems and cuffs checked for splits, unpicking and repairs."],
               ["Fastenings", "Every zip run, every button and popper counted and tested. A zip that sticks, breaks or is missing grades the piece B."],
-              ["Grade", "The piece is graded A or B. Anything with damage bigger than that grades C and is kept out of the lots."],
+              ["Grade", "The piece is graded A or B. A large hole, several holes, or a stain that would stop it being worn even as workwear grades C, and Grade C is kept out of the lots."],
             ].map(([step, detail], i) => (
               <li key={step} className="flex gap-5 border-l-2 border-ash pl-5">
                 <span className="display w-8 shrink-0 text-2xl text-forest">

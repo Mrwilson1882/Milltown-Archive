@@ -45,6 +45,7 @@ Brands by lot (each lot is a mix; brands vary with intake):
 
 - [All products](https://www.archivewholesale.co.uk/products): every lot with lot sizes and per-piece prices.
 - [Reseller boxes](https://www.archivewholesale.co.uk/collections/reseller-boxes): fixed-price boxes, from £90.
+- [Buyer information](https://www.archivewholesale.co.uk/buyer-information): how to order and pay, what delivery costs and how long it takes, the minimum order, and what arrives in the box.
 - [Grading guide](https://www.archivewholesale.co.uk/grading-guide): what Grade A and Grade B mean, why fading does not cost a grade, and where the line falls between a small hole and a large one.
 - [Brands](https://www.archivewholesale.co.uk/brands): browse by label — every brand page lists the lots that label appears in.
 - [Search](https://www.archivewholesale.co.uk/search?q=): search lots by brand, garment or collection.
