@@ -81,8 +81,9 @@ export default async function ProductPage({ params }: Params) {
             alt: `${product.name} — placeholder artwork, photography to follow`,
           },
         ];
-  // Photographs first, then any video of the rail. Both are representative of
-  // the line, not the pieces that will be picked.
+  // Order here is immaterial: the gallery puts the video on the stage and the
+  // photographs behind the "Example product pictures" tile. Both are
+  // representative of the line, not the pieces that will be picked.
   const media: GalleryItem[] = [
     ...gallery.map((photo) => ({ kind: "image" as const, ...photo })),
     ...(product.videos ?? []).map((video) => ({ kind: "video" as const, ...video })),
@@ -189,17 +190,20 @@ export default async function ProductPage({ params }: Params) {
           <ProductGallery items={media} priority />
 
           {product.photos ? (
-            /* Every lot is graded from a fresh intake, so the shot is an example
-               of the line rather than the pieces that will be picked. Say so
-               plainly, next to the photograph, before anyone orders. */
+            /* Every lot is counted out from a fresh intake, so the video and the
+               example pictures show the line rather than the pieces that will be
+               picked. Say so plainly, next to the gallery, before anyone orders. */
             <p className="text-xs leading-relaxed text-slate">
-              {product.videos?.length ? "Photographs and video show" : "Photographs show"} a
-              representative sample of this line, not the exact pieces you will receive. Items,
-              brands and colourways vary with each intake.
+              {product.videos?.length
+                ? "The video shows a real rail from a recent intake, and the example pictures show the kind of pieces and condition in this line."
+                : "The example pictures show the kind of pieces and condition in this line."}{" "}
+              <strong className="text-ink">They are not the items you will receive</strong> — lots
+              are counted out from a fresh intake at dispatch, so items, brands and colourways vary
+              every time.
             </p>
           ) : (
             <p className="text-xs leading-relaxed text-slate">
-              Photography for this lot is being shot. Ask us for current pictures before you order.
+              Photography for this lot is being shot.
             </p>
           )}
         </div>

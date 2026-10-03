@@ -12,6 +12,15 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.03-1 — 2026-10-03 — commit `c8b2f9b`
+
+- **Product galleries restructured.** The video now leads on every lot that has one, and the photographs sit behind a single tile marked **Example product pictures** with a count on it. Clicking it opens a full viewer the buyer steps through with arrows, keyboard or dots. Fixed to the top of that viewer, in bold: *these are not the items you will receive — lots are counted out from a fresh intake at dispatch.*
+- The reason for the change: a row of individual garment thumbnails reads as a catalogue of what is in the box, which is exactly what a counted lot is not. One labelled door, with the caveat on the inside of it, says what the photographs are for without anyone having to read the small print.
+- The caption under the gallery rewritten to match, and the "ask us for current pictures before you order" line removed from the no-photography case, which was the last place that promise survived.
+- Five photographs added to Track Jackets & Windbreakers: a green, black and white Fila track jacket front and back, a navy, royal and cream adidas, a royal blue adidas Clima365, and a blue and black Reebok. All on white, resized to 1600px, with alt text naming brand and colourway.
+
+---
+
 ## v2026.10.02-8 — 2026-10-02 — commit `2ea3b0a`
 
 - "Ask for current photos before ordering" removed from the Designer Jackets listing, along with the claim that we photograph each piece individually before a buyer commits. We do not shoot stock to order, and the site no longer says we do.
