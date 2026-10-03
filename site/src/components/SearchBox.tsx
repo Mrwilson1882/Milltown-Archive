@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useId, useMemo, useState } from "react";
-import { coverImage, fromPrice, quantityLabel } from "@/data/catalogue";
+import { coverImage, fromPrice, quantityLabel, availabilityLabel} from "@/data/catalogue";
 import { categoryPath } from "@/data/taxonomy";
 import { trackEvent } from "@/lib/analytics";
 import { perPiece } from "@/lib/format";
@@ -135,7 +135,7 @@ export function SearchBox({
                         <span className="min-w-0 flex-1">
                           <span className="display block truncate text-sm">{product.name}</span>
                           <span className="block text-xs text-slate">
-                            {product.inStock ? `Lots of ${quantityLabel(product)}` : "Sold out"}
+                            {product.inStock ? `Lots of ${quantityLabel(product)}` : availabilityLabel(product)}
                           </span>
                         </span>
                         {price !== null && cheapest && (

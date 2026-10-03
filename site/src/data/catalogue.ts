@@ -784,6 +784,28 @@ const catalogue: Product[] = [
     featured: true,
   },
   {
+    slug: "winter-mix",
+    name: "Winter Mix",
+    summary: "Branded winter layers, men's and women's together.",
+    description: [
+      "The heavier end of the rail, men's and women's in one lot: knitwear, hoodies, sweatshirts, fleeces and lined jackets picked for the cold months.",
+      "Winter is when a vintage rail earns its keep — a jumper or a fleece carries a higher ticket than a tee, and the selling window runs from September through to February.",
+    ],
+    brandSlugs: ["mixed-brands"],
+    typeSlugs: ["jumpers-sweats", "jackets"],
+    collectionSlugs: ["winter", "premium-vintage", "mens", "womens"],
+    // Prices not set yet — the owner's call. Photography lands first.
+    variants: [],
+    unit: "pieces",
+    notes: [],
+    art: "halftone-green-3",
+    // Held until the owner's photographs arrive. A lot with no photograph and
+    // no video is forced out of stock further down this file, so this is
+    // belt and braces rather than the only guard.
+    inStock: false,
+    featured: false,
+  },
+  {
     slug: "mens-luxury-winter-mix",
     name: "Men's Luxury Winter Mix",
     summary: "Designer knitwear, sweatshirts, hoodies, jackets and shirts — Missoni, Valentino, Stone Island, Lacoste.",
@@ -933,6 +955,21 @@ export function fromPrice(product: Product): number | null {
 }
 
 /** The quantity options as a readable run, e.g. "10, 25 or 50". */
+/**
+ * A lot with nothing to show has not sold out — it has not launched. Saying
+ * "sold out" of a line that was never on sale reads as stock that went, which
+ * is a different and worse impression than "not ready yet".
+ */
+export function notYetLaunched(product: Product): boolean {
+  return (product.photos?.length ?? 0) === 0 && (product.videos?.length ?? 0) === 0;
+}
+
+/** What the availability row says: in stock, coming soon, or sold out. */
+export function availabilityLabel(product: Product): string {
+  if (product.inStock) return "In stock";
+  return notYetLaunched(product) ? "Coming soon" : "Sold out";
+}
+
 export function quantityLabel(product: Product): string {
   if (product.variants.length === 0) return "Quantities on request";
   const counts = product.variants.map((v) => v.pieces);

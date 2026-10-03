@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.03-11 — 2026-10-03 — commit `88cff04`
+
+- **New lot: Winter Mix**, men's and women's together — knitwear, hoodies, sweatshirts, fleeces and lined jackets. Created **held**: no photographs, no video, no prices, not purchasable. The owner's photography lands tomorrow and prices are the owner's call, so neither is guessed here. Page, description and search presence are in place so it only needs the pictures and the figures.
+- Filed under Winter, Premium Vintage, Men's and Women's, so it appears on those browse routes the moment it goes live.
+- **"Sold out" replaced with "Coming soon" for a lot that has never launched.** A lot with no photograph and no video has not sold out — it was never on sale, and saying sold out implies stock that went. Birkenstock Sandals and Designer Jackets still read Sold out, because that is what they are. Applied on the product page, the product cards and search.
+
+---
+
 ## v2026.10.03-10 — 2026-10-03 — commit `d4b1c8c`
 
 - **"Send basket via WhatsApp" and "Send basket via email" are gone from the basket** while card checkout is live. The owner wants people buying, not opening a conversation, and every extra button beside Secure Checkout is an order that turns into a chat. The floating WhatsApp button stays on every page, so anyone with a question still has a route.

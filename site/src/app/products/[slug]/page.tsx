@@ -5,7 +5,7 @@ import { AddToCart } from "@/components/AddToCart";
 import { ProductGallery, type GalleryItem } from "@/components/ProductGallery";
 import { EnquiryActions } from "@/components/EnquiryActions";
 import { ProductCard } from "@/components/ProductCard";
-import { fromPrice, getProduct, pricedCount, products, quantityLabel, toPrice } from "@/data/catalogue";
+import { fromPrice, getProduct, pricedCount, products, quantityLabel, toPrice, availabilityLabel} from "@/data/catalogue";
 import { findCategory, type CategoryKind } from "@/data/taxonomy";
 import { showVat, siteConfig } from "@/config/site";
 import { formatPrice, perPiece } from "@/lib/format";
@@ -294,7 +294,7 @@ export default async function ProductPage({ params }: Params) {
             )}
             <div className="flex gap-6 py-3">
               <dt className="w-36 shrink-0 font-bold">Availability</dt>
-              <dd className="text-slate">{product.inStock ? "In stock" : "Sold out"}</dd>
+              <dd className="text-slate">{availabilityLabel(product)}</dd>
             </div>
             {product.notes.length > 0 && (
               <div className="flex gap-6 py-3">

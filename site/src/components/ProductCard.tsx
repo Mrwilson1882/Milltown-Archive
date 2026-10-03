@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { coverImage, quantityLabel, type Product } from "@/data/catalogue";
+import { coverImage, quantityLabel, type Product, availabilityLabel} from "@/data/catalogue";
 import { perPiece } from "@/lib/format";
 import { vatSuffix } from "@/config/site";
 
@@ -30,7 +30,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
         />
         {!product.inStock && (
           <span className="absolute top-3 left-3 bg-ink px-2.5 py-1 text-[0.65rem] font-bold tracking-wider text-paper uppercase">
-            Sold out
+            {availabilityLabel(product)}
           </span>
         )}
         {hasVideo && (
