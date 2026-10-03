@@ -850,7 +850,7 @@ const catalogue: Product[] = [
         alt: "A designer jackets lot on white: a red Polo Jeans Co zip jacket, a black quilted Moncler, a navy Burberry field jacket and a black Versace blazer with gold buttons.",
       },
     ],
-    inStock: true,
+    inStock: false, // Marked out of stock by the owner, 3 Oct 2026.
     featured: true,
   },
 ];
