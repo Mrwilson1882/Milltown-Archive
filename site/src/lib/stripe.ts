@@ -19,6 +19,19 @@ const key = process.env.STRIPE_SECRET_KEY?.trim() ?? "";
  * the whole flow can be rehearsed before the live key goes in.
  */
 const isTestKey = key.startsWith("sk_test_");
+
+/**
+ * The publishable key is the one Stripe prints in full on the API keys page;
+ * the secret sits below it behind "Reveal". They get swapped, and when they do
+ * every checkout fails with secret_key_required and the buyer sees a dead
+ * button. Treat anything that is not a secret or restricted key as no key.
+ */
+const isNotASecretKey = Boolean(key) && !key.startsWith("sk_") && !key.startsWith("rk_");
+if (isNotASecretKey) {
+  console.error(
+    `[stripe] STRIPE_SECRET_KEY starts "${key.slice(0, 3)}", which is not a secret key. Card checkout is off until it holds an sk_live_… key.`,
+  );
+}
 // On Vercel, NODE_ENV is "production" for preview builds too, so VERCEL_ENV is
 // the one that distinguishes the live site. NODE_ENV is only the fallback for
 // a host that does not set it.
@@ -26,9 +39,9 @@ const vercelEnv = process.env.VERCEL_ENV;
 const isProduction = vercelEnv
   ? vercelEnv === "production"
   : process.env.NODE_ENV === "production";
-export const stripeKeyRejected = Boolean(key) && isTestKey && isProduction;
+export const stripeKeyRejected = Boolean(key) && (isNotASecretKey || (isTestKey && isProduction));
 
-if (stripeKeyRejected) {
+if (isTestKey && isProduction) {
   console.error(
     "[stripe] Refusing a test key in production. Card checkout is switched off until STRIPE_SECRET_KEY is a live key (sk_live_…).",
   );
@@ -46,7 +59,9 @@ export function getStripe(): Stripe {
   }
   if (stripeKeyRejected) {
     throw new Error(
-      "STRIPE_SECRET_KEY is a test key and this is production. Card checkout is switched off rather than taking orders that collect no money.",
+      isNotASecretKey
+        ? "STRIPE_SECRET_KEY does not hold a secret key. Use the sk_live_… key from Developers → API keys, not the publishable pk_… one."
+        : "STRIPE_SECRET_KEY is a test key and this is production. Card checkout is switched off rather than taking orders that collect no money.",
     );
   }
   if (!client) client = new Stripe(key);

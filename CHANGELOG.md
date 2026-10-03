@@ -12,6 +12,12 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.03-5 — 2026-10-03 — commit `4f410c5`
+
+- **A publishable key in the secret key slot is now refused too.** Stripe prints the publishable key in full on the API keys page and hides the secret behind a Reveal, so the two get swapped — and when they do, every checkout fails with `secret_key_required` and the buyer gets a dead button and a vague error. The site now treats anything that is not an `sk_` or `rk_` key as no key at all, in every environment, and falls back to the WhatsApp message instead. The server log names the prefix it found.
+
+---
+
 ## v2026.10.03-4 — 2026-10-03 — commit `e00a1ec`
 
 - **Designer Jackets marked out of stock**, at the owner's instruction. The lot can no longer be added to a basket and drops to the bottom of the listings, alongside Birkenstock Sandals. The page, its photographs, its description and its place in search are all untouched, so nothing indexed is lost — it is one flag back when the stock returns.
