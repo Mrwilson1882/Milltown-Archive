@@ -12,6 +12,15 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.03-9 — 2026-10-03 — commit `bf94726`
+
+- **Delivery rebanded to the owner's rates: £10 on a lot of 10, £20 on a 25, £35 on a 50.** Replaces this evening's flat £1 a piece, which charged £25 on a 25 and £50 on a 50.
+- Charged **per lot, not per basket**, because each lot is its own parcel. Two lots of 10 is £20; a 10 and a 25 together is £30. Verified across all five combinations: 10 → £10, two 10s → £20, 25 → £20, 50 → £35, 10 + 25 → £30.
+- A lot larger than 50 falls back to the 50 rate pro-rata, so an unusual lot size can never post cheaper than a 50.
+- **Delivery is now tracked, next day** rather than 48–72 hours after dispatch. Changed in the basket, the Stripe shipping rate and its delivery estimate, the buyer information page's answer, panel and at-a-glance tiles, and llms.txt.
+
+---
+
 ## v2026.10.03-8 — 2026-10-03 — commit `80a62a3`
 
 - **UK delivery is now charged on the site: £10 per 10 pieces.** A lot of 10 pays £10, a 25 pays £25, a 50 pays £50, and two lots of 10 pay £20 — it is £1 a piece, counted across the whole basket, which tracks the number of parcels that actually go out.

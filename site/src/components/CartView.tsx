@@ -232,7 +232,7 @@ export function CartView({
               UK delivery
               {piecesGBP > 0 && (
                 <span className="block text-xs">
-                  {piecesGBP} {piecesGBP === 1 ? "piece" : "pieces"}, tracked with Evri
+                  {piecesGBP} {piecesGBP === 1 ? "piece" : "pieces"}, tracked, next day
                 </span>
               )}
             </dt>

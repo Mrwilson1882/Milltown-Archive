@@ -105,17 +105,17 @@ export async function POST(request: Request) {
       // customer pick another country, so an overseas buyer is stopped at the
       // address step rather than after paying.
       shipping_address_collection: { allowed_countries: ["GB"] },
-      // Delivery is £10 per 10 pieces, worked out from the same helper the
-      // basket uses, so the figure the buyer saw is the figure they are charged.
+      // Delivery is banded per lot (£10 / £20 / £35), worked out from the same
+      // helper the basket uses, so the figure the buyer saw is what they pay.
       shipping_options: [
         {
           shipping_rate_data: {
             type: "fixed_amount" as const,
-            display_name: `UK delivery — ${pieceCount(payable)} pieces, tracked with Evri`,
+            display_name: `UK delivery — ${pieceCount(payable)} pieces, tracked, next day`,
             fixed_amount: { amount: toPence(deliveryGBP(payable)), currency: "gbp" as const },
             delivery_estimate: {
-              minimum: { unit: "business_day" as const, value: 2 },
-              maximum: { unit: "business_day" as const, value: 3 },
+              minimum: { unit: "business_day" as const, value: 1 },
+              maximum: { unit: "business_day" as const, value: 1 },
             },
           },
         },
@@ -124,7 +124,7 @@ export async function POST(request: Request) {
       custom_text: {
         submit: {
           message:
-            "UK delivery only at the moment, charged at £10 per 10 pieces and included in the total above. Dispatched within 24–48 hours, tracked with Evri.",
+            "UK delivery only at the moment — £10 on a lot of 10, £20 on a 25, £35 on a 50, already included above. Dispatched within 24–48 hours, then tracked next-day delivery.",
         },
       },
       success_url: `${siteConfig.url}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,

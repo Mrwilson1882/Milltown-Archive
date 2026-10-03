@@ -1,5 +1,5 @@
 import { findVariant, getProduct, type Product, type Variant } from "@/data/catalogue";
-import { deliveryPerPieceGBP, vatRate } from "@/config/site";
+import { deliveryForLotGBP, vatRate } from "@/config/site";
 
 /** v2: cart lines gained a `pieces` field when products gained quantity options. */
 export const CART_STORAGE_KEY = "archive-wholesale-cart-v2";
@@ -48,9 +48,13 @@ export function pieceCount(lines: ResolvedLine[]): number {
   return lines.reduce((sum, l) => sum + l.variant.pieces * l.qty, 0);
 }
 
-/** UK delivery for a set of priced lines: £10 per 10 pieces. */
+/**
+ * UK delivery for a set of priced lines. Charged per lot — £10 on a 10, £20 on
+ * a 25, £35 on a 50 — because each lot is its own parcel.
+ */
 export function deliveryGBP(lines: ResolvedLine[]): number {
-  return Math.round(pieceCount(lines) * deliveryPerPieceGBP * 100) / 100;
+  const total = lines.reduce((sum, l) => sum + deliveryForLotGBP(l.variant.pieces) * l.qty, 0);
+  return Math.round(total * 100) / 100;
 }
 
 /** Total of the priced lines only. Enquiry-only lines are counted separately. */

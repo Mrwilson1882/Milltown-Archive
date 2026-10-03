@@ -72,13 +72,16 @@ export const siteConfig = {
    * checkout, so the customer pays the correct total.
    */
   /**
-   * UK delivery, charged by the piece: £10 per 10 pieces. A 10 pays £10, a 25
-   * pays £25, a 50 pays £50, which tracks the number of parcels that actually
-   * go out. Set by the owner on 3 October 2026.
+   * UK delivery, banded by lot size and charged per lot: a 10 costs £10, a 25
+   * costs £20, a 50 costs £35. Two lots of 10 is £20, because that is two
+   * parcels. Tracked, next day. Set by the owner on 3 October 2026.
    */
   delivery: {
-    gbpPerPieces: 10,
-    pieces: 10,
+    bands: [
+      { upToPieces: 10, gbp: 10 },
+      { upToPieces: 25, gbp: 20 },
+      { upToPieces: 50, gbp: 35 },
+    ],
   },
 
   vat: {
@@ -95,8 +98,19 @@ export const siteConfig = {
 /** "Vo-10, Empire Business Park, 2 Empire Way, Burnley BB12 6HA" */
 export const addressLine = `${siteConfig.address.unit}, ${siteConfig.address.street}, ${siteConfig.address.town} ${siteConfig.address.postcode}`;
 
-/** UK delivery per piece, in pounds. £10 per 10 pieces. */
-export const deliveryPerPieceGBP = siteConfig.delivery.gbpPerPieces / siteConfig.delivery.pieces;
+/**
+ * UK delivery for one lot of this size. Bands are per lot, not per basket: a
+ * buyer taking two lots of 10 is sent two parcels and pays for two. Anything
+ * above the top band is charged pro-rata at that band's rate, so an unusually
+ * large lot can never come out cheaper than a 50.
+ */
+export function deliveryForLotGBP(pieces: number): number {
+  const bands = siteConfig.delivery.bands;
+  const band = bands.find((b) => pieces <= b.upToPieces);
+  if (band) return band.gbp;
+  const top = bands[bands.length - 1];
+  return Math.ceil((pieces / top.upToPieces) * top.gbp);
+}
 
 export const showVat = siteConfig.vat.registered;
 export const vatRate = showVat ? siteConfig.vat.ratePercent / 100 : 0;

@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "How much is delivery and how long does it take?",
-    a: "UK delivery is £10 per 10 pieces — £10 on a lot of 10, £25 on a 25, £50 on a 50 — worked out in the basket and included in the total before you pay, so there is nothing to settle afterwards. Orders are dispatched within 24 to 48 hours of payment and typically arrive 48 to 72 hours after dispatch, tracked with Evri. We are shipping within the United Kingdom only at the moment.",
+    a: "UK delivery is charged per lot: £10 on a lot of 10, £20 on a 25, £35 on a 50. Two lots of 10 is £20, because that is two parcels. The basket works it out and includes it in the total before you pay, so there is nothing to settle afterwards. Orders are dispatched within 24 to 48 hours of payment and then sent tracked, next day. We are shipping within the United Kingdom only at the moment.",
   },
   {
     q: "How will I know when my order has been sent?",
@@ -138,9 +138,9 @@ export default function BuyerInformationPage() {
           {[
             ["Minimum order", "£90", "the 10-piece Starter Box"],
             ["Payment", "Card", "secure link, handled by Stripe"],
-            ["Delivery", "£10", "per 10 pieces, UK"],
+            ["Delivery", "£10–£35", "per lot, by size"],
             ["Dispatch", "24–48 hrs", "after payment"],
-            ["UK delivery", "48–72 hrs", "after dispatch, tracked with Evri"],
+            ["UK delivery", "Next day", "tracked, after dispatch"],
           ].map(([label, value, note]) => (
             <div key={label} className="bg-paper p-5">
               <dt className="eyebrow text-slate">{label}</dt>
@@ -197,14 +197,15 @@ export default function BuyerInformationPage() {
             <div className="mt-5 space-y-4 text-sm leading-relaxed text-slate">
               <p>
                 Everything is picked, counted and packed at our unit in Burnley, then shipped tracked
-                with Evri. Delivery is <strong className="text-ink">£10 per 10 pieces</strong> — £10
-                on a lot of 10, £25 on a 25, £50 on a 50. The basket works it out and adds it to the
-                total before you pay, so there is no second bill.
+                with Evri. Delivery is charged <strong className="text-ink">per lot</strong>: £10 on
+                a lot of 10, £20 on a 25, £35 on a 50. Two lots of 10 is £20, because that is two
+                parcels. The basket works it out and adds it to the total before you pay, so there
+                is no second bill.
               </p>
               <p>
-                UK orders are dispatched within 24 to 48 hours of payment and typically arrive 48 to
-                72 hours after dispatch. Evri send the tracking link straight to the email address you
-                give us at payment, which is why we ask for it.
+                Orders are dispatched within 24 to 48 hours of payment and then sent tracked, next
+                day. Evri send the tracking link straight to the email address you give us at
+                payment, which is why we ask for it.
               </p>
               <p>
                 We are shipping within the United Kingdom only at the moment. If you are outside
