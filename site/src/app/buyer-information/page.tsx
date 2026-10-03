@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "How much is delivery and how long does it take?",
-    a: "Delivery is quoted when you order, based on weight and where it is going — tell us the destination and we will give you the figure with your total. UK orders are dispatched within 24 to 48 hours of payment and typically arrive 48 to 72 hours after dispatch, tracked with Evri. Ireland and mainland Europe take longer; ask and we will give you a time and a price.",
+    a: "Delivery is quoted when you order, based on weight and where it is going — tell us the destination and we will give you the figure with your total. Orders are dispatched within 24 to 48 hours of payment and typically arrive 48 to 72 hours after dispatch, tracked with Evri. We are shipping within the United Kingdom only at the moment.",
   },
   {
     q: "How will I know when my order has been sent?",
@@ -63,7 +63,7 @@ const faqs = [
   },
   {
     q: "Where do you ship from?",
-    a: "Our unit in Burnley, Lancashire. We ship across the UK, to Ireland and to mainland Europe.",
+    a: "Our unit in Burnley, Lancashire. We ship within the United Kingdom only at the moment. If you are outside the UK, message us — we will tell you when we open it up.",
   },
 ];
 
@@ -205,8 +205,8 @@ export default function BuyerInformationPage() {
                 give us at payment, which is why we ask for it.
               </p>
               <p>
-                We ship to Ireland and mainland Europe as well. Times and costs depend on the volume,
-                so ask and we will give you both before you commit.
+                We are shipping within the United Kingdom only at the moment. If you are outside
+                the UK, message us and we will tell you when that changes.
               </p>
             </div>
           </div>

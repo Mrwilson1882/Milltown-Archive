@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.03-2 — 2026-10-03 — commit `cd1c918`
+
+- **Checkout restricted to the United Kingdom**, at the owner's instruction. Stripe's address step now offers GB and nothing else, so an overseas buyer is stopped before paying rather than after. Previously it accepted Ireland, France, Germany, the Netherlands, Belgium, Spain, Italy and Poland.
+- The Stripe page says "UK delivery only at the moment" above the pay button.
+- Every place the site promised shipping to Ireland and mainland Europe has been corrected: the buyer information page's delivery answer, its "where do you ship from" answer, its delivery panel, and llms.txt. Each now says UK only for the moment and invites an overseas buyer to message rather than leaving them a dead end.
+
+---
+
 ## v2026.10.03-1 — 2026-10-03 — commit `c8b2f9b`
 
 - **Product galleries restructured.** The video now leads on every lot that has one, and the photographs sit behind a single tile marked **Example product pictures** with a count on it. Clicking it opens a full viewer the buyer steps through with arrows, keyboard or dots. Fixed to the top of that viewer, in bold: *these are not the items you will receive — lots are counted out from a fresh intake at dispatch.*

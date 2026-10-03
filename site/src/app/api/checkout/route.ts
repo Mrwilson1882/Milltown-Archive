@@ -101,13 +101,15 @@ export async function POST(request: Request) {
       // created in the Stripe dashboard, on the checkout page itself.
       allow_promotion_codes: true,
       billing_address_collection: "required",
-      shipping_address_collection: {
-        allowed_countries: ["GB", "IE", "FR", "DE", "NL", "BE", "ES", "IT", "PL"],
-      },
+      // UK only for now, by the owner's instruction. Stripe will not let a
+      // customer pick another country, so an overseas buyer is stopped at the
+      // address step rather than after paying.
+      shipping_address_collection: { allowed_countries: ["GB"] },
       phone_number_collection: { enabled: true },
       custom_text: {
         submit: {
-          message: "Delivery is quoted separately once we have your address and total weight.",
+          message:
+            "UK delivery only at the moment. Delivery is quoted separately once we have your address and total weight.",
         },
       },
       success_url: `${siteConfig.url}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
