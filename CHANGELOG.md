@@ -12,6 +12,13 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.03-7 — 2026-10-03 — commit `6acbbce`
+
+- **Close-up detail shots restored**, at the owner's instruction: a Nike collar and zip, an adidas hood, a Trussardi hood, a green Lacoste croc and a brown Lacoste collar. Measuring the frame edge turned out to be the wrong test — every close-up runs to the bottom of its frame — so the distinction is framing, not geometry: a shot tight on one feature reads as detail, a shot showing half a garment at full size reads as a mistake.
+- Left out on that basis: the grey Lacoste polo, which has the same half-garment fault as the two Ralph Lauren crops replaced earlier.
+
+---
+
 ## v2026.10.03-6 — 2026-10-03 — commit `1b8005b`
 
 - **Every close-up crop removed from the galleries.** Eight of the photographs added earlier today were tight detail shots from the owner's retail listings — a collar, a croc, a hood — where the garment runs off the edge of the frame. They read fine as a thumbnail, but the new viewer shows each one full screen, where they look like a mistake rather than a detail. Gone from Jackets & Windbreakers, Track Jackets & Windbreakers, Lacoste Jumpers & Cardigans, Lacoste & Ralph Lauren Polos, Mixed Premium Vintage Hoodies and Ralph Lauren Polos. Every photograph on the site is now a whole garment.
