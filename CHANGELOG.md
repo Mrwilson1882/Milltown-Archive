@@ -12,6 +12,15 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.03-8 — 2026-10-03 — commit `80a62a3`
+
+- **UK delivery is now charged on the site: £10 per 10 pieces.** A lot of 10 pays £10, a 25 pays £25, a 50 pays £50, and two lots of 10 pay £20 — it is £1 a piece, counted across the whole basket, which tracks the number of parcels that actually go out.
+- The basket shows it as its own line with the piece count beside it, and it is in the total before anyone clicks through. At Stripe it goes as a shipping rate rather than a product line, so it reads as "UK delivery" on the receipt with a 2–3 business day estimate, and the figure comes from the same helper the basket uses — the two cannot drift apart.
+- Charged on priced lines only; a lot that is still price-on-enquiry has no agreed quantity to charge delivery for.
+- Replaces "delivery quoted on weight after checkout" everywhere it appeared: the basket, the Stripe page, the buyer information page's delivery answer and panel, a new at-a-glance tile, and llms.txt.
+
+---
+
 ## v2026.10.03-7 — 2026-10-03 — commit `6acbbce`
 
 - **Close-up detail shots restored**, at the owner's instruction: a Nike collar and zip, an adidas hood, a Trussardi hood, a green Lacoste croc and a brown Lacoste collar. Measuring the frame edge turned out to be the wrong test — every close-up runs to the bottom of its frame — so the distinction is framing, not geometry: a shot tight on one feature reads as detail, a shot showing half a garment at full size reads as a mistake.

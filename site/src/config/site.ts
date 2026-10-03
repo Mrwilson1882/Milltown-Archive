@@ -71,6 +71,16 @@ export const siteConfig = {
    * VAT is added as its own line in the cart and as its own line item at
    * checkout, so the customer pays the correct total.
    */
+  /**
+   * UK delivery, charged by the piece: £10 per 10 pieces. A 10 pays £10, a 25
+   * pays £25, a 50 pays £50, which tracks the number of parcels that actually
+   * go out. Set by the owner on 3 October 2026.
+   */
+  delivery: {
+    gbpPerPieces: 10,
+    pieces: 10,
+  },
+
   vat: {
     /**
      * Flip to true once Archivio Group Ltd is VAT registered. Everything follows from
@@ -84,6 +94,9 @@ export const siteConfig = {
 
 /** "Vo-10, Empire Business Park, 2 Empire Way, Burnley BB12 6HA" */
 export const addressLine = `${siteConfig.address.unit}, ${siteConfig.address.street}, ${siteConfig.address.town} ${siteConfig.address.postcode}`;
+
+/** UK delivery per piece, in pounds. £10 per 10 pieces. */
+export const deliveryPerPieceGBP = siteConfig.delivery.gbpPerPieces / siteConfig.delivery.pieces;
 
 export const showVat = siteConfig.vat.registered;
 export const vatRate = showVat ? siteConfig.vat.ratePercent / 100 : 0;

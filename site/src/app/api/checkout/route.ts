@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getStripe, stripeEnabled } from "@/lib/stripe";
-import { resolveLines, type CartLine } from "@/lib/cart";
+import { deliveryGBP, pieceCount, resolveLines, type CartLine } from "@/lib/cart";
 import { toPence } from "@/lib/format";
 import { siteConfig, vatRate } from "@/config/site";
 
@@ -105,11 +105,26 @@ export async function POST(request: Request) {
       // customer pick another country, so an overseas buyer is stopped at the
       // address step rather than after paying.
       shipping_address_collection: { allowed_countries: ["GB"] },
+      // Delivery is £10 per 10 pieces, worked out from the same helper the
+      // basket uses, so the figure the buyer saw is the figure they are charged.
+      shipping_options: [
+        {
+          shipping_rate_data: {
+            type: "fixed_amount" as const,
+            display_name: `UK delivery — ${pieceCount(payable)} pieces, tracked with Evri`,
+            fixed_amount: { amount: toPence(deliveryGBP(payable)), currency: "gbp" as const },
+            delivery_estimate: {
+              minimum: { unit: "business_day" as const, value: 2 },
+              maximum: { unit: "business_day" as const, value: 3 },
+            },
+          },
+        },
+      ],
       phone_number_collection: { enabled: true },
       custom_text: {
         submit: {
           message:
-            "UK delivery only at the moment. Delivery is quoted separately once we have your address and total weight.",
+            "UK delivery only at the moment, charged at £10 per 10 pieces and included in the total above. Dispatched within 24–48 hours, tracked with Evri.",
         },
       },
       success_url: `${siteConfig.url}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,

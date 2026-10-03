@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "How much is delivery and how long does it take?",
-    a: "Delivery is quoted when you order, based on weight and where it is going — tell us the destination and we will give you the figure with your total. Orders are dispatched within 24 to 48 hours of payment and typically arrive 48 to 72 hours after dispatch, tracked with Evri. We are shipping within the United Kingdom only at the moment.",
+    a: "UK delivery is £10 per 10 pieces — £10 on a lot of 10, £25 on a 25, £50 on a 50 — worked out in the basket and included in the total before you pay, so there is nothing to settle afterwards. Orders are dispatched within 24 to 48 hours of payment and typically arrive 48 to 72 hours after dispatch, tracked with Evri. We are shipping within the United Kingdom only at the moment.",
   },
   {
     q: "How will I know when my order has been sent?",
@@ -138,6 +138,7 @@ export default function BuyerInformationPage() {
           {[
             ["Minimum order", "£90", "the 10-piece Starter Box"],
             ["Payment", "Card", "secure link, handled by Stripe"],
+            ["Delivery", "£10", "per 10 pieces, UK"],
             ["Dispatch", "24–48 hrs", "after payment"],
             ["UK delivery", "48–72 hrs", "after dispatch, tracked with Evri"],
           ].map(([label, value, note]) => (
@@ -196,8 +197,9 @@ export default function BuyerInformationPage() {
             <div className="mt-5 space-y-4 text-sm leading-relaxed text-slate">
               <p>
                 Everything is picked, counted and packed at our unit in Burnley, then shipped tracked
-                with Evri. Delivery is quoted when you order, on weight and destination — tell us
-                where it is going and the figure comes with your total.
+                with Evri. Delivery is <strong className="text-ink">£10 per 10 pieces</strong> — £10
+                on a lot of 10, £25 on a 25, £50 on a 50. The basket works it out and adds it to the
+                total before you pay, so there is no second bill.
               </p>
               <p>
                 UK orders are dispatched within 24 to 48 hours of payment and typically arrive 48 to

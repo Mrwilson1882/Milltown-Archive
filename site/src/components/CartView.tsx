@@ -22,7 +22,16 @@ export function CartView({
   const [error, setError] = useState<string | null>(null);
 
   const resolved = useMemo(() => resolveLines(lines), [lines]);
-  const { payable, enquiryOnly, payableTotalGBP, vatGBP, grossTotalGBP, itemCount } = useMemo(
+  const {
+    payable,
+    enquiryOnly,
+    payableTotalGBP,
+    vatGBP,
+    deliveryGBP,
+    piecesGBP,
+    grossTotalGBP,
+    itemCount,
+  } = useMemo(
     () => cartTotals(resolved),
     [resolved],
   );
@@ -219,8 +228,15 @@ export function CartView({
             </div>
           )}
           <div className="flex justify-between border-t border-ash pt-3">
-            <dt className="text-slate">Delivery</dt>
-            <dd className="text-right text-xs text-slate">Quoted on weight after checkout</dd>
+            <dt className="text-slate">
+              UK delivery
+              {piecesGBP > 0 && (
+                <span className="block text-xs">
+                  {piecesGBP} {piecesGBP === 1 ? "piece" : "pieces"}, tracked with Evri
+                </span>
+              )}
+            </dt>
+            <dd className="font-bold">{formatPrice(deliveryGBP)}</dd>
           </div>
         </dl>
 

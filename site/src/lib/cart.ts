@@ -1,5 +1,5 @@
 import { findVariant, getProduct, type Product, type Variant } from "@/data/catalogue";
-import { vatRate } from "@/config/site";
+import { deliveryPerPieceGBP, vatRate } from "@/config/site";
 
 /** v2: cart lines gained a `pieces` field when products gained quantity options. */
 export const CART_STORAGE_KEY = "archive-wholesale-cart-v2";
@@ -39,6 +39,20 @@ export function resolveLines(lines: CartLine[]): ResolvedLine[] {
   });
 }
 
+/**
+ * How many garments are in these lines — not how many lots. A lot of 25 bought
+ * twice is 50 pieces. Delivery is charged on this, so the basket and the
+ * checkout have to count it the same way.
+ */
+export function pieceCount(lines: ResolvedLine[]): number {
+  return lines.reduce((sum, l) => sum + l.variant.pieces * l.qty, 0);
+}
+
+/** UK delivery for a set of priced lines: £10 per 10 pieces. */
+export function deliveryGBP(lines: ResolvedLine[]): number {
+  return Math.round(pieceCount(lines) * deliveryPerPieceGBP * 100) / 100;
+}
+
 /** Total of the priced lines only. Enquiry-only lines are counted separately. */
 export function cartTotals(resolved: ResolvedLine[]) {
   const payable = resolved.filter((l) => l.lineTotalGBP !== null);
@@ -46,12 +60,17 @@ export function cartTotals(resolved: ResolvedLine[]) {
   const netGBP = payable.reduce((sum, l) => sum + (l.lineTotalGBP ?? 0), 0);
   // Catalogue prices are ex-VAT, so VAT is added here rather than assumed in.
   const vatGBP = Math.round(netGBP * vatRate * 100) / 100;
+  // Delivery is charged on the priced lines only; an enquiry-only lot has no
+  // agreed quantity to charge for yet.
+  const deliveryTotalGBP = deliveryGBP(payable);
   return {
     payable,
     enquiryOnly,
     payableTotalGBP: netGBP,
     vatGBP,
-    grossTotalGBP: Math.round((netGBP + vatGBP) * 100) / 100,
+    deliveryGBP: deliveryTotalGBP,
+    piecesGBP: pieceCount(payable),
+    grossTotalGBP: Math.round((netGBP + vatGBP + deliveryTotalGBP) * 100) / 100,
     itemCount: resolved.reduce((sum, l) => sum + l.qty, 0),
   };
 }
