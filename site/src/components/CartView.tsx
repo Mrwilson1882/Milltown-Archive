@@ -271,8 +271,13 @@ export function CartView({
           </p>
         )}
 
+        {/* Only a fallback. While card checkout is live the basket offers one
+            route — pay — because every extra button here is a buyer who starts
+            a conversation instead of an order. The floating WhatsApp button is
+            still there for anyone with a question. */}
+        {!stripeEnabled && (
         <div className="mt-6 border-t border-ash pt-5">
-          <p className="eyebrow text-slate">Rather talk to us? WhatsApp or email</p>
+          <p className="eyebrow text-slate">Card checkout is off — send your basket instead</p>
           <div className="mt-3 space-y-2">
             {whatsappAvailable && (
               <a
@@ -295,6 +300,7 @@ export function CartView({
             </a>
           </div>
         </div>
+        )}
       </aside>
     </div>
   );

@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.03-10 — 2026-10-03 — commit `d4b1c8c`
+
+- **"Send basket via WhatsApp" and "Send basket via email" are gone from the basket** while card checkout is live. The owner wants people buying, not opening a conversation, and every extra button beside Secure Checkout is an order that turns into a chat. The floating WhatsApp button stays on every page, so anyone with a question still has a route.
+- They remain as a fallback, and only as one: if the Stripe key is missing, a test key, or the wrong kind of key, the basket shows them again under "Card checkout is off — send your basket instead". That is the honest state, and it is the one that kept a buyer last night rather than losing them to a dead button.
+- **Order confirmation page rewritten.** It promised "a note from us confirming delivery cost and dispatch date once we have weighed the parcel" — untrue now delivery is paid at checkout. It now says delivery is included and nothing is left to pay, that Stripe emails the receipt, that we dispatch in 24 to 48 hours, and that Evri send tracking to the address given at checkout. It also tells the buyer to wash the stock before it goes on the rail, which is the thing most likely to be misread as a fault.
+
+---
+
 ## v2026.10.03-9 — 2026-10-03 — commit `bf94726`
 
 - **Delivery rebanded to the owner's rates: £10 on a lot of 10, £20 on a 25, £35 on a 50.** Replaces this evening's flat £1 a piece, which charged £25 on a 25 and £50 on a 50.
