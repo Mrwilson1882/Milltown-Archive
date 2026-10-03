@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.03-6 — 2026-10-03 — commit `1b8005b`
+
+- **Every close-up crop removed from the galleries.** Eight of the photographs added earlier today were tight detail shots from the owner's retail listings — a collar, a croc, a hood — where the garment runs off the edge of the frame. They read fine as a thumbnail, but the new viewer shows each one full screen, where they look like a mistake rather than a detail. Gone from Jackets & Windbreakers, Track Jackets & Windbreakers, Lacoste Jumpers & Cardigans, Lacoste & Ralph Lauren Polos, Mixed Premium Vintage Hoodies and Ralph Lauren Polos. Every photograph on the site is now a whole garment.
+- The two Ralph Lauren crops are replaced by full-length shots of the same striped polo from the same shoot. No resizing and no re-cropping, so nothing lost any quality.
+- **Bug fixed:** the Ralph Lauren Polo Box shares an image folder with the Ralph Lauren Polos lot, so earlier inserts matched the box's photo list first and the lot kept only its original group shot. Both now carry all three. It was the only folder shared between two products, so nothing else was affected.
+
+---
+
 ## v2026.10.03-5 — 2026-10-03 — commit `4f410c5`
 
 - **A publishable key in the secret key slot is now refused too.** Stripe prints the publishable key in full on the API keys page and hides the secret behind a Reveal, so the two get swapped — and when they do, every checkout fails with `secret_key_required` and the buyer gets a dead button and a vague error. The site now treats anything that is not an `sk_` or `rk_` key as no key at all, in every environment, and falls back to the WhatsApp message instead. The server log names the prefix it found.

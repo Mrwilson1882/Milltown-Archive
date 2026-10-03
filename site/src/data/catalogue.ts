@@ -178,11 +178,11 @@ const catalogue: Product[] = [
       },
       {
         src: "/images/products/ralph-lauren-polos/02.jpg",
-        alt: "A Polo Ralph Lauren piqué polo on white: navy and cream block stripes with a navy collar and the pony embroidered on the chest.",
+        alt: "A Polo Ralph Lauren piqué polo laid flat on white: navy and cream block stripes, navy collar and the pony embroidered on the chest.",
       },
       {
         src: "/images/products/ralph-lauren-polos/03.jpg",
-        alt: "Close-up of the navy and cream striped Ralph Lauren polo, showing the Polo Ralph Lauren neck label and the embroidered pony.",
+        alt: "The same navy and cream striped Ralph Lauren polo laid flat on white, shown full length.",
       },
     ],
     // Shot portrait and at two different speeds; evened out to one pace,
@@ -285,16 +285,8 @@ const catalogue: Product[] = [
         alt: "A Lacoste colour-block piqué polo on white: a grey marl body with cream sleeves, a charcoal collar and placket, and the croc on the chest.",
       },
       {
-        src: "/images/products/lacoste-ralph-lauren-polos/03.jpg",
-        alt: "Close-up of the charcoal collar, buttoned placket and embroidered croc on a grey marl Lacoste polo.",
-      },
-      {
         src: "/images/products/lacoste-ralph-lauren-polos/04.jpg",
         alt: "A brown Lacoste piqué polo laid flat on white, with a two-button placket and the croc on the chest.",
-      },
-      {
-        src: "/images/products/lacoste-ralph-lauren-polos/05.jpg",
-        alt: "Close-up of a brown Lacoste polo: the ribbed collar, buttoned placket, woven Lacoste label and the embroidered croc.",
       },
       {
         src: "/images/products/lacoste-ralph-lauren-polos/06.jpg",
@@ -330,6 +322,14 @@ const catalogue: Product[] = [
       {
         src: "/images/products/ralph-lauren-polos/01.jpg",
         alt: "Four Polo Ralph Lauren piqué polos on white: navy, black and white stripe, pink marl and green marl.",
+      },
+      {
+        src: "/images/products/ralph-lauren-polos/02.jpg",
+        alt: "A Polo Ralph Lauren piqué polo laid flat on white: navy and cream block stripes, navy collar and the pony embroidered on the chest.",
+      },
+      {
+        src: "/images/products/ralph-lauren-polos/03.jpg",
+        alt: "The same navy and cream striped Ralph Lauren polo laid flat on white, shown full length.",
       },
     ],
     // Same rail as the Ralph Lauren Polo Box — one shoot, both listings.
@@ -455,10 +455,6 @@ const catalogue: Product[] = [
         src: "/images/products/mixed-premium-vintage-hoodies/02.jpg",
         alt: "A Trussardi zip-through hoodie laid flat on white: charcoal body with a patterned grey, black and white banded yoke and hood, and a full-length zip.",
       },
-      {
-        src: "/images/products/mixed-premium-vintage-hoodies/03.jpg",
-        alt: "Close-up of the Trussardi hoodie's banded hood and the embossed metal logo badge above the zip.",
-      },
     ],
     videos: [
       {
@@ -535,10 +531,6 @@ const catalogue: Product[] = [
         src: "/images/products/lacoste-jumpers-cardigans/06.jpg",
         alt: "A green IZOD Lacoste V-neck jumper laid flat on white, the croc embroidered on the chest.",
       },
-      {
-        src: "/images/products/lacoste-jumpers-cardigans/07.jpg",
-        alt: "Close-up of the embroidered croc and the knitted V-neck on a green Lacoste jumper.",
-      },
     ],
     videos: [
       {
@@ -580,10 +572,6 @@ const catalogue: Product[] = [
       {
         src: "/images/products/track-jackets-windbreakers/03.jpg",
         alt: "The back of the pale blue adidas hooded windbreaker, showing the crimson shoulder taping and the hood up.",
-      },
-      {
-        src: "/images/products/track-jackets-windbreakers/04.jpg",
-        alt: "Close-up of the adidas windbreaker: the crimson-lined hood, half zip, woven adidas neck label and the trefoil logo on the chest.",
       },
       {
         src: "/images/products/track-jackets-windbreakers/05.jpg",
@@ -762,10 +750,6 @@ const catalogue: Product[] = [
       {
         src: "/images/products/jackets-windbreaker-mix/05.jpg",
         alt: "The back of the two-tone blue Nike quarter-zip pullover, laid flat on white.",
-      },
-      {
-        src: "/images/products/jackets-windbreaker-mix/06.jpg",
-        alt: "Close-up of a navy Nike windbreaker: the embroidered Nike script and swoosh beside a full-length metal zip and the original woven neck label.",
       },
     ],
     videos: [
