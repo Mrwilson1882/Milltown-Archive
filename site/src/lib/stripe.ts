@@ -6,15 +6,47 @@ import Stripe from "stripe";
  * live? — rather than reading env vars in a dozen places.
  */
 
-export const stripeEnabled = Boolean(process.env.STRIPE_SECRET_KEY);
+const key = process.env.STRIPE_SECRET_KEY?.trim() ?? "";
+
+/**
+ * A test key is a live site's worst state: the checkout opens, Stripe accepts
+ * the payment method, the buyer is thanked — and no money moves, no order
+ * exists and no receipt arrives. A customer hit exactly that on 3 October 2026.
+ *
+ * So production refuses a test key outright. The checkout then reports itself
+ * not configured and points the buyer at WhatsApp, which is honest and keeps
+ * them. Test keys still work everywhere else — preview deploys and local — so
+ * the whole flow can be rehearsed before the live key goes in.
+ */
+const isTestKey = key.startsWith("sk_test_");
+// On Vercel, NODE_ENV is "production" for preview builds too, so VERCEL_ENV is
+// the one that distinguishes the live site. NODE_ENV is only the fallback for
+// a host that does not set it.
+const vercelEnv = process.env.VERCEL_ENV;
+const isProduction = vercelEnv
+  ? vercelEnv === "production"
+  : process.env.NODE_ENV === "production";
+export const stripeKeyRejected = Boolean(key) && isTestKey && isProduction;
+
+if (stripeKeyRejected) {
+  console.error(
+    "[stripe] Refusing a test key in production. Card checkout is switched off until STRIPE_SECRET_KEY is a live key (sk_live_…).",
+  );
+}
+
+export const stripeEnabled = Boolean(key) && !stripeKeyRejected;
 
 let client: Stripe | null = null;
 
 export function getStripe(): Stripe {
-  const key = process.env.STRIPE_SECRET_KEY;
   if (!key) {
     throw new Error(
       "STRIPE_SECRET_KEY is not set. Add it to .env.local (or your host's environment) to enable card checkout.",
+    );
+  }
+  if (stripeKeyRejected) {
+    throw new Error(
+      "STRIPE_SECRET_KEY is a test key and this is production. Card checkout is switched off rather than taking orders that collect no money.",
     );
   }
   if (!client) client = new Stripe(key);

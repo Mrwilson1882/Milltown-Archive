@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.03-3 — 2026-10-03 — commit `159a135`
+
+- **Production now refuses a Stripe test key.** A real customer reached checkout on the evening of 3 October, paid with Revolut Pay, was told the order was placed — and nothing happened: no money taken, no order, no receipt, because the site was still running on a sandbox key. That state is worse than having no checkout at all, so the code no longer permits it.
+- `lib/stripe.ts` now treats a key beginning `sk_test_` on the live site as no key. Checkout reports itself not configured and sends the buyer to WhatsApp, which is honest and keeps them, and the webhook refuses too. A line is written to the server log naming the reason.
+- Scoped by `VERCEL_ENV`, not `NODE_ENV`, so preview deploys and local development still take test keys and the whole flow can be rehearsed before a live key goes anywhere near the site.
+
+---
+
 ## v2026.10.03-2 — 2026-10-03 — commit `cd1c918`
 
 - **Checkout restricted to the United Kingdom**, at the owner's instruction. Stripe's address step now offers GB and nothing else, so an overseas buyer is stopped before paying rather than after. Previously it accepted Ireland, France, Germany, the Netherlands, Belgium, Spain, Italy and Poland.
