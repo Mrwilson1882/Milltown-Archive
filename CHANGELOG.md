@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.04-4 — 2026-10-04 — commit `PENDING`
+## v2026.10.04-4 — 2026-10-04 — commit `d1ee11d`
 
 - **The hero clip is sharp again.** It was encoded at 720p and then stretched across a desktop band nearly three thousand pixels wide, with a two-pixel blur on top of that. Both are fixed: a full 1080p file now goes to anything wider than a tablet, the blur is down to half a pixel, and the still frame behind it was re-cut at the same resolution.
 - Phones still get the 720p file — a phone's hero band is about 1,170 pixels across, so it lands close to one for one and the bigger download would buy nothing. The browser picks one at load; nobody downloads both.
