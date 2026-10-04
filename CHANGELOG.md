@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.04-8 — 2026-10-04 — commit `PENDING`
+## v2026.10.04-8 — 2026-10-04 — commit `7d549e9`
 
 - **The contact address moves to info@archivewholesale.co.uk.** In the UK trade a .co.uk reads as a British supplier and a .com does not, which matters more than keeping the old address. Changed on the contact page, the buyer information page, llms.txt, the order confirmation email and all five customer documents. The .com forwards in, so anyone holding the old address still reaches us.
 - The order confirmation now sends from, and replies to, the .co.uk — which means the .co.uk is the domain to verify in Resend, not the .com.
