@@ -12,6 +12,12 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.04-6 — 2026-10-04 — commit `PENDING`
+
+- **Men's Luxury Winter Mix marked out of stock** at the owner's request. It now reads "Sold out", cannot be added to a basket, has dropped off the home page and sits at the bottom of every listing, and its structured data tells Google and the AI assistants it is out of stock.
+
+---
+
 ## v2026.10.04-5 — 2026-10-04 — commit `78e732c`
 
 - **Real brand marks in the rolling band, where we hold the artwork.** Nike, adidas, Reebok, Fila and The North Face now show their own logos instead of their names set in our type. Each one's artwork is trimmed to its own edges so a swoosh and a wordmark sit at the same optical weight in the row.

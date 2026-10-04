@@ -827,7 +827,7 @@ const catalogue: Product[] = [
         alt: "Four pieces of designer knitwear laid flat on white: a Missoni Sport patterned hooded gilet, a Valentino argyle v-neck jumper, a blue Lacoste button cardigan and a black Stone Island zip-through knit.",
       },
     ],
-    inStock: true,
+    inStock: false, // Marked out of stock by the owner, 4 Oct 2026.
     featured: true,
   },
   {
