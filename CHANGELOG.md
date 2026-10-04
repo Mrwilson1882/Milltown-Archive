@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.04-5 — 2026-10-04 — commit `PENDING`
+## v2026.10.04-5 — 2026-10-04 — commit `78e732c`
 
 - **Real brand marks in the rolling band, where we hold the artwork.** Nike, adidas, Reebok, Fila and The North Face now show their own logos instead of their names set in our type. Each one's artwork is trimmed to its own edges so a swoosh and a wordmark sit at the same optical weight in the row.
 - **The other twenty-five still show as names**, because their artwork is not available from anywhere this machine can reach. Drop an SVG into `site/public/images/brands/<brand-slug>.svg` and it replaces the name on the next deploy — no code change needed.
