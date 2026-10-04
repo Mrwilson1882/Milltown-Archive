@@ -1,0 +1,30 @@
+{
+  "_readme": "Two boxes, 20 pieces, £215 of stock. The Jackets & Windbreaker Mix at £125 is the only line the dashboard screenshot shows; the second is a £90 ten-piece box, which is either the Ralph Lauren Polo Box or the Starter Box. Read as the Ralph Lauren Polo Box — every other website order so far has been that lot. Same total either way; only the line description differs.",
+
+  "status": "invoice",
+  "invoiceNumber": "AW-0007",
+  "orderNumber": "ORD-0018",
+  "invoiceDate": "2026-10-04",
+  "supplyDate": "2026-10-04",
+  "paymentTerms": "Paid",
+
+  "customer": {
+    "business": "Jaxons Clean",
+    "contact": "Joe",
+    "lines": ["Unit 4 Bruce Grove", "Heron Trading Estate", "Wickford"],
+    "postcode": "SS11 8BP",
+    "email": "joe@jaxonswarehouse.com",
+    "phone": "+44 7786 542898"
+  },
+
+  "lines": [
+    { "slug": "jackets-windbreaker-mix", "pieces": 10, "qty": 1 },
+    { "slug": "ralph-lauren-polos", "pieces": 10, "qty": 1, "description": "Ralph Lauren Polo Box — 10 Items" }
+  ],
+
+  "delivery": 20,
+
+  "paid": { "method": "Card payment online", "on": "2026-10-04" },
+
+  "notes": "Ordered and paid in full on www.archivewholesale.co.uk. Delivery: UK tracked, next day."
+}
