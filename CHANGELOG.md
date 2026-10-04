@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.04-5 — 2026-10-04 — commit `PENDING`
+
+- **Real brand marks in the rolling band, where we hold the artwork.** Nike, adidas, Reebok, Fila and The North Face now show their own logos instead of their names set in our type. Each one's artwork is trimmed to its own edges so a swoosh and a wordmark sit at the same optical weight in the row.
+- **The other twenty-five still show as names**, because their artwork is not available from anywhere this machine can reach. Drop an SVG into `site/public/images/brands/<brand-slug>.svg` and it replaces the name on the next deploy — no code change needed.
+- Logos are inlined at build time rather than loaded as images, so they take the link colour and turn green on hover with everything else, and a screen reader hears the brand name once rather than twice.
+
+---
+
 ## v2026.10.04-4 — 2026-10-04 — commit `d1ee11d`
 
 - **The hero clip is sharp again.** It was encoded at 720p and then stretched across a desktop band nearly three thousand pixels wide, with a two-pixel blur on top of that. Both are fixed: a full 1080p file now goes to anything wider than a tablet, the blur is down to half a pixel, and the still frame behind it was re-cut at the same resolution.
