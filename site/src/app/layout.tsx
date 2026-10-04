@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
+import { PaymentsLiveNotice } from "@/components/PaymentsLiveNotice";
 import { Footer } from "@/components/Footer";
 import { EmailCapture } from "@/components/EmailCapture";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
@@ -136,6 +137,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <Header />
+        <PaymentsLiveNotice />
         <main id="main" className="flex-1">
           {children}
         </main>
