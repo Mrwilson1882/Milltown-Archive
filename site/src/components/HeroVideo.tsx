@@ -27,10 +27,11 @@ export function HeroVideo() {
 
   return (
     <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden bg-ink">
-      {/* The lock-up has one strip light, so the footage is dim before anything
-          is laid over it. Lifted here rather than in the encode, so the file
-          stays small and the grade stays adjustable. */}
-      <div className="absolute inset-0 brightness-[1.18] saturate-[1.1]">
+      {/* Grade, kept here rather than baked into the encode so it stays
+          adjustable when the footage changes. This clip came off the phone
+          brighter than the last one, so it is held back rather than lifted —
+          a bright background and light type fight each other. */}
+      <div className="absolute inset-0 brightness-[0.98] saturate-[1.08]">
         {/* The still. Always there, under everything. */}
         <div
           className="absolute inset-0 bg-cover"

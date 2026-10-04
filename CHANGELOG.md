@@ -12,6 +12,15 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.04-10 — 2026-10-04 — commit `PENDING`
+
+- **New hero footage again, from the pair the owner sent.** Of the two, the zoomed-out one is landscape and the close one is portrait — on a hero band that runs the full width of the screen, portrait has to be cropped to a thin slice and landscape does not, so the wide one went in.
+- The six seconds of rails at the end of the clip are what runs: a full rail receding into the unit, colour the whole way down. The first two-thirds of the clip is bagged stock on the floor, which is honest but reads as a storage unit rather than a wholesaler.
+- Slowed to roughly half speed, then played forwards and backwards for a loop with no cut in it, as before. 3.4 MB on desktop, 1.5 MB on a phone.
+- The grade is now held back slightly rather than lifted — this clip came off the phone brighter than the last one, and a bright background fights light type.
+
+---
+
 ## v2026.10.04-9 — 2026-10-04 — commit `49805be`
 
 - **The 5.0 Google rating on the home page is now a link to the real listing.** Until now it was a claim with nothing behind it; a visitor can check it in one click, which is the only thing that makes a rating worth printing. Opens in a new tab, and carries a hidden label for screen readers.
