@@ -12,6 +12,16 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.04-7 — 2026-10-04 — commit `PENDING`
+
+- **Every buyer now gets an order confirmation and invoice from info@archivewholesale.com** the moment their payment clears. It carries the invoice — number, date, Archivio Group Ltd and company number, who it is billed to, the lots, delivery, total paid — and then the whole of the "just purchased" sheet: what happens next, wash it before it goes on the rail, and the three things every buyer asks after a first box lands.
+- It states plainly that no VAT has been charged because Archivio Group Ltd is not VAT registered, so nobody tries to reclaim VAT that was never taken.
+- Separate from Stripe's own receipt, which covers the money. This covers the order.
+- **Needs RESEND_API_KEY in Vercel and the sending domain verified**, or nothing is sent. Until then a paid order is logged exactly as before — checkout and the Stripe receipt are untouched either way.
+- Set ORDER_EMAIL_BCC and every confirmation is copied to the owner, which doubles as a sale alert by email.
+
+---
+
 ## v2026.10.04-6 — 2026-10-04 — commit `d9b4f6a`
 
 - **Men's Luxury Winter Mix marked out of stock** at the owner's request. It now reads "Sold out", cannot be added to a basket, has dropped off the home page and sits at the bottom of every listing, and its structured data tells Google and the AI assistants it is out of stock.
