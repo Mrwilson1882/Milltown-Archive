@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.04-3 — 2026-10-04 — commit `PENDING`
+## v2026.10.04-3 — 2026-10-04 — commit `c3ebee9`
 
 - **New hero footage, and the loop no longer lurches.** The owner sent a second clip — landscape, brighter, a steady walk down the rail. It is slowed to roughly half speed and then played forwards and backwards, so the loop has no cut in it anywhere and nothing jumps. The previous clip was crossfaded end to end and the join read as a sudden movement every few seconds.
 - The new file is 1.5 MB, down from 1.9 MB, despite running twenty seconds instead of seven.
