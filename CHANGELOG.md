@@ -12,6 +12,15 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.04-11 — 2026-10-04 — commit `PENDING`
+
+- **The bagged lots are back in the hero clip.** The previous cut started after them; the walk now runs from the counted bags on the floor through to the rails, which is the whole point of the shot.
+- **The CSS blur is gone.** It was masking nothing useful: the clip was shot walking, so every frame already carries its own motion blur. A frame straight off the phone is as soft as the shipped encode — checked side by side — so no encode setting or sharpening recovers detail that was never captured. Blurring on top only made it worse.
+- **The scrim is deeper instead**, left to right and on both phone and desktop. A dark frame hides soft footage in a way sharpening cannot, which is what the owner suggested and is the right answer here.
+- **A new "Inside the unit" band on the home page**, from four photographs of the unit: counted lots bagged and labelled, intake graded on the rail, and the unit itself. A first-time buyer sending a few hundred pounds to a company they have not heard of is asking whether there is anything behind the website; a labelled bag of counted stock answers it in a way no product photograph can.
+
+---
+
 ## v2026.10.04-10 — 2026-10-04 — commit `1c4f1cc`
 
 - **New hero footage again, from the pair the owner sent.** Of the two, the zoomed-out one is landscape and the close one is portrait — on a hero band that runs the full width of the screen, portrait has to be cropped to a thin slice and landscape does not, so the wide one went in.

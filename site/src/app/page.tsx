@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { BrandMarquee } from "@/components/BrandMarquee";
 import { CategoryTile } from "@/components/CategoryTile";
 import { GoogleRating } from "@/components/GoogleRating";
+import { InsideTheUnit } from "@/components/InsideTheUnit";
 import { HeroVideo } from "@/components/HeroVideo";
 import { ProductCard } from "@/components/ProductCard";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
@@ -205,8 +206,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ------------------------------------------------------- Inside the unit */}
+      <InsideTheUnit />
+
       {/* -------------------------------------------------------- Category grid */}
-      <section className="border-y border-ash bg-smoke">
+      <section className="border-t border-ash bg-smoke">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
