@@ -16,7 +16,14 @@ import { siteConfig } from "@/config/site";
  * Set siteConfig.googleReviewUrl to turn it into a link to the real listing,
  * which is what makes the claim checkable.
  */
-export function GoogleRating({ className = "" }: { className?: string }) {
+export function GoogleRating({
+  className = "",
+  onDark = false,
+}: {
+  className?: string;
+  /** Set when the badge sits on the hero video, where paper-on-white disappears. */
+  onDark?: boolean;
+}) {
   const inner = (
     <>
       <span className="inline-flex gap-1" aria-hidden="true">
@@ -27,7 +34,10 @@ export function GoogleRating({ className = "" }: { className?: string }) {
         ))}
       </span>
       <span className="display hidden text-2xl leading-none sm:inline sm:text-3xl">5.0</span>
-      <span className="hidden h-8 w-px bg-ash sm:inline-block" aria-hidden="true" />
+      <span
+        className={`hidden h-8 w-px sm:inline-block ${onDark ? "bg-paper/40" : "bg-ash"}`}
+        aria-hidden="true"
+      />
       <span className="text-xs leading-tight font-bold tracking-wide uppercase sm:text-sm">
         Rated 5 stars
         <br />
@@ -36,14 +46,17 @@ export function GoogleRating({ className = "" }: { className?: string }) {
     </>
   );
 
-  const box = "inline-flex items-center gap-2.5 border-2 border-forest bg-paper px-4 py-3 sm:gap-4 sm:px-6";
+  const box = [
+    "inline-flex items-center gap-2.5 border-2 px-4 py-3 sm:gap-4 sm:px-6",
+    onDark ? "border-paper/50 bg-ink/35 text-paper backdrop-blur-sm" : "border-forest bg-paper",
+  ].join(" ");
 
   return siteConfig.googleReviewUrl ? (
     <a
       href={siteConfig.googleReviewUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${box} transition-colors hover:bg-smoke ${className}`}
+      className={`${box} transition-colors ${onDark ? "hover:bg-ink/55" : "hover:bg-smoke"} ${className}`}
     >
       {inner}
       <span className="sr-only">Read our reviews on Google</span>

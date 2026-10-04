@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { CategoryTile } from "@/components/CategoryTile";
 import { GoogleRating } from "@/components/GoogleRating";
+import { HeroVideo } from "@/components/HeroVideo";
 import { ProductCard } from "@/components/ProductCard";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import {
@@ -58,18 +59,19 @@ export default function HomePage() {
   return (
     <>
       {/* ---------------------------------------------------------------- Hero */}
-      <section className="border-b border-ash">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:py-20">
+      <section className="relative isolate overflow-hidden border-b border-ink">
+        <HeroVideo />
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
           <div className="flex flex-col justify-center">
-            <p className="eyebrow text-forest">Vintage wholesale · United Kingdom · Live stock, updated {builtOnLabel}</p>
-            <h1 className="display mt-5 text-4xl sm:text-6xl lg:text-7xl">
+            <p className="eyebrow text-paper/80">Vintage wholesale · United Kingdom · Live stock, updated {builtOnLabel}</p>
+            <h1 className="display mt-5 text-4xl text-paper sm:text-6xl lg:text-7xl">
               Branded vintage,
               <br />
-              <span className="text-forest">by the box</span>
+              <span className="text-[#7FC4A3]">by the box</span>
               <br />
               or by the lot.
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate sm:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-paper/85 sm:text-lg">
               Lacoste, Ralph Lauren, Nike, Champion, Carhartt and more — sorted and graded in the UK
               for vintage shops, market traders and online resellers.
             </p>
@@ -77,7 +79,7 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/collections/reseller-boxes"
-                className="inline-flex items-center bg-ink px-7 py-4 text-sm font-bold tracking-wide text-paper uppercase transition-colors hover:bg-forest"
+                className="inline-flex items-center bg-paper px-7 py-4 text-sm font-bold tracking-wide text-ink uppercase transition-colors hover:bg-[#7FC4A3]"
               >
                 Shop reseller boxes
               </Link>
@@ -86,7 +88,7 @@ export default function HomePage() {
                   href={whatsappUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border-2 border-forest px-7 py-4 text-sm font-bold tracking-wide text-forest uppercase transition-colors hover:bg-forest hover:text-paper"
+                  className="inline-flex items-center gap-2 border-2 border-paper/70 px-7 py-4 text-sm font-bold tracking-wide text-paper uppercase transition-colors hover:border-paper hover:bg-paper hover:text-ink"
                 >
                   <WhatsAppIcon className="h-5 w-5" />
                   Enquire on WhatsApp
@@ -94,28 +96,28 @@ export default function HomePage() {
               ) : (
                 <Link
                   href="/contact"
-                  className="inline-flex items-center border-2 border-forest px-7 py-4 text-sm font-bold tracking-wide text-forest uppercase transition-colors hover:bg-forest hover:text-paper"
+                  className="inline-flex items-center border-2 border-paper/70 px-7 py-4 text-sm font-bold tracking-wide text-paper uppercase transition-colors hover:border-paper hover:bg-paper hover:text-ink"
                 >
                   Trade enquiries
                 </Link>
               )}
             </div>
 
-            <GoogleRating className="mt-6" />
+            <GoogleRating className="mt-6 self-start" onDark />
 
-            <dl className="mt-8 grid max-w-lg grid-cols-3 gap-4 border-t border-ash pt-6">
+            <dl className="mt-8 grid max-w-lg grid-cols-3 gap-4 border-t border-paper/25 pt-6">
               {[
                 { k: "Boxes from", v: "£90" },
                 { k: "Lots from", v: "10 pieces" },
                 { k: "Grade", v: "A/B", href: "/grading-guide" },
               ].map((stat) => (
                 <div key={stat.k}>
-                  <dt className="eyebrow text-slate">{stat.k}</dt>
-                  <dd className="display mt-1 text-sm sm:text-base">
+                  <dt className="eyebrow text-paper/70">{stat.k}</dt>
+                  <dd className="display mt-1 text-sm text-paper sm:text-base">
                     {stat.href ? (
                       <Link
                         href={stat.href}
-                        className="text-forest underline decoration-2 underline-offset-4 transition-colors hover:text-ink"
+                        className="text-[#7FC4A3] underline decoration-2 underline-offset-4 transition-colors hover:text-paper"
                       >
                         {stat.v}
                       </Link>
