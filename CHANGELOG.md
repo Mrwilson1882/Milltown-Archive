@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.04-7 — 2026-10-04 — commit `PENDING`
+## v2026.10.04-7 — 2026-10-04 — commit `b7e76db`
 
 - **Every buyer now gets an order confirmation and invoice from info@archivewholesale.com** the moment their payment clears. It carries the invoice — number, date, Archivio Group Ltd and company number, who it is billed to, the lots, delivery, total paid — and then the whole of the "just purchased" sheet: what happens next, wash it before it goes on the rail, and the three things every buyer asks after a first box lands.
 - It states plainly that no VAT has been charged because Archivio Group Ltd is not VAT registered, so nobody tries to reclaim VAT that was never taken.
