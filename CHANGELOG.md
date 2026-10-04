@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.04-12 — 2026-10-04 — commit `PENDING`
+## v2026.10.04-12 — 2026-10-04 — commit `ba22903`
 
 - **A one-line notice under the menu: card payments are now live.** Anyone who visited before 3 October was sent to WhatsApp for a payment link, and whoever bounced at that step has no way of knowing it changed. Sits below the menu and above the hero on every page, as a note rather than an announcement bar — grey ground, dark type, a padlock, and a link straight to the boxes.
 - It is one line in the layout, so it comes out the moment it stops being news.
