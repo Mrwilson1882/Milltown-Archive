@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.04-11 — 2026-10-04 — commit `PENDING`
+## v2026.10.04-11 — 2026-10-04 — commit `d3cda91`
 
 - **The bagged lots are back in the hero clip.** The previous cut started after them; the walk now runs from the counted bags on the floor through to the rails, which is the whole point of the shot.
 - **The CSS blur is gone.** It was masking nothing useful: the clip was shot walking, so every frame already carries its own motion blur. A frame straight off the phone is as soft as the shipped encode — checked side by side — so no encode setting or sharpening recovers detail that was never captured. Blurring on top only made it worse.
