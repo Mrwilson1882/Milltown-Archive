@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.04-6 — 2026-10-04 — commit `PENDING`
+## v2026.10.04-6 — 2026-10-04 — commit `d9b4f6a`
 
 - **Men's Luxury Winter Mix marked out of stock** at the owner's request. It now reads "Sold out", cannot be added to a basket, has dropped off the home page and sits at the bottom of every listing, and its structured data tells Google and the AI assistants it is out of stock.
 
