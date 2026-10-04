@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.04-9 — 2026-10-04 — commit `PENDING`
+## v2026.10.04-9 — 2026-10-04 — commit `49805be`
 
 - **The 5.0 Google rating on the home page is now a link to the real listing.** Until now it was a claim with nothing behind it; a visitor can check it in one click, which is the only thing that makes a rating worth printing. Opens in a new tab, and carries a hidden label for screen readers.
 - Still no `aggregateRating` in the structured data, deliberately: Google does not allow a business to mark up its own rating on its own site, and doing it anyway risks a manual penalty.
