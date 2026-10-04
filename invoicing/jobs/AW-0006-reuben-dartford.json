@@ -1,0 +1,26 @@
+{
+  "status": "invoice",
+  "invoiceNumber": "AW-0006",
+  "orderNumber": "ORD-0017",
+  "invoiceDate": "2026-10-04",
+  "supplyDate": "2026-10-04",
+  "paymentTerms": "Paid",
+
+  "customer": {
+    "contact": "Reuben Dartford",
+    "lines": ["20 Spencer Ave", "Leek"],
+    "postcode": "ST13 5PA",
+    "email": "reuben.dartford@icloud.com",
+    "phone": "+44 7561 409722"
+  },
+
+  "lines": [
+    { "slug": "ralph-lauren-polos", "pieces": 10, "qty": 1 }
+  ],
+
+  "delivery": 10,
+
+  "paid": { "method": "Card payment online", "on": "2026-10-04" },
+
+  "notes": "Ordered and paid in full on www.archivewholesale.co.uk. Delivery: UK tracked, next day."
+}
