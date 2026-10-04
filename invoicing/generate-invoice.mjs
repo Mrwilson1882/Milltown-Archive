@@ -298,6 +298,7 @@ export function buildInvoice(job, company, catalogue, { reserveNumber = true } =
     vat,
     total: round2(net + vat),
     paymentLink: job.paymentLink || "",
+    paid: job.paid || null,
     notes: job.notes || "",
     acknowledge: job.acknowledge ?? [],
     carriageDefaulted: carriageDefaulted && delivery > 0,

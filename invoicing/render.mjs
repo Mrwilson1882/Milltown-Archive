@@ -150,6 +150,8 @@ const css = `
 
   .doc-title { text-align: right; }
   .doc-title h1 { font-size: 24pt; }
+  .paid-note { color: var(--forest); }
+
   .doc-note {
     margin: 1.5mm 0 0;
     font-size: 7.5pt;
@@ -445,6 +447,10 @@ export function renderInvoice(inv, company, logoDataUri) {
   // as one.
   const proforma = inv.status === "proforma";
   const docTitle = proforma ? "Pro forma" : "Invoice";
+  /* A sales invoice that has already been paid must not ask for the money
+     again. `paid` turns the How to pay block into a record of the payment and
+     the total into what was taken. */
+  const paid = !proforma && inv.paid ? inv.paid : null;
 
   /* The trading address is what a customer needs — where the goods come from
      and where to write. The registered office is a legal requirement rather
@@ -520,6 +526,7 @@ export function renderInvoice(inv, company, logoDataUri) {
       <h1 class="display">${docTitle}</h1>
       <p class="ref num">${esc(inv.invoiceNumber)}</p>
       ${proforma ? `<p class="doc-note">Not a tax invoice</p>` : ""}
+      ${paid ? `<p class="doc-note paid-note">Paid in full</p>` : ""}
     </div>
   </header>
 
@@ -632,7 +639,7 @@ export function renderInvoice(inv, company, logoDataUri) {
         }
       </dl>
       <div class="total-due">
-        <span class="label">${proforma ? "Total payable" : "Total due"}</span>
+        <span class="label">${paid ? "Total paid" : proforma ? "Total payable" : "Total due"}</span>
         <span class="amount num">${money(inv.total)}</span>
       </div>
       ${
@@ -649,21 +656,32 @@ export function renderInvoice(inv, company, logoDataUri) {
 
   <section class="pay">
     <div>
-      <p class="eyebrow">How to pay</p>
+      <p class="eyebrow">${paid ? "Payment received" : "How to pay"}</p>
       <dl>
-        ${showLink ? `<div class="row"><dt>Method</dt><dd>Secure payment link</dd></div>` : ""}
-        ${showBank ? `
+        ${paid ? `
+          <div class="row"><dt>Method</dt><dd>${esc(paid.method || "Card payment online")}</dd></div>
+          ${paid.on ? `<div class="row"><dt>Date paid</dt><dd>${esc(longDate(paid.on))}</dd></div>` : ""}
+          ${paid.reference ? `<div class="row"><dt>Payment ref</dt><dd class="num">${esc(paid.reference)}</dd></div>` : ""}
+          <div class="row"><dt>Amount paid</dt><dd class="num">${money(inv.total)}</dd></div>
+          <div class="row"><dt>Balance due</dt><dd class="num">${money(0)}</dd></div>
+        ` : ""}
+        ${!paid && showLink ? `<div class="row"><dt>Method</dt><dd>Secure payment link</dd></div>` : ""}
+        ${!paid && showBank ? `
           ${bankRow("Account name", bank.accountName)}
           ${bankRow("Sort code", bank.sortCode)}
           ${bankRow("Account number", bank.accountNumber)}
           ${bank.bankName ? `<div class="row"><dt>Bank</dt><dd>${esc(bank.bankName)}</dd></div>` : ""}
           ${bank.iban ? `<div class="row"><dt>IBAN</dt><dd class="num">${esc(bank.iban)}</dd></div>` : ""}
           ${bank.swift ? `<div class="row"><dt>SWIFT/BIC</dt><dd class="num">${esc(bank.swift)}</dd></div>` : ""}` : ""}
-        <div class="row"><dt>Amount to pay</dt><dd class="num">${money(inv.total)}</dd></div>
-        <div class="row"><dt>Payment reference</dt><dd class="num">${esc(inv.invoiceNumber)}</dd></div>
+        ${!paid ? `
+          <div class="row"><dt>Amount to pay</dt><dd class="num">${money(inv.total)}</dd></div>
+          <div class="row"><dt>Payment reference</dt><dd class="num">${esc(inv.invoiceNumber)}</dd></div>
+        ` : ""}
       </dl>
       ${
-        showLink
+        paid
+          ? `<p>Paid in full. Nothing further is due on this invoice. Please keep it for your records.</p>`
+          : showLink
           ? `<p>${esc(
               proforma
                 ? say(company.payment.linkStatement).replace(/\bthis invoice\b/gi, "this pro forma")
@@ -689,7 +707,7 @@ export function renderInvoice(inv, company, logoDataUri) {
         ${company.contact.phone ? `<div class="row"><dt>Phone</dt><dd class="num">${esc(company.contact.phone)}</dd></div>` : ""}
         <div class="row"><dt>Web</dt><dd>${esc(company.contact.website)}</dd></div>
       </dl>
-      <p>${esc(company.defaults.deliveryNote)}</p>
+      ${paid ? "" : `<p>${esc(company.defaults.deliveryNote)}</p>`}
     </div>
   </section>
 

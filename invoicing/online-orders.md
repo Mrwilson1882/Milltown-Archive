@@ -1,28 +1,29 @@
 # Invoicing an order placed on the website
 
-**A note for later — nothing here is built yet.** Owner's request, 2 Oct 2026:
+**Still to build.** Owner's request, 2 Oct 2026:
 when someone buys on www.archivewholesale.co.uk, Claude should be told and
 should raise the invoice from what the site already captured, rather than the
 owner retyping it in chat.
 
-## Nobody can buy online yet
+## Stripe is live, and the first order came through
 
-Confirmed by the owner, 2 Oct 2026: **Stripe is not integrated.** The site is
-built for it — checkout route, webhook, the lot of it — but no keys are set, so
-the checkout button tells the customer card payment is not switched on and
-points them at WhatsApp instead. Until that changes there are no online orders
-to invoice, and the rest of this note has nothing to act on.
+**4 Oct 2026: the first website order was paid** — Jez Klawza, a ten-piece Ralph
+Lauren polo box, £90.00, invoiced as AW-0004. Stripe is taking card payments,
+two days after it was noted here as not integrated. Stripe's own setup guide
+still shows "Choose how to accept payments" outstanding, so the account is not
+finished even though payments are going through: worth confirming the money is
+reaching the right place before relying on it.
 
-The payment links going out with the pro formas today are therefore **not
-Stripe**. Whatever provider they come from is the thing that actually knows when
-a customer has paid, and most of them will send a webhook of some kind. So the
-first question is not "how do we automate this" but **which provider is sending
-those links** — the answer decides whether the plumbing below is the Stripe
-route already in the repo, or the same shape pointed somewhere else.
+So the provider question is settled, and the route already in the repo is the
+right one.
 
-The shape does not change either way: *provider says paid → order details land
-somewhere Claude can read → job file → invoice.* Only the first arrow is
-provider-specific.
+**It was raised by hand from a screenshot of the Stripe dashboard.** That is the
+thing to remove: everything on that invoice — name, email, phone, both
+addresses, the lot, the amount — was already in the Stripe session, and
+`handlePaidOrder` could have handed it over without anyone retyping it.
+
+The shape to build: *Stripe says paid → order details land somewhere Claude can
+read → job file → invoice.*
 
 ---
 
@@ -47,7 +48,7 @@ be wrong.
 
 ---
 
-## If it ends up being Stripe, the hook already exists
+## The hook already exists
 
 `site/src/app/api/stripe/webhook/route.ts` → `handlePaidOrder()`. It is wired,
 signature-verified, and currently logs the order and nothing else. The comment
@@ -101,12 +102,15 @@ or a small order store first.
 
 ## Before any of it
 
-- **Settle the payment provider first.** Stripe is not integrated and the live
-  payment links come from somewhere else. Everything below the first arrow is
-  the same whoever it is; everything above it is not.
-- `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` are unset, so the webhook
-  returns 503 and nothing downstream can be tested — relevant only if Stripe is
-  the one chosen.
+- `STRIPE_WEBHOOK_SECRET` still needs setting and the endpoint registering in
+  the Stripe dashboard. Payments are being taken, but until the webhook is
+  wired nothing tells the site an order has been paid — AW-0004 was only known
+  about because the owner happened to look at the dashboard.
+- Finish Stripe's own setup guide, which still shows an outstanding step.
+- Delivery was not charged on AW-0004. The checkout's own wording says carriage
+  is quoted separately, so either the site should charge it or the invoice
+  should say it follows — the first paid order says "Delivery — Free", which is
+  true but may not be what was meant.
 - The company changed to Archivio Group Ltd (17461677) on 30 Sep 2026. The site
   still says MANCH LTD in `site/src/config/site.ts` and `public/llms.txt`,
   including the old company number. **That wants fixing regardless of any of
