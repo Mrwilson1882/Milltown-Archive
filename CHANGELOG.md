@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.04-10 — 2026-10-04 — commit `PENDING`
+## v2026.10.04-10 — 2026-10-04 — commit `1c4f1cc`
 
 - **New hero footage again, from the pair the owner sent.** Of the two, the zoomed-out one is landscape and the close one is portrait — on a hero band that runs the full width of the screen, portrait has to be cropped to a thin slice and landscape does not, so the wide one went in.
 - The six seconds of rails at the end of the clip are what runs: a full rail receding into the unit, colour the whole way down. The first two-thirds of the clip is bagged stock on the floor, which is honest but reads as a storage unit rather than a wholesaler.
