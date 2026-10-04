@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { BrandMarquee } from "@/components/BrandMarquee";
 import { CategoryTile } from "@/components/CategoryTile";
 import { GoogleRating } from "@/components/GoogleRating";
 import { HeroVideo } from "@/components/HeroVideo";
@@ -132,6 +133,8 @@ export default function HomePage() {
 
         </div>
       </section>
+
+      <BrandMarquee />
 
       {/* ------------------------------------------------------- Reseller boxes */}
       {resellerBoxes.length > 0 && (

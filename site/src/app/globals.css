@@ -70,3 +70,22 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Brand marquee
+
+   The row is rendered twice end to end and slid left by exactly half its
+   width, so the second copy lands where the first started and the join is
+   invisible. Any other distance leaves a visible jump at the wrap.
+
+   The reduced-motion rule above stops it dead, which is the right outcome:
+   the names are still there to read, they just do not move.
+   --------------------------------------------------------------------------- */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

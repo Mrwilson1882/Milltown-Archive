@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: "What is the minimum order?",
-    a: "The smallest thing we sell is the 10-piece Starter Box at £90. Counted lots start at 10 pieces. We are wholesale only and do not sell single pieces.",
+    a: "Ten pieces. Every line is sold in lots of 10, 25 or 50, and the least you can spend is £65 — a 10-piece lot of the Branded T-Shirt Mix at £6.50 a piece. The Starter Box, ten mixed branded pieces for £90, is where most first orders start, but it is not the smallest thing we sell. We are wholesale only and do not sell single pieces.",
   },
   {
     q: "How much is delivery and how long does it take?",
@@ -136,7 +136,7 @@ export default function BuyerInformationPage() {
 
         <dl className="mt-10 grid gap-px border border-ash bg-ash sm:grid-cols-2 lg:grid-cols-4">
           {[
-            ["Minimum order", "£90", "the 10-piece Starter Box"],
+            ["Minimum order", "£65", "a 10-piece t-shirt lot"],
             ["Payment", "Card", "secure link, handled by Stripe"],
             ["Delivery", "£10–£35", "per lot, by size"],
             ["Dispatch", "24–48 hrs", "after payment"],

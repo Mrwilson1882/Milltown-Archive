@@ -12,6 +12,15 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.04-3 — 2026-10-04 — commit `PENDING`
+
+- **New hero footage, and the loop no longer lurches.** The owner sent a second clip — landscape, brighter, a steady walk down the rail. It is slowed to roughly half speed and then played forwards and backwards, so the loop has no cut in it anywhere and nothing jumps. The previous clip was crossfaded end to end and the join read as a sudden movement every few seconds.
+- The new file is 1.5 MB, down from 1.9 MB, despite running twenty seconds instead of seven.
+- **A rolling band of the brands we stock** sits under the hero: every label as a link to its own page, scrolling continuously, paused on hover and stopped for anyone who has asked their device for reduced motion. Set in our own type rather than as borrowed logo files — we have no licence to reproduce anyone's wordmark, and a row of logos reads as a claim of endorsement rather than of stock.
+- **Minimum order corrected on the buyer information page.** It said the smallest thing we sell is the £90 Starter Box. It is not: a 10-piece Branded T-Shirt Mix at £6.50 a piece is £65, and ten pieces is the minimum on every line. The Starter Box is now described as where most first orders start, which is what it actually is.
+
+---
+
 ## v2026.10.04-2 — 2026-10-04 — commit `378ede3`
 
 - **A video of the lock-up now runs behind the home page headline.** Footage of the owner's own rail, cut to a seven-second loop that starts and ends on the same frame so it never jumps, graded from the phone's HLG capture to normal colour, blurred a touch and sat under a dark gradient. It is scenery: the type stays the thing you read, and nothing on the page depends on anyone seeing it.
