@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.04-2 — 2026-10-04 — commit `88fc84b`
+## v2026.10.04-2 — 2026-10-04 — commit `378ede3`
 
 - **A video of the lock-up now runs behind the home page headline.** Footage of the owner's own rail, cut to a seven-second loop that starts and ends on the same frame so it never jumps, graded from the phone's HLG capture to normal colour, blurred a touch and sat under a dark gradient. It is scenery: the type stays the thing you read, and nothing on the page depends on anyone seeing it.
 - The still frame paints first and stays behind the video, so the band is never empty while the file loads and never collapses if it fails. Anyone who has asked their device for reduced motion gets the still and no movement at all.
