@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.04-9 — 2026-10-04 — commit `PENDING`
+
+- **The 5.0 Google rating on the home page is now a link to the real listing.** Until now it was a claim with nothing behind it; a visitor can check it in one click, which is the only thing that makes a rating worth printing. Opens in a new tab, and carries a hidden label for screen readers.
+- Still no `aggregateRating` in the structured data, deliberately: Google does not allow a business to mark up its own rating on its own site, and doing it anyway risks a manual penalty.
+- **Document 4 carries the real review link** — the write-a-review one, which drops a customer straight into the stars rather than onto the listing to go hunting.
+
+---
+
 ## v2026.10.04-8 — 2026-10-04 — commit `7d549e9`
 
 - **The contact address moves to info@archivewholesale.co.uk.** In the UK trade a .co.uk reads as a British supplier and a .com does not, which matters more than keeping the old address. Changed on the contact page, the buyer information page, llms.txt, the order confirmation email and all five customer documents. The .com forwards in, so anyone holding the old address still reaches us.

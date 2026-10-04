@@ -54,7 +54,7 @@ export const siteConfig = {
    * on the home page becomes a link to the real listing, which is what makes
    * the rating checkable rather than a claim. Leave blank for plain text.
    */
-  googleReviewUrl: "",
+  googleReviewUrl: "https://maps.app.goo.gl/JqgGCd5vjdakXPFW9",
   /**
    * The email capture pop-up, and the discount it promises.
    *
