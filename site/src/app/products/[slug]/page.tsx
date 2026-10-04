@@ -5,7 +5,16 @@ import { AddToCart } from "@/components/AddToCart";
 import { ProductGallery, type GalleryItem } from "@/components/ProductGallery";
 import { EnquiryActions } from "@/components/EnquiryActions";
 import { ProductCard } from "@/components/ProductCard";
-import { fromPrice, getProduct, pricedCount, products, quantityLabel, toPrice, availabilityLabel} from "@/data/catalogue";
+import { SpecRow } from "@/components/SpecRow";
+import {
+  availabilityLabel,
+  fromPrice,
+  getProduct,
+  pricedCount,
+  products,
+  quantityLabel,
+  toPrice,
+} from "@/data/catalogue";
 import { findCategory, type CategoryKind } from "@/data/taxonomy";
 import { showVat, siteConfig } from "@/config/site";
 import { formatPrice, perPiece } from "@/lib/format";
@@ -254,57 +263,60 @@ export default async function ProductPage({ params }: Params) {
               </div>
             )}
           </div>
-
-          <dl className="mt-9 divide-y divide-ash border-y border-ash text-sm">
-            <div className="flex gap-6 py-3">
-              <dt className="w-36 shrink-0 font-bold">Lot sizes</dt>
-              <dd className="text-slate">{quantityLabel(product)}</dd>
-            </div>
+          {/* The trust panel. These five lines are what a trade buyer checks
+              before parting with a few hundred pounds, so they are given icons,
+              weight and a hard border rather than being a grey list. */}
+          <dl className="mt-9 border-2 border-ink">
+            <SpecRow icon="lots" label="Lot sizes" value={quantityLabel(product)} />
             {product.variants.length > 0 && (
-              <div className="flex gap-6 py-3">
-                <dt className="w-36 shrink-0 font-bold">Sold by</dt>
-                <dd className="text-slate">
-                  The {product.unit === "pairs" ? "pair" : "piece"}, in lots. Wholesale only — we do
-                  not sell single pieces.
-                </dd>
-              </div>
+              <SpecRow
+                icon="box"
+                label="Sold by"
+                value={`The ${product.unit === "pairs" ? "pair" : "piece"}, in lots. Wholesale only — we do not sell single pieces.`}
+              />
             )}
-            <div className="flex gap-6 py-3">
-              <dt className="w-36 shrink-0 font-bold">Grade</dt>
-              <dd className="text-slate">
-                Grade {product.grade ?? "A/B"}
-                {product.gradeNote && <span> — {product.gradeNote}</span>}
-                <Link
-                  href="/grading-guide"
-                  className="ml-3 text-xs font-bold tracking-wide text-forest uppercase underline underline-offset-4 hover:text-ink"
-                >
-                  What our grades mean
-                </Link>
-              </dd>
-            </div>
-            <div className="flex gap-6 py-3">
-              <dt className="w-36 shrink-0 font-bold">Authenticity</dt>
-              <dd className="text-slate">Every piece guaranteed genuine.</dd>
-            </div>
-            {product.sizeRun && (
-              <div className="flex gap-6 py-3">
-                <dt className="w-36 shrink-0 font-bold">Size run</dt>
-                <dd className="text-slate">{product.sizeRun}</dd>
-              </div>
-            )}
-            <div className="flex gap-6 py-3">
-              <dt className="w-36 shrink-0 font-bold">Availability</dt>
-              <dd className="text-slate">{availabilityLabel(product)}</dd>
-            </div>
+            <SpecRow
+              icon="grade"
+              label="Grade"
+              value={
+                <>
+                  Grade {product.grade ?? "A/B"}
+                  {product.gradeNote && <span className="font-normal text-slate"> — {product.gradeNote}</span>}
+                  <Link
+                    href="/grading-guide"
+                    className="ml-3 text-xs font-bold tracking-wide text-forest uppercase underline underline-offset-4 hover:text-ink"
+                  >
+                    What our grades mean
+                  </Link>
+                </>
+              }
+            />
+            <SpecRow
+              icon="lock"
+              label="Authenticity"
+              highlight
+              value="Every piece guaranteed genuine — labels, branding and construction checked by hand."
+            />
+            <SpecRow
+              icon="van"
+              label="UK delivery"
+              value="£10 on a lot of 10, £20 on a 25, £35 on a 50. Dispatched in 24–48 hours, then tracked next day."
+            />
+            {product.sizeRun && <SpecRow icon="rule" label="Size run" value={product.sizeRun} />}
+            <SpecRow
+              icon="stock"
+              label="Availability"
+              value={availabilityLabel(product)}
+              tone={product.inStock ? "good" : "plain"}
+            />
             {product.notes.length > 0 && (
-              <div className="flex gap-6 py-3">
-                <dt className="w-36 shrink-0 font-bold">Please note</dt>
-                <dd className="space-y-1 text-slate">
-                  {product.notes.map((note) => (
-                    <p key={note}>{note}</p>
-                  ))}
-                </dd>
-              </div>
+              <SpecRow
+                icon="note"
+                label="Please note"
+                value={product.notes.map((note) => (
+                  <p key={note}>{note}</p>
+                ))}
+              />
             )}
           </dl>
 

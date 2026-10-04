@@ -12,6 +12,16 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.04-1 — 2026-10-04 — commit `ce8031c`
+
+- **Product terms panel rebuilt to carry weight.** The grey list of lot sizes, grade, authenticity and availability is now a bordered panel with an icon on every line, the label as a small uppercase eyebrow and the value in bold ink rather than grey. Those five lines are the last thing a trade buyer reads before spending a few hundred pounds on stock they cannot handle first, and as small print they were doing none of that work.
+- **Authenticity carries a padlock** and sits on a lifted panel of its own, at the owner's request, and now says what the guarantee actually means: labels, branding and construction checked by hand.
+- **A UK delivery line added** — £10 on a 10, £20 on a 25, £35 on a 50, dispatched in 24 to 48 hours then tracked next day. Delivery cost was previously only discoverable in the basket, which is late for the question most buyers ask first.
+- Availability reads in green with a tick when a lot is in stock.
+- Icons are eight inline SVGs in a new `SpecRow` component — no icon font and no package for eight paths.
+
+---
+
 ## v2026.10.03-11 — 2026-10-03 — commit `88cff04`
 
 - **New lot: Winter Mix**, men's and women's together — knitwear, hoodies, sweatshirts, fleeces and lined jackets. Created **held**: no photographs, no video, no prices, not purchasable. The owner's photography lands tomorrow and prices are the owner's call, so neither is guessed here. Page, description and search presence are in place so it only needs the pictures and the figures.
