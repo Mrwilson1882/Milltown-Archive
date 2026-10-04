@@ -18,7 +18,7 @@ const ENDPOINT = "https://api.resend.com/emails";
 
 /** Who the customer sees it from. Overridable, but this is the live value. */
 export const ORDER_FROM =
-  process.env.ORDER_EMAIL_FROM || "Archive Wholesale <info@archivewholesale.com>";
+  process.env.ORDER_EMAIL_FROM || "Archive Wholesale <info@archivewholesale.co.uk>";
 
 /** Set to send the owner a copy of every confirmation. */
 export const ORDER_BCC = process.env.ORDER_EMAIL_BCC || "";
@@ -50,7 +50,7 @@ export async function sendEmail(options: {
         from: ORDER_FROM,
         to: [options.to],
         ...(options.bcc ? { bcc: [options.bcc] } : {}),
-        reply_to: options.replyTo || "info@archivewholesale.com",
+        reply_to: options.replyTo || "info@archivewholesale.co.uk",
         subject: options.subject,
         html: options.html,
         text: options.text,

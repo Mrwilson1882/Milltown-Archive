@@ -12,6 +12,13 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.04-8 — 2026-10-04 — commit `PENDING`
+
+- **The contact address moves to info@archivewholesale.co.uk.** In the UK trade a .co.uk reads as a British supplier and a .com does not, which matters more than keeping the old address. Changed on the contact page, the buyer information page, llms.txt, the order confirmation email and all five customer documents. The .com forwards in, so anyone holding the old address still reaches us.
+- The order confirmation now sends from, and replies to, the .co.uk — which means the .co.uk is the domain to verify in Resend, not the .com.
+
+---
+
 ## v2026.10.04-7 — 2026-10-04 — commit `b7e76db`
 
 - **Every buyer now gets an order confirmation and invoice from info@archivewholesale.com** the moment their payment clears. It carries the invoice — number, date, Archivio Group Ltd and company number, who it is billed to, the lots, delivery, total paid — and then the whole of the "just purchased" sheet: what happens next, wash it before it goes on the rail, and the three things every buyer asks after a first box lands.

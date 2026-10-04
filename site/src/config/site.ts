@@ -34,10 +34,12 @@ export const siteConfig = {
   /** Canonical origin, no trailing slash. */
   url: (rawSiteUrl && rawSiteUrl.replace(/\/$/, "")) || "https://www.archivewholesale.co.uk",
   /**
-   * Contact inbox shown on the site. Change this to an @archivewholesale.co.uk
-   * address once that mailbox is live.
+   * Contact inbox shown on the site. On the .co.uk from 4 October 2026: in the
+   * UK trade a .co.uk reads as a British supplier and a .com does not, which
+   * matters more here than matching the old address. The .com forwards in, so
+   * anyone holding the old one still reaches us.
    */
-  email: "info@archivewholesale.com",
+  email: "info@archivewholesale.co.uk",
   /**
    * WhatsApp business number in full international format, digits only.
    * 07897 740194 is 44 7897 740194. NEXT_PUBLIC_WHATSAPP_NUMBER overrides it,
