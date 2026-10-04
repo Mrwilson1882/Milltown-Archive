@@ -5,8 +5,8 @@ import { useState } from "react";
 /**
  * The rail behind the headline.
  *
- * Footage of the owner's own lock-up. It is scenery, not content: blurred a
- * touch and sat under a dark scrim so the type stays the thing you read.
+ * Footage of the owner's own lock-up. It is scenery, not content: softened a
+ * shade and sat under a dark scrim so the type stays the thing you read.
  * Nothing on the page depends on anyone seeing it.
  *
  * The walk down the rail is slowed to a drift and then played forwards and
@@ -50,9 +50,23 @@ export function HeroVideo() {
             poster="/videos/home/lockup-poster.jpg"
             /* Scaled up a shade so the blur has no soft edge to show at the sides.
                The clip is 16:9 and the band is close to it, so this is barely a
-               crop — pulled down a little to keep the rail rather than the roof. */
-            className="absolute inset-0 h-full w-full scale-105 object-cover object-[50%_42%] blur-[2px]"
+               crop — pulled down a little to keep the rail rather than the roof.
+
+               Half a pixel of blur, not two. The band is wider than the file on
+               a retina screen, so there is already softness from the upscale;
+               adding a real blur on top of that read as out of focus. */
+            className="absolute inset-0 h-full w-full scale-105 object-cover object-[50%_42%] blur-[0.5px]"
           >
+            {/* Two files, picked once at load. A phone's band is about 1,170
+                device pixels across, so the 720p file lands on it close to one
+                for one and the larger download would buy nothing. A desktop
+                band at two times the pixel ratio is nearer 2,900 across, which
+                is where the smaller file showed as soft. */}
+            <source
+              src="/videos/home/lockup-1080.mp4"
+              media="(min-width: 768px)"
+              type='video/mp4; codecs="avc1.640028"'
+            />
             <source src="/videos/home/lockup.mp4" type='video/mp4; codecs="avc1.640028"' />
           </video>
         )}

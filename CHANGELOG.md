@@ -12,6 +12,13 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.04-4 — 2026-10-04 — commit `PENDING`
+
+- **The hero clip is sharp again.** It was encoded at 720p and then stretched across a desktop band nearly three thousand pixels wide, with a two-pixel blur on top of that. Both are fixed: a full 1080p file now goes to anything wider than a tablet, the blur is down to half a pixel, and the still frame behind it was re-cut at the same resolution.
+- Phones still get the 720p file — a phone's hero band is about 1,170 pixels across, so it lands close to one for one and the bigger download would buy nothing. The browser picks one at load; nobody downloads both.
+
+---
+
 ## v2026.10.04-3 — 2026-10-04 — commit `c3ebee9`
 
 - **New hero footage, and the loop no longer lurches.** The owner sent a second clip — landscape, brighter, a steady walk down the rail. It is slowed to roughly half speed and then played forwards and backwards, so the loop has no cut in it anywhere and nothing jumps. The previous clip was crossfaded end to end and the join read as a sudden movement every few seconds.
