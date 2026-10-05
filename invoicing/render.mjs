@@ -385,7 +385,7 @@ const css = `
       max-width: none;
       width: auto;
       padding: 0;
-      gap: 3mm;
+      gap: 2.4mm;
       font-size: 9pt;
     }
     /* Almost every block sets its own absolute pt size, so the sheet's
@@ -396,26 +396,29 @@ const css = `
     .pay p, .vat-statement, .notes p { font-size: 8pt; }
     .trading-line { font-size: 7.5pt; }
 
-    .masthead { padding-bottom: 4mm; gap: 6mm; }
+    .masthead { padding-bottom: 3mm; gap: 6mm; }
     .masthead img { height: 11mm; }
-    .parties { gap: 5mm; }
-    .party .body { margin-top: 2mm; }
+    .parties { gap: 4mm; }
+    .party .body { margin-top: 1.5mm; }
     .meta { gap: 1mm; }
-    .meta .row { padding-bottom: 0.8mm; }
+    .meta .row { padding-bottom: 0.6mm; }
     table.items tbody td { padding: 2mm 3mm; }
     table.items thead th { padding: 2mm 3mm; }
     .totals .row { padding: 0.8mm 0; }
-    .total-due { padding: 3mm 5mm; margin-top: 1.5mm; }
+    .total-due { padding: 2.5mm 5mm; margin-top: 1mm; }
     .total-due .amount { font-size: 15pt; }
-    .pay { padding: 3.5mm; gap: 5mm; }
+    .pay { padding: 3mm; gap: 4mm; }
     .pay dl, .lot-summary dl { margin-top: 2mm; }
     .pay p { margin-top: 2mm; }
     .vat-statement { margin-top: 2mm; }
     /* Two columns halves the depth of the terms, which is what decides whether
        a short order comes off the printer as one sheet or two. */
     .terms ol { font-size: 7.5pt; columns: 2; column-gap: 8mm; padding-left: 4mm; }
-    .terms li { margin-bottom: 0.4mm; break-inside: avoid; }
-    .foot { padding-top: 2mm; border-top-width: 1px; font-size: 7pt; }
+    .terms li { margin-bottom: 0.2mm; break-inside: avoid; }
+    .foot { padding-top: 1.5mm; border-top-width: 1px; font-size: 7pt; }
+    /* On paper there is room for the registration line in full; wrapping it
+       costs a line of height, which is what pushes a long order to two sheets. */
+    .foot .reg { max-width: 150mm; }
     table.items thead { display: table-header-group; }
     table.items tr, .pay, .total-due, .incomplete { break-inside: avoid; }
     .foot { break-inside: avoid; }

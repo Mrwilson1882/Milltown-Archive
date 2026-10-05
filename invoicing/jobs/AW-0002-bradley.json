@@ -1,5 +1,7 @@
 {
   "status": "invoice",
+  "invoiceNumber": "AW-0002",
+  "orderNumber": "ORD-0013",
   "invoiceDate": "2026-09-15",
   "paymentTerms": "Due on receipt",
 
