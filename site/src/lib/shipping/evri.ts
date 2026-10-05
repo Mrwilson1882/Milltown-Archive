@@ -28,8 +28,11 @@ export const evriSettings = {
    *
    * The owner gave a range of 2–5kg. This takes the top of it, because a
    * parcel declared light and weighed heavy picks up a surcharge, while a
-   * parcel declared heavy and weighed light costs nothing extra. Lower it here
-   * if the scales say otherwise — it is one number and nothing else reads it.
+   * parcel declared heavy and weighed light costs nothing extra.
+   *
+   * Confirmed against the heaviest line we sell: ten Lacoste cardigans weigh
+   * 5kg (owner, 5 October 2026). Knitwear is the worst case, so every other
+   * ten-piece lot lands under this and the figure is safe across the range.
    */
   kgPerTenPieces: 5,
   /** Signature on delivery, always. */
