@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.05-1 — 2026-10-05 — commit `PENDING`
+## v2026.10.05-1 — 2026-10-05 — commit `2458524`
 
 - **Every paid order now produces an Evri bulk-upload sheet.** The owner gets a picking list by email the moment a payment clears, with a CSV attached in Evri's own column order — address, name split into two fields, email, phone, weight, compensation, signature, reference, contents, value and service. Upload it in the Evri business portal and the labels come out with everything already on them. No address is ever typed again.
 - **One row per parcel, not per order.** Delivery is priced per lot because each lot ships as its own parcel, so two tens and a twenty-five is three rows and three labels, each with its own reference suffix.
