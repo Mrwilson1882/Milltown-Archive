@@ -187,6 +187,20 @@ music in the app.
 First cut: `this-weeks-lots-story.mp4` — windbreakers, tees, women's Y2K,
 hoodies, Carhartt/Dickies tees. 21.5 seconds.
 
+## A notice to send
+
+`build/notice.mjs` draws a customer notice as a picture — the storefront's
+white ground, Archivo and forest green — in two sizes: a square to send on
+WhatsApp and a 9:16 for a story.
+
+```bash
+node notice.mjs --handle @yourhandle        # writes card-payments-square.png and -story.png
+```
+
+The copy lives at the top of the script. The first one says card payments
+are on, mirroring the cart's own line for when they were not, and asks
+people to follow on Instagram.
+
 ## Re-rendering
 
 ```bash
