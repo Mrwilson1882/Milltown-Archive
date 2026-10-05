@@ -22,6 +22,16 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.05-3 — 2026-10-05 — commit `PENDING`
+
+- **A twice-daily Evri round-up.** At 09:00 and 15:00 the site asks Stripe for everything paid since the previous run and emails one sheet covering all of it — every parcel from every order in that window, as one upload rather than one file per customer. Two uploads a day instead of nine.
+- Nothing is stored between runs. Stripe already holds every order, so the window is worked out from the clock and the orders read back on demand; a run can be repeated safely and there is no state to go stale.
+- **Keyed on when the card went through, not when checkout opened.** A buyer who reaches the payment page at 08:55 and pays at 09:05 would otherwise sit in a window whose sheet had already gone out, and appear on no sheet at all.
+- Nothing is sent when the window is empty: a sheet with no rows every morning trains you to ignore the one that matters.
+- **Needs CRON_SECRET in Vercel.** Without it the route is closed rather than open — it would otherwise hand out every customer address we hold to anyone who found the URL.
+
+---
+
 ## v2026.10.05-2 — 2026-10-05 — commit `074bd8f`
 
 - **The owner's order email now names the lot and what it is worth.** It read "Parcel 1 of 2 — 25 pieces"; it now reads the lot's own name with the pieces, declared weight and value under it, a goods total at the foot, and the subject line carries the amount and the lot so an order can be recognised without opening it.
