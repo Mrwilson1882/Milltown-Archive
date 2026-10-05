@@ -30,12 +30,18 @@ const outDir = path.resolve(flag("out", path.resolve(HERE, "..")));
 /* ---------------------------------------------------------------- copy */
 
 const COPY = {
+  // The headline is the site's own line (PaymentsLiveNotice.tsx), so a
+  // customer who taps through reads the same words. "No payment link to wait
+  // for" is the specific thing that changed: before 3 October, checkout sent
+  // people to WhatsApp for one.
   eyebrow: "An update from Archive Wholesale",
-  head1: "You can now",
-  head2: "pay by card.",
-  body: "Secure checkout on the website takes debit and credit cards. Order a box or a lot and pay in one go — no invoice to wait for.",
+  head1: "Card payments",
+  head2: "are now live.",
+  body: "Order and pay on the site in one go — debit or credit card at a secure checkout, no payment link to wait for.",
   follow: "Follow us on Instagram",
   handle,
+  // The line the order emails already use.
+  followSub: "New lines go up there first.",
   foot: "archivewholesale.co.uk · WhatsApp 07897 740194",
 };
 
@@ -63,14 +69,15 @@ html,body{width:${W}px;height:${H}px;background:${BRAND.paper};overflow:hidden;
 .follow{display:flex;align-items:center;gap:30px;background:${BRAND.forest};color:${BRAND.paper};padding:${story ? 38 : 32}px 40px;margin-top:${story ? 14 : 8}px}
 .follow svg{width:${story ? 84 : 76}px;height:${story ? 84 : 76}px;flex:0 0 auto}
 .follow small{display:block;font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:${story ? 24 : 22}px;opacity:.85}
-.follow b{display:block;font-weight:900;letter-spacing:-.01em;font-size:${story ? 62 : 56}px;line-height:1.05;margin-top:8px;word-break:break-all}
+.follow b{display:block;font-weight:900;letter-spacing:-.01em;font-size:${story ? 58 : 52}px;line-height:1.05;margin-top:8px;word-break:break-all}
+.follow em{display:block;font-style:normal;font-weight:500;font-size:${story ? 27 : 25}px;margin-top:10px;opacity:.9}
 .foot{font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:${story ? 22 : 21}px;color:${BRAND.slate}}
 </style></head><body><div class="page">
   <img class="logo" src="${logo}">
   <div class="eyebrow">${esc(COPY.eyebrow)}</div>
   <div class="head">${esc(COPY.head1)}<span>${esc(COPY.head2)}</span></div>
   <div class="body">${esc(COPY.body)}</div>
-  <div class="follow">${glyph}<div><small>${esc(COPY.follow)}</small><b>${esc(COPY.handle)}</b></div></div>
+  <div class="follow">${glyph}<div><small>${esc(COPY.follow)}</small><b>${esc(COPY.handle)}</b><em>${esc(COPY.followSub)}</em></div></div>
   <div class="foot">${esc(COPY.foot)}</div>
 </div></body></html>`;
 
