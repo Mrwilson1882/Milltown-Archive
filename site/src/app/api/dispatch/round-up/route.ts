@@ -2,8 +2,9 @@ import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { sendEmail, ORDER_BCC, emailEnabled } from "@/lib/email/send";
 import { formatPrice } from "@/lib/format";
-import { evriCsv, overweight, weightFor, type EvriOrder } from "@/lib/shipping/evri";
-import { getStripe, stripeEnabled } from "@/lib/stripe";
+import { paidSessionsBetween, toEvriOrder } from "@/lib/orders/fromStripe";
+import { evriCsv, overweight, weightFor } from "@/lib/shipping/evri";
+import { stripeEnabled } from "@/lib/stripe";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -69,92 +70,6 @@ function hoursSincePrevious(hour: number): number {
   return hour + 24 - RUNS[RUNS.length - 1];
 }
 
-const pounds = (pence: number | null | undefined): number => (pence ?? 0) / 100;
-
-function reference(sessionId: string): string {
-  return `AW-${sessionId.slice(-8).toUpperCase()}`;
-}
-
-/**
- * Every order *paid for* in the window, oldest first.
- *
- * Driven off charges rather than Checkout sessions, because a session is
- * stamped when checkout opens and not when the card goes through. Someone who
- * reaches the payment page at 08:55 and pays at 09:05 has a session in the
- * earlier window but was not paid when that window's sheet went out — keyed
- * on the session, they would never appear on any sheet at all. A charge is
- * stamped at the moment the money moves, which is the moment a parcel needs
- * packing.
- */
-async function paidSessions(from: number, to: number): Promise<Stripe.Checkout.Session[]> {
-  const stripe = getStripe();
-
-  const charges: Stripe.Charge[] = [];
-  let after: string | undefined;
-  for (let page = 0; page < 10; page += 1) {
-    const batch = await stripe.charges.list({
-      created: { gte: from, lt: to },
-      limit: 100,
-      ...(after ? { starting_after: after } : {}),
-    });
-    charges.push(...batch.data.filter((c) => c.status === "succeeded" && !c.refunded));
-    if (!batch.has_more || batch.data.length === 0) break;
-    after = batch.data[batch.data.length - 1].id;
-  }
-
-  const sessions: Stripe.Checkout.Session[] = [];
-  for (const charge of charges) {
-    const pi = typeof charge.payment_intent === "string" ? charge.payment_intent : null;
-    if (!pi) continue;
-    const found = await stripe.checkout.sessions.list({
-      payment_intent: pi,
-      limit: 1,
-      expand: ["data.line_items"],
-    });
-    const session = found.data[0];
-    // A payment with no Checkout session behind it was taken some other way —
-    // a payment link, or by hand. Not ours to put on the sheet.
-    if (session && session.payment_status === "paid") sessions.push(session);
-  }
-
-  return sessions.reverse();
-}
-
-function toEvriOrder(session: Stripe.Checkout.Session): EvriOrder {
-  const details = session.customer_details;
-  const shipping = session.collected_information?.shipping_details ?? null;
-  const address = shipping?.address ?? details?.address ?? null;
-  const items = session.line_items?.data ?? [];
-
-  const parcels: EvriOrder["parcels"] = [];
-  (session.metadata?.lots ?? "")
-    .split(",")
-    .map((s) => s.trim())
-    .filter(Boolean)
-    .forEach((lot, i) => {
-      const match = lot.match(/\/(\d+)[×x](\d+)$/);
-      if (!match) return;
-      const pieces = Number(match[1]);
-      const qty = Number(match[2]);
-      const unit = pounds(items[i]?.price?.unit_amount);
-      const name = items[i]?.description ?? lot.split("/")[0] ?? "Lot";
-      for (let n = 0; n < qty; n += 1) parcels.push({ name, pieces, valueGBP: unit });
-    });
-
-  return {
-    reference: reference(session.id),
-    name: shipping?.name || details?.name || "",
-    email: details?.email ?? "",
-    phone: details?.phone ?? undefined,
-    line1: address?.line1 ?? "",
-    line2: address?.line2 ?? "",
-    town: address?.city ?? "",
-    county: address?.state ?? "",
-    postcode: address?.postal_code ?? "",
-    parcels,
-  };
-}
-
 export async function GET(request: Request) {
   // Vercel sends this header on scheduled runs when CRON_SECRET is set. It is
   // the only thing standing between a public URL and anyone being able to
@@ -178,7 +93,7 @@ export async function GET(request: Request) {
 
   let sessions: Stripe.Checkout.Session[];
   try {
-    sessions = await paidSessions(from, to);
+    sessions = await paidSessionsBetween(from, to);
   } catch (error) {
     console.error("[round-up] could not read Stripe", error);
     return NextResponse.json({ error: "stripe_read_failed" }, { status: 502 });

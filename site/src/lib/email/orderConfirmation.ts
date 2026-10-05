@@ -107,11 +107,17 @@ function sectionHeading(text: string): string {
   return `<tr><td style="padding:34px 28px 10px;font:800 19px/1.15 ${FONT};letter-spacing:-0.01em;text-transform:uppercase;color:${INK}">${esc(text)}</td></tr>`;
 }
 
+/** Set when the email is going out after the fact, not at the moment of payment. */
+export type ConfirmationOptions = { late?: boolean };
+
 export function orderConfirmationSubject(order: OrderEmailData): string {
   return `Order confirmed & invoice ${order.reference} — Archive Wholesale`;
 }
 
-export function orderConfirmationHtml(order: OrderEmailData): string {
+export function orderConfirmationHtml(
+  order: OrderEmailData,
+  options: ConfirmationOptions = {},
+): string {
   const itemRows = order.lines
     .map(
       (line) => `
@@ -202,7 +208,11 @@ export function orderConfirmationHtml(order: OrderEmailData): string {
   <tr><td style="padding:22px 28px 0">
     <div style="font:800 28px/1 ${FONT};letter-spacing:-0.02em;text-transform:uppercase;color:${INK}">Payment received</div>
     <div style="font:400 15px/1.6 ${FONT};color:${SLATE};padding-top:12px">
-      Thank you — your order is in. It is dispatched within 24–48 hours, then sent tracked, next day.
+      ${
+        options.late
+          ? "Thank you — your order is in, and here is your invoice. Apologies that it has taken a few days to reach you: we only switched these confirmations on this week, and yours was placed before that. Nothing about your order has changed."
+          : "Thank you — your order is in. It is dispatched within 24–48 hours, then sent tracked, next day."
+      }
       Everything between here and your doorstep is below.
     </div>
   </td></tr>
@@ -328,7 +338,10 @@ export function orderConfirmationHtml(order: OrderEmailData): string {
 }
 
 /** The plain-text part. Some clients show it, and spam filters read it. */
-export function orderConfirmationText(order: OrderEmailData): string {
+export function orderConfirmationText(
+  order: OrderEmailData,
+  options: ConfirmationOptions = {},
+): string {
   const items = order.lines
     .map(
       (l) =>
@@ -339,7 +352,9 @@ export function orderConfirmationText(order: OrderEmailData): string {
   return [
     "ARCHIVE WHOLESALE — PAYMENT RECEIVED",
     "",
-    "Thank you — your order is in.",
+    options.late
+      ? "Thank you — your order is in, and here is your invoice. Apologies that it has taken a few days to reach you: we only switched these confirmations on this week."
+      : "Thank you — your order is in.",
     "Dispatched within 24-48 hours, then sent tracked, next day.",
     "",
     `INVOICE ${order.reference} — ${order.placedOn}`,
