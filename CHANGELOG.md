@@ -22,7 +22,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.05-3 — 2026-10-05 — commit `PENDING`
+## v2026.10.05-3 — 2026-10-05 — commit `be72650`
 
 - **A twice-daily Evri round-up.** At 09:00 and 15:00 the site asks Stripe for everything paid since the previous run and emails one sheet covering all of it — every parcel from every order in that window, as one upload rather than one file per customer. Two uploads a day instead of nine.
 - Nothing is stored between runs. Stripe already holds every order, so the window is worked out from the clock and the orders read back on demand; a run can be repeated safely and there is no state to go stale.
