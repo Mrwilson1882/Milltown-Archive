@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type Stripe from "stripe";
+import { dispatchHtml, dispatchSubject, dispatchText } from "@/lib/email/dispatchNote";
 import {
   orderConfirmationHtml,
   orderConfirmationSubject,
@@ -7,6 +8,7 @@ import {
   type OrderEmailData,
 } from "@/lib/email/orderConfirmation";
 import { ORDER_BCC, emailEnabled, sendEmail } from "@/lib/email/send";
+import { evriCsv, evriFilename, evriReady, type EvriOrder } from "@/lib/shipping/evri";
 import { getStripe, stripeEnabled } from "@/lib/stripe";
 
 export const runtime = "nodejs";
@@ -80,9 +82,9 @@ async function handlePaidOrder(session: Stripe.Checkout.Session) {
     });
 
     const order = toOrderEmail(full, email);
+    // The buyer's copy carries no attachment: the Evri sheet is ours.
     const result = await sendEmail({
       to: email,
-      bcc: ORDER_BCC || undefined,
       subject: orderConfirmationSubject(order),
       html: orderConfirmationHtml(order),
       text: orderConfirmationText(order),
@@ -96,6 +98,8 @@ async function handlePaidOrder(session: Stripe.Checkout.Session) {
         reason: result.reason,
       });
     }
+
+    await sendDispatchNote(full, order);
   } catch (error) {
     // Never rethrow. Stripe retries a non-2xx, and a retry loop on a mailbox
     // problem means the buyer gets the same email five times when it recovers.
@@ -149,4 +153,82 @@ function toOrderEmail(session: Stripe.Checkout.Session, email: string): OrderEma
     deliveryGBP: pounds(session.shipping_cost?.amount_total),
     totalGBP: pounds(session.amount_total),
   };
+}
+
+/**
+ * Turn the session's own record of what was bought into parcels.
+ *
+ * The checkout route writes `lots` into the session metadata as
+ * `slug/pieces×qty`, in the same order the line items were built, which makes
+ * it the reliable source for how many parcels and of what size — the line
+ * item's description is prose and would have to be parsed back out of English.
+ * Prices still come from the line items, matched by position.
+ */
+function parcelsFrom(session: Stripe.Checkout.Session): EvriOrder["parcels"] {
+  const lots = (session.metadata?.lots ?? "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const items = session.line_items?.data ?? [];
+
+  const parcels: EvriOrder["parcels"] = [];
+  lots.forEach((lot, i) => {
+    const match = lot.match(/\/(\d+)[×x](\d+)$/);
+    if (!match) return;
+    const pieces = Number(match[1]);
+    const qty = Number(match[2]);
+    // Each lot ships as its own parcel, so a quantity of two is two parcels.
+    const unit = pounds(items[i]?.price?.unit_amount);
+    for (let n = 0; n < qty; n += 1) parcels.push({ pieces, valueGBP: unit });
+  });
+  return parcels;
+}
+
+/**
+ * The owner's picking list, with the Evri sheet attached when it can be built.
+ *
+ * Sent even when it cannot: an order that has been paid for has to reach the
+ * person packing it, and a note saying the weights are missing is far better
+ * than silence.
+ */
+async function sendDispatchNote(
+  session: Stripe.Checkout.Session,
+  order: OrderEmailData,
+): Promise<void> {
+  if (!ORDER_BCC) return;
+
+  const shipping = session.collected_information?.shipping_details ?? null;
+  const address = shipping?.address ?? session.customer_details?.address ?? null;
+
+  const evri: EvriOrder = {
+    reference: order.reference,
+    name: order.name,
+    email: order.email,
+    phone: order.phone,
+    line1: address?.line1 ?? "",
+    line2: address?.line2 ?? "",
+    town: address?.city ?? "",
+    county: address?.state ?? "",
+    postcode: address?.postal_code ?? "",
+    parcels: parcelsFrom(session),
+  };
+
+  const ready = evri.parcels.length > 0 && evriReady(evri.parcels);
+
+  const result = await sendEmail({
+    to: ORDER_BCC,
+    subject: dispatchSubject(evri, ready),
+    html: dispatchHtml(evri, ready),
+    text: dispatchText(evri, ready),
+    attachments: ready
+      ? [{ filename: evriFilename(evri.reference), content: evriCsv(evri) }]
+      : undefined,
+  });
+
+  if (!result.ok) {
+    console.error("[stripe-webhook] dispatch note failed", {
+      session: session.id,
+      reason: result.reason,
+    });
+  }
 }

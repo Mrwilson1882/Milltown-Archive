@@ -12,6 +12,16 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.05-1 — 2026-10-05 — commit `PENDING`
+
+- **Every paid order now produces an Evri bulk-upload sheet.** The owner gets a picking list by email the moment a payment clears, with a CSV attached in Evri's own column order — address, name split into two fields, email, phone, weight, compensation, signature, reference, contents, value and service. Upload it in the Evri business portal and the labels come out with everything already on them. No address is ever typed again.
+- **One row per parcel, not per order.** Delivery is priced per lot because each lot ships as its own parcel, so two tens and a twenty-five is three rows and three labels, each with its own reference suffix.
+- Weights follow the owner's rule of 2–5kg per ten pieces, set at the top of that range: a parcel declared light and weighed heavy picks up a surcharge, one declared heavy costs nothing extra. Compensation follows the goods value excluding delivery, signature on, next day — all the owner's rules.
+- **A fifty-piece lot comes out at 25kg, over Evri's 15kg limit.** The note says so in bold and tells the owner to split it before booking rather than letting the sheet buy a label that gets refused.
+- The buyer's confirmation no longer blind-copies the owner. It is a separate email now, because the Evri sheet is an internal document and must not go out with the customer's copy.
+
+---
+
 ## v2026.10.04-12 — 2026-10-04 — commit `ba22903`
 
 - **A one-line notice under the menu: card payments are now live.** Anyone who visited before 3 October was sent to WhatsApp for a payment link, and whoever bounced at that step has no way of knowing it changed. Sits below the menu and above the hero on every page, as a note rather than an announcement bar — grey ground, dark type, a padlock, and a link straight to the boxes.

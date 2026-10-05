@@ -27,6 +27,12 @@ export const emailEnabled = Boolean(process.env.RESEND_API_KEY);
 
 export type SendResult = { ok: true; id: string } | { ok: false; reason: string };
 
+export type Attachment = {
+  filename: string;
+  /** The file's bytes. Encoded on the way out; callers pass plain text. */
+  content: string;
+};
+
 export async function sendEmail(options: {
   to: string;
   subject: string;
@@ -34,6 +40,7 @@ export async function sendEmail(options: {
   text: string;
   bcc?: string;
   replyTo?: string;
+  attachments?: Attachment[];
 }): Promise<SendResult> {
   const key = process.env.RESEND_API_KEY;
   if (!key) return { ok: false, reason: "no_api_key" };
@@ -54,6 +61,14 @@ export async function sendEmail(options: {
         subject: options.subject,
         html: options.html,
         text: options.text,
+        ...(options.attachments?.length
+          ? {
+              attachments: options.attachments.map((a) => ({
+                filename: a.filename,
+                content: Buffer.from(a.content, "utf8").toString("base64"),
+              })),
+            }
+          : {}),
       }),
     });
 
