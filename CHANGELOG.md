@@ -22,7 +22,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.05-4 — 2026-10-05 — commit `PENDING`
+## v2026.10.05-4 — 2026-10-05 — commit `b412821`
 
 - **A backfill for the buyers who paid before the confirmation email existed.** Card payments went live on 3 October and the confirmation did not follow until the 5th; everyone in between paid and heard nothing from us but Stripe's receipt. Run by hand over a date range, it sends them the same invoice and the same sheet a buyer gets today, with one line at the top owning the delay.
 - **It lists who it would write to and stops, unless told to send.** There is no undo on an email and no record of who has already had one, so looking at the list first is the only thing standing between a late apology and sending it twice.
