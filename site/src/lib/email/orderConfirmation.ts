@@ -61,7 +61,7 @@ function esc(value: string): string {
 const glance: [string, string, string][] = [
   ["Dispatch", "24–48 hrs", "from payment"],
   ["UK delivery", "Next day", "tracked, after dispatch"],
-  ["Courier", "Evri", "tracking from Evri or from us"],
+  ["Courier", "Evri", "they text or email the tracking"],
   ["Grade", "A/B", "checked by hand"],
 ];
 
@@ -80,7 +80,7 @@ const steps: [string, string][] = [
   ],
   [
     "Tracked",
-    "Your tracking link comes through to this email address, from Evri or from us. No tracking after 48 hours? Message us and we will chase it.",
+    "Evri text or email you a tracking link as soon as the parcel is scanned into their network. It comes from them, not from us, and it goes to the details you gave at checkout. No tracking after 48 hours? Message us and we will chase it.",
   ],
 ];
 
@@ -211,7 +211,7 @@ export function orderConfirmationHtml(order: OrderEmailData): string {
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-left:3px solid ${FOREST};background:#E7F0EA">
       <tr><td style="padding:12px 14px">
         <div style="font:700 10px/1.2 ${FONT};letter-spacing:0.16em;text-transform:uppercase;color:${FOREST};padding-bottom:4px">Read this first</div>
-        <div style="font:400 14px/1.55 ${FONT};color:${INK}">You will get a tracking link as soon as your parcel is on its way — either from Evri when it is scanned into their network, or from us directly. It comes to this email address.</div>
+        <div style="font:400 14px/1.55 ${FONT};color:${INK}">Your tracking comes from <strong>Evri</strong>, not from us. They text or email you a link as soon as the parcel is scanned into their network, using the details you gave at checkout — so it is worth checking those are right.</div>
       </td></tr>
     </table>
   </td></tr>

@@ -86,7 +86,7 @@ const steps = [
   ],
   [
     "Picked, counted, dispatched",
-    "Graded and counted out by hand, packed and dispatched within 24 to 48 hours, tracked with Evri. Your tracking link comes through from Evri as soon as it leaves us.",
+    "Graded and counted out by hand, packed and dispatched within 24 to 48 hours, tracked with Evri. Evri text or email you the tracking link themselves as soon as the parcel is scanned in — it comes from them, not from us.",
   ],
 ];
 

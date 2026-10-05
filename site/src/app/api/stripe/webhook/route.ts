@@ -8,7 +8,7 @@ import {
   type OrderEmailData,
 } from "@/lib/email/orderConfirmation";
 import { ORDER_BCC, emailEnabled, sendEmail } from "@/lib/email/send";
-import { evriCsv, evriFilename, evriReady, type EvriOrder } from "@/lib/shipping/evri";
+import type { EvriOrder } from "@/lib/shipping/evri";
 import { getStripe, stripeEnabled } from "@/lib/stripe";
 
 export const runtime = "nodejs";
@@ -179,17 +179,20 @@ function parcelsFrom(session: Stripe.Checkout.Session): EvriOrder["parcels"] {
     const qty = Number(match[2]);
     // Each lot ships as its own parcel, so a quantity of two is two parcels.
     const unit = pounds(items[i]?.price?.unit_amount);
-    for (let n = 0; n < qty; n += 1) parcels.push({ pieces, valueGBP: unit });
+    // The line item's own wording, which is what the buyer saw and what the
+    // owner will be looking for on the rail. Falls back to the slug.
+    const name = items[i]?.description ?? lot.split("/")[0] ?? "Lot";
+    for (let n = 0; n < qty; n += 1) parcels.push({ name, pieces, valueGBP: unit });
   });
   return parcels;
 }
 
 /**
- * The owner's picking list, with the Evri sheet attached when it can be built.
+ * The owner's picking list: what to pull, what it is worth, where it goes.
  *
- * Sent even when it cannot: an order that has been paid for has to reach the
- * person packing it, and a note saying the weights are missing is far better
- * than silence.
+ * No Evri sheet attached. Labels are booked a day at a time, and one CSV per
+ * order would be a folder of single-row files to merge by hand before any of
+ * them could be uploaded.
  */
 async function sendDispatchNote(
   session: Stripe.Checkout.Session,
@@ -213,16 +216,11 @@ async function sendDispatchNote(
     parcels: parcelsFrom(session),
   };
 
-  const ready = evri.parcels.length > 0 && evriReady(evri.parcels);
-
   const result = await sendEmail({
     to: ORDER_BCC,
-    subject: dispatchSubject(evri, ready),
-    html: dispatchHtml(evri, ready),
-    text: dispatchText(evri, ready),
-    attachments: ready
-      ? [{ filename: evriFilename(evri.reference), content: evriCsv(evri) }]
-      : undefined,
+    subject: dispatchSubject(evri),
+    html: dispatchHtml(evri),
+    text: dispatchText(evri),
   });
 
   if (!result.ok) {

@@ -22,6 +22,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.05-2 — 2026-10-05 — commit `PENDING`
+
+- **The owner's order email now names the lot and what it is worth.** It read "Parcel 1 of 2 — 25 pieces"; it now reads the lot's own name with the pieces, declared weight and value under it, a goods total at the foot, and the subject line carries the amount and the lot so an order can be recognised without opening it.
+- **The Evri sheet is no longer attached to it.** Labels are booked a day at a time, and one single-row CSV per order is a folder of files to merge by hand before any of them can be uploaded. The address is in the email to copy from.
+- **Tracking is now described as coming from Evri, not from us** — on the website, in the confirmation email and in the just-purchased document. Evri text or email the link themselves when the parcel is scanned in. This reverses the earlier softening to "from Evri or from us", at the owner's instruction.
+
+---
+
 ## v2026.10.04-12 — 2026-10-04 — commit `ba22903`
 
 - **A one-line notice under the menu: card payments are now live.** Anyone who visited before 3 October was sent to WhatsApp for a payment link, and whoever bounced at that step has no way of knowing it changed. Sits below the menu and above the hero on every page, as a note rather than an announcement bar — grey ground, dark type, a padlock, and a link straight to the boxes.
