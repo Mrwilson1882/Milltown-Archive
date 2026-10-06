@@ -22,7 +22,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.06-2 — 2026-10-06 — commit `PENDING`
+## v2026.10.06-2 — 2026-10-06 — commit `85c3197`
 
 - **Archive Wholesale Customers — a weekly marketing list, as a real spreadsheet.** Every customer who has ever bought, one row each: name, email, phone, full address, how many orders, what they have spent, when they first and last bought, and which lots. Best customers first, filters on every column, sent Monday mornings.
 - **It accumulates by being rebuilt in full, not appended to.** Stripe holds every order ever taken, so each run reads the whole history back rather than adding to a file that could lose its place. A missed week costs nothing and the same list can be produced twice without the two disagreeing.
