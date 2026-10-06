@@ -4,6 +4,7 @@ import { sendEmail, ORDER_BCC, emailEnabled } from "@/lib/email/send";
 import { formatPrice } from "@/lib/format";
 import { paidSessionsBetween, toEvriOrder } from "@/lib/orders/fromStripe";
 import { evriCsv, overweight, weightFor } from "@/lib/shipping/evri";
+import { sendCustomerList } from "@/app/api/marketing/customers/route";
 import { stripeEnabled } from "@/lib/stripe";
 
 export const runtime = "nodejs";
@@ -105,7 +106,8 @@ export async function GET(request: Request) {
   // trains you to ignore the one that matters.
   if (orders.length === 0) {
     console.log("[round-up] nothing to send", { from, to });
-    return NextResponse.json({ ok: true, orders: 0, from, to });
+    const marketing = await maybeSendCustomerList(new Date());
+    return NextResponse.json({ ok: true, orders: 0, from, to, marketing });
   }
 
   if (!emailEnabled || !ORDER_BCC) {
@@ -167,5 +169,21 @@ export async function GET(request: Request) {
   }
 
   console.log("[round-up] sent", { orders: orders.length, parcels, from, to });
-  return NextResponse.json({ ok: true, orders: orders.length, parcels, from, to });
+  const marketing = await maybeSendCustomerList(new Date());
+  return NextResponse.json({ ok: true, orders: orders.length, parcels, from, to, marketing });
+}
+
+/**
+ * The weekly customer list, hung off the Monday morning round-up.
+ *
+ * It rides along with an existing cron rather than taking one of its own:
+ * the hosting plan allows two scheduled jobs and both are spoken for, and a
+ * weekly list is not worth spending the site's only spare slot on.
+ */
+async function maybeSendCustomerList(now: Date): Promise<string> {
+  const monday = now.getUTCDay() === 1;
+  const morning = now.getUTCHours() === RUNS[0];
+  if (!monday || !morning) return "not due";
+  const result = await sendCustomerList();
+  return result.ok ? `sent (${result.customers})` : `failed: ${result.reason}`;
 }

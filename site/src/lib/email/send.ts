@@ -29,8 +29,12 @@ export type SendResult = { ok: true; id: string } | { ok: false; reason: string 
 
 export type Attachment = {
   filename: string;
-  /** The file's bytes. Encoded on the way out; callers pass plain text. */
-  content: string;
+  /**
+   * The file's bytes. Text is handed over as a string, anything binary — a
+   * spreadsheet, a PDF — as a Buffer. Both are base64'd on the way out,
+   * which is the only form Resend takes.
+   */
+  content: string | Buffer;
 };
 
 export async function sendEmail(options: {
@@ -65,7 +69,9 @@ export async function sendEmail(options: {
           ? {
               attachments: options.attachments.map((a) => ({
                 filename: a.filename,
-                content: Buffer.from(a.content, "utf8").toString("base64"),
+                content: Buffer.isBuffer(a.content)
+                  ? a.content.toString("base64")
+                  : Buffer.from(a.content, "utf8").toString("base64"),
               })),
             }
           : {}),
