@@ -22,7 +22,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.06-1 — 2026-10-06 — commit `PENDING`
+## v2026.10.06-1 — 2026-10-06 — commit `0338646`
 
 - **Parcel weights are now weighed per lot rather than a flat rate.** The owner put four boxes on the scales: ten hoodies or sweats is 6kg, ten windbreakers 6.5kg, ten piqué polos 3.4kg, ten Lacoste cardigans 4.8kg, all boxed. A single figure across the catalogue was never going to hold when the heaviest lot is nearly double the lightest.
 - Over-declaring is not free: Evri prices in weight bands, so a 3.4kg box of polos sent as 6.5kg is paid for twice. The declared weight is now the measured one wherever there is a measurement.
