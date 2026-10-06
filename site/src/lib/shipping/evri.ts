@@ -18,23 +18,10 @@ import { siteConfig } from "@/config/site";
 /**
  * The decisions that are the owner's, not Stripe's.
  *
- * Owner's rules, 5 October 2026: any ten pieces is 2–5kg and that holds for
- * polos, t-shirts and everything else; compensation is always the value of the
- * goods excluding delivery; next day; signature on delivery.
+ * Owner's rules: compensation is always the value of the goods excluding
+ * delivery; next day; signature on delivery.
  */
 export const evriSettings = {
-  /**
-   * Kilograms per ten pieces.
-   *
-   * The owner gave a range of 2–5kg. This takes the top of it, because a
-   * parcel declared light and weighed heavy picks up a surcharge, while a
-   * parcel declared heavy and weighed light costs nothing extra.
-   *
-   * Confirmed against the heaviest line we sell: ten Lacoste cardigans weigh
-   * 5kg (owner, 5 October 2026). Knitwear is the worst case, so every other
-   * ten-piece lot lands under this and the figure is safe across the range.
-   */
-  kgPerTenPieces: 5,
   /** Signature on delivery, always. */
   signature: "y" as "y" | "n",
   /**
@@ -45,17 +32,56 @@ export const evriSettings = {
   service: "Next Day",
   /** Contents description. Plain and accurate. */
   contents: "Second-hand clothing",
-  /**
-   * Evri will not take a parcel over this. A fifty-piece lot comes out at
-   * 25kg on the owner's own figures, so it has to be split — the dispatch note
-   * says so rather than the sheet quietly buying a label that gets refused.
-   */
+  /** Evri will not take a parcel heavier than this. */
   maxParcelKg: 15,
 };
+
+/**
+ * Weighed, boxed, per ten pieces. The owner's own scales, 6 October 2026.
+ *
+ * A flat rate across the catalogue was never going to hold: ten polos and ten
+ * windbreakers are nearly double each other. Over-declaring is not free either
+ * — Evri prices in weight bands, so a 3.4kg parcel sent as 6.5kg is paid for
+ * twice over — which is why these are measured rather than rounded up.
+ */
+const KG_PER_TEN: Record<string, number> = {
+  // Hoodies and sweats — 6kg.
+  "mixed-premium-vintage-hoodies-sweatshirts": 6,
+  "mixed-premium-vintage-hoodies": 6,
+  "mixed-premium-vintage-sweatshirts": 6,
+  // Windbreakers and track jackets — 6.5kg, the heaviest thing we send.
+  "jackets-windbreaker-mix": 6.5,
+  "track-jackets-windbreakers": 6.5,
+  // Piqué polos — 3.4kg, the lightest. Weighed on Lacoste; Ralph Lauren
+  // piqué is the same garment in the same quantity, so it takes the same
+  // figure until anyone weighs a box of it and says otherwise.
+  "lacoste-ralph-lauren-polos": 3.4,
+  "ralph-lauren-polos": 3.4,
+  "ralph-lauren-polo-box-10": 3.4,
+  // Lacoste knitwear — 4.8kg.
+  "lacoste-jumpers-cardigans": 4.8,
+};
+
+/**
+ * What a lot nobody has weighed yet is declared at.
+ *
+ * The heaviest measured figure, because a parcel declared light and weighed
+ * heavy picks up a surcharge and an argument. It is still a guess, and it is
+ * wrong in the expensive direction for t-shirts and wrong in the dangerous
+ * direction for sandals — see `unweighed` for what is still owed.
+ */
+const KG_PER_TEN_FALLBACK = 6.5;
+
+/** Lots still going out on the fallback. Weigh a box of each and tell Claude. */
+export function unweighed(slug: string): boolean {
+  return !(slug in KG_PER_TEN);
+}
 
 export type EvriParcel = {
   /** The lot, as the buyer saw it named at checkout. */
   name: string;
+  /** Catalogue slug, which is what the weight table is keyed on. */
+  slug: string;
   pieces: number;
   /** Goods value for this parcel alone, excluding delivery. */
   valueGBP: number;
@@ -74,14 +100,15 @@ export type EvriOrder = {
   parcels: EvriParcel[];
 };
 
-/** Declared weight for a parcel of this many pieces, to one decimal. */
-export function weightFor(pieces: number): number {
-  return Math.round((pieces / 10) * evriSettings.kgPerTenPieces * 10) / 10;
+/** Declared weight for this parcel, to one decimal. */
+export function weightFor(parcel: Pick<EvriParcel, "slug" | "pieces">): number {
+  const perTen = KG_PER_TEN[parcel.slug] ?? KG_PER_TEN_FALLBACK;
+  return Math.round((parcel.pieces / 10) * perTen * 10) / 10;
 }
 
 /** Parcels the owner has to split before they can be booked. */
 export function overweight(parcels: EvriParcel[]): EvriParcel[] {
-  return parcels.filter((p) => weightFor(p.pieces) > evriSettings.maxParcelKg);
+  return parcels.filter((p) => weightFor(p) > evriSettings.maxParcelKg);
 }
 
 
@@ -153,7 +180,7 @@ export function evriCsv(orders: EvriOrder[]): string {
           first,
           last,
           order.email,
-          weightFor(parcel.pieces),
+          weightFor(parcel),
           parcel.valueGBP.toFixed(2),
           evriSettings.signature,
           ref,

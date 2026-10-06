@@ -129,7 +129,7 @@ export async function GET(request: Request) {
   const lines = orders.map(
     (o) =>
       `  ${o.reference} — ${o.name}, ${o.postcode} — ${o.parcels
-        .map((p) => `${p.name} (${p.pieces}pc, ${weightFor(p.pieces)}kg)`)
+        .map((p) => `${p.name} (${p.pieces}pc, ${weightFor(p)}kg)`)
         .join(" + ")}`,
   );
 

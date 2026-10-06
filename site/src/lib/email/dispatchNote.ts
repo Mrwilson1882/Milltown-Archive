@@ -40,7 +40,7 @@ export function dispatchHtml(order: EvriOrder): string {
         <td style="padding:9px 0;border-bottom:1px solid #E4E4E0;font:400 14px/1.4 ${font}">
           <strong>${esc(p.name)}</strong>
           <div style="color:#5B5B57;font-size:13px;padding-top:2px">
-            Parcel ${i + 1} of ${order.parcels.length} · ${p.pieces} pieces · ${weightFor(p.pieces)}kg declared
+            Parcel ${i + 1} of ${order.parcels.length} · ${p.pieces} pieces · ${weightFor(p)}kg declared
           </div>
         </td>
         <td align="right" style="padding:7px 0;border-bottom:1px solid #E4E4E0;font:400 14px/1.4 ${font};white-space:nowrap">
@@ -54,7 +54,7 @@ export function dispatchHtml(order: EvriOrder): string {
   const heavyNote = heavy.length
     ? `<p style="font:400 14px/1.6 ${font};color:#000;background:#F4F4F2;border-left:3px solid #000;padding:12px 14px;margin:18px 0 0">
          <strong>Split before booking.</strong> ${heavy.length === 1 ? "One parcel comes" : `${heavy.length} parcels come`}
-         out over Evri's ${evriSettings.maxParcelKg}kg limit at ${evriSettings.kgPerTenPieces}kg per ten pieces.
+         out over Evri's ${evriSettings.maxParcelKg}kg limit at this lot's weighed figure.
          Split into two and edit the sheet before uploading, or the label will be refused.
        </p>`
     : "";
@@ -126,7 +126,7 @@ export function dispatchText(order: EvriOrder): string {
     "TO PICK",
     ...order.parcels.flatMap((p, i) => [
       `  ${p.name} — ${formatPrice(p.valueGBP)}`,
-      `    Parcel ${i + 1} of ${order.parcels.length} · ${p.pieces} pieces · ${weightFor(p.pieces)}kg`,
+      `    Parcel ${i + 1} of ${order.parcels.length} · ${p.pieces} pieces · ${weightFor(p)}kg`,
     ]),
     `  GOODS — ${formatPrice(goods)} (delivery charged on top, not shown)`,
     "",

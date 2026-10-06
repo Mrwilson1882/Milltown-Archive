@@ -126,12 +126,13 @@ export function parcelsFrom(session: Stripe.Checkout.Session): EvriOrder["parcel
     .forEach((lot, i) => {
       const match = lot.match(/\/(\d+)[×x](\d+)$/);
       if (!match) return;
+      const slug = lot.split("/")[0] ?? "";
       const pieces = Number(match[1]);
       const qty = Number(match[2]);
       const unit = pounds(items[i]?.price?.unit_amount);
-      const name = items[i]?.description ?? lot.split("/")[0] ?? "Lot";
+      const name = items[i]?.description ?? slug ?? "Lot";
       // Each lot ships as its own parcel, so a quantity of two is two parcels.
-      for (let n = 0; n < qty; n += 1) parcels.push({ name, pieces, valueGBP: unit });
+      for (let n = 0; n < qty; n += 1) parcels.push({ name, slug, pieces, valueGBP: unit });
     });
 
   return parcels;

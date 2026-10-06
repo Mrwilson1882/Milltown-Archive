@@ -22,6 +22,15 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.06-1 — 2026-10-06 — commit `PENDING`
+
+- **Parcel weights are now weighed per lot rather than a flat rate.** The owner put four boxes on the scales: ten hoodies or sweats is 6kg, ten windbreakers 6.5kg, ten piqué polos 3.4kg, ten Lacoste cardigans 4.8kg, all boxed. A single figure across the catalogue was never going to hold when the heaviest lot is nearly double the lightest.
+- Over-declaring is not free: Evri prices in weight bands, so a 3.4kg box of polos sent as 6.5kg is paid for twice. The declared weight is now the measured one wherever there is a measurement.
+- Anything not yet weighed goes out at 6.5kg — the heaviest measured figure — because a parcel declared light and weighed heavy collects a surcharge. That is still a guess, and it is an expensive one for t-shirts and a dangerous one for sandals.
+- **This surfaces something that matters commercially: a 25 of windbreakers is 16.3kg and cannot be sent as one parcel at all.** Every 50 is over the limit on every line. The dispatch note flags it per order, but it is a question about how the bigger lots are packed, not a formatting problem.
+
+---
+
 ## v2026.10.05-4 — 2026-10-05 — commit `b412821`
 
 - **A backfill for the buyers who paid before the confirmation email existed.** Card payments went live on 3 October and the confirmation did not follow until the 5th; everyone in between paid and heard nothing from us but Stripe's receipt. Run by hand over a date range, it sends them the same invoice and the same sheet a buyer gets today, with one line at the top owning the delay.
