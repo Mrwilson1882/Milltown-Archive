@@ -22,7 +22,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.07-2 — 2026-10-07 — commit `PENDING`
+## v2026.10.07-2 — 2026-10-07 — commit `976fd11`
 
 - **The contact form now reaches the owner.** It had always needed a forwarding webhook that was never set, so every enquiry was answered with "our form isn't wired to an inbox yet" and nothing was sent. That was honest when there was no way to send email; there has been one since Monday.
 - Enquiries now arrive as an email: who wrote, their business, their address and what they said, with reply-to set to them — so hitting reply answers the customer rather than the website.
