@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { enquiryHtml, enquirySubject, enquiryText } from "@/lib/email/enquiryNote";
+import { ORDER_BCC, emailEnabled, sendEmail } from "@/lib/email/send";
 
 export const runtime = "nodejs";
 
@@ -49,10 +51,27 @@ export async function POST(request: Request) {
     );
   }
 
+  // Email first, because that is where the owner actually reads things. The
+  // forwarding webhook stays as a fallback for anyone wiring this into a
+  // spreadsheet or a CRM later.
+  if (emailEnabled && ORDER_BCC) {
+    const result = await sendEmail({
+      to: ORDER_BCC,
+      // Reply goes to the person who wrote, not to the website.
+      replyTo: payload.email,
+      subject: enquirySubject(payload),
+      html: enquiryHtml(payload),
+      text: enquiryText(payload),
+    });
+    if (result.ok) return NextResponse.json({ ok: true });
+    console.error("[contact] could not email enquiry", result.reason);
+  }
+
   const forwardUrl = process.env.CONTACT_FORWARD_WEBHOOK;
   if (!forwardUrl) {
-    // No delivery route configured yet — tell the browser to show the fallback
-    // rather than pretending the message went somewhere.
+    // Nowhere to send it. Say so rather than pretending it arrived — an
+    // enquiry that vanishes silently is worse than a form that admits it is
+    // not working, because the customer thinks they have been ignored.
     return NextResponse.json(
       {
         ok: false,
@@ -67,7 +86,11 @@ export async function POST(request: Request) {
     const response = await fetch(forwardUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...payload, source: "archivewholesale.co.uk", receivedAt: new Date().toISOString() }),
+      body: JSON.stringify({
+        ...payload,
+        source: "archivewholesale.co.uk",
+        receivedAt: new Date().toISOString(),
+      }),
     });
 
     if (!response.ok) throw new Error(`Forwarder responded ${response.status}`);

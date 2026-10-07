@@ -22,6 +22,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.07-2 — 2026-10-07 — commit `PENDING`
+
+- **The contact form now reaches the owner.** It had always needed a forwarding webhook that was never set, so every enquiry was answered with "our form isn't wired to an inbox yet" and nothing was sent. That was honest when there was no way to send email; there has been one since Monday.
+- Enquiries now arrive as an email: who wrote, their business, their address and what they said, with reply-to set to them — so hitting reply answers the customer rather than the website.
+- The webhook path is kept as a fallback for anyone wiring this into a spreadsheet or CRM later, and the "not wired up" message still shows if neither is available. An enquiry that vanishes silently is worse than a form that admits it is not working.
+
+---
+
 ## v2026.10.07-1 — 2026-10-07 — commit `0cd2729`
 
 - **The scheduled jobs can now be run from a browser.** They were only reachable by a caller that could set an `Authorization` header, which Vercel's cron can and a person in an address bar cannot — so the dispatch sheet, the backfill and the customer list could all be scheduled but none could be pulled on demand. The same secret is now accepted as `?key=`.
