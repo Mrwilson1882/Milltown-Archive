@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { refuse } from "@/lib/cronAuth";
 import { ORDER_BCC, emailEnabled, sendEmail } from "@/lib/email/send";
 import { buildCustomerList, customerWorkbook } from "@/lib/marketing/customers";
 import { stripeEnabled } from "@/lib/stripe";
@@ -18,11 +19,8 @@ export const dynamic = "force-dynamic";
  * fresh copy — see sendCustomerList, which the round-up route calls.
  */
 export async function GET(request: Request) {
-  const secret = process.env.CRON_SECRET;
-  if (!secret) return NextResponse.json({ error: "cron_secret_not_set" }, { status: 503 });
-  if (request.headers.get("authorization") !== `Bearer ${secret}`) {
-    return NextResponse.json({ error: "unauthorised" }, { status: 401 });
-  }
+  const denied = refuse(request);
+  if (denied) return denied;
   if (!stripeEnabled) return NextResponse.json({ error: "stripe_not_configured" }, { status: 503 });
 
   const result = await sendCustomerList();

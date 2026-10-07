@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { refuse } from "@/lib/cronAuth";
 import type Stripe from "stripe";
 import { sendEmail, ORDER_BCC, emailEnabled } from "@/lib/email/send";
 import { formatPrice } from "@/lib/format";
@@ -76,13 +77,8 @@ export async function GET(request: Request) {
   // the only thing standing between a public URL and anyone being able to
   // pull every customer address we hold, so an unset secret closes the route
   // rather than opening it.
-  const secret = process.env.CRON_SECRET;
-  if (!secret) {
-    return NextResponse.json({ error: "cron_secret_not_set" }, { status: 503 });
-  }
-  if (request.headers.get("authorization") !== `Bearer ${secret}`) {
-    return NextResponse.json({ error: "unauthorised" }, { status: 401 });
-  }
+  const denied = refuse(request);
+  if (denied) return denied;
   if (!stripeEnabled) {
     return NextResponse.json({ error: "stripe_not_configured" }, { status: 503 });
   }

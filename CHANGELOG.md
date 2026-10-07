@@ -22,6 +22,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.07-1 — 2026-10-07 — commit `PENDING`
+
+- **The scheduled jobs can now be run from a browser.** They were only reachable by a caller that could set an `Authorization` header, which Vercel's cron can and a person in an address bar cannot — so the dispatch sheet, the backfill and the customer list could all be scheduled but none could be pulled on demand. The same secret is now accepted as `?key=`.
+- The URL is therefore a password: anyone holding it can pull every customer address the site has. It is the second option rather than the first for that reason, and the secret can be rotated in Vercel if one is ever pasted somewhere it should not be.
+- The three routes now share one guard rather than three copies of the same check.
+
+---
+
 ## v2026.10.06-2 — 2026-10-06 — commit `85c3197`
 
 - **Archive Wholesale Customers — a weekly marketing list, as a real spreadsheet.** Every customer who has ever bought, one row each: name, email, phone, full address, how many orders, what they have spent, when they first and last bought, and which lots. Best customers first, filters on every column, sent Monday mornings.
