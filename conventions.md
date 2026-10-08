@@ -217,6 +217,8 @@ Current SF Fripe buckets:
 |---|
 | `SF Fripe - Jackets` |
 | `SF Fripe - Summer Mix` |
+| `SF Fripe - RL Tommy Lacoste Mix` |
+| `SF Fripe - Women's Y2K Mix` |
 
 ### Careful — French/EU 38 and Italian 38 are two sizes apart
 
