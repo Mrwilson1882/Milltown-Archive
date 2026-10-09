@@ -113,9 +113,14 @@ export async function POST(request: Request) {
             type: "fixed_amount" as const,
             display_name: `UK delivery — ${pieceCount(payable)} pieces, tracked, next day`,
             fixed_amount: { amount: toPence(deliveryGBP(payable)), currency: "gbp" as const },
+            // End to end, not just the courier leg: Stripe shows this to the
+            // buyer as when the parcel arrives, so it has to carry the 1–2
+            // working days we take to pick and pack as well as Evri's next
+            // day. Showing one business day here promised a parcel sooner
+            // than the same page said it would be dispatched.
             delivery_estimate: {
-              minimum: { unit: "business_day" as const, value: 1 },
-              maximum: { unit: "business_day" as const, value: 1 },
+              minimum: { unit: "business_day" as const, value: 2 },
+              maximum: { unit: "business_day" as const, value: 3 },
             },
           },
         },
@@ -124,7 +129,7 @@ export async function POST(request: Request) {
       custom_text: {
         submit: {
           message:
-            "UK delivery only at the moment — £10 on a lot of 10, £20 on a 25, £35 on a 50, already included above. Dispatched within 24–48 hours, then tracked next-day delivery.",
+            "UK delivery only at the moment — £10 on a lot of 10, £20 on a 25, £35 on a 50, already included above. Dispatched within 1–2 working days of payment, then tracked next-day delivery. Evri will text or email you the tracking.",
         },
       },
       success_url: `${siteConfig.url}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,

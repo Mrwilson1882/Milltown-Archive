@@ -17,7 +17,7 @@ export default function CheckoutSuccessPage() {
       <h1 className="display mt-4 text-4xl sm:text-5xl">Thanks — you&apos;re sorted</h1>
       <p className="mt-6 text-base leading-relaxed text-slate">
         Your order is in, delivery included — there is nothing left to pay. Stripe emails your
-        receipt straight away. We pick and count your lot, dispatch it within 24 to 48 hours, and
+        receipt straight away. We pick and count your lot, dispatch it within 1 to 2 working days, and
         Evri send a tracking link to the email address you gave at checkout.
       </p>
       <p className="mt-4 text-base leading-relaxed text-slate">

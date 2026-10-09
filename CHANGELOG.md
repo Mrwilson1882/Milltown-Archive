@@ -12,6 +12,15 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.09-1 — 2026-10-09 — commit `PENDING`
+
+- **The basket now carries the same delivery terms as the payment page.** The order summary said only "10 pieces, tracked, next day" while Stripe's page, one click later, set out the per-lot pricing, the dispatch window and the courier. A buyer deciding whether to pay should not have to commit first to read the terms, and the two pages disagreeing is worse than either being brief.
+- **Dispatch is now quoted in working days everywhere, not hours.** "Within 24–48 hours" was a promise the business could not keep on a Friday afternoon: a weekend order was already a day and a half late before anyone opened the unit. It now reads 1–2 working days on the basket, the Stripe page, the product pages, the buyer information page, the success page, the customer's confirmation email and llms.txt — every surface that quotes it, so none can drift from the others.
+- **Stripe's own arrival estimate was promising next day from the moment of payment.** It was set to one business day, which is the courier's leg only and ignored the time to pick and pack — so the same checkout page said the parcel would arrive before it said the parcel would be sent. It now says 2–3 business days end to end.
+- The basket note also says Evri send the tracking themselves, which was already on the Stripe page and in the documents.
+
+---
+
 ## v2026.10.05-1 — 2026-10-05 — commit `2458524`
 
 - **Every paid order now produces an Evri bulk-upload sheet.** The owner gets a picking list by email the moment a payment clears, with a CSV attached in Evri's own column order — address, name split into two fields, email, phone, weight, compensation, signature, reference, contents, value and service. Upload it in the Evri business portal and the labels come out with everything already on them. No address is ever typed again.

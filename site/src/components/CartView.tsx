@@ -256,6 +256,16 @@ export function CartView({
               {submitting ? "Starting checkout…" : "Secure checkout"}
             </button>
 
+            {/* The same delivery terms Stripe shows on the payment page. A
+                buyer should not have to click through to find out when the
+                parcel leaves, and the two pages saying different things is
+                worse than either saying nothing. */}
+            <p className="mt-4 text-xs leading-relaxed text-slate">
+              UK delivery only at the moment — £10 on a lot of 10, £20 on a 25, £35 on a 50,
+              already included above. Dispatched within 1–2 working days of payment, then
+              tracked next-day delivery. Evri will text or email you the tracking.
+            </p>
+
             {!stripeEnabled && !error && (
               <p className="mt-3 text-xs leading-relaxed text-slate">
                 Card payments are not switched on yet. Use the enquiry options below and we will

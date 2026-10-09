@@ -59,7 +59,7 @@ function esc(value: string): string {
 
 /** The four numbers a buyer wants before they read a word. */
 const glance: [string, string, string][] = [
-  ["Dispatch", "24–48 hrs", "from payment"],
+  ["Dispatch", "1–2 days", "working days, from payment"],
   ["UK delivery", "Next day", "tracked, after dispatch"],
   ["Courier", "Evri", "they text or email the tracking"],
   ["Grade", "A/B", "checked by hand"],
@@ -76,7 +76,7 @@ const steps: [string, string][] = [
   ],
   [
     "Packed and dispatched",
-    "From our unit in Burnley, Lancashire, within 24–48 hours of payment, then sent tracked, next day.",
+    "From our unit in Burnley, Lancashire, within 1–2 working days of payment, then sent tracked, next day.",
   ],
   [
     "Tracked",
@@ -191,7 +191,7 @@ export function orderConfirmationHtml(
 </head>
 <body style="margin:0;padding:0;background:${SMOKE}">
 <!-- The line that shows next to the subject in an inbox. Hidden in the mail itself. -->
-<div style="display:none;max-height:0;overflow:hidden;opacity:0">Payment received. Dispatched within 24–48 hours, then tracked next day. Everything else you need is in here.</div>
+<div style="display:none;max-height:0;overflow:hidden;opacity:0">Payment received. Dispatched within 1–2 working days, then tracked next day. Everything else you need is in here.</div>
 
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${SMOKE}">
 <tr><td align="center" style="padding:24px 12px">
@@ -211,7 +211,7 @@ export function orderConfirmationHtml(
       ${
         options.late
           ? "Thank you — your order is in, and here is your invoice. Apologies that it has taken a few days to reach you: we only switched these confirmations on this week, and yours was placed before that. Nothing about your order has changed."
-          : "Thank you — your order is in. It is dispatched within 24–48 hours, then sent tracked, next day."
+          : "Thank you — your order is in. It is dispatched within 1–2 working days, then sent tracked, next day."
       }
       Everything between here and your doorstep is below.
     </div>
@@ -355,7 +355,7 @@ export function orderConfirmationText(
     options.late
       ? "Thank you — your order is in, and here is your invoice. Apologies that it has taken a few days to reach you: we only switched these confirmations on this week."
       : "Thank you — your order is in.",
-    "Dispatched within 24-48 hours, then sent tracked, next day.",
+    "Dispatched within 1-2 working days, then sent tracked, next day.",
     "",
     `INVOICE ${order.reference} — ${order.placedOn}`,
     "",

@@ -102,7 +102,7 @@ export function dispatchHtml(order: EvriOrder): string {
   <tr><td>${heavyNote}</td></tr>
 
   <tr><td style="padding-top:22px;border-top:1px solid #E4E4E0;margin-top:20px;font:400 11px/1.6 ${font};color:#5B5B57">
-    Dispatch within 24–48 hours of payment, then tracked next day — that is what the buyer has
+    Dispatch within 1–2 working days of payment, then tracked next day — that is what the buyer has
     been told.<br>
     ${esc(siteConfig.companyNumber ? `Archivio Group Ltd · ${addressLine}` : addressLine)}
   </td></tr>
@@ -136,6 +136,6 @@ export function dispatchText(order: EvriOrder): string {
           "",
         ]
       : []),
-    "Dispatch within 24-48 hours of payment, then tracked next day.",
+    "Dispatch within 1-2 working days of payment, then tracked next day.",
   ].join("\n");
 }

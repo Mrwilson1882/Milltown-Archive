@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "How much is delivery and how long does it take?",
-    a: "UK delivery is charged per lot: £10 on a lot of 10, £20 on a 25, £35 on a 50. Two lots of 10 is £20, because that is two parcels. The basket works it out and includes it in the total before you pay, so there is nothing to settle afterwards. Orders are dispatched within 24 to 48 hours of payment and then sent tracked, next day. We are shipping within the United Kingdom only at the moment.",
+    a: "UK delivery is charged per lot: £10 on a lot of 10, £20 on a 25, £35 on a 50. Two lots of 10 is £20, because that is two parcels. The basket works it out and includes it in the total before you pay, so there is nothing to settle afterwards. Orders are dispatched within 1 to 2 working days of payment and then sent tracked, next day. We are shipping within the United Kingdom only at the moment.",
   },
   {
     q: "How will I know when my order has been sent?",
@@ -86,7 +86,7 @@ const steps = [
   ],
   [
     "Picked, counted, dispatched",
-    "Graded and counted out by hand, packed and dispatched within 24 to 48 hours, tracked with Evri. Evri text or email you the tracking link themselves as soon as the parcel is scanned in — it comes from them, not from us.",
+    "Graded and counted out by hand, packed and dispatched within 1 to 2 working days, tracked with Evri. Evri text or email you the tracking link themselves as soon as the parcel is scanned in — it comes from them, not from us.",
   ],
 ];
 
@@ -139,7 +139,7 @@ export default function BuyerInformationPage() {
             ["Minimum order", "£65", "a 10-piece t-shirt lot"],
             ["Payment", "Card", "secure link, handled by Stripe"],
             ["Delivery", "£10–£35", "per lot, by size"],
-            ["Dispatch", "24–48 hrs", "after payment"],
+            ["Dispatch", "1–2 days", "working days, after payment"],
             ["UK delivery", "Next day", "tracked, after dispatch"],
           ].map(([label, value, note]) => (
             <div key={label} className="bg-paper p-5">
@@ -203,7 +203,7 @@ export default function BuyerInformationPage() {
                 is no second bill.
               </p>
               <p>
-                Orders are dispatched within 24 to 48 hours of payment and then sent tracked, next
+                Orders are dispatched within 1 to 2 working days of payment and then sent tracked, next
                 day. Evri send the tracking link straight to the email address you give us at
                 payment, which is why we ask for it.
               </p>
