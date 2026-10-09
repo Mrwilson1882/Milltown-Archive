@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.09-1 — 2026-10-09 — commit `PENDING`
+## v2026.10.09-1 — 2026-10-09 — commit `6749f45`
 
 - **The basket now carries the same delivery terms as the payment page.** The order summary said only "10 pieces, tracked, next day" while Stripe's page, one click later, set out the per-lot pricing, the dispatch window and the courier. A buyer deciding whether to pay should not have to commit first to read the terms, and the two pages disagreeing is worse than either being brief.
 - **Dispatch is now quoted in working days everywhere, not hours.** "Within 24–48 hours" was a promise the business could not keep on a Friday afternoon: a weekend order was already a day and a half late before anyone opened the unit. It now reads 1–2 working days on the basket, the Stripe page, the product pages, the buyer information page, the success page, the customer's confirmation email and llms.txt — every surface that quotes it, so none can drift from the others.
