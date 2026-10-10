@@ -1,0 +1,31 @@
+{
+  "_readme": "The first order paid through the website. Figures are the customer's own from the Stripe checkout, not the catalogue — the invoice must match what was actually taken.",
+
+  "status": "invoice",
+  "invoiceNumber": "AW-0004",
+  "orderNumber": "ORD-0015",
+  "invoiceDate": "2026-10-04",
+  "supplyDate": "2026-10-04",
+  "paymentTerms": "Paid",
+
+  "customer": {
+    "contact": "Jez Klawza",
+    "lines": ["22 Oak Crescent", "Potton"],
+    "postcode": "SG19 2PY",
+    "email": "j3zkl4wza@icloud.com",
+    "phone": "+44 7494 041881"
+  },
+
+  "lines": [
+    { "slug": "ralph-lauren-polos", "pieces": 10, "qty": 1, "description": "Ralph Lauren Polo Box — 10 Items" }
+  ],
+
+  "delivery": 0,
+
+  "paid": {
+    "method": "Card payment online",
+    "on": "2026-10-04"
+  },
+
+  "notes": "Ordered and paid in full on www.archivewholesale.co.uk. Delivery was not charged on this order."
+}

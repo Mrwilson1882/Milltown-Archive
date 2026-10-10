@@ -1,0 +1,15 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0023",
+  "invoiceDate": "2026-09-22",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Phoenix Gardiner",
+    "postcode": "TA12 6BY"
+  },
+
+  "lines": [
+    { "slug": "ralph-tommy-lacoste-mix", "pieces": 10, "qty": 1 }
+  ]
+}

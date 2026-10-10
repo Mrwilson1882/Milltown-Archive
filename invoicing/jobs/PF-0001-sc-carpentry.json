@@ -1,0 +1,21 @@
+{
+  "invoiceNumber": "PF-0001",
+  "status": "proforma",
+  "orderNumber": "ORD-0007",
+  "invoiceDate": "2026-09-15",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "business": "SC Carpentry & Construction",
+    "lines": ["Longbrook Barn", "Milton Abbot", "Tavistock", "Devon"],
+    "postcode": "PL19 0PS",
+    "email": "sccarpentrysw@gmail.com",
+    "phone": "07368 937417"
+  },
+
+  "lines": [
+    { "slug": "lacoste-ralph-lauren-polos", "pieces": 25, "qty": 1 }
+  ],
+
+  "delivery": 15
+}

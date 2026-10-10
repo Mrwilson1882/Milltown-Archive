@@ -1,0 +1,71 @@
+{
+  "_readme": "Company details printed on every invoice. Edit this file, not the generator. Fields left blank are NOT guessed — the generator prints a visible 'incomplete' band on the invoice until they are filled in, so a half-finished invoice can never be sent by accident.",
+  "legalName": "ARCHIVIO GROUP LTD",
+  "tradingAs": "Archive Wholesale",
+  "tradingStatement": "Archive Wholesale is a trading name of {company}.",
+  "companyNumber": "17461677",
+  "registeredIn": "England and Wales",
+  "registeredOffice": {
+    "_note": "Archivio Group Ltd's registered office, confirmed by the owner 30 Sep 2026. The business trades from the same address, so it prints once as the main address under the company name.",
+    "lines": [
+      "VO-10, Empire Business Centre",
+      "2 Empire Way",
+      "Burnley"
+    ],
+    "postcode": "BB12 6HA"
+  },
+  "tradingAddress": {
+    "_note": "Empty because the business trades from its registered office. Only fill this in if goods are ever despatched from somewhere else — the registered office then drops into small type beneath it.",
+    "lines": [],
+    "postcode": ""
+  },
+  "vat": {
+    "_note": "Archivio Group Ltd is not VAT registered. Mirrors siteConfig.vat.registered in site/src/config/site.ts — flip BOTH together when registration comes through, and add the VAT number here.",
+    "registered": false,
+    "ratePercent": 20,
+    "number": "",
+    "notRegisteredStatement": "{company} is not registered for VAT. No VAT is charged on this invoice and none is recoverable from it."
+  },
+  "contact": {
+    "email": "info@archivewholesale.com",
+    "phone": "07897 740194",
+    "whatsapp": "+44 7897 740194",
+    "website": "www.archivewholesale.co.uk",
+    "_note": "Email given by the owner 14 Sep 2026 as info@archivewholesale.com — note .com, while the website is archivewholesale.co.uk. Confirm which is the live mailbox."
+  },
+  "bank": {
+    "_note": "Only used when payment.method is 'bank' or 'both'. Payment is currently by link, so these are not required and are not printed.",
+    "accountName": "",
+    "sortCode": "",
+    "accountNumber": "",
+    "bankName": "",
+    "iban": "",
+    "swift": ""
+  },
+  "defaults": {
+    "paymentTerms": "Due on receipt",
+    "currency": "GBP",
+    "grade": "A/B",
+    "deliveryNote": "Delivery is quoted separately once we have your address and total weight.",
+    "terms": [
+      "Goods remain the property of {company} until paid for in full.",
+      "Wholesale lots are sold as graded and described. Grades are defined at www.archivewholesale.co.uk/grading-guide.",
+      "Lots are representative of the sort described; individual garments, brands and colourways vary.",
+      "Sold as a trade supply to a business buyer. Consumer distance-selling cancellation rights do not apply.",
+      "Shortages or discrepancies must be notified within 48 hours of delivery."
+    ],
+    "carriage": {
+      "_note": "Standing carriage rates by lot size, given by the owner 15 Sep 2026: \"£10 for 10 polos always unless stated\". Applied only when a job states no `delivery` of its own AND the order is a single lot of that size — a bigger or mixed order is quoted, not defaulted. Every other lot size is left out on purpose: £15 on PF-0001's 25-piece lot and £25 on a two-lot order were quoted case by case, and one quote is not a rate.",
+      "byLotSize": {
+        "10": 10
+      }
+    }
+  },
+  "payment": {
+    "_note": "How the customer pays. 'link' = a secure payment link sent with the invoice. 'bank' = the bank details below. 'both' = show both. Only 'bank' makes the bank fields required before an invoice can be sent.",
+    "method": "link",
+    "linkStatement": "A secure payment link is sent with this invoice."
+  },
+  "shortName": "Archivio Group Ltd",
+  "_shortName": "How the company is referred to in prose. {company} in the statements below is replaced with it, so a change of name is one line here rather than a hunt through the wording."
+}

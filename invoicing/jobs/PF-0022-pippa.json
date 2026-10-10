@@ -1,0 +1,16 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0022",
+  "invoiceDate": "2026-09-22",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Pippa Beddow",
+    "lines": ["19 Longmeadow Road", "Walsall"],
+    "postcode": "WS5 3BZ"
+  },
+
+  "lines": [
+    { "slug": "ralph-lauren-polos", "pieces": 10, "qty": 1 }
+  ]
+}

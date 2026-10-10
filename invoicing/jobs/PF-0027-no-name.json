@@ -1,0 +1,17 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0027",
+  "invoiceDate": "2026-09-28",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {},
+
+  "lines": [
+    { "slug": "lacoste-ralph-lauren-polos", "pieces": 10, "qty": 1 }
+  ],
+
+  "delivery": 10,
+
+  "_acknowledge": "Raised with no customer at all, at the owner's request, 28 Sep 2026. The name is to be written on before it goes out.",
+  "acknowledge": ["customerName"]
+}

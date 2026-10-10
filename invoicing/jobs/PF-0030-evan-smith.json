@@ -1,0 +1,16 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0030",
+  "invoiceDate": "2026-09-30",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Evan Smith"
+  },
+
+  "lines": [
+    { "slug": "carhartt-dickies-t-shirts", "pieces": 10, "qty": 1 }
+  ],
+
+  "delivery": 9.50
+}

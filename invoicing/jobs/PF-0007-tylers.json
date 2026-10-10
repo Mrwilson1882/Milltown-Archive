@@ -1,0 +1,16 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0007",
+  "invoiceDate": "2026-09-15",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "business": "Tyler's"
+  },
+
+  "lines": [
+    { "slug": "designer-male-mix-box", "pieces": 10, "qty": 1 }
+  ],
+
+  "delivery": 10
+}
