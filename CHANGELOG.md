@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.11-1 — 2026-10-11 — commit `PENDING`
+## v2026.10.11-1 — 2026-10-11 — commit `4401ad5`
 
 - **Products with a video now show the video and one group shot, nothing else.** The single-garment pictures behind "Example product pictures" are gone from the eight lots that have footage: Ralph Lauren Polo Box, Ralph Lauren Polos, Lacoste / Ralph Lauren Polos, Mixed Premium Vintage Hoodies, Lacoste Jumpers & Cardigans, Track Jackets & Windbreakers, Branded T-Shirt Mix and Jackets & Windbreaker Mix. 31 pictures in all.
 - The owner's reasoning: a buyer clicking through close-ups of one jumper is a buyer not watching the rail, and the video is what shows the volume and condition of a real lot. The group shot stays because it shows the mix in one frame.
