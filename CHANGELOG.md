@@ -12,6 +12,16 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.11-1 — 2026-10-11 — commit `PENDING`
+
+- **Products with a video now show the video and one group shot, nothing else.** The single-garment pictures behind "Example product pictures" are gone from the eight lots that have footage: Ralph Lauren Polo Box, Ralph Lauren Polos, Lacoste / Ralph Lauren Polos, Mixed Premium Vintage Hoodies, Lacoste Jumpers & Cardigans, Track Jackets & Windbreakers, Branded T-Shirt Mix and Jackets & Windbreaker Mix. 31 pictures in all.
+- The owner's reasoning: a buyer clicking through close-ups of one jumper is a buyer not watching the rail, and the video is what shows the volume and condition of a real lot. The group shot stays because it shows the mix in one frame.
+- Lots without a video keep every picture they had — Birkenstocks especially, where the pictures are all there is.
+- With one picture behind the tile, it now reads "Example product picture" with no count, and the viewer drops its "1 / 1".
+- The image files are still in the repository, unreferenced, so any of them can be put back with a line each.
+
+---
+
 ## v2026.10.09-1 — 2026-10-09 — commit `6749f45`
 
 - **The basket now carries the same delivery terms as the payment page.** The order summary said only "10 pieces, tracked, next day" while Stripe's page, one click later, set out the per-lot pricing, the dispatch window and the courier. A buyer deciding whether to pay should not have to commit first to read the terms, and the two pages disagreeing is worse than either being brief.

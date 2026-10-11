@@ -157,11 +157,13 @@ export function ProductGallery({
                 <span className="text-[0.62rem] leading-tight font-bold tracking-wide uppercase sm:text-xs">
                   Example product
                   <br />
-                  pictures
+                  {photos.length === 1 ? "picture" : "pictures"}
                 </span>
-                <span className="text-[0.62rem] tabular-nums opacity-80 sm:text-xs">
-                  {photos.length}
-                </span>
+                {photos.length > 1 && (
+                  <span className="text-[0.62rem] tabular-nums opacity-80 sm:text-xs">
+                    {photos.length}
+                  </span>
+                )}
               </span>
             </button>
           )}
@@ -296,7 +298,7 @@ function PhotoViewer({
 
         <div className="flex items-center justify-between gap-4">
           <p className="text-xs tabular-nums text-paper/70">
-            {index + 1} / {photos.length}
+            {photos.length > 1 && `${index + 1} / ${photos.length}`}
           </p>
           {photos.length > 1 && (
             <div className="flex flex-wrap justify-end gap-1.5">
