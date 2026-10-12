@@ -18,7 +18,7 @@ export const siteConfig = {
     country: "United Kingdom",
   },
   /** Companies House registration number for Archivio Group Ltd. */
-  companyNumber: "17064831",
+  companyNumber: "17461677",
   /** Year Archivio Group Ltd was incorporated. */
   established: 2025,
   /**
