@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.12-2 — 2026-10-12 — commit `PENDING`
+## v2026.10.12-2 — 2026-10-12 — commit `85b9a81`
 
 - **The floating "Enquire" button no longer shows on product pages a buyer can check out from.** The owner's read is that buyers one tap from the basket were messaging instead of buying, and the button sat over the bottom of the photo reel on a phone. All in-stock, priced lots lose it: 16 pages.
 - It stays everywhere else — home page, all-products, brands, types, collections and guides — and on sold-out lots (Birkenstocks, Bags, Winter Mix, Men's Luxury Winter Mix, Designer Jackets), where asking is the only way to buy.
