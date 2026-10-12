@@ -16,6 +16,20 @@ import { trackEvent } from "@/lib/analytics";
 const HIDE_ON = ["/cart", "/checkout"];
 
 /**
+ * A product page the buyer can check out from. The button comes off here too:
+ * someone looking at a priced lot is one tap from the basket, and a green
+ * "Enquire" in the corner was turning would-be buyers into chats instead. Sold
+ * out and price-on-request pages keep it, because asking is the only way to
+ * buy from them.
+ */
+function isReadyToBuy(pathname: string): boolean {
+  const [, section, slug] = pathname.split("/");
+  if (section !== "products" || !slug) return false;
+  const product = getProduct(slug);
+  return Boolean(product?.inStock && product.variants.some((v) => v.priceGBP !== null));
+}
+
+/**
  * A natural-language name for the page someone is on, so the pre-filled
  * message says "I'm looking at your Lacoste page" rather than a generic line.
  * That reads better to the customer, and it tells the owner where the
@@ -56,6 +70,7 @@ export function WhatsAppFloat() {
 
   if (!hasWhatsApp) return null;
   if (HIDE_ON.some((path) => pathname === path || pathname.startsWith(`${path}/`))) return null;
+  if (isReadyToBuy(pathname)) return null;
 
   const page = describePage(pathname);
   // Ends on an open cue. Three of the first ten enquiries opened with the

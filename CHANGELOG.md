@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.12-2 — 2026-10-12 — commit `PENDING`
+
+- **The floating "Enquire" button no longer shows on product pages a buyer can check out from.** The owner's read is that buyers one tap from the basket were messaging instead of buying, and the button sat over the bottom of the photo reel on a phone. All in-stock, priced lots lose it: 16 pages.
+- It stays everywhere else — home page, all-products, brands, types, collections and guides — and on sold-out lots (Birkenstocks, Bags, Winter Mix, Men's Luxury Winter Mix, Designer Jackets), where asking is the only way to buy.
+- Nothing else about enquiries changes: the header, footer and contact page still carry WhatsApp and email.
+
+---
+
 ## v2026.10.12-1 — 2026-10-12 — commit `5212537`
 
 - **Company number corrected to 17461677, Archivio Group Ltd's own.** The site had been showing 17064831, which belongs to MANCH LTD: when the legal name changed to Archivio Group Ltd on 17 September the number was carried over unchanged. It now reads 17461677 everywhere it appears — footer, contact page, privacy notice, the Organization structured data, llms.txt, the WhatsApp assistant's knowledge, and the order confirmation and invoice emails, which all read it from one setting.
