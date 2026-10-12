@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.12-1 — 2026-10-12 — commit `PENDING`
+## v2026.10.12-1 — 2026-10-12 — commit `5212537`
 
 - **Company number corrected to 17461677, Archivio Group Ltd's own.** The site had been showing 17064831, which belongs to MANCH LTD: when the legal name changed to Archivio Group Ltd on 17 September the number was carried over unchanged. It now reads 17461677 everywhere it appears — footer, contact page, privacy notice, the Organization structured data, llms.txt, the WhatsApp assistant's knowledge, and the order confirmation and invoice emails, which all read it from one setting.
 - No other mention of MANCH remains on the site.
