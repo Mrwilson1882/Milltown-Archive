@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.13-6 — 2026-10-13 — commit `PENDING`
+## v2026.10.13-6 — 2026-10-13 — commit `82ebdfa`
 
 - **The bags video is now the full-quality copy.** The owner sent the same clip at 720×1280, so it replaces the 320-wide version from an hour earlier: same crop, same double speed, same cut before the end card, now 1080 square like the other product videos.
 
