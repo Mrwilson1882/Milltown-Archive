@@ -12,6 +12,15 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.13-8 — 2026-10-13 — commit `PENDING`
+
+- **Delivery on a lot of 50 is now £28, down from £35** — what a 50 of polos actually cost to post in one box. 10s and 25s are unchanged at £10 and £20. Every place the bands are written out follows: basket, Stripe's note, product pages, buyer information, llms.txt. Set "for now": a new courier account is being arranged and rates may move again.
+- **A 50 goes in one box now, not two.** The box limit was Evri's 15kg, which flagged every 50 to be split; it is now 20kg. The owner's note on each order warns when a parcel could come out over it, allowing for the 10% the same lot can vary from box to box.
+- Two real parcels, 13 October: 35 Ralph Lauren polos at 11kg and 50 at 16.9kg, each in one box, £28 each to send. Both confirm the 3.4kg-per-ten polo figure already in use.
+- Only the polo 50s fit under 20kg. Every other 50 on the site is 24–32.5kg at its weighed or assumed figure and still needs two boxes, at £28 to the buyer.
+
+---
+
 ## v2026.10.13-7 — 2026-10-13 — commit `2c7c0b6`
 
 - **The Ralph Lauren polo close-up video now shows the labels.** The square crop sat too low and cut off the neck labels, which the clip is shot to show. It is now taken from higher in the frame, so the POLO RALPH LAUREN, Polo by Ralph Lauren and collar labels are all in shot; the ponies stay in frame too. The cover image is now the pink polo's POLO RALPH LAUREN label.

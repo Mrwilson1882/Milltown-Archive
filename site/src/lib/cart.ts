@@ -50,7 +50,7 @@ export function pieceCount(lines: ResolvedLine[]): number {
 
 /**
  * UK delivery for a set of priced lines. Charged per lot — £10 on a 10, £20 on
- * a 25, £35 on a 50 — because each lot is its own parcel.
+ * a 25, £28 on a 50 — because each lot is its own parcel.
  */
 export function deliveryGBP(lines: ResolvedLine[]): number {
   const total = lines.reduce((sum, l) => sum + deliveryForLotGBP(l.variant.pieces) * l.qty, 0);

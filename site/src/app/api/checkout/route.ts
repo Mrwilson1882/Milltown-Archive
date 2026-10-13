@@ -115,7 +115,7 @@ export async function POST(request: Request) {
       // customer pick another country, so an overseas buyer is stopped at the
       // address step rather than after paying.
       shipping_address_collection: { allowed_countries: ["GB"] },
-      // Delivery is banded per lot (£10 / £20 / £35), worked out from the same
+      // Delivery is banded per lot (£10 / £20 / £28), worked out from the same
       // helper the basket uses, so the figure the buyer saw is what they pay.
       shipping_options: [
         {
@@ -164,7 +164,7 @@ export async function POST(request: Request) {
       custom_text: {
         submit: {
           message:
-            `UK delivery only at the moment — £10 on a lot of 10, £20 on a 25, £35 on a 50, already included above. Dispatched within 1–2 working days of payment, then tracked next-day delivery. Evri will text or email you the tracking. Choose Yes above and your ${siteConfig.optInOffer.percentOff}% off code for your next order comes with your order confirmation. We only send marketing emails if you choose Yes, and you can unsubscribe at any time: archivewholesale.co.uk/privacy`,
+            `UK delivery only at the moment — £10 on a lot of 10, £20 on a 25, £28 on a 50, already included above. Dispatched within 1–2 working days of payment, then tracked next-day delivery. Evri will text or email you the tracking. Choose Yes above and your ${siteConfig.optInOffer.percentOff}% off code for your next order comes with your order confirmation. We only send marketing emails if you choose Yes, and you can unsubscribe at any time: archivewholesale.co.uk/privacy`,
         },
       },
       success_url: `${siteConfig.url}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,

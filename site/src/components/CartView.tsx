@@ -248,7 +248,7 @@ export function CartView({
                 parcel leaves, and the two pages saying different things is
                 worse than either saying nothing. */}
             <p className="mt-4 text-xs leading-relaxed text-slate">
-              UK delivery only at the moment — £10 on a lot of 10, £20 on a 25, £35 on a 50,
+              UK delivery only at the moment — £10 on a lot of 10, £20 on a 25, £28 on a 50,
               already included above. Dispatched within 1–2 working days of payment, then
               tracked next-day delivery. Evri will text or email you the tracking.
             </p>

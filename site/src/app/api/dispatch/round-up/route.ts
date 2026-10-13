@@ -141,7 +141,7 @@ export async function GET(request: Request) {
     ...lines,
     "",
     ...(heavy.length
-      ? [`SPLIT BEFORE BOOKING: ${heavy.length} parcel(s) are over Evri's 15kg limit.`, ""]
+      ? [`WEIGH BEFORE BOOKING: ${heavy.length} parcel(s) may come out over the 20kg box limit.`, ""]
       : []),
     "The attached sheet is every parcel above. Upload it in the Evri business portal.",
   ].join("\n");

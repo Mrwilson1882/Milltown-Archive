@@ -54,8 +54,9 @@ export function dispatchHtml(order: EvriOrder): string {
   const heavyNote = heavy.length
     ? `<p style="font:400 14px/1.6 ${font};color:#000;background:#F4F4F2;border-left:3px solid #000;padding:12px 14px;margin:18px 0 0">
          <strong>Split before booking.</strong> ${heavy.length === 1 ? "One parcel comes" : `${heavy.length} parcels come`}
-         out over Evri's ${evriSettings.maxParcelKg}kg limit at this lot's weighed figure.
-         Split into two and edit the sheet before uploading, or the label will be refused.
+         out at or near the ${evriSettings.maxParcelKg}kg box limit once the usual
+         ${Math.round(evriSettings.weightVariance * 100)}% weight variance is allowed for. Weigh it, and split it
+         into two boxes if it is over, before booking the label.
        </p>`
     : "";
 
@@ -132,7 +133,7 @@ export function dispatchText(order: EvriOrder): string {
     "",
     ...(overweight(order.parcels).length
       ? [
-          `SPLIT BEFORE BOOKING: ${overweight(order.parcels).length} parcel(s) exceed Evri's ${evriSettings.maxParcelKg}kg limit.`,
+          `WEIGH BEFORE BOOKING: ${overweight(order.parcels).length} parcel(s) may come out over the ${evriSettings.maxParcelKg}kg box limit.`,
           "",
         ]
       : []),

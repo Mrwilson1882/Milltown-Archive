@@ -32,8 +32,19 @@ export const evriSettings = {
   service: "Next Day",
   /** Contents description. Plain and accurate. */
   contents: "Second-hand clothing",
-  /** Evri will not take a parcel heavier than this. */
-  maxParcelKg: 15,
+  /**
+   * The heaviest single box we send. Was Evri's 15kg, which split every 50
+   * into two parcels; from 13 October a 50 goes in one box — 50 polos weighed
+   * 16.9kg — so the limit is the 20kg most UK parcel services take. Revisit
+   * when the new courier's limit is known.
+   */
+  maxParcelKg: 20,
+  /**
+   * The same lot weighs up to about 10% more from one box to the next (owner,
+   * 13 October). A parcel is flagged if it could tip over the limit, not only
+   * if its usual weight already does.
+   */
+  weightVariance: 0.1,
 };
 
 /**
@@ -52,9 +63,9 @@ const KG_PER_TEN: Record<string, number> = {
   // Windbreakers and track jackets — 6.5kg, the heaviest thing we send.
   "jackets-windbreaker-mix": 6.5,
   "track-jackets-windbreakers": 6.5,
-  // Piqué polos — 3.4kg, the lightest. Weighed on Lacoste; Ralph Lauren
-  // piqué is the same garment in the same quantity, so it takes the same
-  // figure until anyone weighs a box of it and says otherwise.
+  // Piqué polos — 3.4kg, the lightest. Weighed on Lacoste, and borne out on
+  // Ralph Lauren by two real parcels on 13 October, each packed in one box:
+  // 35 polos at 11kg and 50 at 16.9kg.
   "lacoste-ralph-lauren-polos": 3.4,
   "ralph-lauren-polos": 3.4,
   "ralph-lauren-polo-box-10": 3.4,
@@ -106,9 +117,11 @@ export function weightFor(parcel: Pick<EvriParcel, "slug" | "pieces">): number {
   return Math.round((parcel.pieces / 10) * perTen * 10) / 10;
 }
 
-/** Parcels the owner has to split before they can be booked. */
+/** Parcels that could come out over the box limit, allowing for variance. */
 export function overweight(parcels: EvriParcel[]): EvriParcel[] {
-  return parcels.filter((p) => weightFor(p) > evriSettings.maxParcelKg);
+  return parcels.filter(
+    (p) => weightFor(p) * (1 + evriSettings.weightVariance) > evriSettings.maxParcelKg,
+  );
 }
 
 

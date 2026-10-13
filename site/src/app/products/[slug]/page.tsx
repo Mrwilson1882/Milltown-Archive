@@ -308,7 +308,7 @@ export default async function ProductPage({ params }: Params) {
             <SpecRow
               icon="van"
               label="UK delivery"
-              value="£10 on a lot of 10, £20 on a 25, £35 on a 50. Dispatched in 1–2 working days, then tracked next day."
+              value="£10 on a lot of 10, £20 on a 25, £28 on a 50. Dispatched in 1–2 working days, then tracked next day."
             />
             {product.sizeRun && <SpecRow icon="rule" label="Size run" value={product.sizeRun} />}
             <SpecRow

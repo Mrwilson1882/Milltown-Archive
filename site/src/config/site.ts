@@ -75,14 +75,16 @@ export const siteConfig = {
    */
   /**
    * UK delivery, banded by lot size and charged per lot: a 10 costs £10, a 25
-   * costs £20, a 50 costs £35. Two lots of 10 is £20, because that is two
-   * parcels. Tracked, next day. Set by the owner on 3 October 2026.
+   * costs £20, a 50 costs £28. Two lots of 10 is £20, because that is two
+   * parcels. Set by the owner on 3 October 2026; the 50 came down from £35 on
+   * 13 October to what a 50 actually costs to post in one box. Expected to
+   * move again when the new courier account is set up.
    */
   delivery: {
     bands: [
       { upToPieces: 10, gbp: 10 },
       { upToPieces: 25, gbp: 20 },
-      { upToPieces: 50, gbp: 35 },
+      { upToPieces: 50, gbp: 28 },
     ],
   },
 
