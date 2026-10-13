@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.13-1 — 2026-10-13 — commit `PENDING`
+## v2026.10.13-1 — 2026-10-13 — commit `9bc873f`
 
 - **Checkout now asks for marketing consent.** An optional question on Stripe's payment page — "Email me new stock and offers?", Yes or No thanks — with nothing selected. UK rules want an active choice and no pre-ticked box; skipping it counts as no. Stripe's own promotions checkbox is offered to US merchants only, so it is a custom field.
 - **The weekly Archive Wholesale Customers list is now two tabs: Marketing Allowed and Marketing Not Allowed.** A customer's answer at their most recent checkout decides which; a later no withdraws an earlier yes. Everyone who bought before today was never asked and sits on Not Allowed, marked "Not asked".
