@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.13-9 — 2026-10-13 — commit `PENDING`
+## v2026.10.13-9 — 2026-10-13 — commit `fc57869`
 
 - **Light pilling no longer costs a piece its Grade A.** Added to the Grade A definition and its list of allowances on the grading guide, and to the Grade A FAQ. Grade B now says *heavier* pilling everywhere it is defined — grading guide, buyer information, llms.txt and the order confirmation — so the two grades do not both claim light pilling.
 - **"Ready for the rail as it is." removed** from the Grade A heading, which now reads "Excellent condition."
