@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.13-2 — 2026-10-13 — commit `PENDING`
+## v2026.10.13-2 — 2026-10-13 — commit `a24ede0`
 
 - **Buy now on every product page that can be bought.** It sits beside Add to basket and goes straight to Stripe with that lot and quantity, skipping the basket. The buyer's saved basket is left exactly as it was. If they back out of Stripe they return to the product page, not an empty basket.
 - **Buy now is the solid button, Add to basket the outlined one,** so the faster route reads as the main action. Both are full height and sit side by side on a phone.
