@@ -43,7 +43,7 @@ const faqs = [
   },
   {
     q: "What condition will the clothes be in?",
-    a: "Standard lots are Grade A/B. Grade A carries no stains, holes, tears or repairs — fading is expected on vintage and does not cost the grade. Grade B carries honest wear: a small hole, a small stain or mark, pilling, or a zip that no longer works. Nothing graded C goes into a lot. Full definitions are in the grading guide.",
+    a: "Standard lots are Grade A/B. Grade A carries no stains, holes, tears or repairs — fading is expected on vintage and does not cost the grade. Grade B carries honest wear: a small hole, a small stain or mark, heavier pilling, or a zip that no longer works. Nothing graded C goes into a lot. Full definitions are in the grading guide.",
   },
   {
     q: "Do the clothes arrive washed and pressed?",
@@ -224,7 +224,7 @@ export default function BuyerInformationPage() {
               </p>
               <p>
                 <strong className="text-ink">Grade B</strong> carries honest wear: a small hole, a
-                small stain or mark, pilling, or a zip that no longer works. It sells hard as
+                small stain or mark, heavier pilling, or a zip that no longer works. It sells hard as
                 workwear. Nothing graded C — a large hole, several holes, or a stain that would stop
                 the piece being worn even as workwear — goes into a lot.
               </p>

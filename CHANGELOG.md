@@ -12,6 +12,14 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.13-9 — 2026-10-13 — commit `PENDING`
+
+- **Light pilling no longer costs a piece its Grade A.** Added to the Grade A definition and its list of allowances on the grading guide, and to the Grade A FAQ. Grade B now says *heavier* pilling everywhere it is defined — grading guide, buyer information, llms.txt and the order confirmation — so the two grades do not both claim light pilling.
+- **"Ready for the rail as it is." removed** from the Grade A heading, which now reads "Excellent condition."
+- **Standard A/B lots are now aimed at roughly 80% Grade A to 20% Grade B,** up from 70/30, with the 5–10% tolerance on larger lots unchanged. The split is stated in the order confirmation email; the Lacoste Jumpers & Cardigans listing keeps its own "roughly 85% Grade A, 15% Grade B".
+
+---
+
 ## v2026.10.13-8 — 2026-10-13 — commit `c221771`
 
 - **Delivery on a lot of 50 is now £28, down from £35** — what a 50 of polos actually cost to post in one box. 10s and 25s are unchanged at £10 and £20. Every place the bands are written out follows: basket, Stripe's note, product pages, buyer information, llms.txt. Set "for now": a new courier account is being arranged and rates may move again.

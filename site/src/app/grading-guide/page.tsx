@@ -20,31 +20,31 @@ const grades = [
   {
     grade: "A",
     alias: "Grade 1",
-    headline: "Excellent condition. Ready for the rail as it is.",
-    rule: "No stains, no holes, no tears and no repairs. Fabric is sound throughout. Fading does not cost a grade — on a piece this old it is expected, and it is what vintage looks like. One minor broken fastening, a clasp or a popper, on a garment that is otherwise perfect does not cost a grade either, and nor does a pluck in the weave. Everything ships as graded rather than laundered, so wash it before it goes on the rail.",
-    allows: ["Fading appropriate to the age of the piece, including wash fading on dark cottons", "A pluck or small snag in the weave", "One minor broken fastening, such as a clasp or popper, where the rest of the garment is sound", "Light softening of the fabric consistent with age"],
+    headline: "Excellent condition.",
+    rule: "No stains, no holes, no tears and no repairs. Fabric is sound throughout. Fading does not cost a grade — on a piece this old it is expected, and it is what vintage looks like. One minor broken fastening, a clasp or a popper, on a garment that is otherwise perfect does not cost a grade either, and nor does a pluck in the weave or light pilling. Everything ships as graded rather than laundered, so wash it before it goes on the rail.",
+    allows: ["Fading appropriate to the age of the piece, including wash fading on dark cottons", "A pluck or small snag in the weave", "One minor broken fastening, such as a clasp or popper, where the rest of the garment is sound", "Light softening of the fabric consistent with age", "Light pilling"],
   },
   {
     grade: "B",
     alias: "Grade 2",
     headline: "Good condition with honest wear, priced to reflect it.",
-    rule: "Small holes, small stains or small marks, pilling, or a zip that no longer works. Grade B is where a fault is named and reflected in the price, and it sells hard as workwear — Carhartt, Dickies and Lacoste especially. The line is size: a small hole grades B. A large hole, several holes, or a stain that would stop the piece being worn even as workwear is Grade C, and we do not sell Grade C.",
-    allows: ["A small stain or mark", "A small hole, pull or thinning patch", "Light pilling or bobbling on knitwear", "A broken, stuck or missing zip"],
+    rule: "Small holes, small stains or small marks, heavier pilling, or a zip that no longer works. Grade B is where a fault is named and reflected in the price, and it sells hard as workwear — Carhartt, Dickies and Lacoste especially. The line is size: a small hole grades B. A large hole, several holes, or a stain that would stop the piece being worn even as workwear is Grade C, and we do not sell Grade C.",
+    allows: ["A small stain or mark", "A small hole, pull or thinning patch", "Heavier pilling or bobbling on knitwear", "A broken, stuck or missing zip"],
   },
 ] as const;
 
 const faqs = [
   {
     q: "What does Grade A mean in vintage clothing?",
-    a: "Grade A is the top grade: no stains, no holes, no tears and no repairs. Fading does not cost a grade — on a thirty-year-old garment it is expected, and it is what vintage looks like. A single minor broken fastening, such as one clasp or popper, on a piece that is otherwise perfect stays Grade A, as does a pluck in the weave. Some suppliers call the same standard Grade 1. Lots ship as graded rather than laundered, so everything is washed before it goes on the rail.",
+    a: "Grade A is the top grade: no stains, no holes, no tears and no repairs. Fading does not cost a grade — on a thirty-year-old garment it is expected, and it is what vintage looks like. A single minor broken fastening, such as one clasp or popper, on a piece that is otherwise perfect stays Grade A, as does a pluck in the weave or light pilling. Some suppliers call the same standard Grade 1. Lots ship as graded rather than laundered, so everything is washed before it goes on the rail.",
   },
   {
     q: "What does Grade B mean in vintage clothing?",
-    a: "Grade B is a piece that still wears and still sells, but carries a visible sign of use: a small hole, a small stain or mark, pilling, or a zip that no longer works. The fault is reflected in the price, and Grade B moves quickly as workwear — Carhartt, Dickies and Lacoste especially. Size is what separates B from C: a small hole is Grade B; a large hole, several holes, or a stain that would stop the piece being worn even as workwear is Grade C. Some suppliers call Grade B Grade 2.",
+    a: "Grade B is a piece that still wears and still sells, but carries a visible sign of use: a small hole, a small stain or mark, heavier pilling, or a zip that no longer works. The fault is reflected in the price, and Grade B moves quickly as workwear — Carhartt, Dickies and Lacoste especially. Size is what separates B from C: a small hole is Grade B; a large hole, several holes, or a stain that would stop the piece being worn even as workwear is Grade C. Some suppliers call Grade B Grade 2.",
   },
   {
     q: "What does 'Grade A/B' mean on an Archive Wholesale listing?",
-    a: "It means the lot is a mix of Grade A and Grade B pieces. Grade A carries no stains, holes, tears or repairs, though fading is expected and does not cost it the grade. Grade B carries honest wear such as a small hole, a small stain, pilling or a faulty zip, and the lot is priced to reflect that. Nothing graded C goes into a lot.",
+    a: "It means the lot is a mix of Grade A and Grade B pieces. Grade A carries no stains, holes, tears or repairs, though fading is expected and does not cost it the grade. Grade B carries honest wear such as a small hole, a small stain, heavier pilling or a faulty zip, and the lot is priced to reflect that. Nothing graded C goes into a lot.",
   },
   {
     q: "What grade is a garment with a hole in it?",
@@ -150,7 +150,7 @@ export default function GradingGuidePage() {
               Our standard lots are graded <strong className="text-ink">A/B</strong>: a mix of Grade A
               and Grade B pieces. Grade A carries no stains, holes, tears or repairs — fading is
               expected on vintage and does not cost it the grade. Grade B carries honest wear — a
-              small hole, a small stain, pilling or a faulty zip — and the lot is priced to reflect
+              small hole, a small stain, heavier pilling or a faulty zip — and the lot is priced to reflect
               that. Nothing graded C goes into a lot.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-slate">
