@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 /** Reviewed date shown at the top and bottom. Update when the policy changes. */
-const LAST_UPDATED = "27 September 2026";
+const LAST_UPDATED = "13 October 2026";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -66,6 +66,12 @@ export default function PrivacyPage() {
             obligations.
           </p>
           <p>
+            <strong className="text-ink">Marketing emails.</strong> At checkout we ask whether
+            you would like emails about new stock and offers. The question is optional and nothing
+            is selected for you. We only send them if you answer yes, and every one has an
+            unsubscribe link. Unsubscribe or email us at any time and we stop.
+          </p>
+          <p>
             <strong className="text-ink">WhatsApp messages.</strong> If you message our WhatsApp
             business number, we hold the conversation — your WhatsApp number, your WhatsApp profile
             name, and the messages themselves — so we can reply and so we have a record of what was
@@ -116,8 +122,9 @@ export default function PrivacyPage() {
             for taking and fulfilling orders;{" "}
             <strong className="text-ink">legitimate interests</strong> for answering enquiries,
             replying on WhatsApp, keeping our records straight and understanding how the site is
-            used; and <strong className="text-ink">legal obligation</strong> for keeping accounting
-            and tax records.
+            used; <strong className="text-ink">legal obligation</strong> for keeping accounting
+            and tax records; and <strong className="text-ink">your consent</strong> for marketing
+            emails, which you can withdraw whenever you like.
           </p>
         </Section>
 

@@ -2,6 +2,7 @@ import "server-only";
 import ExcelJS from "exceljs";
 import type Stripe from "stripe";
 import { paidSessionsBetween } from "@/lib/orders/fromStripe";
+import { marketingAnswer, type MarketingAnswer } from "@/lib/marketing/consent";
 
 /**
  * The customer list, rebuilt from scratch every time.
@@ -24,6 +25,11 @@ const BEGINNING = Math.floor(new Date("2026-09-01T00:00:00Z").getTime() / 1000);
 export type Customer = {
   name: string;
   email: string;
+  /**
+   * Their answer at their most recent checkout. Only "Yes" may be sent
+   * marketing; a later order can change it either way.
+   */
+  marketing: MarketingAnswer;
   phone: string;
   line1: string;
   line2: string;
@@ -77,6 +83,11 @@ export async function buildCustomerList(): Promise<Customer[]> {
       existing.orders += 1;
       existing.spentGBP = Math.round((existing.spentGBP + total) * 100) / 100;
       existing.lastOrder = when;
+      // Sessions arrive oldest first, so the newest answer wins — a later no
+      // withdraws an earlier yes. An order from before the question existed
+      // says nothing either way and leaves their answer alone.
+      const answer = marketingAnswer(session);
+      if (answer !== "Not asked") existing.marketing = answer;
       // Keep the newest address and the fullest set of lots.
       existing.name = shipping?.name || details?.name || existing.name;
       existing.phone = details?.phone ?? existing.phone;
@@ -92,6 +103,7 @@ export async function buildCustomerList(): Promise<Customer[]> {
     byEmail.set(email, {
       name: shipping?.name || details?.name || "",
       email,
+      marketing: marketingAnswer(session),
       phone: details?.phone ?? "",
       line1: address?.line1 ?? "",
       line2: address?.line2 ?? "",
@@ -110,46 +122,62 @@ export async function buildCustomerList(): Promise<Customer[]> {
   return [...byEmail.values()].sort((a, b) => b.spentGBP - a.spentGBP);
 }
 
-/** The list as a real .xlsx, ready to open or import. */
+/** The two tabs, and which answers go in each. */
+const TABS: { name: string; keep: (c: Customer) => boolean }[] = [
+  { name: "Marketing Allowed", keep: (c) => c.marketing === "Yes" },
+  { name: "Marketing Not Allowed", keep: (c) => c.marketing !== "Yes" },
+];
+
+/**
+ * The list as a real .xlsx, ready to open or import.
+ *
+ * Split into two tabs so the one that may be mailed is the one that opens
+ * first, and nobody has to remember to filter a column before sending. A
+ * customer who has not said yes — whether they said no or were never asked —
+ * is on the second tab.
+ */
 export async function customerWorkbook(customers: Customer[]): Promise<Buffer> {
   const book = new ExcelJS.Workbook();
   book.creator = "Archive Wholesale";
   book.created = new Date();
 
-  const sheet = book.addWorksheet("Customers", {
-    views: [{ state: "frozen", ySplit: 1 }],
-  });
+  for (const tab of TABS) {
+    const sheet = book.addWorksheet(tab.name, {
+      views: [{ state: "frozen", ySplit: 1 }],
+    });
 
-  sheet.columns = [
-    { header: "Name", key: "name", width: 26 },
-    { header: "Email", key: "email", width: 34 },
-    { header: "Phone", key: "phone", width: 16 },
-    { header: "Address 1", key: "line1", width: 28 },
-    { header: "Address 2", key: "line2", width: 22 },
-    { header: "Town", key: "town", width: 18 },
-    { header: "County", key: "county", width: 18 },
-    { header: "Postcode", key: "postcode", width: 12 },
-    { header: "Orders", key: "orders", width: 9 },
-    { header: "Spent (£)", key: "spentGBP", width: 12 },
-    { header: "First order", key: "firstOrder", width: 13 },
-    { header: "Last order", key: "lastOrder", width: 13 },
-    { header: "Lots bought", key: "lots", width: 46 },
-  ];
+    sheet.columns = [
+      { header: "Name", key: "name", width: 26 },
+      { header: "Email", key: "email", width: 34 },
+      { header: "Email marketing", key: "marketing", width: 17 },
+      { header: "Phone", key: "phone", width: 16 },
+      { header: "Address 1", key: "line1", width: 28 },
+      { header: "Address 2", key: "line2", width: 22 },
+      { header: "Town", key: "town", width: 18 },
+      { header: "County", key: "county", width: 18 },
+      { header: "Postcode", key: "postcode", width: 12 },
+      { header: "Orders", key: "orders", width: 9 },
+      { header: "Spent (£)", key: "spentGBP", width: 12 },
+      { header: "First order", key: "firstOrder", width: 13 },
+      { header: "Last order", key: "lastOrder", width: 13 },
+      { header: "Lots bought", key: "lots", width: 46 },
+    ];
 
-  sheet.getRow(1).font = { bold: true, color: { argb: "FFFFFFFF" } };
-  sheet.getRow(1).fill = {
-    type: "pattern",
-    pattern: "solid",
-    fgColor: { argb: "FF0F4A2E" },
-  };
-  sheet.getRow(1).height = 20;
+    sheet.getRow(1).font = { bold: true, color: { argb: "FFFFFFFF" } };
+    sheet.getRow(1).fill = {
+      type: "pattern",
+      pattern: "solid",
+      fgColor: { argb: "FF0F4A2E" },
+    };
+    sheet.getRow(1).height = 20;
 
-  customers.forEach((c) => sheet.addRow(c));
+    customers.filter(tab.keep).forEach((c) => sheet.addRow(c));
 
-  sheet.getColumn("spentGBP").numFmt = "0.00";
-  sheet.getColumn("orders").alignment = { horizontal: "center" };
-  // Filters on every column, because the point of the list is slicing it.
-  sheet.autoFilter = { from: "A1", to: { row: 1, column: sheet.columns.length } };
+    sheet.getColumn("spentGBP").numFmt = "0.00";
+    sheet.getColumn("orders").alignment = { horizontal: "center" };
+    // Filters on every column, because the point of the list is slicing it.
+    sheet.autoFilter = { from: "A1", to: { row: 1, column: sheet.columns.length } };
+  }
 
   const out = await book.xlsx.writeBuffer();
   return Buffer.from(out);

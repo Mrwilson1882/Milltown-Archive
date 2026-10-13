@@ -44,6 +44,7 @@ export async function sendCustomerList(): Promise<{
   if (!emailEnabled || !ORDER_BCC) return { ok: false, reason: "email_not_configured" };
 
   const repeat = customers.filter((c) => c.orders > 1).length;
+  const allowed = customers.filter((c) => c.marketing === "Yes").length;
   const spent = customers.reduce((n, c) => n + c.spentGBP, 0);
   const stamp = new Date().toLocaleDateString("en-GB", {
     timeZone: "Europe/London",
@@ -62,10 +63,11 @@ export async function sendCustomerList(): Promise<{
     "best first. It is rebuilt in full each week rather than added to, so it",
     "always holds everyone — there is no older copy you need to keep.",
     "",
-    "Before you mail them: UK rules let you market to people who have bought",
-    "from you, as long as every message has an unsubscribe in it and the",
-    "offer is for similar goods. Keep that link in and keep a note of anyone",
-    "who asks to come off.",
+    `${allowed} of them said yes to marketing emails at checkout. They are on`,
+    "the Marketing Allowed tab, and that tab is the only one to send offers to.",
+    "Everyone else is on Marketing Not Allowed: they said no, or bought before",
+    "checkout asked. Put an unsubscribe link in every email, and move anyone",
+    "who asks to come off straight onto the second tab.",
   ].join("\n");
 
   const file = await customerWorkbook(customers);

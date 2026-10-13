@@ -12,6 +12,15 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.13-1 — 2026-10-13 — commit `PENDING`
+
+- **Checkout now asks for marketing consent.** An optional question on Stripe's payment page — "Email me new stock and offers?", Yes or No thanks — with nothing selected. UK rules want an active choice and no pre-ticked box; skipping it counts as no. Stripe's own promotions checkbox is offered to US merchants only, so it is a custom field.
+- **The weekly Archive Wholesale Customers list is now two tabs: Marketing Allowed and Marketing Not Allowed.** A customer's answer at their most recent checkout decides which; a later no withdraws an earlier yes. Everyone who bought before today was never asked and sits on Not Allowed, marked "Not asked".
+- The weekly email no longer tells the owner that existing customers can be mailed on soft opt-in. That relies on the buyer having been offered a way to refuse when they bought, which they had not been.
+- The privacy notice now covers marketing emails and lists consent as the lawful basis for them.
+
+---
+
 ## v2026.10.12-2 — 2026-10-12 — commit `85b9a81`
 
 - **The floating "Enquire" button no longer shows on product pages a buyer can check out from.** The owner's read is that buyers one tap from the basket were messaging instead of buying, and the button sat over the bottom of the photo reel on a phone. All in-stock, priced lots lose it: 16 pages.

@@ -3,6 +3,7 @@ import { getStripe, stripeEnabled } from "@/lib/stripe";
 import { deliveryGBP, pieceCount, resolveLines, type CartLine } from "@/lib/cart";
 import { toPence } from "@/lib/format";
 import { siteConfig, vatRate } from "@/config/site";
+import { MARKETING_FIELD } from "@/lib/marketing/consent";
 
 export const runtime = "nodejs";
 
@@ -126,10 +127,29 @@ export async function POST(request: Request) {
         },
       ],
       phone_number_collection: { enabled: true },
+      // Marketing consent. Stripe's own promotions checkbox is offered to US
+      // merchants only, so it is asked as a custom field instead. Optional
+      // and with nothing selected: UK rules want an active choice, never a
+      // pre-ticked box, and someone who skips it has not said yes. The answer
+      // is stored on the session, which is where the customer list reads it.
+      custom_fields: [
+        {
+          key: MARKETING_FIELD,
+          label: { type: "custom" as const, custom: "Email me new stock and offers?" },
+          type: "dropdown" as const,
+          optional: true,
+          dropdown: {
+            options: [
+              { label: "Yes, email me new stock and offers", value: "yes" },
+              { label: "No thanks", value: "no" },
+            ],
+          },
+        },
+      ],
       custom_text: {
         submit: {
           message:
-            "UK delivery only at the moment — £10 on a lot of 10, £20 on a 25, £35 on a 50, already included above. Dispatched within 1–2 working days of payment, then tracked next-day delivery. Evri will text or email you the tracking.",
+            "UK delivery only at the moment — £10 on a lot of 10, £20 on a 25, £35 on a 50, already included above. Dispatched within 1–2 working days of payment, then tracked next-day delivery. Evri will text or email you the tracking. We only send marketing emails if you chose Yes to new stock and offers, and you can unsubscribe at any time: archivewholesale.co.uk/privacy",
         },
       },
       success_url: `${siteConfig.url}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
