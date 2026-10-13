@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.13-4 — 2026-10-13 — commit `PENDING`
+## v2026.10.13-4 — 2026-10-13 — commit `29b10c1`
 
 - **A second video on the two Ralph Lauren-only lots** — Ralph Lauren Polos and the Ralph Lauren Polo Box. A 27-second close look through a polo lot by hand, labels and ponies shown. It plays second, after the existing rail video. The Lacoste / Ralph Lauren mix keeps its single video.
 - Supplied as a 720×1280 phone clip; cropped to the same square as every other product video, set low enough to keep the shirts in frame rather than the sofa behind them, and scaled to 1080. The CapCut end card on the last two seconds is cut off. No sound, like the others.
