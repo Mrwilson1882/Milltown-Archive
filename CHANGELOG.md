@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.13-7 — 2026-10-13 — commit `PENDING`
+## v2026.10.13-7 — 2026-10-13 — commit `2c7c0b6`
 
 - **The Ralph Lauren polo close-up video now shows the labels.** The square crop sat too low and cut off the neck labels, which the clip is shot to show. It is now taken from higher in the frame, so the POLO RALPH LAUREN, Polo by Ralph Lauren and collar labels are all in shot; the ponies stay in frame too. The cover image is now the pink polo's POLO RALPH LAUREN label.
 
