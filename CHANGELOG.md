@@ -12,6 +12,15 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.13-3 — 2026-10-13 — commit `PENDING`
+
+- **10% off the next order for saying yes to marketing emails.** The checkout question now reads "New stock emails + 10% off your next order?", with "Yes, email me new stock and my 10% off code" or "No thanks". Still optional, still nothing selected; the incentive is offered, never a condition of buying.
+- **The code arrives in the order confirmation**, in a green box under the delivery details, and only for buyers who said yes. The plain-text version carries it too.
+- The code is NEXT10, set once in siteConfig.optInOffer. The owner creates it in Stripe by hand; until they do, it is a code that will not work, so it must exist before anyone opts in.
+- The privacy notice now mentions the code.
+
+---
+
 ## v2026.10.13-2 — 2026-10-13 — commit `a24ede0`
 
 - **Buy now on every product page that can be bought.** It sits beside Add to basket and goes straight to Stripe with that lot and quantity, skipping the basket. The buyer's saved basket is left exactly as it was. If they back out of Stripe they return to the product page, not an empty basket.

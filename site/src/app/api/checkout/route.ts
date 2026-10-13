@@ -144,12 +144,18 @@ export async function POST(request: Request) {
       custom_fields: [
         {
           key: MARKETING_FIELD,
-          label: { type: "custom" as const, custom: "Email me new stock and offers?" },
+          label: {
+            type: "custom" as const,
+            custom: `New stock emails + ${siteConfig.optInOffer.percentOff}% off your next order?`,
+          },
           type: "dropdown" as const,
           optional: true,
           dropdown: {
             options: [
-              { label: "Yes, email me new stock and offers", value: "yes" },
+              {
+                label: `Yes, email me new stock and my ${siteConfig.optInOffer.percentOff}% off code`,
+                value: "yes",
+              },
               { label: "No thanks", value: "no" },
             ],
           },
@@ -158,7 +164,7 @@ export async function POST(request: Request) {
       custom_text: {
         submit: {
           message:
-            "UK delivery only at the moment — £10 on a lot of 10, £20 on a 25, £35 on a 50, already included above. Dispatched within 1–2 working days of payment, then tracked next-day delivery. Evri will text or email you the tracking. We only send marketing emails if you chose Yes to new stock and offers, and you can unsubscribe at any time: archivewholesale.co.uk/privacy",
+            `UK delivery only at the moment — £10 on a lot of 10, £20 on a 25, £35 on a 50, already included above. Dispatched within 1–2 working days of payment, then tracked next-day delivery. Evri will text or email you the tracking. Choose Yes above and your ${siteConfig.optInOffer.percentOff}% off code for your next order comes with your order confirmation. We only send marketing emails if you choose Yes, and you can unsubscribe at any time: archivewholesale.co.uk/privacy`,
         },
       },
       success_url: `${siteConfig.url}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,

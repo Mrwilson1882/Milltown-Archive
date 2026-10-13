@@ -68,8 +68,9 @@ export default function PrivacyPage() {
           <p>
             <strong className="text-ink">Marketing emails.</strong> At checkout we ask whether
             you would like emails about new stock and offers. The question is optional and nothing
-            is selected for you. We only send them if you answer yes, and every one has an
-            unsubscribe link. Unsubscribe or email us at any time and we stop.
+            is selected for you. If you answer yes, we send a 10% off code for your next order with
+            your order confirmation. We only send marketing emails if you answer yes, and every one
+            has an unsubscribe link. Unsubscribe or email us at any time and we stop.
           </p>
           <p>
             <strong className="text-ink">WhatsApp messages.</strong> If you message our WhatsApp

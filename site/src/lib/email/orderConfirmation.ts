@@ -40,6 +40,8 @@ export type OrderEmailData = {
   lines: OrderEmailLine[];
   deliveryGBP: number;
   totalGBP: number;
+  /** The opt-in discount code, present only when they said yes at checkout. */
+  optInCode?: string;
 };
 
 const INK = "#000000";
@@ -291,6 +293,20 @@ export function orderConfirmationHtml(
     </table>
   </td></tr>
 
+  ${
+    order.optInCode
+      ? `<tr><td style="padding:16px 28px 0">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#E7F0EA;border-left:3px solid ${FOREST}">
+      <tr><td style="padding:16px 18px">
+        <div style="font:700 10px/1.2 ${FONT};letter-spacing:0.16em;text-transform:uppercase;color:${FOREST};padding-bottom:6px">Thanks for signing up · ${siteConfig.optInOffer.percentOff}% off your next order</div>
+        <div style="font:800 26px/1.15 ${FONT};letter-spacing:0.04em;color:${FOREST}">${esc(order.optInCode)}</div>
+        <div style="font:400 13px/1.55 ${FONT};color:${INK};padding-top:6px">Enter it at checkout on ${esc(siteConfig.url.replace(/^https?:\/\/(www\.)?/, ""))} next time you order. It comes off the goods, not delivery.</div>
+      </td></tr>
+    </table>
+  </td></tr>
+`
+      : ""
+  }
   ${sectionHeading("What happens next")}
   <tr><td style="padding:0 28px">
     <div style="font:400 13px/1.5 ${FONT};color:${SLATE};padding-bottom:12px">Four steps, and we do all of them.</div>
@@ -376,6 +392,14 @@ export function orderConfirmationText(
     "No VAT has been charged: Archivio Group Ltd is not VAT registered, so this",
     "invoice carries no VAT to reclaim.",
     "",
+    ...(order.optInCode
+      ? [
+          `THANKS FOR SIGNING UP — ${siteConfig.optInOffer.percentOff}% OFF YOUR NEXT ORDER`,
+          `  Code: ${order.optInCode}`,
+          "  Enter it at checkout next time you order. It comes off the goods, not delivery.",
+          "",
+        ]
+      : []),
     "DELIVERING TO",
     `  ${order.name}`,
     ...order.addressLines.filter(Boolean).map((l) => `  ${l}`),

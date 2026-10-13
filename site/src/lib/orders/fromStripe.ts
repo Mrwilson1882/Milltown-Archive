@@ -3,6 +3,8 @@ import type Stripe from "stripe";
 import type { OrderEmailData } from "@/lib/email/orderConfirmation";
 import type { EvriOrder } from "@/lib/shipping/evri";
 import { getStripe } from "@/lib/stripe";
+import { siteConfig } from "@/config/site";
+import { marketingAnswer } from "@/lib/marketing/consent";
 
 /**
  * One reading of a paid order, shared by everything that needs one.
@@ -103,6 +105,7 @@ export function toOrderEmail(session: Stripe.Checkout.Session, email: string): O
     })),
     deliveryGBP: pounds(session.shipping_cost?.amount_total),
     totalGBP: pounds(session.amount_total),
+    optInCode: marketingAnswer(session) === "Yes" ? siteConfig.optInOffer.code : undefined,
   };
 }
 

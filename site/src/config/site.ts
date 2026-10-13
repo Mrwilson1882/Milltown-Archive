@@ -86,6 +86,14 @@ export const siteConfig = {
     ],
   },
 
+  /**
+   * The thank-you for saying yes to marketing emails at checkout: a discount
+   * code for the next order, sent in the order confirmation. The code itself
+   * is created by hand in Stripe (Product catalogue → Coupons) and must match
+   * this exactly, or buyers are handed a code that does not work.
+   */
+  optInOffer: { code: "NEXT10", percentOff: 10 },
+
   vat: {
     /**
      * Flip to true once Archivio Group Ltd is VAT registered. Everything follows from
