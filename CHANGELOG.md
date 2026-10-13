@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.13-8 — 2026-10-13 — commit `PENDING`
+## v2026.10.13-8 — 2026-10-13 — commit `c221771`
 
 - **Delivery on a lot of 50 is now £28, down from £35** — what a 50 of polos actually cost to post in one box. 10s and 25s are unchanged at £10 and £20. Every place the bands are written out follows: basket, Stripe's note, product pages, buyer information, llms.txt. Set "for now": a new courier account is being arranged and rates may move again.
 - **A 50 goes in one box now, not two.** The box limit was Evri's 15kg, which flagged every 50 to be split; it is now 20kg. The owner's note on each order warns when a parcel could come out over it, allowing for the 10% the same lot can vary from box to box.
