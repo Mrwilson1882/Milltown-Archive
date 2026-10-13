@@ -9,6 +9,7 @@ import { cartTotals, lineKey, resolveLines } from "@/lib/cart";
 import { formatPrice, perPiece } from "@/lib/format";
 import { showVat, siteConfig, whatsappUrl } from "@/config/site";
 import { trackEvent } from "@/lib/analytics";
+import { startCheckout } from "@/lib/startCheckout";
 
 export function CartView({
   stripeEnabled,
@@ -48,29 +49,15 @@ export function CartView({
     trackEvent("checkout_start", { lots: itemCount, total_gbp: grossTotalGBP });
     setSubmitting(true);
     setError(null);
-    try {
-      const response = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          items: payable.map((l) => ({
-            slug: l.product.slug,
-            pieces: l.variant.pieces,
-            qty: l.qty,
-          })),
-        }),
-      });
-      const data: { url?: string; message?: string } = await response.json();
-      if (response.ok && data.url) {
-        window.location.href = data.url;
-        return;
-      }
-      setError(data.message ?? "Checkout is unavailable right now. Please send us an enquiry.");
-    } catch {
-      setError("We could not reach checkout. Check your connection and try again.");
-    } finally {
-      setSubmitting(false);
+    const result = await startCheckout(
+      payable.map((l) => ({ slug: l.product.slug, pieces: l.variant.pieces, qty: l.qty })),
+    );
+    if ("url" in result) {
+      window.location.assign(result.url);
+      return;
     }
+    setError(result.message);
+    setSubmitting(false);
   }
 
   if (resolved.length === 0) {
@@ -232,7 +219,7 @@ export function CartView({
               UK delivery
               {piecesGBP > 0 && (
                 <span className="block text-xs">
-                  {piecesGBP} {piecesGBP === 1 ? "piece" : "pieces"}, tracked, next day
+                  {piecesGBP} {piecesGBP === 1 ? "piece" : "pieces"}, tracked
                 </span>
               )}
             </dt>

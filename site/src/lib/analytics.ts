@@ -25,6 +25,8 @@ type Events = {
   };
   /** A lot went into the basket. */
   add_to_basket: { product: string; pieces: number; qty: number };
+  /** Buy now was pressed on a product page — straight to Stripe, basket untouched. */
+  buy_now: { product: string; pieces: number; qty: number };
   /** Secure checkout was pressed (whether or not Stripe is connected yet). */
   checkout_start: { lots: number; total_gbp: number };
   /** The bulk quote builder was submitted. */

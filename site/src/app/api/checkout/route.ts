@@ -7,7 +7,7 @@ import { MARKETING_FIELD } from "@/lib/marketing/consent";
 
 export const runtime = "nodejs";
 
-type CheckoutRequest = { items?: unknown };
+type CheckoutRequest = { items?: unknown; cancelPath?: unknown };
 
 function parseItems(body: CheckoutRequest): CartLine[] {
   if (!Array.isArray(body.items)) return [];
@@ -42,6 +42,15 @@ export async function POST(request: Request) {
   }
 
   const resolved = resolveLines(parseItems(body));
+
+  // Buy now sends the buyer back to the product they came from if they back
+  // out of Stripe; the basket would be the wrong page, and possibly an empty
+  // one. Only a product path is accepted, so the parameter cannot be used to
+  // bounce anyone off the site.
+  const cancelPath =
+    typeof body.cancelPath === "string" && /^\/products\/[a-z0-9-]+$/.test(body.cancelPath)
+      ? body.cancelPath
+      : "/cart";
 
   // Prices come from the catalogue on the server, never from the browser.
   const payable = resolved.filter((line) => line.variant.priceGBP !== null);
@@ -153,7 +162,7 @@ export async function POST(request: Request) {
         },
       },
       success_url: `${siteConfig.url}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${siteConfig.url}/cart`,
+      cancel_url: `${siteConfig.url}${cancelPath}`,
       metadata: {
         lots: payable
           .map((line) => `${line.product.slug}/${line.variant.pieces}×${line.qty}`)

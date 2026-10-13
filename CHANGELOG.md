@@ -12,6 +12,18 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.13-2 — 2026-10-13 — commit `PENDING`
+
+- **Buy now on every product page that can be bought.** It sits beside Add to basket and goes straight to Stripe with that lot and quantity, skipping the basket. The buyer's saved basket is left exactly as it was. If they back out of Stripe they return to the product page, not an empty basket.
+- **Buy now is the solid button, Add to basket the outlined one,** so the faster route reads as the main action. Both are full height and sit side by side on a phone.
+- **The running cost shows before they commit:** goods for the chosen lot and quantity plus UK delivery, e.g. "£400.00 + £40.00 UK delivery". Delivery no longer first appears on Stripe's page.
+- A secure-checkout line under the buttons names Stripe and the payment methods: card, Apple Pay, Klarna and more.
+- Buy now only appears while card checkout is live; with it off, the page falls back to Add to basket alone, as before.
+- Checkout now gives up after 25 seconds and says so, for the basket and Buy now alike, rather than leaving a buyer on "Opening checkout…" indefinitely.
+- The basket's delivery line now reads "20 pieces, tracked" — "next day" removed at the owner's request.
+
+---
+
 ## v2026.10.13-1 — 2026-10-13 — commit `9bc873f`
 
 - **Checkout now asks for marketing consent.** An optional question on Stripe's payment page — "Email me new stock and offers?", Yes or No thanks — with nothing selected. UK rules want an active choice and no pre-ticked box; skipping it counts as no. Stripe's own promotions checkbox is offered to US merchants only, so it is a custom field.

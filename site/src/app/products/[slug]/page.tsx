@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { AddToCart } from "@/components/AddToCart";
+import { stripeEnabled } from "@/lib/stripe";
 import { ProductGallery, type GalleryItem } from "@/components/ProductGallery";
 import { EnquiryActions } from "@/components/EnquiryActions";
 import { ProductCard } from "@/components/ProductCard";
@@ -240,7 +241,7 @@ export default async function ProductPage({ params }: Params) {
                 </div>
               </div>
             ) : buyable ? (
-              <AddToCart product={product} />
+              <AddToCart product={product} checkoutLive={stripeEnabled} />
             ) : (
               <div className="border-2 border-forest p-5">
                 <p className="display text-xl text-forest">Price on request</p>
