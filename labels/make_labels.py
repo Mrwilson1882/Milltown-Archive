@@ -11,7 +11,8 @@ Each parcel in the JSON list looks like:
      "postcode": "NG9 2RA", "parcel": 1, "of": 1}
 
 An order sent as two parcels is two entries, "parcel": 1 and 2 with "of": 2,
-and each label then says which parcel it is.
+and each label then says which parcel it is. "order" can be left out for
+a parcel with no website order, and the header is then left blank.
 
 The layout follows the earlier Archive Wholesale label: order number top
 right, the delivery address in the middle with the postcode largest, and the
@@ -87,8 +88,9 @@ def draw_label(c, p, logo):
     top = PAGE_H - MARGIN
 
     # Header: order number on the right, parcel count on the left when split.
-    c.setFont(BOLD, 13)
-    c.drawRightString(PAGE_W - MARGIN, top - 13, p["order"])
+    if p.get("order"):
+        c.setFont(BOLD, 13)
+        c.drawRightString(PAGE_W - MARGIN, top - 13, p["order"])
     if p.get("of", 1) > 1:
         spaced(c, MARGIN, top - 12, f"PARCEL {p['parcel']} OF {p['of']}", BOLD, 10, 0.8)
     c.setLineWidth(2)
