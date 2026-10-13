@@ -12,6 +12,15 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.13-5 — 2026-10-13 — commit `PENDING`
+
+- **Bags now has a video.** The owner's clip of a box of bags being gone through — Eastpak, Champion, Havaianas, le coq sportif, a Snoopy check bum bag, adidas — played at double speed as asked: 27 seconds down to 13. Cropped square from the bottom of the frame, which keeps the box and the bags in shot and leaves faces out; the CapCut end card is cut off.
+- The clip arrived at 320×568, far below the other product videos, so it is upscaled to 720 and will look soft beside them. A full-size copy can be swapped in without any other change.
+- The listing is still sold out with no prices; it shows the video and the enquiry options until the owner prices it.
+- A lot with a video but no photographs now says the video is not the items you will receive, instead of "Photography for this lot is being shot".
+
+---
+
 ## v2026.10.13-4 — 2026-10-13 — commit `29b10c1`
 
 - **A second video on the two Ralph Lauren-only lots** — Ralph Lauren Polos and the Ralph Lauren Polo Box. A 27-second close look through a polo lot by hand, labels and ponies shown. It plays second, after the existing rail video. The Lacoste / Ralph Lauren mix keeps its single video.

@@ -600,6 +600,14 @@ const catalogue: Product[] = [
     unit: "pieces",
     notes: [],
     art: "halftone-ink",
+    // Played at double speed: the owner's clip is a slow dig through a full box.
+    videos: [
+      {
+        src: "/videos/products/bags/01.mp4",
+        poster: "/videos/products/bags/01-poster.jpg",
+        alt: "A box of vintage bags gone through by hand, at double speed: Eastpak and Champion shoulder bags and backpacks, a red Havaianas bag, a Snoopy check bum bag, an adidas waist bag and more.",
+      },
+    ],
     inStock: false,
   },
 

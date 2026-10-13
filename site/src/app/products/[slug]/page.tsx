@@ -211,6 +211,13 @@ export default async function ProductPage({ params }: Params) {
               are counted out from a fresh intake at dispatch, so items, brands and colourways vary
               every time.
             </p>
+          ) : product.videos?.length ? (
+            <p className="text-xs leading-relaxed text-slate">
+              The video shows stock from a recent intake.{" "}
+              <strong className="text-ink">It is not the items you will receive</strong> — lots are
+              counted out from a fresh intake at dispatch, so items, brands and colourways vary every
+              time.
+            </p>
           ) : (
             <p className="text-xs leading-relaxed text-slate">
               Photography for this lot is being shot.
