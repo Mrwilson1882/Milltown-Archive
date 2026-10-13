@@ -12,6 +12,12 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.13-6 — 2026-10-13 — commit `PENDING`
+
+- **The bags video is now the full-quality copy.** The owner sent the same clip at 720×1280, so it replaces the 320-wide version from an hour earlier: same crop, same double speed, same cut before the end card, now 1080 square like the other product videos.
+
+---
+
 ## v2026.10.13-5 — 2026-10-13 — commit `3d0d691`
 
 - **Bags now has a video.** The owner's clip of a box of bags being gone through — Eastpak, Champion, Havaianas, le coq sportif, a Snoopy check bum bag, adidas — played at double speed as asked: 27 seconds down to 13. Cropped square from the bottom of the frame, which keeps the box and the bags in shot and leaves faces out; the CapCut end card is cut off.
