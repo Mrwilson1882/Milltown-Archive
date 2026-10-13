@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.13-3 — 2026-10-13 — commit `PENDING`
+## v2026.10.13-3 — 2026-10-13 — commit `571b36a`
 
 - **10% off the next order for saying yes to marketing emails.** The checkout question now reads "New stock emails + 10% off your next order?", with "Yes, email me new stock and my 10% off code" or "No thanks". Still optional, still nothing selected; the incentive is offered, never a condition of buying.
 - **The code arrives in the order confirmation**, in a green box under the delivery details, and only for buyers who said yes. The plain-text version carries it too.
