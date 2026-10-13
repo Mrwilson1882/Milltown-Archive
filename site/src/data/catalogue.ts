@@ -186,6 +186,11 @@ const catalogue: Product[] = [
         poster: "/videos/products/ralph-lauren-polo-box-10/01-poster.jpg",
         alt: "A look through a Ralph Lauren Polo Box, turned over piece by piece: piqué polos in red, green, navy, pale blue, white and mint, each with the pony on the chest.",
       },
+      {
+        src: "/videos/products/ralph-lauren-polo-box-10/02.mp4",
+        poster: "/videos/products/ralph-lauren-polo-box-10/02-poster.jpg",
+        alt: "A closer look through a Ralph Lauren polo lot, turned over by hand: royal blue, navy and white stripe, washed red, grey, navy stripe, pale blue, red with navy tipping, and navy with a gold pony, labels shown.",
+      },
     ],
     inStock: true,
     featured: true,
@@ -310,6 +315,11 @@ const catalogue: Product[] = [
         src: "/videos/products/ralph-lauren-polo-box-10/01.mp4",
         poster: "/videos/products/ralph-lauren-polo-box-10/01-poster.jpg",
         alt: "A look along the Ralph Lauren polo rail, turned over piece by piece: piqué polos in red, green, navy, pale blue, white and mint, each with the pony on the chest.",
+      },
+      {
+        src: "/videos/products/ralph-lauren-polo-box-10/02.mp4",
+        poster: "/videos/products/ralph-lauren-polo-box-10/02-poster.jpg",
+        alt: "A closer look through a Ralph Lauren polo lot, turned over by hand: royal blue, navy and white stripe, washed red, grey, navy stripe, pale blue, red with navy tipping, and navy with a gold pony, labels shown.",
       },
     ],
     inStock: true,

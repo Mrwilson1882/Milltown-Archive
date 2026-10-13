@@ -12,6 +12,13 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.13-4 — 2026-10-13 — commit `PENDING`
+
+- **A second video on the two Ralph Lauren-only lots** — Ralph Lauren Polos and the Ralph Lauren Polo Box. A 27-second close look through a polo lot by hand, labels and ponies shown. It plays second, after the existing rail video. The Lacoste / Ralph Lauren mix keeps its single video.
+- Supplied as a 720×1280 phone clip; cropped to the same square as every other product video, set low enough to keep the shirts in frame rather than the sofa behind them, and scaled to 1080. The CapCut end card on the last two seconds is cut off. No sound, like the others.
+
+---
+
 ## v2026.10.13-3 — 2026-10-13 — commit `571b36a`
 
 - **10% off the next order for saying yes to marketing emails.** The checkout question now reads "New stock emails + 10% off your next order?", with "Yes, email me new stock and my 10% off code" or "No thanks". Still optional, still nothing selected; the incentive is offered, never a condition of buying.
