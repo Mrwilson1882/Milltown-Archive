@@ -188,7 +188,8 @@ const catalogue: Product[] = [
       },
       {
         src: "/videos/products/ralph-lauren-polo-box-10/02.mp4",
-        poster: "/videos/products/ralph-lauren-polo-box-10/02-poster.jpg",
+        // Same cover as video 1, which this one now opens with.
+        poster: "/videos/products/ralph-lauren-polo-box-10/01-poster.jpg",
         alt: "A closer look through a Ralph Lauren polo lot, turned over by hand: royal blue, navy and white stripe, washed red, grey, navy stripe, pale blue, red with navy tipping, and navy with a gold pony, labels shown.",
       },
     ],
@@ -318,7 +319,8 @@ const catalogue: Product[] = [
       },
       {
         src: "/videos/products/ralph-lauren-polo-box-10/02.mp4",
-        poster: "/videos/products/ralph-lauren-polo-box-10/02-poster.jpg",
+        // Same cover as video 1, which this one now opens with.
+        poster: "/videos/products/ralph-lauren-polo-box-10/01-poster.jpg",
         alt: "A closer look through a Ralph Lauren polo lot, turned over by hand: royal blue, navy and white stripe, washed red, grey, navy stripe, pale blue, red with navy tipping, and navy with a gold pony, labels shown.",
       },
     ],

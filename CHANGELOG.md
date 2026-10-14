@@ -12,6 +12,13 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.14-1 — 2026-10-14 — commit `PENDING`
+
+- **The two Ralph Lauren polo videos now match.** Video 2 opens with the same ARCHIVE WHOLESALE logo card as video 1 — held a second and a half, then fading into the footage — and both use the same cover image. Applies to Ralph Lauren Polos and the Ralph Lauren Polo Box, which share the footage.
+- **Any product with more than one video now says so.** Each video thumbnail carries a "Video 1" / "Video 2" label, the main panel shows "Video 1 of 2" while a video is on it, and the line under the gallery reads "The two videos show…". Also applies to the Starter Box, which has two.
+
+---
+
 ## v2026.10.13-9 — 2026-10-13 — commit `fc57869`
 
 - **Light pilling no longer costs a piece its Grade A.** Added to the Grade A definition and its list of allowances on the grading guide, and to the Grade A FAQ. Grade B now says *heavier* pilling everywhere it is defined — grading guide, buyer information, llms.txt and the order confirmation — so the two grades do not both claim light pilling.

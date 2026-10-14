@@ -204,7 +204,9 @@ export default async function ProductPage({ params }: Params) {
                example pictures show the line rather than the pieces that will be
                picked. Say so plainly, next to the gallery, before anyone orders. */
             <p className="text-xs leading-relaxed text-slate">
-              {product.videos?.length
+              {(product.videos?.length ?? 0) > 1
+                ? `The ${product.videos?.length === 2 ? "two" : product.videos?.length} videos show real stock from a recent intake, and the example pictures show the kind of pieces and condition in this line.`
+                : product.videos?.length
                 ? "The video shows a real rail from a recent intake, and the example pictures show the kind of pieces and condition in this line."
                 : "The example pictures show the kind of pieces and condition in this line."}{" "}
               <strong className="text-ink">They are not the items you will receive</strong> — lots

@@ -99,6 +99,13 @@ export function ProductGallery({
             className="object-cover"
           />
         )}
+        {/* With more than one video the covers can be identical by design, so
+            say plainly which one is playing and that there is another. */}
+        {current.kind === "video" && videos.length > 1 && (
+          <span className="pointer-events-none absolute top-3 left-3 bg-ink/80 px-2.5 py-1 text-xs font-bold tracking-wide text-paper uppercase">
+            Video {stage + 1} of {videos.length}
+          </span>
+        )}
       </div>
 
       {tiles > 1 && (
@@ -113,7 +120,11 @@ export function ProductGallery({
                 key={item.src}
                 type="button"
                 aria-pressed={selected}
-                aria-label={item.kind === "video" ? `Play video: ${item.alt}` : item.alt}
+                aria-label={
+                  item.kind === "video"
+                    ? `Play video${videos.length > 1 ? ` ${i + 1} of ${videos.length}` : ""}: ${item.alt}`
+                    : item.alt
+                }
                 onClick={() => setStage(i)}
                 className={`relative aspect-square overflow-hidden border-2 bg-smoke transition-colors ${
                   selected ? "border-forest" : "border-ash hover:border-ink"
@@ -133,6 +144,14 @@ export function ProductGallery({
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </span>
+                  </span>
+                )}
+                {item.kind === "video" && videos.length > 1 && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-0 bottom-0 bg-forest py-1 text-center text-[0.62rem] font-bold tracking-wide text-paper uppercase sm:text-xs"
+                  >
+                    Video {i + 1}
                   </span>
                 )}
               </button>
