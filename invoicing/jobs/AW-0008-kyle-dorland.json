@@ -1,0 +1,28 @@
+{
+  "_readme": "Designer Male Mix, ten pieces, £100 plus £10 carriage — £110.00. Stripe shows this one as PAYMENT AUTHORISED, not succeeded: the card is held, the money is not captured. Raised as paid because the order is placed and the funds are ringfenced; if the capture never lands, void this and reissue as a pro forma.",
+
+  "status": "invoice",
+  "invoiceNumber": "AW-0008",
+  "orderNumber": "ORD-0019",
+  "invoiceDate": "2026-10-05",
+  "supplyDate": "2026-10-05",
+  "paymentTerms": "Paid",
+
+  "customer": {
+    "contact": "Kyle Dorland",
+    "lines": ["The Lodge, Manchester Road", "Hollow Meadows", "Sheffield"],
+    "postcode": "S6 6GJ",
+    "email": "kdizlee@gmail.com",
+    "phone": "+44 7305 997475"
+  },
+
+  "lines": [
+    { "slug": "designer-male-mix-box", "pieces": 10, "qty": 1 }
+  ],
+
+  "delivery": 10,
+
+  "paid": { "method": "Card payment online", "on": "2026-10-05" },
+
+  "notes": "Ordered and paid in full on www.archivewholesale.co.uk. Delivery: UK tracked, next day."
+}

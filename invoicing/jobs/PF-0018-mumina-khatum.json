@@ -1,0 +1,14 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0018",
+  "invoiceDate": "2026-09-20",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Mumina Khatum"
+  },
+
+  "lines": [
+    { "slug": "ralph-lauren-polos", "pieces": 10, "qty": 1 }
+  ]
+}

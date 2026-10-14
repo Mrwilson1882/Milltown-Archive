@@ -1,0 +1,29 @@
+{
+  "_readme": "Two Jackets & Windbreaker Mix boxes, ten pieces each, at the current site price of £107.50 — not the £125 in site/src/data/catalogue.ts, which is out of date. 2 × £107.50 = £215 subtotal, plus £20 carriage for twenty pieces, £235.00 as charged.",
+
+  "status": "invoice",
+  "invoiceNumber": "AW-0007",
+  "orderNumber": "ORD-0018",
+  "invoiceDate": "2026-10-04",
+  "supplyDate": "2026-10-04",
+  "paymentTerms": "Paid",
+
+  "customer": {
+    "business": "Jaxons Clean",
+    "contact": "Joe",
+    "lines": ["Unit 4 Bruce Grove", "Heron Trading Estate", "Wickford"],
+    "postcode": "SS11 8BP",
+    "email": "joe@jaxonswarehouse.com",
+    "phone": "+44 7786 542898"
+  },
+
+  "lines": [
+    { "slug": "jackets-windbreaker-mix", "pieces": 10, "qty": 2, "unitPrice": 107.50 }
+  ],
+
+  "delivery": 20,
+
+  "paid": { "method": "Card payment online", "on": "2026-10-04" },
+
+  "notes": "Ordered and paid in full on www.archivewholesale.co.uk. Delivery: UK tracked, next day."
+}

@@ -1,0 +1,16 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0010",
+  "invoiceDate": "2026-09-16",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Joe"
+  },
+
+  "lines": [
+    { "slug": "designer-male-mix-box", "pieces": 10, "qty": 1 }
+  ],
+
+  "delivery": 0
+}

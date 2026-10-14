@@ -1,0 +1,16 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0008",
+  "invoiceDate": "2026-09-16",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Jonny"
+  },
+
+  "lines": [
+    { "slug": "ralph-lauren-polos", "pieces": 25, "qty": 1 }
+  ],
+
+  "delivery": 25
+}

@@ -1,0 +1,16 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0006",
+  "invoiceDate": "2026-09-15",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Clinton"
+  },
+
+  "lines": [
+    { "slug": "starter-box-10", "pieces": 10, "qty": 1 }
+  ],
+
+  "delivery": 10
+}

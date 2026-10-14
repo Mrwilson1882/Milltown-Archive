@@ -1,0 +1,17 @@
+{
+  "status": "proforma",
+  "invoiceNumber": "PF-0004",
+  "orderNumber": "ORD-0009",
+  "invoiceDate": "2026-09-15",
+  "paymentTerms": "Due on receipt",
+
+  "customer": {
+    "contact": "Anitha Jacob",
+    "lines": ["16 Fletcher Close", "Aylesbury", "Buckinghamshire"],
+    "postcode": "HP19 9UB"
+  },
+
+  "lines": [
+    { "slug": "lacoste-ralph-lauren-polos", "pieces": 10, "qty": 1 }
+  ]
+}
