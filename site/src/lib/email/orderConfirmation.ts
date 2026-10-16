@@ -89,7 +89,7 @@ const steps: [string, string][] = [
 const notes: [string, string][] = [
   [
     "The pieces are not the ones in the photographs.",
-    "That is expected, and it is stated on the website and on the page of the lot you bought: the photographs are example pictures, not the items you receive. Lots are counted out from a fresh intake at dispatch, so the exact pieces, brands and colourways vary every time. What stays constant is the grade, the count and the kind of piece.",
+    "That is expected, and it is stated on the website and on the page of the lot you bought: the photographs show the kind of pieces in the line, not the items you receive. Lots are counted out from a fresh intake at dispatch, so the exact pieces, brands and colourways vary every time. What stays constant is the grade, the count and the kind of piece.",
   ],
   [
     "What condition should I expect?",

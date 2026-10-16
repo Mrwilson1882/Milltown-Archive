@@ -795,7 +795,7 @@ const catalogue: Product[] = [
  * under the photograph, so it travels with the text wherever it is reused.
  */
 export const REPRESENTATIVE_NOTE =
-  "The items shown are a representative example of this line, not necessarily the stock you will receive. Items, brands and colourways vary with each intake.";
+  "The items shown are representative of this line, not necessarily the stock you will receive. Items, brands and colourways vary with each intake.";
 
 export const products: Product[] = catalogue.map((product) => ({
   ...product,

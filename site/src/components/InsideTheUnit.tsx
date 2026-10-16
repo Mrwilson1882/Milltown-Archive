@@ -35,7 +35,7 @@ const shots = [
     src: "/images/unit/rails-close.jpg",
     alt: "Two rails of vintage garments on black hangers, including a coral hooded sweatshirt, a checked shirt and blue and white windbreakers.",
     caption: "What a lot comes off",
-    body: "The photographs on a product page are examples from a line like this one. Yours is counted out fresh at dispatch.",
+    body: "The photographs on a product page show pieces from a line like this one. Yours is counted out fresh at dispatch.",
   },
 ];
 
