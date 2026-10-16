@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.16-2 — 2026-10-16 — commit `PENDING`
+## v2026.10.16-2 — 2026-10-16 — commit `76b0b88`
 
 - **"Example product pictures" is gone.** The tile beside the videos now just reads "Photos" (or "Photo" when there is one), and the viewer it opens is headed "Photos". The line under the gallery says "the photos show the kind of pieces and condition in this line". The notice that these are not the items you will receive is unchanged, on the page and in the viewer.
 - **Same wording tidied elsewhere:** the product description note ("The items shown are representative of this line…"), the "Inside the unit" panel and the order confirmation email no longer call the photos "examples".
