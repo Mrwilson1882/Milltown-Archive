@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.16-3 — 2026-10-16 — commit `PENDING`
+## v2026.10.16-3 — 2026-10-16 — commit `9386faa`
 
 - **The photo tile now reads "Cover Photo"**, and so does the viewer it opens. The line under the gallery says "…and the cover photo shows the kind of pieces and condition in this line. These are not the items you will receive". Birkenstock Sandals, the one lot with six photographs, keeps "Photos".
 - **New cover for the first Ralph Lauren polo video:** a navy polo with the red pony, in place of the red, yellow and green colour-block polo. Applies to Ralph Lauren Polos and the Ralph Lauren Polo Box. New file name (`01-cover-navy.jpg`) so no cached copy of the old cover survives.
