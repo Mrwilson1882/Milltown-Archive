@@ -12,7 +12,7 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
-## v2026.10.16-1 — 2026-10-16 — commit `PENDING`
+## v2026.10.16-1 — 2026-10-16 — commit `0804b94`
 
 - **Every product video now has a photo of the clothes as its cover,** the way the Starter Box always has. Eight videos used the ARCHIVE WHOLESALE logo card as their cover (Carhartt/Dickies tees, Jackets & Windbreaker Mix, which Track Jackets shares, Lacoste Jumpers, Lacoste/RL Polos, Hoodies, both Ralph Lauren polo videos, Branded T-Shirt Mix and Y2K). Each now shows the sharpest clear, branded frame from its own footage. New files, named `-cover.jpg`, so no cached logo thumbnail survives; the unused logo covers are removed. Product cards on listings pick this up too.
 - **The grading guide no longer says the trade cannot agree on a scale.** "Grading is a condition scale" and its paragraph about different countries and suppliers running their own letter and number systems are gone, as are the "also called Grade 1 / Grade 2" labels and the FAQ "Are vintage clothing grades the same everywhere?". In their place: two grades, graded by hand, and the split.
