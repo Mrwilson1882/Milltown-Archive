@@ -12,6 +12,12 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.16-5 — 2026-10-16 — commit `PENDING`
+
+- **The logo at the start of every product video is quicker.** It now holds for about 0.4 seconds instead of 1.4, then fades into the footage over the same half second, so the clothes are in view within a second. Applies to all 13 product videos and their HDR versions. Each video is about a second shorter; the footage is otherwise unchanged. Re-encoded at sizes at or below the old files, so they load no slower.
+
+---
+
 ## v2026.10.16-4 — 2026-10-16 — commit `db64035`
 
 - **Every product video now opens on the ARCHIVE WHOLESALE logo again,** both as its cover and in the video itself. This reverses the photo covers from v2026.10.16-1 and -3 (the colour-block Ralph Lauren polo, the pale green Lacoste knit, the close-up Ralph/Tommy/Lacoste hoodie and the rest). All videos now share one logo cover file (`aw-logo-cover.jpg`); the per-video cover photos are removed.
