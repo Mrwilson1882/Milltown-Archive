@@ -19,14 +19,12 @@ export const metadata: Metadata = {
 const grades = [
   {
     grade: "A",
-    alias: "Grade 1",
     headline: "Excellent condition.",
     rule: "No stains, no holes, no tears and no repairs. Fabric is sound throughout. Fading does not cost a grade — on a piece this old it is expected, and it is what vintage looks like. One minor broken fastening, a clasp or a popper, on a garment that is otherwise perfect does not cost a grade either, and nor does a pluck in the weave or light pilling. Everything ships as graded rather than laundered, so wash it before it goes on the rail.",
     allows: ["Fading appropriate to the age of the piece, including wash fading on dark cottons", "A pluck or small snag in the weave", "One minor broken fastening, such as a clasp or popper, where the rest of the garment is sound", "Light softening of the fabric consistent with age", "Light pilling"],
   },
   {
     grade: "B",
-    alias: "Grade 2",
     headline: "Good condition with honest wear, priced to reflect it.",
     rule: "Small holes, small stains or small marks, heavier pilling, or a zip that no longer works. Grade B is where a fault is named and reflected in the price, and it sells hard as workwear — Carhartt, Dickies and Lacoste especially. The line is size: a small hole grades B. A large hole, several holes, or a stain that would stop the piece being worn even as workwear is Grade C, and we do not sell Grade C.",
     allows: ["A small stain or mark", "A small hole, pull or thinning patch", "Heavier pilling or bobbling on knitwear", "A broken, stuck or missing zip"],
@@ -36,11 +34,11 @@ const grades = [
 const faqs = [
   {
     q: "What does Grade A mean in vintage clothing?",
-    a: "Grade A is the top grade: no stains, no holes, no tears and no repairs. Fading does not cost a grade — on a thirty-year-old garment it is expected, and it is what vintage looks like. A single minor broken fastening, such as one clasp or popper, on a piece that is otherwise perfect stays Grade A, as does a pluck in the weave or light pilling. Some suppliers call the same standard Grade 1. Lots ship as graded rather than laundered, so everything is washed before it goes on the rail.",
+    a: "Grade A is the top grade: no stains, no holes, no tears and no repairs. Fading does not cost a grade — on a thirty-year-old garment it is expected, and it is what vintage looks like. A single minor broken fastening, such as one clasp or popper, on a piece that is otherwise perfect stays Grade A, as does a pluck in the weave or light pilling. Lots ship as graded rather than laundered, so everything is washed before it goes on the rail.",
   },
   {
     q: "What does Grade B mean in vintage clothing?",
-    a: "Grade B is a piece that still wears and still sells, but carries a visible sign of use: a small hole, a small stain or mark, heavier pilling, or a zip that no longer works. The fault is reflected in the price, and Grade B moves quickly as workwear — Carhartt, Dickies and Lacoste especially. Size is what separates B from C: a small hole is Grade B; a large hole, several holes, or a stain that would stop the piece being worn even as workwear is Grade C. Some suppliers call Grade B Grade 2.",
+    a: "Grade B is a piece that still wears and still sells, but carries a visible sign of use: a small hole, a small stain or mark, heavier pilling, or a zip that no longer works. The fault is reflected in the price, and Grade B moves quickly as workwear — Carhartt, Dickies and Lacoste especially. Size is what separates B from C: a small hole is Grade B; a large hole, several holes, or a stain that would stop the piece being worn even as workwear is Grade C.",
   },
   {
     q: "What does 'Grade A/B' mean on an Archive Wholesale listing?",
@@ -55,8 +53,8 @@ const faqs = [
     a: "Grade B. A zip is the fastening a garment is worn by, so when it no longer works the piece is graded and priced as B. Smaller fastenings are treated differently: one broken clasp or popper on a garment that is otherwise perfect stays Grade A.",
   },
   {
-    q: "Are vintage clothing grades the same everywhere?",
-    a: "No. Grading is a condition scale, and different countries and suppliers run their own. The most common are letters — A, B, C — and numbers — 1, 2, 3 — with A and 1 the best in each case. Archive Wholesale sells Grade A and Grade B only. The letter and number scales line up roughly one to one, but always read a supplier's own definitions rather than assuming.",
+    q: "What split of Grade A and Grade B is in an A/B lot?",
+    a: "We aim for 80% Grade A and 20% Grade B in every standard A/B lot, with a 10% tolerance. On a lot of 50, that is around 40 Grade A pieces and 10 Grade B. Nothing below Grade B goes into a lot.",
   },
   {
     q: "Are all pieces guaranteed authentic?",
@@ -120,7 +118,7 @@ export default function GradingGuidePage() {
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
           <div>
             <p className="eyebrow text-forest">The short version</p>
-            <h2 className="display mt-3 text-3xl sm:text-4xl">Grading is a condition scale</h2>
+            <h2 className="display mt-3 text-3xl sm:text-4xl">Two grades, graded by hand</h2>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-slate">
               <p>
                 In vintage and mixed-rag wholesale, a grade describes the physical condition of a
@@ -128,18 +126,14 @@ export default function GradingGuidePage() {
                 Condition only.
               </p>
               <p>
-                There is no single scale the whole trade agrees on. Different countries and
-                suppliers run their own. The two you will meet most often are letters —{" "}
-                <strong className="text-ink">Grade A, B, C</strong> — and numbers —{" "}
-                <strong className="text-ink">Grade 1, 2, 3</strong>. In both, the first is the best:
-                A and 1 are the top of the scale. The two systems line up roughly one to one, so a
-                supplier&rsquo;s Grade 1 is what we would call Grade A. But definitions drift between
-                suppliers, so always read the one in front of you rather than assuming.
+                We sell two grades, <strong className="text-ink">Grade A</strong> and{" "}
+                <strong className="text-ink">Grade B</strong>, and every piece is graded by hand.
+                Standard lots are aimed at{" "}
+                <strong className="text-ink">80% Grade A and 20% Grade B</strong>, with a{" "}
+                <strong className="text-ink">10% tolerance</strong>. Nothing below Grade B goes into a
+                lot.
               </p>
-              <p>
-                We grade in letters, and we grade every piece by hand. What follows is exactly what
-                each letter means here.
-              </p>
+              <p>What follows is exactly what each grade means.</p>
             </div>
           </div>
 
@@ -152,6 +146,10 @@ export default function GradingGuidePage() {
               expected on vintage and does not cost it the grade. Grade B carries honest wear — a
               small hole, a small stain, heavier pilling or a faulty zip — and the lot is priced to reflect
               that. Nothing graded C goes into a lot.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-slate">
+              <strong className="text-ink">The split:</strong> we aim for 80% Grade A and 20% Grade B
+              in every A/B lot, with a 10% tolerance.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-slate">
               The grade is the constant. The exact pieces, brands and colourways in a lot vary with
@@ -181,12 +179,7 @@ export default function GradingGuidePage() {
                 id={`grade-${g.grade.toLowerCase()}`}
                 className="flex flex-col border border-ash bg-paper p-6 sm:p-7"
               >
-                <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="display text-4xl">Grade {g.grade}</h3>
-                  <span className="text-xs font-bold tracking-wide text-slate uppercase">
-                    also called {g.alias}
-                  </span>
-                </div>
+                <h3 className="display text-4xl">Grade {g.grade}</h3>
                 <p className="mt-3 font-bold">{g.headline}</p>
                 <p className="mt-3 text-sm leading-relaxed text-slate">{g.rule}</p>
 
