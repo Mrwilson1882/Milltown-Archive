@@ -143,12 +143,12 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/starter-box-10/01.mp4",
-        poster: "/videos/products/starter-box-10/01-poster.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A look through a Starter Box intake, turned over piece by piece: a tan Carhartt pocket tee, a grey Lacoste quarter-zip, a red The North Face fleece and mixed branded layers.",
       },
       {
         src: "/videos/products/starter-box-10/02.mp4",
-        poster: "/videos/products/starter-box-10/02-poster.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A second Starter Box intake: a Chaps Ralph Lauren crew, a grey Lacoste quarter-zip, a navy shell jacket, a grey Nike hoodie, a green Champion tee and a pair of jeans.",
       },
     ],
@@ -183,12 +183,12 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/ralph-lauren-polo-box-10/01.mp4",
-        poster: "/videos/products/ralph-lauren-polo-box-10/01-cover-navy.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A look through a Ralph Lauren Polo Box, turned over piece by piece: piqué polos in red, green, navy, pale blue, white and mint, each with the pony on the chest.",
       },
       {
         src: "/videos/products/ralph-lauren-polo-box-10/02.mp4",
-        poster: "/videos/products/ralph-lauren-polo-box-10/02-cover.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A closer look through a Ralph Lauren polo lot, turned over by hand: royal blue, navy and white stripe, washed red, grey, navy stripe, pale blue, red with navy tipping, and navy with a gold pony, labels shown.",
       },
     ],
@@ -221,7 +221,7 @@ const catalogue: Product[] = [
       {
         src: "/videos/products/y2k-designer-female-mix-box/01.mp4",
         hdr: "/videos/products/y2k-designer-female-mix-box/01-hdr.mp4",
-        poster: "/videos/products/y2k-designer-female-mix-box/01-cover.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A look through the Y2K Designer Female Mix: a pink and grey The North Face fleece, a pink velour zip hoodie, a blue shell jacket and embellished denim.",
       },
     ],
@@ -281,7 +281,7 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/lacoste-ralph-lauren-polos/01.mp4",
-        poster: "/videos/products/lacoste-ralph-lauren-polos/01-cover.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A look along the polo rail, turned over piece by piece: Lacoste croc polos in red and Polo Ralph Lauren pony polos in white, grey, red, yellow, black and blue.",
       },
     ],
@@ -313,12 +313,12 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/ralph-lauren-polo-box-10/01.mp4",
-        poster: "/videos/products/ralph-lauren-polo-box-10/01-cover-navy.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A look along the Ralph Lauren polo rail, turned over piece by piece: piqué polos in red, green, navy, pale blue, white and mint, each with the pony on the chest.",
       },
       {
         src: "/videos/products/ralph-lauren-polo-box-10/02.mp4",
-        poster: "/videos/products/ralph-lauren-polo-box-10/02-cover.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A closer look through a Ralph Lauren polo lot, turned over by hand: royal blue, navy and white stripe, washed red, grey, navy stripe, pale blue, red with navy tipping, and navy with a gold pony, labels shown.",
       },
     ],
@@ -349,7 +349,7 @@ const catalogue: Product[] = [
       {
         src: "/videos/products/carhartt-dickies-t-shirts/01.mp4",
         hdr: "/videos/products/carhartt-dickies-t-shirts/01-hdr.mp4",
-        poster: "/videos/products/carhartt-dickies-t-shirts/01-cover.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A look through the Carhartt / Dickies T-Shirts: a black Carhartt pocket tee, a navy long-sleeve and layered tan and green workwear tees.",
       },
     ],
@@ -379,7 +379,7 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/ralph-tommy-lacoste-mix/01.mp4",
-        poster: "/videos/products/ralph-tommy-lacoste-mix/01-poster.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A look through the Ralph, Tommy, Lacoste Mix: Ralph Lauren piqué polos in pink, yellow and blue, a brown Lacoste jumper, an orange Lacoste cardigan and a red gingham shirt.",
       },
     ],
@@ -438,7 +438,7 @@ const catalogue: Product[] = [
       {
         src: "/videos/products/mixed-premium-vintage-hoodies/01.mp4",
         hdr: "/videos/products/mixed-premium-vintage-hoodies/01-hdr.mp4",
-        poster: "/videos/products/mixed-premium-vintage-hoodies/01-cover.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A look through the Mixed Premium Vintage Hoodies: a navy Nike swoosh hoodie, a royal blue Nike hoodie and layered grey and red hoods.",
       },
     ],
@@ -494,7 +494,7 @@ const catalogue: Product[] = [
       {
         src: "/videos/products/lacoste-jumpers-cardigans/01.mp4",
         hdr: "/videos/products/lacoste-jumpers-cardigans/01-hdr.mp4",
-        poster: "/videos/products/lacoste-jumpers-cardigans/01-cover.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A look through the Lacoste Jumpers & Cardigans lot, turned over piece by piece: a navy button cardigan, a navy quarter-zip knit and a black crew, each with the croc on the chest.",
       },
     ],
@@ -530,7 +530,7 @@ const catalogue: Product[] = [
       {
         src: "/videos/products/jackets-windbreaker-mix/01.mp4",
         hdr: "/videos/products/jackets-windbreaker-mix/01-hdr.mp4",
-        poster: "/videos/products/jackets-windbreaker-mix/01-cover.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A look through the track jacket and windbreaker rail, turned over piece by piece: a navy, white and green Nike shell jacket, a green Champion half-zip pullover and layered branded windbreakers.",
       },
     ],
@@ -604,7 +604,7 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/bags/01.mp4",
-        poster: "/videos/products/bags/01-poster.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A box of vintage bags gone through by hand, at double speed: Eastpak and Champion shoulder bags and backpacks, a red Havaianas bag, a Snoopy check bum bag, an adidas waist bag and more.",
       },
     ],
@@ -638,7 +638,7 @@ const catalogue: Product[] = [
       {
         src: "/videos/products/t-shirt-mix/01.mp4",
         hdr: "/videos/products/t-shirt-mix/01-hdr.mp4",
-        poster: "/videos/products/t-shirt-mix/01-cover.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A look through the Branded T-Shirt Mix: a navy Nike graphic tee, a grey Puma logo tee, an olive long-sleeve and layered branded tees.",
       },
     ],
@@ -670,7 +670,7 @@ const catalogue: Product[] = [
       {
         src: "/videos/products/jackets-windbreaker-mix/01.mp4",
         hdr: "/videos/products/jackets-windbreaker-mix/01-hdr.mp4",
-        poster: "/videos/products/jackets-windbreaker-mix/01-cover.jpg",
+        poster: "/videos/products/aw-logo-cover.jpg",
         alt: "A look through the Jackets & Windbreaker Mix, turned over piece by piece: a navy, white and green Nike shell jacket, a green Champion half-zip pullover and layered branded windbreakers.",
       },
     ],

@@ -12,6 +12,13 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.16-4 — 2026-10-16 — commit `PENDING`
+
+- **Every product video now opens on the ARCHIVE WHOLESALE logo again,** both as its cover and in the video itself. This reverses the photo covers from v2026.10.16-1 and -3 (the colour-block Ralph Lauren polo, the pale green Lacoste knit, the close-up Ralph/Tommy/Lacoste hoodie and the rest). All videos now share one logo cover file (`aw-logo-cover.jpg`); the per-video cover photos are removed.
+- **The four videos that started straight on the clothes now have the same logo intro as the others:** Starter Box (both videos), Ralph, Tommy & Lacoste Mix and Bags. The logo holds for 1.4 seconds, then fades into the footage over half a second, the same timing as the existing intros. The footage itself is unchanged.
+
+---
+
 ## v2026.10.16-3 — 2026-10-16 — commit `9386faa`
 
 - **The photo tile now reads "Cover Photo"**, and so does the viewer it opens. The line under the gallery says "…and the cover photo shows the kind of pieces and condition in this line. These are not the items you will receive". Birkenstock Sandals, the one lot with six photographs, keeps "Photos".
