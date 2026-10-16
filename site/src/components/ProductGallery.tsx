@@ -20,7 +20,7 @@ const SDR_TYPE = 'video/mp4; codecs="avc1.640028"';
  *
  * The video leads, always: it is the only thing on the page that shows the
  * volume and the condition of a real rail, and it is what converts. The
- * photographs sit behind a single "Photos" tile and
+ * photographs sit behind a single "Cover Photo" tile and
  * open in a viewer the buyer steps through.
  *
  * Keeping them behind one door is deliberate. A row of eight individual
@@ -162,8 +162,8 @@ export function ProductGallery({
             <button
               type="button"
               onClick={() => setViewer(0)}
-              aria-label={`Photos — ${photos.length} ${
-                photos.length === 1 ? "photograph" : "photographs"
+              aria-label={`${
+                photos.length === 1 ? "Cover photo" : `Photos — ${photos.length} photographs`
               } of the kind of pieces in this line, not the items you will receive`}
               className="relative aspect-square overflow-hidden border-2 border-ash bg-smoke transition-colors hover:border-ink"
             >
@@ -174,7 +174,7 @@ export function ProductGallery({
                 className="absolute inset-0 flex flex-col items-center justify-center gap-1 p-2 text-center text-paper"
               >
                 <span className="text-[0.62rem] leading-tight font-bold tracking-wide uppercase sm:text-xs">
-                  {photos.length === 1 ? "Photo" : "Photos"}
+                  {photos.length === 1 ? "Cover Photo" : "Photos"}
                 </span>
                 {photos.length > 1 && (
                   <span className="text-[0.62rem] tabular-nums opacity-80 sm:text-xs">
@@ -248,7 +248,7 @@ function PhotoViewer({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Photos"
+      aria-label={photos.length === 1 ? "Cover photo" : "Photos"}
       className="fixed inset-0 z-50 flex flex-col bg-ink/95 p-3 sm:p-6"
       onClick={onClose}
     >
@@ -259,7 +259,7 @@ function PhotoViewer({
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
             <p className="text-xs font-bold tracking-wide text-paper uppercase">
-              Photos
+              {photos.length === 1 ? "Cover Photo" : "Photos"}
             </p>
             <p className="mt-1 text-xs leading-relaxed text-paper/70">
               Pieces from a previous intake, shown so you can judge the brands and condition.{" "}
@@ -271,7 +271,7 @@ function PhotoViewer({
             ref={closeRef}
             type="button"
             onClick={onClose}
-            aria-label="Close photos"
+            aria-label={photos.length === 1 ? "Close cover photo" : "Close photos"}
             className="shrink-0 border-2 border-paper/40 px-3 py-2 text-xs font-bold tracking-wide text-paper uppercase transition-colors hover:border-paper"
           >
             Close

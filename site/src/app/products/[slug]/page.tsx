@@ -92,12 +92,14 @@ export default async function ProductPage({ params }: Params) {
           },
         ];
   // Order here is immaterial: the gallery puts the video on the stage and the
-  // photographs behind the "Photos" tile. Both are
+  // photographs behind the "Cover Photo" tile. Both are
   // representative of the line, not the pieces that will be picked.
   const media: GalleryItem[] = [
     ...gallery.map((photo) => ({ kind: "image" as const, ...photo })),
     ...(product.videos ?? []).map((video) => ({ kind: "video" as const, ...video })),
   ];
+  // Matches the gallery tile: one photograph is the "Cover Photo".
+  const photosShow = product.photos?.length === 1 ? "cover photo shows" : "photos show";
 
   const related = products
     .filter(
@@ -205,11 +207,11 @@ export default async function ProductPage({ params }: Params) {
                picked. Say so plainly, next to the gallery, before anyone orders. */
             <p className="text-xs leading-relaxed text-slate">
               {(product.videos?.length ?? 0) > 1
-                ? `The ${product.videos?.length === 2 ? "two" : product.videos?.length} videos show real stock from a recent intake, and the photos show the kind of pieces and condition in this line.`
+                ? `The ${product.videos?.length === 2 ? "two" : product.videos?.length} videos show real stock from a recent intake, and the ${photosShow} the kind of pieces and condition in this line.`
                 : product.videos?.length
-                ? "The video shows a real rail from a recent intake, and the photos show the kind of pieces and condition in this line."
-                : "The photos show the kind of pieces and condition in this line."}{" "}
-              <strong className="text-ink">They are not the items you will receive</strong> — lots
+                ? `The video shows a real rail from a recent intake, and the ${photosShow} the kind of pieces and condition in this line.`
+                : `The ${photosShow} the kind of pieces and condition in this line.`}{" "}
+              <strong className="text-ink">These are not the items you will receive</strong> — lots
               are counted out from a fresh intake at dispatch, so items, brands and colourways vary
               every time.
             </p>

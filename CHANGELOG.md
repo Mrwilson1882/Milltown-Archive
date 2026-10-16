@@ -12,6 +12,13 @@ Before reverting for a traffic drop, check the Monday analytics review first: th
 
 ---
 
+## v2026.10.16-3 — 2026-10-16 — commit `PENDING`
+
+- **The photo tile now reads "Cover Photo"**, and so does the viewer it opens. The line under the gallery says "…and the cover photo shows the kind of pieces and condition in this line. These are not the items you will receive". Birkenstock Sandals, the one lot with six photographs, keeps "Photos".
+- **New cover for the first Ralph Lauren polo video:** a navy polo with the red pony, in place of the red, yellow and green colour-block polo. Applies to Ralph Lauren Polos and the Ralph Lauren Polo Box. New file name (`01-cover-navy.jpg`) so no cached copy of the old cover survives.
+
+---
+
 ## v2026.10.16-2 — 2026-10-16 — commit `76b0b88`
 
 - **"Example product pictures" is gone.** The tile beside the videos now just reads "Photos" (or "Photo" when there is one), and the viewer it opens is headed "Photos". The line under the gallery says "the photos show the kind of pieces and condition in this line". The notice that these are not the items you will receive is unchanged, on the page and in the viewer.

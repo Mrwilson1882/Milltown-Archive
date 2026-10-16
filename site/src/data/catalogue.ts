@@ -183,7 +183,7 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/ralph-lauren-polo-box-10/01.mp4",
-        poster: "/videos/products/ralph-lauren-polo-box-10/01-cover.jpg",
+        poster: "/videos/products/ralph-lauren-polo-box-10/01-cover-navy.jpg",
         alt: "A look through a Ralph Lauren Polo Box, turned over piece by piece: piqué polos in red, green, navy, pale blue, white and mint, each with the pony on the chest.",
       },
       {
@@ -313,7 +313,7 @@ const catalogue: Product[] = [
     videos: [
       {
         src: "/videos/products/ralph-lauren-polo-box-10/01.mp4",
-        poster: "/videos/products/ralph-lauren-polo-box-10/01-cover.jpg",
+        poster: "/videos/products/ralph-lauren-polo-box-10/01-cover-navy.jpg",
         alt: "A look along the Ralph Lauren polo rail, turned over piece by piece: piqué polos in red, green, navy, pale blue, white and mint, each with the pony on the chest.",
       },
       {
